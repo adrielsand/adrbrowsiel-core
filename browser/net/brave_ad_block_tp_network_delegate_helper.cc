@@ -91,6 +91,8 @@ class AdblockCnameResolveHostClient : public network::mojom::ResolveHostClient {
     if (secure_dns_config.mode() == net::SecureDnsMode::kSecure)
       optional_parameters->source = net::HostResolverSource::DNS;
 
+    DCHECK(ctx->browser_context);
+
     network::mojom::NetworkContext* network_context =
         content::BrowserContext::GetDefaultStoragePartition(
             ctx->browser_context)
@@ -229,11 +231,9 @@ void OnBeforeURLRequestAdBlockTP(const ResponseCallback& next_callback,
   scoped_refptr<base::SequencedTaskRunner> task_runner =
       g_brave_browser_process->ad_block_service()->GetTaskRunner();
 
-  DCHECK(ctx->browser_context);
-
   // DoH or standard DNS queries won't be routed through Tor, so we need to
   // skip it.
-  bool should_check_uncloaked = !ctx->browser_context->IsTor();
+  bool should_check_uncloaked = !(!ctx->browser_context || ctx->browser_context->IsTor());
 
   task_runner->PostTaskAndReplyWithResult(
       FROM_HERE,
