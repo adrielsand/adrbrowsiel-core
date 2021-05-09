@@ -95,6 +95,13 @@ class BatAdsImpl :
       const std::string& creative_instance_id,
       const ads::PromotedContentAdEventType event_type) override;
 
+  void GetBraveNewsAd(const std::string& size,
+                      GetBraveNewsAdCallback callback) override;
+
+  void OnBraveNewsAdEvent(const std::string& uuid,
+                          const std::string& creative_instance_id,
+                          const ads::BraveNewsAdEventType event_type) override;
+
   void RemoveAllHistory(
       RemoveAllHistoryCallback callback) override;
 
@@ -172,6 +179,11 @@ class BatAdsImpl :
   static void OnShutdown(
       CallbackHolder<ShutdownCallback>* holder,
       const int32_t result);
+
+  static void OnGetBraveNewsAd(CallbackHolder<GetBraveNewsAdCallback>* holder,
+                               const bool success,
+                               const std::string& size,
+                               const ads::BraveNewsAdInfo& ad);
 
   static void OnRemoveAllHistory(
       CallbackHolder<RemoveAllHistoryCallback>* holder,

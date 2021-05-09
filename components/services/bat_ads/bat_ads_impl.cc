@@ -8,16 +8,18 @@
 #include <utility>
 #include <vector>
 
-#include "brave/components/services/bat_ads/bat_ads_client_mojo_bridge.h"
 #include "bat/ads/ad_content_info.h"
 #include "bat/ads/ads.h"
 #include "bat/ads/ads_history_info.h"
+#include "bat/ads/brave_news_ad_info.h"
 #include "bat/ads/category_content_info.h"
 #include "bat/ads/confirmation_type.h"
 #include "bat/ads/mojom.h"
+#include "brave/components/services/bat_ads/bat_ads_client_mojo_bridge.h"
 
 using std::placeholders::_1;
 using std::placeholders::_2;
+using std::placeholders::_3;
 
 namespace bat_ads {
 
@@ -154,6 +156,23 @@ void BatAdsImpl::OnPromotedContentAdEvent(
   ads_->OnPromotedContentAdEvent(uuid, creative_instance_id, event_type);
 }
 
+void BatAdsImpl::GetBraveNewsAd(const std::string& size,
+                                GetBraveNewsAdCallback callback) {
+  auto* holder = new CallbackHolder<GetBraveNewsAdCallback>(
+      AsWeakPtr(), std::move(callback));
+
+  auto get_brave_news_ads_callback =
+      std::bind(BatAdsImpl::OnGetBraveNewsAd, holder, _1, _2, _3);
+  ads_->GetBraveNewsAd(size, get_brave_news_ads_callback);
+}
+
+void BatAdsImpl::OnBraveNewsAdEvent(
+    const std::string& uuid,
+    const std::string& creative_instance_id,
+    const ads::BraveNewsAdEventType event_type) {
+  ads_->OnBraveNewsAdEvent(uuid, creative_instance_id, event_type);
+}
+
 void BatAdsImpl::RemoveAllHistory(
     RemoveAllHistoryCallback callback) {
   auto* holder = new CallbackHolder<RemoveAllHistoryCallback>(AsWeakPtr(),
@@ -273,6 +292,18 @@ void BatAdsImpl::OnShutdown(
     const int32_t result) {
   if (holder->is_valid()) {
     std::move(holder->get()).Run((ads::Result)result);
+  }
+
+  delete holder;
+}
+
+void BatAdsImpl::OnGetBraveNewsAd(
+    CallbackHolder<GetBraveNewsAdCallback>* holder,
+    const bool success,
+    const std::string& size,
+    const ads::BraveNewsAdInfo& ad) {
+  if (holder->is_valid()) {
+    std::move(holder->get()).Run(success, size, ad.ToJson());
   }
 
   delete holder;

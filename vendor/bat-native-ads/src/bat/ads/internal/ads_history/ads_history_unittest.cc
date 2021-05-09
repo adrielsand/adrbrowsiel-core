@@ -8,6 +8,7 @@
 #include <deque>
 
 #include "bat/ads/ad_notification_info.h"
+#include "bat/ads/brave_news_ad_info.h"
 #include "bat/ads/internal/unittest_base.h"
 #include "bat/ads/internal/unittest_util.h"
 #include "bat/ads/new_tab_page_ad_info.h"
@@ -105,6 +106,31 @@ TEST_F(BatAdsAdsHistoryTest, AddPromotedContentAdsToHistory) {
   ASSERT_EQ(2UL, history.size());
 }
 
+TEST_F(BatAdsAdsHistoryTest, AddBraveNewsAdToEmptyHistory) {
+  // Arrange
+  BraveNewsAdInfo ad;
+
+  // Act
+  history::AddBraveNewsAd(ad, ConfirmationType::kViewed);
+
+  // Assert
+  const std::deque<AdHistoryInfo> history = Client::Get()->GetAdsHistory();
+  ASSERT_EQ(1UL, history.size());
+}
+
+TEST_F(BatAdsAdsHistoryTest, AddBraveNewsAdsToHistory) {
+  // Arrange
+  BraveNewsAdInfo ad;
+
+  // Act
+  history::AddBraveNewsAd(ad, ConfirmationType::kViewed);
+  history::AddBraveNewsAd(ad, ConfirmationType::kClicked);
+
+  // Assert
+  const std::deque<AdHistoryInfo> history = Client::Get()->GetAdsHistory();
+  ASSERT_EQ(2UL, history.size());
+}
+
 TEST_F(BatAdsAdsHistoryTest, AddMultipleAdTypesToHistory) {
   // Arrange
 
@@ -118,12 +144,15 @@ TEST_F(BatAdsAdsHistoryTest, AddMultipleAdTypesToHistory) {
   PromotedContentAdInfo promoted_content_ad;
   history::AddPromotedContentAd(promoted_content_ad, ConfirmationType::kViewed);
 
+  BraveNewsAdInfo brave_News_ad;
+  history::AddBraveNewsAd(brave_news_ad, ConfirmationType::kViewed);
+
   // Assert
   const std::deque<AdHistoryInfo> history = Client::Get()->GetAdsHistory();
-  ASSERT_EQ(3UL, history.size());
+  ASSERT_EQ(4UL, history.size());
 }
 
-TEST_F(BatAdsAdsHistoryTest, PurgedHistoryEntriesAfterDays) {
+TEST_F(BatAdsAdsHistoryTest, PurgedHistoryEntriesAfter7Days) {
   // Arrange
   NewTabPageAdInfo new_tab_page_ad;
   history::AddNewTabPageAd(new_tab_page_ad, ConfirmationType::kViewed);

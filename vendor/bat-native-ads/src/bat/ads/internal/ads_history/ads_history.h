@@ -17,6 +17,7 @@ namespace ads {
 
 class ConfirmationType;
 struct AdNotificationInfo;
+struct BraveNewsAdInfo;
 struct NewTabPageAdInfo;
 struct PromotedContentAdInfo;
 
@@ -37,6 +38,9 @@ void AddNewTabPageAd(const NewTabPageAdInfo& ad,
 
 void AddPromotedContentAd(const PromotedContentAdInfo& ad,
                           const ConfirmationType& confirmation_type);
+
+void AddBraveNewsAd(const BraveNewsAdInfo& ad,
+                    const ConfirmationType& confirmation_type);
 
 }  // namespace history
 }  // namespace ads

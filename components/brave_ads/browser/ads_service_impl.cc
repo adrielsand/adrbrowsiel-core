@@ -665,6 +665,14 @@ void AdsServiceImpl::OnCreate() {
   bat_ads_->Initialize(base::BindOnce(std::move(callback)));
 }
 
+void AdsServiceImpl::OnTest(const bool success,
+                            const std::string& size,
+                            const base::DictionaryValue& ad) {
+  VLOG(0) << "FOOBAR.success: " << success;
+  VLOG(0) << "FOOBAR.size: " << size;
+  VLOG(0) << "FOOBAR.ad: " << ad;
+}
+
 void AdsServiceImpl::OnInitialize(const int32_t result) {
   if (result != ads::Result::SUCCESS) {
     VLOG(0) << "Failed to initialize ads";
@@ -674,6 +682,11 @@ void AdsServiceImpl::OnInitialize(const int32_t result) {
   }
 
   is_initialized_ = true;
+
+  VLOG(0) << "FOOBAR.START";
+  GetBraveNewsAd("100x100",
+                 base::BindOnce(&AdsServiceImpl::OnTest, AsWeakPtr()));
+  VLOG(0) << "FOOBAR.END";
 
   MaybeOpenNewTabWithAd();
 
@@ -1049,6 +1062,28 @@ void AdsServiceImpl::OnPromotedContentAdEvent(
   bat_ads_->OnPromotedContentAdEvent(uuid, creative_instance_id, event_type);
 }
 
+void AdsServiceImpl::GetBraveNewsAd(const std::string& size,
+                                    OnGetBraveNewsAdCallback callback) {
+  if (!connected()) {
+    return;
+  }
+
+  bat_ads_->GetBraveNewsAd(
+      size, base::BindOnce(&AdsServiceImpl::OnGetBraveNewsAd, AsWeakPtr(),
+                           std::move(callback)));
+}
+
+void AdsServiceImpl::OnBraveNewsAdEvent(
+    const std::string& uuid,
+    const std::string& creative_instance_id,
+    const ads::BraveNewsAdEventType event_type) {
+  if (!connected()) {
+    return;
+  }
+
+  bat_ads_->OnBraveNewsAdEvent(uuid, creative_instance_id, event_type);
+}
+
 void AdsServiceImpl::RetryOpeningNewTabWithAd(const std::string& uuid) {
   VLOG(1) << "Retry opening new tab for ad with uuid " << uuid;
   retry_opening_new_tab_for_ad_with_uuid_ = uuid;
@@ -1156,6 +1191,32 @@ void AdsServiceImpl::OnURLRequestComplete(
   url_response.headers = headers;
 
   callback(url_response);
+}
+
+void AdsServiceImpl::OnGetBraveNewsAd(OnGetBraveNewsAdCallback callback,
+                                      const bool success,
+                                      const std::string& size,
+                                      const std::string& json) {
+  base::DictionaryValue dictionary;
+
+  if (success) {
+    ads::BraveNewsAdInfo ad;
+    ad.FromJson(json);
+
+    dictionary.SetKey("creativeInstanceId",
+                      base::Value(ad.creative_instance_id));
+    dictionary.SetKey("creativeSetId", base::Value(ad.creative_set_id));
+    dictionary.SetKey("campaignId", base::Value(ad.campaign_id));
+    dictionary.SetKey("advertiserId", base::Value(ad.advertiser_id));
+    dictionary.SetKey("segment", base::Value(ad.segment));
+    dictionary.SetKey("title", base::Value(ad.title));
+    dictionary.SetKey("description", base::Value(ad.description));
+    dictionary.SetKey("imageUrl", base::Value(ad.image_url));
+    dictionary.SetKey("size", base::Value(ad.size));
+    dictionary.SetKey("targetUrl", base::Value(ad.target_url));
+  }
+
+  std::move(callback).Run(success, size, dictionary);
 }
 
 void AdsServiceImpl::OnGetAdsHistory(OnGetAdsHistoryCallback callback,

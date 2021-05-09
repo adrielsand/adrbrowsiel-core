@@ -7,7 +7,6 @@
 #define BRAVE_VENDOR_BAT_NATIVE_ADS_INCLUDE_BAT_ADS_ADS_H_
 
 #include <cstdint>
-#include <memory>
 #include <string>
 #include <vector>
 
@@ -15,6 +14,7 @@
 #include "bat/ads/ad_notification_info.h"
 #include "bat/ads/ads_client.h"
 #include "bat/ads/ads_history_info.h"
+#include "bat/ads/brave_news_ad_info.h"
 #include "bat/ads/category_content_info.h"
 #include "bat/ads/export.h"
 #include "bat/ads/mojom.h"
@@ -28,6 +28,9 @@ using InitializeCallback = std::function<void(const Result)>;
 using ShutdownCallback = std::function<void(const Result)>;
 
 using RemoveAllHistoryCallback = std::function<void(const Result)>;
+
+using GetBraveNewsAdCallback =
+    std::function<void(const bool, const std::string&, const BraveNewsAdInfo&)>;
 
 using GetAccountStatementCallback =
     std::function<void(const bool, const StatementInfo&)>;
@@ -171,6 +174,15 @@ class ADS_EXPORT Ads {
       const std::string& uuid,
       const std::string& creative_instance_id,
       const PromotedContentAdEventType event_type) = 0;
+
+  // Should be called to get an eligible Brave News ad for the specified size
+  virtual void GetBraveNewsAd(const std::string& size,
+                              GetBraveNewsAdCallback callback) = 0;
+
+  // Should be called when a user views or clicks a Brave News ad
+  virtual void OnBraveNewsAdEvent(const std::string& uuid,
+                                  const std::string& creative_instance_id,
+                                  const BraveNewsAdEventType event_type) = 0;
 
   // Should be called to remove all cached history. The callback takes one
   // argument - |Result| should be set to |SUCCESS| if successful otherwise

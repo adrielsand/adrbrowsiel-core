@@ -139,6 +139,13 @@ class AdsServiceImpl : public AdsService,
       const std::string& creative_instance_id,
       const ads::PromotedContentAdEventType event_type) override;
 
+  void GetBraveNewsAd(const std::string& size,
+                      OnGetBraveNewsAdCallback callback) override;
+
+  void OnBraveNewsAdEvent(const std::string& uuid,
+                          const std::string& creative_instance_id,
+                          const ads::BraveNewsAdEventType event_type) override;
+
   void ReconcileAdRewards() override;
 
   void GetAdsHistory(const uint64_t from_timestamp,
@@ -183,6 +190,10 @@ class AdsServiceImpl : public AdsService,
   void MaybeInitialize();
   void Initialize();
   void OnMigrateConfirmationsState(const bool success);
+
+  void OnTest(const bool success,
+              const std::string& size,
+              const base::DictionaryValue& ad);
 
   void OnCreate();
 
@@ -239,6 +250,11 @@ class AdsServiceImpl : public AdsService,
                             const std::unique_ptr<std::string> response_body);
 
   void OnGetBraveWallet(ledger::type::BraveWalletPtr wallet);
+
+  void OnGetBraveNewsAd(OnGetBraveNewsAdCallback callback,
+                        const bool success,
+                        const std::string& size,
+                        const std::string& json);
 
   void OnGetAdsHistory(OnGetAdsHistoryCallback callback,
                        const std::string& json);
