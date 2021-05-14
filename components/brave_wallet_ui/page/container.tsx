@@ -30,6 +30,7 @@ import {
 } from '../constants/types'
 import { LinkedAccountsOptions, NavOptions, StaticOptions } from '../options/side-nav-options'
 import BuySendSwap from '../components/buy-send-swap'
+import Onboarding from '../stories/screens/onboarding'
 
 type Props = {
   wallet: WalletState
@@ -45,6 +46,32 @@ function Container (props: Props) {
   // for example wallet/rewards
   const navigateTo = (path: NavTypes) => {
     setView(path)
+  }
+  const complete = () => {
+    console.log('Complete!')
+  }
+  const recoveryPhrase = [
+    'tomato',
+    'green',
+    'velvet',
+    'wishful',
+    'span',
+    'celery',
+    'atoms',
+    'stone',
+    'parent',
+    'stop',
+    'bowl',
+    'exercise'
+  ]
+
+  const isWalletSetup = false
+  if (!isWalletSetup) {
+    return (
+      <WalletPageLayout>
+        <Onboarding recoveryPhrase={recoveryPhrase} onSubmit={complete} />
+      </WalletPageLayout>
+    )
   }
 
   return (
