@@ -122,9 +122,8 @@ BraveRewardsGetPublisherInfoFunction::Run() {
 
   rewards_service->GetPublisherInfo(
       params->publisher_key,
-      base::Bind(
-          &BraveRewardsGetPublisherInfoFunction::OnGetPublisherInfo,
-          this));
+      base::BindOnce(&BraveRewardsGetPublisherInfoFunction::OnGetPublisherInfo,
+                     base::Unretained(this)));
 
   return RespondLater();
 }
@@ -170,9 +169,9 @@ BraveRewardsGetPublisherPanelInfoFunction::Run() {
 
   rewards_service->GetPublisherPanelInfo(
       params->publisher_key,
-      base::Bind(
+      base::BindOnce(
           &BraveRewardsGetPublisherPanelInfoFunction::OnGetPublisherPanelInfo,
-          this));
+          base::Unretained(this)));
 
   return RespondLater();
 }
@@ -225,11 +224,10 @@ BraveRewardsSavePublisherInfoFunction::Run() {
   publisher_info->favicon_url = params->fav_icon_url;
 
   rewards_service->SavePublisherInfo(
-      params->window_id,
-      std::move(publisher_info),
-      base::Bind(
+      params->window_id, std::move(publisher_info),
+      base::BindOnce(
           &BraveRewardsSavePublisherInfoFunction::OnSavePublisherInfo,
-          this));
+          base::Unretained(this)));
 
   return RespondLater();
 }
@@ -275,10 +273,6 @@ ExtensionFunction::ResponseAction BraveRewardsTipSiteFunction::Run() {
   ::brave_rewards::OpenTipDialog(contents, std::move(params_dict));
 
   return RespondNow(NoArguments());
-}
-
-BraveRewardsTipUserFunction::BraveRewardsTipUserFunction()
-    : weak_factory_(this) {
 }
 
 BraveRewardsTipUserFunction::~BraveRewardsTipUserFunction() {
@@ -331,8 +325,8 @@ void BraveRewardsTipUserFunction::OnProcessStarted(
   }
   rewards_service->GetPublisherInfo(
       publisher_key,
-      base::Bind(&BraveRewardsTipUserFunction::OnTipUserGetPublisherInfo,
-                 this));
+      base::BindOnce(&BraveRewardsTipUserFunction::OnTipUserGetPublisherInfo,
+                     base::Unretained(this)));
 }
 
 void BraveRewardsTipUserFunction::OnTipUserGetPublisherInfo(
@@ -368,11 +362,9 @@ void BraveRewardsTipUserFunction::OnTipUserGetPublisherInfo(
   }
 
   rewards_service->SavePublisherInfo(
-      0,
-      std::move(publisher_info),
-      base::Bind(&BraveRewardsTipUserFunction::
-                 OnTipUserSavePublisherInfo,
-                 weak_factory_.GetWeakPtr()));
+      0, std::move(publisher_info),
+      base::BindOnce(&BraveRewardsTipUserFunction::OnTipUserSavePublisherInfo,
+                     base::Unretained(this)));
 }
 
 void BraveRewardsTipUserFunction::OnTipUserSavePublisherInfo(
@@ -650,9 +642,9 @@ BraveRewardsGetPendingContributionsTotalFunction::Run() {
     return RespondNow(OneArgument(base::Value(0.0)));
   }
 
-  rewards_service->GetPendingContributionsTotal(base::Bind(
-        &BraveRewardsGetPendingContributionsTotalFunction::OnGetPendingTotal,
-        this));
+  rewards_service->GetPendingContributionsTotal(base::BindOnce(
+      &BraveRewardsGetPendingContributionsTotalFunction::OnGetPendingTotal,
+      base::Unretained(this)));
   return RespondLater();
 }
 
@@ -747,11 +739,9 @@ BraveRewardsSaveRecurringTipFunction::Run() {
   }
 
   rewards_service_->SaveRecurringTip(
-      params->publisher_key,
-      params->new_amount,
-      base::Bind(
-          &BraveRewardsSaveRecurringTipFunction::OnSaveRecurringTip,
-          this));
+      params->publisher_key, params->new_amount,
+      base::BindOnce(&BraveRewardsSaveRecurringTipFunction::OnSaveRecurringTip,
+                     base::Unretained(this)));
 
   return RespondLater();
 }
@@ -798,9 +788,9 @@ BraveRewardsGetRecurringTipsFunction::Run() {
     return RespondNow(Error("Rewards service is not initialized"));
   }
 
-  rewards_service->GetRecurringTips(base::Bind(
-        &BraveRewardsGetRecurringTipsFunction::OnGetRecurringTips,
-        this));
+  rewards_service->GetRecurringTips(
+      base::BindOnce(&BraveRewardsGetRecurringTipsFunction::OnGetRecurringTips,
+                     base::Unretained(this)));
   return RespondLater();
 }
 
@@ -1187,9 +1177,9 @@ BraveRewardsGetAnonWalletStatusFunction::Run() {
     return RespondNow(Error("Rewards service is not initialized"));
   }
 
-  rewards_service->GetAnonWalletStatus(base::Bind(
-        &BraveRewardsGetAnonWalletStatusFunction::OnGetAnonWalletStatus,
-        this));
+  rewards_service->GetAnonWalletStatus(base::BindOnce(
+      &BraveRewardsGetAnonWalletStatusFunction::OnGetAnonWalletStatus,
+      base::Unretained(this)));
   return RespondLater();
 }
 
