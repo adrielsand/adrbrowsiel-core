@@ -211,7 +211,7 @@ export const onPendingContributions = (list: Rewards.PendingContribution[]) =>
     list
   })
 
-export const onStatement = (data: {adsEstimatedPendingRewards: number, adsNextPaymentDate: string, adsReceivedThisMonth: number}) =>
+export const onStatement = (data: {adsEstimatedPendingRewards: number, adsNextPaymentDate: number, adsReceivedThisMonth: number}) =>
   action(types.ON_STATEMENT, {
     data
   })

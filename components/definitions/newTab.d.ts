@@ -254,7 +254,7 @@ declare namespace NewTab {
 
   export interface AdsAccountStatement {
     estimatedPendingRewards: number
-    nextPaymentDate: string
+    nextPaymentDate: number
     adsReceivedThisMonth: number
     earningsThisMonth: number
     earningsLastMonth: number

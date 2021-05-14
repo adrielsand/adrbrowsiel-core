@@ -225,8 +225,9 @@ declare namespace Rewards {
     adsUIEnabled: boolean
     adsIsSupported: boolean
     adsEstimatedPendingRewards: number
-    adsNextPaymentDate: string
+    adsNextPaymentDate: number
     adsReceivedThisMonth: number
+    adsEarningsThisMonth: number
   }
 
   export enum RewardsType {

@@ -44,6 +44,11 @@ double CalculateEarningsForTransactions(const TransactionList& transactions,
   return estimated_pending_rewards;
 }
 
+double CalculateEarningsForTransactions(const TransactionList& transactions) {
+  const int64_t end = static_cast<int64_t>(base::Time::Now().ToDoubleT());
+  return CalculateEarningsForTransactions(transactions, 0, end);
+}
+
 }  // namespace
 
 AdRewards::AdRewards()
@@ -72,24 +77,23 @@ void AdRewards::MaybeReconcile(const WalletInfo& wallet) {
 }
 
 double AdRewards::GetEstimatedPendingRewards() const {
-  double estimated_pending_rewards = payments_->GetBalance();
+  // Estimated pending rewards is defined as the cumulative total amount of Ads
+  // earnings through the previous month (using estimates for transactions from
+  // the previous month that have not yet cleared), minus the cumulative amount
+  // of Ad grants that have been made available for the user to claim.
 
-  estimated_pending_rewards -= ad_grants_->GetBalance();
+  double pending = 0.0;
 
-  const int64_t to_timestamp =
-      static_cast<int64_t>(base::Time::Now().ToDoubleT());
-  const TransactionList uncleared_transactions = transactions::GetUncleared();
-  const double uncleared_estimated_pending_rewards =
-      CalculateEarningsForTransactions(uncleared_transactions, 0, to_timestamp);
-  estimated_pending_rewards += uncleared_estimated_pending_rewards;
+  pending += payments_->GetBalance();
+  pending += CalculateEarningsForTransactions(transactions::GetUncleared());
+  pending -= GetEarningsForThisMonth();
+  pending -= ad_grants_->GetBalance();
 
-  estimated_pending_rewards += unreconciled_estimated_pending_rewards_;
-
-  if (estimated_pending_rewards < 0.0) {
-    estimated_pending_rewards = 0.0;
+  if (pending < 0.0) {
+    pending = 0.0;
   }
 
-  return estimated_pending_rewards;
+  return pending;
 }
 
 uint64_t AdRewards::GetNextPaymentDate() const {

@@ -46,8 +46,9 @@ export const defaultState: Rewards.State = {
     adsUIEnabled: false,
     adsIsSupported: false,
     adsEstimatedPendingRewards: 0,
-    adsNextPaymentDate: '',
-    adsReceivedThisMonth: 0
+    adsNextPaymentDate: 0,
+    adsReceivedThisMonth: 0,
+    adsEarningsThisMonth: 0
   },
   adsHistory: [],
   pendingContributionTotal: 0,
@@ -88,6 +89,11 @@ const cleanData = (state: Rewards.State) => {
     state.parameters = defaultState.parameters
   }
 
+  // Data type change: adsNextPaymentDate (string -> number)
+  if (typeof (state.adsData.adsNextPaymentDate as any) !== 'number') {
+    throw new Error('Invalid adsNextPaymentDate')
+  }
+
   return state
 }
 
@@ -96,13 +102,13 @@ export const load = (): Rewards.State => {
   let state: Rewards.State = defaultState
   if (data) {
     try {
-      state = JSON.parse(data)
+      state = cleanData(JSON.parse(data))
       state.initializing = true
     } catch (e) {
       console.error('Could not parse local storage data: ', e)
     }
   }
-  return cleanData(state)
+  return state
 }
 
 export const debouncedSave = debounce((data: Rewards.State) => {

@@ -1153,7 +1153,7 @@
                     "type": "number"
                   },
                   "nextPaymentDate": {
-                    "type": "string"
+                    "type": "number"
                   },
                   "adsReceivedThisMonth": {
                     "type": "integer"

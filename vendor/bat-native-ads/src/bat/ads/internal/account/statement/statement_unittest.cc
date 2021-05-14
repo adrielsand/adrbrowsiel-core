@@ -99,7 +99,7 @@ TEST_F(BatAdsStatementTest, GetForThisMonth) {
 
   // Assert
   StatementInfo expected_statement;
-  expected_statement.estimated_pending_rewards = 0.35;
+  expected_statement.estimated_pending_rewards = 0.0;
   expected_statement.next_payment_date =
       TimestampFromDateString("5 December 2020");
   expected_statement.ads_received_this_month = 7;
@@ -232,7 +232,7 @@ TEST_F(BatAdsStatementTest, GetForThisMonthWithInternalServerErrorForAdGrants) {
 
   // Assert
   StatementInfo expected_statement;
-  expected_statement.estimated_pending_rewards = 0.35;
+  expected_statement.estimated_pending_rewards = 0.0;
   expected_statement.next_payment_date =
       TimestampFromDateString("5 December 2020");
   expected_statement.ads_received_this_month = 7;
@@ -285,7 +285,7 @@ TEST_F(BatAdsStatementTest, GetForThisMonthWithInvalidJsonForAdGrants) {
 
   // Assert
   StatementInfo expected_statement;
-  expected_statement.estimated_pending_rewards = 0.35;
+  expected_statement.estimated_pending_rewards = 0.0;
   expected_statement.next_payment_date =
       TimestampFromDateString("5 December 2020");
   expected_statement.ads_received_this_month = 7;
@@ -345,7 +345,7 @@ TEST_F(BatAdsStatementTest, GetForPastTwoMonths) {
 
   // Assert
   StatementInfo expected_statement;
-  expected_statement.estimated_pending_rewards = 1.05;
+  expected_statement.estimated_pending_rewards = 0.7;
   expected_statement.next_payment_date =
       TimestampFromDateString("5 December 2020");
   expected_statement.ads_received_this_month = 7;
@@ -405,7 +405,7 @@ TEST_F(BatAdsStatementTest, GetForPastTwoMonthsOverTwoYears) {
 
   // Assert
   StatementInfo expected_statement;
-  expected_statement.estimated_pending_rewards = 1.05;
+  expected_statement.estimated_pending_rewards = 0.7;
   expected_statement.next_payment_date =
       TimestampFromDateString("5 January 2020");
   expected_statement.ads_received_this_month = 7;
@@ -472,7 +472,7 @@ TEST_F(BatAdsStatementTest, GetForPastThreeMonths) {
 
   // Assert
   StatementInfo expected_statement;
-  expected_statement.estimated_pending_rewards = 1.5;
+  expected_statement.estimated_pending_rewards = 1.15;
   expected_statement.next_payment_date =
       TimestampFromDateString("5 December 2020");
   expected_statement.ads_received_this_month = 7;
@@ -545,7 +545,7 @@ TEST_F(BatAdsStatementTest, GetForPastThreeMonthsWithAdGrants) {
 
   // Assert
   StatementInfo expected_statement;
-  expected_statement.estimated_pending_rewards = 0.75;
+  expected_statement.estimated_pending_rewards = 0.4;
   expected_statement.next_payment_date =
       TimestampFromDateString("5 December 2020");
   expected_statement.ads_received_this_month = 7;
@@ -607,7 +607,7 @@ TEST_F(BatAdsStatementTest, KeepOldValuesAfterServerErrorForPayments) {
 
   // Assert
   StatementInfo expected_statement;
-  expected_statement.estimated_pending_rewards = 2.1;
+  expected_statement.estimated_pending_rewards = 1.75;
   expected_statement.next_payment_date =
       TimestampFromDateString("5 December 2020");
   expected_statement.ads_received_this_month = 7;
@@ -689,7 +689,7 @@ TEST_F(BatAdsStatementTest, KeepOldValuesAfterServerErrorForAdGrants) {
 
   // Assert
   StatementInfo expected_statement;
-  expected_statement.estimated_pending_rewards = 1.35;
+  expected_statement.estimated_pending_rewards = 1.0;
   expected_statement.next_payment_date =
       TimestampFromDateString("5 December 2020");
   expected_statement.ads_received_this_month = 7;

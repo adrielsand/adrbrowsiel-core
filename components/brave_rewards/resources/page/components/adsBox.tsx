@@ -19,10 +19,20 @@ import {
 } from '../../ui/components'
 import { Grid, Column, Select, ControlWrapper } from 'brave-ui/components'
 
+import { ArrivingSoon } from './style'
+import { MoneyBagIcon } from '../../shared/components/icons/money_bag'
+import { formatMessage } from '../../shared/lib/locale_context'
+import { getDaysUntilRewardsPayment } from '../../shared/lib/pending_rewards'
+
 // Utils
 import * as utils from '../utils'
 import { getLocale } from '../../../../common/locale'
 import * as rewardsActions from '../actions/rewards_actions'
+
+const nextPaymentDateFormatter = new Intl.DateTimeFormat(undefined, {
+  month: 'short',
+  day: 'numeric'
+})
 
 interface Props extends Rewards.ComponentProps {
 }
@@ -375,8 +385,9 @@ class AdsBox extends React.Component<Props, State> {
     let adsUIEnabled = false
     let adsIsSupported = false
     let estimatedPendingRewards = 0
-    let nextPaymentDate = ''
+    let nextPaymentDate = 0
     let adsReceivedThisMonth = 0
+    let earningsThisMonth = 0
 
     const {
       adsData,
@@ -395,6 +406,7 @@ class AdsBox extends React.Component<Props, State> {
       estimatedPendingRewards = adsData.adsEstimatedPendingRewards || 0
       nextPaymentDate = adsData.adsNextPaymentDate
       adsReceivedThisMonth = adsData.adsReceivedThisMonth || 0
+      earningsThisMonth = adsData.adsEarningsThisMonth || 0
     }
 
     const enabled = adsEnabled && adsIsSupported
@@ -405,6 +417,8 @@ class AdsBox extends React.Component<Props, State> {
     const rows = this.getGroupedAdsHistory(historyEntries, savedOnly)
     const notEmpty = rows && rows.length !== 0
     const tokenString = getLocale(onlyAnonWallet ? 'points' : 'tokens')
+
+    const estimatedPendingDays = getDaysUntilRewardsPayment(nextPaymentDate)
 
     return (
       <>
@@ -422,16 +436,30 @@ class AdsBox extends React.Component<Props, State> {
           onSettingsClick={this.onSettingsToggle}
           attachedAlert={this.adsNotSupportedAlert(adsIsSupported)}
         >
+          {
+            estimatedPendingRewards > 0 && estimatedPendingDays &&
+              <ArrivingSoon>
+                <MoneyBagIcon />
+                {
+                  formatMessage(getLocale('pendingRewardsMessage'), [
+                    <span className='amount' key='amount'>
+                      +{estimatedPendingRewards} BAT
+                    </span>,
+                    estimatedPendingDays
+                  ])
+                }
+              </ArrivingSoon>
+          }
           <List title={getLocale('adsCurrentEarnings')}>
             <Tokens
               onlyAnonWallet={onlyAnonWallet}
-              value={estimatedPendingRewards.toFixed(3)}
-              converted={utils.convertBalance(estimatedPendingRewards, parameters.rate)}
+              value={earningsThisMonth.toFixed(3)}
+              converted={utils.convertBalance(earningsThisMonth, parameters.rate)}
             />
           </List>
           <List title={getLocale('adsPaymentDate')}>
             <NextContribution>
-              {nextPaymentDate}
+              {nextPaymentDateFormatter.format(new Date(nextPaymentDate))}
             </NextContribution>
           </List>
           <List title={getLocale('adsNotificationsReceived')}>

@@ -108,8 +108,8 @@ TEST_F(BatAdsAdRewardsIntegrationTest,
             TimestampFromDateString("5 June 2021");
 
         // Calculated by subtracting the ad grant balance from the accumulated
-        // payment balances
-        expected_statement.estimated_pending_rewards = 1.3895;
+        // payment balances through the previous month
+        expected_statement.estimated_pending_rewards = 0.3645;
 
         // Calculated from the above payment balance for May
         expected_statement.earnings_this_month = 1.025;
@@ -165,8 +165,8 @@ TEST_F(BatAdsAdRewardsIntegrationTest, GetAdRewardsFromEndPoints) {
             TimestampFromDateString("5 June 2021");
 
         // Calculated by subtracting the ad grant balance from the accumulated
-        // payment balances
-        expected_statement.estimated_pending_rewards = 7.54;
+        // payment balances through the previous month
+        expected_statement.estimated_pending_rewards = 0.0;
 
         // Calculated from the above payment balance for May
         expected_statement.earnings_this_month = 19.64;
@@ -203,8 +203,9 @@ TEST_F(BatAdsAdRewardsIntegrationTest,
             TimestampFromDateString("5 May 2021");
 
         // Calculated by subtracting the cached ad grant balance from the cached
-        // payment balance configured in |data/test/confirmations.json|
-        expected_statement.estimated_pending_rewards = 43.79;
+        // payment balance configured in |data/test/confirmations.json| through
+        // the previous month
+        expected_statement.estimated_pending_rewards = 0.0;
 
         // Calculated from earnings in April configured in
         // |data/test/confirmations.json|
@@ -259,8 +260,8 @@ TEST_F(BatAdsAdRewardsIntegrationTest,
 
         // Calculated by subtracting the cached ad grant balance configured in
         // |data/test/confirmations.json| from the above accumulated payment
-        // balances
-        expected_statement.estimated_pending_rewards = 22.15;
+        // balances through the previous month
+        expected_statement.estimated_pending_rewards = 2.45;
 
         // Calculated from the above payment balance for November
         expected_statement.earnings_this_month = 19.7;
