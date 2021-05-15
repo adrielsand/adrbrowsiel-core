@@ -1,0 +1,12 @@
+diff --git a/third_party/blink/renderer/core/css/media_values.cc b/third_party/blink/renderer/core/css/media_values.cc
+index 2ef2ed42f7f92..35e476ebb8f08 100644
+--- a/third_party/blink/renderer/core/css/media_values.cc
++++ b/third_party/blink/renderer/core/css/media_values.cc
+@@ -208,6 +208,7 @@ mojom::blink::PreferredColorScheme MediaValues::CalculatePreferredColorScheme(
+     if (value.IsValid())
+       return CSSValueIDToPreferredColorScheme(value.id);
+   }
++  BRAVE_DARK_MODE_DETECTION_DISABLED
+   return frame->GetDocument()->GetStyleEngine().GetPreferredColorScheme();
+ }
+ 
