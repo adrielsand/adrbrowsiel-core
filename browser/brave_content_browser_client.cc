@@ -26,8 +26,10 @@
 #include "brave/common/webui_url_constants.h"
 #include "brave/components/binance/browser/buildflags/buildflags.h"
 #include "brave/components/brave_rewards/browser/buildflags/buildflags.h"
-#include "brave/components/brave_search/browser/brave_search_host.h"
-#include "brave/components/brave_search/common/brave_search.mojom.h"
+#include "brave/components/brave_search/browser/brave_search_default_host.h"
+#include "brave/components/brave_search/browser/brave_search_fallback_host.h"
+#include "brave/components/brave_search/common/brave_search_default.mojom.h"
+#include "brave/components/brave_search/common/brave_search_fallback.mojom.h"
 #include "brave/components/brave_shields/browser/brave_shields_util.h"
 #include "brave/components/brave_shields/browser/domain_block_navigation_throttle.h"
 #include "brave/components/brave_shields/common/brave_shield_constants.h"
@@ -203,7 +205,7 @@ void MaybeBindBraveWalletProvider(
 }
 #endif
 
-void BindBraveSearchHost(
+void BindBraveSearchFallbackHost(
     int process_id,
     mojo::PendingReceiver<brave_search::mojom::BraveSearchFallback> receiver) {
   content::RenderProcessHost* render_process_host =
@@ -213,11 +215,22 @@ void BindBraveSearchHost(
 
   content::BrowserContext* context = render_process_host->GetBrowserContext();
   mojo::MakeSelfOwnedReceiver(
-      std::make_unique<brave_search::BraveSearchHost>(
+      std::make_unique<brave_search::BraveSearchFallbackHost>(
           content::BrowserContext::GetDefaultStoragePartition(context)
               ->GetURLLoaderFactoryForBrowserProcess()),
       std::move(receiver));
 }
+
+void BindBraveSearchDefaultHost(
+    content::RenderFrameHost* const frame_host,
+    mojo::PendingReceiver<brave_search::mojom::BraveSearchDefault> receiver) {
+  // auto* context = frame_host->GetBrowserContext();
+  // TODO(petemill): is context allowed?
+  mojo::MakeSelfOwnedReceiver(
+      std::make_unique<brave_search::BraveSearchDefaultHost>(),
+      std::move(receiver));
+}
+
 }  // namespace
 
 BraveContentBrowserClient::BraveContentBrowserClient()
@@ -276,8 +289,8 @@ void BraveContentBrowserClient::ExposeInterfacesToRenderer(
     content::RenderProcessHost* render_process_host) {
   ChromeContentBrowserClient::ExposeInterfacesToRenderer(
       registry, associated_registry, render_process_host);
-  registry->AddInterface(
-      base::BindRepeating(&BindBraveSearchHost, render_process_host->GetID()),
+  registry->AddInterface(base::BindRepeating(&BindBraveSearchFallbackHost,
+          render_process_host->GetID()),
       content::GetUIThreadTaskRunner({}));
 }
 
@@ -288,7 +301,8 @@ void BraveContentBrowserClient::RegisterBrowserInterfaceBindersForFrame(
       render_frame_host, map);
   map->Add<cosmetic_filters::mojom::CosmeticFiltersResources>(
       base::BindRepeating(&BindCosmeticFiltersResources));
-
+  map->Add<brave_search::mojom::BraveSearchDefault>(
+      base::BindRepeating(&BindBraveSearchDefaultHost));
 #if BUILDFLAG(BRAVE_WALLET_ENABLED)
   if (brave_wallet::IsNativeWalletEnabled()) {
     map->Add<brave_wallet::mojom::BraveWalletProvider>(

@@ -9,39 +9,38 @@
 
 namespace brave_search {
 
-TEST(BraveSearchHost, GetBackupResultURL) {
+TEST(BraveSearchFallbackHost, GetBackupResultURL) {
   GURL base_url("https://www.google.com/search/");
-  ASSERT_EQ(
-      BraveSearchHost::GetBackupResultURL(base_url, "test", "en", "ca", "32,32",
-                                          true),
+  ASSERT_EQ(BraveSearchFallbackHost::GetBackupResultURL(
+      base_url, "test", "en", "ca", "32,32", true),
       GURL("https://www.google.com/search/?q=test&hl=en&gl=ca&safe=active"));
 }
 
-TEST(BraveSearchHost, GetBackupResultURLNoLang) {
+TEST(BraveSearchFallbackHost, GetBackupResultURLNoLang) {
   GURL base_url("https://www.google.com/search/");
-  ASSERT_EQ(BraveSearchHost::GetBackupResultURL(base_url, "test", "", "ca",
-                                                "32,32", true),
-            GURL("https://www.google.com/search/?q=test&gl=ca&safe=active"));
+  ASSERT_EQ(BraveSearchFallbackHost::GetBackupResultURL(
+      base_url, "test", "", "ca", "32,32", true),
+      GURL("https://www.google.com/search/?q=test&gl=ca&safe=active"));
 }
 
-TEST(BraveSearchHost, GetBackupResultURLNoCountry) {
+TEST(BraveSearchFallbackHost, GetBackupResultURLNoCountry) {
   GURL base_url("https://www.google.com/search/");
-  ASSERT_EQ(BraveSearchHost::GetBackupResultURL(base_url, "test", "en", "",
-                                                "32,32", true),
-            GURL("https://www.google.com/search/?q=test&hl=en&safe=active"));
+  ASSERT_EQ(BraveSearchFallbackHost::GetBackupResultURL(
+      base_url, "test", "en", "", "32,32", true),
+      GURL("https://www.google.com/search/?q=test&hl=en&safe=active"));
 }
 
-TEST(BraveSearchHost, GetBackupResultURLNoFilter) {
+TEST(BraveSearchFallbackHost, GetBackupResultURLNoFilter) {
   GURL base_url("https://www.google.com/search/");
-  ASSERT_EQ(BraveSearchHost::GetBackupResultURL(base_url, "test", "en", "ca",
-                                                "32,32", false),
-            GURL("https://www.google.com/search/?q=test&hl=en&gl=ca"));
+  ASSERT_EQ(BraveSearchFallbackHost::GetBackupResultURL(
+      base_url, "test", "en", "ca", "32,32", false),
+      GURL("https://www.google.com/search/?q=test&hl=en&gl=ca"));
 }
 
-TEST(BraveSearchHost, GetBackupResultURLMinimal) {
+TEST(BraveSearchFallbackHost, GetBackupResultURLMinimal) {
   GURL base_url("https://www.google.com/search/");
-  ASSERT_EQ(
-      BraveSearchHost::GetBackupResultURL(base_url, "test", "", "", "", false),
+  ASSERT_EQ(BraveSearchFallbackHost::GetBackupResultURL(
+      base_url, "test", "", "", "", false),
       GURL("https://www.google.com/search/?q=test"));
 }
 

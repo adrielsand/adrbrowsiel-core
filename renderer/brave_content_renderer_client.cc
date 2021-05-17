@@ -7,6 +7,7 @@
 
 #include "base/feature_list.h"
 #include "brave/components/brave_shields/common/features.h"
+#include "brave/components/brave_search/renderer/brave_search_render_frame_observer.h"
 #include "brave/components/brave_wallet/common/buildflags/buildflags.h"
 #include "brave/components/cosmetic_filters/renderer/cosmetic_filters_js_render_frame_observer.h"
 #include "brave/renderer/brave_render_thread_observer.h"
@@ -68,6 +69,8 @@ void BraveContentRendererClient::RenderFrameCreated(
         render_frame, BraveRenderThreadObserver::GetDynamicParams());
   }
 #endif
+  new brave_search::BraveSearchRenderFrameObserver(
+      render_frame, content::ISOLATED_WORLD_ID_GLOBAL);
 }
 
 void BraveContentRendererClient::RunScriptsAtDocumentStart(

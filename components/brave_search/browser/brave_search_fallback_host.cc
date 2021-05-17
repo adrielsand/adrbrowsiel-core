@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_search/browser/brave_search_host.h"
+#include "brave/components/brave_search/browser/brave_search_fallback_host.h"
 
 #include <utility>
 
@@ -42,18 +42,19 @@ static GURL backup_provider_for_test;
 
 namespace brave_search {
 
-void BraveSearchHost::SetBackupProviderForTest(const GURL& backup_provider) {
+void BraveSearchFallbackHost::SetBackupProviderForTest(
+      const GURL& backup_provider) {
   backup_provider_for_test = backup_provider;
 }
 
-BraveSearchHost::BraveSearchHost(
+BraveSearchFallbackHost::BraveSearchFallbackHost(
     scoped_refptr<network::SharedURLLoaderFactory> factory)
     : shared_url_loader_factory_(std::move(factory)), weak_factory_(this) {}
 
-BraveSearchHost::~BraveSearchHost() {}
+BraveSearchFallbackHost::~BraveSearchFallbackHost() {}
 
 // [static]
-GURL BraveSearchHost::GetBackupResultURL(const GURL& baseURL,
+GURL BraveSearchFallbackHost::GetBackupResultURL(const GURL& baseURL,
                                          const std::string& query,
                                          const std::string& lang,
                                          const std::string& country,
@@ -73,7 +74,7 @@ GURL BraveSearchHost::GetBackupResultURL(const GURL& baseURL,
   return url;
 }
 
-void BraveSearchHost::FetchBackupResults(const std::string& query,
+void BraveSearchFallbackHost::FetchBackupResults(const std::string& query,
                                          const std::string& lang,
                                          const std::string& country,
                                          const std::string& geo,
@@ -100,13 +101,13 @@ void BraveSearchHost::FetchBackupResults(const std::string& query,
   auto iter = url_loaders_.insert(url_loaders_.begin(), std::move(url_loader));
   iter->get()->DownloadToStringOfUnboundedSizeUntilCrashAndDie(
       shared_url_loader_factory_.get(),
-      base::BindOnce(&BraveSearchHost::OnURLLoaderComplete,
+      base::BindOnce(&BraveSearchFallbackHost::OnURLLoaderComplete,
                      weak_factory_.GetWeakPtr(), iter, std::move(callback)));
 }
 
-void BraveSearchHost::OnURLLoaderComplete(
+void BraveSearchFallbackHost::OnURLLoaderComplete(
     SimpleURLLoaderList::iterator iter,
-    BraveSearchHost::FetchBackupResultsCallback callback,
+    BraveSearchFallbackHost::FetchBackupResultsCallback callback,
     const std::unique_ptr<std::string> response_body) {
   url_loaders_.erase(iter);
   if (response_body) {

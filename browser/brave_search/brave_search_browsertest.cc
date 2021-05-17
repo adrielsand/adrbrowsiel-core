@@ -8,7 +8,7 @@
 #include "base/test/thread_test_helper.h"
 #include "brave/common/brave_paths.h"
 #include "brave/common/pref_names.h"
-#include "brave/components/brave_search/browser/brave_search_host.h"
+#include "brave/components/brave_search/browser/brave_search_fallback_host.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -69,7 +69,7 @@ class BraveSearchTest : public InProcessBrowserTest {
 
     ASSERT_TRUE(https_server_->Start());
     GURL url = https_server()->GetURL("a.com", "/search");
-    brave_search::BraveSearchHost::SetBackupProviderForTest(url);
+    brave_search::BraveSearchFallbackHost::SetBackupProviderForTest(url);
   }
 
   void SetUpCommandLine(base::CommandLine* command_line) override {

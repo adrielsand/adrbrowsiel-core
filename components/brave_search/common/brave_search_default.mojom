@@ -1,0 +1,8 @@
+module brave_search.mojom;
+
+import "mojo/public/mojom/base/values.mojom";
+
+interface BraveSearchDefault {
+  IsDefaultSearchProvider() => (bool is_default_search_provider);
+  SetIsDefaultSearchProvider();
+};
