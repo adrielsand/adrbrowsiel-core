@@ -77,6 +77,17 @@ bool AllowFingerprintingForHost(blink::CanvasRenderingContextHost* host) {
                    *(Host()->GetTopExecutionContext())) \
                    .GenerateRandomString("UNMASKED_VENDOR_WEBGL", 8)));
 
+#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_GET_SUPPORTED_EXTENSIONS \
+  if (!AllowFingerprintingForHost(Host())) {                        \
+    result.push_back(WebGLDebugRendererInfo::ExtensionName());      \
+    return result;                                                  \
+  }
+
+#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_GET_EXTENSION \
+  if (name != WebGLDebugRendererInfo::ExtensionName()) { \
+    BRAVE_WEBGL_RENDERING_CONTEXT_BASE_SCRIPT_VALUE      \
+  }
+
 #include "../../../../../../../third_party/blink/renderer/modules/webgl/webgl_rendering_context_base.cc"
 #undef BRAVE_WEBGL_GET_PARAMETER_UNMASKED_RENDERER
 #undef BRAVE_WEBGL_GET_PARAMETER_UNMASKED_VENDOR
