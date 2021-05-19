@@ -622,24 +622,52 @@
   bookmark_model_->RemoveAllUserBookmarks();
 }
 
-- (NSArray<IOSBookmarkNode*>*)searchWithQuery:(NSString*)query
-                                     maxCount:(NSUInteger)maxCount {
-  DCHECK_CURRENTLY_ON(web::WebThread::UI);
-  DCHECK(bookmark_model_->loaded());
-  bookmarks::QueryFields queryFields;
-  queryFields.word_phrase_query.reset(
-      new std::u16string(base::SysNSStringToUTF16(query)));
-  std::vector<const bookmarks::BookmarkNode*> results;
-  GetBookmarksMatchingProperties(bookmark_model_, queryFields, maxCount,
-                                 &results);
+- (void)searchWithQuery:(NSString*)query
+               maxCount:(NSUInteger)maxCount
+             completion:(void(^)(NSArray<IOSBookmarkNode*>*))completion {
+  auto search_with_query = [](BraveBookmarksAPI* weak_bookmarks_api,
+                              NSString* query,
+                              NSUInteger maxCount,
+                              std::function<void(
+                                  NSArray<IOSBookmarkNode*>*)
+                              > completion) {
+    __strong BraveBookmarksAPI* bookmarks_api = weak_bookmarks_api;
+    if (!bookmarks_api) {
+      completion(@[]);
+      return;
+    }
+    
+    DCHECK(bookmarks_api->bookmark_model_->loaded());
+    
+    bookmarks::QueryFields queryFields;
+    queryFields.word_phrase_query.reset(
+        new base::string16(base::SysNSStringToUTF16(query)));
+    std::vector<const bookmarks::BookmarkNode*> results;
+    GetBookmarksMatchingProperties(bookmarks_api->bookmark_model_,
+                                   queryFields,
+                                   maxCount,
+                                   &results);
 
-  NSMutableArray<IOSBookmarkNode*>* nodes = [[NSMutableArray alloc] init];
-  for (const bookmarks::BookmarkNode* bookmark : results) {
-    IOSBookmarkNode* node =
-        [[IOSBookmarkNode alloc] initWithNode:bookmark model:bookmark_model_];
-    [nodes addObject:node];
-  }
-  return nodes;
+    NSMutableArray<IOSBookmarkNode*>* nodes =
+                                      [[NSMutableArray alloc] init];
+    for (const bookmarks::BookmarkNode* bookmark : results) {
+      IOSBookmarkNode* node =
+          [[IOSBookmarkNode alloc] initWithNode:bookmark
+                                    model:bookmarks_api->bookmark_model_];
+      [nodes addObject:node];
+    }
+    completion(nodes);
+  };
+    
+  __weak BraveBookmarksAPI* weakSelf = self;
+  base::PostTask(
+      FROM_HERE,
+        {web::WebThread::UI},
+      base::BindOnce(search_with_query,
+                     weakSelf,
+                     query,
+                     maxCount,
+                     completion));
 }
 
 - (void)undo {
