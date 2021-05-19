@@ -8,7 +8,10 @@
 #include "base/compiler_specific.h"
 #include "base/containers/adapters.h"
 #include "base/guid.h"
+#include "base/sequenced_task_runner.h"
 #include "base/strings/sys_string_conversions.h"
+#include "base/task/post_task.h"
+#include "base/task/thread_pool.h"
 #include "brave/ios/browser/api/bookmarks/brave_bookmarks_observer.h"
 #include "components/bookmarks/browser/bookmark_model.h"
 #include "components/bookmarks/browser/bookmark_node.h"
@@ -24,6 +27,7 @@
 #include "ios/chrome/browser/browser_state/chrome_browser_state_manager.h"
 #include "ios/chrome/browser/ui/bookmarks/bookmark_utils_ios.h"
 #include "ios/chrome/browser/undo/bookmark_undo_service_factory.h"
+#include "ios/web/public/thread/web_task_traits.h"
 #include "ios/web/public/thread/web_thread.h"
 #import "net/base/mac/url_conversions.h"
 #include "url/gurl.h"
@@ -641,7 +645,7 @@
     
     bookmarks::QueryFields queryFields;
     queryFields.word_phrase_query.reset(
-        new base::string16(base::SysNSStringToUTF16(query)));
+        new std::u16string(base::SysNSStringToUTF16(query)));
     std::vector<const bookmarks::BookmarkNode*> results;
     GetBookmarksMatchingProperties(bookmarks_api->bookmark_model_,
                                    queryFields,
@@ -662,7 +666,7 @@
   __weak BraveBookmarksAPI* weakSelf = self;
   base::PostTask(
       FROM_HERE,
-        {web::WebThread::UI},
+      {web::WebThread::UI},
       base::BindOnce(search_with_query,
                      weakSelf,
                      query,
