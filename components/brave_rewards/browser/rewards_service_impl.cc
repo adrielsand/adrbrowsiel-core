@@ -326,6 +326,7 @@ RewardsServiceImpl::RewardsServiceImpl(Profile* profile)
           new DiagnosticLog(profile_->GetPath().Append(kDiagnosticLogPath),
                             kDiagnosticLogMaxFileSize,
                             kDiagnosticLogKeepNumLines)),
+      ledger_database_(nullptr, base::OnTaskRunnerDeleter(file_task_runner_)),
       notification_service_(new RewardsNotificationServiceImpl(profile)),
       next_timer_id_(0) {
   // Set up the rewards data source
@@ -339,9 +340,6 @@ RewardsServiceImpl::RewardsServiceImpl(Profile* profile)
 
 RewardsServiceImpl::~RewardsServiceImpl() {
   DCHECK_CALLED_ON_VALID_SEQUENCE(sequence_checker_);
-  if (ledger_database_) {
-    file_task_runner_->DeleteSoon(FROM_HERE, ledger_database_.release());
-  }
   StopNotificationTimers();
 }
 
@@ -1452,9 +1450,7 @@ void RewardsServiceImpl::Reset() {
   bat_ledger_client_receiver_.reset();
   bat_ledger_service_.reset();
   ready_ = std::make_unique<base::OneShotEvent>();
-  bool success =
-      file_task_runner_->DeleteSoon(FROM_HERE, ledger_database_.release());
-  BLOG_IF(1, !success, "Database was not released");
+  ledger_database_ = nullptr;
   BLOG(1, "Successfully reset rewards service");
 }
 
