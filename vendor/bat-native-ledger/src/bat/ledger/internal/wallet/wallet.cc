@@ -130,14 +130,16 @@ void Wallet::DisconnectWallet(
       const std::string& wallet_type,
       ledger::ResultCallback callback) {
   if (wallet_type == constant::kWalletUphold) {
-    ledger_->uphold()->DisconnectWallet(true);
-    callback(type::Result::LEDGER_OK);
+    ledger_->uphold()->DisconnectWallet([callback](const type::Result result) {
+      callback(type::Result::LEDGER_OK);
+    }, true);
     return;
   }
 
   if (wallet_type == constant::kWalletBitflyer) {
-    ledger_->bitflyer()->DisconnectWallet(true);
-    callback(type::Result::LEDGER_OK);
+    ledger_->bitflyer()->DisconnectWallet([callback](const type::Result result) {
+      callback(type::Result::LEDGER_OK);
+    }, true);
     return;
   }
 

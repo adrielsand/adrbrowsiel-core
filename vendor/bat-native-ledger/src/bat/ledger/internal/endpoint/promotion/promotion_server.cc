@@ -10,7 +10,9 @@ namespace ledger {
 namespace endpoint {
 
 PromotionServer::PromotionServer(LedgerImpl* ledger)
-    : get_available_(std::make_unique<promotion::GetAvailable>(ledger)),
+    : delete_claim_bitflyer_(std::make_unique<promotion::DeleteClaimBitflyer>(ledger)),
+      delete_claim_uphold_(std::make_unique<promotion::DeleteClaimUphold>(ledger)),
+      get_available_(std::make_unique<promotion::GetAvailable>(ledger)),
       post_creds_(std::make_unique<promotion::PostCreds>(ledger)),
       get_signed_creds_(std::make_unique<promotion::GetSignedCreds>(ledger)),
       post_clobbered_claims_(
@@ -123,6 +125,15 @@ promotion::PostClaimBrave* PromotionServer::post_claim_brave() const {
 promotion::GetDrain* PromotionServer::get_drain() const {
   return get_drain_.get();
 }
+
+promotion::DeleteClaimBitflyer* PromotionServer::delete_claim_bitflyer() const {
+  return delete_claim_bitflyer_.get();
+}
+
+promotion::DeleteClaimUphold* PromotionServer::delete_claim_uphold() const {
+  return delete_claim_uphold_.get();
+}
+
 
 }  // namespace endpoint
 }  // namespace ledger

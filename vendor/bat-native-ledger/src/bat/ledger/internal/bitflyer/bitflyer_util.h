@@ -49,7 +49,8 @@ std::string GetAccountUrl();
 
 type::ExternalWalletPtr GenerateLinks(type::ExternalWalletPtr wallet);
 
-type::ExternalWalletPtr ResetWallet(type::ExternalWalletPtr wallet);
+type::ExternalWalletPtr ResetWallet(type::ExternalWalletPtr wallet,
+                                    const bool manual);
 
 }  // namespace bitflyer
 }  // namespace ledger

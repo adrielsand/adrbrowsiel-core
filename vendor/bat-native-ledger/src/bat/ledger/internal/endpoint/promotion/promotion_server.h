@@ -8,6 +8,8 @@
 
 #include <memory>
 
+#include "bat/ledger/internal/endpoint/promotion/delete_claim_bitflyer/delete_claim_bitflyer.h"
+#include "bat/ledger/internal/endpoint/promotion/delete_claim_uphold/delete_claim_uphold.h"
 #include "bat/ledger/internal/endpoint/promotion/get_available/get_available.h"
 #include "bat/ledger/internal/endpoint/promotion/get_captcha/get_captcha.h"
 #include "bat/ledger/internal/endpoint/promotion/get_drain/get_drain.h"
@@ -83,7 +85,13 @@ class PromotionServer {
 
   promotion::GetDrain* get_drain() const;
 
+  promotion::DeleteClaimBitflyer* delete_claim_bitflyer() const;
+
+  promotion::DeleteClaimUphold* delete_claim_uphold() const;
+
  private:
+  std::unique_ptr<promotion::DeleteClaimBitflyer> delete_claim_bitflyer_;
+  std::unique_ptr<promotion::DeleteClaimUphold> delete_claim_uphold_;
   std::unique_ptr<promotion::GetAvailable> get_available_;
   std::unique_ptr<promotion::PostCreds> post_creds_;
   std::unique_ptr<promotion::GetSignedCreds> get_signed_creds_;

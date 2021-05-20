@@ -62,7 +62,7 @@ class Bitflyer {
 
   void GenerateWallet(ledger::ResultCallback callback);
 
-  void DisconnectWallet(const bool manual = false);
+  void DisconnectWallet(ledger::ResultCallback callback, const bool manual = false);
 
   type::ExternalWalletPtr GetWallet();
 

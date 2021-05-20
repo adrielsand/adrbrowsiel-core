@@ -3,6 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#include <memory>
 #include <utility>
 
 #include "bat/ledger/global_constants.h"
@@ -19,7 +20,11 @@ using std::placeholders::_3;
 namespace ledger {
 namespace bitflyer {
 
-BitflyerWallet::BitflyerWallet(LedgerImpl* ledger) : ledger_(ledger) {}
+BitflyerWallet::BitflyerWallet(LedgerImpl* ledger) :
+    ledger_(ledger),
+    promotion_server_(
+        std::make_unique<endpoint::PromotionServer>(ledger)) {
+}
 
 BitflyerWallet::~BitflyerWallet() = default;
 
@@ -71,6 +76,10 @@ void BitflyerWallet::Generate(ledger::ResultCallback callback) {
   }
 
   callback(type::Result::LEDGER_OK);
+}
+
+void BitflyerWallet::Disconnect(ledger::ResultCallback callback) {
+  promotion_server_->delete_claim_uphold()->Request(callback);
 }
 
 }  // namespace bitflyer

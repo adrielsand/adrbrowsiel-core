@@ -9,6 +9,7 @@
 #include <string>
 
 #include "bat/ledger/ledger.h"
+#include "bat/ledger/internal/endpoint/promotion/promotion_server.h"
 
 namespace ledger {
 class LedgerImpl;
@@ -21,6 +22,7 @@ class UpholdWallet {
 
   ~UpholdWallet();
 
+  void Disconnect(ledger::ResultCallback callback);
   void Generate(ledger::ResultCallback callback);
 
  private:
@@ -39,6 +41,7 @@ class UpholdWallet {
       const User& user);
 
   LedgerImpl* ledger_;  // NOT OWNED
+  std::unique_ptr<endpoint::PromotionServer> promotion_server_;
 };
 
 }  // namespace uphold
