@@ -767,7 +767,7 @@ By installing this extension, you are agreeing to the Google Widevine Terms of U
         Method to resolve Ethereum Name Service (ENS)
       </message>
       <message name="IDS_SETTINGS_IPNS_KEYS_EDITOR_LINK" desc="The title of the link to open keys management block in IPFS settings">
-        Setup your IPNS keys
+        Set up your IPNS keys
       </message>
       <message name="IDS_SETTINGS_IPNS_KEYS_EDITOR_LINK_DESC" desc="The description for the link to open keys management block in IPFS settings">
         Sign content by the corresponding private key and publish it to IPNS
@@ -789,6 +789,15 @@ By installing this extension, you are agreeing to the Google Widevine Terms of U
       </message>
       <message name="IDS_SETTINGS_IPNS_KEYS_START_NODE_ERROR" desc="The error message when node was unable to start on IPFS keys manager page">
         IPFS service launch error, more information is available on the <ph name="BEGIN_LINK">&lt;a target="_blank" rel="noopener noreferrer" style="text-decoration: underline;" href="chrome://ipfs-internals/"&gt;</ph>diagnostic page<ph name="END_LINK">&lt;/a&gt;</ph>
+      </message>
+      <message name="IDS_SETTINGS_IPNS_KEYS_IMPORT_ERROR" desc="The error text if ipns keys import failed">
+        '<ph name="KEY_NAME">$1<ex>MyCustomKey</ex></ph>' key import failed
+      </message>
+      <message name="IDS_SETTINGS_IPNS_KEYS_IMPORT_BUTTON_TITLE" desc="The title of the button to import ipns keys">
+        Import
+      </message>
+      <message name="IDS_SETTINGS_IPNS_KEYS_GENERATE_BUTTON_TITLE" desc="The title of the button to import ipns keys">
+        Generate
       </message>
       <message name="IDS_SETTINGS_IPNS_KEYS_START_NODE" desc="The button text to start node on IPFS keys manager page">
         Start node
@@ -1070,6 +1079,9 @@ By installing this extension, you are agreeing to the Google Widevine Terms of U
         </message>
         <message name="IDS_SIDEBAR_ADD_ITEM_BUBBLE_TITLE" desc="Title of sidebar add item bubble">
           Add to Sidebar
+        </message>
+        <message name="IDS_SIDEBAR_TOOLTIP_ON_SHOW_OPTIONS_WIDGET" desc="Label of tooltip of sidebar show options widget area">
+          Show sidebar
         </message>
         <message name="IDS_SIDEBAR_SHOW_OPTION_TITLE" desc="Title of sidebar show option menu">
           Show Sidebar

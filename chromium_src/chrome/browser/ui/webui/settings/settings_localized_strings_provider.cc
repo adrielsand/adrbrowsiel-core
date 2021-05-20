@@ -8,10 +8,10 @@
 #include "base/stl_util.h"
 #include "base/strings/utf_string_conversions.h"
 #include "brave/browser/ui/webui/settings/brave_privacy_handler.h"
-#include "brave/browser/version_info.h"
 #include "brave/components/ipfs/ipfs_constants.h"
 #include "brave/components/ipfs/pref_names.h"
 #include "brave/components/sidebar/buildflags/buildflags.h"
+#include "brave/components/version_info/version_info.h"
 #include "chrome/browser/ui/webui/webui_util.h"
 #include "chrome/common/pref_names.h"
 #include "components/grit/brave_components_strings.h"
@@ -282,6 +282,9 @@ void BraveAddCommonStrings(content::WebUIDataSource* html_source,
     {"ipfsKeysNodeNotLaunched", IDS_SETTINGS_IPNS_KEYS_NODE_NOT_LAUNCHED},
     {"ipfsKeysStartNode", IDS_SETTINGS_IPNS_KEYS_START_NODE},
     {"ipfsKeysNodeLaunchError", IDS_SETTINGS_IPNS_KEYS_START_NODE_ERROR},
+    {"ipfsKeyImport", IDS_SETTINGS_IPNS_KEYS_IMPORT_BUTTON_TITLE},
+    {"ipfsKeyGenerate", IDS_SETTINGS_IPNS_KEYS_GENERATE_BUTTON_TITLE},
+    {"ipfsImporKeysError", IDS_SETTINGS_IPNS_KEYS_IMPORT_ERROR},
   };
   html_source->AddLocalizedStrings(localized_strings);
   html_source->AddString("webRTCLearnMoreURL",

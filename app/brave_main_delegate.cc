@@ -22,7 +22,6 @@
 #include "brave/renderer/brave_content_renderer_client.h"
 #include "brave/utility/brave_content_utility_client.h"
 #include "build/build_config.h"
-#include "chrome/browser/sharing/features.h"
 #include "chrome/browser/ui/ui_features.h"
 #include "chrome/common/chrome_features.h"
 #include "chrome/common/chrome_paths.h"
@@ -45,6 +44,7 @@
 #include "content/public/common/content_features.h"
 #include "content/public/common/content_switches.h"
 #include "google_apis/gaia/gaia_switches.h"
+#include "media/base/media_switches.h"
 #include "net/base/features.h"
 #include "services/device/public/cpp/device_features.h"
 #include "services/network/public/cpp/features.h"
@@ -210,6 +210,10 @@ bool BraveMainDelegate::BasicStartupComplete(int* exit_code) {
   std::unordered_set<const char*> disabled_features = {
     autofill::features::kAutofillEnableAccountWalletStorage.name,
     autofill::features::kAutofillServerCommunication.name,
+    blink::features::kFledgeInterestGroupAPI.name,
+    blink::features::kFledgeInterestGroups.name,
+    blink::features::kHandwritingRecognitionWebPlatformApi.name,
+    blink::features::kHandwritingRecognitionWebPlatformApiFinch.name,
     blink::features::kInterestCohortAPIOriginTrial.name,
     blink::features::kInterestCohortFeaturePolicy.name,
     blink::features::kTextFragmentAnchor.name,
@@ -220,12 +224,12 @@ bool BraveMainDelegate::BasicStartupComplete(int* exit_code) {
     features::kSignedExchangePrefetchCacheForNavigations.name,
     features::kSignedExchangeSubresourcePrefetch.name,
     features::kSubresourceWebBundles.name,
-    features::kTabHoverCards.name,
     features::kWebOTP.name,
     federated_learning::kFederatedLearningOfCohorts.name,
     federated_learning::kFlocIdComputedEventLogging.name,
-    kSharingQRCodeGenerator.name,
+    media::kLiveCaption.name,
     net::features::kFirstPartySets.name,
+    network::features::kTrustTokens.name,
     network_time::kNetworkTimeServiceQuerying.name,
 #if defined(OS_ANDROID)
     features::kWebNfc.name,
