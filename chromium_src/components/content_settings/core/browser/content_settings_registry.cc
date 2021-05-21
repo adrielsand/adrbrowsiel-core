@@ -1,13 +1,13 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-#define BRAVE_INIT BraveInit();
+#define adrbrowsiel_INIT adrbrowsielInit();
 #include "../../../../../../components/content_settings/core/browser/content_settings_registry.cc"
-#undef BRAVE_INIT
+#undef adrbrowsiel_INIT
 
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 namespace content_settings {
 
 namespace {
@@ -15,23 +15,23 @@ namespace {
 const struct {
   const char* name;
   ContentSettingsType type;
-} kBraveContentSettingstypes[] = {
-    {brave_shields::kAds, ContentSettingsType::BRAVE_ADS},
-    {brave_shields::kCosmeticFiltering,
-     ContentSettingsType::BRAVE_COSMETIC_FILTERING},
-    {brave_shields::kTrackers, ContentSettingsType::BRAVE_TRACKERS},
-    {brave_shields::kHTTPUpgradableResources,
-     ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES},
-    {brave_shields::kFingerprintingV2,
-     ContentSettingsType::BRAVE_FINGERPRINTING_V2},
-    {brave_shields::kBraveShields, ContentSettingsType::BRAVE_SHIELDS},
-    {brave_shields::kReferrers, ContentSettingsType::BRAVE_REFERRERS},
-    {brave_shields::kCookies, ContentSettingsType::BRAVE_COOKIES},
+} kadrbrowsielContentSettingstypes[] = {
+    {adrbrowsiel_shields::kAds, ContentSettingsType::adrbrowsiel_ADS},
+    {adrbrowsiel_shields::kCosmeticFiltering,
+     ContentSettingsType::adrbrowsiel_COSMETIC_FILTERING},
+    {adrbrowsiel_shields::kTrackers, ContentSettingsType::adrbrowsiel_TRACKERS},
+    {adrbrowsiel_shields::kHTTPUpgradableResources,
+     ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES},
+    {adrbrowsiel_shields::kFingerprintingV2,
+     ContentSettingsType::adrbrowsiel_FINGERPRINTING_V2},
+    {adrbrowsiel_shields::kadrbrowsielShields, ContentSettingsType::adrbrowsiel_SHIELDS},
+    {adrbrowsiel_shields::kReferrers, ContentSettingsType::adrbrowsiel_REFERRERS},
+    {adrbrowsiel_shields::kCookies, ContentSettingsType::adrbrowsiel_COOKIES},
 };
 
 }  // namespace
 
-void ContentSettingsRegistry::RegisterBraveContentSettingsTypes(
+void ContentSettingsRegistry::RegisteradrbrowsielContentSettingsTypes(
     const ContentSettingsType& type,
     const std::string& name) {
   Register(type, name, CONTENT_SETTING_BLOCK, WebsiteSettingsInfo::SYNCABLE,
@@ -47,7 +47,7 @@ void ContentSettingsRegistry::RegisterBraveContentSettingsTypes(
            ContentSettingsInfo::EXCEPTIONS_ON_SECURE_AND_INSECURE_ORIGINS);
 }
 
-void ContentSettingsRegistry::BraveInit() {
+void ContentSettingsRegistry::adrbrowsielInit() {
   // Add CONTENT_SETTING_ASK for autoplay
   // Note ASK has been deprecated, only keeping it for
   // DiscardObsoleteAutoplayAsk test case
@@ -64,11 +64,11 @@ void ContentSettingsRegistry::BraveInit() {
            ContentSettingsInfo::PERSISTENT,
            ContentSettingsInfo::EXCEPTIONS_ON_SECURE_AND_INSECURE_ORIGINS);
 
-  // Register Brave-specific types, defaulting them to CONTENT_SETTING_BLOCK.
-  for (auto brave_type : kBraveContentSettingstypes)
-    RegisterBraveContentSettingsTypes(brave_type.type, brave_type.name);
+  // Register adrbrowsiel-specific types, defaulting them to CONTENT_SETTING_BLOCK.
+  for (auto adrbrowsiel_type : kadrbrowsielContentSettingstypes)
+    RegisteradrbrowsielContentSettingsTypes(adrbrowsiel_type.type, adrbrowsiel_type.name);
 
-  // Disable background sync by default (brave/brave-browser#4709)
+  // Disable background sync by default (adrbrowsiel/adrbrowsiel-browser#4709)
   content_settings_info_.erase(ContentSettingsType::BACKGROUND_SYNC);
   website_settings_registry_->UnRegister(ContentSettingsType::BACKGROUND_SYNC);
   Register(ContentSettingsType::BACKGROUND_SYNC, "background-sync",
@@ -82,7 +82,7 @@ void ContentSettingsRegistry::BraveInit() {
            ContentSettingsInfo::PERSISTENT,
            ContentSettingsInfo::EXCEPTIONS_ON_SECURE_ORIGINS_ONLY);
 
-  // Disable motion sensors by default (brave/brave-browser#4789)
+  // Disable motion sensors by default (adrbrowsiel/adrbrowsiel-browser#4789)
   content_settings_info_.erase(ContentSettingsType::SENSORS);
   website_settings_registry_->UnRegister(ContentSettingsType::SENSORS);
   Register(ContentSettingsType::SENSORS, "sensors", CONTENT_SETTING_BLOCK,

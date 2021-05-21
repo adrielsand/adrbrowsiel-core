@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 The Brave Authors. All rights reserved.
+ * Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -30,7 +30,7 @@ import org.chromium.chrome.R;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.browser.onboarding.SearchEngineEnum;
 import org.chromium.chrome.browser.search_engines.TemplateUrlServiceFactory;
-import org.chromium.chrome.browser.settings.BraveSearchEngineUtils;
+import org.chromium.chrome.browser.settings.adrbrowsielSearchEngineUtils;
 import org.chromium.components.search_engines.TemplateUrl;
 import org.chromium.components.search_engines.TemplateUrlService;
 
@@ -70,7 +70,7 @@ public class SearchEngineOnboardingFragment extends Fragment {
         TemplateUrlService templateUrlService = TemplateUrlServiceFactory.get();
         List<TemplateUrl> templateUrls = templateUrlService.getTemplateUrls();
         TemplateUrl defaultSearchEngineTemplateUrl =
-            BraveSearchEngineUtils.getTemplateUrlByShortName(BraveSearchEngineUtils.getDSEShortName(false));
+            adrbrowsielSearchEngineUtils.getTemplateUrlByShortName(adrbrowsielSearchEngineUtils.getDSEShortName(false));
 
         Iterator<TemplateUrl> iterator = templateUrls.iterator();
         Set<String> templateUrlSet = new HashSet<String>();
@@ -154,11 +154,11 @@ public class SearchEngineOnboardingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (selectedSearchEngine == null) {
-                    selectedSearchEngine = BraveSearchEngineUtils.getTemplateUrlByShortName(BraveSearchEngineUtils.getDSEShortName(false));
+                    selectedSearchEngine = adrbrowsielSearchEngineUtils.getTemplateUrlByShortName(adrbrowsielSearchEngineUtils.getDSEShortName(false));
                 }
                 if (selectedSearchEngine != null) {
-                    BraveSearchEngineUtils.setDSEPrefs(selectedSearchEngine, false);
-                    BraveSearchEngineUtils.setDSEPrefs(selectedSearchEngine, true);
+                    adrbrowsielSearchEngineUtils.setDSEPrefs(selectedSearchEngine, false);
+                    adrbrowsielSearchEngineUtils.setDSEPrefs(selectedSearchEngine, true);
                 }
                 getActivity().finish();
             }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2020 The Brave Authors. All rights reserved.
+<!-- Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
      This Source Code Form is subject to the terms of the Mozilla Public
      License, v. 2.0. If a copy of the MPL was not distributed with this file,
      You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -11,7 +11,7 @@
     android:paddingEnd="16dp" >
 
     <TextView
-        android:id="@+id/brave_shields_switch_text"
+        android:id="@+id/adrbrowsiel_shields_switch_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -22,12 +22,12 @@
         android:layout_gravity="center_vertical" />
 
     <Switch
-        android:id="@+id/brave_shields_switch"
+        android:id="@+id/adrbrowsiel_shields_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:switchMinWidth="56dp"
-        android:theme="@style/BraveSwitchTheme"
+        android:theme="@style/adrbrowsielSwitchTheme"
         android:gravity="center|center_vertical"
         android:layout_gravity="center_vertical" />
 </LinearLayout>

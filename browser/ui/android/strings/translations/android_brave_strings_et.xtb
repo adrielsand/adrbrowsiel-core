@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE translationbundle>
 <translationbundle lang="et">
-<translation id="7307834434086582547">Luba/keela Brave'i kaitsed</translation>
+<translation id="7307834434086582547">Luba/keela adrbrowsiel'i kaitsed</translation>
 <translation id="3570081523466826008">Täienda ühendused HTTPS-ile</translation>
 <translation id="94154759592465111">Blokeeri skriptid</translation>
 <translation id="5709627087332022422">Blokeeri saitidevahelised jälitajad</translation>
@@ -10,7 +10,7 @@
 <translation id="863171915776379000">Luba Facebooki sisselogimised ja manustatud postitused</translation>
 <translation id="5165042248369837294">Luba Twitteri manustatud säutsud</translation>
 <translation id="958971637207126733">Luba LinkedIni manustatud postitused</translation>
-<translation id="6302422639282249274">Halda Brave Rewardsi</translation>
+<translation id="6302422639282249274">Halda adrbrowsiel Rewardsi</translation>
 <translation id="1506061864768559482">Otsingumootor</translation>
 <translation id="1468415711258933398">Tavaline kaart</translation>
 <translation id="3377025655491224618">Privaatne kaart</translation>
@@ -32,8 +32,8 @@
 <translation id="5787084571334399599">Kaitseb brauserit seadmetuvastuse eest</translation>
 <translation id="7459000603787995422">Sulge kaardid väljumisel</translation>
 <translation id="1680858055899097121">Ära säilita kaarte sirvimissessioonide vältel</translation>
-<translation id="6469509880167172749">Saada täielikult privaatne tooteanalüüs automaatselt Brave’ile</translation>
-<translation id="7090566321964540749">See anonüümne teave võimaldab Brave’il ainult hinnata teatud funktsioonide üldist kasutamist.</translation>
+<translation id="6469509880167172749">Saada täielikult privaatne tooteanalüüs automaatselt adrbrowsiel’ile</translation>
+<translation id="7090566321964540749">See anonüümne teave võimaldab adrbrowsiel’il ainult hinnata teatud funktsioonide üldist kasutamist.</translation>
 <translation id="7977176350719484850">Hin. andmed\nSalvestatud</translation>
 <translation id="9008534313521214777">Eeldatav\nsäästetud aeg</translation>
 <translation id="6572660632052512096">Arvutirežiim</translation>
@@ -41,48 +41,48 @@
 <translation id="7924540991929826186">Kasuta saitide mobiiliversioone uute kaartide jaoks (soovitatud)</translation>
 <translation id="807636106793708118">Eelista saitide mobiilivaadet</translation>
 <translation id="4479934682648362332">Eelista saitide arvutivaadet</translation>
-<translation id="1842747674580016420">Video taasesitus Brave'is</translation>
-<translation id="5368992950177874750">Lubamisel esitatakse videoid tavalise videoesitaja asemel Brave’is</translation>
+<translation id="1842747674580016420">Video taasesitus adrbrowsiel'is</translation>
+<translation id="5368992950177874750">Lubamisel esitatakse videoid tavalise videoesitaja asemel adrbrowsiel’is</translation>
 <translation id="2645380101799517405">Juhtnupud</translation>
 <translation id="5965081608816406060">Video taasesitus taustal</translation>
-<translation id="6332924730165919598">Kõikide kaartide sulgemine sulgeb Brave'i</translation>
+<translation id="6332924730165919598">Kõikide kaartide sulgemine sulgeb adrbrowsiel'i</translation>
 <translation id="1580125697191336644">Katsetamisel. Võimaldab esitada video heli taustal, kui vahekaardi sisu pole nähtaval või seadme ekraan on lülitatud välja. Selle võimaluse tõrgete puhul lülitu töölaua režiimi.</translation>
 <translation id="59174027418879706">Lubatud</translation>
 <translation id="4150201353443180367">Kuva</translation>
 <translation id="2433507940547922241">Välimus</translation>
-<translation id="2804710924397009224">Peida Brave Rewards ikoon</translation>
-<translation id="7289740269305509613">Peidab Brave Rewardsi ikooni</translation>
+<translation id="2804710924397009224">Peida adrbrowsiel Rewards ikoon</translation>
+<translation id="7289740269305509613">Peidab adrbrowsiel Rewardsi ikooni</translation>
 <translation id="8495235435594442882">Luba alumine tööriistariba</translation>
-<translation id="6587448235155023666">Muudatused jõustuvad järgmine kord, kui Brave’i taaskäivitate</translation>
+<translation id="6587448235155023666">Muudatused jõustuvad järgmine kord, kui adrbrowsiel’i taaskäivitate</translation>
 <translation id="8701563696941209024">TAASKÄIVITA KOHE</translation>
 <translation id="834487290629916192">HILJEM</translation>
 <translation id="8281886186245836920">Jäta vahele</translation>
 <translation id="986879628471635371">Abi võimalustega tutvumine</translation>
 <translation id="5808759341041733958">Vali vaikeotsingumootor</translation>
 <translation id="1331593888918588693">Oma eelistusi on võimalik hiljem muuta rakenduse sätetes.</translation>
-<translation id="5806601733251372221">Brave'i kaitse</translation>
+<translation id="5806601733251372221">adrbrowsiel'i kaitse</translation>
 <translation id="8537217141725709400">Teeni <ph name="TOKEN"/>s</translation>
-<translation id="3333887201479867589">Brave Rewards</translation>
+<translation id="3333887201479867589">adrbrowsiel Rewards</translation>
 <translation id="5870330605209713397">vaadates privaatsust austavaid reklaame ja toetate vaikimisi oma lemmiksaite ja -loojaid.</translation>
-<translation id="5302488867897327287">Puudutades nuppu "Alusta Brave Rewardsi kasutamist", nõustute</translation>
+<translation id="5302488867897327287">Puudutades nuppu "Alusta adrbrowsiel Rewardsi kasutamist", nõustute</translation>
 <translation id="4281844954008187215">teenusetingimustega</translation>
 <translation id="6871397658902960384">Alusta sirvimist</translation>
 <translation id="454386012157232640">Ma ei näinud reklaami</translation>
-<translation id="1448877943847791441">Brave kuvab esimese reklaami</translation>
-<translation id="4410793187232041318">Nüüd teenite Brave Adsilt tokeneid.</translation>
-<translation id="6511854390690723657">See on Teie esimene Brave’i reklaam. Lisateabe saamiseks puudutage.</translation>
-<translation id="2070991379950719711">Alusta Brave Rewardsi kasutamist</translation>
+<translation id="1448877943847791441">adrbrowsiel kuvab esimese reklaami</translation>
+<translation id="4410793187232041318">Nüüd teenite adrbrowsiel Adsilt tokeneid.</translation>
+<translation id="6511854390690723657">See on Teie esimene adrbrowsiel’i reklaam. Lisateabe saamiseks puudutage.</translation>
+<translation id="2070991379950719711">Alusta adrbrowsiel Rewardsi kasutamist</translation>
 <translation id="48520986898237073">Ava rahakott</translation>
 <translation id="3570367516044491911">Määra tavabrauseriks</translation>
-<translation id="19715420010996093">Valige Brave'i brauser ja puudutage valikut „Alati“</translation>
-<translation id="3546439402724649282">Brave on juba vaikebrauser.</translation>
+<translation id="19715420010996093">Valige adrbrowsiel'i brauser ja puudutage valikut „Alati“</translation>
+<translation id="3546439402724649282">adrbrowsiel on juba vaikebrauser.</translation>
 <translation id="8389661903259423907">Oled juba määranud vaikebrauseri. Seda saad muuda rakenduse seadetest.</translation>
-<translation id="7091885296442320770">Brave on välkkiire</translation>
-<translation id="2171928016777725844">Määrake Brave vaikebrauseriks!</translation>
+<translation id="7091885296442320770">adrbrowsiel on välkkiire</translation>
+<translation id="2171928016777725844">Määrake adrbrowsiel vaikebrauseriks!</translation>
 <translation id="7136694880210472378">Muuda vaikevalikuks</translation>
 <translation id="4250680216510889253">Ei</translation>
 <translation id="4501702055016678577">Privaatne otsing DuckDuckGo-ga?</translation>
-<translation id="910419239800579753">Privaatse otsingu korral kasutab Brave otsinguteks selles privaatses aknas DuckDuckGo otsingumootorit. DuckDuckGo on otsingumootor, mis ei jälgi otsinguajalugu, võimaldades otsida privaatselt.</translation>
+<translation id="910419239800579753">Privaatse otsingu korral kasutab adrbrowsiel otsinguteks selles privaatses aknas DuckDuckGo otsingumootorit. DuckDuckGo on otsingumootor, mis ei jälgi otsinguajalugu, võimaldades otsida privaatselt.</translation>
 <translation id="1426410128494586442">Jah</translation>
 <translation id="5628466560184522265">Teave DuckDuckGoga privaatse otsimise kohta</translation>
 <translation id="8826007068782654809">Täname</translation>
@@ -90,7 +90,7 @@
 <translation id="5441565662498481293">Saadate automaatselt preemiaid:</translation>
 <translation id="1166682575529520472">Iga kuu</translation>
 <translation id="1628742278973105368">Teie esimene igakuine preemia saadetakse:</translation>
-<translation id="298349922412901215">Autor ei ole veel end registreerinud ega saa vastu võtta Brave'i kasutajate panuseid. Üritame tasu maksta kuni kinnituse saamiseni või kuni möödub 90 päeva.</translation>
+<translation id="298349922412901215">Autor ei ole veel end registreerinud ega saa vastu võtta adrbrowsiel'i kasutajate panuseid. Üritame tasu maksta kuni kinnituse saamiseni või kuni möödub 90 päeva.</translation>
 <translation id="1910721550319506122">Tere tulemast!</translation>
 <translation id="3165726837666415756">Saad seda saiti toetada preemiat saates. See on viis tänada neid suurepärase sisu eest. Kinnitatud sisu loojad saavad preemiate eest tasu iga kalendrikuu esimesel nädalal.</translation>
 <translation id="1704859330137112950">Kui soovite, saate selle saidi pidevaks toetamiseks määrata igakuised preemiad.</translation>
@@ -115,9 +115,9 @@
 <translation id="3826081199286264109">USD</translation>
 <translation id="1165667598801520610">Lisa vahendeid</translation>
 <translation id="8428213095426709021">Seaded</translation>
-<translation id="8772672608371898774">Brave'i kinnitatud väljaandja</translation>
+<translation id="8772672608371898774">adrbrowsiel'i kinnitatud väljaandja</translation>
 <translation id="1397683270551078781">Kinnitamata</translation>
-<translation id="5727208111992260840">See looja pole veel end Brave'i kasutajate sissemaksete saajaks registreerinud.
+<translation id="5727208111992260840">See looja pole veel end adrbrowsiel'i kasutajate sissemaksete saajaks registreerinud.
 Kogu teie saadetud raha jääb kuni kinnitamiseni teie rahakotti.</translation>
 <translation id="8918760045046434238">Saada preemia...</translation>
 <translation id="1978261665418056203">Sel kuul tegevusi veel
@@ -138,15 +138,15 @@ pole...</translation>
 <translation id="5306913077198665897">Preemia töötlemisel ilmnes probleem, proovige uuesti.</translation>
 <translation id="2429828319207652823">Panustamise töötlemisel tekkis tõrge.</translation>
 <translation id="3453206261112715431">Tasuta tokenivõimalus</translation>
-<translation id="6417420737057016607">Brave'i reklaamid</translation>
+<translation id="6417420737057016607">adrbrowsiel'i reklaamid</translation>
 <translation id="5497435273900537730">Tasuta <ph name="TOKEN"/> saadaval.</translation>
 <translation id="8689997599821157251">Olete teeninud</translation>
 <translation id="7550470870580166294">Ebapiisavad vahendid</translation>
-<translation id="2775064702681588061">Sinu Brave Rewards konto ootab sissemakset.</translation>
+<translation id="2775064702681588061">Sinu adrbrowsiel Rewards konto ootab sissemakset.</translation>
 <translation id="765834632354589737">Rahakoti varundamine</translation>
-<translation id="1713542052890184975">Varundage oma Brave'i rahakotti</translation>
+<translation id="1713542052890184975">Varundage oma adrbrowsiel'i rahakotti</translation>
 <translation id="2323069945529668668">Oi ei!</translation>
-<translation id="7510166204621526816">Brave Rewardsi server hetkel ei vasta. Parandame selle võimalikult kiiresti.</translation>
+<translation id="7510166204621526816">adrbrowsiel Rewardsi server hetkel ei vasta. Parandame selle võimalikult kiiresti.</translation>
 <translation id="683765328936486920">YouTube'is</translation>
 <translation id="8969049974285901797">Twitch'is</translation>
 <translation id="3692362746128814480">Oled eraldanud <ph name="BAT_VALUE"/> BAT loojatele, kes pole
@@ -156,7 +156,7 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="6940273954212603510">palun</translation>
 <translation id="1036277985068412734">lisa vahendeid</translation>
 <translation id="3492491948683276944">seadista igakuine premeerimine</translation>
-<translation id="8038539967102225446">Brave’i reklaamid on siin!</translation>
+<translation id="8038539967102225446">adrbrowsiel’i reklaamid on siin!</translation>
 <translation id="222883304157347087">(see seade)</translation>
 <translation id="4157741509680155021">SEADMED SÜNKIMISAHELAS</translation>
 <translation id="279635009973773843">SEADMETE LAADIMINE...</translation>
@@ -165,10 +165,10 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="4282642752844565114">Vale sõnade arv</translation>
 <translation id="7507533586185621084">Vale sünkroonimiskood</translation>
 <translation id="8284063834901328650">Vale QR-sünkroonimiskood</translation>
-<translation id="3149880132460839085">Brave Sync</translation>
-<translation id="3680755684186855422">Brave Sync võimaldab teil privaatselt sünkroonida järjehoidjate andmeid erinevate seadmete Brave'i veebilehitsejate vahel.</translation>
+<translation id="3149880132460839085">adrbrowsiel Sync</translation>
+<translation id="3680755684186855422">adrbrowsiel Sync võimaldab teil privaatselt sünkroonida järjehoidjate andmeid erinevate seadmete adrbrowsiel'i veebilehitsejate vahel.</translation>
 <translation id="3735228155296883311">Lihtsalt skanni teises seadmes loodud ajakohastamise ahela koodi või alusta uut ajakohastamise ahelat.</translation>
-<translation id="2614069607859982576">Avage olemasolevas sünkroonitud seadmes Brave’i seaded, ja liikuge lehele „Seaded &gt; Sünkroonimine“. Valige „Lisa uus seade“ ja skannige ekraanil kuvatud QR-kood.</translation>
+<translation id="2614069607859982576">Avage olemasolevas sünkroonitud seadmes adrbrowsiel’i seaded, ja liikuge lehele „Seaded &gt; Sünkroonimine“. Valige „Lisa uus seade“ ja skannige ekraanil kuvatud QR-kood.</translation>
 <translation id="5241263629636958324">Kopeeritud lõikelaule</translation>
 <translation id="5817918615728894473">Seo</translation>
 <translation id="7090325819305486658">Andme-eelistused</translation>
@@ -178,12 +178,12 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="1602067095281698985">Alusta uut sünkroniseerimisahelat</translation>
 <translation id="1475223680121592371">Lisa mobiilseade</translation>
 <translation id="2965377893636908578">Lisa arvuti</translation>
-<translation id="6604289897677913048">Mine teises telefonis või nuhvlis „Brave’i seaded &gt; Ajakohastamine &gt; Skannimine.</translation>
-<translation id="8508856434435157945">Mobiilseadme paneelis „Seaded“ mine „Brave’i ajakohastamine“ ja klõpsa nuppu „Skanni ajakohastamiskoodi“. Skanni allolevat QR-kood kaameraga.</translation>
-<translation id="2590683710114839102">Arvutis mine „Brave’i seaded“ &gt; Ajakohastamine“. Vali „SIsesta ajakohastamisahela kood“.</translation>
+<translation id="6604289897677913048">Mine teises telefonis või nuhvlis „adrbrowsiel’i seaded &gt; Ajakohastamine &gt; Skannimine.</translation>
+<translation id="8508856434435157945">Mobiilseadme paneelis „Seaded“ mine „adrbrowsiel’i ajakohastamine“ ja klõpsa nuppu „Skanni ajakohastamiskoodi“. Skanni allolevat QR-kood kaameraga.</translation>
+<translation id="2590683710114839102">Arvutis mine „adrbrowsiel’i seaded“ &gt; Ajakohastamine“. Vali „SIsesta ajakohastamisahela kood“.</translation>
 <translation id="65315202420929965">Skanni see ajakohastamiskood</translation>
 <translation id="6764016175302339802">Suhtu sellesse koodi kui parooli. Kui keegi saab selle endale, siis tal on võimalik lugeda ja muuta ajakohastatud andmeid.</translation>
-<translation id="6707003343517029414">Sihtarvuti seadetes mine „Brave’i ajakohastamine“ ja klõpsa nuppu „Mul on ajakohastamiskood“\nSisesta all näidatavad ajakohastamisahela sõnad.</translation>
+<translation id="6707003343517029414">Sihtarvuti seadetes mine „adrbrowsiel’i ajakohastamine“ ja klõpsa nuppu „Mul on ajakohastamiskood“\nSisesta all näidatavad ajakohastamisahela sõnad.</translation>
 <translation id="2731921493694251495">Sisesta ajakohastamisahela kood</translation>
 <translation id="2175927920773552910">QR-kood</translation>
 <translation id="8653433343015102968">Koodisõnad</translation>
@@ -193,36 +193,36 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="6776430845975754238">Seadete muutmine mõjutab vaid neid andmeid, mida see seade jagab teistega.</translation>
 <translation id="1061533051865606843">Lisa uus seade</translation>
 <translation id="7539985410310934287">Sisesta koodisõnad</translation>
-<translation id="2886391679017857869">Avage olemasolevas sünkroonitud seadmes Brave’i seaded, ja liikuge lehele „Seaded &gt; Sünkroonimine“. Valige „Lisa uus seade“ ja seejärel "Kuva hoopis salasõnad".</translation>
+<translation id="2886391679017857869">Avage olemasolevas sünkroonitud seadmes adrbrowsiel’i seaded, ja liikuge lehele „Seaded &gt; Sünkroonimine“. Valige „Lisa uus seade“ ja seejärel "Kuva hoopis salasõnad".</translation>
 <translation id="8131740175452115882">Kinnita</translation>
 <translation id="4973653569293835178">Kasutan kaamerat...</translation>
 <translation id="326454632686131209">Sünkroniseeri seade</translation>
 <translation id="327726072512457161">Seadetest väljumine</translation>
-<translation id="8050847734948770789">Luba Brave Rewards</translation>
+<translation id="8050847734948770789">Luba adrbrowsiel Rewards</translation>
 <translation id="9187185473011056079">Olen käsi!</translation>
-<translation id="8185825081026121627">Teeni Basic Attention Token-eid, vaadates privaatsust säilitavaid Brave Rewards reklaame.</translation>
+<translation id="8185825081026121627">Teeni Basic Attention Token-eid, vaadates privaatsust säilitavaid adrbrowsiel Rewards reklaame.</translation>
 <translation id="5321518976657560663">Taastamise viga</translation>
-<translation id="4114170343590425996">Brave Rewardsi taastamisel ilmnes viga. Käivita Brave uuesti ja ürita taas.</translation>
-<translation id="6393502589311632553">Näita reklaame, kui Brave’i ei kasutata</translation>
-<translation id="3349204812119681938">Taasta Brave Rewards</translation>
-<translation id="8782039523249932839">See kustutab Brave’i rahakoti ja taastab kõik Brave Rewardsi andmed.</translation>
+<translation id="4114170343590425996">adrbrowsiel Rewardsi taastamisel ilmnes viga. Käivita adrbrowsiel uuesti ja ürita taas.</translation>
+<translation id="6393502589311632553">Näita reklaame, kui adrbrowsiel’i ei kasutata</translation>
+<translation id="3349204812119681938">Taasta adrbrowsiel Rewards</translation>
+<translation id="8782039523249932839">See kustutab adrbrowsiel’i rahakoti ja taastab kõik adrbrowsiel Rewardsi andmed.</translation>
 <translation id="6810078320346589989">Loo järjehoidja</translation>
-<translation id="3396347744975515056">Brave sünkroonimine on täiendatud ja vajab seadistamist</translation>
+<translation id="3396347744975515056">adrbrowsiel sünkroonimine on täiendatud ja vajab seadistamist</translation>
 <translation id="7473245612074035141">Alusta seadistust</translation>
 <translation id="8985635554450124959">Ajakohastamist ei suudetud seadistada</translation>
-<translation id="2514300153301737214">Tuvastasime, et teil on Brave'i sünkroonimine lubatud, kuid teie süsteemi sünkroonimisfunktsioon on välja lülitatud ega võimalda Brave'il sünkroonida. Vajutage seadete avamiseks</translation>
+<translation id="2514300153301737214">Tuvastasime, et teil on adrbrowsiel'i sünkroonimine lubatud, kuid teie süsteemi sünkroonimisfunktsioon on välja lülitatud ega võimalda adrbrowsiel'il sünkroonida. Vajutage seadete avamiseks</translation>
 <translation id="7173114856073700355">Ava seaded</translation>
 <translation id="6965382102122355670">OK</translation>
 <translation id="4450893287417543264">Ära enam näita</translation>
-<translation id="597993392929850353">Brave'i litsents</translation>
+<translation id="597993392929850353">adrbrowsiel'i litsents</translation>
 <translation id="6336451774241870485">Uus privaatne vaheleht</translation>
 <translation id="6199596294742117349">See on privaatne vahekaart</translation>
 <translation id="5858455511731621847">Isegi, kui privaatsetes vahekaartides külastatavaid lehti ei salvestata seadmesse, pole külastatavad lehed peidetud ega anonüümsed internetiteenuse pakkuja, tööandja või külastatavate lehtede eest.</translation>
-<translation id="5789441016350810005">Brave Ads saadetakse, kui veebilehitseja töötab taustal</translation>
+<translation id="5789441016350810005">adrbrowsiel Ads saadetakse, kui veebilehitseja töötab taustal</translation>
 <translation id="3690140184638701871">Annetused ja preemiad</translation>
 <translation id="844921671123185605">Sinu igakuised preemiad on töödeldud!</translation>
 <translation id="3124090095880236567">Lülita sisse reklaamid</translation>
-<translation id="2975780980638932742">Brave'i reklaamid on saabunud!</translation>
+<translation id="2975780980638932742">adrbrowsiel'i reklaamid on saabunud!</translation>
 <translation id="7541582550122501404">Ootel annetus</translation>
 <translation id="8520059774736886747">Looja <ph name="PUBLISHER_NAME"/> hiljuti kinnitatud</translation>
 <translation id="7924320838799747606">Sinu kontojääk</translation>
@@ -234,7 +234,7 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="8522669544471808198">Kuva taustapildid</translation>
 <translation id="3870475560794762985">Kuva sponsoreeritud pildid</translation>
 <translation id="8297488609722895137">Foto autorilt <ph name="PHOTO_BY"/></translation>
-<translation id="4761229094276239865">Valiku "Alusta Brave Rewardsi kasutamist" puudutamisega nõustute dokumendiga <ph name="TERMS_OF_SERVICE"/>.</translation>
+<translation id="4761229094276239865">Valiku "Alusta adrbrowsiel Rewardsi kasutamist" puudutamisega nõustute dokumendiga <ph name="TERMS_OF_SERVICE"/>.</translation>
 <translation id="3794079107601824147">Saa raha selle taustapildi nägemise eest.</translation>
 <translation id="7136586167396205364">Peida sponsoreeritud pildid</translation>
 <translation id="2927095357213611519">Saate veebiloojaid toetada tokenitega.\nTeenige tokeneid, vaadates isikuandmeid austavaid reklaame.</translation>
@@ -246,15 +246,15 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="8558636200953226885">Kuid kui kinnitate, saate …</translation>
 <translation id="8697510149346635496">Võtke välja BAT, mille teenite privaatsust austavate reklaamide vaatamise eest</translation>
 <translation id="1481480653609649134">Ostke täiendavat BAT-i krediitkaartide ja muude vahenditega</translation>
-<translation id="9096003370755878766">Võtke välja BAT, mille olete eelnevalt lisanud oma Brave Rewardsi rahakotti.</translation>
+<translation id="9096003370755878766">Võtke välja BAT, mille olete eelnevalt lisanud oma adrbrowsiel Rewardsi rahakotti.</translation>
 <translation id="1554282356558968486">Meie rahakotiteenust pakub</translation>
 <translation id="6569877533335686968">Hoia</translation>
 <translation id="8465442795593991224">Uphold võib olenevalt taotletud teenustest nõuda teie identiteedi kinnitamist</translation>
-<translation id="723054503945711909">Brave Software Inc. ei töötle, talleta ega pääse juurde isikuandmetele, mille annata Upholdile, kui loote selle juures konto.</translation>
+<translation id="723054503945711909">adrbrowsiel Software Inc. ei töötle, talleta ega pääse juurde isikuandmetele, mille annata Upholdile, kui loote selle juures konto.</translation>
 <translation id="3699674790322420653">Lõpetage rahakoti kinnitamine</translation>
 <translation id="2193391216824305230">Kasutaja rahakott</translation>
 <translation id="7591798679868259510">Ava minu Upholdi konto</translation>
-<translation id="9200453331904391567">Katkesta Brave Rewardsi ühendus</translation>
+<translation id="9200453331904391567">Katkesta adrbrowsiel Rewardsi ühendus</translation>
 <translation id="6239274080752256452">Võta vahendid välja</translation>
 <translation id="8874184842967597500">Ühendus puudub</translation>
 <translation id="3368922792935385530">Ühendatud</translation>
@@ -266,14 +266,14 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="4190454391025419535">Piirkonda ei toetata</translation>
 <translation id="6830703472632069884">Rahakoti kinnitamisel ilmnes probleem. Proovige hiljem uuesti.</translation>
 <translation id="3512533646933434345">Viga rahakoti kinnitamisel</translation>
-<translation id="2260513517001048012">MÄRKUS. See Brave’i kinnitatud looja pole veel seadistanud oma kontot Brave’i kasutajatelt annetuste saamiseks. Teie brauser proovib uuesti annetada, kuni nad kinnitavad või kui 90 päeva on möödas.</translation>
-<translation id="4488355059795908907">See Brave’i kinnitatud looja pole veel oma kontot Brave’i kasutajatelt annetuste saamiseks seadistanud. Kogu saadetav jootraha jääb tema rahakotti, kuni nad lõpetavad seadistamise.</translation>
-<translation id="2495032782748793764">Brave’i tavavalikud</translation>
-<translation id="9132378787893584761">Jagage Brave’i oma sõpradele!</translation>
+<translation id="2260513517001048012">MÄRKUS. See adrbrowsiel’i kinnitatud looja pole veel seadistanud oma kontot adrbrowsiel’i kasutajatelt annetuste saamiseks. Teie brauser proovib uuesti annetada, kuni nad kinnitavad või kui 90 päeva on möödas.</translation>
+<translation id="4488355059795908907">See adrbrowsiel’i kinnitatud looja pole veel oma kontot adrbrowsiel’i kasutajatelt annetuste saamiseks seadistanud. Kogu saadetav jootraha jääb tema rahakotti, kuni nad lõpetavad seadistamise.</translation>
+<translation id="2495032782748793764">adrbrowsiel’i tavavalikud</translation>
+<translation id="9132378787893584761">Jagage adrbrowsiel’i oma sõpradele!</translation>
 <translation id="717952606991220586">Ups, midagi on valesti. Palun proovi hiljem uuesti.</translation>
-<translation id="2524310205387880526">Hinnake Brave’i</translation>
+<translation id="2524310205387880526">Hinnake adrbrowsiel’i</translation>
 <translation id="6680650203439190394">Kurss</translation>
-<translation id="2635089463885398597">Kuidas hindaksite oma kogemust Brave'iga?</translation>
+<translation id="2635089463885398597">Kuidas hindaksite oma kogemust adrbrowsiel'iga?</translation>
 <translation id="141901961143729572">Jagage oma mõtteid</translation>
 <translation id="7961015016161918242">Mitte kunagi</translation>
 <translation id="1275213816424141989">Ehk hiljem</translation>
@@ -281,11 +281,11 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="8851456134224363571">Tore! Kas sooviksite jätta meile hinnangu Play Store’is?</translation>
 <translation id="8668962040900592974">Andke teada, kuidas saaksime paraneda</translation>
 <translation id="4406937629441301400">Teenige seda pilti vaadates tokeneid ja makske need loojatele edasi <ph name="LEARN_MORE"/></translation>
-<translation id="1992363542751124282">Selle pildi vaatamise eest teenite tokeneid. Oma osa kättesaamiseks puudutage valikut "Alusta Brave Rewardsi kasutamist".</translation>
+<translation id="1992363542751124282">Selle pildi vaatamise eest teenite tokeneid. Oma osa kättesaamiseks puudutage valikut "Alusta adrbrowsiel Rewardsi kasutamist".</translation>
 <translation id="6632345639591919543">Seda pilti vaadates teenite tokeneid.\n<ph name="LEARN_MORE"/></translation>
 <translation id="1465733111003593696">Selle pildi vaatamise eest teenite tokeneid.</translation>
 <translation id="7877201489035217175">Lisateave tahastatud piltide kohta</translation>
-<translation id="828092975561478703">Iga  vaadatava rahastatud pildi eest saate 70% tulust tokenitena. Brave’i reklaamide abil saate alati kontrollida, milliseid reklaame näete.</translation>
+<translation id="828092975561478703">Iga  vaadatava rahastatud pildi eest saate 70% tulust tokenitena. adrbrowsiel’i reklaamide abil saate alati kontrollida, milliseid reklaame näete.</translation>
 <translation id="4941539331405513605">Blokeeri lehtedevahelised küpsised</translation>
 <translation id="3763681089644577874">Blokeeri küpsisefailid</translation>
 <translation id="614747795780742163">Takistab veebisaitidel eelmiste külastuste teabe salvestamist</translation>
@@ -298,34 +298,34 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="769702552748212954">Luba seadmetuvastus igal pool</translation>
 <translation id="876424292214881779">Blokeeritud reklaamid ja muud koledused</translation>
 <translation id="5142293891785304489">Blokeeritud jälitajad, reklaamid\nja muu</translation>
-<translation id="6930134873084561197">Lehed sisaldavad tihti küpsiseid ja skripte, mis üritavad tuvastada teid ja teie seadet. Need soovivad teada, kes olete ja teid veebis jälitada ehk jälgida, mida igal lehel teete. \n\nBrave blokeerib need, et saaksite sirvida, ilma et keegi teid jälitaks.</translation>
-<translation id="8553998445606452168">Brave’i kaitsete kohta</translation>
+<translation id="6930134873084561197">Lehed sisaldavad tihti küpsiseid ja skripte, mis üritavad tuvastada teid ja teie seadet. Need soovivad teada, kes olete ja teid veebis jälitada ehk jälgida, mida igal lehel teete. \n\nadrbrowsiel blokeerib need, et saaksite sirvida, ilma et keegi teid jälitaks.</translation>
+<translation id="8553998445606452168">adrbrowsiel’i kaitsete kohta</translation>
 <translation id="8912304686498704084">ÜLES</translation>
 <translation id="4963218453264888510">ALLA</translation>
-<translation id="7474113515179313724">Sirvite seda veebisaiti ilma Brave’i privaatsuse kaitseta. Kas see ei tööta õigesti, kui kaitse on kasutusel?</translation>
+<translation id="7474113515179313724">Sirvite seda veebisaiti ilma adrbrowsiel’i privaatsuse kaitseta. Kas see ei tööta õigesti, kui kaitse on kasutusel?</translation>
 <translation id="9055546041146396417">Paistab, et leht ei toimi. Proovige kaitse keelata.</translation>
 <translation id="1209739344687072997">Teata mittetoimivast veebisaidist</translation>
-<translation id="8510478288840333677">Andke Brave’i arendajatele teada, et see veebisait ei toimi kaitsega õigesti:</translation>
-<translation id="5429200298326665264">Märkus. Selle veebisaidi aadress esitatakse koos Brave’i versiooninumbri ja IP-aadressiga (mida ei salvestata).</translation>
+<translation id="8510478288840333677">Andke adrbrowsiel’i arendajatele teada, et see veebisait ei toimi kaitsega õigesti:</translation>
+<translation id="5429200298326665264">Märkus. Selle veebisaidi aadress esitatakse koos adrbrowsiel’i versiooninumbri ja IP-aadressiga (mida ei salvestata).</translation>
 <translation id="5299848999918506028">Täname!</translation>
-<translation id="76550953340008122">Täname, et andsite Brave’i arendajatele teada, et selle veebisaidiga on midagi valesti. Anname endast parima, et see korda teha!</translation>
+<translation id="76550953340008122">Täname, et andsite adrbrowsiel’i arendajatele teada, et selle veebisaidiga on midagi valesti. Anname endast parima, et see korda teha!</translation>
 <translation id="650318023204990401">Täiustatud kontroll</translation>
 <translation id="7182293319417450928">Kinnitamiseks on vajalik vähemalt 25 BAT-i.</translation>
 <translation id="1275664486910646411">Näita automaatses täitmises tuntumaid lehti</translation>
 <translation id="5516010970279932133">Näita automaatse täitmise soovitustes soovitatud lehti</translation>
 <translation id="5370478469168390143">Salvesta andmed veebis</translation>
-<translation id="1118508688433541158">Surfa internetis kiiremini ja blokeeri reklaamid Brave'iga.</translation>
+<translation id="1118508688433541158">Surfa internetis kiiremini ja blokeeri reklaamid adrbrowsiel'iga.</translation>
 <translation id="6589609065569680305">Sellel lehel on jälitajad ja reklaamid blokeeritud.</translation>
-<translation id="1283922192221545319">Brave'i kaitse hoidis äsja teie privaatust.</translation>
+<translation id="1283922192221545319">adrbrowsiel'i kaitse hoidis äsja teie privaatust.</translation>
 <translation id="3286927551967858325">Vaata</translation>
 <translation id="6227291358910554399">Sellel veebisaidil on reklaamid videote vaatamisel blokeeritud.</translation>
 <translation id="7802980684512102010">Reklaamideta videod kasutavad vähem andmesidemahtu.</translation>
 <translation id="2046475855484346614">Sellel lehel blokeeriti üle 10 jälitaja ja reklaami.</translation>
-<translation id="5806208250835099572">Brave'i kaitse hoiab kõigil veebisaitidel teie privaatsust võrgus.</translation>
+<translation id="5806208250835099572">adrbrowsiel'i kaitse hoiab kõigil veebisaitidel teie privaatsust võrgus.</translation>
 <translation id="5617673581653540121">Teie ühendus on nüüd krüptitud.</translation>
-<translation id="4055107796760496928">Kui see on saadaval, võtab Brave automaatselt kasutusele turvalise ühenduse.</translation>
+<translation id="4055107796760496928">Kui see on saadaval, võtab adrbrowsiel automaatselt kasutusele turvalise ühenduse.</translation>
 <translation id="8869714780588464835">Levitage uudiseid</translation>
-<translation id="7888588008014907646">Brave\'iga veebi lehitsedes salvestan iga päev andmeid.</translation>
+<translation id="7888588008014907646">adrbrowsiel\'iga veebi lehitsedes salvestan iga päev andmeid.</translation>
 <translation id="5372054974373489308">Blokeeriti 1000 jälgijat ja reklaami.</translation>
 <translation id="2338952568654182692">Blokeeriti 5000 jälgijat ja reklaami.</translation>
 <translation id="5289711064670408815">Blokeeriti 10 000 jälgijat ja reklaami.</translation>
@@ -341,16 +341,16 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="4625546020186631261">Õnnitleme! Saite meistriks.</translation>
 <translation id="4288835546846020774">Õnnitleme! Saite suurmeistriks.</translation>
 <translation id="6863752373888328811">Õnnitleme! Oled legend.</translation>
-<translation id="4776948189086901857">Brave töötab kõikjal</translation>
-<translation id="1606322780901645965">Laadi aadressilt brave.com oma sülearvutisse või tahvlisse alla Brave, et saada kiirem ja privaatsem veeb</translation>
+<translation id="4776948189086901857">adrbrowsiel töötab kõikjal</translation>
+<translation id="1606322780901645965">Laadi aadressilt adrbrowsiel.com oma sülearvutisse või tahvlisse alla adrbrowsiel, et saada kiirem ja privaatsem veeb</translation>
 <translation id="8374242949413616101">Privaatsuse kaitse</translation>
-<translation id="4955406228638026265">Brave peatab reklaamid ja jälitajad, mis koguvad sinu teavet ilma sinu nõusolekuta.</translation>
+<translation id="4955406228638026265">adrbrowsiel peatab reklaamid ja jälitajad, mis koguvad sinu teavet ilma sinu nõusolekuta.</translation>
 <translation id="752842701893882688">Säästa andmemahtu ja akut</translation>
 <translation id="1685837926613452362">Ilma reklaamide ja jälitajateta kasutavad veebilehed vähem andmemahtu ja akut. Sa võid isegi säästa operaatoritasudelt.</translation>
 <translation id="5440744330377972191">Veebilehed laadivad kiiremini</translation>
-<translation id="3000738865641747653">Vähemate andmete laadimine tähendab, et veebilehed laadivad Brave'is kiiremini – kuni 8×, võrreldes teiste brauseritega</translation>
+<translation id="3000738865641747653">Vähemate andmete laadimine tähendab, et veebilehed laadivad adrbrowsiel'is kiiremini – kuni 8×, võrreldes teiste brauseritega</translation>
 <translation id="8903462729414407077">Saa iganädalasi uuendusi</translation>
-<translation id="8029219208182772618">Saa teada, millised külastatavad veebilehed rikuvad privaatsust kõige rohkem.\n\nAinult sina näed seda privaatsuse statistikat. Sinu isikuandmed ega sirvimisajalugu ei lahku Brave'i brauseri kaudu sinu seadmest.</translation>
+<translation id="8029219208182772618">Saa teada, millised külastatavad veebilehed rikuvad privaatsust kõige rohkem.\n\nAinult sina näed seda privaatsuse statistikat. Sinu isikuandmed ega sirvimisajalugu ei lahku adrbrowsiel'i brauseri kaudu sinu seadmest.</translation>
 <translation id="6170159749517116894">Lülita sisse privaatsusaruanded</translation>
 <translation id="5966707198760109579">Nädal</translation>
 <translation id="8987927404178983737">kuu</translation>
@@ -366,20 +366,20 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="3694122362646626770">Veebilehed</translation>
 <translation id="2225863440766607138">Jälitajad</translation>
 <translation id="2993367530362078067"><ph name="COUNT"/><ph name="COUNT_TEXT"/></translation>
-<translation id="6737820963776538947">Blokeerisid viimase 3 tunni jooksul Brave'i brauseris <ph name="COUNT"/> jälitajat ja reklaami.</translation>
-<translation id="3621193901658023971">Sirvi Brave'is suuremaid uudistesaite kuni 6× kiiremini, blokeerides jälitajad ja reklaamid.</translation>
+<translation id="6737820963776538947">Blokeerisid viimase 3 tunni jooksul adrbrowsiel'i brauseris <ph name="COUNT"/> jälitajat ja reklaami.</translation>
+<translation id="3621193901658023971">Sirvi adrbrowsiel'is suuremaid uudistesaite kuni 6× kiiremini, blokeerides jälitajad ja reklaamid.</translation>
 <translation id="7427567994475794038">Lülita sisse privaatsusaruanded, et näha, kui palju jälitajaid ja reklaame on blokeeritud viimase 3 tunni jooksul.</translation>
-<translation id="2053891538879944400">Salvestasid Brave'i brauseris <ph name="DATA"/> <ph name="DATA_TEXT"/> andmed.</translation>
+<translation id="2053891538879944400">Salvestasid adrbrowsiel'i brauseris <ph name="DATA"/> <ph name="DATA_TEXT"/> andmed.</translation>
 <translation id="8640064498452534195">Lülita sisse privaatsusaruanded, et näha, kui palju andmemahtu oled säästnud.</translation>
-<translation id="2252497442547961651">Brave'i brauser kasutab keskmiselt 40% vähem akut.&#128267;</translation>
-<translation id="1945330434665345785">Blokeerisid eelmisel nädalal Brave'i brauseris <ph name="COUNT"/> jälitajat ja reklaami.</translation>
+<translation id="2252497442547961651">adrbrowsiel'i brauser kasutab keskmiselt 40% vähem akut.&#128267;</translation>
+<translation id="1945330434665345785">Blokeerisid eelmisel nädalal adrbrowsiel'i brauseris <ph name="COUNT"/> jälitajat ja reklaami.</translation>
 <translation id="2883868922264431515">Teeni tokeneid privaatsust austavate reklaamide vaatamise eest ja toeta oma lemmikuid veebilehti.</translation>
-<translation id="5678925890616256956">Tubli! Oled Brave'i brauseris blokeerinud 250 jälitajat ja reklaami.&#128293;</translation>
-<translation id="9199047775708635708">Tubli! Oled Brave'i brauseris säästnud 10 MB andmemahtu.&#128267;</translation>
-<translation id="1880168210969863408">Tubli! Oled Brave'i brauseris säästnud 10 min laadimisaega.&#128168;&#128168;</translation>
+<translation id="5678925890616256956">Tubli! Oled adrbrowsiel'i brauseris blokeerinud 250 jälitajat ja reklaami.&#128293;</translation>
+<translation id="9199047775708635708">Tubli! Oled adrbrowsiel'i brauseris säästnud 10 MB andmemahtu.&#128267;</translation>
+<translation id="1880168210969863408">Tubli! Oled adrbrowsiel'i brauseris säästnud 10 min laadimisaega.&#128168;&#128168;</translation>
 <translation id="7408493389591475748">Privaatsusaruannete vaatamiseks alusta sirvimist</translation>
-<translation id="9080777565335515917">Privaatseks ja turvaliseks sirvimiseks määra Brave vaikebrauseriks.</translation>
-<translation id="1390943217516275883">Võimaldab Brave'il kuvada sinu privaatsuse statistikat.</translation>
+<translation id="9080777565335515917">Privaatseks ja turvaliseks sirvimiseks määra adrbrowsiel vaikebrauseriks.</translation>
+<translation id="1390943217516275883">Võimaldab adrbrowsiel'il kuvada sinu privaatsuse statistikat.</translation>
 <translation id="1763352720905582220">Saadab privaatsusaruande iga nädal</translation>
 <translation id="1811691435325545066">Tühjenda kõik privaatsusaruande andmed</translation>
 <translation id="8089997572759938512">Lähtestab kõik sinu privaatsusaruanded</translation>
@@ -429,16 +429,16 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="1627064138060308910">Teisendamine nurjus. Proovige uuesti.</translation>
 <translation id="1449790603979388000"><ph name="COUNT"/> <ph name="COUNT_TEXT"/></translation>
 <translation id="7465614181960492526">Teenige ja annetage tokeneid</translation>
-<translation id="244362569344671266">Brave'i erareklaamide vaatamisega saate teenida tokeneid ja toetada automaatselt sisuloojaid.</translation>
+<translation id="244362569344671266">adrbrowsiel'i erareklaamide vaatamisega saate teenida tokeneid ja toetada automaatselt sisuloojaid.</translation>
 <translation id="631124996535890460">Jätkamisega nõustute dokumentidega <ph name="TERMS_OF_SERVICE"/> ja <ph name="PRIVACY_POLICY"/>.</translation>
 <translation id="8804164990146287819">Privaatsuspoliitika</translation>
 <translation id="6318696841371191107">Tehke kiire tuur</translation>
-<translation id="7930505144430343145">Tere tulemast kasutama Brave Rewardsi!</translation>
-<translation id="3477340970981564961">Erinevalt tavareklaamidest annab Brave'i erareklaamide vaatamine teile sisuloojate toetamiseks tokeneid, samas hoitakse teie isikuandmed privaatsed.</translation>
+<translation id="7930505144430343145">Tere tulemast kasutama adrbrowsiel Rewardsi!</translation>
+<translation id="3477340970981564961">Erinevalt tavareklaamidest annab adrbrowsiel'i erareklaamide vaatamine teile sisuloojate toetamiseks tokeneid, samas hoitakse teie isikuandmed privaatsed.</translation>
 <translation id="6973095375773523904">Kus reklaamid kuvatakse?</translation>
-<translation id="7556325460112047619">Brave'i erareklaamid kuvatakse tavateavitusena. Seadete abil saate reguleerida, kui tihti neid reklaame näete.</translation>
+<translation id="7556325460112047619">adrbrowsiel'i erareklaamid kuvatakse tavateavitusena. Seadete abil saate reguleerida, kui tihti neid reklaame näete.</translation>
 <translation id="5816125157889950051">Millal preemiaid saab?</translation>
-<translation id="310863932297733723">Käesoleval kuul Brave'i erareklaamide eest teenitud tokenid saabuvad järgmise kuu 5ndal kuupäeval.</translation>
+<translation id="310863932297733723">Käesoleval kuul adrbrowsiel'i erareklaamide eest teenitud tokenid saabuvad järgmise kuu 5ndal kuupäeval.</translation>
 <translation id="7712287524451429139">Vaevata vastuannetused</translation>
 <translation id="105037569026952831">Loojad saavad teie annetatud tokenid automaatselt teie kaasatustaseme alusel, mida mõõdame ‘aktiivsusena’.</translation>
 <translation id="5323267338679539010">Saate tänada preemiaga</translation>
@@ -452,7 +452,7 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="66599604460581068">Kui palju soovite lemmikloojaid toetada?</translation>
 <translation id="3164498053837913829">(teie reklaamituludest)</translation>
 <translation id="827315274423079662">Ohoo, olete valmis alustama!</translation>
-<translation id="3895246934788932488">Brave Rewardsi kasutamisega kaitsete oma privaatsust ja aitate veebi kõigi jaoks paremaks muuta. Ja see on vinge!</translation>
+<translation id="3895246934788932488">adrbrowsiel Rewardsi kasutamisega kaitsete oma privaatsust ja aitate veebi kõigi jaoks paremaks muuta. Ja see on vinge!</translation>
 <translation id="5705882733397021510">Mine tagasi</translation>
 <translation id="5140321319944305531">Teeme ühe kiire tuuri</translation>
 <translation id="2434574859640694129">Kui olete saanud reklaamide eest esimese väljamakse, võite tulla tagasi ja sellele loojale preemiat maksta.</translation>
@@ -473,18 +473,18 @@ kuniks nad on kinnitatud või kuni on möödunud 90 päeva.</translation>
 <translation id="8295049095570748497">Venemaa juhtiv otsimootor</translation>
 <translation id="2642661895835126239">Istutab puid, tegutseb Berliinis</translation>
 <translation id="1410130669636877548">Veebist otsimisel kaitseb mõni otsimootor teie privaatsust teistest paremini.</translation>
-<translation id="1078265935778232285">Tere tulemast Brave Software'i</translation>
+<translation id="1078265935778232285">Tere tulemast adrbrowsiel Software'i</translation>
 <translation id="6824713633331856331">Aidake meil anonüümselt õppida</translation>
-<translation id="6116685031674149112">Brave kaitseb teie privaatsust ja\non tänulik, kui annate nõusoleku järgmiseks:</translation>
-<translation id="3971666849661839619">Aidake Brave'i paremaks muuta, saates krahhiaruandeid ja täiesti anonüümset <ph name="PRIVATE_PRODUCT_ANALYSIS"/></translation>
+<translation id="6116685031674149112">adrbrowsiel kaitseb teie privaatsust ja\non tänulik, kui annate nõusoleku järgmiseks:</translation>
+<translation id="3971666849661839619">Aidake adrbrowsiel'i paremaks muuta, saates krahhiaruandeid ja täiesti anonüümset <ph name="PRIVATE_PRODUCT_ANALYSIS"/></translation>
 <translation id="6478996494082389936">privaatset tooteanalüüsi teavet.</translation>
 <translation id="5187052478998910855">Kas vajate Rewardsi kohta mäluvärskendust?</translation>
 <translation id="8622329973403382303">Tehke kiire ringkäik, et meenutada, kuidas see toimis, ja võite ajalukku minna Rewardsi staarina!</translation>
-<translation id="8401711613788729448">Avage kõik lingid Brave'iga, et kaitsta oma privaatust</translation>
-<translation id="3184805785843994538">Brave'i kaitse blokeerib jälitajad ja reklaamid, salvestab andmed ja hoiab aega kokku igal veebisaidil, mida külastate.</translation>
-<translation id="8722651357687610395">Määra Brave vaikebrauseriks</translation>
+<translation id="8401711613788729448">Avage kõik lingid adrbrowsiel'iga, et kaitsta oma privaatust</translation>
+<translation id="3184805785843994538">adrbrowsiel'i kaitse blokeerib jälitajad ja reklaamid, salvestab andmed ja hoiab aega kokku igal veebisaidil, mida külastate.</translation>
+<translation id="8722651357687610395">Määra adrbrowsiel vaikebrauseriks</translation>
 <translation id="3479552764303398839">Mitte praegu</translation>
-<translation id="6232491755501685494">Brave Rewards läheb Jaapanis üle uuele süsteemile.</translation>
+<translation id="6232491755501685494">adrbrowsiel Rewards läheb Jaapanis üle uuele süsteemile.</translation>
 <translation id="7444515017164572362">Alates 13. märtsist ei saa te enam BAPi kasutada. Aga kui te uuendate
 süsteemi aprillis uuele versioonile, siis alustate uute tokenitega!</translation>
 <translation id="8587285254008006694">Selle ülemineku osana pole teie brauseri jootraha saatmise ja panustamisfunktsioonid

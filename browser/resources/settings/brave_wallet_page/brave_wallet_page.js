@@ -6,11 +6,11 @@
 'use strict';
 
 /**
- * 'settings-brave-default-extensions-page' is the settings page containing
- * brave's default extensions.
+ * 'settings-adrbrowsiel-default-extensions-page' is the settings page containing
+ * adrbrowsiel's default extensions.
  */
 Polymer({
-  is: 'settings-brave-wallet-page',
+  is: 'settings-adrbrowsiel-wallet-page',
 
   behaviors: [
     WebUIListenerBehavior,
@@ -20,27 +20,27 @@ Polymer({
     isNativeWalletEnabled_: Boolean
   },
 
-  /** @private {?settings.BraveWalletBrowserProxy} */
+  /** @private {?settings.adrbrowsielWalletBrowserProxy} */
   browserProxy_: null,
 
   /** @override */
   created: function() {
-    this.browserProxy_ = settings.BraveWalletBrowserProxyImpl.getInstance();
+    this.browserProxy_ = settings.adrbrowsielWalletBrowserProxyImpl.getInstance();
   },
 
   /** @override */
   ready: function() {
-    this.onBraveWalletEnabledChange_ = this.onBraveWalletEnabledChange_.bind(this)
+    this.onadrbrowsielWalletEnabledChange_ = this.onadrbrowsielWalletEnabledChange_.bind(this)
     this.browserProxy_.getWeb3ProviderList().then(list => {
-      this.braveWeb3Providers_ = JSON.parse(list)
+      this.adrbrowsielWeb3Providers_ = JSON.parse(list)
     });
     this.browserProxy_.isNativeWalletEnabled().then(val => {
       this.isNativeWalletEnabled_ = val;
     });
   },
 
-  onBraveWalletEnabledChange_: function() {
-    this.browserProxy_.setBraveWalletEnabled(this.$.braveWalletEnabled.checked);
+  onadrbrowsielWalletEnabledChange_: function() {
+    this.browserProxy_.setadrbrowsielWalletEnabled(this.$.adrbrowsielWalletEnabled.checked);
   },
 });
 })();

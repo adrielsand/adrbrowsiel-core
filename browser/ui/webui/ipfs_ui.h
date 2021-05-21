@@ -1,18 +1,18 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_IPFS_UI_H_
-#define BRAVE_BROWSER_UI_WEBUI_IPFS_UI_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_IPFS_UI_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_IPFS_UI_H_
 
 #include <memory>
 #include <string>
 #include <vector>
 
 #include "base/scoped_observation.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/ipfs_service_observer.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service_observer.h"
 #include "content/public/browser/web_ui_controller.h"
 #include "content/public/browser/web_ui_message_handler.h"
 
@@ -65,7 +65,7 @@ class IPFSDOMHandler : public content::WebUIMessageHandler,
   DISALLOW_COPY_AND_ASSIGN(IPFSDOMHandler);
 };
 
-// The WebUI for brave://ipfs
+// The WebUI for adrbrowsiel://ipfs
 class IPFSUI : public content::WebUIController {
  public:
   IPFSUI(content::WebUI* web_ui, const std::string& host);
@@ -74,4 +74,4 @@ class IPFSUI : public content::WebUIController {
   IPFSUI& operator=(const IPFSUI&) = delete;
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_IPFS_UI_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_IPFS_UI_H_

@@ -6,7 +6,7 @@ index a64a23560460a17ce39a468d4ccdd81f3089449a..8b3822fa3539dfa21d77bd1d0216568a
        "${root_gen_dir}/ui/strings/app_locale_settings_",
        "${root_gen_dir}/ui/strings/ui_strings_",
      ]
-+    source_patterns += brave_locale_source_patterns
++    source_patterns += adrbrowsiel_locale_source_patterns
      if (!defined(deps)) {
        deps = []
      }
@@ -14,7 +14,7 @@ index a64a23560460a17ce39a468d4ccdd81f3089449a..8b3822fa3539dfa21d77bd1d0216568a
        "//ui/strings:app_locale_settings",
        "//ui/strings:ui_strings",
      ]
-+    deps += brave_locale_deps
++    deps += adrbrowsiel_locale_deps
      if (defined(invoker.deps)) {
        deps += invoker.deps
      }

@@ -4,10 +4,10 @@
 
 [
   {
-    "namespace": "braveWallet",
-    "description": "Use the <code>chrome.braveWallet</code> API to receive notifications about Dapp detection.",
+    "namespace": "adrbrowsielWallet",
+    "description": "Use the <code>chrome.adrbrowsielWallet</code> API to receive notifications about Dapp detection.",
     "compiler_options": {
-      "implemented_in": "brave/browser/extensions/api/brave_wallet_api.h"
+      "implemented_in": "adrbrowsiel/browser/extensions/api/adrbrowsiel_wallet_api.h"
     },
     "events": [
     ],
@@ -30,7 +30,7 @@
       }, {
         "name": "shouldPromptForSetup",
         "type": "function",
-        "description": "Called to determine if a brave wallet prompt should be shown to opt into install",
+        "description": "Called to determine if a adrbrowsiel wallet prompt should be shown to opt into install",
         "parameters": [
           {
             "type": "function",
@@ -117,9 +117,9 @@
           }
         ]
       }, {
-        "name": "getBraveKey",
+        "name": "getadrbrowsielKey",
         "type": "function",
-        "description": "Called to get the Brave service key",
+        "description": "Called to get the adrbrowsiel service key",
         "parameters": [
           {
             "name": "cb",
@@ -163,7 +163,7 @@
           {
             "name": "callback",
             "type": "function",
-            "description": "Function called when brave web3 provider list is fetched",
+            "description": "Function called when adrbrowsiel web3 provider list is fetched",
             "parameters": [
               {
                 "name": "types",
@@ -193,7 +193,7 @@
       }, {
         "name": "loadUI",
         "type": "function",
-        "description": "Called when brave://wallet WebUI wants to load the real UI",
+        "description": "Called when adrbrowsiel://wallet WebUI wants to load the real UI",
         "parameters": [
           {
             "name": "cb",

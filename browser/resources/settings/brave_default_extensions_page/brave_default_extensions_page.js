@@ -6,11 +6,11 @@
 'use strict';
 
 /**
- * 'settings-brave-default-extensions-page' is the settings page containing
- * brave's default extensions.
+ * 'settings-adrbrowsiel-default-extensions-page' is the settings page containing
+ * adrbrowsiel's default extensions.
  */
 Polymer({
-  is: 'settings-brave-default-extensions-page',
+  is: 'settings-adrbrowsiel-default-extensions-page',
 
   behaviors: [
     WebUIListenerBehavior,
@@ -18,7 +18,7 @@ Polymer({
 
   /**
    * Keep it the same as Provider in
-   * brave/componentsdecentralized_dns/constants.h.
+   * adrbrowsiel/componentsdecentralized_dns/constants.h.
    */
   Provider: {
     UNSTOPPABLE_DOMAINS: 0,
@@ -35,12 +35,12 @@ Polymer({
     ensResolveMethod_: Array,
   },
 
-  /** @private {?settings.BraveDefaultExtensionsBrowserProxy} */
+  /** @private {?settings.adrbrowsielDefaultExtensionsBrowserProxy} */
   browserProxy_: null,
 
   /** @override */
   created: function() {
-    this.browserProxy_ = settings.BraveDefaultExtensionsBrowserProxyImpl.getInstance();
+    this.browserProxy_ = settings.adrbrowsielDefaultExtensionsBrowserProxyImpl.getInstance();
   },
 
   /** @override */
@@ -53,7 +53,7 @@ Polymer({
     this.restartBrowser_ = this.restartBrowser_.bind(this)
     this.onTorEnabledChange_ = this.onTorEnabledChange_.bind(this)
 
-    this.addWebUIListener('brave-needs-restart-changed', (needsRestart) => {
+    this.addWebUIListener('adrbrowsiel-needs-restart-changed', (needsRestart) => {
       this.showRestartToast_ = needsRestart
     })
     this.addWebUIListener('tor-enabled-changed', (enabled) => {

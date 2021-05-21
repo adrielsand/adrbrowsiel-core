@@ -6,7 +6,7 @@ index 76f8240995ed4f2d52318a57fa7e0b13b862511a..42187aa41cb392dacdbc1d97adab3569
    void OnPaintBackground(gfx::Canvas* canvas) override;
    void OnPaint(gfx::Canvas* canvas) override;
    void OnThemeChanged() override;
-+  BRAVE_DOWNLOAD_DOWNLOAD_ITEM_VIEW_H_
++  adrbrowsiel_DOWNLOAD_DOWNLOAD_ITEM_VIEW_H_
  
   private:
    // Returns the mode that best reflects the current model state.

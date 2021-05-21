@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_SERVICES_NETWORK_PUBLIC_CPP_SYSTEM_REQUEST_HANDLER_H_
-#define BRAVE_SERVICES_NETWORK_PUBLIC_CPP_SYSTEM_REQUEST_HANDLER_H_
+#ifndef adrbrowsiel_SERVICES_NETWORK_PUBLIC_CPP_SYSTEM_REQUEST_HANDLER_H_
+#define adrbrowsiel_SERVICES_NETWORK_PUBLIC_CPP_SYSTEM_REQUEST_HANDLER_H_
 
 #include "base/callback.h"
 #include "base/component_export.h"
@@ -45,4 +45,4 @@ class COMPONENT_EXPORT(NETWORK_CPP) SystemRequestHandler {
 
 }  // namespace network
 
-#endif  // BRAVE_SERVICES_NETWORK_PUBLIC_CPP_SYSTEM_REQUEST_HANDLER_H_
+#endif  // adrbrowsiel_SERVICES_NETWORK_PUBLIC_CPP_SYSTEM_REQUEST_HANDLER_H_

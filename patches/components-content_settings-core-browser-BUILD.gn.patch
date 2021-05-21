@@ -6,7 +6,7 @@ index 764c726b9889e39787d6fdf53db5d9fd450341b5..dcbb79371a0e5204a2c1bc165bf2ac4d
      "//services/tracing/public/cpp",
      "//url",
    ]
-+  deps += [ "//brave/components/content_settings/core/browser" ]
++  deps += [ "//adrbrowsiel/components/content_settings/core/browser" ]
  
    if (is_android) {
      deps += [ "//media" ]

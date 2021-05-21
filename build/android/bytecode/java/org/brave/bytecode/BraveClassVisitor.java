@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import static org.objectweb.asm.Opcodes.ACC_PRIVATE;
 import static org.objectweb.asm.Opcodes.ACC_PROTECTED;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class BraveClassVisitor extends ClassVisitor {
+class adrbrowsielClassVisitor extends ClassVisitor {
 
     private ClassVisitor mTarget;
 
@@ -51,11 +51,11 @@ class BraveClassVisitor extends ClassVisitor {
         }
     }
 
-    class BraveMethodVisitor extends MethodVisitor {
+    class adrbrowsielMethodVisitor extends MethodVisitor {
 
         private Method mMethod;
 
-        public BraveMethodVisitor(Method method, MethodVisitor mv) {
+        public adrbrowsielMethodVisitor(Method method, MethodVisitor mv) {
             super(ASM5, mv);
             this.mMethod = method;
         }
@@ -107,7 +107,7 @@ class BraveClassVisitor extends ClassVisitor {
             new HashMap<String, Map<String, ArrayList<String>>>();
     private Map<String, String> mRedirectConstructors = new HashMap<String, String>();
 
-    public BraveClassVisitor(ClassVisitor visitor) {
+    public adrbrowsielClassVisitor(ClassVisitor visitor) {
         super(ASM5, null);
         mTarget = visitor;
     }
@@ -329,7 +329,7 @@ class BraveClassVisitor extends ClassVisitor {
     }
 
     protected MethodVisitor visitMethodImpl(Method method) {
-        return new BraveMethodVisitor(method, super.visitMethod(method.access,
+        return new adrbrowsielMethodVisitor(method, super.visitMethod(method.access,
                                                                 method.name,
                                                                 method.desc,
                                                                 method.signature,

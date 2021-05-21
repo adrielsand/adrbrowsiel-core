@@ -6,7 +6,7 @@ index 71297982d3d4bce75c4a983a29e851599023158d..89e66a720cb32b6497247d82e9887ec0
             ContentSettingsInfo::INHERIT_IF_LESS_PERMISSIVE,
             ContentSettingsInfo::PERSISTENT,
             ContentSettingsInfo::EXCEPTIONS_ON_SECURE_ORIGINS_ONLY);
-+  BRAVE_INIT
++  adrbrowsiel_INIT
  }
  
  void ContentSettingsRegistry::Register(

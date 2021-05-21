@@ -1,15 +1,15 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/sidebar/sidebar_show_options_event_detect_widget.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_show_options_event_detect_widget.h"
 
 #include <utility>
 
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/browser/ui/views/frame/brave_browser_view.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_browser_view.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/gfx/geometry/rect.h"
 #include "ui/gfx/paint_vector_icon.h"
@@ -95,7 +95,7 @@ class SidebarShowOptionsEventDetectWidget::ContentsView : public views::View {
 };
 
 SidebarShowOptionsEventDetectWidget::SidebarShowOptionsEventDetectWidget(
-    BraveBrowserView* browser_view,
+    adrbrowsielBrowserView* browser_view,
     Delegate* delegate)
     : browser_view_(browser_view) {
   observation_.Observe(browser_view_->contents_container());

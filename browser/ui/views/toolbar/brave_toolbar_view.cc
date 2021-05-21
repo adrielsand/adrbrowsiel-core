@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/toolbar/brave_toolbar_view.h"
+#include "adrbrowsiel/browser/ui/views/toolbar/adrbrowsiel_toolbar_view.h"
 
 #include <algorithm>
 #include <memory>
@@ -11,12 +11,12 @@
 
 #include "base/bind.h"
 #include "base/feature_list.h"
-#include "brave/app/brave_command_ids.h"
-#include "brave/browser/ui/views/toolbar/bookmark_button.h"
-#include "brave/browser/ui/views/toolbar/speedreader_button.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/speedreader/buildflags.h"
+#include "adrbrowsiel/app/adrbrowsiel_command_ids.h"
+#include "adrbrowsiel/browser/ui/views/toolbar/bookmark_button.h"
+#include "adrbrowsiel/browser/ui/views/toolbar/speedreader_button.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/speedreader/buildflags.h"
 #include "chrome/app/chrome_command_ids.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/defaults.h"
@@ -32,13 +32,13 @@
 #include "ui/events/event.h"
 
 #if BUILDFLAG(ENABLE_SPEEDREADER)
-#include "brave/components/speedreader/features.h"
-#include "brave/components/speedreader/speedreader_pref_names.h"
+#include "adrbrowsiel/components/speedreader/features.h"
+#include "adrbrowsiel/components/speedreader/speedreader_pref_names.h"
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-#include "brave/browser/ui/views/toolbar/wallet_button.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+#include "adrbrowsiel/browser/ui/views/toolbar/wallet_button.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
 #endif
 
 namespace {
@@ -111,17 +111,17 @@ bool IsAvatarButtonHideable(Profile* profile) {
 
 }  // namespace
 
-BraveToolbarView::BraveToolbarView(Browser* browser, BrowserView* browser_view)
+adrbrowsielToolbarView::adrbrowsielToolbarView(Browser* browser, BrowserView* browser_view)
     : ToolbarView(browser, browser_view), profile_observer_(this) {}
 
-BraveToolbarView::~BraveToolbarView() {}
+adrbrowsielToolbarView::~adrbrowsielToolbarView() {}
 
-void BraveToolbarView::Init() {
+void adrbrowsielToolbarView::Init() {
   ToolbarView::Init();
 
   // For non-normal mode, we don't have to more.
   if (display_mode_ != DisplayMode::NORMAL) {
-    brave_initialized_ = true;
+    adrbrowsiel_initialized_ = true;
     return;
   }
 
@@ -135,12 +135,12 @@ void BraveToolbarView::Init() {
   // track changes in bookmarks enabled setting
   edit_bookmarks_enabled_.Init(
       bookmarks::prefs::kEditBookmarksEnabled, profile->GetPrefs(),
-      base::Bind(&BraveToolbarView::OnEditBookmarksEnabledChanged,
+      base::Bind(&adrbrowsielToolbarView::OnEditBookmarksEnabledChanged,
                  base::Unretained(this)));
   // track changes in wide locationbar setting
   location_bar_is_wide_.Init(
       kLocationBarIsWide, profile->GetPrefs(),
-      base::Bind(&BraveToolbarView::OnLocationBarIsWideChanged,
+      base::Bind(&adrbrowsielToolbarView::OnLocationBarIsWideChanged,
                  base::Unretained(this)));
 
   const auto callback = [](Browser* browser, int command,
@@ -173,8 +173,8 @@ void BraveToolbarView::Init() {
   }
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-  if (brave_wallet::IsNativeWalletEnabled()) {
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+  if (adrbrowsiel_wallet::IsNativeWalletEnabled()) {
     wallet_ =
         new WalletButton(GetAppMenuButton(), profile, profile->GetPrefs());
     wallet_->SetTriggerableEventFlags(ui::EF_LEFT_MOUSE_BUTTON |
@@ -187,25 +187,25 @@ void BraveToolbarView::Init() {
   }
 #endif
 
-  brave_initialized_ = true;
+  adrbrowsiel_initialized_ = true;
 }
 
-void BraveToolbarView::OnEditBookmarksEnabledChanged() {
+void adrbrowsielToolbarView::OnEditBookmarksEnabledChanged() {
   DCHECK_EQ(DisplayMode::NORMAL, display_mode_);
   Update(nullptr);
 }
 
-void BraveToolbarView::OnLocationBarIsWideChanged() {
+void adrbrowsielToolbarView::OnLocationBarIsWideChanged() {
   DCHECK_EQ(DisplayMode::NORMAL, display_mode_);
 
   Layout();
   SchedulePaint();
 }
 
-void BraveToolbarView::OnThemeChanged() {
+void adrbrowsielToolbarView::OnThemeChanged() {
   ToolbarView::OnThemeChanged();
 
-  if (!brave_initialized_)
+  if (!adrbrowsiel_initialized_)
     return;
 
   if (display_mode_ == DisplayMode::NORMAL && bookmark_)
@@ -216,16 +216,16 @@ void BraveToolbarView::OnThemeChanged() {
     wallet_->UpdateImageAndText();
 }
 
-void BraveToolbarView::OnProfileAdded(const base::FilePath& profile_path) {
+void adrbrowsielToolbarView::OnProfileAdded(const base::FilePath& profile_path) {
   Update(nullptr);
 }
 
-void BraveToolbarView::OnProfileWasRemoved(const base::FilePath& profile_path,
+void adrbrowsielToolbarView::OnProfileWasRemoved(const base::FilePath& profile_path,
                                            const std::u16string& profile_name) {
   Update(nullptr);
 }
 
-void BraveToolbarView::LoadImages() {
+void adrbrowsielToolbarView::LoadImages() {
   ToolbarView::LoadImages();
   if (bookmark_)
     bookmark_->UpdateImageAndText();
@@ -235,7 +235,7 @@ void BraveToolbarView::LoadImages() {
     wallet_->UpdateImageAndText();
 }
 
-void BraveToolbarView::Update(content::WebContents* tab) {
+void adrbrowsielToolbarView::Update(content::WebContents* tab) {
   ToolbarView::Update(tab);
   // Decide whether to show the bookmark button
   if (bookmark_) {
@@ -258,11 +258,11 @@ void BraveToolbarView::Update(content::WebContents* tab) {
   }
 }
 
-void BraveToolbarView::ShowBookmarkBubble(
+void adrbrowsielToolbarView::ShowBookmarkBubble(
     const GURL& url,
     bool already_bookmarked,
     bookmarks::BookmarkBubbleObserver* observer) {
-  // Show BookmarkBubble attached to Brave's bookmark button
+  // Show BookmarkBubble attached to adrbrowsiel's bookmark button
   // or the location bar if there is no bookmark button
   // (i.e. in non-normal display mode).
   views::View* anchor_view = location_bar_;
@@ -276,10 +276,10 @@ void BraveToolbarView::ShowBookmarkBubble(
                                  already_bookmarked);
 }
 
-void BraveToolbarView::Layout() {
+void adrbrowsielToolbarView::Layout() {
   ToolbarView::Layout();
 
-  if (!brave_initialized_)
+  if (!adrbrowsiel_initialized_)
     return;
 
   // ToolbarView::Layout() handles below modes. So just return.
@@ -294,7 +294,7 @@ void BraveToolbarView::Layout() {
   }
 }
 
-void BraveToolbarView::ResetLocationBarBounds() {
+void adrbrowsielToolbarView::ResetLocationBarBounds() {
   DCHECK_EQ(DisplayMode::NORMAL, display_mode_);
 
   // Calculate proper location bar's margin and set its bounds.
@@ -307,7 +307,7 @@ void BraveToolbarView::ResetLocationBarBounds() {
       location_bar_->width() - margin.width(), location_bar_->height());
 }
 
-void BraveToolbarView::ResetButtonBounds() {
+void adrbrowsielToolbarView::ResetButtonBounds() {
   DCHECK_EQ(DisplayMode::NORMAL, display_mode_);
 
   int button_right_margin = GetLayoutConstant(TOOLBAR_STANDARD_SPACING);

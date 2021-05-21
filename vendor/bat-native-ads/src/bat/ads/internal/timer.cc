@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,7 +8,7 @@
 #include <cstdint>
 #include <utility>
 
-#include "brave_base/random.h"
+#include "adrbrowsiel_base/random.h"
 
 namespace ads {
 
@@ -38,7 +38,7 @@ base::Time Timer::Start(const base::TimeDelta& delay,
 base::Time Timer::StartWithPrivacy(const base::TimeDelta& delay,
                                    base::OnceClosure user_task) {
   const int64_t delay_as_int64 = static_cast<int64_t>(delay.InSeconds());
-  const uint64_t rand_delay = brave_base::random::Geometric(delay_as_int64);
+  const uint64_t rand_delay = adrbrowsiel_base::random::Geometric(delay_as_int64);
 
   return Start(base::TimeDelta::FromSeconds(rand_delay), std::move(user_task));
 }

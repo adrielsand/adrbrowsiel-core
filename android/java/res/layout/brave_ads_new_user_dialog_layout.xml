@@ -26,7 +26,7 @@
 
         <ImageView
             android:scaleType="fitCenter"
-            android:src="@drawable/brave_ads_launch_graphic"
+            android:src="@drawable/adrbrowsiel_ads_launch_graphic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@null"
@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/brave_ads_new_user_offer_title"
+            android:text="@string/adrbrowsiel_ads_new_user_offer_title"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
             android:paddingTop="15dip"
@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/brave_ads_offer_text"
+            android:text="@string/adrbrowsiel_ads_offer_text"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
             android:paddingTop="15dip"

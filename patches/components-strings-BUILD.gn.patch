@@ -6,7 +6,7 @@ index 973ae603889b8f7077618aa4720dd0eac48b31ab..20be1adb27cde782426ff9970f5746b8
    if (is_android) {
      outputs += android_components_strings_java_resources
    }
-+  deps = [ "//brave/components/resources:strings" ]
++  deps = [ "//adrbrowsiel/components/resources:strings" ]
  }
  
  if (is_android) {

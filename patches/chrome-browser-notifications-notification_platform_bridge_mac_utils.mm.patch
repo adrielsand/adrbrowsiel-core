@@ -6,7 +6,7 @@ index f130d29a3eb858d94016c3bfc9fe26bb75354cf3..94f2c7dff8303bb470e245be5365c502
  // call this method directly as SysInfo::OperatingSystemVersionNumbers might be
  // an expensive call. Instead use SupportsAlerts which caches this value.
  bool MacOSSupportsXPCAlertsImpl() {
-+  BRAVE_SUPPORTSALERTSIMPL_
++  adrbrowsiel_SUPPORTSALERTSIMPL_
    int32_t major, minor, bugfix;
    base::SysInfo::OperatingSystemVersionNumbers(&major, &minor, &bugfix);
    // Allow alerts on all versions except 10.15.0, 10.15.1 & 10.15.2.

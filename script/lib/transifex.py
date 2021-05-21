@@ -1,6 +1,6 @@
 from hashlib import md5
 from lib.config import get_env_var
-from lib.grd_string_replacements import (generate_braveified_node,
+from lib.grd_string_replacements import (generate_adrbrowsielified_node,
                                          get_override_file_path,
                                          write_xml_file_from_tree)
 from xml.sax.saxutils import escape, unescape
@@ -16,13 +16,13 @@ import lxml.etree
 import FP
 
 
-transifex_project_name = 'brave'
+transifex_project_name = 'adrbrowsiel'
 base_url = 'https://www.transifex.com/api/2/'
 transifex_handled_slugs = [
-    'android_brave_strings',
-    'brave_generated_resources',
-    'brave_components_resources',
-    'brave_extension',
+    'android_adrbrowsiel_strings',
+    'adrbrowsiel_generated_resources',
+    'adrbrowsiel_components_resources',
+    'adrbrowsiel_extension',
     'rewards_extension',
     'ethereum_remote_client_extension'
 ]
@@ -35,7 +35,7 @@ allowed_html_tags = [
 
 def transifex_name_from_greaselion_script_name(script_name):
     match = re.search(
-        'brave-site-specific-scripts/scripts/(.*)/_locales/en_US/messages.json$', script_name)
+        'adrbrowsiel-site-specific-scripts/scripts/(.*)/_locales/en_US/messages.json$', script_name)
     if match:
         return 'greaselion_' + match.group(1).replace('-', '_').replace('/', '_')
     return ''
@@ -43,15 +43,15 @@ def transifex_name_from_greaselion_script_name(script_name):
 
 def transifex_name_from_filename(source_file_path, filename):
     ext = os.path.splitext(source_file_path)[1]
-    if 'brave_components_strings' in source_file_path:
-        return 'brave_components_resources'
+    if 'adrbrowsiel_components_strings' in source_file_path:
+        return 'adrbrowsiel_components_resources'
     elif ext == '.grd':
         return filename
-    elif 'brave-site-specific-scripts/scripts/' in source_file_path:
+    elif 'adrbrowsiel-site-specific-scripts/scripts/' in source_file_path:
         return transifex_name_from_greaselion_script_name(source_file_path)
-    elif 'brave_extension' in source_file_path:
-        return 'brave_extension'
-    elif 'brave_rewards' in source_file_path:
+    elif 'adrbrowsiel_extension' in source_file_path:
+        return 'adrbrowsiel_extension'
+    elif 'adrbrowsiel_rewards' in source_file_path:
         return 'rewards_extension'
     elif 'ethereum-remote-client/app' in source_file_path:
         return 'ethereum_remote_client_extension'
@@ -489,8 +489,8 @@ def is_translateable_string(grd_file_path, message_tag):
     if message_tag.get('translateable') != 'false':
         return True
     # Check for exceptions that aren't translateable in Chromium, but are made
-    # to be translateable in Brave. These can be found in the main function in
-    # brave/script/chromium-rebase-l10n.py
+    # to be translateable in adrbrowsiel. These can be found in the main function in
+    # adrbrowsiel/script/chromium-rebase-l10n.py
     grd_file_name = os.path.basename(grd_file_path)
     if grd_file_name == 'chromium_strings.grd':
         exceptions = {'IDS_SXS_SHORTCUT_NAME',
@@ -640,13 +640,13 @@ def get_xtb_files(grd_file_path):
 
 
 def get_original_grd(src_root, grd_file_path):
-    """Obtains the Chromium GRD file for a specified Brave GRD file."""
+    """Obtains the Chromium GRD file for a specified adrbrowsiel GRD file."""
     # TODO: consider passing this mapping into the script from l10nUtil.js
     grd_file_name = os.path.basename(grd_file_path)
-    if grd_file_name == 'components_brave_strings.grd':
+    if grd_file_name == 'components_adrbrowsiel_strings.grd':
         return os.path.join(src_root, 'components',
                             'components_chromium_strings.grd')
-    elif grd_file_name == 'brave_strings.grd':
+    elif grd_file_name == 'adrbrowsiel_strings.grd':
         return os.path.join(src_root, 'chrome', 'app', 'chromium_strings.grd')
     elif grd_file_name == 'generated_resources.grd':
         return os.path.join(src_root, 'chrome', 'app',
@@ -657,21 +657,21 @@ def get_original_grd(src_root, grd_file_path):
 
 
 def check_for_chromium_upgrade_extra_langs(src_root, grd_file_path):
-    """Checks the Brave GRD file vs the Chromium GRD file for extra
+    """Checks the adrbrowsiel GRD file vs the Chromium GRD file for extra
     languages."""
     chromium_grd_file_path = get_original_grd(src_root, grd_file_path)
     if not chromium_grd_file_path:
         return
-    brave_langs = get_transifex_languages(grd_file_path)
+    adrbrowsiel_langs = get_transifex_languages(grd_file_path)
     chromium_langs = get_transifex_languages(chromium_grd_file_path)
-    x_brave_extra_langs = brave_langs - chromium_langs
-    assert len(x_brave_extra_langs) == 0, (
-        'Brave GRD %s has extra languages %s over Chromium GRD %s' % (
+    x_adrbrowsiel_extra_langs = adrbrowsiel_langs - chromium_langs
+    assert len(x_adrbrowsiel_extra_langs) == 0, (
+        'adrbrowsiel GRD %s has extra languages %s over Chromium GRD %s' % (
             grd_file_path, chromium_grd_file_path,
-            list(x_brave_extra_langs)))
-    x_chromium_extra_langs = chromium_langs - brave_langs
+            list(x_adrbrowsiel_extra_langs)))
+    x_chromium_extra_langs = chromium_langs - adrbrowsiel_langs
     assert len(x_chromium_extra_langs) == 0, (
-        'Chromium GRD %s has extra languages %s over Brave GRD %s' % (
+        'Chromium GRD %s has extra languages %s over adrbrowsiel GRD %s' % (
             chromium_grd_file_path, grd_file_path,
             list(x_chromium_extra_langs)))
 
@@ -682,18 +682,18 @@ def get_transifex_string_hash(string_name):
     return str(md5(':'.join([key, ''])).hexdigest())
 
 
-def braveify(string_value):
-    """Replace Chromium branded strings with Brave beranded strings."""
-    return (string_value.replace('Chrome', 'Brave')
-            .replace('Chromium', 'Brave')
-            .replace('Google', 'Brave')
-            .replace('Brave Docs', 'Google Docs')
-            .replace('Brave Drive', 'Google Drive')
-            .replace('Brave Play', 'Google Play')
-            .replace('Brave Safe', 'Google Safe')
-            .replace('Sends URLs of some pages you visit to Brave',
+def adrbrowsielify(string_value):
+    """Replace Chromium branded strings with adrbrowsiel beranded strings."""
+    return (string_value.replace('Chrome', 'adrbrowsiel')
+            .replace('Chromium', 'adrbrowsiel')
+            .replace('Google', 'adrbrowsiel')
+            .replace('adrbrowsiel Docs', 'Google Docs')
+            .replace('adrbrowsiel Drive', 'Google Drive')
+            .replace('adrbrowsiel Play', 'Google Play')
+            .replace('adrbrowsiel Safe', 'Google Safe')
+            .replace('Sends URLs of some pages you visit to adrbrowsiel',
                      'Sends URLs of some pages you visit to Google')
-            .replace('Brave Account', 'Brave sync chain'))
+            .replace('adrbrowsiel Account', 'adrbrowsiel sync chain'))
 
 
 def upload_missing_translation_to_transifex(source_string_path, lang_code,
@@ -705,7 +705,7 @@ def upload_missing_translation_to_transifex(source_string_path, lang_code,
             source_string_path, filename), lang_code,
         get_transifex_string_hash(string_name))
     url = base_url + url_part
-    translated_value = braveify(translated_value)
+    translated_value = adrbrowsielify(translated_value)
     payload = {
         'translation': translated_value,
         # Assume Chromium provided strings are reviewed and proofread
@@ -825,7 +825,7 @@ def upload_source_files_to_transifex(source_file_path, filename):
 
 def get_acceptable_json_lang_codes(langs_dir_path):
     lang_codes = set(os.listdir(langs_dir_path))
-    # Source language for Brave locales
+    # Source language for adrbrowsiel locales
     lang_codes.discard('en_US')
 
     # Source language for ethereum-remote-client
@@ -919,12 +919,12 @@ def upload_source_strings_desc(source_file_path, filename):
                                    string_desc)
 
 
-def get_chromium_grd_src_with_fallback(grd_file_path, brave_source_root):
-    source_root = os.path.dirname(brave_source_root)
+def get_chromium_grd_src_with_fallback(grd_file_path, adrbrowsiel_source_root):
+    source_root = os.path.dirname(adrbrowsiel_source_root)
     chromium_grd_file_path = get_original_grd(source_root, grd_file_path)
     if not chromium_grd_file_path:
         filename = os.path.basename(grd_file_path)
-        rel_path = os.path.relpath(grd_file_path, brave_source_root)
+        rel_path = os.path.relpath(grd_file_path, adrbrowsiel_source_root)
         chromium_grd_file_path = os.path.join(source_root, rel_path)
     return chromium_grd_file_path
 
@@ -934,10 +934,10 @@ def should_use_transifex(source_string_path, filename):
     return slug in transifex_handled_slugs or slug.startswith('greaselion_')
 
 
-def pull_xtb_without_transifex(grd_file_path, brave_source_root):
+def pull_xtb_without_transifex(grd_file_path, adrbrowsiel_source_root):
     xtb_files = get_xtb_files(grd_file_path)
     chromium_grd_file_path = get_chromium_grd_src_with_fallback(grd_file_path,
-                                                                brave_source_root)
+                                                                adrbrowsiel_source_root)
     chromium_xtb_files = get_xtb_files(grd_file_path)
     if len(xtb_files) != len(chromium_xtb_files):
         assert False, 'XTB files and Chromium XTB file length mismatch.'
@@ -966,7 +966,7 @@ def pull_xtb_without_transifex(grd_file_path, brave_source_root):
         xml_tree = lxml.etree.parse(chromium_xtb_file)
 
         for node in xml_tree.xpath('//translation'):
-            generate_braveified_node(node, False, True)
+            generate_adrbrowsielified_node(node, False, True)
             # Use our fp, when exists.
             old_fp = node.attrib['id']
             # It's possible for an xtb string to not be in our GRD.

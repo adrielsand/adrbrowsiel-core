@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMMON_IMPORTER_CHROME_IMPORTER_UTILS_H_
-#define BRAVE_COMMON_IMPORTER_CHROME_IMPORTER_UTILS_H_
+#ifndef adrbrowsiel_COMMON_IMPORTER_CHROME_IMPORTER_UTILS_H_
+#define adrbrowsiel_COMMON_IMPORTER_CHROME_IMPORTER_UTILS_H_
 
 #include <string>
 #include <vector>
@@ -34,4 +34,4 @@ std::vector<std::string> GetImportableListFromChromeExtensionsList(
     const base::Value& extension_list);
 #endif
 
-#endif  // BRAVE_COMMON_IMPORTER_CHROME_IMPORTER_UTILS_H_
+#endif  // adrbrowsiel_COMMON_IMPORTER_CHROME_IMPORTER_UTILS_H_

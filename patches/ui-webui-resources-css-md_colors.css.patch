@@ -6,7 +6,7 @@ index 383a5f373a0a370b13d20e84f1df23c972bae580..f8986ff3117e2942a523abc9aebeb88c
  /* Copyright 2016 The Chromium Authors. All rights reserved.
   * Use of this source code is governed by a BSD-style license that can be
   * found in the LICENSE file. */
-+ @import url("chrome://brave-resources/css/md_colors.css");
++ @import url("chrome://adrbrowsiel-resources/css/md_colors.css");
  
  html {
    /* This is a custom, Chrome-specific color that does not have a --paper or

@@ -20,21 +20,21 @@ import android.widget.TextView;
 
 import org.chromium.base.IntentUtils;
 import org.chromium.chrome.browser.tab.Tab;
-import org.chromium.chrome.browser.BraveRewardsHelper;
-import org.chromium.chrome.browser.BraveRewardsNativeWorker;
-import org.chromium.chrome.browser.BraveRewardsObserver;
-import org.chromium.chrome.browser.BraveRewardsSiteBannerActivity;
+import org.chromium.chrome.browser.adrbrowsielRewardsHelper;
+import org.chromium.chrome.browser.adrbrowsielRewardsNativeWorker;
+import org.chromium.chrome.browser.adrbrowsielRewardsObserver;
+import org.chromium.chrome.browser.adrbrowsielRewardsSiteBannerActivity;
 
 import static java.util.Locale.getDefault;
 import java.text.DateFormat;
 
-public class BraveRewardsDonationSentActivity extends Activity implements BraveRewardsHelper.LargeIconReadyCallback, BraveRewardsObserver  {
+public class adrbrowsielRewardsDonationSentActivity extends Activity implements adrbrowsielRewardsHelper.LargeIconReadyCallback, adrbrowsielRewardsObserver  {
 
     private final int SLIDE_UP_DURATION = 2000;
     private final int PUBLISHER_ICON_SIDE_LEN= 70;
     private int currentTabId_ = -1;
-    private BraveRewardsNativeWorker mBraveRewardsNativeWorker;
-    private BraveRewardsHelper mIconFetcher;
+    private adrbrowsielRewardsNativeWorker madrbrowsielRewardsNativeWorker;
+    private adrbrowsielRewardsHelper mIconFetcher;
     private int mAmount_;
     private boolean mMonthly_tip_;
     private String mPublisher_name_;
@@ -44,16 +44,16 @@ public class BraveRewardsDonationSentActivity extends Activity implements BraveR
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.brave_rewards_donation_sent);
-        currentTabId_ = IntentUtils.safeGetIntExtra(getIntent(), BraveRewardsSiteBannerActivity.TAB_ID_EXTRA, -1);
-        mBraveRewardsNativeWorker = BraveRewardsNativeWorker.getInstance();
-        mBraveRewardsNativeWorker.AddObserver(this);
+        setContentView(R.layout.adrbrowsiel_rewards_donation_sent);
+        currentTabId_ = IntentUtils.safeGetIntExtra(getIntent(), adrbrowsielRewardsSiteBannerActivity.TAB_ID_EXTRA, -1);
+        madrbrowsielRewardsNativeWorker = adrbrowsielRewardsNativeWorker.getInstance();
+        madrbrowsielRewardsNativeWorker.AddObserver(this);
 
-        String publisherFavIconURL = mBraveRewardsNativeWorker.GetPublisherFavIconURL(currentTabId_);
-        Tab currentActiveTab = BraveRewardsHelper.currentActiveChromeTabbedActivityTab();
+        String publisherFavIconURL = madrbrowsielRewardsNativeWorker.GetPublisherFavIconURL(currentTabId_);
+        Tab currentActiveTab = adrbrowsielRewardsHelper.currentActiveChromeTabbedActivityTab();
         String url = currentActiveTab.getUrlString();
         String favicon_url = (publisherFavIconURL.isEmpty()) ? url : publisherFavIconURL;
-        mIconFetcher = new org.chromium.chrome.browser.BraveRewardsHelper(currentActiveTab);
+        mIconFetcher = new org.chromium.chrome.browser.adrbrowsielRewardsHelper(currentActiveTab);
         mIconFetcher.retrieveLargeIcon(favicon_url, this);
         SetData();
         SetAnimation();
@@ -63,8 +63,8 @@ public class BraveRewardsDonationSentActivity extends Activity implements BraveR
     protected void onDestroy() {
         super.onDestroy();
 
-        if (null != mBraveRewardsNativeWorker) {
-            mBraveRewardsNativeWorker.RemoveObserver(this);
+        if (null != madrbrowsielRewardsNativeWorker) {
+            madrbrowsielRewardsNativeWorker.RemoveObserver(this);
         }
     }
 
@@ -78,7 +78,7 @@ public class BraveRewardsDonationSentActivity extends Activity implements BraveR
         Animation fadeIn = new AlphaAnimation(0, 1);
         fadeIn.setInterpolator(new AccelerateInterpolator());
         fadeIn.setStartOffset(0);
-        fadeIn.setDuration(BraveRewardsHelper.THANKYOU_FADE_IN_DURATION);
+        fadeIn.setDuration(adrbrowsielRewardsHelper.THANKYOU_FADE_IN_DURATION);
 
 
         fadeIn.setAnimationListener(new Animation.AnimationListener() {
@@ -99,7 +99,7 @@ public class BraveRewardsDonationSentActivity extends Activity implements BraveR
                                   Animation fadeOut = new AlphaAnimation(1, 0);
                                   fadeOut.setInterpolator(new AccelerateInterpolator());
                                   fadeOut.setStartOffset(0);
-                                  fadeOut.setDuration(BraveRewardsHelper.THANKYOU_FADE_OUT_DURATION);
+                                  fadeOut.setDuration(adrbrowsielRewardsHelper.THANKYOU_FADE_OUT_DURATION);
 
                                   fadeOut.setAnimationListener(new Animation.AnimationListener() {
                                       @Override
@@ -119,7 +119,7 @@ public class BraveRewardsDonationSentActivity extends Activity implements BraveR
                         );
 
                     }
-                }, BraveRewardsHelper.THANKYOU_STAY_DURATION);
+                }, adrbrowsielRewardsHelper.THANKYOU_STAY_DURATION);
 
             }
         });
@@ -130,31 +130,31 @@ public class BraveRewardsDonationSentActivity extends Activity implements BraveR
     private void SetData() {
         Intent intent = getIntent();
         if (-1 == currentTabId_) {
-            currentTabId_ = IntentUtils.safeGetIntExtra(intent, BraveRewardsSiteBannerActivity.TAB_ID_EXTRA, -1);
+            currentTabId_ = IntentUtils.safeGetIntExtra(intent, adrbrowsielRewardsSiteBannerActivity.TAB_ID_EXTRA, -1);
         }
 
-        mPublisher_name_ = mBraveRewardsNativeWorker.GetPublisherName(currentTabId_);
-        mAmount_ = IntentUtils.safeGetIntExtra (intent, BraveRewardsSiteBannerActivity.TIP_AMOUNT_EXTRA, 0);
-        mMonthly_tip_ = IntentUtils.safeGetBooleanExtra (intent, BraveRewardsSiteBannerActivity.TIP_MONTHLY_EXTRA, false);
+        mPublisher_name_ = madrbrowsielRewardsNativeWorker.GetPublisherName(currentTabId_);
+        mAmount_ = IntentUtils.safeGetIntExtra (intent, adrbrowsielRewardsSiteBannerActivity.TIP_AMOUNT_EXTRA, 0);
+        mMonthly_tip_ = IntentUtils.safeGetBooleanExtra (intent, adrbrowsielRewardsSiteBannerActivity.TIP_MONTHLY_EXTRA, false);
 
         //set the data
         String strAmount = String.format(
-                getDefault(), "%.3f " + BraveRewardsHelper.BAT_TEXT, (float) mAmount_);
+                getDefault(), "%.3f " + adrbrowsielRewardsHelper.BAT_TEXT, (float) mAmount_);
         ((TextView)findViewById(R.id.txt_pub_name)).setText(mPublisher_name_);
 
         if (true == mMonthly_tip_) {
             //change `txt_you_sent` message
-            String monthly_send_msg = getResources().getString(R.string.brave_ui_auto_tip_text);
+            String monthly_send_msg = getResources().getString(R.string.adrbrowsiel_ui_auto_tip_text);
             ((TextView)findViewById(R.id.txt_you_sent)).setText(monthly_send_msg);
 
             //add 'Monthly' to amount
             strAmount += ", ";
-            String monthly = getResources().getString(R.string.brave_ui_monthly_text);
+            String monthly = getResources().getString(R.string.adrbrowsiel_ui_monthly_text);
             strAmount += monthly;
 
             //get next reconcile stamp
             //the `txt_tip_will_be_sent` and `txt_send_date` will be made visible in OnGetReconcileStamp
-            mBraveRewardsNativeWorker.GetReconcileStamp();
+            madrbrowsielRewardsNativeWorker.GetReconcileStamp();
 
         }
         ((TextView)findViewById(R.id.txt_amount)).setText(strAmount);
@@ -168,12 +168,12 @@ public class BraveRewardsDonationSentActivity extends Activity implements BraveR
                         @Override
                         public void run() {
                             ImageView iv = (ImageView) findViewById(R.id.publisher_favicon);
-                            int nPx = BraveRewardsHelper.dp2px(PUBLISHER_ICON_SIDE_LEN);
+                            int nPx = adrbrowsielRewardsHelper.dp2px(PUBLISHER_ICON_SIDE_LEN);
                             Bitmap resized = Bitmap.createScaledBitmap(bmp, nPx, nPx, true);
 
                             View fadeout  = findViewById(R.id.publisher_favicon_update);
-                            BraveRewardsHelper.crossfade(fadeout, iv, View.GONE, 1f, BraveRewardsHelper.CROSS_FADE_DURATION);
-                            iv.setImageBitmap(BraveRewardsHelper.getCircularBitmap(resized));
+                            adrbrowsielRewardsHelper.crossfade(fadeout, iv, View.GONE, 1f, adrbrowsielRewardsHelper.CROSS_FADE_DURATION);
+                            iv.setImageBitmap(adrbrowsielRewardsHelper.getCircularBitmap(resized));
                         }
                     });
         }
@@ -185,7 +185,7 @@ public class BraveRewardsDonationSentActivity extends Activity implements BraveR
     }
 
 
-    // BraveRewardsObserver/////////////////////////////////////
+    // adrbrowsielRewardsObserver/////////////////////////////////////
     @Override
     public void OnGetReconcileStamp(long timestamp) {
         //make reconcile date views visible

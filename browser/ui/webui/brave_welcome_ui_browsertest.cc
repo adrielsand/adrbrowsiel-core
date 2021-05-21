@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/command_line.h"
-#include "brave/browser/ui/webui/brave_web_ui_controller_factory.h"
-#include "brave/common/webui_url_constants.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_web_ui_controller_factory.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
 #include "chrome/browser/chrome_notification_types.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -31,10 +31,10 @@ Browser* OpenNewBrowser(Profile* profile) {
 }
 }
 
-using BraveWelcomeUIBrowserTest = InProcessBrowserTest;
+using adrbrowsielWelcomeUIBrowserTest = InProcessBrowserTest;
 
 // Check whether startup url at first run is our welcome page.
-IN_PROC_BROWSER_TEST_F(BraveWelcomeUIBrowserTest, PRE_StartupURLTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielWelcomeUIBrowserTest, PRE_StartupURLTest) {
   Browser* new_browser = OpenNewBrowser(browser()->profile());
   ASSERT_TRUE(new_browser);
   TabStripModel* tab_strip = new_browser->tab_strip_model();
@@ -49,7 +49,7 @@ IN_PROC_BROWSER_TEST_F(BraveWelcomeUIBrowserTest, PRE_StartupURLTest) {
 }
 
 // Check wheter startup url is not welcome ui at second run.
-IN_PROC_BROWSER_TEST_F(BraveWelcomeUIBrowserTest, StartupURLTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielWelcomeUIBrowserTest, StartupURLTest) {
   Browser* new_browser = OpenNewBrowser(browser()->profile());
   ASSERT_TRUE(new_browser);
   TabStripModel* tab_strip = new_browser->tab_strip_model();

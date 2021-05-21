@@ -1,13 +1,13 @@
 source_set("devtools") {
   if (!is_android) {
     sources = [
-      "brave_devtools_ui_bindings.cc",
-      "brave_devtools_ui_bindings.h",
+      "adrbrowsiel_devtools_ui_bindings.cc",
+      "adrbrowsiel_devtools_ui_bindings.h",
     ]
 
     deps = [
       "//base",
-      "//brave/browser/themes",
+      "//adrbrowsiel/browser/themes",
       "//chrome/browser/devtools",
       "//chrome/common",
       "//components/prefs",

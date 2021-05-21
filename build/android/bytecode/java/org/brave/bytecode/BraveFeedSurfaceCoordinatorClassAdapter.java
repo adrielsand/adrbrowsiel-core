@@ -1,34 +1,34 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BraveFeedSurfaceCoordinatorClassAdapter extends BraveClassVisitor {
+public class adrbrowsielFeedSurfaceCoordinatorClassAdapter extends adrbrowsielClassVisitor {
     static String sFeedSurfaceCoordinatorClassName =
             "org/chromium/chrome/browser/feed/FeedSurfaceCoordinator";
-    static String sBraveFeedSurfaceCoordinatorClassName =
-            "org/chromium/chrome/browser/feed/BraveFeedSurfaceCoordinator";
+    static String sadrbrowsielFeedSurfaceCoordinatorClassName =
+            "org/chromium/chrome/browser/feed/adrbrowsielFeedSurfaceCoordinator";
 
-    public BraveFeedSurfaceCoordinatorClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielFeedSurfaceCoordinatorClassAdapter(ClassVisitor visitor) {
         super(visitor);
         makePublicMethod(sFeedSurfaceCoordinatorClassName, "isEnhancedProtectionPromoEnabled");
-        addMethodAnnotation(sBraveFeedSurfaceCoordinatorClassName,
+        addMethodAnnotation(sadrbrowsielFeedSurfaceCoordinatorClassName,
                 "isEnhancedProtectionPromoEnabled", "Ljava/lang/Override;");
 
-        deleteField(sBraveFeedSurfaceCoordinatorClassName, "mActivity");
+        deleteField(sadrbrowsielFeedSurfaceCoordinatorClassName, "mActivity");
         makeProtectedField(sFeedSurfaceCoordinatorClassName, "mActivity");
 
-        deleteField(sBraveFeedSurfaceCoordinatorClassName, "mScrollViewForPolicy");
+        deleteField(sadrbrowsielFeedSurfaceCoordinatorClassName, "mScrollViewForPolicy");
         makeProtectedField(sFeedSurfaceCoordinatorClassName, "mScrollViewForPolicy");
 
-        deleteField(sBraveFeedSurfaceCoordinatorClassName, "mNtpHeader");
+        deleteField(sadrbrowsielFeedSurfaceCoordinatorClassName, "mNtpHeader");
         makeProtectedField(sFeedSurfaceCoordinatorClassName, "mNtpHeader");
 
-        deleteField(sBraveFeedSurfaceCoordinatorClassName, "mRootView");
+        deleteField(sadrbrowsielFeedSurfaceCoordinatorClassName, "mRootView");
         makeProtectedField(sFeedSurfaceCoordinatorClassName, "mRootView");
     }
 }

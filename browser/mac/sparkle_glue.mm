@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#import "brave/browser/mac/sparkle_glue.h"
+#import "adrbrowsiel/browser/mac/sparkle_glue.h"
 
 #include <string>
 #include <sys/mount.h>
@@ -16,8 +16,8 @@
 #include "base/strings/sys_string_conversions.h"
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
-#import "brave/browser/mac/su_updater.h"
-#include "brave/browser/update_util.h"
+#import "adrbrowsiel/browser/mac/su_updater.h"
+#include "adrbrowsiel/browser/update_util.h"
 #include "chrome/common/channel_info.h"
 #include "chrome/common/chrome_constants.h"
 
@@ -105,13 +105,13 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
   static bool sTriedCreatingSharedSparkleGlue = false;
   static SparkleGlue* shared = nil;
 
-  if (brave::UpdateEnabled() && !sTriedCreatingSharedSparkleGlue) {
+  if (adrbrowsiel::UpdateEnabled() && !sTriedCreatingSharedSparkleGlue) {
     sTriedCreatingSharedSparkleGlue = true;
 
     shared = [[SparkleGlue alloc] init];
     [shared loadParameters];
     if (![shared loadSparkleFramework]) {
-      VLOG(0) << "brave update: Failed to load sparkle framework";
+      VLOG(0) << "adrbrowsiel update: Failed to load sparkle framework";
       [shared release];
       shared = nil;
     }
@@ -163,12 +163,12 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
 }
 
 - (void)registerWithSparkle {
-  // This can be called by BraveBrowserMainPartsMac::PreMainMessageLoopStart()
+  // This can be called by adrbrowsielBrowserMainPartsMac::PreMainMessageLoopStart()
   // again when browser is relaunched.
   if (registered_)
     return;
 
-  DCHECK(brave::UpdateEnabled());
+  DCHECK(adrbrowsiel::UpdateEnabled());
   DCHECK(su_updater_);
 
   [self updateStatus:kAutoupdateRegistering version:nil error:nil];
@@ -178,8 +178,8 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
   [su_updater_ setDelegate:self];
 
   // Background update check interval.
-  constexpr NSTimeInterval kBraveUpdateCheckIntervalInSec = 3 * 60 * 60;
-  [su_updater_ setUpdateCheckInterval:kBraveUpdateCheckIntervalInSec];
+  constexpr NSTimeInterval kadrbrowsielUpdateCheckIntervalInSec = 3 * 60 * 60;
+  [su_updater_ setUpdateCheckInterval:kadrbrowsielUpdateCheckIntervalInSec];
   [su_updater_ setAutomaticallyChecksForUpdates:YES];
   [su_updater_ setAutomaticallyDownloadsUpdates:YES];
 
@@ -363,13 +363,13 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
 #pragma mark - SUUpdaterDelegate
 
 - (void)updater:(id)updater didFinishLoadingAppcast:(id)appcast {
-  VLOG(0) << "brave update: did finish loading appcast";
+  VLOG(0) << "adrbrowsiel update: did finish loading appcast";
 
   [self updateStatus:kAutoupdateChecking version:nil error:nil];
 }
 
 - (void)updater:(id)updater didFindValidUpdate:(id)item {
-  VLOG(0) << "brave update: did find valid update with " +
+  VLOG(0) << "adrbrowsiel update: did find valid update with " +
              GetDescriptionFromAppcastItem(item);
 
   // Caching update candidate version.
@@ -382,7 +382,7 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
 }
 
 - (void)updaterDidNotFindUpdate:(id)updater {
-  VLOG(0) << "brave update: did not find update";
+  VLOG(0) << "adrbrowsiel update: did not find update";
 
   [self determineUpdateStatusAsync];
 }
@@ -390,7 +390,7 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
 - (void)updater:(id)updater
     willDownloadUpdate:(id)item
            withRequest:(NSMutableURLRequest *)request {
-  VLOG(0) << "brave update: willDownloadUpdate with " +
+  VLOG(0) << "adrbrowsiel update: willDownloadUpdate with " +
              GetDescriptionFromAppcastItem(item);
   [self updateStatus:kAutoupdateInstalling
              version:nil
@@ -400,7 +400,7 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
 - (void)updater:(id)updater
     failedToDownloadUpdate:(id)item
                      error:(NSError *)error {
-  VLOG(0) << "brave update: failed to download update with " +
+  VLOG(0) << "adrbrowsiel update: failed to download update with " +
              GetDescriptionFromAppcastItem(item) +
              " with error - " + [[error description] UTF8String];
   [self updateStatus:kAutoupdateInstallFailed
@@ -409,14 +409,14 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
 }
 
 - (void)userDidCancelDownload:(id)updater {
-  VLOG(0) << "brave update: user did cancel download";
+  VLOG(0) << "adrbrowsiel update: user did cancel download";
   [self updateStatus:kAutoupdateInstallFailed
                version:nil
                  error:nil];
 }
 
 - (void)updater:(id)updater willInstallUpdate:(id)item {
-  VLOG(0) << "brave update: will install update with " +
+  VLOG(0) << "adrbrowsiel update: will install update with " +
              GetDescriptionFromAppcastItem(item);
   [self updateStatus:kAutoupdateInstalling
              version:nil
@@ -426,7 +426,7 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
 - (void)updater:(id)updater
     willInstallUpdateOnQuit:(id)item
     immediateInstallationInvocation:(NSInvocation *)invocation {
-  VLOG(0) << "brave update: will install update on quit with " +
+  VLOG(0) << "adrbrowsiel update: will install update on quit with " +
              GetDescriptionFromAppcastItem(item);
 
   updateSuccessfullyInstalled_ = YES;
@@ -435,7 +435,7 @@ class PerformBridge : public base::RefCountedThreadSafe<PerformBridge> {
 }
 
 - (void)updater:(id)updater didAbortWithError:(NSError *)error {
-  VLOG(0) << "brave update: did abort with error: " +
+  VLOG(0) << "adrbrowsiel update: did abort with error: " +
              base::SysNSStringToUTF8([error localizedDescription]);
   /* Error code. See SUErrors.h
     // Appcast phase errors.

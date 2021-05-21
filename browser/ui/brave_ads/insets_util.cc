@@ -1,15 +1,15 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_ads/insets_util.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/insets_util.h"
 
 #include "build/build_config.h"
 #include "ui/gfx/font_list.h"
 #include "ui/gfx/geometry/insets.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 void AdjustInsetsForFontList(gfx::Insets* insets,
                              const gfx::FontList& font_list) {
@@ -29,4 +29,4 @@ void AdjustInsetsForFontList(gfx::Insets* insets,
 #endif
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

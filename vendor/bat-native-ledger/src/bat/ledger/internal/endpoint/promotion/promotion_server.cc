@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -16,7 +16,7 @@ PromotionServer::PromotionServer(LedgerImpl* ledger)
       post_clobbered_claims_(
           std::make_unique<promotion::PostClobberedClaims>(ledger)),
       post_bat_loss_(std::make_unique<promotion::PostBatLoss>(ledger)),
-      post_wallet_brave_(std::make_unique<promotion::PostWalletBrave>(ledger)),
+      post_wallet_adrbrowsiel_(std::make_unique<promotion::PostWalletadrbrowsiel>(ledger)),
       get_recover_wallet_(
           std::make_unique<promotion::GetRecoverWallet>(ledger)),
       post_claim_bitflyer_(
@@ -34,7 +34,7 @@ PromotionServer::PromotionServer(LedgerImpl* ledger)
       post_suggestions_(std::make_unique<promotion::PostSuggestions>(ledger)),
       post_suggestions_claim_(
           std::make_unique<promotion::PostSuggestionsClaim>(ledger)),
-      post_claim_brave_(std::make_unique<promotion::PostClaimBrave>(ledger)),
+      post_claim_adrbrowsiel_(std::make_unique<promotion::PostClaimadrbrowsiel>(ledger)),
       get_drain_(std::make_unique<promotion::GetDrain>(ledger)) {}
 
 PromotionServer::~PromotionServer() = default;
@@ -59,8 +59,8 @@ promotion::PostBatLoss* PromotionServer::post_bat_loss() const {
   return post_bat_loss_.get();
 }
 
-promotion::PostWalletBrave* PromotionServer::post_wallet_brave() const {
-  return post_wallet_brave_.get();
+promotion::PostWalletadrbrowsiel* PromotionServer::post_wallet_adrbrowsiel() const {
+  return post_wallet_adrbrowsiel_.get();
 }
 
 promotion::GetRecoverWallet* PromotionServer::get_recover_wallet() const {
@@ -116,8 +116,8 @@ PromotionServer::post_suggestions_claim() const {
   return post_suggestions_claim_.get();
 }
 
-promotion::PostClaimBrave* PromotionServer::post_claim_brave() const {
-  return post_claim_brave_.get();
+promotion::PostClaimadrbrowsiel* PromotionServer::post_claim_adrbrowsiel() const {
+  return post_claim_adrbrowsiel_.get();
 }
 
 promotion::GetDrain* PromotionServer::get_drain() const {

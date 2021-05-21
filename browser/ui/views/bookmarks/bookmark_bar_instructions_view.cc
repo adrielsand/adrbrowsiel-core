@@ -1,16 +1,16 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/bookmarks/bookmark_bar_instructions_view.h"
+#include "adrbrowsiel/browser/ui/views/bookmarks/bookmark_bar_instructions_view.h"
 
 #include <algorithm>
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/themes/theme_properties.h"
-#include "brave/grit/brave_generated_resources.h"
-#include "brave/browser/ui/brave_view_ids.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_view_ids.h"
 #include "chrome/browser/defaults.h"
 #include "chrome/browser/themes/theme_properties.h"
 #include "chrome/browser/ui/chrome_pages.h"
@@ -41,7 +41,7 @@ BookmarkBarInstructionsView::BookmarkBarInstructionsView(Browser* browser)
       import_link_(NULL),
       updated_colors_(false),
       browser_(browser) {
-  SetID(BRAVE_VIEW_ID_BOOKMARK_IMPORT_INSTRUCTION_VIEW);
+  SetID(adrbrowsiel_VIEW_ID_BOOKMARK_IMPORT_INSTRUCTION_VIEW);
   instructions_ =
       new views::Label(l10n_util::GetStringUTF16(IDS_BOOKMARKS_NO_ITEMS),
                        kBookmarkBarTextContext);
@@ -130,7 +130,7 @@ void BookmarkBarInstructionsView::UpdateColors() {
     return;
   updated_colors_ = true;
   SkColor text_color = theme_provider->GetColor(
-      BraveThemeProperties::COLOR_BOOKMARK_BAR_INSTRUCTIONS_TEXT);
+      adrbrowsielThemeProperties::COLOR_BOOKMARK_BAR_INSTRUCTIONS_TEXT);
   instructions_->SetEnabledColor(text_color);
   if (!import_link_)
     return;

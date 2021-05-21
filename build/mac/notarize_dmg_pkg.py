@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright (c) 2019 The Brave Authors. All rights reserved.
+# Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -18,14 +18,14 @@ performs notarizing and stapling of those files.
 """
 
 # Our CWD is the packaging directory (i.e.
-# src/out/Release/Brave_Browser_CHANNEL_Packaging), the signing directory is
+# src/out/Release/adrbrowsiel_Browser_CHANNEL_Packaging), the signing directory is
 # relative to that
 packaging_signing_path = os.path.realpath(os.path.dirname(os.path.realpath(__file__)))
 sys.path.append(packaging_signing_path)
 
 # Import the entire module to avoid circular dependencies in the functions
 from signing import chromium_config, config, commands, model, notarize, pipeline, signing  # noqa: E402
-from signing_helper import GetBraveSigningConfig
+from signing_helper import GetadrbrowsielSigningConfig
 
 def run_command(args, **kwargs):
     print('Running command: {}'.format(args))
@@ -67,13 +67,13 @@ def create_config(config_args, development, mac_provisioning_profile=None):
 
         config_class = DevelopmentCodeSignConfig
 
-    config_class = GetBraveSigningConfig(config_class, mac_provisioning_profile)
+    config_class = GetadrbrowsielSigningConfig(config_class, mac_provisioning_profile)
     return config_class(*config_args)
 
 
-def NotarizeBraveDmgPkg(paths, config, dmg, pkg, outdir, signed):
+def NotarizeadrbrowsielDmgPkg(paths, config, dmg, pkg, outdir, signed):
     """
-    Notarize Brave .dmg and .pkg files.
+    Notarize adrbrowsiel .dmg and .pkg files.
     """
     uuids_to_path_map = {}
     for dist in config.distributions:
@@ -84,8 +84,8 @@ def NotarizeBraveDmgPkg(paths, config, dmg, pkg, outdir, signed):
         uuids_to_path_map[uuid1] = pkg
         for result in notarize.wait_for_results(
                 uuids_to_path_map.keys(), config):
-            brave_path = uuids_to_path_map[result]
-            notarize.staple(brave_path)
+            adrbrowsiel_path = uuids_to_path_map[result]
+            notarize.staple(adrbrowsiel_path)
     for item in uuids_to_path_map.values():
         commands.copy_files(os.path.join(signed, item), outdir)
     return 0
@@ -105,7 +105,7 @@ def main():
                                args.development)
     paths = model.Paths(args.pkgdir, args.outdir, None)
 
-    rc = NotarizeBraveDmgPkg(paths, config, args.dmg, args.pkg, args.outdir, args.signed)
+    rc = NotarizeadrbrowsielDmgPkg(paths, config, args.dmg, args.pkg, args.outdir, args.signed)
     return rc
 
 

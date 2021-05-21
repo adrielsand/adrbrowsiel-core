@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -31,13 +31,13 @@
 #include "third_party/blink/public/common/features.h"
 #include "third_party/blink/public/common/web_preferences/web_preferences.h"
 
-using BraveMainDelegateBrowserTest = InProcessBrowserTest;
+using adrbrowsielMainDelegateBrowserTest = InProcessBrowserTest;
 
-const char kBraveOriginTrialsPublicKey[] =
+const char kadrbrowsielOriginTrialsPublicKey[] =
     "bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,"
     "fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU=";
 
-IN_PROC_BROWSER_TEST_F(BraveMainDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielMainDelegateBrowserTest,
                        DomainReliabilityServiceDisabled) {
   EXPECT_TRUE(base::CommandLine::ForCurrentProcess()->HasSwitch(
       switches::kDisableDomainReliability));
@@ -45,7 +45,7 @@ IN_PROC_BROWSER_TEST_F(BraveMainDelegateBrowserTest,
                    ShouldCreateService());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveMainDelegateBrowserTest, DisableHyperlinkAuditing) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielMainDelegateBrowserTest, DisableHyperlinkAuditing) {
   EXPECT_TRUE(
       base::CommandLine::ForCurrentProcess()->HasSwitch(switches::kNoPings));
   content::WebContents* contents =
@@ -55,15 +55,15 @@ IN_PROC_BROWSER_TEST_F(BraveMainDelegateBrowserTest, DisableHyperlinkAuditing) {
   EXPECT_FALSE(prefs.hyperlink_auditing_enabled);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveMainDelegateBrowserTest, OriginTrialsTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielMainDelegateBrowserTest, OriginTrialsTest) {
   EXPECT_TRUE(base::CommandLine::ForCurrentProcess()->HasSwitch(
       embedder_support::kOriginTrialPublicKey));
-  EXPECT_EQ(kBraveOriginTrialsPublicKey,
+  EXPECT_EQ(kadrbrowsielOriginTrialsPublicKey,
             base::CommandLine::ForCurrentProcess()->GetSwitchValueASCII(
                 embedder_support::kOriginTrialPublicKey));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveMainDelegateBrowserTest, DisabledFeatures) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielMainDelegateBrowserTest, DisabledFeatures) {
   const base::Feature* disabled_features[] = {
       &autofill::features::kAutofillEnableAccountWalletStorage,
       &autofill::features::kAutofillServerCommunication,
@@ -95,7 +95,7 @@ IN_PROC_BROWSER_TEST_F(BraveMainDelegateBrowserTest, DisabledFeatures) {
     EXPECT_FALSE(base::FeatureList::IsEnabled(*feature));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveMainDelegateBrowserTest, EnabledFeatures) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielMainDelegateBrowserTest, EnabledFeatures) {
   const base::Feature* enabled_features[] = {
     &blink::features::kPrefetchPrivacyChanges,
     &password_manager::features::kPasswordImport,

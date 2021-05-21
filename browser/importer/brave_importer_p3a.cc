@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/importer/brave_importer_p3a.h"
+#include "adrbrowsiel/browser/importer/adrbrowsiel_importer_p3a.h"
 
 #include "base/metrics/histogram_macros.h"
 
@@ -12,7 +12,7 @@ namespace {
 // is used to bucket a UMA histogram, and removing values breaks that.
 enum class ImporterSource {
   kNone,
-  kBrave,
+  kadrbrowsiel,
   kChrome,
   kFirefox,
   kBookmarksHTMLFile,
@@ -53,6 +53,6 @@ void RecordImporterP3A(importer::ImporterType type) {
     break;
   }
 
-  UMA_HISTOGRAM_ENUMERATION("Brave.Importer.ImporterSource", metric,
+  UMA_HISTOGRAM_ENUMERATION("adrbrowsiel.Importer.ImporterSource", metric,
                             ImporterSource::kSize);
 }

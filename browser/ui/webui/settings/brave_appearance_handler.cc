@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/settings/brave_appearance_handler.h"
+#include "adrbrowsiel/browser/ui/webui/settings/adrbrowsiel_appearance_handler.h"
 
 #include "base/bind.h"
 #include "base/metrics/histogram_macros.h"
 #include "base/strings/string_number_conversions.h"
-#include "brave/browser/new_tab/new_tab_shows_options.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/themes/brave_dark_mode_utils.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/ntp_background_images/common/pref_names.h"
+#include "adrbrowsiel/browser/new_tab/new_tab_shows_options.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_dark_mode_utils.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/ntp_background_images/common/pref_names.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/search/instant_service.h"
@@ -22,113 +22,113 @@
 #include "content/public/browser/web_ui.h"
 
 
-BraveAppearanceHandler::BraveAppearanceHandler() {
+adrbrowsielAppearanceHandler::adrbrowsielAppearanceHandler() {
   local_state_change_registrar_.Init(g_browser_process->local_state());
   local_state_change_registrar_.Add(
-      kBraveDarkMode,
-      base::Bind(&BraveAppearanceHandler::OnBraveDarkModeChanged,
+      kadrbrowsielDarkMode,
+      base::Bind(&adrbrowsielAppearanceHandler::OnadrbrowsielDarkModeChanged,
                  base::Unretained(this)));
 }
 
-BraveAppearanceHandler::~BraveAppearanceHandler() = default;
+adrbrowsielAppearanceHandler::~adrbrowsielAppearanceHandler() = default;
 
 // TODO(simonhong): Use separate handler for NTP settings.
-void BraveAppearanceHandler::RegisterMessages() {
+void adrbrowsielAppearanceHandler::RegisterMessages() {
   profile_ = Profile::FromWebUI(web_ui());
   profile_state_change_registrar_.Init(profile_->GetPrefs());
   profile_state_change_registrar_.Add(
       kNewTabPageShowsOptions,
-      base::BindRepeating(&BraveAppearanceHandler::OnPreferenceChanged,
+      base::BindRepeating(&adrbrowsielAppearanceHandler::OnPreferenceChanged,
       base::Unretained(this)));
   profile_state_change_registrar_.Add(
       prefs::kHomePageIsNewTabPage,
-      base::BindRepeating(&BraveAppearanceHandler::OnPreferenceChanged,
+      base::BindRepeating(&adrbrowsielAppearanceHandler::OnPreferenceChanged,
       base::Unretained(this)));
   profile_state_change_registrar_.Add(
       prefs::kHomePage,
-      base::BindRepeating(&BraveAppearanceHandler::OnPreferenceChanged,
+      base::BindRepeating(&adrbrowsielAppearanceHandler::OnPreferenceChanged,
       base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "setBraveThemeType",
-      base::BindRepeating(&BraveAppearanceHandler::SetBraveThemeType,
+      "setadrbrowsielThemeType",
+      base::BindRepeating(&adrbrowsielAppearanceHandler::SetadrbrowsielThemeType,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "getBraveThemeType",
-      base::BindRepeating(&BraveAppearanceHandler::GetBraveThemeType,
+      "getadrbrowsielThemeType",
+      base::BindRepeating(&adrbrowsielAppearanceHandler::GetadrbrowsielThemeType,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "getNewTabShowsOptionsList",
-      base::BindRepeating(&BraveAppearanceHandler::GetNewTabShowsOptionsList,
+      base::BindRepeating(&adrbrowsielAppearanceHandler::GetNewTabShowsOptionsList,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "shouldShowNewTabDashboardSettings",
       base::BindRepeating(
-          &BraveAppearanceHandler::ShouldShowNewTabDashboardSettings,
+          &adrbrowsielAppearanceHandler::ShouldShowNewTabDashboardSettings,
           base::Unretained(this)));
 }
 
-void BraveAppearanceHandler::SetBraveThemeType(const base::ListValue* args) {
+void adrbrowsielAppearanceHandler::SetadrbrowsielThemeType(const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   AllowJavascript();
 
   int int_type;
   args->GetInteger(0, &int_type);
-  dark_mode::SetBraveDarkModeType(
-      static_cast<dark_mode::BraveDarkModeType>(int_type));
+  dark_mode::SetadrbrowsielDarkModeType(
+      static_cast<dark_mode::adrbrowsielDarkModeType>(int_type));
 }
 
-void BraveAppearanceHandler::GetBraveThemeType(const base::ListValue* args) {
+void adrbrowsielAppearanceHandler::GetadrbrowsielThemeType(const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
 
   AllowJavascript();
-  // GetBraveThemeType() should be used because settings option displays all
+  // GetadrbrowsielThemeType() should be used because settings option displays all
   // available options including default.
   ResolveJavascriptCallback(
       args->GetList()[0],
-      base::Value(static_cast<int>(dark_mode::GetBraveDarkModeType())));
+      base::Value(static_cast<int>(dark_mode::GetadrbrowsielDarkModeType())));
 }
 
-void BraveAppearanceHandler::OnBraveDarkModeChanged() {
-  // GetBraveThemeType() should be used because settings option displays all
+void adrbrowsielAppearanceHandler::OnadrbrowsielDarkModeChanged() {
+  // GetadrbrowsielThemeType() should be used because settings option displays all
   // available options including default.
   if (IsJavascriptAllowed()) {
     FireWebUIListener(
-        "brave-theme-type-changed",
-        base::Value(static_cast<int>(dark_mode::GetBraveDarkModeType())));
+        "adrbrowsiel-theme-type-changed",
+        base::Value(static_cast<int>(dark_mode::GetadrbrowsielDarkModeType())));
   }
 }
 
-void BraveAppearanceHandler::OnBackgroundPreferenceChanged(
+void adrbrowsielAppearanceHandler::OnBackgroundPreferenceChanged(
     const std::string& pref_name) {
-  brave::RecordSponsoredImagesEnabledP3A(profile_);
+  adrbrowsiel::RecordSponsoredImagesEnabledP3A(profile_);
 }
 
-void BraveAppearanceHandler::OnPreferenceChanged(const std::string& pref_name) {
+void adrbrowsielAppearanceHandler::OnPreferenceChanged(const std::string& pref_name) {
   if (IsJavascriptAllowed()) {
     if (pref_name == kNewTabPageShowsOptions ||
         pref_name == prefs::kHomePage ||
         pref_name == prefs::kHomePageIsNewTabPage) {
       FireWebUIListener(
           "show-new-tab-dashboard-settings-changed",
-          base::Value(brave::ShouldNewTabShowDashboard(profile_)));
+          base::Value(adrbrowsiel::ShouldNewTabShowDashboard(profile_)));
       return;
     }
   }
 }
 
-void BraveAppearanceHandler::GetNewTabShowsOptionsList(
+void adrbrowsielAppearanceHandler::GetNewTabShowsOptionsList(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   AllowJavascript();
   ResolveJavascriptCallback(args->GetList()[0],
-                            brave::GetNewTabShowsOptionsList(profile_));
+                            adrbrowsiel::GetNewTabShowsOptionsList(profile_));
 }
 
-void BraveAppearanceHandler::ShouldShowNewTabDashboardSettings(
+void adrbrowsielAppearanceHandler::ShouldShowNewTabDashboardSettings(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   AllowJavascript();
   ResolveJavascriptCallback(
       args->GetList()[0],
-      base::Value(brave::ShouldNewTabShowDashboard(profile_)));
+      base::Value(adrbrowsiel::ShouldNewTabShowDashboard(profile_)));
 }

@@ -6,5 +6,5 @@ index 8710eb9a58e533ac1f4dc04efc9908b3a3aa9d67..10ce07fee16b903c820c5681a75f2450
  
    // This is common code for all of us. PLEASE DO YOUR PART to keep it tidy and
    // organized.
-+  BRAVE_TAB_HELPERS
++  adrbrowsiel_TAB_HELPERS
  }

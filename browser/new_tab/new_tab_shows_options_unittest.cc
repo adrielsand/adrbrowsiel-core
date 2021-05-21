@@ -1,11 +1,11 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/new_tab/new_tab_shows_options.h"
-#include "brave/common/pref_names.h"
-#include "brave/common/webui_url_constants.h"
+#include "adrbrowsiel/browser/new_tab/new_tab_shows_options.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
 #include "chrome/common/pref_names.h"
 #include "chrome/test/base/testing_browser_process.h"
 #include "chrome/test/base/testing_profile.h"
@@ -15,10 +15,10 @@
 #include "testing/gtest/include/gtest/gtest.h"
 #include "url/url_constants.h"
 
-class BraveNewTabTest : public testing::Test {
+class adrbrowsielNewTabTest : public testing::Test {
  public:
-  BraveNewTabTest() : manager_(TestingBrowserProcess::GetGlobal()) {}
-  ~BraveNewTabTest() override {}
+  adrbrowsielNewTabTest() : manager_(TestingBrowserProcess::GetGlobal()) {}
+  ~adrbrowsielNewTabTest() override {}
 
  protected:
   void SetUp() override {
@@ -32,7 +32,7 @@ class BraveNewTabTest : public testing::Test {
   TestingProfileManager manager_;
 };
 
-TEST_F(BraveNewTabTest, BasicTest) {
+TEST_F(adrbrowsielNewTabTest, BasicTest) {
   Profile* profile = manager()->CreateTestingProfile("Test 1");
   Profile* otr_profile = profile->GetPrimaryOTRProfile();
   ASSERT_TRUE(profile);
@@ -43,46 +43,46 @@ TEST_F(BraveNewTabTest, BasicTest) {
   // Check NTP url is empty for DASHBOARD.
   prefs->SetInteger(
       kNewTabPageShowsOptions,
-      static_cast<int>(brave::NewTabPageShowsOptions::kDashboard));
-  EXPECT_EQ(GURL(), brave::GetNewTabPageURL(profile));
-  EXPECT_EQ(GURL(), brave::GetNewTabPageURL(otr_profile));
-  EXPECT_TRUE(brave::ShouldUseNewTabURLForNewTab(profile));
-  EXPECT_TRUE(brave::ShouldNewTabShowDashboard(profile));
+      static_cast<int>(adrbrowsiel::NewTabPageShowsOptions::kDashboard));
+  EXPECT_EQ(GURL(), adrbrowsiel::GetNewTabPageURL(profile));
+  EXPECT_EQ(GURL(), adrbrowsiel::GetNewTabPageURL(otr_profile));
+  EXPECT_TRUE(adrbrowsiel::ShouldUseNewTabURLForNewTab(profile));
+  EXPECT_TRUE(adrbrowsiel::ShouldNewTabShowDashboard(profile));
 
   // Check NTP url is empty when option is HOMEPAGE and kHomePageIsNewTabPage
   // is true.
   prefs->SetInteger(
       kNewTabPageShowsOptions,
-      static_cast<int>(brave::NewTabPageShowsOptions::kHomepage));
-  prefs->SetString(prefs::kHomePage, "https://www.brave.com/");
+      static_cast<int>(adrbrowsiel::NewTabPageShowsOptions::kHomepage));
+  prefs->SetString(prefs::kHomePage, "https://www.adrbrowsiel.com/");
   prefs->SetBoolean(prefs::kHomePageIsNewTabPage, true);
-  EXPECT_EQ(GURL(), brave::GetNewTabPageURL(profile));
-  EXPECT_EQ(GURL(), brave::GetNewTabPageURL(otr_profile));
-  EXPECT_TRUE(brave::ShouldUseNewTabURLForNewTab(profile));
-  EXPECT_TRUE(brave::ShouldNewTabShowDashboard(profile));
+  EXPECT_EQ(GURL(), adrbrowsiel::GetNewTabPageURL(profile));
+  EXPECT_EQ(GURL(), adrbrowsiel::GetNewTabPageURL(otr_profile));
+  EXPECT_TRUE(adrbrowsiel::ShouldUseNewTabURLForNewTab(profile));
+  EXPECT_TRUE(adrbrowsiel::ShouldNewTabShowDashboard(profile));
 
   // Check NTP url is configured url when option is HOMEPAGE and
   // kHomePageIsNewTabPage is false.
   prefs->SetBoolean(prefs::kHomePageIsNewTabPage, false);
-  EXPECT_EQ(GURL("https://www.brave.com/"), brave::GetNewTabPageURL(profile));
-  EXPECT_EQ(GURL(), brave::GetNewTabPageURL(otr_profile));
-  EXPECT_FALSE(brave::ShouldUseNewTabURLForNewTab(profile));
-  EXPECT_FALSE(brave::ShouldNewTabShowDashboard(profile));
+  EXPECT_EQ(GURL("https://www.adrbrowsiel.com/"), adrbrowsiel::GetNewTabPageURL(profile));
+  EXPECT_EQ(GURL(), adrbrowsiel::GetNewTabPageURL(otr_profile));
+  EXPECT_FALSE(adrbrowsiel::ShouldUseNewTabURLForNewTab(profile));
+  EXPECT_FALSE(adrbrowsiel::ShouldNewTabShowDashboard(profile));
 
   // If homepage url is newtab url, dashboard settings should be shown.
   prefs->SetString(prefs::kHomePage, "chrome://newtab/");
-  EXPECT_TRUE(brave::ShouldUseNewTabURLForNewTab(profile));
-  EXPECT_TRUE(brave::ShouldNewTabShowDashboard(profile));
+  EXPECT_TRUE(adrbrowsiel::ShouldUseNewTabURLForNewTab(profile));
+  EXPECT_TRUE(adrbrowsiel::ShouldNewTabShowDashboard(profile));
 
   // Check NTP url is used when option is BLANKPAGE.
-  // Blank page will go NTP route and BraveNewTabUI will handle it.
+  // Blank page will go NTP route and adrbrowsielNewTabUI will handle it.
   prefs->SetInteger(
       kNewTabPageShowsOptions,
-      static_cast<int>(brave::NewTabPageShowsOptions::kBlankpage));
-  EXPECT_EQ(GURL(), brave::GetNewTabPageURL(profile));
-  EXPECT_EQ(GURL(), brave::GetNewTabPageURL(otr_profile));
-  EXPECT_TRUE(brave::ShouldUseNewTabURLForNewTab(profile));
-  EXPECT_FALSE(brave::ShouldNewTabShowDashboard(profile));
-  EXPECT_TRUE(brave::ShouldNewTabShowBlankpage(profile));
-  EXPECT_FALSE(brave::ShouldNewTabShowBlankpage(otr_profile));
+      static_cast<int>(adrbrowsiel::NewTabPageShowsOptions::kBlankpage));
+  EXPECT_EQ(GURL(), adrbrowsiel::GetNewTabPageURL(profile));
+  EXPECT_EQ(GURL(), adrbrowsiel::GetNewTabPageURL(otr_profile));
+  EXPECT_TRUE(adrbrowsiel::ShouldUseNewTabURLForNewTab(profile));
+  EXPECT_FALSE(adrbrowsiel::ShouldNewTabShowDashboard(profile));
+  EXPECT_TRUE(adrbrowsiel::ShouldNewTabShowBlankpage(profile));
+  EXPECT_FALSE(adrbrowsiel::ShouldNewTabShowBlankpage(otr_profile));
 }

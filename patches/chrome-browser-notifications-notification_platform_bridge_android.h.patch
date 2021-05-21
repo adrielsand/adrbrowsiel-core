@@ -6,7 +6,7 @@ index 7ff354723b9d14c43b9dd7dd2679f36ab8e66f79..ffb5f27cbc4f7d5f826e4717c9a6d691
    static void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry);
  
   private:
-+  friend class BraveNotificationPlatformBridgeHelperAndroid;
++  friend class adrbrowsielNotificationPlatformBridgeHelperAndroid;
    // Contains information necessary in order to enable closing notifications
    // that were not created by this instance of the manager. This list may not
    // contain the notifications that have not been interacted with since the last

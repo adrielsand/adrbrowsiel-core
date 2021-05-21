@@ -1,11 +1,11 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <random>
 
-#include "brave/third_party/blink/renderer/brave_farbling_constants.h"
+#include "adrbrowsiel/third_party/blink/renderer/adrbrowsiel_farbling_constants.h"
 #include "third_party/blink/public/platform/web_content_settings_client.h"
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
 #include "third_party/blink/renderer/core/frame/local_dom_window.h"
@@ -21,28 +21,28 @@ using blink::To;
 using blink::WebContentSettingsClient;
 using blink::WorkerGlobalScope;
 
-namespace brave {
+namespace adrbrowsiel {
 
 void FarbleMediaDevices(ExecutionContext* context,
                         MediaDeviceInfoVector* media_devices) {
   WebContentSettingsClient* settings = GetContentSettingsClientFor(context);
   if (!settings)
     return;
-  if (settings->GetBraveFarblingLevel() != BraveFarblingLevel::OFF) {
+  if (settings->GetadrbrowsielFarblingLevel() != adrbrowsielFarblingLevel::OFF) {
     // Shuffle the list of plugins pseudo-randomly, based on the
     // domain+session key.
     std::mt19937_64 prng =
-        BraveSessionCache::From(*context).MakePseudoRandomGenerator();
+        adrbrowsielSessionCache::From(*context).MakePseudoRandomGenerator();
     std::shuffle(media_devices->begin(), media_devices->end(), prng);
   }
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#define BRAVE_MEDIA_DEVICES_DEVICES_ENUMERATED                       \
+#define adrbrowsiel_MEDIA_DEVICES_DEVICES_ENUMERATED                       \
   if (ExecutionContext* context = resolver->GetExecutionContext()) { \
-    brave::FarbleMediaDevices(context, &media_devices);              \
+    adrbrowsiel::FarbleMediaDevices(context, &media_devices);              \
   }
 
 #include "../../../../../../../third_party/blink/renderer/modules/mediastream/media_devices.cc"
-#undef BRAVE_MEDIA_DEVICES_DEVICES_ENUMERATED
+#undef adrbrowsiel_MEDIA_DEVICES_DEVICES_ENUMERATED

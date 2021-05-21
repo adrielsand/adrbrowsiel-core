@@ -1,40 +1,40 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_browser_process_impl.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process_impl.h"
 
 #include <utility>
 
 #include "base/bind.h"
 #include "base/path_service.h"
 #include "base/task/post_task.h"
-#include "brave/browser/brave_stats/brave_stats_updater.h"
-#include "brave/browser/component_updater/brave_component_updater_configurator.h"
-#include "brave/browser/component_updater/brave_component_updater_delegate.h"
-#include "brave/browser/net/brave_system_request_handler.h"
-#include "brave/browser/profiles/brave_profile_manager.h"
-#include "brave/browser/themes/brave_dark_mode_utils.h"
-#include "brave/browser/ui/brave_browser_command_controller.h"
-#include "brave/common/brave_channel_info.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_ads/browser/buildflags/buildflags.h"
-#include "brave/components/brave_component_updater/browser/brave_on_demand_updater.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
-#include "brave/components/brave_referrals/buildflags/buildflags.h"
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
-#include "brave/components/brave_shields/browser/ad_block_regional_service_manager.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/browser/https_everywhere_service.h"
-#include "brave/components/brave_sync/buildflags/buildflags.h"
-#include "brave/components/brave_sync/network_time_helper.h"
-#include "brave/components/ntp_background_images/browser/features.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_service.h"
-#include "brave/components/p3a/brave_histogram_rewrite.h"
-#include "brave/components/p3a/brave_p3a_service.h"
-#include "brave/components/p3a/buildflags.h"
-#include "brave/services/network/public/cpp/system_request_handler.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/adrbrowsiel_stats_updater.h"
+#include "adrbrowsiel/browser/component_updater/adrbrowsiel_component_updater_configurator.h"
+#include "adrbrowsiel/browser/component_updater/adrbrowsiel_component_updater_delegate.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_system_request_handler.h"
+#include "adrbrowsiel/browser/profiles/adrbrowsiel_profile_manager.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_dark_mode_utils.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser_command_controller.h"
+#include "adrbrowsiel/common/adrbrowsiel_channel_info.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_on_demand_updater.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_regional_service_manager.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/https_everywhere_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/network_time_helper.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/features.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_service.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_histogram_rewrite.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_p3a_service.h"
+#include "adrbrowsiel/components/p3a/buildflags.h"
+#include "adrbrowsiel/services/network/public/cpp/system_request_handler.h"
 #include "chrome/browser/component_updater/component_updater_utils.h"
 #include "chrome/browser/net/system_network_context_manager.h"
 #include "chrome/common/buildflags.h"
@@ -48,34 +48,34 @@
 
 #if BUILDFLAG(ENABLE_SYSTEM_NOTIFICATIONS)
 #include "chrome/browser/notifications/notification_platform_bridge.h"
-#include "brave/browser/notifications/brave_notification_platform_bridge.h"
+#include "adrbrowsiel/browser/notifications/adrbrowsiel_notification_platform_bridge.h"
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
-#include "brave/components/brave_referrals/browser/brave_referrals_service.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
+#include "adrbrowsiel/components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service.h"
 #endif
 
 #if BUILDFLAG(ENABLE_EXTENSIONS)
-#include "brave/common/extensions/whitelist.h"
-#include "brave/components/brave_component_updater/browser/extension_whitelist_service.h"
+#include "adrbrowsiel/common/extensions/whitelist.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/extension_whitelist_service.h"
 #endif
 
 #if BUILDFLAG(ENABLE_GREASELION)
-#include "brave/components/greaselion/browser/greaselion_download_service.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_download_service.h"
 #endif
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/components/tor/brave_tor_client_updater.h"
-#include "brave/components/tor/pref_names.h"
+#include "adrbrowsiel/components/tor/adrbrowsiel_tor_client_updater.h"
+#include "adrbrowsiel/components/tor/pref_names.h"
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/ipfs/brave_ipfs_client_updater.h"
-#include "brave/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/adrbrowsiel_ipfs_client_updater.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SPEEDREADER)
-#include "brave/components/speedreader/speedreader_rewriter_service.h"
+#include "adrbrowsiel/components/speedreader/speedreader_rewriter_service.h"
 #endif
 
 #if defined(OS_ANDROID)
@@ -85,12 +85,12 @@
 #include "chrome/browser/ui/browser_list.h"
 #endif
 
-#if BUILDFLAG(BRAVE_ADS_ENABLED)
-#include "brave/components/brave_ads/browser/component_updater/resource_component.h"
+#if BUILDFLAG(adrbrowsiel_ADS_ENABLED)
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/component_updater/resource_component.h"
 #endif
 
-using brave_component_updater::BraveComponent;
-using ntp_background_images::features::kBraveNTPBrandedWallpaper;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
+using ntp_background_images::features::kadrbrowsielNTPBrandedWallpaper;
 using ntp_background_images::NTPBackgroundImagesService;
 
 namespace {
@@ -98,41 +98,41 @@ namespace {
 // Initializes callback for SystemRequestHandler
 void InitSystemRequestHandlerCallback() {
   network::SystemRequestHandler::OnBeforeSystemRequestCallback
-      before_system_request_callback = base::Bind(brave::OnBeforeSystemRequest);
+      before_system_request_callback = base::Bind(adrbrowsiel::OnBeforeSystemRequest);
   network::SystemRequestHandler::GetInstance()
       ->RegisterOnBeforeSystemRequestCallback(before_system_request_callback);
 }
 
 }  // namespace
 
-BraveBrowserProcess* g_brave_browser_process = nullptr;
+adrbrowsielBrowserProcess* g_adrbrowsiel_browser_process = nullptr;
 
 using content::BrowserThread;
 
-BraveBrowserProcessImpl::~BraveBrowserProcessImpl() {}
+adrbrowsielBrowserProcessImpl::~adrbrowsielBrowserProcessImpl() {}
 
-BraveBrowserProcessImpl::BraveBrowserProcessImpl(StartupData* startup_data)
+adrbrowsielBrowserProcessImpl::adrbrowsielBrowserProcessImpl(StartupData* startup_data)
     : BrowserProcessImpl(startup_data) {
   g_browser_process = this;
-  g_brave_browser_process = this;
+  g_adrbrowsiel_browser_process = this;
 
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
   // early initialize referrals
-  brave_referrals_service();
+  adrbrowsiel_referrals_service();
 #endif
-  // early initialize brave stats
-  brave_stats_updater();
+  // early initialize adrbrowsiel stats
+  adrbrowsiel_stats_updater();
 
   // Disabled on mobile platforms, see for instance issues/6176
-#if BUILDFLAG(BRAVE_P3A_ENABLED)
+#if BUILDFLAG(adrbrowsiel_P3A_ENABLED)
   // Create P3A Service early to catch more histograms. The full initialization
   // should be started once browser process impl is ready.
-  brave_p3a_service();
-  brave::SetupHistogramsBraveization();
-#endif  // BUILDFLAG(BRAVE_P3A_ENABLED)
+  adrbrowsiel_p3a_service();
+  adrbrowsiel::SetupHistogramsadrbrowsielization();
+#endif  // BUILDFLAG(adrbrowsiel_P3A_ENABLED)
 }
 
-void BraveBrowserProcessImpl::Init() {
+void adrbrowsielBrowserProcessImpl::Init() {
   BrowserProcessImpl::Init();
 #if BUILDFLAG(IPFS_ENABLED)
   content::ChildProcessSecurityPolicy::GetInstance()->RegisterWebSafeScheme(
@@ -140,42 +140,42 @@ void BraveBrowserProcessImpl::Init() {
   content::ChildProcessSecurityPolicy::GetInstance()->RegisterWebSafeScheme(
       ipfs::kIPNSScheme);
 #endif
-  brave_component_updater::BraveOnDemandUpdater::GetInstance()->
+  adrbrowsiel_component_updater::adrbrowsielOnDemandUpdater::GetInstance()->
       RegisterOnDemandUpdateCallback(
-          base::BindRepeating(&component_updater::BraveOnDemandUpdate));
-  UpdateBraveDarkMode();
+          base::BindRepeating(&component_updater::adrbrowsielOnDemandUpdate));
+  UpdateadrbrowsielDarkMode();
   pref_change_registrar_.Add(
-      kBraveDarkMode,
-      base::Bind(&BraveBrowserProcessImpl::OnBraveDarkModeChanged,
+      kadrbrowsielDarkMode,
+      base::Bind(&adrbrowsielBrowserProcessImpl::OnadrbrowsielDarkModeChanged,
                  base::Unretained(this)));
 
 #if BUILDFLAG(ENABLE_TOR)
   pref_change_registrar_.Add(
       tor::prefs::kTorDisabled,
-      base::Bind(&BraveBrowserProcessImpl::OnTorEnabledChanged,
+      base::Bind(&adrbrowsielBrowserProcessImpl::OnTorEnabledChanged,
                  base::Unretained(this)));
 #endif
 
   InitSystemRequestHandlerCallback();
 }
 
-brave_component_updater::BraveComponent::Delegate*
-BraveBrowserProcessImpl::brave_component_updater_delegate() {
-  if (!brave_component_updater_delegate_)
-    brave_component_updater_delegate_ =
-        std::make_unique<brave::BraveComponentUpdaterDelegate>();
+adrbrowsiel_component_updater::adrbrowsielComponent::Delegate*
+adrbrowsielBrowserProcessImpl::adrbrowsiel_component_updater_delegate() {
+  if (!adrbrowsiel_component_updater_delegate_)
+    adrbrowsiel_component_updater_delegate_ =
+        std::make_unique<adrbrowsiel::adrbrowsielComponentUpdaterDelegate>();
 
-  return brave_component_updater_delegate_.get();
+  return adrbrowsiel_component_updater_delegate_.get();
 }
 
-ProfileManager* BraveBrowserProcessImpl::profile_manager() {
+ProfileManager* adrbrowsielBrowserProcessImpl::profile_manager() {
   DCHECK_CALLED_ON_VALID_SEQUENCE(sequence_checker_);
   if (!created_profile_manager_)
     CreateProfileManager();
   return profile_manager_.get();
 }
 
-void BraveBrowserProcessImpl::StartBraveServices() {
+void adrbrowsielBrowserProcessImpl::StartadrbrowsielServices() {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
 
   ad_block_service()->Start();
@@ -190,40 +190,40 @@ void BraveBrowserProcessImpl::StartBraveServices() {
 #if BUILDFLAG(ENABLE_SPEEDREADER)
   speedreader_rewriter_service();
 #endif
-#if BUILDFLAG(BRAVE_ADS_ENABLED)
+#if BUILDFLAG(adrbrowsiel_ADS_ENABLED)
   resource_component();
 #endif
   // Now start the local data files service, which calls all observers.
   local_data_files_service()->Start();
 
-#if BUILDFLAG(ENABLE_BRAVE_SYNC)
-  brave_sync::NetworkTimeHelper::GetInstance()
+#if BUILDFLAG(ENABLE_adrbrowsiel_SYNC)
+  adrbrowsiel_sync::NetworkTimeHelper::GetInstance()
     ->SetNetworkTimeTracker(g_browser_process->network_time_tracker());
 #endif
 }
 
-brave_shields::AdBlockService* BraveBrowserProcessImpl::ad_block_service() {
+adrbrowsiel_shields::AdBlockService* adrbrowsielBrowserProcessImpl::ad_block_service() {
   if (ad_block_service_)
     return ad_block_service_.get();
 
   ad_block_service_ =
-      brave_shields::AdBlockServiceFactory(brave_component_updater_delegate());
+      adrbrowsiel_shields::AdBlockServiceFactory(adrbrowsiel_component_updater_delegate());
   return ad_block_service_.get();
 }
 
-brave_shields::AdBlockCustomFiltersService*
-BraveBrowserProcessImpl::ad_block_custom_filters_service() {
+adrbrowsiel_shields::AdBlockCustomFiltersService*
+adrbrowsielBrowserProcessImpl::ad_block_custom_filters_service() {
   return ad_block_service()->custom_filters_service();
 }
 
-brave_shields::AdBlockRegionalServiceManager*
-BraveBrowserProcessImpl::ad_block_regional_service_manager() {
+adrbrowsiel_shields::AdBlockRegionalServiceManager*
+adrbrowsielBrowserProcessImpl::ad_block_regional_service_manager() {
   return ad_block_service()->regional_service_manager();
 }
 
 NTPBackgroundImagesService*
-BraveBrowserProcessImpl::ntp_background_images_service() {
-  if (!base::FeatureList::IsEnabled(kBraveNTPBrandedWallpaper))
+adrbrowsielBrowserProcessImpl::ntp_background_images_service() {
+  if (!base::FeatureList::IsEnabled(kadrbrowsielNTPBrandedWallpaper))
     return nullptr;
 
   if (!ntp_background_images_service_) {
@@ -237,11 +237,11 @@ BraveBrowserProcessImpl::ntp_background_images_service() {
 }
 
 #if BUILDFLAG(ENABLE_EXTENSIONS)
-brave_component_updater::ExtensionWhitelistService*
-BraveBrowserProcessImpl::extension_whitelist_service() {
+adrbrowsiel_component_updater::ExtensionWhitelistService*
+adrbrowsielBrowserProcessImpl::extension_whitelist_service() {
   if (!extension_whitelist_service_) {
     extension_whitelist_service_ =
-        brave_component_updater::ExtensionWhitelistServiceFactory(
+        adrbrowsiel_component_updater::ExtensionWhitelistServiceFactory(
             local_data_files_service(), kVettedExtensions);
   }
   return extension_whitelist_service_.get();
@@ -250,7 +250,7 @@ BraveBrowserProcessImpl::extension_whitelist_service() {
 
 #if BUILDFLAG(ENABLE_GREASELION)
 greaselion::GreaselionDownloadService*
-BraveBrowserProcessImpl::greaselion_download_service() {
+adrbrowsielBrowserProcessImpl::greaselion_download_service() {
   if (!greaselion_download_service_) {
     greaselion_download_service_ = greaselion::GreaselionDownloadServiceFactory(
         local_data_files_service());
@@ -259,94 +259,94 @@ BraveBrowserProcessImpl::greaselion_download_service() {
 }
 #endif
 
-brave_shields::HTTPSEverywhereService*
-BraveBrowserProcessImpl::https_everywhere_service() {
+adrbrowsiel_shields::HTTPSEverywhereService*
+adrbrowsielBrowserProcessImpl::https_everywhere_service() {
   if (!https_everywhere_service_)
-    https_everywhere_service_ = brave_shields::HTTPSEverywhereServiceFactory(
-        brave_component_updater_delegate());
+    https_everywhere_service_ = adrbrowsiel_shields::HTTPSEverywhereServiceFactory(
+        adrbrowsiel_component_updater_delegate());
   return https_everywhere_service_.get();
 }
 
-brave_component_updater::LocalDataFilesService*
-BraveBrowserProcessImpl::local_data_files_service() {
+adrbrowsiel_component_updater::LocalDataFilesService*
+adrbrowsielBrowserProcessImpl::local_data_files_service() {
   if (!local_data_files_service_)
     local_data_files_service_ =
-        brave_component_updater::LocalDataFilesServiceFactory(
-            brave_component_updater_delegate());
+        adrbrowsiel_component_updater::LocalDataFilesServiceFactory(
+            adrbrowsiel_component_updater_delegate());
   return local_data_files_service_.get();
 }
 
-void BraveBrowserProcessImpl::UpdateBraveDarkMode() {
-  // Update with proper system theme to make brave theme and base ui components
+void adrbrowsielBrowserProcessImpl::UpdateadrbrowsielDarkMode() {
+  // Update with proper system theme to make adrbrowsiel theme and base ui components
   // theme use same theme.
-  dark_mode::SetSystemDarkMode(dark_mode::GetBraveDarkModeType());
+  dark_mode::SetSystemDarkMode(dark_mode::GetadrbrowsielDarkModeType());
 }
 
-void BraveBrowserProcessImpl::OnBraveDarkModeChanged() {
-  UpdateBraveDarkMode();
+void adrbrowsielBrowserProcessImpl::OnadrbrowsielDarkModeChanged() {
+  UpdateadrbrowsielDarkMode();
 }
 
 #if BUILDFLAG(ENABLE_TOR)
-tor::BraveTorClientUpdater*
-BraveBrowserProcessImpl::tor_client_updater() {
+tor::adrbrowsielTorClientUpdater*
+adrbrowsielBrowserProcessImpl::tor_client_updater() {
   if (tor_client_updater_)
     return tor_client_updater_.get();
 
   base::FilePath user_data_dir;
   base::PathService::Get(chrome::DIR_USER_DATA, &user_data_dir);
 
-  tor_client_updater_.reset(new tor::BraveTorClientUpdater(
-      brave_component_updater_delegate(), local_state(), user_data_dir));
+  tor_client_updater_.reset(new tor::adrbrowsielTorClientUpdater(
+      adrbrowsiel_component_updater_delegate(), local_state(), user_data_dir));
   return tor_client_updater_.get();
 }
 
-void BraveBrowserProcessImpl::OnTorEnabledChanged() {
+void adrbrowsielBrowserProcessImpl::OnTorEnabledChanged() {
   // Update all browsers' tor command status.
   for (Browser* browser : *BrowserList::GetInstance()) {
-    static_cast<chrome::BraveBrowserCommandController*>(
+    static_cast<chrome::adrbrowsielBrowserCommandController*>(
         browser->command_controller())->UpdateCommandForTor();
   }
 }
 #endif
 
-brave::BraveP3AService* BraveBrowserProcessImpl::brave_p3a_service() {
-  if (brave_p3a_service_) {
-    return brave_p3a_service_.get();
+adrbrowsiel::adrbrowsielP3AService* adrbrowsielBrowserProcessImpl::adrbrowsiel_p3a_service() {
+  if (adrbrowsiel_p3a_service_) {
+    return adrbrowsiel_p3a_service_.get();
   }
-  brave_p3a_service_ = base::MakeRefCounted<brave::BraveP3AService>(
-      local_state(), brave::GetChannelName(),
+  adrbrowsiel_p3a_service_ = base::MakeRefCounted<adrbrowsiel::adrbrowsielP3AService>(
+      local_state(), adrbrowsiel::GetChannelName(),
       local_state()->GetString(kWeekOfInstallation));
-  brave_p3a_service()->InitCallbacks();
-  return brave_p3a_service_.get();
+  adrbrowsiel_p3a_service()->InitCallbacks();
+  return adrbrowsiel_p3a_service_.get();
 }
 
-brave::BraveReferralsService*
-BraveBrowserProcessImpl::brave_referrals_service() {
-  if (!brave_referrals_service_)
-    brave_referrals_service_ = std::make_unique<brave::BraveReferralsService>(
-        local_state(), brave_stats::GetAPIKey(),
-        brave_stats::GetPlatformIdentifier());
-  return brave_referrals_service_.get();
+adrbrowsiel::adrbrowsielReferralsService*
+adrbrowsielBrowserProcessImpl::adrbrowsiel_referrals_service() {
+  if (!adrbrowsiel_referrals_service_)
+    adrbrowsiel_referrals_service_ = std::make_unique<adrbrowsiel::adrbrowsielReferralsService>(
+        local_state(), adrbrowsiel_stats::GetAPIKey(),
+        adrbrowsiel_stats::GetPlatformIdentifier());
+  return adrbrowsiel_referrals_service_.get();
 }
 
-brave_stats::BraveStatsUpdater* BraveBrowserProcessImpl::brave_stats_updater() {
-  if (!brave_stats_updater_)
-    brave_stats_updater_ =
-        std::make_unique<brave_stats::BraveStatsUpdater>(local_state());
-  return brave_stats_updater_.get();
+adrbrowsiel_stats::adrbrowsielStatsUpdater* adrbrowsielBrowserProcessImpl::adrbrowsiel_stats_updater() {
+  if (!adrbrowsiel_stats_updater_)
+    adrbrowsiel_stats_updater_ =
+        std::make_unique<adrbrowsiel_stats::adrbrowsielStatsUpdater>(local_state());
+  return adrbrowsiel_stats_updater_.get();
 }
 
-void BraveBrowserProcessImpl::CreateProfileManager() {
+void adrbrowsielBrowserProcessImpl::CreateProfileManager() {
   DCHECK(!created_profile_manager_ && !profile_manager_);
   created_profile_manager_ = true;
 
   base::FilePath user_data_dir;
   base::PathService::Get(chrome::DIR_USER_DATA, &user_data_dir);
-  profile_manager_ = std::make_unique<BraveProfileManager>(user_data_dir);
+  profile_manager_ = std::make_unique<adrbrowsielProfileManager>(user_data_dir);
 }
 
 NotificationPlatformBridge*
-BraveBrowserProcessImpl::notification_platform_bridge() {
+adrbrowsielBrowserProcessImpl::notification_platform_bridge() {
 #if !defined(OS_MAC)
   return BrowserProcessImpl::notification_platform_bridge();
 #else
@@ -360,11 +360,11 @@ BraveBrowserProcessImpl::notification_platform_bridge() {
 #endif
 }
 
-void BraveBrowserProcessImpl::CreateNotificationPlatformBridge() {
+void adrbrowsielBrowserProcessImpl::CreateNotificationPlatformBridge() {
 #if defined(OS_MAC)
 #if BUILDFLAG(ENABLE_SYSTEM_NOTIFICATIONS)
   DCHECK(!notification_bridge_);
-  notification_bridge_ = BraveNotificationPlatformBridge::Create();
+  notification_bridge_ = adrbrowsielNotificationPlatformBridge::Create();
   created_notification_bridge_ = true;
 #endif
 #endif
@@ -372,38 +372,38 @@ void BraveBrowserProcessImpl::CreateNotificationPlatformBridge() {
 
 #if BUILDFLAG(ENABLE_SPEEDREADER)
 speedreader::SpeedreaderRewriterService*
-BraveBrowserProcessImpl::speedreader_rewriter_service() {
+adrbrowsielBrowserProcessImpl::speedreader_rewriter_service() {
   if (!speedreader_rewriter_service_) {
     speedreader_rewriter_service_.reset(
         new speedreader::SpeedreaderRewriterService(
-            brave_component_updater_delegate()));
+            adrbrowsiel_component_updater_delegate()));
   }
   return speedreader_rewriter_service_.get();
 }
 #endif  // BUILDFLAG(ENABLE_SPEEDREADER)
 
-#if BUILDFLAG(BRAVE_ADS_ENABLED)
-brave_ads::ResourceComponent* BraveBrowserProcessImpl::resource_component() {
+#if BUILDFLAG(adrbrowsiel_ADS_ENABLED)
+adrbrowsiel_ads::ResourceComponent* adrbrowsielBrowserProcessImpl::resource_component() {
   if (!resource_component_) {
     resource_component_.reset(
-        new brave_ads::ResourceComponent(brave_component_updater_delegate()));
+        new adrbrowsiel_ads::ResourceComponent(adrbrowsiel_component_updater_delegate()));
   }
   return resource_component_.get();
 }
 
-#endif  // BUILDFLAG(BRAVE_ADS_ENABLED)
+#endif  // BUILDFLAG(adrbrowsiel_ADS_ENABLED)
 
 #if BUILDFLAG(IPFS_ENABLED)
-ipfs::BraveIpfsClientUpdater*
-BraveBrowserProcessImpl::ipfs_client_updater() {
+ipfs::adrbrowsielIpfsClientUpdater*
+adrbrowsielBrowserProcessImpl::ipfs_client_updater() {
   if (ipfs_client_updater_)
     return ipfs_client_updater_.get();
 
   base::FilePath user_data_dir;
   base::PathService::Get(chrome::DIR_USER_DATA, &user_data_dir);
 
-  ipfs_client_updater_ = ipfs::BraveIpfsClientUpdaterFactory(
-      brave_component_updater_delegate(), user_data_dir);
+  ipfs_client_updater_ = ipfs::adrbrowsielIpfsClientUpdaterFactory(
+      adrbrowsiel_component_updater_delegate(), user_data_dir);
   return ipfs_client_updater_.get();
 }
 #endif  // BUILDFLAG(IPFS_ENABLED)

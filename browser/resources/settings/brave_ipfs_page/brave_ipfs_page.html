@@ -5,13 +5,13 @@
 <link rel="import" href="chrome://resources/html/web_ui_listener_behavior.html">
 <link rel="import" href="p2p_keys_subpage.html">
 <link rel="import" href="change_ipfs_gateway_dialog.js">
-<script type="module" src="brave_ipfs_browser_proxy.js"></script>
+<script type="module" src="adrbrowsiel_ipfs_browser_proxy.js"></script>
 <script type="module" src="../settings_page/settings_section.js"></script>
 <script type="module" src="../settings_shared_css.js"></script>
 <script type="module" src="../settings_vars_css.js"></script>
 <script type="module" src="chrome://resources/cr_elements/cr_link_row/cr_link_row.js"></script>
 
-<dom-module id="settings-brave-ipfs-page">
+<dom-module id="settings-adrbrowsiel-ipfs-page">
   <template>
 	<style include="settings-shared md-select iron-flex">
       .settings-row:not(:first-child) {
@@ -43,7 +43,7 @@
           </div>
         </div>
         <settings-dropdown-menu id="ipfsResolveMethodType"
-                                pref="{{prefs.brave.ipfs.resolve_method}}"
+                                pref="{{prefs.adrbrowsiel.ipfs.resolve_method}}"
                                 menu-options="[[ipfsResolveMethod_]]"
                                 on-settings-control-change="onChangeIpfsMethod_">
         </settings-dropdown-menu>
@@ -52,7 +52,7 @@
         <div class="flex cr-padded-text">
           <div>$i18n{ipfsPublicGatewayDesc}</div>
           <div class="secondary" id="defaultIPFSGateway">
-            {{prefs.brave.ipfs.public_gateway_address.value}}
+            {{prefs.adrbrowsiel.ipfs.public_gateway_address.value}}
           </div>
         </div>
         <cr-button id="changeIPFSGateway"
@@ -62,19 +62,19 @@
       </div>
       <settings-toggle-button id="ipfsAutoGatewayFallbackEnabled"
           class="cr-row"
-          pref="{{prefs.brave.ipfs.auto_fallback_to_gateway}}"
+          pref="{{prefs.adrbrowsiel.ipfs.auto_fallback_to_gateway}}"
           label=$i18n{ipfsAutoFallbackToGatewayLabel}
           sub-label=$i18n{ipfsAutoFallbackToGatewayDesc}>
       </settings-toggle-button>
       <settings-toggle-button id="ipfsAutoRedirectGateway"
         class="cr-row"
-        pref="{{prefs.brave.ipfs.auto_redirect_gateway}}"
+        pref="{{prefs.adrbrowsiel.ipfs.auto_redirect_gateway}}"
         label="$i18n{ipfsAutoRedirectGatewayLabel}"
         sub-label="$i18n{ipfsAutoRedirectGatewayDesc}">
       </settings-toggle-button>
       <settings-toggle-button id="ipfsAutoRedirectDNSLink"
         class="cr-row"
-        pref="{{prefs.brave.ipfs.auto_redirect_dnslink}}"
+        pref="{{prefs.adrbrowsiel.ipfs.auto_redirect_dnslink}}"
         label="$i18n{ipfsAutoRedirectDNSLinkLabel}"
         sub-label="$i18n{ipfsAutoRedirectDNSLinkDesc}"
         learn-more-url="$i18n{ipfsDNSLinkLearnMoreURL}">
@@ -82,7 +82,7 @@
 
       <settings-toggle-button id="ipfsCompanionEnabled"
         class="cr-row"
-        pref="{{prefs.brave.ipfs_companion_enabled}}"
+        pref="{{prefs.adrbrowsiel.ipfs_companion_enabled}}"
         label="IPFS Companion"
         sub-label="$i18n{ipfsCompanionEnabledDesc}"
         on-settings-boolean-control-change="onIPFSCompanionEnabledChange_">
@@ -126,5 +126,5 @@
       </change-ipfs-gateway-dialog>
     </template>
   </template>
-  <script src="brave_ipfs_page.js"></script>
+  <script src="adrbrowsiel_ipfs_page.js"></script>
 </dom-module>

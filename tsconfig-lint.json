@@ -4,6 +4,6 @@
     "./components/**/*"
   ],
   "exclude": [
-    "./components/brave_sync/extension"
+    "./components/adrbrowsiel_sync/extension"
   ]
 }

@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/tabs/brave_alert_indicator.h"
+#include "adrbrowsiel/browser/ui/views/tabs/adrbrowsiel_alert_indicator.h"
 
 #include <memory>
 #include <string>
@@ -28,9 +28,9 @@ bool IsAudioState(const base::Optional<TabAlertState>& state) {
 
 }  // namespace
 
-class BraveAlertIndicator::BraveAlertBackground : public views::Background {
+class adrbrowsielAlertIndicator::adrbrowsielAlertBackground : public views::Background {
  public:
-  explicit BraveAlertBackground(BraveAlertIndicator* host_view)
+  explicit adrbrowsielAlertBackground(adrbrowsielAlertIndicator* host_view)
     : host_view_(host_view) {
   }
 
@@ -50,17 +50,17 @@ class BraveAlertIndicator::BraveAlertBackground : public views::Background {
   }
 
  private:
-  BraveAlertIndicator* host_view_;
+  adrbrowsielAlertIndicator* host_view_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveAlertBackground);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielAlertBackground);
 };
 
-BraveAlertIndicator::BraveAlertIndicator(Tab* parent_tab)
+adrbrowsielAlertIndicator::adrbrowsielAlertIndicator(Tab* parent_tab)
     : AlertIndicator(parent_tab) {
-  SetBackground(std::make_unique<BraveAlertBackground>(this));
+  SetBackground(std::make_unique<adrbrowsielAlertBackground>(this));
 }
 
-SkColor BraveAlertIndicator::GetBackgroundColor() const {
+SkColor adrbrowsielAlertIndicator::GetBackgroundColor() const {
   TabStyle::TabColors colors = parent_tab_->tab_style()->CalculateColors();
   if (!IsTabAudioToggleable() || !IsMouseHovered())
     return colors.background_color;
@@ -70,7 +70,7 @@ SkColor BraveAlertIndicator::GetBackgroundColor() const {
                                              mouse_pressed_ ? 72 : 36);
 }
 
-bool BraveAlertIndicator::OnMousePressed(const ui::MouseEvent& event) {
+bool adrbrowsielAlertIndicator::OnMousePressed(const ui::MouseEvent& event) {
   mouse_pressed_ = true;
   SchedulePaint();
 
@@ -80,7 +80,7 @@ bool BraveAlertIndicator::OnMousePressed(const ui::MouseEvent& event) {
   return true;
 }
 
-void BraveAlertIndicator::OnMouseReleased(const ui::MouseEvent& event) {
+void adrbrowsielAlertIndicator::OnMouseReleased(const ui::MouseEvent& event) {
   mouse_pressed_ = false;
   SchedulePaint();
 
@@ -102,25 +102,25 @@ void BraveAlertIndicator::OnMouseReleased(const ui::MouseEvent& event) {
                            std::string());
 }
 
-void BraveAlertIndicator::OnMouseEntered(const ui::MouseEvent& event) {
+void adrbrowsielAlertIndicator::OnMouseEntered(const ui::MouseEvent& event) {
   if (IsTabAudioToggleable())
     SchedulePaint();
   AlertIndicator::OnMouseExited(event);
 }
 
-void BraveAlertIndicator::OnMouseExited(const ui::MouseEvent& event) {
+void adrbrowsielAlertIndicator::OnMouseExited(const ui::MouseEvent& event) {
   if (IsTabAudioToggleable())
     SchedulePaint();
   AlertIndicator::OnMouseExited(event);
 }
 
-bool BraveAlertIndicator::OnMouseDragged(const ui::MouseEvent& event) {
+bool adrbrowsielAlertIndicator::OnMouseDragged(const ui::MouseEvent& event) {
   if (IsTabAudioToggleable())
     SchedulePaint();
   return AlertIndicator::OnMouseDragged(event);
 }
 
-bool BraveAlertIndicator::IsTabAudioToggleable() const {
+bool adrbrowsielAlertIndicator::IsTabAudioToggleable() const {
   if (parent_tab_->controller()->IsTabPinned(parent_tab_))
     return false;
 

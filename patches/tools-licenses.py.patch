@@ -6,7 +6,7 @@ index aaa520b1aed6b3044d62f0f51e78313c634b333b..3f0d903958f53b32439692476ccef360
  _REPOSITORY_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
  sys.path.insert(0, os.path.join(_REPOSITORY_ROOT, 'build/android/gyp'))
  from util import build_utils
-+from brave_license_helper import AddBraveCredits, BRAVE_THIRD_PARTY_DIRS, CheckBraveMissingLicense
++from adrbrowsiel_license_helper import AddadrbrowsielCredits, adrbrowsiel_THIRD_PARTY_DIRS, CheckadrbrowsielMissingLicense
  
  
  # Paths from the root of the tree to directories to skip.
@@ -14,7 +14,7 @@ index aaa520b1aed6b3044d62f0f51e78313c634b333b..3f0d903958f53b32439692476ccef360
          "License File": "/third_party/swiftshader/LICENSE.txt",
      },
  }
-+(PRUNE_DIRS, ADDITIONAL_PATHS) = AddBraveCredits(PRUNE_PATHS, SPECIAL_CASES, PRUNE_DIRS, ADDITIONAL_PATHS)
++(PRUNE_DIRS, ADDITIONAL_PATHS) = AddadrbrowsielCredits(PRUNE_PATHS, SPECIAL_CASES, PRUNE_DIRS, ADDITIONAL_PATHS)
  
  # Special value for 'License File' field used to indicate that the license file
  # should not be used in about:credits.
@@ -24,7 +24,7 @@ index aaa520b1aed6b3044d62f0f51e78313c634b333b..3f0d903958f53b32439692476ccef360
  
 -    if os.path.basename(path) == 'third_party':
 +    if (os.path.basename(path) == 'third_party' or
-+        os.path.basename(path) in BRAVE_THIRD_PARTY_DIRS):
++        os.path.basename(path) in adrbrowsiel_THIRD_PARTY_DIRS):
        # Add all subdirectories that are not marked for skipping.
        for dir in dirs:
          dirpath = os.path.join(path, dir)
@@ -34,7 +34,7 @@ index aaa520b1aed6b3044d62f0f51e78313c634b333b..3f0d903958f53b32439692476ccef360
        metadata = ParseDir(path, _REPOSITORY_ROOT)
 -    except LicenseError:
 +    except LicenseError as e:
-+      CheckBraveMissingLicense(target_os, path, e)
++      CheckadrbrowsielMissingLicense(target_os, path, e)
        # TODO(phajdan.jr): Convert to fatal error (http://crbug.com/39240).
        continue
      if metadata['License File'] == NOT_SHIPPED:

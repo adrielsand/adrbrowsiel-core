@@ -1,19 +1,19 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTAINER_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTAINER_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTAINER_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTAINER_VIEW_H_
 
 #include <memory>
 
 #include "base/scoped_observer.h"
 #include "base/timer/timer.h"
-#include "brave/browser/ui/sidebar/sidebar.h"
-#include "brave/browser/ui/sidebar/sidebar_model.h"
-#include "brave/browser/ui/views/sidebar/sidebar_show_options_event_detect_widget.h"
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_show_options_event_detect_widget.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 #include "ui/events/event_observer.h"
 #include "ui/views/view.h"
 
@@ -22,7 +22,7 @@ class EventMonitor;
 class WebView;
 }  // namespace views
 
-class BraveBrowser;
+class adrbrowsielBrowser;
 class SidebarControlView;
 
 // This view is the parent view of all sidebar ui.
@@ -34,7 +34,7 @@ class SidebarContainerView
       public SidebarShowOptionsEventDetectWidget::Delegate,
       public sidebar::SidebarModel::Observer {
  public:
-  explicit SidebarContainerView(BraveBrowser* browser);
+  explicit SidebarContainerView(adrbrowsielBrowser* browser);
   ~SidebarContainerView() override;
 
   SidebarContainerView(const SidebarContainerView&) = delete;
@@ -87,7 +87,7 @@ class SidebarContainerView
 
   void DoHideSidebar(bool show_event_detect_widget);
 
-  BraveBrowser* browser_ = nullptr;
+  adrbrowsielBrowser* browser_ = nullptr;
   sidebar::SidebarModel* sidebar_model_ = nullptr;
   views::WebView* sidebar_panel_view_ = nullptr;
   SidebarControlView* sidebar_control_view_ = nullptr;
@@ -100,4 +100,4 @@ class SidebarContainerView
       observed_{this};
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTAINER_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTAINER_VIEW_H_

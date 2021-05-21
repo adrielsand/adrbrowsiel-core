@@ -6,7 +6,7 @@ index dee8ffd694ae7d125693e2acd9598d37817f4c08..6c82710d0245443a67780d142a5ab773
    static base::AutoReset<bool> DisableExternalUpdatesForTesting();
  
   private:
-+  friend class BraveExtensionService;
++  friend class adrbrowsielExtensionService;
    // Loads extensions specified via a command line flag/switch.
    void LoadExtensionsFromCommandLineFlag(const char* switch_name);
  #if BUILDFLAG(IS_CHROMEOS_ASH)

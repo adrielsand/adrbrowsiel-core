@@ -1,20 +1,20 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/infobars/crypto_wallets_infobar_delegate.h"
+#include "adrbrowsiel/browser/infobars/crypto_wallets_infobar_delegate.h"
 
 #include <memory>
 #include <utility>
 
-#include "brave/browser/brave_wallet/brave_wallet_service_factory.h"
-#include "brave/browser/ui/brave_pages.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_service.h"
-#include "brave/components/brave_wallet/browser/pref_names.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/adrbrowsiel_wallet/adrbrowsiel_wallet_service_factory.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_pages.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/pref_names.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/infobars/infobar_service.h"
 #include "chrome/browser/ui/browser_finder.h"
 #include "chrome/grit/chromium_strings.h"
@@ -56,9 +56,9 @@ void CryptoWalletsInfoBarDelegate::InfoBarDismissed() {
 
 std::u16string CryptoWalletsInfoBarDelegate::GetMessageText() const {
   if (subtype_ == InfobarSubType::LOAD_CRYPTO_WALLETS) {
-    return l10n_util::GetStringUTF16(IDS_BRAVE_CRYPTO_WALLETS_LAZY_LOAD_TEXT);
+    return l10n_util::GetStringUTF16(IDS_adrbrowsiel_CRYPTO_WALLETS_LAZY_LOAD_TEXT);
   }
-  return l10n_util::GetStringUTF16(IDS_BRAVE_CRYPTO_WALLETS_INFOBAR_TEXT);
+  return l10n_util::GetStringUTF16(IDS_adrbrowsiel_CRYPTO_WALLETS_INFOBAR_TEXT);
 }
 
 int CryptoWalletsInfoBarDelegate::GetButtons() const {
@@ -69,18 +69,18 @@ std::u16string CryptoWalletsInfoBarDelegate::GetButtonLabel(
     InfoBarButton button) const {
   if (subtype_ == InfobarSubType::LOAD_CRYPTO_WALLETS) {
     if (button == BUTTON_CANCEL) {
-      return l10n_util::GetStringUTF16(IDS_BRAVE_CRYPTO_WALLETS_SETTINGS);
+      return l10n_util::GetStringUTF16(IDS_adrbrowsiel_CRYPTO_WALLETS_SETTINGS);
     }
     return l10n_util::GetStringUTF16(
-        IDS_BRAVE_CRYPTO_WALLETS_START_AND_RELOAD);
+        IDS_adrbrowsiel_CRYPTO_WALLETS_START_AND_RELOAD);
   }
 
   if (button == BUTTON_CANCEL) {
-    return l10n_util::GetStringUTF16(IDS_BRAVE_CRYPTO_WALLETS_DONT_ASK);
+    return l10n_util::GetStringUTF16(IDS_adrbrowsiel_CRYPTO_WALLETS_DONT_ASK);
   }
 
   return l10n_util::GetStringUTF16(
-      IDS_BRAVE_CRYPTO_WALLETS_SETUP_CRYPTO_WALLETS);
+      IDS_adrbrowsiel_CRYPTO_WALLETS_SETUP_CRYPTO_WALLETS);
 }
 
 std::u16string CryptoWalletsInfoBarDelegate::GetLinkText() const {
@@ -97,7 +97,7 @@ bool CryptoWalletsInfoBarDelegate::Accept() {
       InfoBarService::WebContentsFromInfoBar(infobar());
     if (web_contents) {
       auto* browser_context = web_contents->GetBrowserContext();
-      auto* service = BraveWalletServiceFactory::GetForContext(browser_context);
+      auto* service = adrbrowsielWalletServiceFactory::GetForContext(browser_context);
       service->MaybeLoadCryptoWalletsExtension(
           base::BindOnce(&CryptoWalletsInfoBarDelegate::OnCryptoWalletsLoaded,
                          weak_ptr_factory_.GetWeakPtr(), web_contents));
@@ -110,10 +110,10 @@ bool CryptoWalletsInfoBarDelegate::Accept() {
     if (web_contents) {
       auto* browser_context = web_contents->GetBrowserContext();
       user_prefs::UserPrefs::Get(browser_context)->
-          SetInteger(kBraveWalletWeb3Provider,
-              static_cast<int>(BraveWalletWeb3ProviderTypes::CRYPTO_WALLETS));
+          SetInteger(kadrbrowsielWalletWeb3Provider,
+              static_cast<int>(adrbrowsielWalletWeb3ProviderTypes::CRYPTO_WALLETS));
       Browser* browser = chrome::FindBrowserWithWebContents(web_contents);
-      brave::ShowBraveWallet(browser);
+      adrbrowsiel::ShowadrbrowsielWallet(browser);
     }
   }
   return true;
@@ -126,12 +126,12 @@ bool CryptoWalletsInfoBarDelegate::Cancel() {
     if (subtype_ == InfobarSubType::GENERIC_SETUP) {
       auto* browser_context = web_contents->GetBrowserContext();
       user_prefs::UserPrefs::Get(browser_context)->
-          SetInteger(kBraveWalletWeb3Provider,
-              static_cast<int>(BraveWalletWeb3ProviderTypes::NONE));
+          SetInteger(kadrbrowsielWalletWeb3Provider,
+              static_cast<int>(adrbrowsielWalletWeb3ProviderTypes::NONE));
       return true;
     }
     Browser* browser = chrome::FindBrowserWithWebContents(web_contents);
-    brave::ShowWalletSettings(browser);
+    adrbrowsiel::ShowWalletSettings(browser);
   }
   return true;
 }

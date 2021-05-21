@@ -1,15 +1,15 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/profiles/brave_incognito_menu_view.h"
+#include "adrbrowsiel/browser/ui/views/profiles/adrbrowsiel_incognito_menu_view.h"
 
 #include <memory>
 #include <utility>
 
-#include "brave/components/tor/buildflags/buildflags.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/app/vector_icons/vector_icons.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/profiles/profile_manager.h"
@@ -23,8 +23,8 @@
 #include "ui/base/models/image_model.h"
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/browser/tor/tor_profile_manager.h"
-#include "brave/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/browser/tor/tor_profile_manager.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
 #endif
 
 namespace {
@@ -49,7 +49,7 @@ int GetProfileMenuCloseButtonTextId(Profile* profile) {
 
 }  // namespace
 
-void BraveIncognitoMenuView::BuildMenu() {
+void adrbrowsielIncognitoMenuView::BuildMenu() {
   ChromeLayoutProvider* provider = ChromeLayoutProvider::Get();
   // The icon color is set to match the menu text, which guarantees sufficient
   // contrast and a consistent visual appearance.
@@ -77,28 +77,28 @@ void BraveIncognitoMenuView::BuildMenu() {
                    kCloseAllIcon);
 }
 
-void BraveIncognitoMenuView::AddTorButton() {
+void adrbrowsielIncognitoMenuView::AddTorButton() {
   if (ShouldShowTorProfileButton(browser()->profile())) {
     AddFeatureButton(
         l10n_util::GetStringUTF16(IDS_PROFILES_OPEN_TOR_PROFILE_BUTTON),
-        base::BindRepeating(&BraveIncognitoMenuView::OnTorProfileButtonClicked,
+        base::BindRepeating(&adrbrowsielIncognitoMenuView::OnTorProfileButtonClicked,
                             base::Unretained(this)),
         vector_icons::kLaunchIcon);
   }
 }
 
-void BraveIncognitoMenuView::OnTorProfileButtonClicked() {
+void adrbrowsielIncognitoMenuView::OnTorProfileButtonClicked() {
   TorProfileManager::SwitchToTorProfile(browser()->profile(),
                                         ProfileManager::CreateCallback());
 }
 
-std::u16string BraveIncognitoMenuView::GetAccessibleWindowTitle() const {
+std::u16string adrbrowsielIncognitoMenuView::GetAccessibleWindowTitle() const {
   return browser()->profile()->IsTor()
              ? l10n_util::GetStringUTF16(IDS_TOR_PROFILE_NAME)
              : IncognitoMenuView::GetAccessibleWindowTitle();
 }
 
-void BraveIncognitoMenuView::OnExitButtonClicked() {
+void adrbrowsielIncognitoMenuView::OnExitButtonClicked() {
   if (browser()->profile()->IsTor()) {
     RecordClick(ActionableItem::kExitProfileButton);
     TorProfileManager::CloseTorProfileWindows(browser()->profile());

@@ -1,24 +1,24 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_ad_block_csp_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_ad_block_csp_network_delegate_helper.h"
 
 #include <string>
 
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/net/url_context.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/browser/ad_block_service_helper.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/net/url_context.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service_helper.h"
 #include "net/base/net_errors.h"
 #include "net/http/http_response_headers.h"
 #include "url/gurl.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 base::Optional<std::string> GetCspDirectivesOnTaskRunner(
-    std::shared_ptr<BraveRequestInfo> ctx,
+    std::shared_ptr<adrbrowsielRequestInfo> ctx,
     base::Optional<std::string> original_csp) {
   std::string source_host;
   if (ctx->initiator_url.is_valid()) {
@@ -32,16 +32,16 @@ base::Optional<std::string> GetCspDirectivesOnTaskRunner(
   }
 
   base::Optional<std::string> csp_directives =
-      g_brave_browser_process->ad_block_service()->GetCspDirectives(
+      g_adrbrowsiel_browser_process->ad_block_service()->GetCspDirectives(
           ctx->request_url, ctx->resource_type, source_host);
 
-  brave_shields::MergeCspDirectiveInto(original_csp, &csp_directives);
+  adrbrowsiel_shields::MergeCspDirectiveInto(original_csp, &csp_directives);
   return csp_directives;
 }
 
 void OnReceiveCspDirectives(
     const ResponseCallback& next_callback,
-    std::shared_ptr<BraveRequestInfo> ctx,
+    std::shared_ptr<adrbrowsielRequestInfo> ctx,
     scoped_refptr<net::HttpResponseHeaders> override_response_headers,
     base::Optional<std::string> csp_directives) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
@@ -58,8 +58,8 @@ int OnHeadersReceived_AdBlockCspWork(
     const net::HttpResponseHeaders* response_headers,
     scoped_refptr<net::HttpResponseHeaders>* override_response_headers,
     GURL* allowed_unsafe_redirect_url,
-    const brave::ResponseCallback& next_callback,
-    std::shared_ptr<brave::BraveRequestInfo> ctx) {
+    const adrbrowsiel::ResponseCallback& next_callback,
+    std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
 
   if (!response_headers) {
@@ -77,7 +77,7 @@ int OnHeadersReceived_AdBlockCspWork(
     }
 
     scoped_refptr<base::SequencedTaskRunner> task_runner =
-        g_brave_browser_process->ad_block_service()->GetTaskRunner();
+        g_adrbrowsiel_browser_process->ad_block_service()->GetTaskRunner();
 
     std::string original_csp_string;
     base::Optional<std::string> original_csp = base::nullopt;
@@ -100,4 +100,4 @@ int OnHeadersReceived_AdBlockCspWork(
   return net::OK;
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

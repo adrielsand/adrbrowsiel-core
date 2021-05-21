@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/content_settings/brave_autoplay_content_setting_bubble_model.h"
+#include "adrbrowsiel/browser/ui/content_settings/adrbrowsiel_autoplay_content_setting_bubble_model.h"
 
 #include <memory>
 #include <string>
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/ui/brave_browser_content_setting_bubble_model_delegate.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser_content_setting_bubble_model_delegate.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile_manager.h"
 #include "components/content_settings/browser/page_specific_content_settings.h"
@@ -28,7 +28,7 @@ using content_settings::SettingSource;
 using content_settings::SETTING_SOURCE_USER;
 using content_settings::SETTING_SOURCE_NONE;
 
-BraveAutoplayContentSettingBubbleModel::BraveAutoplayContentSettingBubbleModel(
+adrbrowsielAutoplayContentSettingBubbleModel::adrbrowsielAutoplayContentSettingBubbleModel(
     Delegate* delegate,
     WebContents* web_contents)
     : ContentSettingSimpleBubbleModel(delegate,
@@ -39,10 +39,10 @@ BraveAutoplayContentSettingBubbleModel::BraveAutoplayContentSettingBubbleModel(
   SetRadioGroup();
 }
 
-BraveAutoplayContentSettingBubbleModel::
-~BraveAutoplayContentSettingBubbleModel() {}
+adrbrowsielAutoplayContentSettingBubbleModel::
+~adrbrowsielAutoplayContentSettingBubbleModel() {}
 
-void BraveAutoplayContentSettingBubbleModel::CommitChanges() {
+void adrbrowsielAutoplayContentSettingBubbleModel::CommitChanges() {
   if (settings_changed()) {
     ContentSetting setting = selected_item() == kAllowButtonIndex
                                  ? CONTENT_SETTING_ALLOW
@@ -52,15 +52,15 @@ void BraveAutoplayContentSettingBubbleModel::CommitChanges() {
   }
 }
 
-bool BraveAutoplayContentSettingBubbleModel::settings_changed() const {
+bool adrbrowsielAutoplayContentSettingBubbleModel::settings_changed() const {
   return selected_item() != bubble_content().radio_group.default_item;
 }
 
-void BraveAutoplayContentSettingBubbleModel::SetTitle() {
+void adrbrowsielAutoplayContentSettingBubbleModel::SetTitle() {
   set_title(l10n_util::GetStringUTF16(IDS_BLOCKED_AUTOPLAY_TITLE));
 }
 
-void BraveAutoplayContentSettingBubbleModel::SetRadioGroup() {
+void adrbrowsielAutoplayContentSettingBubbleModel::SetRadioGroup() {
   GURL url = web_contents()->GetURL();
   std::u16string display_host = url_formatter::FormatUrlForSecurityDisplay(url);
   if (display_host.empty())
@@ -106,7 +106,7 @@ void BraveAutoplayContentSettingBubbleModel::SetRadioGroup() {
   set_radio_group(radio_group);
 }
 
-void BraveAutoplayContentSettingBubbleModel::SetNarrowestContentSetting(
+void adrbrowsielAutoplayContentSettingBubbleModel::SetNarrowestContentSetting(
     ContentSetting setting) {
   if (!GetProfile())
     return;

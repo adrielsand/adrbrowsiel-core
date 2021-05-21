@@ -6,7 +6,7 @@ index b2e2d2c744f15de2a4496a4d2088e268ee28ef61..956441f643c109aabd497f7c64366cbd
  #include "base/time/time.h"
  #include "base/trace_event/heap_profiler_allocation_context_tracker.h"
  #include "base/trace_event/trace_event.h"
-+#include "brave/browser/brave_browser_main_loop.h"
++#include "adrbrowsiel/browser/adrbrowsiel_browser_main_loop.h"
  #include "build/build_config.h"
  #include "components/tracing/common/trace_startup_config.h"
  #include "components/tracing/common/tracing_switches.h"
@@ -15,7 +15,7 @@ index b2e2d2c744f15de2a4496a4d2088e268ee28ef61..956441f643c109aabd497f7c64366cbd
      gfx::InitializeFonts();
  
 -    main_loop_ = std::make_unique<BrowserMainLoop>(
-+    main_loop_ = std::make_unique<brave::BraveBrowserMainLoop>(
++    main_loop_ = std::make_unique<adrbrowsiel::adrbrowsielBrowserMainLoop>(
          parameters, std::move(scoped_execution_fence_));
  
      main_loop_->Init();

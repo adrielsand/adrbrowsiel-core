@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -11,15 +11,15 @@ import 'chrome://resources/cr_elements/md_select_css.m.js';
 import '../settings_shared_css.js';
 import '../settings_vars_css.js';
 import {loadTimeData} from "../i18n_setup.js"
-import {BraveAppearanceBrowserProxy,  BraveAppearanceBrowserProxyImpl} from './brave_appearance_browser_proxy.js';
+import {adrbrowsielAppearanceBrowserProxy,  adrbrowsielAppearanceBrowserProxyImpl} from './adrbrowsiel_appearance_browser_proxy.js';
 
 /**
- * 'settings-brave-appearance-theme' is the settings page area containing
- * brave's appearance related settings that located at the top of appearance
+ * 'settings-adrbrowsiel-appearance-theme' is the settings page area containing
+ * adrbrowsiel's appearance related settings that located at the top of appearance
  * area.
  */
 Polymer({
-  is: 'settings-brave-appearance-theme',
+  is: 'settings-adrbrowsiel-appearance-theme',
 
   _template: html`{__html_template__}`,
 
@@ -28,40 +28,40 @@ Polymer({
   ],
 
   properties: {
-    braveThemeList_: Array,
-    braveThemeType_: Number,
+    adrbrowsielThemeList_: Array,
+    adrbrowsielThemeType_: Number,
   },
 
-  /** @private {?settings.BraveAppearanceBrowserProxy} */
+  /** @private {?settings.adrbrowsielAppearanceBrowserProxy} */
   browserProxy_: null,
 
   observers: [
-    'updateSelected_(braveThemeType_, braveThemeList_)',
+    'updateSelected_(adrbrowsielThemeType_, adrbrowsielThemeList_)',
   ],
 
   /** @override */
   created: function() {
-    this.browserProxy_ = BraveAppearanceBrowserProxyImpl.getInstance();
+    this.browserProxy_ = adrbrowsielAppearanceBrowserProxyImpl.getInstance();
   },
 
   /** @override */
   ready: function() {
-    this.addWebUIListener('brave-theme-type-changed', (type) => {
-      this.braveThemeType_ = type;
+    this.addWebUIListener('adrbrowsiel-theme-type-changed', (type) => {
+      this.adrbrowsielThemeType_ = type;
     })
-    this.browserProxy_.getBraveThemeList().then(list => {
-      this.braveThemeList_ = JSON.parse(list);
+    this.browserProxy_.getadrbrowsielThemeList().then(list => {
+      this.adrbrowsielThemeList_ = JSON.parse(list);
     })
-    this.browserProxy_.getBraveThemeType().then(type => {
-      this.braveThemeType_ = type;
+    this.browserProxy_.getadrbrowsielThemeType().then(type => {
+      this.adrbrowsielThemeType_ = type;
     })
   },
 
-  onBraveThemeTypeChange_: function() {
-    this.browserProxy_.setBraveThemeType(Number(this.$.braveThemeType.value));
+  onadrbrowsielThemeTypeChange_: function() {
+    this.browserProxy_.setadrbrowsielThemeType(Number(this.$.adrbrowsielThemeType.value));
   },
 
-  braveThemeTypeEqual_: function(theme1, theme2) {
+  adrbrowsielThemeTypeEqual_: function(theme1, theme2) {
     return theme1 === theme2;
   },
 
@@ -73,7 +73,7 @@ Polymer({
   // <select>#value so the correct option gets selected.
   updateSelected_: function() {
     this.async(() => {
-      this.$.braveThemeType.value = this.braveThemeType_;
+      this.$.adrbrowsielThemeType.value = this.adrbrowsielThemeType_;
     });
   },
 

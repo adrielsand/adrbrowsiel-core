@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,7 +7,7 @@
 #include "third_party/blink/public/platform/web_content_settings_client.h"
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
 
-#define BRAVE_TO_DATA_URL_INTERNAL                                     \
+#define adrbrowsiel_TO_DATA_URL_INTERNAL                                     \
   {                                                                    \
     ExecutionContext* execution_context = GetExecutionContext();       \
     if (!execution_context) {                                          \
@@ -15,8 +15,8 @@
     }                                                                  \
     if (execution_context) {                                           \
       if (WebContentSettingsClient* settings =                         \
-              brave::GetContentSettingsClientFor(execution_context)) { \
-        brave::BraveSessionCache::From(*execution_context)             \
+              adrbrowsiel::GetContentSettingsClientFor(execution_context)) { \
+        adrbrowsiel::adrbrowsielSessionCache::From(*execution_context)             \
             .PerturbPixels(settings, data_buffer->Pixels(),            \
                            data_buffer->ComputeByteSize());            \
       }                                                                \
@@ -44,4 +44,4 @@ String HTMLCanvasElement::toDataURL(ScriptState* script_state,
 
 }  // namespace blink
 
-#undef BRAVE_TO_DATA_URL_INTERNAL
+#undef adrbrowsiel_TO_DATA_URL_INTERNAL

@@ -8,7 +8,7 @@
 
 cr.define('settings', function () {
   /** @interface */
-  /* #export */ class BraveDefaultExtensionsBrowserProxy {
+  /* #export */ class adrbrowsielDefaultExtensionsBrowserProxy {
     /**
      * @param {boolean} value name.
      */
@@ -26,9 +26,9 @@ cr.define('settings', function () {
   }
 
   /**
-   * @implements {settings.BraveDefaultExtensionsBrowserProxy}
+   * @implements {settings.adrbrowsielDefaultExtensionsBrowserProxy}
    */
-  /* #export */ class BraveDefaultExtensionsBrowserProxyImpl {
+  /* #export */ class adrbrowsielDefaultExtensionsBrowserProxyImpl {
     /** @override */
     setWebTorrentEnabled (value) {
       chrome.send('setWebTorrentEnabled', [value])
@@ -79,11 +79,11 @@ cr.define('settings', function () {
     }
   }
 
-  cr.addSingletonGetter(BraveDefaultExtensionsBrowserProxyImpl)
+  cr.addSingletonGetter(adrbrowsielDefaultExtensionsBrowserProxyImpl)
 
   // #cr_define_end
   return {
-    BraveDefaultExtensionsBrowserProxy,
-    BraveDefaultExtensionsBrowserProxyImpl
+    adrbrowsielDefaultExtensionsBrowserProxy,
+    adrbrowsielDefaultExtensionsBrowserProxyImpl
   }
 })

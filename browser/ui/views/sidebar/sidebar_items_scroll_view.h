@@ -1,15 +1,15 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_SCROLL_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_SCROLL_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_SCROLL_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_SCROLL_VIEW_H_
 
 #include <memory>
 #include <set>
 
-#include "brave/browser/ui/sidebar/sidebar_model.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model.h"
 #include "ui/base/clipboard/clipboard.h"
 #include "ui/views/animation/bounds_animator.h"
 #include "ui/views/animation/bounds_animator_observer.h"
@@ -21,7 +21,7 @@ class BoundsAnimator;
 class ImageButton;
 }  // namespace views
 
-class BraveBrowser;
+class adrbrowsielBrowser;
 class SidebarItemDragContext;
 class SidebarItemsContentsView;
 
@@ -34,7 +34,7 @@ class SidebarItemsScrollView : public views::View,
                                public views::DragController,
                                public sidebar::SidebarModel::Observer {
  public:
-  explicit SidebarItemsScrollView(BraveBrowser* browser);
+  explicit SidebarItemsScrollView(adrbrowsielBrowser* browser);
   ~SidebarItemsScrollView() override;
 
   SidebarItemsScrollView(const SidebarItemsScrollView&) = delete;
@@ -95,7 +95,7 @@ class SidebarItemsScrollView : public views::View,
   // Returns true if |position| is in visible contents area.
   bool IsInVisibleContentsViewBounds(const gfx::Point& position) const;
 
-  BraveBrowser* browser_ = nullptr;
+  adrbrowsielBrowser* browser_ = nullptr;
   views::ImageButton* up_arrow_ = nullptr;
   views::ImageButton* down_arrow_ = nullptr;
   SidebarItemsContentsView* contents_view_ = nullptr;
@@ -108,4 +108,4 @@ class SidebarItemsScrollView : public views::View,
       bounds_animator_observed_{this};
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_SCROLL_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_SCROLL_VIEW_H_

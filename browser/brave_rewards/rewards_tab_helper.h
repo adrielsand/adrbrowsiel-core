@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_REWARDS_REWARDS_TAB_HELPER_H_
-#define BRAVE_BROWSER_BRAVE_REWARDS_REWARDS_TAB_HELPER_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_REWARDS_REWARDS_TAB_HELPER_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_REWARDS_REWARDS_TAB_HELPER_H_
 
 #include <string>
 
 #include "base/macros.h"
-#include "brave/components/brave_rewards/browser/rewards_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_observer.h"
 #include "build/build_config.h"
 #include "components/sessions/core/session_id.h"
 #include "content/public/browser/web_contents_observer.h"
@@ -21,7 +21,7 @@
 
 class Browser;
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 class RewardsService;
 
@@ -63,6 +63,6 @@ class RewardsTabHelper : public RewardsServiceObserver,
   DISALLOW_COPY_AND_ASSIGN(RewardsTabHelper);
 };
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_BROWSER_BRAVE_REWARDS_REWARDS_TAB_HELPER_H_
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_REWARDS_REWARDS_TAB_HELPER_H_

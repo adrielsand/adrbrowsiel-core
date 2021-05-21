@@ -1,10 +1,10 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_API_BRAVE_ACTION_API_H_
-#define BRAVE_BROWSER_EXTENSIONS_API_BRAVE_ACTION_API_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_ACTION_API_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_ACTION_API_H_
 
 #include <memory>
 #include <string>
@@ -16,12 +16,12 @@
 class Browser;
 
 namespace extensions {
-class BraveActionAPI : public KeyedService {
+class adrbrowsielActionAPI : public KeyedService {
  public:
   class Observer {
    public:
     Observer();
-    virtual void OnBraveActionShouldTrigger(
+    virtual void OnadrbrowsielActionShouldTrigger(
       const std::string& extension_id,
       std::unique_ptr<std::string> ui_relative_path) = 0;
 
@@ -29,7 +29,7 @@ class BraveActionAPI : public KeyedService {
     virtual ~Observer();
   };
 
-  static BraveActionAPI* Get(Browser* context);
+  static adrbrowsielActionAPI* Get(Browser* context);
   static bool ShowActionUI(
         ExtensionFunction* extension_function,
         const std::string& extension_id,
@@ -41,8 +41,8 @@ class BraveActionAPI : public KeyedService {
         const std::string& extension_id,
         std::unique_ptr<std::string> ui_relative_path,
         std::string* error);
-  BraveActionAPI();
-  ~BraveActionAPI() override;
+  adrbrowsielActionAPI();
+  ~adrbrowsielActionAPI() override;
 
   // Add or remove observers.
   void AddObserver(Observer* observer);
@@ -55,8 +55,8 @@ class BraveActionAPI : public KeyedService {
  private:
   base::ObserverList<Observer>::Unchecked observers_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveActionAPI);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielActionAPI);
 };
 }  // namespace extensions
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_API_BRAVE_ACTION_API_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_ACTION_API_H_

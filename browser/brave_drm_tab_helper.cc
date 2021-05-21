@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_drm_tab_helper.h"
+#include "adrbrowsiel/browser/adrbrowsiel_drm_tab_helper.h"
 
 #include <algorithm>
 #include <vector>
 
-#include "brave/browser/widevine/widevine_utils.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/browser/widevine/widevine_utils.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/browser/browser_process_impl.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser_finder.h"
@@ -25,7 +25,7 @@ bool IsAlreadyRegistered(ComponentUpdateService* cus) {
   std::vector<std::string> component_ids;
   component_ids = cus->GetComponentIDs();
   return std::find(component_ids.begin(), component_ids.end(),
-                   BraveDrmTabHelper::kWidevineComponentId) !=
+                   adrbrowsielDrmTabHelper::kWidevineComponentId) !=
          component_ids.end();
 }
 #if !defined(OS_LINUX)
@@ -44,10 +44,10 @@ void ReloadIfActive(content::WebContents* web_contents) {
 }  // namespace
 
 // static
-const char BraveDrmTabHelper::kWidevineComponentId[] =
+const char adrbrowsielDrmTabHelper::kWidevineComponentId[] =
     "oimompecagnajdejgnnjijobebaeigek";
 
-BraveDrmTabHelper::BraveDrmTabHelper(content::WebContents* contents)
+adrbrowsielDrmTabHelper::adrbrowsielDrmTabHelper(content::WebContents* contents)
     : WebContentsObserver(contents),
       receivers_(contents, this),
       observer_(this) {
@@ -57,9 +57,9 @@ BraveDrmTabHelper::BraveDrmTabHelper(content::WebContents* contents)
     observer_.Add(updater);
 }
 
-BraveDrmTabHelper::~BraveDrmTabHelper() {}
+adrbrowsielDrmTabHelper::~adrbrowsielDrmTabHelper() {}
 
-bool BraveDrmTabHelper::ShouldShowWidevineOptIn() const {
+bool adrbrowsielDrmTabHelper::ShouldShowWidevineOptIn() const {
   // If the user already opted in, don't offer it.
   PrefService* prefs =
       static_cast<Profile*>(web_contents()->GetBrowserContext())->GetPrefs();
@@ -70,7 +70,7 @@ bool BraveDrmTabHelper::ShouldShowWidevineOptIn() const {
   return is_widevine_requested_;
 }
 
-void BraveDrmTabHelper::DidStartNavigation(
+void adrbrowsielDrmTabHelper::DidStartNavigation(
     content::NavigationHandle* navigation_handle) {
   if (!navigation_handle->IsInMainFrame() ||
       navigation_handle->IsSameDocument()) {
@@ -80,7 +80,7 @@ void BraveDrmTabHelper::DidStartNavigation(
   is_permission_requested_ = false;
 }
 
-void BraveDrmTabHelper::OnWidevineKeySystemAccessRequest() {
+void adrbrowsielDrmTabHelper::OnWidevineKeySystemAccessRequest() {
   is_widevine_requested_ = true;
 
   if (ShouldShowWidevineOptIn() && !is_permission_requested_) {
@@ -89,7 +89,7 @@ void BraveDrmTabHelper::OnWidevineKeySystemAccessRequest() {
   }
 }
 
-void BraveDrmTabHelper::OnEvent(Events event, const std::string& id) {
+void adrbrowsielDrmTabHelper::OnEvent(Events event, const std::string& id) {
   if (event == ComponentUpdateService::Observer::Events::COMPONENT_UPDATED &&
       id == kWidevineComponentId) {
 #if defined(OS_LINUX)
@@ -109,4 +109,4 @@ void BraveDrmTabHelper::OnEvent(Events event, const std::string& id) {
   }
 }
 
-WEB_CONTENTS_USER_DATA_KEY_IMPL(BraveDrmTabHelper)
+WEB_CONTENTS_USER_DATA_KEY_IMPL(adrbrowsielDrmTabHelper)

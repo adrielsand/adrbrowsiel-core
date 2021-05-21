@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -14,27 +14,27 @@ import android.os.Bundle;
 import androidx.preference.Preference;
 
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveRelaunchUtils;
-import org.chromium.chrome.browser.settings.BravePreferenceFragment;
-import org.chromium.chrome.browser.util.BraveDbUtil;
+import org.chromium.chrome.browser.adrbrowsielRelaunchUtils;
+import org.chromium.chrome.browser.settings.adrbrowsielPreferenceFragment;
+import org.chromium.chrome.browser.util.adrbrowsielDbUtil;
 import org.chromium.components.browser_ui.settings.SettingsUtils;
 
 /**
  * Settings fragment containing preferences for QA team.
  */
-public class BraveRewardsDebugPreferences extends BravePreferenceFragment {
-    public static final String KEY = "brave_rewards_debug_preferences";
+public class adrbrowsielRewardsDebugPreferences extends adrbrowsielPreferenceFragment {
+    public static final String KEY = "adrbrowsiel_rewards_debug_preferences";
     private static final String QA_EXPORT_REWARDS_DB = "export_rewards_db";
 
     private Preference mExportRewardsDb;
-    private BraveDbUtil mDbUtil;
+    private adrbrowsielDbUtil mDbUtil;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SettingsUtils.addPreferencesFromResource(this, R.xml.brave_rewards_debug_preferences);
+        SettingsUtils.addPreferencesFromResource(this, R.xml.adrbrowsiel_rewards_debug_preferences);
 
-        mDbUtil = BraveDbUtil.getInstance();
+        mDbUtil = adrbrowsielDbUtil.getInstance();
         mExportRewardsDb = findPreference(QA_EXPORT_REWARDS_DB);
         setRewardsDbClickListeners();
     }
@@ -66,7 +66,7 @@ public class BraveRewardsDebugPreferences extends BravePreferenceFragment {
             public void onClick(DialogInterface dialog, int button) {
                 if (button == AlertDialog.BUTTON_POSITIVE) {
                     mDbUtil.setPerformDbExportOnStart(true);
-                    BraveRelaunchUtils.restart();
+                    adrbrowsielRelaunchUtils.restart();
                 }
             }
         };

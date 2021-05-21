@@ -1,15 +1,15 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/ui/views/toolbar/wallet_button.h"
+#include "adrbrowsiel/browser/ui/views/toolbar/wallet_button.h"
 
 #include "base/feature_list.h"
 #include "base/run_loop.h"
 #include "base/test/scoped_feature_list.h"
-#include "brave/browser/ui/views/frame/brave_browser_view.h"
-#include "brave/components/brave_wallet/common/features.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_browser_view.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/features.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/test/test_browser_dialog.h"
 #include "chrome/browser/ui/views/bubble/webui_bubble_manager.h"
@@ -24,14 +24,14 @@ ui::MouseEvent GetDummyEvent() {
 }
 }  // namespace
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 class WalletButtonButtonBrowserTest : public InProcessBrowserTest {
  public:
   // InProcessBrowserTest:
   void SetUp() override {
     scoped_feature_list_.InitAndEnableFeature(
-        features::kNativeBraveWalletFeature);
+        features::kNativeadrbrowsielWalletFeature);
     InProcessBrowserTest::SetUp();
   }
 
@@ -40,7 +40,7 @@ class WalletButtonButtonBrowserTest : public InProcessBrowserTest {
   }
 
   WalletButton* wallet_button() {
-    return static_cast<BraveBrowserView*>(browser_view())->GetWalletButton();
+    return static_cast<adrbrowsielBrowserView*>(browser_view())->GetWalletButton();
   }
 
   WebUIBubbleManager* bubble_manager() {
@@ -76,11 +76,11 @@ class WalletButtonBrowserUITest : public DialogBrowserTest {
  public:
   // DialogBrowserTest:
   void SetUp() override {
-    feature_list_.InitAndEnableFeature(features::kNativeBraveWalletFeature);
+    feature_list_.InitAndEnableFeature(features::kNativeadrbrowsielWalletFeature);
     DialogBrowserTest::SetUp();
   }
   void ShowUi(const std::string& name) override {
-    auto* wallet_button = static_cast<BraveBrowserView*>(
+    auto* wallet_button = static_cast<adrbrowsielBrowserView*>(
                               BrowserView::GetBrowserViewForBrowser(browser()))
                               ->GetWalletButton();
     views::test::ButtonTestApi(wallet_button).NotifyClick(GetDummyEvent());
@@ -95,4 +95,4 @@ IN_PROC_BROWSER_TEST_F(WalletButtonBrowserUITest, InvokeUi_default) {
   ShowAndVerifyUi();
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

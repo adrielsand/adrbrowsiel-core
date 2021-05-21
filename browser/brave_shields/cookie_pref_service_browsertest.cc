@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -16,7 +16,7 @@
 #include "content/public/test/browser_test.h"
 #include "url/gurl.h"
 
-using brave_shields::ControlType;
+using adrbrowsiel_shields::ControlType;
 
 class CookiePrefServiceTest : public InProcessBrowserTest {
  public:
@@ -51,29 +51,29 @@ class CookiePrefServiceTest : public InProcessBrowserTest {
 IN_PROC_BROWSER_TEST_F(CookiePrefServiceTest, CookieControlType_Preference) {
   // Initial state
   auto setting =
-      brave_shields::GetCookieControlType(content_settings(), GURL());
+      adrbrowsiel_shields::GetCookieControlType(content_settings(), GURL());
   EXPECT_EQ(ControlType::BLOCK_THIRD_PARTY, setting);
   EXPECT_EQ(CONTENT_SETTING_ALLOW, GetCookiePref());
 
   // Control -> preference
   /* BLOCK */
-  brave_shields::SetCookieControlType(content_settings(),
+  adrbrowsiel_shields::SetCookieControlType(content_settings(),
                                       ControlType::BLOCK,
                                       GURL());
   EXPECT_EQ(CONTENT_SETTING_BLOCK, GetCookiePref());
 
   /* ALLOW */
-  brave_shields::SetCookieControlType(content_settings(),
+  adrbrowsiel_shields::SetCookieControlType(content_settings(),
                                       ControlType::ALLOW,
                                       GURL());
   EXPECT_EQ(CONTENT_SETTING_ALLOW, GetCookiePref());
 
   /* BLOCK_THIRD_PARTY */
-  brave_shields::SetCookieControlType(content_settings(),
+  adrbrowsiel_shields::SetCookieControlType(content_settings(),
                                       ControlType::BLOCK,
                                       GURL());
   EXPECT_EQ(CONTENT_SETTING_BLOCK, GetCookiePref());
-  brave_shields::SetCookieControlType(content_settings(),
+  adrbrowsiel_shields::SetCookieControlType(content_settings(),
                                       ControlType::BLOCK_THIRD_PARTY,
                                       GURL());
   EXPECT_EQ(CONTENT_SETTING_ALLOW, GetCookiePref());
@@ -82,30 +82,30 @@ IN_PROC_BROWSER_TEST_F(CookiePrefServiceTest, CookieControlType_Preference) {
   /* BLOCK */
   SetCookiePref(CONTENT_SETTING_BLOCK);
   EXPECT_EQ(ControlType::BLOCK,
-            brave_shields::GetCookieControlType(content_settings(), GURL()));
+            adrbrowsiel_shields::GetCookieControlType(content_settings(), GURL()));
 
   /* ALLOW */
   SetCookiePref(CONTENT_SETTING_ALLOW);
   SetThirdPartyCookiePref(false);
   EXPECT_EQ(ControlType::ALLOW,
-            brave_shields::GetCookieControlType(content_settings(), GURL()));
+            adrbrowsiel_shields::GetCookieControlType(content_settings(), GURL()));
 
   /* BLOCK_THIRD_PARTY */
   SetCookiePref(CONTENT_SETTING_ALLOW);
   SetThirdPartyCookiePref(true);
   EXPECT_EQ(ControlType::BLOCK_THIRD_PARTY,
-            brave_shields::GetCookieControlType(content_settings(), GURL()));
+            adrbrowsiel_shields::GetCookieControlType(content_settings(), GURL()));
 
   // Preserve CONTENT_SETTING_SESSION_ONLY
   SetCookiePref(CONTENT_SETTING_BLOCK);
   EXPECT_EQ(ControlType::BLOCK,
-            brave_shields::GetCookieControlType(content_settings(), GURL()));
+            adrbrowsiel_shields::GetCookieControlType(content_settings(), GURL()));
   SetCookiePref(CONTENT_SETTING_SESSION_ONLY);
   SetThirdPartyCookiePref(false);
   EXPECT_EQ(ControlType::ALLOW,
-            brave_shields::GetCookieControlType(content_settings(), GURL()));
+            adrbrowsiel_shields::GetCookieControlType(content_settings(), GURL()));
   SetCookiePref(CONTENT_SETTING_ALLOW);
   SetThirdPartyCookiePref(false);
   EXPECT_EQ(ControlType::ALLOW,
-            brave_shields::GetCookieControlType(content_settings(), GURL()));
+            adrbrowsiel_shields::GetCookieControlType(content_settings(), GURL()));
 }

@@ -1,4 +1,4 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -11,24 +11,24 @@ import("../settings.gni")
 
 group("web_modules") {
   public_deps = [
-    ":brave_new_tab_pages_module",
+    ":adrbrowsiel_new_tab_pages_module",
     ":modules",
   ]
 }
 
-polymer_modulizer("brave_new_tab_pages") {
-  js_file = "brave_new_tab_page.js"
-  html_file = "brave_new_tab_page.html"
+polymer_modulizer("adrbrowsiel_new_tab_pages") {
+  js_file = "adrbrowsiel_new_tab_page.js"
+  html_file = "adrbrowsiel_new_tab_page.html"
   html_type = "dom-module"
   auto_imports = settings_auto_imports + [
-    "brave/browser/resources/settings/brave_new_tab_page/brave_new_tab_browser_proxy.html|BraveNewTabBrowserProxy, BraveNewTabBrowserProxyImpl",
+    "adrbrowsiel/browser/resources/settings/adrbrowsiel_new_tab_page/adrbrowsiel_new_tab_browser_proxy.html|adrbrowsielNewTabBrowserProxy, adrbrowsielNewTabBrowserProxyImpl",
   ]
   namespace_rewrites = settings_namespace_rewrites
 }
 
 js_modulizer("modules") {
   input_files = [
-    "brave_new_tab_browser_proxy.js",
+    "adrbrowsiel_new_tab_browser_proxy.js",
   ]
   namespace_rewrites = settings_namespace_rewrites
 }

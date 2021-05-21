@@ -1,23 +1,23 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/location_bar/ipfs_location_view.h"
+#include "adrbrowsiel/browser/ui/views/location_bar/ipfs_location_view.h"
 
 #include <memory>
 #include <utility>
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/browser/ipfs/ipfs_tab_helper.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_tab_helper.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/profiles/profile_window.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_finder.h"
 #include "chrome/browser/ui/layout_constants.h"
 #include "chrome/browser/ui/views/toolbar/toolbar_ink_drop_util.h"
-#include "components/grit/brave_components_resources.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/base/models/image_model.h"
 #include "ui/base/resource/resource_bundle.h"

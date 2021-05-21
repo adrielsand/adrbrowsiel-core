@@ -6,7 +6,7 @@ index 985f66e88a8a61752a5d10a2df340292d858327d..56ae2229892fbd3a3bea9137f50e35b2
      "java/src/org/chromium/components/browser_ui/site_settings/WebsitePreference.java",
      "java/src/org/chromium/components/browser_ui/site_settings/WebsitePreferenceBridge.java",
    ]
-+  sources += brave_components_browser_ui_site_settings_android_java
++  sources += adrbrowsiel_components_browser_ui_site_settings_android_java
    annotation_processor_deps = [ "//base/android/jni_generator:jni_processor" ]
    resources_package = "org.chromium.components.browser_ui.site_settings"
    deps = [
@@ -14,5 +14,5 @@ index 985f66e88a8a61752a5d10a2df340292d858327d..56ae2229892fbd3a3bea9137f50e35b2
      "//components/permissions/android:java_resources",
      "//third_party/android_deps:android_support_v7_appcompat_java",
    ]
-+  deps += brave_components_browser_ui_site_settings_android_java_resources_deps sources += brave_components_browser_ui_site_settings_android_java_resources
++  deps += adrbrowsiel_components_browser_ui_site_settings_android_java_resources_deps sources += adrbrowsiel_components_browser_ui_site_settings_android_java_resources
  }

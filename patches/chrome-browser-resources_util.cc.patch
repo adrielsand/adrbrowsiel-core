@@ -6,7 +6,7 @@ index 5c15c999788f6ecc421b7766ebbeac95a96a4ac9..5ce35d92b52739bcd42d8cd745db48e0
      for (size_t i = 0; i < kUiResourcesSize; ++i) {
        storage.emplace_back(kUiResources[i].path, kUiResources[i].id);
      }
-+    BRAVE_RESOURCES_UTIL
++    adrbrowsiel_RESOURCES_UTIL
  #if BUILDFLAG(IS_CHROMEOS_ASH)
      for (size_t i = 0; i < kUiChromeosResourcesSize; ++i) {
        storage.emplace_back(kUiChromeosResources[i].path,

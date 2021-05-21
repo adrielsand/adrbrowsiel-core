@@ -1,11 +1,11 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/feature_list.h"
 #include "base/path_service.h"
-#include "brave/common/brave_paths.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -120,8 +120,8 @@ std::string AsString(StorageType t) {
 }
 
 // This test suite recreates the behavior of the ephemeral storage tests
-// available on Brave's QA test pages, whose source is located at
-// https://github.com/brave-experiments/qa-test-pages
+// available on adrbrowsiel's QA test pages, whose source is located at
+// https://github.com/adrbrowsiel-experiments/qa-test-pages
 //
 // The tests check four types of storage across four different storage
 // contexts. As such, each test expects a 4x4 matrix of storage reading
@@ -141,7 +141,7 @@ std::string AsString(StorageType t) {
 class EphemeralStorageTest : public InProcessBrowserTest {
  public:
   EphemeralStorageTest() : https_server_(net::EmbeddedTestServer::TYPE_HTTPS) {
-    feature_list_.InitAndEnableFeature(net::features::kBraveEphemeralStorage);
+    feature_list_.InitAndEnableFeature(net::features::kadrbrowsielEphemeralStorage);
   }
 
   void SetUpOnMainThread() override {
@@ -157,9 +157,9 @@ class EphemeralStorageTest : public InProcessBrowserTest {
   }
 
   void SetUp() override {
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(
         test_data_dir.Append(FILE_PATH_LITERAL("ephemeral-storage")));
     content::SetupCrossSiteRedirector(embedded_test_server());
@@ -392,7 +392,7 @@ class EphemeralStorageTest : public InProcessBrowserTest {
   void SetupTestPage() {
     tabs_ = browser()->tab_strip_model();
 
-    GURL tab_url = embedded_test_server()->GetURL("dev-pages.brave.software",
+    GURL tab_url = embedded_test_server()->GetURL("dev-pages.adrbrowsiel.software",
                                                   kEphemeralStorageTestPage);
     ui_test_utils::NavigateToURL(browser(), tab_url);
     original_tab_ = tabs_->GetActiveWebContents();
@@ -693,7 +693,7 @@ class EphemeralStorageDisabledTest : public EphemeralStorageTest {
  public:
   EphemeralStorageDisabledTest() {
     feature_list_.Reset();
-    feature_list_.InitAndDisableFeature(net::features::kBraveEphemeralStorage);
+    feature_list_.InitAndDisableFeature(net::features::kadrbrowsielEphemeralStorage);
   }
 };
 

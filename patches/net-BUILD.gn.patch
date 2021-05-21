@@ -6,7 +6,7 @@ index f5cee6fc3d2a2b3d53e092cbdd1437ef465f0538..5dc92f8f7e4171ee365516b2e31a1ea0
          "reporting/reporting_uploader.h",
        ]
      }
-+    sources += brave_net_sources
++    sources += adrbrowsiel_net_sources
  
      if (is_android) {
        sources += [

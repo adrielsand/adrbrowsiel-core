@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,7 +10,7 @@
 #undef CreateWebUIURLLoaderFactory
 
 namespace {
-constexpr char kBraveUIResourceHost[] = "brave-resources";
+constexpr char kadrbrowsielUIResourceHost[] = "adrbrowsiel-resources";
 }  // namespace
 
 namespace content {
@@ -20,7 +20,7 @@ CreateWebUIURLLoaderFactory(RenderFrameHost* render_frame_host,
                             const std::string& scheme,
                             base::flat_set<std::string> allowed_hosts) {
   if (allowed_hosts.find(kChromeUIResourcesHost) != allowed_hosts.end()) {
-    allowed_hosts.emplace(kBraveUIResourceHost);
+    allowed_hosts.emplace(kadrbrowsielUIResourceHost);
   }
 
   return CreateWebUIURLLoaderFactory_ChromiumImpl(render_frame_host, scheme,

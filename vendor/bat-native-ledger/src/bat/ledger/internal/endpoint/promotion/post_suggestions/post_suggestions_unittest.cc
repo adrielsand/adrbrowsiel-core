@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -15,7 +15,7 @@
 #include "net/http/http_status_code.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=PostSuggestionsTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=PostSuggestionsTest.*
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -59,9 +59,9 @@ TEST_F(PostSuggestionsTest, ServerOK) {
   token.public_key = "dvpysTSiJdZUPihius7pvGOfngRWfDiIbrowykgMi1I=";
 
   credential::CredentialsRedeem redeem;
-  redeem.publisher_key = "brave.com";
+  redeem.publisher_key = "adrbrowsiel.com";
   redeem.type = type::RewardsType::ONE_TIME_TIP;
-  redeem.processor = type::ContributionProcessor::BRAVE_TOKENS;
+  redeem.processor = type::ContributionProcessor::adrbrowsiel_TOKENS;
   redeem.token_list = {token};
   redeem.order_id = "c4645786-052f-402f-8593-56af2f7a21ce";
   redeem.contribution_id = "83b3b77b-e7c3-455b-adda-e476fa0656d2";
@@ -91,9 +91,9 @@ TEST_F(PostSuggestionsTest, ServerError400) {
   token.public_key = "dvpysTSiJdZUPihius7pvGOfngRWfDiIbrowykgMi1I=";
 
   credential::CredentialsRedeem redeem;
-  redeem.publisher_key = "brave.com";
+  redeem.publisher_key = "adrbrowsiel.com";
   redeem.type = type::RewardsType::ONE_TIME_TIP;
-  redeem.processor = type::ContributionProcessor::BRAVE_TOKENS;
+  redeem.processor = type::ContributionProcessor::adrbrowsiel_TOKENS;
   redeem.token_list = {token};
   redeem.order_id = "c4645786-052f-402f-8593-56af2f7a21ce";
   redeem.contribution_id = "83b3b77b-e7c3-455b-adda-e476fa0656d2";
@@ -123,9 +123,9 @@ TEST_F(PostSuggestionsTest, ServerError500) {
   token.public_key = "dvpysTSiJdZUPihius7pvGOfngRWfDiIbrowykgMi1I=";
 
   credential::CredentialsRedeem redeem;
-  redeem.publisher_key = "brave.com";
+  redeem.publisher_key = "adrbrowsiel.com";
   redeem.type = type::RewardsType::ONE_TIME_TIP;
-  redeem.processor = type::ContributionProcessor::BRAVE_TOKENS;
+  redeem.processor = type::ContributionProcessor::adrbrowsiel_TOKENS;
   redeem.token_list = {token};
   redeem.order_id = "c4645786-052f-402f-8593-56af2f7a21ce";
   redeem.contribution_id = "83b3b77b-e7c3-455b-adda-e476fa0656d2";

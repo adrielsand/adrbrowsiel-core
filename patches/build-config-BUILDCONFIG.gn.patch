@@ -6,7 +6,7 @@ index 0ef73ab2b2e124466c4ff22fe662273ade82603b..be4efe3977c1354aa2b6636404308ddd
  
  # Holds all configs used for running the compiler.
  default_compiler_configs = [
-+  "//brave/build:compiler",
++  "//adrbrowsiel/build:compiler",
    "//build/config:feature_flags",
    "//build/config/compiler:afdo",
    "//build/config/compiler:afdo_optimize_size",

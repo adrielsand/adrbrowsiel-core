@@ -1,21 +1,21 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <memory>
 
-#include "brave/browser/brave_stats/brave_stats_updater.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/adrbrowsiel_stats_updater.h"
 
 #include "base/files/scoped_temp_dir.h"
 #include "base/system/sys_info.h"
 #include "base/time/time.h"
 #include "bat/ads/pref_names.h"
-#include "brave/browser/brave_stats/brave_stats_updater_params.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_ads/browser/test_util.h"
-#include "brave/components/brave_referrals/browser/brave_referrals_service.h"
-#include "brave/components/brave_stats/browser/brave_stats_updater_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/adrbrowsiel_stats_updater_params.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/test_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_stats/browser/adrbrowsiel_stats_updater_util.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/test/base/testing_browser_process.h"
 #include "chrome/test/base/testing_profile_manager.h"
@@ -23,7 +23,7 @@
 #include "content/public/test/browser_task_environment.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=BraveStatsUpdaterTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=adrbrowsielStatsUpdaterTest.*
 
 const char kYesterday[] = "2018-06-21";
 const char kToday[] = "2018-06-22";
@@ -37,21 +37,21 @@ const int kLastMonth = 5;
 const int kThisMonth = 6;
 const int kNextMonth = 7;
 
-class BraveStatsUpdaterTest : public testing::Test {
+class adrbrowsielStatsUpdaterTest : public testing::Test {
  public:
-  BraveStatsUpdaterTest()
+  adrbrowsielStatsUpdaterTest()
       : profile_manager_(TestingBrowserProcess::GetGlobal()) {}
-  ~BraveStatsUpdaterTest() override {}
+  ~adrbrowsielStatsUpdaterTest() override {}
 
   void SetUp() override {
     EXPECT_TRUE(temp_dir_.CreateUniqueTempDir());
     EXPECT_TRUE(profile_manager_.SetUp());
-    profile_ = brave_ads::CreateBraveAdsProfile(temp_dir_.GetPath());
+    profile_ = adrbrowsiel_ads::CreateadrbrowsielAdsProfile(temp_dir_.GetPath());
     EXPECT_TRUE(profile_.get() != NULL);
-    brave_stats::RegisterLocalStatePrefs(testing_local_state_.registry());
-    brave::RegisterPrefsForBraveReferralsService(
+    adrbrowsiel_stats::RegisterLocalStatePrefs(testing_local_state_.registry());
+    adrbrowsiel::RegisterPrefsForadrbrowsielReferralsService(
         testing_local_state_.registry());
-    brave_stats::BraveStatsUpdaterParams::SetFirstRunForTest(true);
+    adrbrowsiel_stats::adrbrowsielStatsUpdaterParams::SetFirstRunForTest(true);
   }
 
   void TearDown() override { profile_.reset(); }
@@ -63,7 +63,7 @@ class BraveStatsUpdaterTest : public testing::Test {
   }
 
   void SetCurrentTimeForTest(const base::Time& current_time) {
-    brave_stats::BraveStatsUpdaterParams::SetCurrentTimeForTest(current_time);
+    adrbrowsiel_stats::adrbrowsielStatsUpdaterParams::SetCurrentTimeForTest(current_time);
   }
 
  private:
@@ -74,153 +74,153 @@ class BraveStatsUpdaterTest : public testing::Test {
   content::BrowserTaskEnvironment task_environment_;
 };
 
-TEST_F(BraveStatsUpdaterTest, IsDailyUpdateNeededLastCheckedYesterday) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsDailyUpdateNeededLastCheckedYesterday) {
   GetLocalState()->SetString(kLastCheckYMD, kYesterday);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetDailyParam(), "true");
-  brave_stats_updater_params.SavePrefs();
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetDailyParam(), "true");
+  adrbrowsiel_stats_updater_params.SavePrefs();
 
   EXPECT_EQ(GetLocalState()->GetString(kLastCheckYMD), kToday);
 }
 
-TEST_F(BraveStatsUpdaterTest, IsDailyUpdateNeededLastCheckedToday) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsDailyUpdateNeededLastCheckedToday) {
   GetLocalState()->SetString(kLastCheckYMD, kToday);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetDailyParam(), "false");
-  brave_stats_updater_params.SavePrefs();
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetDailyParam(), "false");
+  adrbrowsiel_stats_updater_params.SavePrefs();
 
   EXPECT_EQ(GetLocalState()->GetString(kLastCheckYMD), kToday);
 }
 
-TEST_F(BraveStatsUpdaterTest, IsDailyUpdateNeededLastCheckedTomorrow) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsDailyUpdateNeededLastCheckedTomorrow) {
   GetLocalState()->SetString(kLastCheckYMD, kTomorrow);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetDailyParam(), "false");
-  brave_stats_updater_params.SavePrefs();
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetDailyParam(), "false");
+  adrbrowsiel_stats_updater_params.SavePrefs();
 
   EXPECT_EQ(GetLocalState()->GetString(kLastCheckYMD), kToday);
 }
 
-TEST_F(BraveStatsUpdaterTest, IsWeeklyUpdateNeededLastCheckedLastWeek) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsWeeklyUpdateNeededLastCheckedLastWeek) {
   GetLocalState()->SetInteger(kLastCheckWOY, kLastWeek);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetWeeklyParam(), "true");
-  brave_stats_updater_params.SavePrefs();
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetWeeklyParam(), "true");
+  adrbrowsiel_stats_updater_params.SavePrefs();
 
   EXPECT_EQ(GetLocalState()->GetInteger(kLastCheckWOY), kThisWeek);
 }
 
-TEST_F(BraveStatsUpdaterTest, IsWeeklyUpdateNeededLastCheckedThisWeek) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsWeeklyUpdateNeededLastCheckedThisWeek) {
   GetLocalState()->SetInteger(kLastCheckWOY, kThisWeek);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetWeeklyParam(), "false");
-  brave_stats_updater_params.SavePrefs();
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetWeeklyParam(), "false");
+  adrbrowsiel_stats_updater_params.SavePrefs();
 
   EXPECT_EQ(GetLocalState()->GetInteger(kLastCheckWOY), kThisWeek);
 }
 
-TEST_F(BraveStatsUpdaterTest, IsWeeklyUpdateNeededLastCheckedNextWeek) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsWeeklyUpdateNeededLastCheckedNextWeek) {
   GetLocalState()->SetInteger(kLastCheckWOY, kNextWeek);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetWeeklyParam(), "true");
-  brave_stats_updater_params.SavePrefs();
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetWeeklyParam(), "true");
+  adrbrowsiel_stats_updater_params.SavePrefs();
 
   EXPECT_EQ(GetLocalState()->GetInteger(kLastCheckWOY), kThisWeek);
 }
 
-TEST_F(BraveStatsUpdaterTest, IsMonthlyUpdateNeededLastCheckedLastMonth) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsMonthlyUpdateNeededLastCheckedLastMonth) {
   GetLocalState()->SetInteger(kLastCheckMonth, kLastMonth);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetMonthlyParam(), "true");
-  brave_stats_updater_params.SavePrefs();
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetMonthlyParam(), "true");
+  adrbrowsiel_stats_updater_params.SavePrefs();
 
   EXPECT_EQ(GetLocalState()->GetInteger(kLastCheckMonth), kThisMonth);
 }
 
-TEST_F(BraveStatsUpdaterTest, IsMonthlyUpdateNeededLastCheckedThisMonth) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsMonthlyUpdateNeededLastCheckedThisMonth) {
   GetLocalState()->SetInteger(kLastCheckMonth, kThisMonth);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetMonthlyParam(), "false");
-  brave_stats_updater_params.SavePrefs();
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetMonthlyParam(), "false");
+  adrbrowsiel_stats_updater_params.SavePrefs();
 
   EXPECT_EQ(GetLocalState()->GetInteger(kLastCheckMonth), kThisMonth);
 }
 
-TEST_F(BraveStatsUpdaterTest, IsMonthlyUpdateNeededLastCheckedNextMonth) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsMonthlyUpdateNeededLastCheckedNextMonth) {
   GetLocalState()->SetInteger(kLastCheckMonth, kNextMonth);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetMonthlyParam(), "true");
-  brave_stats_updater_params.SavePrefs();
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetMonthlyParam(), "true");
+  adrbrowsiel_stats_updater_params.SavePrefs();
 
   EXPECT_EQ(GetLocalState()->GetInteger(kLastCheckMonth), kThisMonth);
 }
 
-TEST_F(BraveStatsUpdaterTest, HasAdsDisabled) {
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+TEST_F(adrbrowsielStatsUpdaterTest, HasAdsDisabled) {
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
   SetEnableAds(false);
-  EXPECT_EQ(brave_stats_updater_params.GetAdsEnabledParam(), "false");
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetAdsEnabledParam(), "false");
 }
 
-TEST_F(BraveStatsUpdaterTest, HasAdsEnabled) {
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+TEST_F(adrbrowsielStatsUpdaterTest, HasAdsEnabled) {
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
   SetEnableAds(true);
-  EXPECT_EQ(brave_stats_updater_params.GetAdsEnabledParam(), "true");
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetAdsEnabledParam(), "true");
 }
 
-TEST_F(BraveStatsUpdaterTest, HasArchSkip) {
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+TEST_F(adrbrowsielStatsUpdaterTest, HasArchSkip) {
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetProcessArchParam(), "");
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetProcessArchParam(), "");
 }
 
-TEST_F(BraveStatsUpdaterTest, HasArchVirt) {
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchVirt,
+TEST_F(adrbrowsielStatsUpdaterTest, HasArchVirt) {
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchVirt,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetProcessArchParam(), "virt");
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetProcessArchParam(), "virt");
 }
 
-TEST_F(BraveStatsUpdaterTest, HasArchMetal) {
+TEST_F(adrbrowsielStatsUpdaterTest, HasArchMetal) {
   auto arch = base::SysInfo::OperatingSystemArchitecture();
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchMetal,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchMetal,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetProcessArchParam(), arch);
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetProcessArchParam(), arch);
 }
 
-TEST_F(BraveStatsUpdaterTest, HasDateOfInstallationFirstRun) {
+TEST_F(adrbrowsielStatsUpdaterTest, HasDateOfInstallationFirstRun) {
   base::Time::Exploded exploded;
   base::Time current_time;
 
@@ -237,14 +237,14 @@ TEST_F(BraveStatsUpdaterTest, HasDateOfInstallationFirstRun) {
   EXPECT_TRUE(base::Time::FromLocalExploded(exploded, &current_time));
   SetCurrentTimeForTest(current_time);
 
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
-  EXPECT_EQ(brave_stats_updater_params.GetDateOfInstallationParam(),
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetDateOfInstallationParam(),
             "2018-11-04");
 }
 
-TEST_F(BraveStatsUpdaterTest, HasDailyRetention) {
+TEST_F(adrbrowsielStatsUpdaterTest, HasDailyRetention) {
   base::Time::Exploded exploded;
   base::Time current_time, dtoi_time;
 
@@ -264,15 +264,15 @@ TEST_F(BraveStatsUpdaterTest, HasDailyRetention) {
   EXPECT_TRUE(base::Time::FromLocalExploded(exploded, &current_time));
 
   SetCurrentTimeForTest(dtoi_time);
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
   SetCurrentTimeForTest(current_time);
-  EXPECT_EQ(brave_stats_updater_params.GetDateOfInstallationParam(),
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetDateOfInstallationParam(),
             "2018-11-04");
 }
 
-TEST_F(BraveStatsUpdaterTest, HasDailyRetentionExpiration) {
+TEST_F(adrbrowsielStatsUpdaterTest, HasDailyRetentionExpiration) {
   base::Time::Exploded exploded;
   base::Time current_time, dtoi_time;
 
@@ -292,15 +292,15 @@ TEST_F(BraveStatsUpdaterTest, HasDailyRetentionExpiration) {
   EXPECT_TRUE(base::Time::FromLocalExploded(exploded, &current_time));
 
   SetCurrentTimeForTest(dtoi_time);
-  brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
-      GetLocalState(), GetProfilePrefs(), brave_stats::ProcessArch::kArchSkip,
+  adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
+      GetLocalState(), GetProfilePrefs(), adrbrowsiel_stats::ProcessArch::kArchSkip,
       kToday, kThisWeek, kThisMonth);
   SetCurrentTimeForTest(current_time);
-  EXPECT_EQ(brave_stats_updater_params.GetDateOfInstallationParam(), "null");
+  EXPECT_EQ(adrbrowsiel_stats_updater_params.GetDateOfInstallationParam(), "null");
 }
 
 // This test ensures that our weekly stats cut over on Monday
-TEST_F(BraveStatsUpdaterTest, IsWeeklyUpdateNeededOnMondayLastCheckedOnSunday) {
+TEST_F(adrbrowsielStatsUpdaterTest, IsWeeklyUpdateNeededOnMondayLastCheckedOnSunday) {
   base::Time::Exploded exploded;
   base::Time current_time;
 
@@ -322,14 +322,14 @@ TEST_F(BraveStatsUpdaterTest, IsWeeklyUpdateNeededOnMondayLastCheckedOnSunday) {
     EXPECT_TRUE(base::Time::FromLocalExploded(exploded, &current_time));
 
     SetCurrentTimeForTest(current_time);
-    brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
+    adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
         GetLocalState(), GetProfilePrefs(),
-        brave_stats::ProcessArch::kArchSkip);
+        adrbrowsiel_stats::ProcessArch::kArchSkip);
 
     // Make sure that the weekly param was set to true, since this is
     // a new ISO week (#44)
-    EXPECT_EQ(brave_stats_updater_params.GetWeeklyParam(), "true");
-    brave_stats_updater_params.SavePrefs();
+    EXPECT_EQ(adrbrowsiel_stats_updater_params.GetWeeklyParam(), "true");
+    adrbrowsiel_stats_updater_params.SavePrefs();
 
     // Make sure that local state was updated to reflect this as well
     EXPECT_EQ(GetLocalState()->GetInteger(kLastCheckWOY), 44);
@@ -343,14 +343,14 @@ TEST_F(BraveStatsUpdaterTest, IsWeeklyUpdateNeededOnMondayLastCheckedOnSunday) {
     EXPECT_TRUE(base::Time::FromLocalExploded(exploded, &current_time));
 
     SetCurrentTimeForTest(current_time);
-    brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
+    adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
         GetLocalState(), GetProfilePrefs(),
-        brave_stats::ProcessArch::kArchSkip);
+        adrbrowsiel_stats::ProcessArch::kArchSkip);
 
     // Make sure that the weekly param was set to true, since this is
     // a new ISO week (#45)
-    EXPECT_EQ(brave_stats_updater_params.GetWeeklyParam(), "true");
-    brave_stats_updater_params.SavePrefs();
+    EXPECT_EQ(adrbrowsiel_stats_updater_params.GetWeeklyParam(), "true");
+    adrbrowsiel_stats_updater_params.SavePrefs();
 
     // Make sure that local state was updated to reflect this as well
     EXPECT_EQ(GetLocalState()->GetInteger(kLastCheckWOY), 45);
@@ -364,21 +364,21 @@ TEST_F(BraveStatsUpdaterTest, IsWeeklyUpdateNeededOnMondayLastCheckedOnSunday) {
     EXPECT_TRUE(base::Time::FromLocalExploded(exploded, &current_time));
 
     SetCurrentTimeForTest(current_time);
-    brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
+    adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
         GetLocalState(), GetProfilePrefs(),
-        brave_stats::ProcessArch::kArchSkip);
+        adrbrowsiel_stats::ProcessArch::kArchSkip);
 
     // Make sure that the weekly param was set to false, since this is
     // still the same ISO week (#45)
-    EXPECT_EQ(brave_stats_updater_params.GetWeeklyParam(), "false");
-    brave_stats_updater_params.SavePrefs();
+    EXPECT_EQ(adrbrowsiel_stats_updater_params.GetWeeklyParam(), "false");
+    adrbrowsiel_stats_updater_params.SavePrefs();
 
     // Make sure that local state also didn't change
     EXPECT_EQ(GetLocalState()->GetInteger(kLastCheckWOY), 45);
   }
 }
 
-TEST_F(BraveStatsUpdaterTest, HasCorrectWeekOfInstallation) {
+TEST_F(adrbrowsielStatsUpdaterTest, HasCorrectWeekOfInstallation) {
   base::Time::Exploded exploded;
   base::Time current_time;
 
@@ -397,10 +397,10 @@ TEST_F(BraveStatsUpdaterTest, HasCorrectWeekOfInstallation) {
     SetCurrentTimeForTest(current_time);
 
     // Make sure that week of installation is previous Monday
-    brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
+    adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
         GetLocalState(), GetProfilePrefs(),
-        brave_stats::ProcessArch::kArchSkip);
-    EXPECT_EQ(brave_stats_updater_params.GetWeekOfInstallationParam(),
+        adrbrowsiel_stats::ProcessArch::kArchSkip);
+    EXPECT_EQ(adrbrowsiel_stats_updater_params.GetWeekOfInstallationParam(),
               "2019-03-18");
   }
 
@@ -420,10 +420,10 @@ TEST_F(BraveStatsUpdaterTest, HasCorrectWeekOfInstallation) {
 
     // Make sure that week of installation is today, since today is a
     // Monday
-    brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
+    adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
         GetLocalState(), GetProfilePrefs(),
-        brave_stats::ProcessArch::kArchSkip);
-    EXPECT_EQ(brave_stats_updater_params.GetWeekOfInstallationParam(),
+        adrbrowsiel_stats::ProcessArch::kArchSkip);
+    EXPECT_EQ(adrbrowsiel_stats_updater_params.GetWeekOfInstallationParam(),
               "2019-03-25");
   }
 
@@ -442,15 +442,15 @@ TEST_F(BraveStatsUpdaterTest, HasCorrectWeekOfInstallation) {
     SetCurrentTimeForTest(current_time);
 
     // Make sure that week of installation is previous Monday
-    brave_stats::BraveStatsUpdaterParams brave_stats_updater_params(
+    adrbrowsiel_stats::adrbrowsielStatsUpdaterParams adrbrowsiel_stats_updater_params(
         GetLocalState(), GetProfilePrefs(),
-        brave_stats::ProcessArch::kArchSkip);
-    EXPECT_EQ(brave_stats_updater_params.GetWeekOfInstallationParam(),
+        adrbrowsiel_stats::ProcessArch::kArchSkip);
+    EXPECT_EQ(adrbrowsiel_stats_updater_params.GetWeekOfInstallationParam(),
               "2019-03-25");
   }
 }
 
-TEST_F(BraveStatsUpdaterTest, GetIsoWeekNumber) {
+TEST_F(adrbrowsielStatsUpdaterTest, GetIsoWeekNumber) {
   base::Time::Exploded exploded;
   exploded.hour = 0;
   exploded.minute = 0;
@@ -463,18 +463,18 @@ TEST_F(BraveStatsUpdaterTest, GetIsoWeekNumber) {
 
   base::Time time;
   EXPECT_TRUE(base::Time::FromLocalExploded(exploded, &time));
-  EXPECT_EQ(brave_stats::GetIsoWeekNumber(time), 31);
+  EXPECT_EQ(adrbrowsiel_stats::GetIsoWeekNumber(time), 31);
 
   exploded.day_of_month = 30;
   exploded.month = 9;
 
   EXPECT_TRUE(base::Time::FromLocalExploded(exploded, &time));
-  EXPECT_EQ(brave_stats::GetIsoWeekNumber(time), 40);
+  EXPECT_EQ(adrbrowsiel_stats::GetIsoWeekNumber(time), 40);
 
   exploded.day_of_month = 1;
   exploded.month = 9;
   exploded.day_of_week = 0;
 
   EXPECT_TRUE(base::Time::FromLocalExploded(exploded, &time));
-  EXPECT_EQ(brave_stats::GetIsoWeekNumber(time), 35);
+  EXPECT_EQ(adrbrowsiel_stats::GetIsoWeekNumber(time), 35);
 }

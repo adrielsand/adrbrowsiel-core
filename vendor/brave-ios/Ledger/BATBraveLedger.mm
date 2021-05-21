@@ -10,9 +10,9 @@
 
 #import "ledger.mojom.objc+private.h"
 
-#import "BATBraveLedger.h"
-#import "BATBraveAds.h"
-#import "BATBraveAds+Private.h"
+#import "BATadrbrowsielLedger.h"
+#import "BATadrbrowsielAds.h"
+#import "BATadrbrowsielAds+Private.h"
 #import "BATCommonOperations.h"
 #import "NSURL+Extensions.h"
 
@@ -54,11 +54,11 @@
 + (__type)__objc_getter { return ledger::__cpp_var; } \
 + (void)__objc_setter:(__type)newValue { ledger::__cpp_var = newValue; }
 
-NSString * const BATBraveLedgerErrorDomain = @"BATBraveLedgerErrorDomain";
-NSNotificationName const BATBraveLedgerNotificationAdded = @"BATBraveLedgerNotificationAdded";
+NSString * const BATadrbrowsielLedgerErrorDomain = @"BATadrbrowsielLedgerErrorDomain";
+NSNotificationName const BATadrbrowsielLedgerNotificationAdded = @"BATadrbrowsielLedgerNotificationAdded";
 
-BATBraveGeneralLedgerNotificationID const BATBraveGeneralLedgerNotificationIDWalletNowVerified = @"wallet_new_verified";
-BATBraveGeneralLedgerNotificationID const BATBraveGeneralLedgerNotificationIDWalletDisconnected = @"wallet_disconnected";
+BATadrbrowsielGeneralLedgerNotificationID const BATadrbrowsielGeneralLedgerNotificationIDWalletNowVerified = @"wallet_new_verified";
+BATadrbrowsielGeneralLedgerNotificationID const BATadrbrowsielGeneralLedgerNotificationIDWalletDisconnected = @"wallet_disconnected";
 
 static NSString * const kNextAddFundsDateNotificationKey = @"BATNextAddFundsDateNotification";
 static NSString * const kBackupNotificationIntervalKey = @"BATBackupNotificationInterval";
@@ -117,7 +117,7 @@ ledger::type::DBCommandResponsePtr RunDBTransactionOnTaskRunner(
 
 }  // namespace
 
-@interface BATBraveLedger () <NativeLedgerClientBridge> {
+@interface BATadrbrowsielLedger () <NativeLedgerClientBridge> {
   NativeLedgerClient *ledgerClient;
   ledger::Ledger *ledger;
   ledger::LedgerDatabase *rewardsDatabase;
@@ -136,7 +136,7 @@ ledger::type::DBCommandResponsePtr RunDBTransactionOnTaskRunner(
 @property (nonatomic) NSMutableArray<BATPromotion *> *mPendingPromotions;
 @property (nonatomic) NSMutableArray<BATPromotion *> *mFinishedPromotions;
 
-@property (nonatomic) NSHashTable<BATBraveLedgerObserver *> *observers;
+@property (nonatomic) NSHashTable<BATadrbrowsielLedgerObserver *> *observers;
 
 @property (nonatomic, getter=isInitialized) BOOL initialized;
 @property (nonatomic) BOOL initializing;
@@ -156,7 +156,7 @@ ledger::type::DBCommandResponsePtr RunDBTransactionOnTaskRunner(
 
 @end
 
-@implementation BATBraveLedger
+@implementation BATadrbrowsielLedger
 
 - (instancetype)initWithStateStoragePath:(NSString *)path
 {
@@ -283,7 +283,7 @@ ledger::type::DBCommandResponsePtr RunDBTransactionOnTaskRunner(
     if (completion) {
       completion();
     }
-    for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+    for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
       if (observer.walletInitalized) {
         observer.walletInitalized(self.initializationResult);
       }
@@ -401,12 +401,12 @@ ledger::type::DBCommandResponsePtr RunDBTransactionOnTaskRunner(
 
 #pragma mark - Observers
 
-- (void)addObserver:(BATBraveLedgerObserver *)observer
+- (void)addObserver:(BATadrbrowsielLedgerObserver *)observer
 {
   [self.observers addObject:observer];
 }
 
-- (void)removeObserver:(BATBraveLedgerObserver *)observer
+- (void)removeObserver:(BATadrbrowsielLedgerObserver *)observer
 {
   [self.observers removeObject:observer];
 }
@@ -454,7 +454,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
       if (description.length() > 0) {
         userInfo = @{ NSLocalizedDescriptionKey: [NSString stringWithUTF8String:description.c_str()] };
       }
-      error = [NSError errorWithDomain:BATBraveLedgerErrorDomain code:static_cast<NSInteger>(result) userInfo:userInfo];
+      error = [NSError errorWithDomain:BATadrbrowsielLedgerErrorDomain code:static_cast<NSInteger>(result) userInfo:userInfo];
     }
 
     [strongSelf startNotificationTimers];
@@ -465,7 +465,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
         completion(error);
       }
 
-      for (BATBraveLedgerObserver *observer in [strongSelf.observers copy]) {
+      for (BATadrbrowsielLedgerObserver *observer in [strongSelf.observers copy]) {
         if (observer.walletInitalized) {
           observer.walletInitalized(static_cast<BATResult>(result));
         }
@@ -474,14 +474,14 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
   });
 }
 
-- (void)currentWalletInfo:(void (^)(BATBraveWallet *_Nullable wallet))completion
+- (void)currentWalletInfo:(void (^)(BATadrbrowsielWallet *_Nullable wallet))completion
 {
-  ledger->GetBraveWallet(^(ledger::type::BraveWalletPtr wallet){
+  ledger->GetadrbrowsielWallet(^(ledger::type::adrbrowsielWalletPtr wallet){
     if (wallet.get() == nullptr) {
       completion(nil);
       return;
     }
-    const auto bridgedWallet = [[BATBraveWallet alloc] initWithBraveWallet:*wallet];
+    const auto bridgedWallet = [[BATadrbrowsielWallet alloc] initWithadrbrowsielWallet:*wallet];
     completion(bridgedWallet);
   });
 }
@@ -512,7 +512,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
       strongSelf.balance = [[BATBalance alloc] initWithBalancePtr:std::move(balance)];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-      for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+      for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
         if (observer.fetchedBalance) {
           observer.fetchedBalance();
         }
@@ -544,7 +544,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
         if (description.length() > 0) {
           userInfo = @{ NSLocalizedDescriptionKey: [NSString stringWithUTF8String:description.c_str()] };
         }
-        error = [NSError errorWithDomain:BATBraveLedgerErrorDomain code:static_cast<NSInteger>(result) userInfo:userInfo];
+        error = [NSError errorWithDomain:BATadrbrowsielLedgerErrorDomain code:static_cast<NSInteger>(result) userInfo:userInfo];
       }
       if (completion) {
         completion(error);
@@ -565,9 +565,9 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
   });
 }
 
-- (void)linkBraveWalletToPaymentId:(NSString *)paymentId completion:(void (^)(BATResult result, NSString *drainID))completion
+- (void)linkadrbrowsielWalletToPaymentId:(NSString *)paymentId completion:(void (^)(BATResult result, NSString *drainID))completion
 {
-  ledger->LinkBraveWallet(paymentId.UTF8String, ^(ledger::type::Result result, std::string drain_id) {
+  ledger->LinkadrbrowsielWallet(paymentId.UTF8String, ^(ledger::type::Result result, std::string drain_id) {
     completion(static_cast<BATResult>(result), [NSString stringWithUTF8String:drain_id.c_str()]);
   });
 }
@@ -619,7 +619,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
       completion(static_cast<BATResult>(result));
     }
 
-    for (BATBraveLedgerObserver *observer in self.observers) {
+    for (BATadrbrowsielLedgerObserver *observer in self.observers) {
       if (observer.externalWalletDisconnected) {
         observer.externalWalletDisconnected(walletType);
       }
@@ -643,7 +643,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
     completion(static_cast<BATResult>(result), url);
 
     if (result == ledger::type::Result::LEDGER_OK) {
-      for (BATBraveLedgerObserver *observer in self.observers) {
+      for (BATadrbrowsielLedgerObserver *observer in self.observers) {
         if (observer.externalWalletAuthorized) {
           observer.externalWalletAuthorized(walletType);
         }
@@ -737,7 +737,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
     if (result != ledger::type::Result::LEDGER_OK) {
       return;
     }
-    for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+    for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
       if (observer.excludedSitesChanged) {
         observer.excludedSitesChanged(publisherId,
                                       state);
@@ -753,7 +753,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
       return;
     }
 
-    for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+    for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
       if (observer.excludedSitesChanged) {
         observer.excludedSitesChanged(@"-1",
                                       static_cast<BATPublisherExclude>(ledger::type::PublisherExclude::ALL));
@@ -818,7 +818,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
   ledger->SaveRecurringTip(std::move(info), ^(ledger::type::Result result){
     const auto success = (result == ledger::type::Result::LEDGER_OK);
     if (success) {
-      for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+      for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
         if (observer.recurringTipAdded) {
           observer.recurringTipAdded(publisherId);
         }
@@ -832,7 +832,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
 {
   ledger->RemoveRecurringTip(std::string(publisherId.UTF8String), ^(ledger::type::Result result){
     if (result == ledger::type::Result::LEDGER_OK) {
-      for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+      for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
         if (observer.recurringTipRemoved) {
           observer.recurringTipRemoved(publisherId);
         }
@@ -914,7 +914,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
     if (completion) {
       completion();
     }
-    for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+    for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
       if (observer.promotionsAdded) {
         observer.promotionsAdded(self.pendingPromotions);
       }
@@ -979,7 +979,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
         completion(static_cast<BATResult>(result), bridgedPromotion);
       }
       if (result == ledger::type::Result::LEDGER_OK) {
-        for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+        for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
           if (observer.promotionClaimed) {
             observer.promotionClaimed(bridgedPromotion);
           }
@@ -1059,7 +1059,7 @@ BATClassLedgerBridge(BOOL, useShortRetries, setUseShortRetries, short_retries)
                  notificationID:[NSString stringWithFormat:@"contribution_%@", contributionId]];
   }
 
-  for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+  for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
     if (observer.balanceReportUpdated) {
       observer.balanceReportUpdated();
     }
@@ -1425,7 +1425,7 @@ BATLedgerBridge(BOOL,
   [self.mNotifications removeObject:notification];
   [self writeNotificationsToDisk];
 
-  for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+  for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
     if (observer.notificationsRemoved) {
       observer.notificationsRemoved(@[notification]);
     }
@@ -1438,7 +1438,7 @@ BATLedgerBridge(BOOL,
   [self.mNotifications removeAllObjects];
   [self writeNotificationsToDisk];
 
-  for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+  for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
     if (observer.notificationsRemoved) {
       observer.notificationsRemoved(notifications);
     }
@@ -1573,13 +1573,13 @@ BATLedgerBridge(BOOL,
   [self.mNotifications addObject:notification];
 
   // Post to observers
-  for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+  for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
     if (observer.notificationAdded) {
       observer.notificationAdded(notification);
     }
   }
 
-  [NSNotificationCenter.defaultCenter postNotificationName:BATBraveLedgerNotificationAdded object:nil];
+  [NSNotificationCenter.defaultCenter postNotificationName:BATadrbrowsielLedgerNotificationAdded object:nil];
 
   [self writeNotificationsToDisk];
 }
@@ -1668,7 +1668,7 @@ BATLedgerBridge(BOOL,
   const auto key = [NSString stringWithUTF8String:name.c_str()];
   self.state[key] = nil;
   callback(ledger::type::Result::LEDGER_OK);
-  // In brave-core, failed callback returns `LEDGER_ERROR`
+  // In adrbrowsiel-core, failed callback returns `LEDGER_ERROR`
   NSDictionary *state = [self.state copy];
   NSString *path = [self.randomStatePath copy];
   dispatch_async(self.fileWriteThread, ^{
@@ -1681,7 +1681,7 @@ BATLedgerBridge(BOOL,
   const auto key = [NSString stringWithUTF8String:name.c_str()];
   self.state[key] = [NSString stringWithUTF8String:value.c_str()];
   callback(ledger::type::Result::LEDGER_OK);
-  // In brave-core, failed callback returns `LEDGER_ERROR`
+  // In adrbrowsiel-core, failed callback returns `LEDGER_ERROR`
   NSDictionary *state = [self.state copy];
   NSString *path = [self.randomStatePath copy];
   dispatch_async(self.fileWriteThread, ^{
@@ -1774,7 +1774,7 @@ BATLedgerBridge(BOOL,
     return [[BATPublisherInfo alloc] initWithPublisherInfo:*info];
   });
 
-  for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+  for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
     if (observer.publisherListNormalized) {
       observer.publisherListNormalized(list_converted);
     }
@@ -1787,7 +1787,7 @@ BATLedgerBridge(BOOL,
     return;
   }
   auto info = [[BATPublisherInfo alloc] initWithPublisherInfo:*publisher_info];
-  for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+  for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
     if (observer.fetchedPanelPublisher) {
       observer.fetchedPanelPublisher(info, windowId);
     }
@@ -1804,7 +1804,7 @@ BATLedgerBridge(BOOL,
       break;
     case ledger::type::Result::PENDING_PUBLISHER_REMOVED: {
       const auto publisherID = [NSString stringWithUTF8String:publisher_key.c_str()];
-      for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+      for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
         if (observer.pendingContributionsRemoved) {
           observer.pendingContributionsRemoved(@[publisherID]);
         }
@@ -1848,7 +1848,7 @@ BATLedgerBridge(BOOL,
 - (void)unblindedTokensReady
 {
   [self fetchBalance:nil];
-  for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+  for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
     if (observer.balanceReportUpdated) {
       observer.balanceReportUpdated();
     }
@@ -1857,7 +1857,7 @@ BATLedgerBridge(BOOL,
 
 - (void)reconcileStampReset
 {
-  for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+  for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
     if (observer.reconcileStampReset) {
       observer.reconcileStampReset();
     }
@@ -1867,7 +1867,7 @@ BATLedgerBridge(BOOL,
 - (void)runDBTransaction:(ledger::type::DBTransactionPtr)transaction
                 callback:(ledger::client::RunDBTransactionCallback)callback
 {
-  __weak BATBraveLedger* weakSelf = self;
+  __weak BATadrbrowsielLedger* weakSelf = self;
   base::PostTaskAndReplyWithResult(
       databaseQueue.get(), FROM_HERE,
       base::BindOnce(&RunDBTransactionOnTaskRunner, std::move(transaction),
@@ -1880,7 +1880,7 @@ BATLedgerBridge(BOOL,
 
 - (void)pendingContributionSaved:(const ledger::type::Result)result
 {
-  for (BATBraveLedgerObserver *observer in [self.observers copy]) {
+  for (BATadrbrowsielLedgerObserver *observer in [self.observers copy]) {
     if (observer.pendingContributionAdded) {
       observer.pendingContributionAdded();
     }
@@ -1890,7 +1890,7 @@ BATLedgerBridge(BOOL,
 - (void)walletDisconnected:(const std::string &)wallet_type
 {
   const auto bridgedType = static_cast<BATWalletType>([NSString stringWithUTF8String:wallet_type.c_str()]);
-  for (BATBraveLedgerObserver *observer in self.observers) {
+  for (BATadrbrowsielLedgerObserver *observer in self.observers) {
     if (observer.externalWalletDisconnected) {
       observer.externalWalletDisconnected(bridgedType);
     }

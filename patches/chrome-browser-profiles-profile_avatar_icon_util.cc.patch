@@ -7,7 +7,7 @@ index 0163a84851a0cdbc043744813b96622243572b3a..e2d9624d36465f57a234964c660f5134
  constexpr size_t kDefaultAvatarIconsCount = 27;
  #else
 -constexpr size_t kDefaultAvatarIconsCount = 56;
-+constexpr size_t kDefaultAvatarIconsCount = 56 + kBraveDefaultAvatarIconsCount;
++constexpr size_t kDefaultAvatarIconsCount = 56 + kadrbrowsielDefaultAvatarIconsCount;
  #endif
  
  #if !defined(OS_ANDROID)
@@ -15,7 +15,7 @@ index 0163a84851a0cdbc043744813b96622243572b3a..e2d9624d36465f57a234964c660f5134
  
  size_t GetModernAvatarIconStartIndex() {
  #if !BUILDFLAG(IS_CHROMEOS_ASH) && !defined(OS_ANDROID)
-+  BRAVE_GET_MODERN_AVATAR_ICON_START_INDEX
++  adrbrowsiel_GET_MODERN_AVATAR_ICON_START_INDEX
    return GetPlaceholderAvatarIndex() + 1;
  #else
    // Only use the placeholder avatar on ChromeOS and Android.
@@ -23,7 +23,7 @@ index 0163a84851a0cdbc043744813b96622243572b3a..e2d9624d36465f57a234964c660f5134
  
  const IconResourceInfo* GetDefaultAvatarIconResourceInfo(size_t index) {
    CHECK_LT(index, kDefaultAvatarIconsCount);
-+  BRAVE_GET_DEFAULT_AVATAR_ICON_RESOURCE_INFO
++  adrbrowsiel_GET_DEFAULT_AVATAR_ICON_RESOURCE_INFO
    static const IconResourceInfo resource_info[kDefaultAvatarIconsCount] = {
    // Old avatar icons:
  #if !defined(OS_ANDROID)

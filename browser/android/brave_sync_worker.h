@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_ANDROID_BRAVE_SYNC_WORKER_H_
-#define BRAVE_BROWSER_ANDROID_BRAVE_SYNC_WORKER_H_
+#ifndef adrbrowsiel_BROWSER_ANDROID_adrbrowsiel_SYNC_WORKER_H_
+#define adrbrowsiel_BROWSER_ANDROID_adrbrowsiel_SYNC_WORKER_H_
 
 #include <jni.h>
 #include <string>
@@ -17,17 +17,17 @@
 class Profile;
 
 namespace syncer {
-class BraveProfileSyncService;
+class adrbrowsielProfileSyncService;
 }  // namespace syncer
 
 namespace chrome {
 namespace android {
 
-class BraveSyncWorker : public syncer::SyncServiceObserver {
+class adrbrowsielSyncWorker : public syncer::SyncServiceObserver {
  public:
-  BraveSyncWorker(JNIEnv* env,
+  adrbrowsielSyncWorker(JNIEnv* env,
                   const base::android::JavaRef<jobject>& obj);
-  ~BraveSyncWorker() override;
+  ~adrbrowsielSyncWorker() override;
 
   void Destroy(JNIEnv* env);
 
@@ -53,7 +53,7 @@ class BraveSyncWorker : public syncer::SyncServiceObserver {
       bool sync_v2_migration_notice_dismissed);
 
  private:
-  syncer::BraveProfileSyncService* GetSyncService() const;
+  syncer::adrbrowsielProfileSyncService* GetSyncService() const;
   void MarkFirstSetupComplete();
 
   // syncer::SyncServiceObserver implementation.
@@ -64,19 +64,19 @@ class BraveSyncWorker : public syncer::SyncServiceObserver {
   void SetEncryptionPassphrase(syncer::SyncService* service);
   void SetDecryptionPassphrase(syncer::SyncService* service);
 
-  JavaObjectWeakGlobalRef weak_java_brave_sync_worker_;
+  JavaObjectWeakGlobalRef weak_java_adrbrowsiel_sync_worker_;
   Profile* profile_ = nullptr;
 
   std::string passphrase_;
 
   ScopedObserver<syncer::SyncService, syncer::SyncServiceObserver>
       sync_service_observer_{this};
-  base::WeakPtrFactory<BraveSyncWorker> weak_ptr_factory_{this};
+  base::WeakPtrFactory<adrbrowsielSyncWorker> weak_ptr_factory_{this};
 
-  DISALLOW_COPY_AND_ASSIGN(BraveSyncWorker);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielSyncWorker);
 };
 
 }  // namespace android
 }  // namespace chrome
 
-#endif  // BRAVE_BROWSER_ANDROID_BRAVE_SYNC_WORKER_H_
+#endif  // adrbrowsiel_BROWSER_ANDROID_adrbrowsiel_SYNC_WORKER_H_

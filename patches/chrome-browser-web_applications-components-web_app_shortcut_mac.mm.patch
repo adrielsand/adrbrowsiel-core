@@ -6,7 +6,7 @@ index 88aed53ea03b97e88bf867c7ecb3bb82bb0615ce..39d4c5d8919a0e34bb99ba234bb29bbb
    if (path.empty())
      return path;
  
-+  return path.Append(GetLocalizableBraveAppShortcutsSubdirName());
++  return path.Append(GetLocalizableadrbrowsielAppShortcutsSubdirName());
    return path.Append(GetLocalizableAppShortcutsSubdirName());
  }
  

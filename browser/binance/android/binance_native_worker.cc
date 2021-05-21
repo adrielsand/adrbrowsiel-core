@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/binance/android/binance_native_worker.h"
+#include "adrbrowsiel/browser/binance/android/binance_native_worker.h"
 
 #include <string>
 #include <utility>
@@ -14,9 +14,9 @@
 #include "base/android/jni_string.h"
 #include "base/json/json_writer.h"
 #include "base/values.h"
-#include "brave/browser/binance/binance_service_factory.h"
-#include "brave/build/android/jni_headers/BinanceNativeWorker_jni.h"
-#include "brave/components/binance/browser/binance_service.h"
+#include "adrbrowsiel/browser/binance/binance_service_factory.h"
+#include "adrbrowsiel/build/android/jni_headers/BinanceNativeWorker_jni.h"
+#include "adrbrowsiel/components/binance/browser/binance_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/profiles/profile_manager.h"
 

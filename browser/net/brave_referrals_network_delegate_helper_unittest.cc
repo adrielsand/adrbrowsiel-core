@@ -1,22 +1,22 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_referrals_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_referrals_network_delegate_helper.h"
 
 #include <memory>
 #include <string>
 
 #include "base/json/json_reader.h"
-#include "brave/browser/net/url_context.h"
-#include "brave/common/network_constants.h"
+#include "adrbrowsiel/browser/net/url_context.h"
+#include "adrbrowsiel/common/network_constants.h"
 #include "net/base/net_errors.h"
 #include "testing/gtest/include/gtest/gtest.h"
 #include "url/gurl.h"
 #include "url/url_constants.h"
 
-using brave::ResponseCallback;
+using adrbrowsiel::ResponseCallback;
 
 namespace {
 const char kTestReferralHeaders[] = R"(
@@ -27,7 +27,7 @@ const char kTestReferralHeaders[] = R"(
          "barrons.com"
       ],
       "headers": {
-         "X-Brave-Partner":"dowjones",
+         "X-adrbrowsiel-Partner":"dowjones",
          "X-Invalid": "test"
       },
       "cookieNames": [
@@ -43,7 +43,7 @@ const char kTestReferralHeaders[] = R"(
          "popcrush.com"
       ],
       "headers": {
-         "X-Brave-Partner":"townsquare"
+         "X-adrbrowsiel-Partner":"townsquare"
       },
       "cookieNames":[
       ],
@@ -52,7 +52,7 @@ const char kTestReferralHeaders[] = R"(
   ])";
 }  // namespace
 
-TEST(BraveReferralsNetworkDelegateHelperTest, ReplaceHeadersForMatchingDomain) {
+TEST(adrbrowsielReferralsNetworkDelegateHelperTest, ReplaceHeadersForMatchingDomain) {
   const GURL url("https://www.marketwatch.com");
   base::JSONReader::ValueWithError referral_headers =
       base::JSONReader::ReadAndReturnValueWithError(kTestReferralHeaders);
@@ -63,14 +63,14 @@ TEST(BraveReferralsNetworkDelegateHelperTest, ReplaceHeadersForMatchingDomain) {
   referral_headers.value->GetAsList(&referral_headers_list);
 
   net::HttpRequestHeaders headers;
-  auto request_info = std::make_shared<brave::BraveRequestInfo>(url);
+  auto request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
   request_info->referral_headers_list = referral_headers_list;
 
-  int rc = brave::OnBeforeStartTransaction_ReferralsWork(
-      &headers, brave::ResponseCallback(), request_info);
+  int rc = adrbrowsiel::OnBeforeStartTransaction_ReferralsWork(
+      &headers, adrbrowsiel::ResponseCallback(), request_info);
 
   std::string partner_header;
-  headers.GetHeader("X-Brave-Partner", &partner_header);
+  headers.GetHeader("X-adrbrowsiel-Partner", &partner_header);
   EXPECT_EQ(partner_header, "dowjones");
 
   std::string invalid_partner_header;
@@ -80,7 +80,7 @@ TEST(BraveReferralsNetworkDelegateHelperTest, ReplaceHeadersForMatchingDomain) {
   EXPECT_EQ(rc, net::OK);
 }
 
-TEST(BraveReferralsNetworkDelegateHelperTest,
+TEST(adrbrowsielReferralsNetworkDelegateHelperTest,
      NoReplaceHeadersForNonMatchingDomain) {
   const GURL url("https://www.google.com");
   base::JSONReader::ValueWithError referral_headers =
@@ -92,11 +92,11 @@ TEST(BraveReferralsNetworkDelegateHelperTest,
   referral_headers.value->GetAsList(&referral_headers_list);
 
   net::HttpRequestHeaders headers;
-  auto request_info = std::make_shared<brave::BraveRequestInfo>(GURL());
+  auto request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(GURL());
   request_info->referral_headers_list = referral_headers_list;
-  int rc = brave::OnBeforeStartTransaction_ReferralsWork(
-      &headers, brave::ResponseCallback(), request_info);
+  int rc = adrbrowsiel::OnBeforeStartTransaction_ReferralsWork(
+      &headers, adrbrowsiel::ResponseCallback(), request_info);
 
-  EXPECT_FALSE(headers.HasHeader("X-Brave-Partner"));
+  EXPECT_FALSE(headers.HasHeader("X-adrbrowsiel-Partner"));
   EXPECT_EQ(rc, net::OK);
 }

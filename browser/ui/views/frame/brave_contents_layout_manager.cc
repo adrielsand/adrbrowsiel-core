@@ -1,13 +1,13 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/frame/brave_contents_layout_manager.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_contents_layout_manager.h"
 
 #include "ui/views/view.h"
 
-BraveContentsLayoutManager::BraveContentsLayoutManager(
+adrbrowsielContentsLayoutManager::adrbrowsielContentsLayoutManager(
     views::View* sidebar_container_view,
     views::View* contents_container_view)
     : sidebar_container_view_(sidebar_container_view),
@@ -16,9 +16,9 @@ BraveContentsLayoutManager::BraveContentsLayoutManager(
   DCHECK(contents_container_view_);
 }
 
-BraveContentsLayoutManager::~BraveContentsLayoutManager() = default;
+adrbrowsielContentsLayoutManager::~adrbrowsielContentsLayoutManager() = default;
 
-void BraveContentsLayoutManager::Layout(views::View* host) {
+void adrbrowsielContentsLayoutManager::Layout(views::View* host) {
   DCHECK(host_ == host);
 
   int height = host->height();
@@ -34,12 +34,12 @@ void BraveContentsLayoutManager::Layout(views::View* host) {
       host_->GetMirroredRect(contents_bounds));
 }
 
-gfx::Size BraveContentsLayoutManager::GetPreferredSize(
+gfx::Size adrbrowsielContentsLayoutManager::GetPreferredSize(
     const views::View* host) const {
   return gfx::Size();
 }
 
-void BraveContentsLayoutManager::Installed(views::View* host) {
+void adrbrowsielContentsLayoutManager::Installed(views::View* host) {
   DCHECK(!host_);
   host_ = host;
 }

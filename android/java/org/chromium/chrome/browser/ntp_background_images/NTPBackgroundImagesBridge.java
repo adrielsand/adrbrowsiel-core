@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -11,12 +11,12 @@ import org.chromium.base.ObserverList;
 import org.chromium.base.ThreadUtils;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.NativeMethods;
-import org.chromium.chrome.browser.BraveFeatureList;
+import org.chromium.chrome.browser.adrbrowsielFeatureList;
 import org.chromium.chrome.browser.flags.ChromeFeatureList;
 import org.chromium.chrome.browser.ntp_background_images.model.TopSite;
 import org.chromium.chrome.browser.ntp_background_images.model.Wallpaper;
 import org.chromium.chrome.browser.ntp_background_images.util.NewTabPageListener;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
 import org.chromium.chrome.browser.profiles.Profile;
 
 import java.util.ArrayList;
@@ -67,8 +67,8 @@ public class NTPBackgroundImagesBridge {
     }
 
     static public boolean enableSponsoredImages() {
-        return ChromeFeatureList.isEnabled(BraveFeatureList.BRAVE_REWARDS)
-        && !BravePrefServiceBridge.getInstance().getSafetynetCheckFailed();
+        return ChromeFeatureList.isEnabled(adrbrowsielFeatureList.adrbrowsiel_REWARDS)
+        && !adrbrowsielPrefServiceBridge.getInstance().getSafetynetCheckFailed();
     }
 
     static public NTPBackgroundImagesBridge getInstance(Profile profile)  {

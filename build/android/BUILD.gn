@@ -1,14 +1,14 @@
-import("//brave/build/config.gni")
+import("//adrbrowsiel/build/config.gni")
 import("//build/config/android/rules.gni")
 import("//tools/grit/grit_rule.gni")
 
 action("sign_app") {
-  script = "//brave/build/android/sign_apk.py"
+  script = "//adrbrowsiel/build/android/sign_apk.py"
   _apksigner = "$android_sdk_build_tools/apksigner"
   _jarsigner = "//third_party/jdk/current/bin/jarsigner"
   _zipalign = "$android_sdk_build_tools/zipalign"
 
-  deps = [ "//brave/app/android:create_dist_zips" ]
+  deps = [ "//adrbrowsiel/app/android:create_dist_zips" ]
 
   if (target_cpu == "arm64" || target_cpu == "x64") {
     if (target_android_output_format == "aab") {
@@ -40,14 +40,14 @@ action("sign_app") {
   ]
   args += [
     rebase_path(target_sign_app_path, root_out_dir),
-    rebase_path("$brave_android_keystore_path", root_out_dir),
-    "$brave_android_keystore_password",
-    "$brave_android_key_password",
-    "$brave_android_keystore_name",
+    rebase_path("$adrbrowsiel_android_keystore_path", root_out_dir),
+    "$adrbrowsiel_android_keystore_password",
+    "$adrbrowsiel_android_key_password",
+    "$adrbrowsiel_android_keystore_name",
   ]
 }
 
-copy("brave") {
+copy("adrbrowsiel") {
   visibility = [ "*" ]
   deps = []
   sources = []
@@ -79,115 +79,115 @@ copy("brave") {
       }
     }
   }
-  outputs = [ brave_android_output ]
+  outputs = [ adrbrowsiel_android_output ]
 }
 
-java_strings_grd("android_brave_strings_grd") {
-  grd_file = "//brave/browser/ui/android/strings/android_brave_strings.grd"
+java_strings_grd("android_adrbrowsiel_strings_grd") {
+  grd_file = "//adrbrowsiel/browser/ui/android/strings/android_adrbrowsiel_strings.grd"
   outputs = [
-    "values/android_brave_strings.xml",
-    "values-af/android_brave_strings.xml",
-    "values-am/android_brave_strings.xml",
-    "values-ar/android_brave_strings.xml",
-    "values-as/android_brave_strings.xml",
-    "values-az/android_brave_strings.xml",
-    "values-be/android_brave_strings.xml",
-    "values-bg/android_brave_strings.xml",
-    "values-bn/android_brave_strings.xml",
-    "values-bs/android_brave_strings.xml",
-    "values-ca/android_brave_strings.xml",
-    "values-cs/android_brave_strings.xml",
-    "values-da/android_brave_strings.xml",
-    "values-de/android_brave_strings.xml",
-    "values-el/android_brave_strings.xml",
-    "values-en-rGB/android_brave_strings.xml",
-    "values-es/android_brave_strings.xml",
-    "values-es-rUS/android_brave_strings.xml",
-    "values-et/android_brave_strings.xml",
-    "values-eu/android_brave_strings.xml",
-    "values-fa/android_brave_strings.xml",
-    "values-fi/android_brave_strings.xml",
-    "values-fr/android_brave_strings.xml",
-    "values-fr-rCA/android_brave_strings.xml",
-    "values-gl/android_brave_strings.xml",
-    "values-gu/android_brave_strings.xml",
-    "values-hi/android_brave_strings.xml",
-    "values-hr/android_brave_strings.xml",
-    "values-hu/android_brave_strings.xml",
-    "values-hy/android_brave_strings.xml",
-    "values-in/android_brave_strings.xml",
-    "values-is/android_brave_strings.xml",
-    "values-it/android_brave_strings.xml",
-    "values-iw/android_brave_strings.xml",
-    "values-ja/android_brave_strings.xml",
-    "values-ka/android_brave_strings.xml",
-    "values-kk/android_brave_strings.xml",
-    "values-km/android_brave_strings.xml",
-    "values-kn/android_brave_strings.xml",
-    "values-ko/android_brave_strings.xml",
-    "values-ky/android_brave_strings.xml",
-    "values-lo/android_brave_strings.xml",
-    "values-lt/android_brave_strings.xml",
-    "values-lv/android_brave_strings.xml",
-    "values-mk/android_brave_strings.xml",
-    "values-ml/android_brave_strings.xml",
-    "values-mn/android_brave_strings.xml",
-    "values-mr/android_brave_strings.xml",
-    "values-ms/android_brave_strings.xml",
-    "values-my/android_brave_strings.xml",
-    "values-nb/android_brave_strings.xml",
-    "values-ne/android_brave_strings.xml",
-    "values-nl/android_brave_strings.xml",
-    "values-or/android_brave_strings.xml",
-    "values-pa/android_brave_strings.xml",
-    "values-pl/android_brave_strings.xml",
-    "values-pt-rBR/android_brave_strings.xml",
-    "values-pt-rPT/android_brave_strings.xml",
-    "values-ro/android_brave_strings.xml",
-    "values-ru/android_brave_strings.xml",
-    "values-si/android_brave_strings.xml",
-    "values-sk/android_brave_strings.xml",
-    "values-sl/android_brave_strings.xml",
-    "values-sq/android_brave_strings.xml",
-    "values-sr/android_brave_strings.xml",
-    "values-sv/android_brave_strings.xml",
-    "values-sw/android_brave_strings.xml",
-    "values-ta/android_brave_strings.xml",
-    "values-te/android_brave_strings.xml",
-    "values-th/android_brave_strings.xml",
-    "values-tl/android_brave_strings.xml",
-    "values-tr/android_brave_strings.xml",
-    "values-uk/android_brave_strings.xml",
-    "values-ur/android_brave_strings.xml",
-    "values-uz/android_brave_strings.xml",
-    "values-vi/android_brave_strings.xml",
-    "values-zh-rCN/android_brave_strings.xml",
-    "values-zh-rHK/android_brave_strings.xml",
-    "values-zh-rTW/android_brave_strings.xml",
-    "values-zu/android_brave_strings.xml",
+    "values/android_adrbrowsiel_strings.xml",
+    "values-af/android_adrbrowsiel_strings.xml",
+    "values-am/android_adrbrowsiel_strings.xml",
+    "values-ar/android_adrbrowsiel_strings.xml",
+    "values-as/android_adrbrowsiel_strings.xml",
+    "values-az/android_adrbrowsiel_strings.xml",
+    "values-be/android_adrbrowsiel_strings.xml",
+    "values-bg/android_adrbrowsiel_strings.xml",
+    "values-bn/android_adrbrowsiel_strings.xml",
+    "values-bs/android_adrbrowsiel_strings.xml",
+    "values-ca/android_adrbrowsiel_strings.xml",
+    "values-cs/android_adrbrowsiel_strings.xml",
+    "values-da/android_adrbrowsiel_strings.xml",
+    "values-de/android_adrbrowsiel_strings.xml",
+    "values-el/android_adrbrowsiel_strings.xml",
+    "values-en-rGB/android_adrbrowsiel_strings.xml",
+    "values-es/android_adrbrowsiel_strings.xml",
+    "values-es-rUS/android_adrbrowsiel_strings.xml",
+    "values-et/android_adrbrowsiel_strings.xml",
+    "values-eu/android_adrbrowsiel_strings.xml",
+    "values-fa/android_adrbrowsiel_strings.xml",
+    "values-fi/android_adrbrowsiel_strings.xml",
+    "values-fr/android_adrbrowsiel_strings.xml",
+    "values-fr-rCA/android_adrbrowsiel_strings.xml",
+    "values-gl/android_adrbrowsiel_strings.xml",
+    "values-gu/android_adrbrowsiel_strings.xml",
+    "values-hi/android_adrbrowsiel_strings.xml",
+    "values-hr/android_adrbrowsiel_strings.xml",
+    "values-hu/android_adrbrowsiel_strings.xml",
+    "values-hy/android_adrbrowsiel_strings.xml",
+    "values-in/android_adrbrowsiel_strings.xml",
+    "values-is/android_adrbrowsiel_strings.xml",
+    "values-it/android_adrbrowsiel_strings.xml",
+    "values-iw/android_adrbrowsiel_strings.xml",
+    "values-ja/android_adrbrowsiel_strings.xml",
+    "values-ka/android_adrbrowsiel_strings.xml",
+    "values-kk/android_adrbrowsiel_strings.xml",
+    "values-km/android_adrbrowsiel_strings.xml",
+    "values-kn/android_adrbrowsiel_strings.xml",
+    "values-ko/android_adrbrowsiel_strings.xml",
+    "values-ky/android_adrbrowsiel_strings.xml",
+    "values-lo/android_adrbrowsiel_strings.xml",
+    "values-lt/android_adrbrowsiel_strings.xml",
+    "values-lv/android_adrbrowsiel_strings.xml",
+    "values-mk/android_adrbrowsiel_strings.xml",
+    "values-ml/android_adrbrowsiel_strings.xml",
+    "values-mn/android_adrbrowsiel_strings.xml",
+    "values-mr/android_adrbrowsiel_strings.xml",
+    "values-ms/android_adrbrowsiel_strings.xml",
+    "values-my/android_adrbrowsiel_strings.xml",
+    "values-nb/android_adrbrowsiel_strings.xml",
+    "values-ne/android_adrbrowsiel_strings.xml",
+    "values-nl/android_adrbrowsiel_strings.xml",
+    "values-or/android_adrbrowsiel_strings.xml",
+    "values-pa/android_adrbrowsiel_strings.xml",
+    "values-pl/android_adrbrowsiel_strings.xml",
+    "values-pt-rBR/android_adrbrowsiel_strings.xml",
+    "values-pt-rPT/android_adrbrowsiel_strings.xml",
+    "values-ro/android_adrbrowsiel_strings.xml",
+    "values-ru/android_adrbrowsiel_strings.xml",
+    "values-si/android_adrbrowsiel_strings.xml",
+    "values-sk/android_adrbrowsiel_strings.xml",
+    "values-sl/android_adrbrowsiel_strings.xml",
+    "values-sq/android_adrbrowsiel_strings.xml",
+    "values-sr/android_adrbrowsiel_strings.xml",
+    "values-sv/android_adrbrowsiel_strings.xml",
+    "values-sw/android_adrbrowsiel_strings.xml",
+    "values-ta/android_adrbrowsiel_strings.xml",
+    "values-te/android_adrbrowsiel_strings.xml",
+    "values-th/android_adrbrowsiel_strings.xml",
+    "values-tl/android_adrbrowsiel_strings.xml",
+    "values-tr/android_adrbrowsiel_strings.xml",
+    "values-uk/android_adrbrowsiel_strings.xml",
+    "values-ur/android_adrbrowsiel_strings.xml",
+    "values-uz/android_adrbrowsiel_strings.xml",
+    "values-vi/android_adrbrowsiel_strings.xml",
+    "values-zh-rCN/android_adrbrowsiel_strings.xml",
+    "values-zh-rHK/android_adrbrowsiel_strings.xml",
+    "values-zh-rTW/android_adrbrowsiel_strings.xml",
+    "values-zu/android_adrbrowsiel_strings.xml",
   ]
 }
 
 generate_jni("jni_headers") {
   sources = [
-    "//brave/android/java/org/chromium/chrome/browser/BraveFeatureList.java",
-    "//brave/android/java/org/chromium/chrome/browser/BraveRelaunchUtils.java",
-    "//brave/android/java/org/chromium/chrome/browser/BraveRewardsNativeWorker.java",
-    "//brave/android/java/org/chromium/chrome/browser/app/BraveActivity.java",
-    "//brave/android/java/org/chromium/chrome/browser/notifications/BraveNotificationPlatformBridge.java",
-    "//brave/android/java/org/chromium/chrome/browser/notifications/BraveNotificationSettingsBridge.java",
-    "//brave/android/java/org/chromium/chrome/browser/ntp_background_images/NTPBackgroundImagesBridge.java",
-    "//brave/android/java/org/chromium/chrome/browser/preferences/BravePrefServiceBridge.java",
-    "//brave/android/java/org/chromium/chrome/browser/preferences/website/BraveShieldsContentSettings.java",
-    "//brave/android/java/org/chromium/chrome/browser/settings/developer/BraveQAPreferences.java",
-    "//brave/android/java/org/chromium/chrome/browser/signin/BraveSigninManager.java",
-    "//brave/android/java/org/chromium/chrome/browser/widget/crypto/binance/BinanceNativeWorker.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/adrbrowsielFeatureList.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/adrbrowsielRelaunchUtils.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/adrbrowsielRewardsNativeWorker.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/app/adrbrowsielActivity.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/notifications/adrbrowsielNotificationPlatformBridge.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/notifications/adrbrowsielNotificationSettingsBridge.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/ntp_background_images/NTPBackgroundImagesBridge.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/preferences/adrbrowsielPrefServiceBridge.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/preferences/website/adrbrowsielShieldsContentSettings.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/settings/developer/adrbrowsielQAPreferences.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/signin/adrbrowsielSigninManager.java",
+    "//adrbrowsiel/android/java/org/chromium/chrome/browser/widget/crypto/binance/BinanceNativeWorker.java",
   ]
 
-  if (enable_brave_sync) {
+  if (enable_adrbrowsiel_sync) {
     sources += [
-      "//brave/android/java/org/chromium/chrome/browser/BraveSyncWorker.java",
-      "//brave/android/java/org/chromium/chrome/browser/sync/BraveSyncDevices.java",
+      "//adrbrowsiel/android/java/org/chromium/chrome/browser/adrbrowsielSyncWorker.java",
+      "//adrbrowsiel/android/java/org/chromium/chrome/browser/sync/adrbrowsielSyncDevices.java",
     ]
   }
 }

@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -20,23 +20,23 @@ import org.chromium.base.task.TaskTraits;
 import java.lang.Runnable;
 
 @JNINamespace("chrome::android")
-public class BraveSyncWorker {
+public class adrbrowsielSyncWorker {
     public static final String TAG = "SYNC";
 
     private Context mContext;
     private String mDebug = "true";
 
-    private long mNativeBraveSyncWorker;
+    private long mNativeadrbrowsielSyncWorker;
 
     @CalledByNative
     private void setNativePtr(long nativePtr) {
-        assert mNativeBraveSyncWorker == 0;
-        mNativeBraveSyncWorker = nativePtr;
+        assert mNativeadrbrowsielSyncWorker == 0;
+        mNativeadrbrowsielSyncWorker = nativePtr;
     }
 
     private void Init() {
-        if (mNativeBraveSyncWorker == 0) {
-            BraveSyncWorkerJni.get().init(BraveSyncWorker.this);
+        if (mNativeadrbrowsielSyncWorker == 0) {
+            adrbrowsielSyncWorkerJni.get().init(adrbrowsielSyncWorker.this);
         }
     }
 
@@ -46,13 +46,13 @@ public class BraveSyncWorker {
     }
 
     private void Destroy() {
-        if (mNativeBraveSyncWorker != 0) {
-            BraveSyncWorkerJni.get().destroy(mNativeBraveSyncWorker);
-            mNativeBraveSyncWorker = 0;
+        if (mNativeadrbrowsielSyncWorker != 0) {
+            adrbrowsielSyncWorkerJni.get().destroy(mNativeadrbrowsielSyncWorker);
+            mNativeadrbrowsielSyncWorker = 0;
         }
     }
 
-    public BraveSyncWorker() {
+    public adrbrowsielSyncWorker() {
         mContext = ContextUtils.getApplicationContext();
         Init();
         (new MigrationFromV1()).MigrateFromSyncV1();
@@ -71,13 +71,13 @@ public class BraveSyncWorker {
         public static final String PREF_SEED = "Seed";
         public static final String PREF_SYNC_DEVICE_NAME = "SyncDeviceName";
         private static final String PREF_SYNC_SWITCH = "sync_switch";
-        private static final String PREF_SYNC_BOOKMARKS = "brave_sync_bookmarks";
-        public static final String PREF_SYNC_TABS = "brave_sync_tabs"; // never used
-        public static final String PREF_SYNC_HISTORY = "brave_sync_history"; // never used
+        private static final String PREF_SYNC_BOOKMARKS = "adrbrowsiel_sync_bookmarks";
+        public static final String PREF_SYNC_TABS = "adrbrowsiel_sync_tabs"; // never used
+        public static final String PREF_SYNC_HISTORY = "adrbrowsiel_sync_history"; // never used
         public static final String PREF_SYNC_AUTOFILL_PASSWORDS =
-                "brave_sync_autofill_passwords"; // never used
+                "adrbrowsiel_sync_autofill_passwords"; // never used
         public static final String PREF_SYNC_PAYMENT_SETTINGS =
-                "brave_sync_payment_settings"; // never used
+                "adrbrowsiel_sync_payment_settings"; // never used
 
         private boolean HaveSyncV1Prefs() {
             SharedPreferences sharedPref = mContext.getSharedPreferences(PREF_NAME, 0);
@@ -96,7 +96,7 @@ public class BraveSyncWorker {
         }
 
         private void DeleteSyncV1LevelDb() {
-            BraveSyncWorkerJni.get().destroyV1LevelDb();
+            adrbrowsielSyncWorkerJni.get().destroyV1LevelDb();
         }
 
         public void MigrateFromSyncV1() {
@@ -111,8 +111,8 @@ public class BraveSyncWorker {
                     ThreadUtils.runOnUiThreadBlocking(new Runnable() {
                         @Override
                         public void run() {
-                            BraveSyncWorkerJni.get().markSyncV1WasEnabledAndMigrated();
-                            BraveSyncInformers.show();
+                            adrbrowsielSyncWorkerJni.get().markSyncV1WasEnabledAndMigrated();
+                            adrbrowsielSyncInformers.show();
                         }
                     });
                 }
@@ -121,73 +121,73 @@ public class BraveSyncWorker {
     };
 
     public String GetCodephrase() {
-        return BraveSyncWorkerJni.get().getSyncCodeWords(mNativeBraveSyncWorker);
+        return adrbrowsielSyncWorkerJni.get().getSyncCodeWords(mNativeadrbrowsielSyncWorker);
     }
 
     public void SaveCodephrase(String codephrase) {
-        BraveSyncWorkerJni.get().saveCodeWords(mNativeBraveSyncWorker, codephrase);
+        adrbrowsielSyncWorkerJni.get().saveCodeWords(mNativeadrbrowsielSyncWorker, codephrase);
     }
 
     public String GetSeedHexFromWords(String codephrase) {
-        return BraveSyncWorkerJni.get().getSeedHexFromWords(codephrase);
+        return adrbrowsielSyncWorkerJni.get().getSeedHexFromWords(codephrase);
     }
 
     public String GetWordsFromSeedHex(String seedHex) {
-        return BraveSyncWorkerJni.get().getWordsFromSeedHex(seedHex);
+        return adrbrowsielSyncWorkerJni.get().getWordsFromSeedHex(seedHex);
     }
 
     public void RequestSync() {
-        BraveSyncWorkerJni.get().requestSync(mNativeBraveSyncWorker);
+        adrbrowsielSyncWorkerJni.get().requestSync(mNativeadrbrowsielSyncWorker);
     }
 
     public boolean IsFirstSetupComplete() {
-        return BraveSyncWorkerJni.get().isFirstSetupComplete(mNativeBraveSyncWorker);
+        return adrbrowsielSyncWorkerJni.get().isFirstSetupComplete(mNativeadrbrowsielSyncWorker);
     }
 
     public void FinalizeSyncSetup() {
-        BraveSyncWorkerJni.get().finalizeSyncSetup(mNativeBraveSyncWorker);
+        adrbrowsielSyncWorkerJni.get().finalizeSyncSetup(mNativeadrbrowsielSyncWorker);
     }
 
     public void ResetSync() {
-        BraveSyncWorkerJni.get().resetSync(mNativeBraveSyncWorker);
+        adrbrowsielSyncWorkerJni.get().resetSync(mNativeadrbrowsielSyncWorker);
     }
 
     public boolean getSyncV1WasEnabled() {
-        return BraveSyncWorkerJni.get().getSyncV1WasEnabled(mNativeBraveSyncWorker);
+        return adrbrowsielSyncWorkerJni.get().getSyncV1WasEnabled(mNativeadrbrowsielSyncWorker);
     }
 
     public boolean getSyncV2MigrateNoticeDismissed() {
-        return BraveSyncWorkerJni.get().getSyncV2MigrateNoticeDismissed(mNativeBraveSyncWorker);
+        return adrbrowsielSyncWorkerJni.get().getSyncV2MigrateNoticeDismissed(mNativeadrbrowsielSyncWorker);
     }
 
     public void setSyncV2MigrateNoticeDismissed(boolean isDismissed) {
-        BraveSyncWorkerJni.get().setSyncV2MigrateNoticeDismissed(
-                mNativeBraveSyncWorker, isDismissed);
+        adrbrowsielSyncWorkerJni.get().setSyncV2MigrateNoticeDismissed(
+                mNativeadrbrowsielSyncWorker, isDismissed);
     }
 
     @NativeMethods
     interface Natives {
-        void init(BraveSyncWorker caller);
-        void destroy(long nativeBraveSyncWorker);
+        void init(adrbrowsielSyncWorker caller);
+        void destroy(long nativeadrbrowsielSyncWorker);
 
         void destroyV1LevelDb();
         void markSyncV1WasEnabledAndMigrated();
 
-        String getSyncCodeWords(long nativeBraveSyncWorker);
-        void requestSync(long nativeBraveSyncWorker);
+        String getSyncCodeWords(long nativeadrbrowsielSyncWorker);
+        void requestSync(long nativeadrbrowsielSyncWorker);
 
         String getSeedHexFromWords(String passphrase);
         String getWordsFromSeedHex(String seedHex);
-        void saveCodeWords(long nativeBraveSyncWorker, String passphrase);
+        void saveCodeWords(long nativeadrbrowsielSyncWorker, String passphrase);
 
-        void finalizeSyncSetup(long nativeBraveSyncWorker);
+        void finalizeSyncSetup(long nativeadrbrowsielSyncWorker);
 
-        boolean isFirstSetupComplete(long nativeBraveSyncWorker);
+        boolean isFirstSetupComplete(long nativeadrbrowsielSyncWorker);
 
-        void resetSync(long nativeBraveSyncWorker);
+        void resetSync(long nativeadrbrowsielSyncWorker);
 
-        boolean getSyncV1WasEnabled(long nativeBraveSyncWorker);
-        boolean getSyncV2MigrateNoticeDismissed(long nativeBraveSyncWorker);
-        void setSyncV2MigrateNoticeDismissed(long nativeBraveSyncWorker, boolean isDismissed);
+        boolean getSyncV1WasEnabled(long nativeadrbrowsielSyncWorker);
+        boolean getSyncV2MigrateNoticeDismissed(long nativeadrbrowsielSyncWorker);
+        void setSyncV2MigrateNoticeDismissed(long nativeadrbrowsielSyncWorker, boolean isDismissed);
     }
 }

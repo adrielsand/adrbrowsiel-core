@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_BRAVE_BASE_LOCAL_DATA_FILES_BROWSERTEST_H_
-#define BRAVE_BROWSER_EXTENSIONS_BRAVE_BASE_LOCAL_DATA_FILES_BROWSERTEST_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_adrbrowsiel_BASE_LOCAL_DATA_FILES_BROWSERTEST_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_adrbrowsiel_BASE_LOCAL_DATA_FILES_BROWSERTEST_H_
 
-#include "brave/components/brave_component_updater/browser/local_data_files_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_observer.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 
-using brave_component_updater::LocalDataFilesObserver;
+using adrbrowsiel_component_updater::LocalDataFilesObserver;
 using extensions::ExtensionBrowserTest;
 
 // This is an abstract base class that centralizes functions common to all
@@ -36,4 +36,4 @@ class BaseLocalDataFilesBrowserTest : public ExtensionBrowserTest {
   virtual LocalDataFilesObserver* service() = 0;
 };
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_BRAVE_BASE_LOCAL_DATA_FILES_BROWSERTEST_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_adrbrowsiel_BASE_LOCAL_DATA_FILES_BROWSERTEST_H_

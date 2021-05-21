@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -26,10 +26,10 @@ public class BinanceWidgetManager {
     public static final String PREF_BINANCE_ACCOUNT_BALANCE = "binance_account_balance";
 
     public static final String BINANCE_US =
-            "https://www.binance.us/en/buy-sell-crypto?crypto=%1$s&amount=%2$s&ref=35089877&utm_source=brave";
+            "https://www.binance.us/en/buy-sell-crypto?crypto=%1$s&amount=%2$s&ref=35089877&utm_source=adrbrowsiel";
     public static final String BINANCE_COM_ONE = "https://www.binance.com/";
     public static final String BINANCE_COM_TWO =
-            "/buy-sell-crypto?fiat=%1$s&crypto=%2$s&amount=%3$s&ref=W4GYNUAJ&utm_source=brave";
+            "/buy-sell-crypto?fiat=%1$s&crypto=%2$s&amount=%3$s&ref=W4GYNUAJ&utm_source=adrbrowsiel";
 
     private static BinanceWidgetManager sInstance;
 

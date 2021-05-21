@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,10 +8,10 @@
 #include "base/feature_list.h"
 #include "base/scoped_observation.h"
 #include "base/test/scoped_feature_list.h"
-#include "brave/browser/ui/sidebar/sidebar_model.h"
-#include "brave/browser/ui/sidebar/sidebar_service_factory.h"
-#include "brave/components/sidebar/features.h"
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_service_factory.h"
+#include "adrbrowsiel/components/sidebar/features.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 #include "chrome/test/base/testing_profile.h"
 #include "components/prefs/pref_service.h"
 #include "components/sync_preferences/testing_pref_service_syncable.h"

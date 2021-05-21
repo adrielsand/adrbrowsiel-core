@@ -6,7 +6,7 @@ index f89232013d3efc189400143cbcc2cf7badbe4a66..70293038b432ab4579eed6a0daa28dde
        justify-content: center;
      }
    </style>
-+  <link rel="stylesheet" href="chrome://brave-resources/page_specific/history/history_loading_shim.css">
++  <link rel="stylesheet" href="chrome://adrbrowsiel-resources/page_specific/history/history_loading_shim.css">
  </head>
  
  <body class="loading">

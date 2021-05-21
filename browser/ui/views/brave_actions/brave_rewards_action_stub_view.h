@@ -1,10 +1,10 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_BRAVE_ACTIONS_BRAVE_REWARDS_ACTION_STUB_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_BRAVE_ACTIONS_BRAVE_REWARDS_ACTION_STUB_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_ACTIONS_adrbrowsiel_REWARDS_ACTION_STUB_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_ACTIONS_adrbrowsiel_REWARDS_ACTION_STUB_VIEW_H_
 
 #include <memory>
 
@@ -15,9 +15,9 @@
 class Profile;
 
 // A button to take the place of an extension that will be loaded in the future.
-// Call SetImage with the BraveActionIconWithBadgeImageSource
+// Call SetImage with the adrbrowsielActionIconWithBadgeImageSource
 // Call highlight etc from ToolbarActionView
-class BraveRewardsActionStubView : public views::LabelButton {
+class adrbrowsielRewardsActionStubView : public views::LabelButton {
  public:
   class Delegate {
    public:
@@ -27,8 +27,8 @@ class BraveRewardsActionStubView : public views::LabelButton {
     ~Delegate() {}
   };
 
-  explicit BraveRewardsActionStubView(Profile* profile, Delegate* delegate);
-  ~BraveRewardsActionStubView() override;
+  explicit adrbrowsielRewardsActionStubView(Profile* profile, Delegate* delegate);
+  ~adrbrowsielRewardsActionStubView() override;
 
   // views::LabelButton:
   std::unique_ptr<views::LabelButtonBorder> CreateDefaultBorder()
@@ -47,7 +47,7 @@ class BraveRewardsActionStubView : public views::LabelButton {
   Profile* profile_;
   Delegate* delegate_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveRewardsActionStubView);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielRewardsActionStubView);
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_BRAVE_ACTIONS_BRAVE_REWARDS_ACTION_STUB_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_ACTIONS_adrbrowsiel_REWARDS_ACTION_STUB_VIEW_H_

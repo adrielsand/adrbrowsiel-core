@@ -7,6 +7,6 @@ specific_include_rules = {
     "+rapidjson",
   ],
   "ad_notifications.cc": [
-    "+brave/common/brave_channel_info.h",
+    "+adrbrowsiel/common/adrbrowsiel_channel_info.h",
   ]
 }

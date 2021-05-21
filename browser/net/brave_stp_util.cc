@@ -1,14 +1,14 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_stp_util.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_stp_util.h"
 
 #include "base/no_destructor.h"
 #include "net/base/registry_controlled_domains/registry_controlled_domain.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 base::flat_set<base::StringPiece>* TrackableSecurityHeaders() {
   static base::NoDestructor<base::flat_set<base::StringPiece>>
@@ -41,4 +41,4 @@ void RemoveTrackableSecurityHeadersForThirdParty(
   }
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

@@ -6,7 +6,7 @@
 'use strict';
 
 Polymer({
-  is: 'settings-brave-personalization-options',
+  is: 'settings-adrbrowsiel-personalization-options',
 
   behaviors: [
     WebUIListenerBehavior,
@@ -30,12 +30,12 @@ Polymer({
     p3aEnabled_: Boolean
   },
 
-  /** @private {?settings.BravePrivacyBrowserProxy} */
+  /** @private {?settings.adrbrowsielPrivacyBrowserProxy} */
   browserProxy_: null,
 
   /** @override */
   created: function() {
-    this.browserProxy_ = settings.BravePrivacyBrowserProxyImpl.getInstance();
+    this.browserProxy_ = settings.adrbrowsielPrivacyBrowserProxyImpl.getInstance();
   },
 
   /** @override */

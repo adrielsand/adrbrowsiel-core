@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_IMPORT_DATA_HANDLER_H_
-#define BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_IMPORT_DATA_HANDLER_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_IMPORT_DATA_HANDLER_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_IMPORT_DATA_HANDLER_H_
 
 #include "base/memory/weak_ptr.h"
 #include "chrome/browser/ui/webui/settings/import_data_handler.h"
@@ -12,9 +12,9 @@
 
 namespace settings {
 
-// This class checks whether Brave has full disk access permission to import
+// This class checks whether adrbrowsiel has full disk access permission to import
 // safari data on macOS. ImportDataHandler::StartImport() will be run after
-// checking disk access permission. If Brave doesn't have that permission, this
+// checking disk access permission. If adrbrowsiel doesn't have that permission, this
 // will launch tab modal dialog to notify users about this lack of permission.
 
 // We should display tab modal dialog after import dialog is closed from webui.
@@ -26,14 +26,14 @@ namespace settings {
 // upstream import html/js source code.
 
 // NOTE: This is no-op class for other platforms except macOS.
-class BraveImportDataHandler : public ImportDataHandler,
+class adrbrowsielImportDataHandler : public ImportDataHandler,
                                       content::WebContentsObserver {
  public:
-  BraveImportDataHandler();
-  ~BraveImportDataHandler() override;
+  adrbrowsielImportDataHandler();
+  ~adrbrowsielImportDataHandler() override;
 
-  BraveImportDataHandler(const BraveImportDataHandler&) = delete;
-  BraveImportDataHandler& operator=(const BraveImportDataHandler&) = delete;
+  adrbrowsielImportDataHandler(const adrbrowsielImportDataHandler&) = delete;
+  adrbrowsielImportDataHandler& operator=(const adrbrowsielImportDataHandler&) = delete;
 
  private:
 #if defined(OS_MAC)
@@ -50,10 +50,10 @@ class BraveImportDataHandler : public ImportDataHandler,
 
   bool guide_dialog_is_requested_ = false;
 
-  base::WeakPtrFactory<BraveImportDataHandler> weak_factory_;
+  base::WeakPtrFactory<adrbrowsielImportDataHandler> weak_factory_;
 #endif
 };
 
 }  // namespace settings
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_IMPORT_DATA_HANDLER_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_IMPORT_DATA_HANDLER_H_

@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/brave_extension_service.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_extension_service.h"
 
 #include <string>
 
@@ -16,7 +16,7 @@
 
 namespace extensions {
 
-BraveExtensionService::BraveExtensionService(Profile* profile,
+adrbrowsielExtensionService::adrbrowsielExtensionService(Profile* profile,
     const base::CommandLine* command_line,
     const base::FilePath& install_directory,
     ExtensionPrefs* extension_prefs,
@@ -28,20 +28,20 @@ BraveExtensionService::BraveExtensionService(Profile* profile,
         blocklist, autoupdate_enabled, extensions_enabled, ready) {
 }
 
-BraveExtensionService::~BraveExtensionService() {
+adrbrowsielExtensionService::~adrbrowsielExtensionService() {
 }
 
-void BraveExtensionService::AddComponentExtension(const Extension* extension) {
+void adrbrowsielExtensionService::AddComponentExtension(const Extension* extension) {
   ExtensionService::AddComponentExtension(extension);
 
-  // Disable Brave Rewards extension action for Guest and Tor profiles on all
+  // Disable adrbrowsiel Rewards extension action for Guest and Tor profiles on all
   // tabs right after loading the extension for these profiles. Can't do the
   // same for the regular off the record (incognito) profile as there doesn't
   // appear to be a separate from the regular profile action manager for it, so
   // disabling it would apply to the regular profile as well. Instead, catch
-  // the extension when BraveActionViewController is queried about the
+  // the extension when adrbrowsielActionViewController is queried about the
   // visibility of the action.
-  if ((extension->id() == brave_rewards_extension_id) &&
+  if ((extension->id() == adrbrowsiel_rewards_extension_id) &&
       (profile_->IsGuestSession() || profile_->IsTor())) {
     extensions::ExtensionActionManager* extension_action_manager =
         ExtensionActionManager::Get(profile_);

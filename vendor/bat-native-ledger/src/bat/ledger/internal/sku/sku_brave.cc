@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,7 +7,7 @@
 
 #include "bat/ledger/global_constants.h"
 #include "bat/ledger/internal/ledger_impl.h"
-#include "bat/ledger/internal/sku/sku_brave.h"
+#include "bat/ledger/internal/sku/sku_adrbrowsiel.h"
 #include "bat/ledger/internal/sku/sku_util.h"
 
 using std::placeholders::_1;
@@ -16,20 +16,20 @@ using std::placeholders::_2;
 namespace ledger {
 namespace sku {
 
-SKUBrave::SKUBrave(LedgerImpl* ledger) :
+SKUadrbrowsiel::SKUadrbrowsiel(LedgerImpl* ledger) :
     ledger_(ledger),
     common_(std::make_unique<SKUCommon>(ledger)) {
   DCHECK(ledger_);
 }
 
-SKUBrave::~SKUBrave() = default;
+SKUadrbrowsiel::~SKUadrbrowsiel() = default;
 
-void SKUBrave::Process(
+void SKUadrbrowsiel::Process(
     const std::vector<type::SKUOrderItem>& items,
     const std::string& wallet_type,
     ledger::SKUOrderCallback callback,
     const std::string& contribution_id) {
-  auto create_callback = std::bind(&SKUBrave::OrderCreated,
+  auto create_callback = std::bind(&SKUadrbrowsiel::OrderCreated,
       this,
       _1,
       _2,
@@ -40,7 +40,7 @@ void SKUBrave::Process(
   common_->CreateOrder(items, create_callback);
 }
 
-void SKUBrave::OrderCreated(
+void SKUadrbrowsiel::OrderCreated(
     const type::Result result,
     const std::string& order_id,
     const std::string& wallet_type,
@@ -52,7 +52,7 @@ void SKUBrave::OrderCreated(
     return;
   }
 
-  auto save_callback = std::bind(&SKUBrave::ContributionIdSaved,
+  auto save_callback = std::bind(&SKUadrbrowsiel::ContributionIdSaved,
       this,
       _1,
       order_id,
@@ -65,7 +65,7 @@ void SKUBrave::OrderCreated(
       save_callback);
 }
 
-void SKUBrave::ContributionIdSaved(
+void SKUadrbrowsiel::ContributionIdSaved(
     const type::Result result,
     const std::string& order_id,
     const std::string& wallet_type,
@@ -76,7 +76,7 @@ void SKUBrave::ContributionIdSaved(
     return;
   }
 
-  auto get_callback = std::bind(&SKUBrave::CreateTransaction,
+  auto get_callback = std::bind(&SKUadrbrowsiel::CreateTransaction,
       this,
       _1,
       wallet_type,
@@ -85,7 +85,7 @@ void SKUBrave::ContributionIdSaved(
   ledger_->database()->GetSKUOrder(order_id, get_callback);
 }
 
-void SKUBrave::CreateTransaction(
+void SKUadrbrowsiel::CreateTransaction(
     type::SKUOrderPtr order,
     const std::string& wallet_type,
     ledger::SKUOrderCallback callback) {
@@ -95,7 +95,7 @@ void SKUBrave::CreateTransaction(
     return;
   }
 
-  const std::string destination = GetBraveDestination(wallet_type);
+  const std::string destination = GetadrbrowsielDestination(wallet_type);
 
   common_->CreateTransaction(
       std::move(order),
@@ -104,7 +104,7 @@ void SKUBrave::CreateTransaction(
       callback);
 }
 
-void SKUBrave::Retry(
+void SKUadrbrowsiel::Retry(
     const std::string& order_id,
     const std::string& wallet_type,
     ledger::SKUOrderCallback callback) {
@@ -114,7 +114,7 @@ void SKUBrave::Retry(
     return;
   }
 
-  auto get_callback = std::bind(&SKUBrave::OnOrder,
+  auto get_callback = std::bind(&SKUadrbrowsiel::OnOrder,
       this,
       _1,
       wallet_type,
@@ -123,7 +123,7 @@ void SKUBrave::Retry(
   ledger_->database()->GetSKUOrder(order_id, get_callback);
 }
 
-void SKUBrave::OnOrder(
+void SKUadrbrowsiel::OnOrder(
     type::SKUOrderPtr order,
     const std::string& wallet_type,
     ledger::SKUOrderCallback callback) {

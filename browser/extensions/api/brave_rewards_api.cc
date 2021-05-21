@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/api/brave_rewards_api.h"
+#include "adrbrowsiel/browser/extensions/api/adrbrowsiel_rewards_api.h"
 
 #include <map>
 #include <memory>
@@ -12,15 +12,15 @@
 
 #include "base/bind.h"
 #include "base/strings/string_number_conversions.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/browser/brave_rewards/tip_dialog.h"
-#include "brave/browser/extensions/api/brave_action_api.h"
-#include "brave/browser/extensions/brave_component_loader.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/common/extensions/api/brave_rewards.h"
-#include "brave/components/brave_ads/browser/ads_service.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/tip_dialog.h"
+#include "adrbrowsiel/browser/extensions/api/adrbrowsiel_action_api.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_component_loader.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/common/extensions/api/adrbrowsiel_rewards.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
 #include "chrome/browser/extensions/api/tabs/tabs_constants.h"
 #include "chrome/browser/extensions/chrome_extension_function_details.h"
 #include "chrome/browser/extensions/extension_service.h"
@@ -30,22 +30,22 @@
 #include "extensions/browser/extension_system.h"
 #include "extensions/common/constants.h"
 
-using brave_ads::AdsService;
-using brave_ads::AdsServiceFactory;
-using brave_rewards::RewardsService;
-using brave_rewards::RewardsServiceFactory;
+using adrbrowsiel_ads::AdsService;
+using adrbrowsiel_ads::AdsServiceFactory;
+using adrbrowsiel_rewards::RewardsService;
+using adrbrowsiel_rewards::RewardsServiceFactory;
 
 namespace extensions {
 namespace api {
 
-BraveRewardsOpenBrowserActionUIFunction::
-~BraveRewardsOpenBrowserActionUIFunction() {
+adrbrowsielRewardsOpenBrowserActionUIFunction::
+~adrbrowsielRewardsOpenBrowserActionUIFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsOpenBrowserActionUIFunction::Run() {
-  std::unique_ptr<brave_rewards::OpenBrowserActionUI::Params> params(
-      brave_rewards::OpenBrowserActionUI::Params::Create(*args_));
+adrbrowsielRewardsOpenBrowserActionUIFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::OpenBrowserActionUI::Params> params(
+      adrbrowsiel_rewards::OpenBrowserActionUI::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   auto* profile = Profile::FromBrowserContext(browser_context());
@@ -63,12 +63,12 @@ BraveRewardsOpenBrowserActionUIFunction::Run() {
   if (!extension_service)
     return RespondNow(Error("Extension service is not initialized"));
 
-  static_cast<BraveComponentLoader*>(extension_service->component_loader())
+  static_cast<adrbrowsielComponentLoader*>(extension_service->component_loader())
       ->AddRewardsExtension();
 
   std::string error;
-  if (!BraveActionAPI::ShowActionUI(this,
-      brave_rewards_extension_id,
+  if (!adrbrowsielActionAPI::ShowActionUI(this,
+      adrbrowsiel_rewards_extension_id,
       std::move(params->window_id),
       std::move(params->relative_path), &error)) {
     return RespondNow(Error(error));
@@ -76,13 +76,13 @@ BraveRewardsOpenBrowserActionUIFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-BraveRewardsUpdateMediaDurationFunction::
-    ~BraveRewardsUpdateMediaDurationFunction() {}
+adrbrowsielRewardsUpdateMediaDurationFunction::
+    ~adrbrowsielRewardsUpdateMediaDurationFunction() {}
 
 ExtensionFunction::ResponseAction
-BraveRewardsUpdateMediaDurationFunction::Run() {
-  std::unique_ptr<brave_rewards::UpdateMediaDuration::Params> params(
-      brave_rewards::UpdateMediaDuration::Params::Create(*args_));
+adrbrowsielRewardsUpdateMediaDurationFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::UpdateMediaDuration::Params> params(
+      adrbrowsiel_rewards::UpdateMediaDuration::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
@@ -102,14 +102,14 @@ BraveRewardsUpdateMediaDurationFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-BraveRewardsGetPublisherInfoFunction::
-~BraveRewardsGetPublisherInfoFunction() {
+adrbrowsielRewardsGetPublisherInfoFunction::
+~adrbrowsielRewardsGetPublisherInfoFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetPublisherInfoFunction::Run() {
-  std::unique_ptr<brave_rewards::GetPublisherInfo::Params> params(
-      brave_rewards::GetPublisherInfo::Params::Create(*args_));
+adrbrowsielRewardsGetPublisherInfoFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::GetPublisherInfo::Params> params(
+      adrbrowsiel_rewards::GetPublisherInfo::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
@@ -123,13 +123,13 @@ BraveRewardsGetPublisherInfoFunction::Run() {
   rewards_service->GetPublisherInfo(
       params->publisher_key,
       base::Bind(
-          &BraveRewardsGetPublisherInfoFunction::OnGetPublisherInfo,
+          &adrbrowsielRewardsGetPublisherInfoFunction::OnGetPublisherInfo,
           this));
 
   return RespondLater();
 }
 
-void BraveRewardsGetPublisherInfoFunction::OnGetPublisherInfo(
+void adrbrowsielRewardsGetPublisherInfoFunction::OnGetPublisherInfo(
     const ledger::type::Result result,
     ledger::type::PublisherInfoPtr info) {
   if (!info) {
@@ -151,13 +151,13 @@ void BraveRewardsGetPublisherInfoFunction::OnGetPublisherInfo(
   Respond(TwoArguments(base::Value(static_cast<int>(result)), std::move(dict)));
 }
 
-BraveRewardsGetPublisherPanelInfoFunction::
-    ~BraveRewardsGetPublisherPanelInfoFunction() {}
+adrbrowsielRewardsGetPublisherPanelInfoFunction::
+    ~adrbrowsielRewardsGetPublisherPanelInfoFunction() {}
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetPublisherPanelInfoFunction::Run() {
-  std::unique_ptr<brave_rewards::GetPublisherPanelInfo::Params> params(
-      brave_rewards::GetPublisherPanelInfo::Params::Create(*args_));
+adrbrowsielRewardsGetPublisherPanelInfoFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::GetPublisherPanelInfo::Params> params(
+      adrbrowsiel_rewards::GetPublisherPanelInfo::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
@@ -171,13 +171,13 @@ BraveRewardsGetPublisherPanelInfoFunction::Run() {
   rewards_service->GetPublisherPanelInfo(
       params->publisher_key,
       base::Bind(
-          &BraveRewardsGetPublisherPanelInfoFunction::OnGetPublisherPanelInfo,
+          &adrbrowsielRewardsGetPublisherPanelInfoFunction::OnGetPublisherPanelInfo,
           this));
 
   return RespondLater();
 }
 
-void BraveRewardsGetPublisherPanelInfoFunction::OnGetPublisherPanelInfo(
+void adrbrowsielRewardsGetPublisherPanelInfoFunction::OnGetPublisherPanelInfo(
     const ledger::type::Result result,
     ledger::type::PublisherInfoPtr info) {
   if (!info) {
@@ -199,13 +199,13 @@ void BraveRewardsGetPublisherPanelInfoFunction::OnGetPublisherPanelInfo(
   Respond(TwoArguments(base::Value(static_cast<int>(result)), std::move(dict)));
 }
 
-BraveRewardsSavePublisherInfoFunction::
-    ~BraveRewardsSavePublisherInfoFunction() {}
+adrbrowsielRewardsSavePublisherInfoFunction::
+    ~adrbrowsielRewardsSavePublisherInfoFunction() {}
 
 ExtensionFunction::ResponseAction
-BraveRewardsSavePublisherInfoFunction::Run() {
-  std::unique_ptr<brave_rewards::SavePublisherInfo::Params>
-      params(brave_rewards::SavePublisherInfo::Params::Create(
+adrbrowsielRewardsSavePublisherInfoFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::SavePublisherInfo::Params>
+      params(adrbrowsiel_rewards::SavePublisherInfo::Params::Create(
           *args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
@@ -228,28 +228,28 @@ BraveRewardsSavePublisherInfoFunction::Run() {
       params->window_id,
       std::move(publisher_info),
       base::Bind(
-          &BraveRewardsSavePublisherInfoFunction::OnSavePublisherInfo,
+          &adrbrowsielRewardsSavePublisherInfoFunction::OnSavePublisherInfo,
           this));
 
   return RespondLater();
 }
 
-void BraveRewardsSavePublisherInfoFunction::OnSavePublisherInfo(
+void adrbrowsielRewardsSavePublisherInfoFunction::OnSavePublisherInfo(
     const ledger::type::Result result) {
   Respond(OneArgument(base::Value(static_cast<int>(result))));
 }
 
-BraveRewardsTipSiteFunction::~BraveRewardsTipSiteFunction() {
+adrbrowsielRewardsTipSiteFunction::~adrbrowsielRewardsTipSiteFunction() {
 }
 
-ExtensionFunction::ResponseAction BraveRewardsTipSiteFunction::Run() {
-  std::unique_ptr<brave_rewards::TipSite::Params> params(
-      brave_rewards::TipSite::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielRewardsTipSiteFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::TipSite::Params> params(
+      adrbrowsiel_rewards::TipSite::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   // Sanity check: don't allow tips in private / tor contexts,
   // although the command should not have been enabled in the first place.
-  if (!brave::IsRegularProfile(browser_context())) {
+  if (!adrbrowsiel::IsRegularProfile(browser_context())) {
     return RespondNow(Error("Cannot tip to site in a private context"));
   }
 
@@ -272,26 +272,26 @@ ExtensionFunction::ResponseAction BraveRewardsTipSiteFunction::Run() {
   params_dict->SetString("entryPoint", params->entry_point);
   params_dict->SetString(
       "url", contents ? contents->GetLastCommittedURL().spec() : std::string());
-  ::brave_rewards::OpenTipDialog(contents, std::move(params_dict));
+  ::adrbrowsiel_rewards::OpenTipDialog(contents, std::move(params_dict));
 
   return RespondNow(NoArguments());
 }
 
-BraveRewardsTipUserFunction::BraveRewardsTipUserFunction()
+adrbrowsielRewardsTipUserFunction::adrbrowsielRewardsTipUserFunction()
     : weak_factory_(this) {
 }
 
-BraveRewardsTipUserFunction::~BraveRewardsTipUserFunction() {
+adrbrowsielRewardsTipUserFunction::~adrbrowsielRewardsTipUserFunction() {
 }
 
-ExtensionFunction::ResponseAction BraveRewardsTipUserFunction::Run() {
-  std::unique_ptr<brave_rewards::TipUser::Params> params(
-      brave_rewards::TipUser::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielRewardsTipUserFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::TipUser::Params> params(
+      adrbrowsiel_rewards::TipUser::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   // Sanity check: don't allow tips in private / tor contexts,
   // although the command should not have been enabled in the first place.
-  if (!brave::IsRegularProfile(browser_context())) {
+  if (!adrbrowsiel::IsRegularProfile(browser_context())) {
     return RespondNow(Error("Cannot tip user in a private context"));
   }
 
@@ -311,17 +311,17 @@ ExtensionFunction::ResponseAction BraveRewardsTipUserFunction::Run() {
 
   extensions::ComponentLoader* component_loader =
       extension_service->component_loader();
-  static_cast<extensions::BraveComponentLoader*>(component_loader)
+  static_cast<extensions::adrbrowsielComponentLoader*>(component_loader)
       ->AddRewardsExtension();
 
   rewards_service->StartProcess(
-      base::BindOnce(&BraveRewardsTipUserFunction::OnProcessStarted, this,
+      base::BindOnce(&adrbrowsielRewardsTipUserFunction::OnProcessStarted, this,
                      params->publisher_key));
 
   return RespondNow(NoArguments());
 }
 
-void BraveRewardsTipUserFunction::OnProcessStarted(
+void adrbrowsielRewardsTipUserFunction::OnProcessStarted(
     const std::string& publisher_key) {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   auto* rewards_service = RewardsServiceFactory::GetForProfile(profile);
@@ -331,11 +331,11 @@ void BraveRewardsTipUserFunction::OnProcessStarted(
   }
   rewards_service->GetPublisherInfo(
       publisher_key,
-      base::Bind(&BraveRewardsTipUserFunction::OnTipUserGetPublisherInfo,
+      base::Bind(&adrbrowsielRewardsTipUserFunction::OnTipUserGetPublisherInfo,
                  this));
 }
 
-void BraveRewardsTipUserFunction::OnTipUserGetPublisherInfo(
+void adrbrowsielRewardsTipUserFunction::OnTipUserGetPublisherInfo(
     const ledger::type::Result result,
     ledger::type::PublisherInfoPtr info) {
   if (result != ledger::type::Result::LEDGER_OK &&
@@ -350,8 +350,8 @@ void BraveRewardsTipUserFunction::OnTipUserGetPublisherInfo(
     return;
   }
 
-  std::unique_ptr<brave_rewards::TipUser::Params> params(
-      brave_rewards::TipUser::Params::Create(*args_));
+  std::unique_ptr<adrbrowsiel_rewards::TipUser::Params> params(
+      adrbrowsiel_rewards::TipUser::Params::Create(*args_));
 
   auto publisher_info = ledger::type::PublisherInfo::New();
   publisher_info->id = params->publisher_key;
@@ -370,12 +370,12 @@ void BraveRewardsTipUserFunction::OnTipUserGetPublisherInfo(
   rewards_service->SavePublisherInfo(
       0,
       std::move(publisher_info),
-      base::Bind(&BraveRewardsTipUserFunction::
+      base::Bind(&adrbrowsielRewardsTipUserFunction::
                  OnTipUserSavePublisherInfo,
                  weak_factory_.GetWeakPtr()));
 }
 
-void BraveRewardsTipUserFunction::OnTipUserSavePublisherInfo(
+void adrbrowsielRewardsTipUserFunction::OnTipUserSavePublisherInfo(
     const ledger::type::Result result) {
   if (result != ledger::type::Result::LEDGER_OK) {
     Release();
@@ -386,9 +386,9 @@ void BraveRewardsTipUserFunction::OnTipUserSavePublisherInfo(
   Release();
 }
 
-void BraveRewardsTipUserFunction::ShowTipDialog() {
-  std::unique_ptr<brave_rewards::TipUser::Params> params(
-      brave_rewards::TipUser::Params::Create(*args_));
+void adrbrowsielRewardsTipUserFunction::ShowTipDialog() {
+  std::unique_ptr<adrbrowsiel_rewards::TipUser::Params> params(
+      adrbrowsiel_rewards::TipUser::Params::Create(*args_));
   if (!params) {
     Release();
     return;
@@ -424,20 +424,20 @@ void BraveRewardsTipUserFunction::ShowTipDialog() {
   params_dict->SetString("url", params->url);
   params_dict->SetPath("mediaMetaData", std::move(media_meta_data_dict));
 
-  ::brave_rewards::OpenTipDialog(contents, std::move(params_dict));
+  ::adrbrowsiel_rewards::OpenTipDialog(contents, std::move(params_dict));
 }
 
-BraveRewardsGetPublisherDataFunction::~BraveRewardsGetPublisherDataFunction() {
+adrbrowsielRewardsGetPublisherDataFunction::~adrbrowsielRewardsGetPublisherDataFunction() {
 }
 
-BraveRewardsIncludeInAutoContributionFunction::
-  ~BraveRewardsIncludeInAutoContributionFunction() {
+adrbrowsielRewardsIncludeInAutoContributionFunction::
+  ~adrbrowsielRewardsIncludeInAutoContributionFunction() {
 }
 
 ExtensionFunction::ResponseAction
-  BraveRewardsIncludeInAutoContributionFunction::Run() {
-  std::unique_ptr<brave_rewards::IncludeInAutoContribution::Params> params(
-    brave_rewards::IncludeInAutoContribution::Params::Create(*args_));
+  adrbrowsielRewardsIncludeInAutoContributionFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::IncludeInAutoContribution::Params> params(
+    adrbrowsiel_rewards::IncludeInAutoContribution::Params::Create(*args_));
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -449,9 +449,9 @@ ExtensionFunction::ResponseAction
   return RespondNow(NoArguments());
 }
 
-ExtensionFunction::ResponseAction BraveRewardsGetPublisherDataFunction::Run() {
-  std::unique_ptr<brave_rewards::GetPublisherData::Params> params(
-      brave_rewards::GetPublisherData::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielRewardsGetPublisherDataFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::GetPublisherData::Params> params(
+      adrbrowsiel_rewards::GetPublisherData::Params::Create(*args_));
   Profile* profile = Profile::FromBrowserContext(browser_context());
   auto* rewards_service = RewardsServiceFactory::GetForProfile(profile);
   if (rewards_service) {
@@ -463,11 +463,11 @@ ExtensionFunction::ResponseAction BraveRewardsGetPublisherDataFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-BraveRewardsGetRewardsParametersFunction::
-~BraveRewardsGetRewardsParametersFunction() = default;
+adrbrowsielRewardsGetRewardsParametersFunction::
+~adrbrowsielRewardsGetRewardsParametersFunction() = default;
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetRewardsParametersFunction::Run() {
+adrbrowsielRewardsGetRewardsParametersFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   auto* rewards_service = RewardsServiceFactory::GetForProfile(profile);
   if (!rewards_service) {
@@ -476,12 +476,12 @@ BraveRewardsGetRewardsParametersFunction::Run() {
   }
 
   rewards_service->GetRewardsParameters(base::BindOnce(
-      &BraveRewardsGetRewardsParametersFunction::OnGet,
+      &adrbrowsielRewardsGetRewardsParametersFunction::OnGet,
       this));
   return RespondLater();
 }
 
-void BraveRewardsGetRewardsParametersFunction::OnGet(
+void adrbrowsielRewardsGetRewardsParametersFunction::OnGet(
     ledger::type::RewardsParametersPtr parameters) {
   base::DictionaryValue data;
 
@@ -505,10 +505,10 @@ void BraveRewardsGetRewardsParametersFunction::OnGet(
   Respond(OneArgument(std::move(data)));
 }
 
-BraveRewardsGetBalanceReportFunction::
-~BraveRewardsGetBalanceReportFunction() = default;
+adrbrowsielRewardsGetBalanceReportFunction::
+~adrbrowsielRewardsGetBalanceReportFunction() = default;
 
-ExtensionFunction::ResponseAction BraveRewardsGetBalanceReportFunction::Run() {
+ExtensionFunction::ResponseAction adrbrowsielRewardsGetBalanceReportFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   auto* rewards_service = RewardsServiceFactory::GetForProfile(profile);
   if (!rewards_service) {
@@ -516,19 +516,19 @@ ExtensionFunction::ResponseAction BraveRewardsGetBalanceReportFunction::Run() {
     return RespondNow(OneArgument(std::move(data)));
   }
 
-  std::unique_ptr<brave_rewards::GetBalanceReport::Params> params(
-      brave_rewards::GetBalanceReport::Params::Create(*args_));
+  std::unique_ptr<adrbrowsiel_rewards::GetBalanceReport::Params> params(
+      adrbrowsiel_rewards::GetBalanceReport::Params::Create(*args_));
 
   rewards_service->GetBalanceReport(
       params->month,
       params->year,
       base::BindOnce(
-          &BraveRewardsGetBalanceReportFunction::OnBalanceReport,
+          &adrbrowsielRewardsGetBalanceReportFunction::OnBalanceReport,
           this));
   return RespondLater();
 }
 
-void BraveRewardsGetBalanceReportFunction::OnBalanceReport(
+void adrbrowsielRewardsGetBalanceReportFunction::OnBalanceReport(
     const ledger::type::Result result,
     ledger::type::BalanceReportInfoPtr report) {
   base::Value data(base::Value::Type::DICTIONARY);
@@ -544,10 +544,10 @@ void BraveRewardsGetBalanceReportFunction::OnBalanceReport(
   Respond(OneArgument(std::move(data)));
 }
 
-BraveRewardsFetchPromotionsFunction::
-~BraveRewardsFetchPromotionsFunction() = default;
+adrbrowsielRewardsFetchPromotionsFunction::
+~adrbrowsielRewardsFetchPromotionsFunction() = default;
 
-ExtensionFunction::ResponseAction BraveRewardsFetchPromotionsFunction::Run() {
+ExtensionFunction::ResponseAction adrbrowsielRewardsFetchPromotionsFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -557,12 +557,12 @@ ExtensionFunction::ResponseAction BraveRewardsFetchPromotionsFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-BraveRewardsClaimPromotionFunction::
-~BraveRewardsClaimPromotionFunction() = default;
+adrbrowsielRewardsClaimPromotionFunction::
+~adrbrowsielRewardsClaimPromotionFunction() = default;
 
-ExtensionFunction::ResponseAction BraveRewardsClaimPromotionFunction::Run() {
-  std::unique_ptr<brave_rewards::ClaimPromotion::Params> params(
-      brave_rewards::ClaimPromotion::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielRewardsClaimPromotionFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::ClaimPromotion::Params> params(
+      adrbrowsiel_rewards::ClaimPromotion::Params::Create(*args_));
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -575,13 +575,13 @@ ExtensionFunction::ResponseAction BraveRewardsClaimPromotionFunction::Run() {
   rewards_service->ClaimPromotion(
       params->promotion_id,
       base::BindOnce(
-          &BraveRewardsClaimPromotionFunction::OnClaimPromotion,
+          &adrbrowsielRewardsClaimPromotionFunction::OnClaimPromotion,
           this,
           params->promotion_id));
   return RespondLater();
 }
 
-void BraveRewardsClaimPromotionFunction::OnClaimPromotion(
+void adrbrowsielRewardsClaimPromotionFunction::OnClaimPromotion(
     const std::string& promotion_id,
     const ledger::type::Result result,
     const std::string& captcha_image,
@@ -596,12 +596,12 @@ void BraveRewardsClaimPromotionFunction::OnClaimPromotion(
   Respond(OneArgument(std::move(data)));
 }
 
-BraveRewardsAttestPromotionFunction::
-~BraveRewardsAttestPromotionFunction() = default;
+adrbrowsielRewardsAttestPromotionFunction::
+~adrbrowsielRewardsAttestPromotionFunction() = default;
 
-ExtensionFunction::ResponseAction BraveRewardsAttestPromotionFunction::Run() {
-  std::unique_ptr<brave_rewards::AttestPromotion::Params> params(
-      brave_rewards::AttestPromotion::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielRewardsAttestPromotionFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::AttestPromotion::Params> params(
+      adrbrowsiel_rewards::AttestPromotion::Params::Create(*args_));
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -611,13 +611,13 @@ ExtensionFunction::ResponseAction BraveRewardsAttestPromotionFunction::Run() {
 
   rewards_service->AttestPromotion(params->promotion_id, params->solution,
       base::BindOnce(
-        &BraveRewardsAttestPromotionFunction::OnAttestPromotion,
+        &adrbrowsielRewardsAttestPromotionFunction::OnAttestPromotion,
         this,
         params->promotion_id));
   return RespondLater();
 }
 
-void BraveRewardsAttestPromotionFunction::OnAttestPromotion(
+void adrbrowsielRewardsAttestPromotionFunction::OnAttestPromotion(
     const std::string& promotion_id,
     const ledger::type::Result result,
     ledger::type::PromotionPtr promotion) {
@@ -636,12 +636,12 @@ void BraveRewardsAttestPromotionFunction::OnAttestPromotion(
   Respond(TwoArguments(base::Value(static_cast<int>(result)), std::move(data)));
 }
 
-BraveRewardsGetPendingContributionsTotalFunction::
-~BraveRewardsGetPendingContributionsTotalFunction() {
+adrbrowsielRewardsGetPendingContributionsTotalFunction::
+~adrbrowsielRewardsGetPendingContributionsTotalFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetPendingContributionsTotalFunction::Run() {
+adrbrowsielRewardsGetPendingContributionsTotalFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -651,22 +651,22 @@ BraveRewardsGetPendingContributionsTotalFunction::Run() {
   }
 
   rewards_service->GetPendingContributionsTotal(base::Bind(
-        &BraveRewardsGetPendingContributionsTotalFunction::OnGetPendingTotal,
+        &adrbrowsielRewardsGetPendingContributionsTotalFunction::OnGetPendingTotal,
         this));
   return RespondLater();
 }
 
-void BraveRewardsGetPendingContributionsTotalFunction::OnGetPendingTotal(
+void adrbrowsielRewardsGetPendingContributionsTotalFunction::OnGetPendingTotal(
     double amount) {
   Respond(OneArgument(base::Value(amount)));
 }
 
-BraveRewardsSaveAdsSettingFunction::~BraveRewardsSaveAdsSettingFunction() {
+adrbrowsielRewardsSaveAdsSettingFunction::~adrbrowsielRewardsSaveAdsSettingFunction() {
 }
 
-ExtensionFunction::ResponseAction BraveRewardsSaveAdsSettingFunction::Run() {
-  std::unique_ptr<brave_rewards::SaveAdsSetting::Params> params(
-      brave_rewards::SaveAdsSetting::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielRewardsSaveAdsSettingFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::SaveAdsSetting::Params> params(
+      adrbrowsiel_rewards::SaveAdsSetting::Params::Create(*args_));
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
       RewardsServiceFactory::GetForProfile(profile);
@@ -685,14 +685,14 @@ ExtensionFunction::ResponseAction BraveRewardsSaveAdsSettingFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-BraveRewardsSetAutoContributeEnabledFunction::
-~BraveRewardsSetAutoContributeEnabledFunction() {
+adrbrowsielRewardsSetAutoContributeEnabledFunction::
+~adrbrowsielRewardsSetAutoContributeEnabledFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsSetAutoContributeEnabledFunction::Run() {
-  std::unique_ptr<brave_rewards::SetAutoContributeEnabled::Params> params(
-      brave_rewards::SetAutoContributeEnabled::Params::Create(*args_));
+adrbrowsielRewardsSetAutoContributeEnabledFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::SetAutoContributeEnabled::Params> params(
+      adrbrowsiel_rewards::SetAutoContributeEnabled::Params::Create(*args_));
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
       RewardsServiceFactory::GetForProfile(profile);
@@ -705,12 +705,12 @@ BraveRewardsSetAutoContributeEnabledFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-BraveRewardsGetACEnabledFunction::
-~BraveRewardsGetACEnabledFunction() {
+adrbrowsielRewardsGetACEnabledFunction::
+~adrbrowsielRewardsGetACEnabledFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetACEnabledFunction::Run() {
+adrbrowsielRewardsGetACEnabledFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -720,23 +720,23 @@ BraveRewardsGetACEnabledFunction::Run() {
   }
 
   rewards_service->GetAutoContributeEnabled(base::BindOnce(
-        &BraveRewardsGetACEnabledFunction::OnGetACEnabled,
+        &adrbrowsielRewardsGetACEnabledFunction::OnGetACEnabled,
         this));
   return RespondLater();
 }
 
-void BraveRewardsGetACEnabledFunction::OnGetACEnabled(bool enabled) {
+void adrbrowsielRewardsGetACEnabledFunction::OnGetACEnabled(bool enabled) {
   Respond(OneArgument(base::Value(enabled)));
 }
 
-BraveRewardsSaveRecurringTipFunction::
-~BraveRewardsSaveRecurringTipFunction() {
+adrbrowsielRewardsSaveRecurringTipFunction::
+~adrbrowsielRewardsSaveRecurringTipFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsSaveRecurringTipFunction::Run() {
-  std::unique_ptr<brave_rewards::SaveRecurringTip::Params> params(
-    brave_rewards::SaveRecurringTip::Params::Create(*args_));
+adrbrowsielRewardsSaveRecurringTipFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::SaveRecurringTip::Params> params(
+    adrbrowsiel_rewards::SaveRecurringTip::Params::Create(*args_));
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service_ =
@@ -750,13 +750,13 @@ BraveRewardsSaveRecurringTipFunction::Run() {
       params->publisher_key,
       params->new_amount,
       base::Bind(
-          &BraveRewardsSaveRecurringTipFunction::OnSaveRecurringTip,
+          &adrbrowsielRewardsSaveRecurringTipFunction::OnSaveRecurringTip,
           this));
 
   return RespondLater();
 }
 
-void BraveRewardsSaveRecurringTipFunction::OnSaveRecurringTip(bool success) {
+void adrbrowsielRewardsSaveRecurringTipFunction::OnSaveRecurringTip(bool success) {
   if (!success) {
     Respond(Error("Failed to save"));
     return;
@@ -764,14 +764,14 @@ void BraveRewardsSaveRecurringTipFunction::OnSaveRecurringTip(bool success) {
   Respond(NoArguments());
 }
 
-BraveRewardsRemoveRecurringTipFunction::
-~BraveRewardsRemoveRecurringTipFunction() {
+adrbrowsielRewardsRemoveRecurringTipFunction::
+~adrbrowsielRewardsRemoveRecurringTipFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsRemoveRecurringTipFunction::Run() {
-  std::unique_ptr<brave_rewards::RemoveRecurringTip::Params> params(
-    brave_rewards::RemoveRecurringTip::Params::Create(*args_));
+adrbrowsielRewardsRemoveRecurringTipFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::RemoveRecurringTip::Params> params(
+    adrbrowsiel_rewards::RemoveRecurringTip::Params::Create(*args_));
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service_ =
@@ -784,12 +784,12 @@ BraveRewardsRemoveRecurringTipFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-BraveRewardsGetRecurringTipsFunction::
-~BraveRewardsGetRecurringTipsFunction() {
+adrbrowsielRewardsGetRecurringTipsFunction::
+~adrbrowsielRewardsGetRecurringTipsFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetRecurringTipsFunction::Run() {
+adrbrowsielRewardsGetRecurringTipsFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -799,12 +799,12 @@ BraveRewardsGetRecurringTipsFunction::Run() {
   }
 
   rewards_service->GetRecurringTips(base::Bind(
-        &BraveRewardsGetRecurringTipsFunction::OnGetRecurringTips,
+        &adrbrowsielRewardsGetRecurringTipsFunction::OnGetRecurringTips,
         this));
   return RespondLater();
 }
 
-void BraveRewardsGetRecurringTipsFunction::OnGetRecurringTips(
+void adrbrowsielRewardsGetRecurringTipsFunction::OnGetRecurringTips(
     ledger::type::PublisherInfoList list) {
   base::DictionaryValue result;
   auto recurringTips = std::make_unique<base::ListValue>();
@@ -822,14 +822,14 @@ void BraveRewardsGetRecurringTipsFunction::OnGetRecurringTips(
   Respond(OneArgument(std::move(result)));
 }
 
-BraveRewardsGetPublisherBannerFunction::
-~BraveRewardsGetPublisherBannerFunction() {
+adrbrowsielRewardsGetPublisherBannerFunction::
+~adrbrowsielRewardsGetPublisherBannerFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetPublisherBannerFunction::Run() {
-  std::unique_ptr<brave_rewards::GetPublisherBanner::Params> params(
-    brave_rewards::GetPublisherBanner::Params::Create(*args_));
+adrbrowsielRewardsGetPublisherBannerFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::GetPublisherBanner::Params> params(
+    adrbrowsiel_rewards::GetPublisherBanner::Params::Create(*args_));
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
@@ -842,12 +842,12 @@ BraveRewardsGetPublisherBannerFunction::Run() {
   rewards_service->GetPublisherBanner(
       params->publisher_key,
       base::BindOnce(
-        &BraveRewardsGetPublisherBannerFunction::OnPublisherBanner,
+        &adrbrowsielRewardsGetPublisherBannerFunction::OnPublisherBanner,
         this));
   return RespondLater();
 }
 
-void BraveRewardsGetPublisherBannerFunction::OnPublisherBanner(
+void adrbrowsielRewardsGetPublisherBannerFunction::OnPublisherBanner(
     ledger::type::PublisherBannerPtr banner) {
   base::DictionaryValue result;
 
@@ -877,12 +877,12 @@ void BraveRewardsGetPublisherBannerFunction::OnPublisherBanner(
   Respond(OneArgument(std::move(result)));
 }
 
-BraveRewardsRefreshPublisherFunction::~BraveRewardsRefreshPublisherFunction() {
+adrbrowsielRewardsRefreshPublisherFunction::~adrbrowsielRewardsRefreshPublisherFunction() {
 }
 
-ExtensionFunction::ResponseAction BraveRewardsRefreshPublisherFunction::Run() {
-  std::unique_ptr<brave_rewards::RefreshPublisher::Params> params(
-      brave_rewards::RefreshPublisher::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielRewardsRefreshPublisherFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::RefreshPublisher::Params> params(
+      adrbrowsiel_rewards::RefreshPublisher::Params::Create(*args_));
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
@@ -894,24 +894,24 @@ ExtensionFunction::ResponseAction BraveRewardsRefreshPublisherFunction::Run() {
   rewards_service->RefreshPublisher(
       params->publisher_key,
       base::BindOnce(
-        &BraveRewardsRefreshPublisherFunction::OnRefreshPublisher,
+        &adrbrowsielRewardsRefreshPublisherFunction::OnRefreshPublisher,
         this));
   return RespondLater();
 }
 
-void BraveRewardsRefreshPublisherFunction::OnRefreshPublisher(
+void adrbrowsielRewardsRefreshPublisherFunction::OnRefreshPublisher(
     const ledger::type::PublisherStatus status,
     const std::string& publisher_key) {
   Respond(TwoArguments(base::Value(static_cast<int>(status)),
                        base::Value(publisher_key)));
 }
 
-BraveRewardsGetAllNotificationsFunction::
-~BraveRewardsGetAllNotificationsFunction() {
+adrbrowsielRewardsGetAllNotificationsFunction::
+~adrbrowsielRewardsGetAllNotificationsFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetAllNotificationsFunction::Run() {
+adrbrowsielRewardsGetAllNotificationsFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -942,14 +942,14 @@ BraveRewardsGetAllNotificationsFunction::Run() {
   return RespondNow(OneArgument(std::move(list)));
 }
 
-BraveRewardsGetInlineTippingPlatformEnabledFunction::
-~BraveRewardsGetInlineTippingPlatformEnabledFunction() {
+adrbrowsielRewardsGetInlineTippingPlatformEnabledFunction::
+~adrbrowsielRewardsGetInlineTippingPlatformEnabledFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetInlineTippingPlatformEnabledFunction::Run() {
-  std::unique_ptr<brave_rewards::GetInlineTippingPlatformEnabled::Params>
-      params(brave_rewards::GetInlineTippingPlatformEnabled::Params::Create(
+adrbrowsielRewardsGetInlineTippingPlatformEnabledFunction::Run() {
+  std::unique_ptr<adrbrowsiel_rewards::GetInlineTippingPlatformEnabled::Params>
+      params(adrbrowsiel_rewards::GetInlineTippingPlatformEnabled::Params::Create(
           *args_));
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
@@ -962,23 +962,23 @@ BraveRewardsGetInlineTippingPlatformEnabledFunction::Run() {
   rewards_service->GetInlineTippingPlatformEnabled(
       params->key,
       base::BindOnce(
-          &BraveRewardsGetInlineTippingPlatformEnabledFunction::
+          &adrbrowsielRewardsGetInlineTippingPlatformEnabledFunction::
           OnInlineTipSetting,
           this));
   return RespondLater();
 }
 
-void BraveRewardsGetInlineTippingPlatformEnabledFunction::OnInlineTipSetting(
+void adrbrowsielRewardsGetInlineTippingPlatformEnabledFunction::OnInlineTipSetting(
     bool value) {
   Respond(OneArgument(base::Value(value)));
 }
 
-BraveRewardsFetchBalanceFunction::
-~BraveRewardsFetchBalanceFunction() {
+adrbrowsielRewardsFetchBalanceFunction::
+~adrbrowsielRewardsFetchBalanceFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsFetchBalanceFunction::Run() {
+adrbrowsielRewardsFetchBalanceFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -989,12 +989,12 @@ BraveRewardsFetchBalanceFunction::Run() {
 
   rewards_service->FetchBalance(
       base::BindOnce(
-          &BraveRewardsFetchBalanceFunction::OnBalance,
+          &adrbrowsielRewardsFetchBalanceFunction::OnBalance,
           this));
   return RespondLater();
 }
 
-void BraveRewardsFetchBalanceFunction::OnBalance(
+void adrbrowsielRewardsFetchBalanceFunction::OnBalance(
     const ledger::type::Result result,
     ledger::type::BalancePtr balance) {
   base::Value balance_value(base::Value::Type::DICTIONARY);
@@ -1015,12 +1015,12 @@ void BraveRewardsFetchBalanceFunction::OnBalance(
   Respond(OneArgument(std::move(balance_value)));
 }
 
-BraveRewardsGetExternalWalletFunction::
-~BraveRewardsGetExternalWalletFunction() {
+adrbrowsielRewardsGetExternalWalletFunction::
+~adrbrowsielRewardsGetExternalWalletFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetExternalWalletFunction::Run() {
+adrbrowsielRewardsGetExternalWalletFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -1030,11 +1030,11 @@ BraveRewardsGetExternalWalletFunction::Run() {
   }
 
   rewards_service->GetExternalWallet(base::BindOnce(
-      &BraveRewardsGetExternalWalletFunction::OnGetExternalWallet, this));
+      &adrbrowsielRewardsGetExternalWalletFunction::OnGetExternalWallet, this));
   return RespondLater();
 }
 
-void BraveRewardsGetExternalWalletFunction::OnGetExternalWallet(
+void adrbrowsielRewardsGetExternalWalletFunction::OnGetExternalWallet(
     const ledger::type::Result result,
     ledger::type::ExternalWalletPtr wallet) {
   if (!wallet) {
@@ -1057,12 +1057,12 @@ void BraveRewardsGetExternalWalletFunction::OnGetExternalWallet(
   Respond(TwoArguments(base::Value(static_cast<int>(result)), std::move(data)));
 }
 
-BraveRewardsDisconnectWalletFunction::
-~BraveRewardsDisconnectWalletFunction() {
+adrbrowsielRewardsDisconnectWalletFunction::
+~adrbrowsielRewardsDisconnectWalletFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsDisconnectWalletFunction::Run() {
+adrbrowsielRewardsDisconnectWalletFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -1074,12 +1074,12 @@ BraveRewardsDisconnectWalletFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-BraveRewardsOnlyAnonWalletFunction::
-~BraveRewardsOnlyAnonWalletFunction() {
+adrbrowsielRewardsOnlyAnonWalletFunction::
+~adrbrowsielRewardsOnlyAnonWalletFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsOnlyAnonWalletFunction::Run() {
+adrbrowsielRewardsOnlyAnonWalletFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -1091,12 +1091,12 @@ BraveRewardsOnlyAnonWalletFunction::Run() {
   return RespondNow(OneArgument(base::Value(only)));
 }
 
-BraveRewardsGetAdsEnabledFunction::
-~BraveRewardsGetAdsEnabledFunction() {
+adrbrowsielRewardsGetAdsEnabledFunction::
+~adrbrowsielRewardsGetAdsEnabledFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetAdsEnabledFunction::Run() {
+adrbrowsielRewardsGetAdsEnabledFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   AdsService* ads_service =
       AdsServiceFactory::GetForProfile(profile);
@@ -1109,11 +1109,11 @@ BraveRewardsGetAdsEnabledFunction::Run() {
   return RespondNow(OneArgument(base::Value(enabled)));
 }
 
-BraveRewardsGetAdsAccountStatementFunction::
-    ~BraveRewardsGetAdsAccountStatementFunction() {}
+adrbrowsielRewardsGetAdsAccountStatementFunction::
+    ~adrbrowsielRewardsGetAdsAccountStatementFunction() {}
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetAdsAccountStatementFunction::Run() {
+adrbrowsielRewardsGetAdsAccountStatementFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   AdsService* ads_service =
       AdsServiceFactory::GetForProfile(profile);
@@ -1125,12 +1125,12 @@ BraveRewardsGetAdsAccountStatementFunction::Run() {
   AddRef();  // Balanced in OnGetAdsAccountStatement().
 
   ads_service->GetAccountStatement(base::BindOnce(
-      &BraveRewardsGetAdsAccountStatementFunction::OnGetAdsAccountStatement,
+      &adrbrowsielRewardsGetAdsAccountStatementFunction::OnGetAdsAccountStatement,
       this));
   return RespondLater();
 }
 
-void BraveRewardsGetAdsAccountStatementFunction::OnGetAdsAccountStatement(
+void adrbrowsielRewardsGetAdsAccountStatementFunction::OnGetAdsAccountStatement(
     const bool success,
     const double estimated_pending_rewards,
     const int64_t next_payment_date,
@@ -1156,12 +1156,12 @@ void BraveRewardsGetAdsAccountStatementFunction::OnGetAdsAccountStatement(
   Release();  // Balanced in Run()
 }
 
-BraveRewardsGetAdsSupportedFunction::
-~BraveRewardsGetAdsSupportedFunction() {
+adrbrowsielRewardsGetAdsSupportedFunction::
+~adrbrowsielRewardsGetAdsSupportedFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetAdsSupportedFunction::Run() {
+adrbrowsielRewardsGetAdsSupportedFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   AdsService* ads_service =
       AdsServiceFactory::GetForProfile(profile);
@@ -1174,11 +1174,11 @@ BraveRewardsGetAdsSupportedFunction::Run() {
   return RespondNow(OneArgument(base::Value(supported)));
 }
 
-BraveRewardsGetAnonWalletStatusFunction::
-~BraveRewardsGetAnonWalletStatusFunction() = default;
+adrbrowsielRewardsGetAnonWalletStatusFunction::
+~adrbrowsielRewardsGetAnonWalletStatusFunction() = default;
 
 ExtensionFunction::ResponseAction
-BraveRewardsGetAnonWalletStatusFunction::Run() {
+adrbrowsielRewardsGetAnonWalletStatusFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   RewardsService* rewards_service =
     RewardsServiceFactory::GetForProfile(profile);
@@ -1188,32 +1188,32 @@ BraveRewardsGetAnonWalletStatusFunction::Run() {
   }
 
   rewards_service->GetAnonWalletStatus(base::Bind(
-        &BraveRewardsGetAnonWalletStatusFunction::OnGetAnonWalletStatus,
+        &adrbrowsielRewardsGetAnonWalletStatusFunction::OnGetAnonWalletStatus,
         this));
   return RespondLater();
 }
 
-void BraveRewardsGetAnonWalletStatusFunction::OnGetAnonWalletStatus(
+void adrbrowsielRewardsGetAnonWalletStatusFunction::OnGetAnonWalletStatus(
     const ledger::type::Result result) {
   Respond(OneArgument(base::Value(static_cast<int>(result))));
 }
 
-BraveRewardsIsInitializedFunction::
-~BraveRewardsIsInitializedFunction() = default;
+adrbrowsielRewardsIsInitializedFunction::
+~adrbrowsielRewardsIsInitializedFunction() = default;
 
 ExtensionFunction::ResponseAction
-BraveRewardsIsInitializedFunction::Run() {
+adrbrowsielRewardsIsInitializedFunction::Run() {
   auto* profile = Profile::FromBrowserContext(browser_context());
   auto* rewards_service = RewardsServiceFactory::GetForProfile(profile);
   return RespondNow(OneArgument(
       base::Value(rewards_service && rewards_service->IsInitialized())));
 }
 
-BraveRewardsShouldShowOnboardingFunction::
-~BraveRewardsShouldShowOnboardingFunction() = default;
+adrbrowsielRewardsShouldShowOnboardingFunction::
+~adrbrowsielRewardsShouldShowOnboardingFunction() = default;
 
 ExtensionFunction::ResponseAction
-BraveRewardsShouldShowOnboardingFunction::Run() {
+adrbrowsielRewardsShouldShowOnboardingFunction::Run() {
   Profile* profile = Profile::FromBrowserContext(browser_context());
   auto* rewards_service = RewardsServiceFactory::GetForProfile(profile);
   if (!rewards_service) {
@@ -1224,10 +1224,10 @@ BraveRewardsShouldShowOnboardingFunction::Run() {
   return RespondNow(OneArgument(base::Value(should_show)));
 }
 
-BraveRewardsEnableRewardsFunction::~BraveRewardsEnableRewardsFunction() =
+adrbrowsielRewardsEnableRewardsFunction::~adrbrowsielRewardsEnableRewardsFunction() =
     default;
 
-ExtensionFunction::ResponseAction BraveRewardsEnableRewardsFunction::Run() {
+ExtensionFunction::ResponseAction adrbrowsielRewardsEnableRewardsFunction::Run() {
   auto* profile = Profile::FromBrowserContext(browser_context());
   auto* rewards_service = RewardsServiceFactory::GetForProfile(profile);
   if (!rewards_service)
@@ -1237,9 +1237,9 @@ ExtensionFunction::ResponseAction BraveRewardsEnableRewardsFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-BraveRewardsGetPrefsFunction::~BraveRewardsGetPrefsFunction() = default;
+adrbrowsielRewardsGetPrefsFunction::~adrbrowsielRewardsGetPrefsFunction() = default;
 
-ExtensionFunction::ResponseAction BraveRewardsGetPrefsFunction::Run() {
+ExtensionFunction::ResponseAction adrbrowsielRewardsGetPrefsFunction::Run() {
   auto* rewards_service = RewardsServiceFactory::GetForProfile(
       Profile::FromBrowserContext(browser_context()));
 
@@ -1247,13 +1247,13 @@ ExtensionFunction::ResponseAction BraveRewardsGetPrefsFunction::Run() {
     return RespondNow(Error("Rewards service is not initialized"));
 
   rewards_service->GetAutoContributeProperties(base::BindRepeating(
-      &BraveRewardsGetPrefsFunction::GetAutoContributePropertiesCallback,
+      &adrbrowsielRewardsGetPrefsFunction::GetAutoContributePropertiesCallback,
       this));
 
   return RespondLater();
 }
 
-void BraveRewardsGetPrefsFunction::GetAutoContributePropertiesCallback(
+void adrbrowsielRewardsGetPrefsFunction::GetAutoContributePropertiesCallback(
     ledger::type::AutoContributePropertiesPtr properties) {
   base::Value prefs(base::Value::Type::DICTIONARY);
   prefs.SetBoolKey("autoContributeEnabled", properties->enabled_contribute);
@@ -1274,10 +1274,10 @@ void BraveRewardsGetPrefsFunction::GetAutoContributePropertiesCallback(
   Respond(OneArgument(std::move(prefs)));
 }
 
-BraveRewardsUpdatePrefsFunction::~BraveRewardsUpdatePrefsFunction() = default;
+adrbrowsielRewardsUpdatePrefsFunction::~adrbrowsielRewardsUpdatePrefsFunction() = default;
 
-ExtensionFunction::ResponseAction BraveRewardsUpdatePrefsFunction::Run() {
-  auto params = brave_rewards::UpdatePrefs::Params::Create(*args_);
+ExtensionFunction::ResponseAction adrbrowsielRewardsUpdatePrefsFunction::Run() {
+  auto params = adrbrowsiel_rewards::UpdatePrefs::Params::Create(*args_);
   EXTENSION_FUNCTION_VALIDATE(params);
 
   auto* profile = Profile::FromBrowserContext(browser_context());

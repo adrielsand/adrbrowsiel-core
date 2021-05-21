@@ -6,7 +6,7 @@ index 59c674cc6498b13f09c88912f7f221373ae5826d..ad93ff9655b2726d1af73ce820ce051c
        "//chromeos/system",
      ]
    }
-+  sources += brave_components_sync_device_info_sources deps += brave_components_sync_device_info_deps
++  sources += adrbrowsiel_components_sync_device_info_sources deps += adrbrowsiel_components_sync_device_info_deps
  }
  
  static_library("test_support") {

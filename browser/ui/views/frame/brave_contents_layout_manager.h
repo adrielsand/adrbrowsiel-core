@@ -1,21 +1,21 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_FRAME_BRAVE_CONTENTS_LAYOUT_MANAGER_H_
-#define BRAVE_BROWSER_UI_VIEWS_FRAME_BRAVE_CONTENTS_LAYOUT_MANAGER_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_FRAME_adrbrowsiel_CONTENTS_LAYOUT_MANAGER_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_FRAME_adrbrowsiel_CONTENTS_LAYOUT_MANAGER_H_
 
 #include "ui/views/layout/layout_manager.h"
 
-class BraveContentsLayoutManager : public views::LayoutManager {
+class adrbrowsielContentsLayoutManager : public views::LayoutManager {
  public:
-  BraveContentsLayoutManager(views::View* sidebar_container_view,
+  adrbrowsielContentsLayoutManager(views::View* sidebar_container_view,
                              views::View* contents_container_view);
-  ~BraveContentsLayoutManager() override;
+  ~adrbrowsielContentsLayoutManager() override;
 
-  BraveContentsLayoutManager(const BraveContentsLayoutManager&) = delete;
-  BraveContentsLayoutManager operator=(const BraveContentsLayoutManager&) =
+  adrbrowsielContentsLayoutManager(const adrbrowsielContentsLayoutManager&) = delete;
+  adrbrowsielContentsLayoutManager operator=(const adrbrowsielContentsLayoutManager&) =
       delete;
 
   // views::LayoutManager overrides:
@@ -31,4 +31,4 @@ class BraveContentsLayoutManager : public views::LayoutManager {
   views::View* host_ = nullptr;
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_FRAME_BRAVE_CONTENTS_LAYOUT_MANAGER_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_FRAME_adrbrowsiel_CONTENTS_LAYOUT_MANAGER_H_

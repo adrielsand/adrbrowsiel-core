@@ -7,7 +7,7 @@
 #include "base/mac/foundation_util.h"
 #include "base/strings/sys_string_conversions.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/sparkle_buildflags.h"
+#include "adrbrowsiel/browser/sparkle_buildflags.h"
 #include "chrome/browser/mac/keystone_glue.h"
 #include "chrome/browser/obsolete_system/obsolete_system.h"
 #include "chrome/grit/chromium_strings.h"
@@ -16,7 +16,7 @@
 #include "ui/base/l10n/l10n_util.h"
 
 #if BUILDFLAG(ENABLE_SPARKLE)
-#import "brave/browser/mac/sparkle_glue.h"
+#import "adrbrowsiel/browser/mac/sparkle_glue.h"
 #endif
 
 // KeystoneObserver is a simple notification observer for Keystone status

@@ -1,22 +1,22 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/sidebar/sidebar_control_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_control_view.h"
 
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/browser/themes/theme_properties.h"
-#include "brave/browser/ui/brave_browser.h"
-#include "brave/browser/ui/sidebar/sidebar_controller.h"
-#include "brave/browser/ui/sidebar/sidebar_service_factory.h"
-#include "brave/browser/ui/sidebar/sidebar_utils.h"
-#include "brave/browser/ui/views/sidebar/sidebar_button_view.h"
-#include "brave/browser/ui/views/sidebar/sidebar_item_add_button.h"
-#include "brave/browser/ui/views/sidebar/sidebar_items_scroll_view.h"
-#include "brave/components/sidebar/sidebar_service.h"
-#include "brave/grit/brave_generated_resources.h"
-#include "brave/grit/brave_theme_resources.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_controller.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_service_factory.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_utils.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_button_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_item_add_button.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_items_scroll_view.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
+#include "adrbrowsiel/grit/adrbrowsiel_theme_resources.h"
 #include "chrome/common/webui_url_constants.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/base/resource/resource_bundle.h"
@@ -50,7 +50,7 @@ class ControlViewMenuModel : public ui::SimpleMenuModel {
 
 }  // namespace
 
-SidebarControlView::SidebarControlView(BraveBrowser* browser)
+SidebarControlView::SidebarControlView(adrbrowsielBrowser* browser)
     : browser_(browser) {
   set_context_menu_controller(this);
 
@@ -117,10 +117,10 @@ void SidebarControlView::UpdateBackgroundAndBorder() {
   if (const ui::ThemeProvider* theme_provider = GetThemeProvider()) {
     constexpr int kBorderThickness = 1;
     SetBackground(views::CreateSolidBackground(theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_BACKGROUND)));
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_BACKGROUND)));
     SetBorder(views::CreateSolidSidedBorder(
         0, 0, 0, kBorderThickness,
-        theme_provider->GetColor(BraveThemeProperties::COLOR_SIDEBAR_BORDER)));
+        theme_provider->GetColor(adrbrowsielThemeProperties::COLOR_SIDEBAR_BORDER)));
   }
 }
 
@@ -217,9 +217,9 @@ void SidebarControlView::UpdateItemAddButtonState() {
   SkColor button_disabled_color = SK_ColorWHITE;
   if (const ui::ThemeProvider* theme_provider = GetThemeProvider()) {
     button_base_color = theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_BUTTON_BASE);
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_BUTTON_BASE);
     button_disabled_color = theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_ADD_BUTTON_DISABLED);
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_ADD_BUTTON_DISABLED);
   }
 
   // Update add button image based on enabled state.
@@ -255,7 +255,7 @@ void SidebarControlView::UpdateSettingsButtonState() {
         gfx::CreateVectorIcon(
             kSidebarSettingsIcon,
             theme_provider->GetColor(
-                BraveThemeProperties::COLOR_SIDEBAR_BUTTON_BASE)));
+                adrbrowsielThemeProperties::COLOR_SIDEBAR_BUTTON_BASE)));
     auto& bundle = ui::ResourceBundle::GetSharedInstance();
     sidebar_settings_view_->SetImage(
         views::Button::STATE_HOVERED,

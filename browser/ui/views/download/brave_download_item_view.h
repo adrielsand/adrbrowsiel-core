@@ -1,21 +1,21 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_DOWNLOAD_BRAVE_DOWNLOAD_ITEM_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_DOWNLOAD_BRAVE_DOWNLOAD_ITEM_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_DOWNLOAD_adrbrowsiel_DOWNLOAD_ITEM_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_DOWNLOAD_adrbrowsiel_DOWNLOAD_ITEM_VIEW_H_
 
-#include "brave/browser/download/brave_download_item_model.h"
+#include "adrbrowsiel/browser/download/adrbrowsiel_download_item_model.h"
 #include "chrome/browser/ui/views/download/download_item_view.h"
 
 // The purpose of this subclass is to add URL origin and lock icon to the
 // download item view (shown in the download shelf).
-class BraveDownloadItemView : public DownloadItemView {
+class adrbrowsielDownloadItemView : public DownloadItemView {
  public:
-  BraveDownloadItemView(DownloadUIModel::DownloadUIModelPtr download,
+  adrbrowsielDownloadItemView(DownloadUIModel::DownloadUIModelPtr download,
       DownloadShelfView* parent, views::View* accessible_alert);
-  ~BraveDownloadItemView() override;
+  ~adrbrowsielDownloadItemView() override;
 
   // views::View:
   void Layout() override;
@@ -33,7 +33,7 @@ class BraveDownloadItemView : public DownloadItemView {
   static constexpr int kOriginURLIconRightPadding = 2;
 
   // Vertical padding between text lines.
-  static constexpr int kBraveVerticalTextPadding = 3;
+  static constexpr int kadrbrowsielVerticalTextPadding = 3;
 
   // These functions calculate the vertical coordinates for each text line.
   int GetYForFilenameText() const;
@@ -50,8 +50,8 @@ class BraveDownloadItemView : public DownloadItemView {
   // Overrides the accessible name construction to reflect the origin URL.
   void SetMode(Mode mode) override;
 
-  // Brave download item model.
-  BraveDownloadItemModel brave_model_;
+  // adrbrowsiel download item model.
+  adrbrowsielDownloadItemModel adrbrowsiel_model_;
 
   // The font list used to draw the origin URL text.
   gfx::FontList origin_url_font_list_;
@@ -60,7 +60,7 @@ class BraveDownloadItemView : public DownloadItemView {
   std::u16string origin_url_text_;
   bool is_origin_url_secure_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveDownloadItemView);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielDownloadItemView);
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_DOWNLOAD_BRAVE_DOWNLOAD_ITEM_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_DOWNLOAD_adrbrowsiel_DOWNLOAD_ITEM_VIEW_H_

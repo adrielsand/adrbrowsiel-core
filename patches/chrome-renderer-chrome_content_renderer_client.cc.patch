@@ -7,7 +7,7 @@ index ceb29f83a9dc17218830f401d472fef5835b67e5..738abe1611014f807b90231699bb2924
  #endif
    content_settings::ContentSettingsAgentImpl* content_settings =
 -      new content_settings::ContentSettingsAgentImpl(
-+      new content_settings::BraveContentSettingsAgentImpl(
++      new content_settings::adrbrowsielContentSettingsAgentImpl(
            render_frame, should_whitelist_for_content_settings,
            std::move(content_settings_delegate));
    if (chrome_observer_.get()) {

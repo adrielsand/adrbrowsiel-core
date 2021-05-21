@@ -1,12 +1,12 @@
 import("//third_party/widevine/cdm/widevine.gni")
 
 source_set("widevine") {
-  # Remove when https://github.com/brave/brave-browser/issues/10644 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10644 is resolved
   check_includes = false
   deps = [
     "//base",
-    "//brave/app:brave_generated_resources_grit",
-    "//brave/common:pref_names",
+    "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+    "//adrbrowsiel/common:pref_names",
     "//chrome/common",
     "//components/component_updater/",
     "//components/content_settings/core/common",
@@ -55,9 +55,9 @@ source_set("browser_tests") {
     deps = [
       ":widevine",
       "//base",
-      "//brave/browser",
-      "//brave/common",
-      "//brave/common:pref_names",
+      "//adrbrowsiel/browser",
+      "//adrbrowsiel/common",
+      "//adrbrowsiel/common:pref_names",
       "//chrome/browser",
       "//chrome/browser:browser_process",
       "//chrome/browser/profiles:profile",

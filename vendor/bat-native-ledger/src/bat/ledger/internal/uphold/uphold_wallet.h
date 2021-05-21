@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_UPHOLD_UPHOLD_WALLET_H_
-#define BRAVELEDGER_UPHOLD_UPHOLD_WALLET_H_
+#ifndef adrbrowsielLEDGER_UPHOLD_UPHOLD_WALLET_H_
+#define adrbrowsielLEDGER_UPHOLD_UPHOLD_WALLET_H_
 
 #include <string>
 
@@ -43,4 +43,4 @@ class UpholdWallet {
 
 }  // namespace uphold
 }  // namespace ledger
-#endif  // BRAVELEDGER_UPHOLD_UPHOLD_WALLET_H_
+#endif  // adrbrowsielLEDGER_UPHOLD_UPHOLD_WALLET_H_

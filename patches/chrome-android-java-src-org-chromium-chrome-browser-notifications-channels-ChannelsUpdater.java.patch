@@ -7,7 +7,7 @@ index 245275bc2884870b34bfa7b174fd7fed2dc40184..e1b2e04b535eae147fd7d14d9463d0c1
                  INSTANCE = new ChannelsUpdater(true /* isAtLeastO */,
                          SharedPreferencesManager.getInstance(),
 -                        new ChannelsInitializer(new NotificationManagerProxyImpl(
-+                        new ChannelsInitializer(new org.chromium.chrome.browser.notifications.BraveNotificationManagerProxyImpl(
++                        new ChannelsInitializer(new org.chromium.chrome.browser.notifications.adrbrowsielNotificationManagerProxyImpl(
                                                          ContextUtils.getApplicationContext()),
                                  ChromeChannelDefinitions.getInstance(),
                                  ContextUtils.getApplicationContext().getResources()),

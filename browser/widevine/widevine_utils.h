@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_WIDEVINE_WIDEVINE_UTILS_H_
-#define BRAVE_BROWSER_WIDEVINE_WIDEVINE_UTILS_H_
+#ifndef adrbrowsiel_BROWSER_WIDEVINE_WIDEVINE_UTILS_H_
+#define adrbrowsiel_BROWSER_WIDEVINE_WIDEVINE_UTILS_H_
 
 #include <string>
 
@@ -35,4 +35,4 @@ void SetWidevineOptedIn(bool opted_in);
 void MigrateWidevinePrefs(Profile* profile);
 void MigrateObsoleteWidevineLocalStatePrefs(PrefService* local_state);
 
-#endif  // BRAVE_BROWSER_WIDEVINE_WIDEVINE_UTILS_H_
+#endif  // adrbrowsiel_BROWSER_WIDEVINE_WIDEVINE_UTILS_H_

@@ -6,7 +6,7 @@ index 4b3083a2c1b9372980fc50fac76d58279762a289..39343d8f02f01fb3d4f02b9cc8013a64
    bool GetURLAndTitleForItemAtIndex(int index,
                                      std::string* url,
                                      std::u16string* title);
-+  BRAVE_RECENT_TABS_SUB_MENU_MODEL_H_
++  adrbrowsiel_RECENT_TABS_SUB_MENU_MODEL_H_
  
   private:
    struct TabNavigationItem;

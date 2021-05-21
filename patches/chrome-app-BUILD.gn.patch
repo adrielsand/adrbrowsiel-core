@@ -7,7 +7,7 @@ index d0b9cdc19631c206bb1777fc8b8ae609d0fc5f5b..b93f9c491bef8580e6bf4897669b9238
      outputs += android_generated_java_resources
    }
 +
-+  deps = [ "//brave/app:brave_generated_resources_grit" ]
++  deps = [ "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit" ]
  }
  
  if (is_android) {

@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.preference.PreferenceFragmentCompat;
 
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
 import org.chromium.components.browser_ui.settings.SettingsUtils;
 
 public class UnstoppableDomainsSettingsFragment extends PreferenceFragmentCompat {
@@ -29,12 +29,12 @@ public class UnstoppableDomainsSettingsFragment extends PreferenceFragmentCompat
                                 PREF_UNSTOPPABLE_DOMAINS_RESOLVE_METHOD);
 
         radioButtonGroupUnstoppableDomainsResolveMethodPreference.initialize(
-                BravePrefServiceBridge.getInstance().getUnstoppableDomainsResolveMethod());
+                adrbrowsielPrefServiceBridge.getInstance().getUnstoppableDomainsResolveMethod());
 
         radioButtonGroupUnstoppableDomainsResolveMethodPreference.setOnPreferenceChangeListener(
                 (preference, newValue) -> {
                     int method = (int) newValue;
-                    BravePrefServiceBridge.getInstance().setUnstoppableDomainsResolveMethod(method);
+                    adrbrowsielPrefServiceBridge.getInstance().setUnstoppableDomainsResolveMethod(method);
                     return true;
                 });
     }

@@ -6,7 +6,7 @@ index 8fc934acfddeb4f4c9551dbc1ccac75f6397a4fd..f007b861b7c59a7c97b19df7751f83fc
    ]
  }
  
-+packaging_files_executables -= excluded_packaging_files_executables packaging_files_executables += brave_packaging_files_executables
++packaging_files_executables -= excluded_packaging_files_executables packaging_files_executables += adrbrowsiel_packaging_files_executables
 +
  packaging_files_binaries = packaging_files_executables + packaging_files_shlibs
  
@@ -15,7 +15,7 @@ index 8fc934acfddeb4f4c9551dbc1ccac75f6397a4fd..f007b861b7c59a7c97b19df7751f83fc
    binary_input = "$root_out_dir/chrome"
    symbol_output = "$root_out_dir/chrome.debug"
    stripped_binary_output = "$root_out_dir/chrome.stripped"
-+  binary_input = "$root_out_dir/brave" symbol_output = "$root_out_dir/brave.debug" stripped_binary_output = "$root_out_dir/brave.stripped"
++  binary_input = "$root_out_dir/adrbrowsiel" symbol_output = "$root_out_dir/adrbrowsiel.debug" stripped_binary_output = "$root_out_dir/adrbrowsiel.stripped"
    deps = [ "//chrome" ]
 +  deps += strip_chrome_binary_deps
  }
@@ -33,7 +33,7 @@ index 8fc934acfddeb4f4c9551dbc1ccac75f6397a4fd..f007b861b7c59a7c97b19df7751f83fc
      "//sandbox/linux:chrome_sandbox",
      "//third_party/crashpad/crashpad/handler:crashpad_handler",
    ]
-+  public_deps += brave_installer_deps
++  public_deps += adrbrowsiel_installer_deps
    if (enable_nacl) {
      public_deps += [
        "//components/nacl/loader:nacl_helper",

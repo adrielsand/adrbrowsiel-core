@@ -1,4 +1,4 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -6,9 +6,9 @@
 #include <string>
 
 #include "base/test/scoped_feature_list.h"
-#include "brave/browser/ui/webui/brave_wallet/wallet_panel_ui.h"
-#include "brave/common/webui_url_constants.h"
-#include "brave/components/brave_wallet/common/features.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_wallet/wallet_panel_ui.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/features.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_tabstrip.h"
@@ -21,7 +21,7 @@ class WalletPanelUIBrowserTest : public InProcessBrowserTest {
  public:
   void SetUp() override {
     feature_list_.InitAndEnableFeature(
-        brave_wallet::features::kNativeBraveWalletFeature);
+        adrbrowsiel_wallet::features::kNativeadrbrowsielWalletFeature);
     InProcessBrowserTest::SetUp();
   }
 
@@ -31,7 +31,7 @@ class WalletPanelUIBrowserTest : public InProcessBrowserTest {
 
     webui_contents_->GetController().LoadURLWithParams(
         content::NavigationController::LoadURLParams(
-            GURL(kBraveUIWalletPanelURL)));
+            GURL(kadrbrowsielUIWalletPanelURL)));
 
     // Finish loading after initializing.
     ASSERT_TRUE(content::WaitForLoadStop(webui_contents_.get()));

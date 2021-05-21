@@ -6,7 +6,7 @@ index cdf4406a57c01010f065948d04f9c7a2219db82f..703af55d0a81da6195962f141a9beb5d
        "chrome://resources/mojo/mojo/public/js/bindings.js",
        "chrome://resources/mojo/skia/public/mojom/skcolor.mojom-webui.js",
      ]
-+    deps += brave_deps_chrome_browser_resources_settings_build
++    deps += adrbrowsiel_deps_chrome_browser_resources_settings_build
    }
  }
  
@@ -14,7 +14,7 @@ index cdf4406a57c01010f065948d04f9c7a2219db82f..703af55d0a81da6195962f141a9beb5d
        "$target_gen_dir/$preprocess_gen_manifest",
      ]
    }
-+  deps += [ "//brave/browser/resources/settings:resources" ]
++  deps += [ "//adrbrowsiel/browser/resources/settings:resources" ]
  }
  
  preprocess_if_expr("preprocess") {

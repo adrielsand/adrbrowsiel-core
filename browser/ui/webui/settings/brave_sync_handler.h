@@ -1,10 +1,10 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_SYNC_HANDLER_H_
-#define BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_SYNC_HANDLER_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_SYNC_HANDLER_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_SYNC_HANDLER_H_
 
 #include "base/memory/weak_ptr.h"
 #include "base/scoped_observer.h"
@@ -16,15 +16,15 @@
 namespace syncer {
 class DeviceInfoTracker;
 class LocalDeviceInfoProvider;
-class BraveProfileSyncService;
+class adrbrowsielProfileSyncService;
 }  // namespace syncer
 class Profile;
 
-class BraveSyncHandler : public settings::SettingsPageUIHandler,
+class adrbrowsielSyncHandler : public settings::SettingsPageUIHandler,
                          public syncer::DeviceInfoTracker::Observer {
  public:
-  BraveSyncHandler();
-  ~BraveSyncHandler() override;
+  adrbrowsielSyncHandler();
+  ~adrbrowsielSyncHandler() override;
 
   // syncer::DeviceInfoTracker::Observer
   void OnDeviceInfoChange() override;
@@ -46,7 +46,7 @@ class BraveSyncHandler : public settings::SettingsPageUIHandler,
   void OnResetDone(base::Value callback_id);
 
   base::Value GetSyncDeviceList();
-  syncer::BraveProfileSyncService* GetSyncService() const;
+  syncer::adrbrowsielProfileSyncService* GetSyncService() const;
   syncer::DeviceInfoTracker* GetDeviceInfoTracker() const;
   syncer::LocalDeviceInfoProvider* GetLocalDeviceInfoProvider() const;
 
@@ -65,9 +65,9 @@ class BraveSyncHandler : public settings::SettingsPageUIHandler,
   ScopedObserver<syncer::DeviceInfoTracker, syncer::DeviceInfoTracker::Observer>
       device_info_tracker_observer_{this};
 
-  base::WeakPtrFactory<BraveSyncHandler> weak_ptr_factory_;
+  base::WeakPtrFactory<adrbrowsielSyncHandler> weak_ptr_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveSyncHandler);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielSyncHandler);
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_SYNC_HANDLER_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_SYNC_HANDLER_H_

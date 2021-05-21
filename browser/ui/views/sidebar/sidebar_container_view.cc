@@ -1,19 +1,19 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/sidebar/sidebar_container_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_container_view.h"
 
 #include "base/bind.h"
-#include "brave/browser/themes/theme_properties.h"
-#include "brave/browser/ui/brave_browser.h"
-#include "brave/browser/ui/sidebar/sidebar_controller.h"
-#include "brave/browser/ui/sidebar/sidebar_model.h"
-#include "brave/browser/ui/sidebar/sidebar_model_data.h"
-#include "brave/browser/ui/sidebar/sidebar_service_factory.h"
-#include "brave/browser/ui/views/frame/brave_browser_view.h"
-#include "brave/browser/ui/views/sidebar/sidebar_control_view.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_controller.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model_data.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_service_factory.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_browser_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_control_view.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser_window.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
@@ -32,7 +32,7 @@ namespace {
 
 using ShowSidebarOption = sidebar::SidebarService::ShowSidebarOption;
 
-sidebar::SidebarService* GetSidebarService(BraveBrowser* browser) {
+sidebar::SidebarService* GetSidebarService(adrbrowsielBrowser* browser) {
   return sidebar::SidebarServiceFactory::GetForProfile(browser->profile());
 }
 
@@ -71,7 +71,7 @@ class SidebarContainerView::BrowserWindowEventObserver
   SidebarContainerView* host_ = nullptr;
 };
 
-SidebarContainerView::SidebarContainerView(BraveBrowser* browser)
+SidebarContainerView::SidebarContainerView(adrbrowsielBrowser* browser)
     : browser_(browser),
       browser_window_event_observer_(
           std::make_unique<BrowserWindowEventObserver>(this)) {
@@ -118,7 +118,7 @@ void SidebarContainerView::UpdateBackgroundAndBorder() {
     SetBorder(views::CreateSolidSidedBorder(
         0, 0, 0, kBorderThickness,
         theme_provider->GetColor(
-            BraveThemeProperties::COLOR_SIDEBAR_PANEL_BORDER)));
+            adrbrowsielThemeProperties::COLOR_SIDEBAR_PANEL_BORDER)));
   }
 }
 
@@ -218,7 +218,7 @@ SidebarShowOptionsEventDetectWidget*
 SidebarContainerView::GetEventDetectWidget() {
   if (!show_options_widget_) {
     show_options_widget_.reset(new SidebarShowOptionsEventDetectWidget(
-        static_cast<BraveBrowserView*>(
+        static_cast<adrbrowsielBrowserView*>(
             BrowserView::GetBrowserViewForBrowser(browser_)),
         this));
   }

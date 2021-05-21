@@ -1,17 +1,17 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/new_tab/new_tab_shows_options.h"
+#include "adrbrowsiel/browser/new_tab/new_tab_shows_options.h"
 
 #include <utility>
 
 #include "base/values.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/common/pref_names.h"
-#include "brave/common/webui_url_constants.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/webui/ntp/new_tab_ui.h"
 #include "chrome/common/pref_names.h"
@@ -20,12 +20,12 @@
 #include "ui/base/l10n/l10n_util.h"
 #include "url/url_constants.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 GURL GetNewTabPageURL(Profile* profile) {
   DCHECK(profile);
 
-  if (!brave::IsRegularProfile(profile))
+  if (!adrbrowsiel::IsRegularProfile(profile))
     return GURL();
 
   auto* prefs = profile->GetPrefs();
@@ -100,11 +100,11 @@ bool ShouldNewTabShowDashboard(Profile* profile) {
 }
 
 bool ShouldNewTabShowBlankpage(Profile* profile) {
-  if (!brave::IsRegularProfile(profile))
+  if (!adrbrowsiel::IsRegularProfile(profile))
     return false;
 
   return profile->GetPrefs()->GetInteger(kNewTabPageShowsOptions) ==
-      static_cast<int>(brave::NewTabPageShowsOptions::kBlankpage);
+      static_cast<int>(adrbrowsiel::NewTabPageShowsOptions::kBlankpage);
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

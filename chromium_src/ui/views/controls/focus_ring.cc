@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -13,7 +13,7 @@
 // Override the Focus Ring's color.
 // In Chromium, this is specified via platform-specfic native theme,
 // using kColorId_FocusedBorderColor. However, only macOS Light native theme
-// overrides this. Since we do not have a Brave version of either
+// overrides this. Since we do not have a adrbrowsiel version of either
 // platform-specific, or common versions, and we only want to override a single
 // color, we use this micro-theme for the FocusRingView.
 namespace {

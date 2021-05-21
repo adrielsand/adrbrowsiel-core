@@ -1,14 +1,14 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_BRAVE_ADS_AD_NOTIFICATION_DELEGATE_H_
-#define BRAVE_BROWSER_UI_BRAVE_ADS_AD_NOTIFICATION_DELEGATE_H_
+#ifndef adrbrowsiel_BROWSER_UI_adrbrowsiel_ADS_AD_NOTIFICATION_DELEGATE_H_
+#define adrbrowsiel_BROWSER_UI_adrbrowsiel_ADS_AD_NOTIFICATION_DELEGATE_H_
 
 #include "base/memory/ref_counted.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 class NotificationObserver {
  public:
@@ -24,7 +24,7 @@ class NotificationObserver {
 };
 
 // Ref counted version of NotificationObserver, required to satisfy
-// brave_ads::AdNotification::delegate_
+// adrbrowsiel_ads::AdNotification::delegate_
 class AdNotificationDelegate
     : public NotificationObserver,
       public base::RefCountedThreadSafe<AdNotificationDelegate> {
@@ -35,6 +35,6 @@ class AdNotificationDelegate
   friend class base::RefCountedThreadSafe<AdNotificationDelegate>;
 };
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_BROWSER_UI_BRAVE_ADS_AD_NOTIFICATION_DELEGATE_H_
+#endif  // adrbrowsiel_BROWSER_UI_adrbrowsiel_ADS_AD_NOTIFICATION_DELEGATE_H_

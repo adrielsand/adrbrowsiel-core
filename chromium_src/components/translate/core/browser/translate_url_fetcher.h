@@ -1,14 +1,14 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_CHROMIUM_SRC_COMPONENTS_TRANSLATE_CORE_BROWSER_TRANSLATE_URL_FETCHER_H_
-#define BRAVE_CHROMIUM_SRC_COMPONENTS_TRANSLATE_CORE_BROWSER_TRANSLATE_URL_FETCHER_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_COMPONENTS_TRANSLATE_CORE_BROWSER_TRANSLATE_URL_FETCHER_H_
+#define adrbrowsiel_CHROMIUM_SRC_COMPONENTS_TRANSLATE_CORE_BROWSER_TRANSLATE_URL_FETCHER_H_
 
-#include "brave/browser/translate/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/translate/buildflags/buildflags.h"
 
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_GO)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_GO)
 #include "../../../../../../components/translate/core/browser/translate_url_fetcher.h"
 #else
 #include <memory>
@@ -67,4 +67,4 @@ class TranslateURLFetcher {
 }  // namespace translate
 #endif
 
-#endif  // BRAVE_CHROMIUM_SRC_COMPONENTS_TRANSLATE_CORE_BROWSER_TRANSLATE_URL_FETCHER_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_COMPONENTS_TRANSLATE_CORE_BROWSER_TRANSLATE_URL_FETCHER_H_

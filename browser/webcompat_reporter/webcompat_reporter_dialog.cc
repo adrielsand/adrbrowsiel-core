@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/webcompat_reporter/webcompat_reporter_dialog.h"
+#include "adrbrowsiel/browser/webcompat_reporter/webcompat_reporter_dialog.h"
 
 #include <memory>
 #include <string>
@@ -12,7 +12,7 @@
 
 #include "base/json/json_writer.h"
 #include "base/values.h"
-#include "brave/common/webui_url_constants.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
 #include "chrome/browser/ui/webui/constrained_web_dialog_ui.h"
 #include "content/public/browser/web_contents.h"
 #include "content/public/browser/web_ui_message_handler.h"
@@ -68,7 +68,7 @@ std::u16string WebcompatReporterDialogDelegate::GetDialogTitle() const {
 }
 
 GURL WebcompatReporterDialogDelegate::GetDialogContentURL() const {
-  return GURL(kBraveUIWebcompatReporterURL);
+  return GURL(kadrbrowsielUIWebcompatReporterURL);
 }
 
 void WebcompatReporterDialogDelegate::GetWebUIMessageHandlers(

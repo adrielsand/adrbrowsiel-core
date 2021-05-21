@@ -6,7 +6,7 @@ index 1aced6efa8d620af84bc517ee72e572e33b1cc75..d86b3dbbc2f5e9317c1c80de8b17c979
    const auto* location_bar_model = delegate_->GetLocationBarModel();
    const GURL& url = location_bar_model->GetURL();
    if (url.SchemeIs(content::kChromeUIScheme) ||
-+      BRAVE_SHOULD_SHOW_URL_IPFS_CHECK
++      adrbrowsiel_SHOULD_SHOW_URL_IPFS_CHECK
        url.SchemeIs(extensions::kExtensionScheme) ||
        url.SchemeIs(url::kFileScheme) ||
        url.SchemeIs(dom_distiller::kDomDistillerScheme)) {

@@ -1,51 +1,51 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BraveTabbedActivityClassAdapter extends BraveClassVisitor {
+public class adrbrowsielTabbedActivityClassAdapter extends adrbrowsielClassVisitor {
     static String sChromeTabbedActivityClassName =
             "org/chromium/chrome/browser/ChromeTabbedActivity";
-    static String sBraveActivityClassName = "org/chromium/chrome/browser/app/BraveActivity";
+    static String sadrbrowsielActivityClassName = "org/chromium/chrome/browser/app/adrbrowsielActivity";
     static String sTabbedRootUiCoordinatorClassName =
             "org/chromium/chrome/browser/tabbed_mode/TabbedRootUiCoordinator";
     static String sTabbedAppMenuPropertiesDelegateClassName =
             "org/chromium/chrome/browser/tabbed_mode/TabbedAppMenuPropertiesDelegate";
-    static String sBraveTabbedAppMenuPropertiesDelegateClassName =
-            "org/chromium/chrome/browser/appmenu/BraveTabbedAppMenuPropertiesDelegate";
+    static String sadrbrowsielTabbedAppMenuPropertiesDelegateClassName =
+            "org/chromium/chrome/browser/appmenu/adrbrowsielTabbedAppMenuPropertiesDelegate";
     static String sChromeTabCreatorClassName =
             "org/chromium/chrome/browser/tabmodel/ChromeTabCreator";
-    static String sBraveTabCreatorClassName =
-            "org/chromium/chrome/browser/tabmodel/BraveTabCreator";
+    static String sadrbrowsielTabCreatorClassName =
+            "org/chromium/chrome/browser/tabmodel/adrbrowsielTabCreator";
     static String sAppMenuPropertiesDelegateImplClassName =
             "org/chromium/chrome/browser/app/appmenu/AppMenuPropertiesDelegateImpl";
-    static String sBraveAppMenuPropertiesDelegateImplClassName =
-            "org/chromium/chrome/browser/app/appmenu/BraveAppMenuPropertiesDelegateImpl";
+    static String sadrbrowsielAppMenuPropertiesDelegateImplClassName =
+            "org/chromium/chrome/browser/app/appmenu/adrbrowsielAppMenuPropertiesDelegateImpl";
     static String sCustomTabAppMenuPropertiesDelegateClassName =
             "org/chromium/chrome/browser/customtabs/CustomTabAppMenuPropertiesDelegate";
 
-    public BraveTabbedActivityClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielTabbedActivityClassAdapter(ClassVisitor visitor) {
         super(visitor);
 
-        changeSuperName(sChromeTabbedActivityClassName, sBraveActivityClassName);
+        changeSuperName(sChromeTabbedActivityClassName, sadrbrowsielActivityClassName);
 
         changeSuperName(sTabbedAppMenuPropertiesDelegateClassName,
-                sBraveAppMenuPropertiesDelegateImplClassName);
+                sadrbrowsielAppMenuPropertiesDelegateImplClassName);
 
         changeSuperName(sCustomTabAppMenuPropertiesDelegateClassName,
-                sBraveAppMenuPropertiesDelegateImplClassName);
+                sadrbrowsielAppMenuPropertiesDelegateImplClassName);
 
         redirectConstructor(sTabbedAppMenuPropertiesDelegateClassName,
-                sBraveTabbedAppMenuPropertiesDelegateClassName);
+                sadrbrowsielTabbedAppMenuPropertiesDelegateClassName);
 
         redirectConstructor(sAppMenuPropertiesDelegateImplClassName,
-                sBraveAppMenuPropertiesDelegateImplClassName);
+                sadrbrowsielAppMenuPropertiesDelegateImplClassName);
 
-        redirectConstructor(sChromeTabCreatorClassName, sBraveTabCreatorClassName);
+        redirectConstructor(sChromeTabCreatorClassName, sadrbrowsielTabCreatorClassName);
 
         makePublicMethod(sChromeTabbedActivityClassName, "hideOverview");
     }

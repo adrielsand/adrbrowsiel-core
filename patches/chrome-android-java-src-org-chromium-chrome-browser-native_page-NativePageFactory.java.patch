@@ -7,7 +7,7 @@ index b575ce71467d85ea7c3684ce5c69b96224e9e985..3c3ee275bda4a3e0c639d8ab4070412d
              if (tab.isIncognito()) return new IncognitoNewTabPage(mActivity, nativePageHost);
  
 -            return new NewTabPage(mActivity, mActivity.getBrowserControlsManager(),
-+            return new org.chromium.chrome.browser.ntp.BraveNewTabPage(mActivity, mActivity.getBrowserControlsManager(),
++            return new org.chromium.chrome.browser.ntp.adrbrowsielNewTabPage(mActivity, mActivity.getBrowserControlsManager(),
                      mActivity.getActivityTabProvider(), mActivity.getSnackbarManager(),
                      mActivity.getLifecycleDispatcher(), mActivity.getTabModelSelector(),
                      mActivity.isTablet(), mUma.get(), ColorUtils.inNightMode(mActivity),

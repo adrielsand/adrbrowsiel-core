@@ -1,4 +1,4 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,7 +8,7 @@
 #include "base/macros.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/values.h"
-#include "brave/browser/renderer_context_menu/brave_mock_render_view_context_menu.h"
+#include "adrbrowsiel/browser/renderer_context_menu/adrbrowsiel_mock_render_view_context_menu.h"
 #include "chrome/app/chrome_command_ids.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -23,9 +23,9 @@ namespace {
 
 // A test class used in this file. This test should be a browser test because it
 // accesses resources.
-class BraveSpellingMenuObserverTest : public InProcessBrowserTest {
+class adrbrowsielSpellingMenuObserverTest : public InProcessBrowserTest {
  public:
-  BraveSpellingMenuObserverTest();
+  adrbrowsielSpellingMenuObserverTest();
 
   void SetUpOnMainThread() override {}
 
@@ -36,7 +36,7 @@ class BraveSpellingMenuObserverTest : public InProcessBrowserTest {
 
   void Reset(bool incognito = false) {
     observer_.reset();
-    menu_.reset(new BraveMockRenderViewContextMenu(
+    menu_.reset(new adrbrowsielMockRenderViewContextMenu(
         incognito ? browser()->profile()->GetPrimaryOTRProfile()
                   : browser()->profile()));
     observer_.reset(new SpellingMenuObserver(menu_.get()));
@@ -57,31 +57,31 @@ class BraveSpellingMenuObserverTest : public InProcessBrowserTest {
 
   void CheckExpected() {
     for (size_t i = 0; i < menu()->GetMenuSize(); ++i) {
-      BraveMockRenderViewContextMenu::MockMenuItem item;
+      adrbrowsielMockRenderViewContextMenu::MockMenuItem item;
       menu()->GetMenuItem(i, &item);
       EXPECT_NE(IDC_CONTENT_CONTEXT_SPELLING_TOGGLE, item.command_id);
     }
   }
 
-  ~BraveSpellingMenuObserverTest() override;
-  BraveMockRenderViewContextMenu* menu() { return menu_.get(); }
+  ~adrbrowsielSpellingMenuObserverTest() override;
+  adrbrowsielMockRenderViewContextMenu* menu() { return menu_.get(); }
   SpellingMenuObserver* observer() { return observer_.get(); }
 
  private:
   std::unique_ptr<SpellingMenuObserver> observer_;
-  std::unique_ptr<BraveMockRenderViewContextMenu> menu_;
-  DISALLOW_COPY_AND_ASSIGN(BraveSpellingMenuObserverTest);
+  std::unique_ptr<adrbrowsielMockRenderViewContextMenu> menu_;
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielSpellingMenuObserverTest);
 };
 
-BraveSpellingMenuObserverTest::BraveSpellingMenuObserverTest() {}
+adrbrowsielSpellingMenuObserverTest::adrbrowsielSpellingMenuObserverTest() {}
 
-BraveSpellingMenuObserverTest::~BraveSpellingMenuObserverTest() {}
+adrbrowsielSpellingMenuObserverTest::~adrbrowsielSpellingMenuObserverTest() {}
 
 }  // namespace
 
-// Tests that right-clicking not add "Ask Brave for suggestions".
-IN_PROC_BROWSER_TEST_F(BraveSpellingMenuObserverTest,
-                       CheckAskBraveNotShown) {
+// Tests that right-clicking not add "Ask adrbrowsiel for suggestions".
+IN_PROC_BROWSER_TEST_F(adrbrowsielSpellingMenuObserverTest,
+                       CheckAskadrbrowsielNotShown) {
   // Test menu with a misspelled word.
   Reset();
   InitMenu("wiimode", nullptr);

@@ -6,7 +6,7 @@ index a7fa148275773717645bf84e9490992397ecb8a5..267728ac2375e5714101bab96711d530
      "//services/proxy_resolver/public/mojom",
    ]
  
-+  public_deps += [ "//brave/services/network/public/cpp" ]
++  public_deps += [ "//adrbrowsiel/services/network/public/cpp" ]
    defines = [ "IS_NETWORK_CPP_IMPL" ]
  }
  

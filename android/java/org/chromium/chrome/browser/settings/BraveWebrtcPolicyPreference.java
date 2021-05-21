@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -25,7 +25,7 @@ import org.chromium.components.browser_ui.widget.RadioButtonWithDescriptionLayou
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class BraveWebrtcPolicyPreference
+public class adrbrowsielWebrtcPolicyPreference
         extends Preference implements RadioGroup.OnCheckedChangeListener {
     @IntDef({WebrtcPolicy.DEFAULT, WebrtcPolicy.DEFAULT_PUBLIC_AND_PRIVATE_INTERFACES,
             WebrtcPolicy.DEFAULT_PUBLIC_INTERFACE_ONLY, WebrtcPolicy.DISABLE_NON_PROXIED_UDP})
@@ -44,12 +44,12 @@ public class BraveWebrtcPolicyPreference
     private TextView mLearnMore;
     private ArrayList<RadioButtonWithDescription> mButtons;
     protected static final String FALLBACK_SUPPORT_URL =
-            "https://support.brave.com/hc/en-us/articles/360017989132-How-do-I-change-my-Privacy-Settings-#webrtc";
+            "https://support.adrbrowsiel.com/hc/en-us/articles/360017989132-How-do-I-change-my-Privacy-Settings-#webrtc";
 
-    public BraveWebrtcPolicyPreference(Context context, AttributeSet attrs) {
+    public adrbrowsielWebrtcPolicyPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        setLayoutResource(R.layout.brave_webrtc_policy_preference);
+        setLayoutResource(R.layout.adrbrowsiel_webrtc_policy_preference);
 
         mButtons = new ArrayList<>(Collections.nCopies(WebrtcPolicy.NUM_ENTRIES, null));
     }

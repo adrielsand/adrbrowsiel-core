@@ -39,7 +39,7 @@ const touchOverriddenFiles = () => {
     return true
   }
 
-  const chromiumSrcDir = path.join(config.srcDir, 'brave', 'chromium_src')
+  const chromiumSrcDir = path.join(config.srcDir, 'adrbrowsiel', 'chromium_src')
   var sourceFiles = util.walkSync(chromiumSrcDir, applyFileFilter)
   const additionalGen = getAdditionalGenLocation()
 
@@ -71,7 +71,7 @@ const touchOverriddenFiles = () => {
 }
 
 const touchOverriddenVectorIconFiles = () => {
-  console.log('touch original vector icon files overridden by brave/vector_icons...')
+  console.log('touch original vector icon files overridden by adrbrowsiel/vector_icons...')
 
   // Return true when original file of |file| should be touched.
   const applyFileFilter = (file) => {
@@ -81,32 +81,32 @@ const touchOverriddenVectorIconFiles = () => {
     return true
   }
 
-  const braveVectorIconsDir = path.join(config.srcDir, 'brave', 'vector_icons')
-  var braveVectorIconFiles = util.walkSync(braveVectorIconsDir, applyFileFilter)
+  const adrbrowsielVectorIconsDir = path.join(config.srcDir, 'adrbrowsiel', 'vector_icons')
+  var adrbrowsielVectorIconFiles = util.walkSync(adrbrowsielVectorIconsDir, applyFileFilter)
 
   // Touch original files by updating mtime.
-  const braveVectorIconsDirLen = braveVectorIconsDir.length
-  braveVectorIconFiles.forEach(braveVectorIconFile => {
-    var overriddenFile = path.join(config.srcDir, braveVectorIconFile.slice(braveVectorIconsDirLen))
+  const adrbrowsielVectorIconsDirLen = adrbrowsielVectorIconsDir.length
+  adrbrowsielVectorIconFiles.forEach(adrbrowsielVectorIconFile => {
+    var overriddenFile = path.join(config.srcDir, adrbrowsielVectorIconFile.slice(adrbrowsielVectorIconsDirLen))
     if (fs.existsSync(overriddenFile)) {
       // If overriddenFile is older than file in vector_icons, touch it to trigger rebuild.
-      updateFileUTimesIfOverrideIsNewer(overriddenFile, braveVectorIconFile)
+      updateFileUTimesIfOverrideIsNewer(overriddenFile, adrbrowsielVectorIconFile)
     }
   })
 }
 
 /**
- * Checks to make sure the src/chrome/VERSION matches brave-browser's package.json version
+ * Checks to make sure the src/chrome/VERSION matches adrbrowsiel-browser's package.json version
  */
 const checkVersionsMatch = () => {
   const srcChromeVersionDir = path.resolve(path.join(config.srcDir, 'chrome', 'VERSION'))
   const versionData = fs.readFileSync(srcChromeVersionDir, 'utf8')
   const re = /MAJOR=(\d+)\s+MINOR=(\d+)\s+BUILD=(\d+)\s+PATCH=(\d+)/
   const found = versionData.match(re)
-  const braveVersionFromChromeFile = `${found[2]}.${found[3]}.${found[4]}`
-  if (braveVersionFromChromeFile !== config.braveVersion) {
+  const adrbrowsielVersionFromChromeFile = `${found[2]}.${found[3]}.${found[4]}`
+  if (adrbrowsielVersionFromChromeFile !== config.adrbrowsielVersion) {
     // Only a warning. The CI environment will choose to proceed or not within its own script.
-    console.warn(`Version files do not match!\nsrc/chrome/VERSION: ${braveVersionFromChromeFile}\nbrave-browser package.json version: ${config.braveVersion}`)
+    console.warn(`Version files do not match!\nsrc/chrome/VERSION: ${adrbrowsielVersionFromChromeFile}\nadrbrowsiel-browser package.json version: ${config.adrbrowsielVersion}`)
   }
 }
 

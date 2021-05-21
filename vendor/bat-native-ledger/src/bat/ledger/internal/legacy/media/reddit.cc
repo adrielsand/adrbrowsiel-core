@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -22,7 +22,7 @@ using std::placeholders::_1;
 using std::placeholders::_2;
 using std::placeholders::_3;
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 Reddit::Reddit(ledger::LedgerImpl* ledger): ledger_(ledger) {
 }
@@ -209,13 +209,13 @@ std::string Reddit::GetUserId(const std::string& response) {
   if (response.empty()) {
     return std::string();
   }
-  const std::string pattern = braveledger_media::ExtractData(
+  const std::string pattern = adrbrowsielledger_media::ExtractData(
       response, "hideFromRobots\":", "\"isEmployee\"");
-  std::string id = braveledger_media::ExtractData(
+  std::string id = adrbrowsielledger_media::ExtractData(
       pattern, "\"id\":\"t2_", "\"");
 
   if (id.empty()) {
-    id = braveledger_media::ExtractData(
+    id = adrbrowsielledger_media::ExtractData(
         response, "target_fullname\": \"t2_", "\"");  // old reddit
   }
   return id;
@@ -227,11 +227,11 @@ std::string Reddit::GetPublisherName(const std::string& response) {
     return std::string();
   }
 
-  std::string user_name(braveledger_media::ExtractData(
+  std::string user_name(adrbrowsielledger_media::ExtractData(
       response, "username\":\"", "\""));
 
   if (user_name.empty()) {
-    user_name = braveledger_media::ExtractData(
+    user_name = adrbrowsielledger_media::ExtractData(
         response, "target_name\": \"", "\"");  // old reddit
   }
   return user_name;
@@ -276,7 +276,7 @@ std::string Reddit::GetProfileImageUrl(const std::string& response) {
     return std::string();
   }
 
-  const std::string image_url(braveledger_media::ExtractData(
+  const std::string image_url(adrbrowsielledger_media::ExtractData(
       response, "accountIcon\":\"", "?"));
   return image_url;  // old reddit does not use account icons
 }
@@ -358,7 +358,7 @@ void Reddit::SaveMediaInfo(
   }
 
   const std::string media_key =
-      braveledger_media::GetMediaKey(user_name->second, REDDIT_MEDIA_TYPE);
+      adrbrowsielledger_media::GetMediaKey(user_name->second, REDDIT_MEDIA_TYPE);
 
   ledger_->database()->GetMediaPublisherInfo(
       media_key,
@@ -370,4 +370,4 @@ void Reddit::SaveMediaInfo(
                 _2));
 }
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

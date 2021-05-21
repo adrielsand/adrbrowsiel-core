@@ -7,7 +7,7 @@ index 8bcc6560993fa3b4056d13a3448b3a0dc608a2f5..0020f984bf259afe53bef8263de0ef46
  
  import 'chrome://resources/cr_elements/cr_icon_button/cr_icon_button.m.js';
 -import 'chrome://resources/cr_elements/cr_toolbar/cr_toolbar.js';
-+import 'chrome://brave-resources/br_elements/br_toolbar/br_toolbar.m.js';
++import 'chrome://adrbrowsiel-resources/br_elements/br_toolbar/br_toolbar.m.js';
  import 'chrome://resources/cr_elements/cr_toolbar/cr_toolbar_search_field.js';
  import 'chrome://resources/cr_elements/cr_toolbar/cr_toolbar_selection_overlay.js';
  import 'chrome://resources/cr_elements/icons.m.js';

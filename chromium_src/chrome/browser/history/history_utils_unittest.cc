@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,8 +12,8 @@
 // This test covers all cases that upstream and our version of
 // CanAddURLToHistory().
 TEST(HistoryUtilsTest, VariousURLTest) {
-  EXPECT_TRUE(CanAddURLToHistory(GURL("https://www.brave.com/")));
-  EXPECT_FALSE(CanAddURLToHistory(GURL("brave://sync/")));
+  EXPECT_TRUE(CanAddURLToHistory(GURL("https://www.adrbrowsiel.com/")));
+  EXPECT_FALSE(CanAddURLToHistory(GURL("adrbrowsiel://sync/")));
   EXPECT_FALSE(CanAddURLToHistory(GURL("javascript://test")));
   EXPECT_FALSE(CanAddURLToHistory(GURL("about://test")));
   EXPECT_FALSE(CanAddURLToHistory(GURL("content://test")));

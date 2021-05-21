@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_rewards/tip_dialog.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/tip_dialog.h"
 
 #include <algorithm>
 #include <memory>
@@ -15,8 +15,8 @@
 #include "base/json/json_writer.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/values.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/common/webui_url_constants.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_finder.h"
@@ -84,7 +84,7 @@ std::u16string TipDialogDelegate::GetDialogTitle() const {
 }
 
 GURL TipDialogDelegate::GetDialogContentURL() const {
-  return GURL(kBraveUITipURL);
+  return GURL(kadrbrowsielUITipURL);
 }
 
 void TipDialogDelegate::GetWebUIMessageHandlers(
@@ -137,7 +137,7 @@ bool TipDialogDelegate::ShouldShowDialogTitle() const {
 
 }  // namespace
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 void OpenTipDialog(WebContents* initiator,
                    std::unique_ptr<base::DictionaryValue> params) {
@@ -161,4 +161,4 @@ void OpenTipDialog(WebContents* initiator,
       initiator, min_size, max_size);
 }
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

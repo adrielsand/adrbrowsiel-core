@@ -2,11 +2,11 @@
 
 <link rel="import" href="chrome://resources/html/i18n_behavior.html">
 <link rel="import" href="chrome://resources/cr_elements/md_select_css.html">
-<link rel="import" href="default_brave_shields_browser_proxy.html">
+<link rel="import" href="default_adrbrowsiel_shields_browser_proxy.html">
 <script type="module" src="../settings_shared_css.js"></script>
 <script type="module" src="../settings_vars_css.js"></script>
 
-<dom-module id="settings-default-brave-shields-page">
+<dom-module id="settings-default-adrbrowsiel-shields-page">
   <template>
     <style include="settings-shared md-select iron-flex">
       .label.shields-primary-title
@@ -44,10 +44,10 @@
     </style>
     <div class="settings-box first">
       <div class="flex">
-        <div class="label shields-primary-title">$i18n{braveShieldsDefaultsSectionTitle}</div>
+        <div class="label shields-primary-title">$i18n{adrbrowsielShieldsDefaultsSectionTitle}</div>
         <div class="label secondary shields-secondary-title">
-          <p>$i18n{braveShieldsDefaultsSectionDescription1}</p>
-          <p>$i18n{braveShieldsDefaultsSectionDescription2} <a href="chrome://rewards" target="_blank">Brave Rewards</a> $i18n{braveShieldsDefaultsSectionDescription3}</p>
+          <p>$i18n{adrbrowsielShieldsDefaultsSectionDescription1}</p>
+          <p>$i18n{adrbrowsielShieldsDefaultsSectionDescription2} <a href="chrome://rewards" target="_blank">adrbrowsiel Rewards</a> $i18n{adrbrowsielShieldsDefaultsSectionDescription3}</p>
         </div>
       </div>
     </div>
@@ -56,16 +56,16 @@
     </div>
     <settings-toggle-button
         class="continuation"
-        pref="{{prefs.brave.shields.stats_badge_visible}}"
+        pref="{{prefs.adrbrowsiel.shields.stats_badge_visible}}"
         label="$i18n{showStatsBlockedBadgeLabel}">
     </settings-toggle-button>
     <div class="settings-box continuation default-view-item">
       <div class="flex">
         <div class="label">$i18n{defaultView}</div>
         <settings-radio-group
-          pref="{{prefs.brave.shields.advanced_view_enabled}}">
+          pref="{{prefs.adrbrowsiel.shields.advanced_view_enabled}}">
           <controlled-radio-button class="shields-view-col" name="false"
-              pref="[[prefs.brave.shields.advanced_view_enabled]]">
+              pref="[[prefs.adrbrowsiel.shields.advanced_view_enabled]]">
             <div class="flex-center">
               <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
@@ -78,7 +78,7 @@
           </controlled-radio-button>
           <div class="vertical-separator"></div>
           <controlled-radio-button class="shields-view-col" name="true"
-              pref="[[prefs.brave.shields.advanced_view_enabled]]">
+              pref="[[prefs.adrbrowsiel.shields.advanced_view_enabled]]">
             <div class="flex-center">
               <svg width="50" height="80" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fill-rule="evenodd">
@@ -115,13 +115,13 @@
     </div>
     <settings-toggle-button id="httpsEverywhereControlType"
         class="cr-row"
-        pref="{{prefs.brave.https_everywhere_default}}"
+        pref="{{prefs.adrbrowsiel.https_everywhere_default}}"
         label="$i18n{httpsEverywhereControlLabel}"
         on-settings-boolean-control-change="onHTTPSEverywhereControlChange_">
     </settings-toggle-button>
     <settings-toggle-button id="noScriptControlType"
         class="cr-row"
-        pref="{{prefs.brave.no_script_default}}"
+        pref="{{prefs.adrbrowsiel.no_script_default}}"
         label="$i18n{noScriptControlLabel}"
         on-settings-boolean-control-change="onNoScriptControlChange_">
     </settings-toggle-button>
@@ -150,5 +150,5 @@
       </select>
     </div>
   </template>
-  <script src="default_brave_shields_page.js"></script>
+  <script src="default_adrbrowsiel_shields_page.js"></script>
 </dom-module>

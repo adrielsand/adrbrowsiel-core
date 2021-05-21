@@ -1,38 +1,38 @@
 # common includes which can help minimize patches for
 # src/third_party/blink/renderer/core/BUILD.gn
-brave_blink_renderer_core_visibility =
-    [ "//brave/third_party/blink/renderer/*" ]
+adrbrowsiel_blink_renderer_core_visibility =
+    [ "//adrbrowsiel/third_party/blink/renderer/*" ]
 
-brave_blink_renderer_core_public_deps = [ "//brave/third_party/blink/renderer" ]
+adrbrowsiel_blink_renderer_core_public_deps = [ "//adrbrowsiel/third_party/blink/renderer" ]
 
 # common includes which can help minimize patches for
 # src/third_party/blink/renderer/modules/BUILD.gn
-brave_blink_renderer_modules_visibility =
-    [ "//brave/third_party/blink/renderer/*" ]
+adrbrowsiel_blink_renderer_modules_visibility =
+    [ "//adrbrowsiel/third_party/blink/renderer/*" ]
 
-brave_blink_sub_modules = [
-  "//brave/third_party/blink/renderer/modules/brave",
-  "//brave/third_party/blink/renderer/modules/global_privacy_control",
+adrbrowsiel_blink_sub_modules = [
+  "//adrbrowsiel/third_party/blink/renderer/modules/adrbrowsiel",
+  "//adrbrowsiel/third_party/blink/renderer/modules/global_privacy_control",
 ]
 
 # common includes which can help minimize patches for
 # src/third_party/blink/renderer/modules/modules_idl_files.gni
-brave_idl_imports = [
-  "//brave/third_party/blink/renderer/modules/brave/idls.gni",
-  "//brave/third_party/blink/renderer/modules/global_privacy_control/idls.gni",
+adrbrowsiel_idl_imports = [
+  "//adrbrowsiel/third_party/blink/renderer/modules/adrbrowsiel/idls.gni",
+  "//adrbrowsiel/third_party/blink/renderer/modules/global_privacy_control/idls.gni",
 ]
 
 # common includes which can help minimize patches for
 # third_party/blink/renderer/bindings/idl_in_modules.gni
-brave_static_idl_files_in_modules = [
-  "//brave/third_party/blink/renderer/modules/brave/brave.idl",
-  "//brave/third_party/blink/renderer/modules/brave/navigator_brave.idl",
-  "//brave/third_party/blink/renderer/modules/global_privacy_control/navigator_global_privacy_control.idl",
+adrbrowsiel_static_idl_files_in_modules = [
+  "//adrbrowsiel/third_party/blink/renderer/modules/adrbrowsiel/adrbrowsiel.idl",
+  "//adrbrowsiel/third_party/blink/renderer/modules/adrbrowsiel/navigator_adrbrowsiel.idl",
+  "//adrbrowsiel/third_party/blink/renderer/modules/global_privacy_control/navigator_global_privacy_control.idl",
 ]
 
 # common includes which can help minimize patches for
 # third_party/blink/renderer/bindings/generated_in_modules.gni
-brave_generated_interface_sources_in_modules = [
-  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_brave.h",
-  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_brave.cc",
+adrbrowsiel_generated_interface_sources_in_modules = [
+  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_adrbrowsiel.h",
+  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_adrbrowsiel.cc",
 ]

@@ -1,7 +1,7 @@
 include_rules = [
-  "+brave/browser",
-  "+brave/common",
-  "+brave/renderer/brave_content_renderer_client.h",
+  "+adrbrowsiel/browser",
+  "+adrbrowsiel/common",
+  "+adrbrowsiel/renderer/adrbrowsiel_content_renderer_client.h",
   "+chrome/app",
   "+chrome/browser",
   "+chrome/common",

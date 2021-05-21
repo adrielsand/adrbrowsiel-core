@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/utility/importer/chrome_importer.h"
+#include "adrbrowsiel/utility/importer/chrome_importer.h"
 
 #include <memory>
 #include <string>
@@ -16,8 +16,8 @@
 #include "base/strings/string_util.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/values.h"
-#include "brave/common/importer/scoped_copy_file.h"
-#include "brave/utility/importer/brave_external_process_importer_bridge.h"
+#include "adrbrowsiel/common/importer/scoped_copy_file.h"
+#include "adrbrowsiel/utility/importer/adrbrowsiel_external_process_importer_bridge.h"
 #include "build/build_config.h"
 #include "chrome/common/importer/imported_bookmark_entry.h"
 #include "chrome/common/importer/importer_bridge.h"
@@ -499,15 +499,15 @@ void ChromeImporter::ImportPayments() {
       "card_number_encrypted, origin "
       "FROM credit_cards;";
   sql::Statement s(db.GetUniqueStatement(query));
-  auto* brave_bridge =
-      static_cast<BraveExternalProcessImporterBridge*>(bridge_.get());
+  auto* adrbrowsiel_bridge =
+      static_cast<adrbrowsielExternalProcessImporterBridge*>(bridge_.get());
   while (s.Step()) {
     const std::u16string card_number = DecryptedCardFromColumn(s, 3);
     // Empty means decryption is failed. Or chrome's data is invalid.
     // Skip it.
     if (card_number.empty())
       continue;
-    brave_bridge->SetCreditCard(s.ColumnString16(0), s.ColumnString16(1),
+    adrbrowsiel_bridge->SetCreditCard(s.ColumnString16(0), s.ColumnString16(1),
                                 s.ColumnString16(2), card_number,
                                 s.ColumnString(4));
   }

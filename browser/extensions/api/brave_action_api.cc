@@ -1,10 +1,10 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-#include "brave/browser/extensions/api/brave_action_api.h"
+#include "adrbrowsiel/browser/extensions/api/adrbrowsiel_action_api.h"
 
 #include <memory>
 #include <string>
@@ -23,30 +23,30 @@
 
 namespace {
 
-class BraveActionAPIDependencyManager : public DependencyManager {
+class adrbrowsielActionAPIDependencyManager : public DependencyManager {
  public:
-  static BraveActionAPIDependencyManager* GetInstance() {
-    static base::NoDestructor<BraveActionAPIDependencyManager> factory;
+  static adrbrowsielActionAPIDependencyManager* GetInstance() {
+    static base::NoDestructor<adrbrowsielActionAPIDependencyManager> factory;
     return factory.get();
   }
-  BraveActionAPIDependencyManager() {}
-  ~BraveActionAPIDependencyManager() override {}
+  adrbrowsielActionAPIDependencyManager() {}
+  ~adrbrowsielActionAPIDependencyManager() override {}
 
 #ifndef NDEBUG
 void DumpContextDependencies(void* context) const override {}
 #endif  // NDEBUG
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveActionAPIDependencyManager);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielActionAPIDependencyManager);
 };
 
-class BraveActionAPIFactory : public KeyedServiceFactory {
+class adrbrowsielActionAPIFactory : public KeyedServiceFactory {
  public:
-  BraveActionAPIFactory() : KeyedServiceFactory("BraveActionAPI",
-      BraveActionAPIDependencyManager::GetInstance(), SIMPLE) { }
+  adrbrowsielActionAPIFactory() : KeyedServiceFactory("adrbrowsielActionAPI",
+      adrbrowsielActionAPIDependencyManager::GetInstance(), SIMPLE) { }
 
-  extensions::BraveActionAPI* GetBraveActionAPI(Browser* context) {
-    return static_cast<extensions::BraveActionAPI*>(
+  extensions::adrbrowsielActionAPI* GetadrbrowsielActionAPI(Browser* context) {
+    return static_cast<extensions::adrbrowsielActionAPI*>(
           GetServiceForContext(context, true));
   }
 
@@ -54,7 +54,7 @@ class BraveActionAPIFactory : public KeyedServiceFactory {
   // KeyedServiceFactory:
   std::unique_ptr<KeyedService> BuildServiceInstanceFor(
       void* context) const final {
-    return base::WrapUnique(new extensions::BraveActionAPI());
+    return base::WrapUnique(new extensions::adrbrowsielActionAPI());
   }
   bool IsOffTheRecord(void* context) const final {
     return static_cast<Browser*>(context)
@@ -66,11 +66,11 @@ class BraveActionAPIFactory : public KeyedServiceFactory {
   void CreateServiceNow(void* context) final {
     KeyedServiceFactory::GetServiceForContext(context, true);
   }
-  DISALLOW_COPY_AND_ASSIGN(BraveActionAPIFactory);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielActionAPIFactory);
 };
 
-static BraveActionAPIFactory* GetFactoryInstance() {
-  static base::NoDestructor<BraveActionAPIFactory> instance;
+static adrbrowsielActionAPIFactory* GetFactoryInstance() {
+  static base::NoDestructor<adrbrowsielActionAPIFactory> instance;
   return instance.get();
 }
 
@@ -78,22 +78,22 @@ static BraveActionAPIFactory* GetFactoryInstance() {
 
 namespace extensions {
 //
-// BraveActionAPI::Observer
+// adrbrowsielActionAPI::Observer
 //
-BraveActionAPI::Observer::Observer() { }
+adrbrowsielActionAPI::Observer::Observer() { }
 
-BraveActionAPI::Observer::~Observer() { }
+adrbrowsielActionAPI::Observer::~Observer() { }
 
 //
-// BraveActionAPI
+// adrbrowsielActionAPI
 //
 // static
-BraveActionAPI* BraveActionAPI::Get(Browser* context) {
-  return GetFactoryInstance()->GetBraveActionAPI(context);
+adrbrowsielActionAPI* adrbrowsielActionAPI::Get(Browser* context) {
+  return GetFactoryInstance()->GetadrbrowsielActionAPI(context);
 }
 
 // static
-bool BraveActionAPI::ShowActionUI(
+bool adrbrowsielActionAPI::ShowActionUI(
       ExtensionFunction* extension_function,
       const std::string& extension_id,
       std::unique_ptr<int> window_id_param,
@@ -128,39 +128,39 @@ bool BraveActionAPI::ShowActionUI(
 }
 
 // static
-bool BraveActionAPI::ShowActionUI(
+bool adrbrowsielActionAPI::ShowActionUI(
         Browser* browser,
         const std::string& extension_id,
         std::unique_ptr<std::string> ui_relative_path_param,
         std::string* error) {
-  bool did_notify = BraveActionAPI::Get(browser)->NotifyObservers(extension_id,
+  bool did_notify = adrbrowsielActionAPI::Get(browser)->NotifyObservers(extension_id,
       std::move(ui_relative_path_param));
   if (!did_notify) {
-    *error = "No toolbar is registered to observe BraveActionUI "
+    *error = "No toolbar is registered to observe adrbrowsielActionUI "
               "calls for this window";
     return false;
   }
   return true;
 }
 
-BraveActionAPI::BraveActionAPI() {}
+adrbrowsielActionAPI::adrbrowsielActionAPI() {}
 
-BraveActionAPI::~BraveActionAPI() {
+adrbrowsielActionAPI::~adrbrowsielActionAPI() {
 }
 
-void BraveActionAPI::AddObserver(Observer* observer) {
+void adrbrowsielActionAPI::AddObserver(Observer* observer) {
   observers_.AddObserver(observer);
 }
 
-void BraveActionAPI::RemoveObserver(Observer* observer) {
+void adrbrowsielActionAPI::RemoveObserver(Observer* observer) {
   observers_.RemoveObserver(observer);
 }
 
-bool BraveActionAPI::NotifyObservers(const std::string& extension_id,
+bool adrbrowsielActionAPI::NotifyObservers(const std::string& extension_id,
       std::unique_ptr<std::string> ui_relative_path_param) {
   bool did_notify = false;
   for (auto& observer : observers_) {
-    observer.OnBraveActionShouldTrigger(extension_id,
+    observer.OnadrbrowsielActionShouldTrigger(extension_id,
         std::move(ui_relative_path_param));
     did_notify = true;
   }

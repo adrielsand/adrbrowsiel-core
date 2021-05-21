@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 The Brave Authors. All rights reserved.
+ * Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -14,12 +14,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import org.chromium.base.ContextUtils;
-import org.chromium.chrome.browser.BraveAdsNativeHelper;
-import org.chromium.chrome.browser.BraveFeatureList;
-import org.chromium.chrome.browser.BraveRewardsPanelPopup;
+import org.chromium.chrome.browser.adrbrowsielAdsNativeHelper;
+import org.chromium.chrome.browser.adrbrowsielFeatureList;
+import org.chromium.chrome.browser.adrbrowsielRewardsPanelPopup;
 import org.chromium.chrome.browser.flags.ChromeFeatureList;
-import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
-import org.chromium.chrome.browser.preferences.BravePref;
+import org.chromium.chrome.browser.notifications.adrbrowsielOnboardingNotification;
+import org.chromium.chrome.browser.preferences.adrbrowsielPref;
 import org.chromium.components.user_prefs.UserPrefs;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.util.PackageUtils;
@@ -47,8 +47,8 @@ public class OnboardingPrefManager {
     private static final String PREF_SEARCH_ENGINE_ONBOARDING = "search_engine_onboarding";
     private static final String PREF_SHOW_DEFAULT_BROWSER_MODAL_AFTER_P3A =
             "show_default_browser_modal_after_p3a";
-    public static final String PREF_BRAVE_STATS = "brave_stats";
-    public static final String PREF_BRAVE_STATS_NOTIFICATION = "brave_stats_notification";
+    public static final String PREF_adrbrowsiel_STATS = "adrbrowsiel_stats";
+    public static final String PREF_adrbrowsiel_STATS_NOTIFICATION = "adrbrowsiel_stats_notification";
     public static final String ONBOARDING_TYPE = "onboarding_type";
     public static final String FROM_NOTIFICATION = "from_notification";
     public static final String FROM_STATS = "from_stats";
@@ -154,23 +154,23 @@ public class OnboardingPrefManager {
         return isOnboardingNotificationShown;
     }
 
-    public boolean isBraveStatsEnabled() {
-        return mSharedPreferences.getBoolean(PREF_BRAVE_STATS, false);
+    public boolean isadrbrowsielStatsEnabled() {
+        return mSharedPreferences.getBoolean(PREF_adrbrowsiel_STATS, false);
     }
 
-    public void setBraveStatsEnabled(boolean enabled) {
+    public void setadrbrowsielStatsEnabled(boolean enabled) {
         SharedPreferences.Editor sharedPreferencesEditor = mSharedPreferences.edit();
-        sharedPreferencesEditor.putBoolean(PREF_BRAVE_STATS, enabled);
+        sharedPreferencesEditor.putBoolean(PREF_adrbrowsiel_STATS, enabled);
         sharedPreferencesEditor.apply();
     }
 
-    public boolean isBraveStatsNotificationEnabled() {
-        return mSharedPreferences.getBoolean(PREF_BRAVE_STATS_NOTIFICATION, true);
+    public boolean isadrbrowsielStatsNotificationEnabled() {
+        return mSharedPreferences.getBoolean(PREF_adrbrowsiel_STATS_NOTIFICATION, true);
     }
 
-    public void setBraveStatsNotificationEnabled(boolean enabled) {
+    public void setadrbrowsielStatsNotificationEnabled(boolean enabled) {
         SharedPreferences.Editor sharedPreferencesEditor = mSharedPreferences.edit();
-        sharedPreferencesEditor.putBoolean(PREF_BRAVE_STATS_NOTIFICATION, enabled);
+        sharedPreferencesEditor.putBoolean(PREF_adrbrowsiel_STATS_NOTIFICATION, enabled);
         sharedPreferencesEditor.apply();
     }
 
@@ -215,14 +215,14 @@ public class OnboardingPrefManager {
     public boolean showOnboardingForSkip(Context context) {
         boolean shouldShow = PackageUtils.isFirstInstall(context)
                              && !hasOnboardingShownForSkip()
-                             && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedRegularProfile())
-                             && ChromeFeatureList.isEnabled(BraveFeatureList.BRAVE_REWARDS)
+                             && !adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(Profile.getLastUsedRegularProfile())
+                             && ChromeFeatureList.isEnabled(adrbrowsielFeatureList.adrbrowsiel_REWARDS)
                              && (getNextOnboardingDate() > 0 && System.currentTimeMillis() > getNextOnboardingDate());
         return shouldShow;
     }
 
     public boolean isAdsAvailable() {
-        return BraveAdsNativeHelper.nativeIsSupportedLocale(Profile.getLastUsedRegularProfile());
+        return adrbrowsielAdsNativeHelper.nativeIsSupportedLocale(Profile.getLastUsedRegularProfile());
     }
 
     public void showOnboarding(Context context) {
@@ -232,7 +232,7 @@ public class OnboardingPrefManager {
 
     public void onboardingNotification() {
         if (!isOnboardingNotificationShown()) {
-            BraveOnboardingNotification.showOnboardingNotification();
+            adrbrowsielOnboardingNotification.showOnboardingNotification();
             setOnboardingNotificationShown(true);
         }
     }

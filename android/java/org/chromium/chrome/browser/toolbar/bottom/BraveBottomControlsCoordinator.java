@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -36,7 +36,7 @@ import org.chromium.components.browser_ui.widget.scrim.ScrimCoordinator;
 import org.chromium.ui.base.WindowAndroid;
 import org.chromium.ui.resources.ResourceManager;
 
-public class BraveBottomControlsCoordinator extends BottomControlsCoordinator {
+public class adrbrowsielBottomControlsCoordinator extends BottomControlsCoordinator {
     // To delete in bytecode, members from parent class will be used instead.
     private BottomControlsMediator mMediator;
 
@@ -51,7 +51,7 @@ public class BraveBottomControlsCoordinator extends BottomControlsCoordinator {
     private OneshotSupplier<LayoutStateProvider> mLayoutStateProviderSupplier;
     private ScrollingBottomViewResourceFrameLayout mRoot;
 
-    public BraveBottomControlsCoordinator(
+    public adrbrowsielBottomControlsCoordinator(
             OneshotSupplier<LayoutStateProvider> layoutStateProviderSupplier,
             OnLongClickListener tabSwitcherLongclickListener, ActivityTabProvider tabProvider,
             Runnable openHomepageAction, Callback<Integer> setUrlBarFocusAction,
@@ -113,8 +113,8 @@ public class BraveBottomControlsCoordinator extends BottomControlsCoordinator {
     }
 
     public void setBottomToolbarVisible(boolean visible) {
-        if (mMediator instanceof BraveBottomControlsMediator) {
-            ((BraveBottomControlsMediator) mMediator).setBottomToolbarVisible(visible);
+        if (mMediator instanceof adrbrowsielBottomControlsMediator) {
+            ((adrbrowsielBottomControlsMediator) mMediator).setBottomToolbarVisible(visible);
         }
         if (mBottomToolbarCoordinator != null) {
             mBottomToolbarCoordinator.setBottomToolbarVisible(visible);
@@ -122,16 +122,16 @@ public class BraveBottomControlsCoordinator extends BottomControlsCoordinator {
     }
 
     public ObservableSupplierImpl<Boolean> getBottomToolbarVisibleSupplier() {
-        if (mMediator instanceof BraveBottomControlsMediator) {
-            return ((BraveBottomControlsMediator) mMediator).getBottomToolbarVisibleSupplier();
+        if (mMediator instanceof adrbrowsielBottomControlsMediator) {
+            return ((adrbrowsielBottomControlsMediator) mMediator).getBottomToolbarVisibleSupplier();
         }
         assert false : "Make sure mMediator is properly patched in bytecode.";
         return null;
     }
 
     public ObservableSupplierImpl<Boolean> getTabGroupUiVisibleSupplier() {
-        if (mMediator instanceof BraveBottomControlsMediator) {
-            return ((BraveBottomControlsMediator) mMediator).getTabGroupUiVisibleSupplier();
+        if (mMediator instanceof adrbrowsielBottomControlsMediator) {
+            return ((adrbrowsielBottomControlsMediator) mMediator).getTabGroupUiVisibleSupplier();
         }
         assert false : "Make sure mMediator is properly patched in bytecode.";
         return null;

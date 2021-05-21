@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright (c) 2019 The Brave Authors. All rights reserved.
+# Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -24,7 +24,7 @@ sys.path.append(signing_path)
 import signing.model    # pylint: disable=import-error, reimported, wrong-import-position, unused-import
 import signing.signing  # pylint: disable=import-error, wrong-import-position, unused-import
 
-brave_channel = os.environ.get('BRAVE_CHANNEL')
+adrbrowsiel_channel = os.environ.get('adrbrowsiel_CHANNEL')
 sign_widevine_cert = os.environ.get('SIGN_WIDEVINE_CERT')
 sign_widevine_key = os.environ.get('SIGN_WIDEVINE_KEY')
 sign_widevine_passwd = os.environ.get('SIGN_WIDEVINE_PASSPHRASE')
@@ -45,7 +45,7 @@ def run_command(args, **kwargs):
     subprocess.check_call(args, **kwargs)
 
 
-def GenerateBraveWidevineSigFile(paths, config, part):
+def GenerateadrbrowsielWidevineSigFile(paths, config, part):
     """ Generates Widevine .sig file """
     if sign_widevine_key and sign_widevine_passwd and file_exists(sig_generator_path):
         # Framework needs to be signed before generating Widevine signature
@@ -73,8 +73,8 @@ def GenerateBraveWidevineSigFile(paths, config, part):
         assert file_exists(sig_target_file), 'No sig file'
 
 
-def AddBravePartsForSigning(parts, config):
-    """ Inserts Brave specific parts that need to be signed """
+def AddadrbrowsielPartsForSigning(parts, config):
+    """ Inserts adrbrowsiel specific parts that need to be signed """
     parts = collections.OrderedDict(parts)
     from signing.model import CodeSignedProduct, VerifyOptions, CodeSignOptions # pylint: disable=import-error
 
@@ -85,10 +85,10 @@ def AddBravePartsForSigning(parts, config):
         CodeSignOptions.LIBRARY_VALIDATION + CodeSignOptions.KILL)
 
     # Add libs
-    brave_dylibs = (
-        'libbrave_rust.dylib',
+    adrbrowsiel_dylibs = (
+        'libadrbrowsiel_rust.dylib',
     )
-    for library in brave_dylibs:
+    for library in adrbrowsiel_dylibs:
         library_basename = os.path.basename(library)
         parts[library_basename] = CodeSignedProduct(
             '{.framework_dir}/Libraries/{library}'.format(
@@ -133,8 +133,8 @@ def AddBravePartsForSigning(parts, config):
     return parts
 
 
-def GetBraveSigningConfig(config_class, mac_provisioning_profile=None):
-    """ Creates Brave specific config used for signing """
+def GetadrbrowsielSigningConfig(config_class, mac_provisioning_profile=None):
+    """ Creates adrbrowsiel specific config used for signing """
     class ConfigNonChromeBranded(config_class): # pylint: disable=too-few-public-methods
         """ Config that overrides is_chrome_branded """
 
@@ -171,7 +171,7 @@ def GetBraveSigningConfig(config_class, mac_provisioning_profile=None):
 
         @property
         def distributions(self):
-            """ Brave distribution """
-            return [model.Distribution(channel=brave_channel)]
+            """ adrbrowsiel distribution """
+            return [model.Distribution(channel=adrbrowsiel_channel)]
 
     return ProvisioningProfileCodeSignConfig

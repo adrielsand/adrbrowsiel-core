@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -28,12 +28,12 @@ namespace google_update {
 const wchar_t kChromeUpgradeCode[] = L"{AFE6A462-C574-4B8A-AF43-4CC60DF4563B}";
 const wchar_t kGoogleUpdateUpgradeCode[] =
     L"{B131C935-9BE6-41DA-9599-1F776BEB8019}";
-const wchar_t kGoogleUpdateSetupExe[] = L"BraveUpdateSetup.exe";
-const wchar_t kRegPathClients[] = L"Software\\BraveSoftware\\Update\\Clients";
+const wchar_t kGoogleUpdateSetupExe[] = L"adrbrowsielUpdateSetup.exe";
+const wchar_t kRegPathClients[] = L"Software\\adrbrowsielSoftware\\Update\\Clients";
 const wchar_t kRegPathClientState[] =
-    L"Software\\BraveSoftware\\Update\\ClientState";
+    L"Software\\adrbrowsielSoftware\\Update\\ClientState";
 const wchar_t kRegPathClientStateMedium[] =
-    L"Software\\BraveSoftware\\Update\\ClientStateMedium";
-const wchar_t kRegPathGoogleUpdate[] = L"Software\\BraveSoftware\\Update";
+    L"Software\\adrbrowsielSoftware\\Update\\ClientStateMedium";
+const wchar_t kRegPathGoogleUpdate[] = L"Software\\adrbrowsielSoftware\\Update";
 
 }  // namespace google_update

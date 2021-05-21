@@ -1,12 +1,12 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 #include "base/files/file_util.h"
 #include "base/path_service.h"
-#include "brave/browser/brave_content_browser_client.h"
-#include "brave/common/brave_paths.h"
+#include "adrbrowsiel/browser/adrbrowsiel_content_browser_client.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/common/chrome_content_client.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -20,9 +20,9 @@
 #include "net/test/embedded_test_server/http_request.h"
 #include "net/test/embedded_test_server/http_response.h"
 
-class BraveFaviconDatabaseBrowserTest : public InProcessBrowserTest {
+class adrbrowsielFaviconDatabaseBrowserTest : public InProcessBrowserTest {
  public:
-  BraveFaviconDatabaseBrowserTest()
+  adrbrowsielFaviconDatabaseBrowserTest()
       : https_server_(net::EmbeddedTestServer::TYPE_HTTPS) {}
 
   void SetUpOnMainThread() override {
@@ -30,20 +30,20 @@ class BraveFaviconDatabaseBrowserTest : public InProcessBrowserTest {
 
     content_client_.reset(new ChromeContentClient);
     content::SetContentClient(content_client_.get());
-    browser_content_client_.reset(new BraveContentBrowserClient());
+    browser_content_client_.reset(new adrbrowsielContentBrowserClient());
     content::SetBrowserClientForTesting(browser_content_client_.get());
 
     host_resolver()->AddRule("*", "127.0.0.1");
 
-    brave::RegisterPathProvider();
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir_);
+    adrbrowsiel::RegisterPathProvider();
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir_);
     https_server_.ServeFilesFromDirectory(test_data_dir_);
     https_server_.AddDefaultHandlers(GetChromeTestDataDir());
     https_server_.RegisterRequestHandler(
-        base::BindRepeating(&BraveFaviconDatabaseBrowserTest::HandleRequest,
+        base::BindRepeating(&adrbrowsielFaviconDatabaseBrowserTest::HandleRequest,
                             base::Unretained(this)));
     https_server_.RegisterRequestMonitor(
-        base::BindRepeating(&BraveFaviconDatabaseBrowserTest::SaveRequest,
+        base::BindRepeating(&adrbrowsielFaviconDatabaseBrowserTest::SaveRequest,
                             base::Unretained(this)));
 
     ASSERT_TRUE(https_server_.Start());
@@ -168,7 +168,7 @@ class BraveFaviconDatabaseBrowserTest : public InProcessBrowserTest {
   GURL set_url_;
   base::FilePath test_data_dir_;
   std::unique_ptr<ChromeContentClient> content_client_;
-  std::unique_ptr<BraveContentBrowserClient> browser_content_client_;
+  std::unique_ptr<adrbrowsielContentBrowserClient> browser_content_client_;
   std::vector<GURL> requests_;
   mutable base::Lock save_request_lock_;
 
@@ -176,7 +176,7 @@ class BraveFaviconDatabaseBrowserTest : public InProcessBrowserTest {
   net::test_server::EmbeddedTestServer https_server_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveFaviconDatabaseBrowserTest, SetRead1001) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielFaviconDatabaseBrowserTest, SetRead1001) {
   ClearRequests();
   NavigateToURLAndWaitForRedirects(set_url("1001"));
   EXPECT_EQ(WasRequested(fav0_url()), true);

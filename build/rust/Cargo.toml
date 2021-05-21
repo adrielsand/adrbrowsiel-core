@@ -1,5 +1,5 @@
 [package]
-name = "brave-rust"
+name = "adrbrowsiel-rust"
 version = "0.1.0"
 edition = "2018"
 
@@ -12,7 +12,7 @@ cssparser = { git = 'https://github.com/AndriusA/rust-cssparser', branch = "glib
 
 [lib]
 crate-type = [ "staticlib" ]
-name = "brave_rust"
+name = "adrbrowsiel_rust"
 path = "lib.rs"
 
 [profile.dev]

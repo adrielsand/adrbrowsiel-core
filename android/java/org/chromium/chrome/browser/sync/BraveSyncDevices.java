@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -21,35 +21,35 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @JNINamespace("chrome::android")
-public class BraveSyncDevices {
+public class adrbrowsielSyncDevices {
     public static final String TAG = "SYNC";
-    private long mNativeBraveSyncDevicesAndroid;
+    private long mNativeadrbrowsielSyncDevicesAndroid;
 
-    private static BraveSyncDevices sBraveSyncDevices;
+    private static adrbrowsielSyncDevices sadrbrowsielSyncDevices;
     private static boolean sInitialized;
 
-    public static BraveSyncDevices get() {
+    public static adrbrowsielSyncDevices get() {
         ThreadUtils.assertOnUiThread();
         if (!sInitialized) {
-            sBraveSyncDevices = new BraveSyncDevices();
+            sadrbrowsielSyncDevices = new adrbrowsielSyncDevices();
             sInitialized = true;
         }
-        return sBraveSyncDevices;
+        return sadrbrowsielSyncDevices;
     }
 
-    public BraveSyncDevices() {
+    public adrbrowsielSyncDevices() {
         Init();
     }
 
     @CalledByNative
     private void setNativePtr(long nativePtr) {
-        assert mNativeBraveSyncDevicesAndroid == 0;
-        mNativeBraveSyncDevicesAndroid = nativePtr;
+        assert mNativeadrbrowsielSyncDevicesAndroid == 0;
+        mNativeadrbrowsielSyncDevicesAndroid = nativePtr;
     }
 
     private void Init() {
-        if (mNativeBraveSyncDevicesAndroid == 0) {
-            BraveSyncDevicesJni.get().init(BraveSyncDevices.this);
+        if (mNativeadrbrowsielSyncDevicesAndroid == 0) {
+            adrbrowsielSyncDevicesJni.get().init(adrbrowsielSyncDevices.this);
         }
     }
 
@@ -59,9 +59,9 @@ public class BraveSyncDevices {
     }
 
     private void Destroy() {
-        if (mNativeBraveSyncDevicesAndroid != 0) {
-            BraveSyncDevicesJni.get().destroy(mNativeBraveSyncDevicesAndroid);
-            mNativeBraveSyncDevicesAndroid = 0;
+        if (mNativeadrbrowsielSyncDevicesAndroid != 0) {
+            adrbrowsielSyncDevicesJni.get().destroy(mNativeadrbrowsielSyncDevicesAndroid);
+            mNativeadrbrowsielSyncDevicesAndroid = 0;
         }
     }
 
@@ -110,7 +110,7 @@ public class BraveSyncDevices {
     public ArrayList<SyncDeviceInfo> GetSyncDeviceList() {
         ArrayList<SyncDeviceInfo> deviceList = new ArrayList<SyncDeviceInfo>();
         String json =
-                BraveSyncDevicesJni.get().getSyncDeviceListJson(mNativeBraveSyncDevicesAndroid);
+                adrbrowsielSyncDevicesJni.get().getSyncDeviceListJson(mNativeadrbrowsielSyncDevicesAndroid);
         // Add root element to make it real JSON, otherwise getJSONArray cannot parse it
         json = "{\"devices\":" + json + "}";
         try {
@@ -138,15 +138,15 @@ public class BraveSyncDevices {
     }
 
     public void DeleteDevice(String deviceGuid) {
-        BraveSyncDevicesJni.get().deleteDevice(mNativeBraveSyncDevicesAndroid, deviceGuid);
+        adrbrowsielSyncDevicesJni.get().deleteDevice(mNativeadrbrowsielSyncDevicesAndroid, deviceGuid);
     }
 
     @NativeMethods
     interface Natives {
-        void init(BraveSyncDevices caller);
-        void destroy(long nativeBraveSyncDevicesAndroid);
+        void init(adrbrowsielSyncDevices caller);
+        void destroy(long nativeadrbrowsielSyncDevicesAndroid);
 
-        String getSyncDeviceListJson(long nativeBraveSyncDevicesAndroid);
-        void deleteDevice(long nativeBraveSyncDevicesAndroid, String deviceGuid);
+        String getSyncDeviceListJson(long nativeadrbrowsielSyncDevicesAndroid);
+        void deleteDevice(long nativeadrbrowsielSyncDevicesAndroid, String deviceGuid);
     }
 }

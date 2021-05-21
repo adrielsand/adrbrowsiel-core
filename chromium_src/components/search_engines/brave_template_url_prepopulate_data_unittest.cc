@@ -15,8 +15,8 @@
 #include "base/stl_util.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/values.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/search_engines/brave_prepopulated_engines.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/search_engines/adrbrowsiel_prepopulated_engines.h"
 #include "components/google/core/common/google_switches.h"
 #include "components/search_engines/search_engines_pref_names.h"
 #include "components/search_engines/search_terms_data.h"
@@ -40,7 +40,7 @@ std::string GetHostFromTemplateURLData(const TemplateURLData& data) {
 
 using namespace TemplateURLPrepopulateData;  // NOLINT
 
-const PrepopulatedEngine* const kBraveAddedEngines[] = {
+const PrepopulatedEngine* const kadrbrowsielAddedEngines[] = {
     &startpage,
 };
 
@@ -50,29 +50,29 @@ const std::unordered_set<std::wstring> kOverriddenEnginesNames = {L"DuckDuckGo",
 std::vector<const PrepopulatedEngine*> GetAllPrepopulatedEngines() {
   std::vector<const PrepopulatedEngine*> engines =
       TemplateURLPrepopulateData::GetAllPrepopulatedEngines();
-  engines.insert(engines.end(), std::begin(kBraveAddedEngines),
-                 std::end(kBraveAddedEngines));
+  engines.insert(engines.end(), std::begin(kadrbrowsielAddedEngines),
+                 std::end(kadrbrowsielAddedEngines));
   return engines;
 }
 
 }  // namespace
 
-class BraveTemplateURLPrepopulateDataTest : public testing::Test {
+class adrbrowsielTemplateURLPrepopulateDataTest : public testing::Test {
  public:
   void SetUp() override {
     TemplateURLPrepopulateData::RegisterProfilePrefs(prefs_.registry());
-    // Real registration happens in `brave/browser/brave_profile_prefs.cc`
-    // Calling brave::RegisterProfilePrefs() causes some problems though
+    // Real registration happens in `adrbrowsiel/browser/adrbrowsiel_profile_prefs.cc`
+    // Calling adrbrowsiel::RegisterProfilePrefs() causes some problems though
     auto* registry = prefs_.registry();
     registry->RegisterIntegerPref(
-        kBraveDefaultSearchVersion,
-        TemplateURLPrepopulateData::kBraveCurrentDataVersion);
+        kadrbrowsielDefaultSearchVersion,
+        TemplateURLPrepopulateData::kadrbrowsielCurrentDataVersion);
   }
 
   void CheckForCountry(char digit1, char digit2, const std::string& expected) {
     prefs_.SetInteger(kCountryIDAtInstall, digit1 << 8 | digit2);
-    prefs_.SetInteger(kBraveDefaultSearchVersion,
-                      TemplateURLPrepopulateData::kBraveCurrentDataVersion);
+    prefs_.SetInteger(kadrbrowsielDefaultSearchVersion,
+                      TemplateURLPrepopulateData::kadrbrowsielCurrentDataVersion);
     size_t default_index;
     std::vector<std::unique_ptr<TemplateURLData>> t_urls =
         TemplateURLPrepopulateData::GetPrepopulatedEngines(&prefs_,
@@ -86,8 +86,8 @@ class BraveTemplateURLPrepopulateDataTest : public testing::Test {
 
 // Verifies that the set of all prepopulate data doesn't contain entries with
 // duplicate keywords. This should make us notice if Chromium adds a search
-// engine in the future that Brave already added.
-TEST_F(BraveTemplateURLPrepopulateDataTest, UniqueKeywords) {
+// engine in the future that adrbrowsiel already added.
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest, UniqueKeywords) {
   using PrepopulatedEngine = TemplateURLPrepopulateData::PrepopulatedEngine;
   const std::vector<const PrepopulatedEngine*> all_engines =
       ::GetAllPrepopulatedEngines();
@@ -99,20 +99,20 @@ TEST_F(BraveTemplateURLPrepopulateDataTest, UniqueKeywords) {
 }
 
 // Verifies that engines we override are used and not the original engines.
-TEST_F(BraveTemplateURLPrepopulateDataTest, OverriddenEngines) {
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest, OverriddenEngines) {
   using PrepopulatedEngine = TemplateURLPrepopulateData::PrepopulatedEngine;
   const std::vector<const PrepopulatedEngine*> all_engines =
       ::GetAllPrepopulatedEngines();
   for (const PrepopulatedEngine* engine : all_engines) {
     if (kOverriddenEnginesNames.count(engine->name) > 0)
       ASSERT_GE(static_cast<unsigned int>(engine->id),
-                TemplateURLPrepopulateData::BRAVE_PREPOPULATED_ENGINES_START);
+                TemplateURLPrepopulateData::adrbrowsiel_PREPOPULATED_ENGINES_START);
   }
 }
 
 // Verifies that the set of prepopulate data for each locale
 // doesn't contain entries with duplicate ids.
-TEST_F(BraveTemplateURLPrepopulateDataTest, UniqueIDs) {
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest, UniqueIDs) {
   const int kCountryIds[] = {'D' << 8 | 'E', 'F' << 8 | 'R', 'U' << 8 | 'S',
                              -1};
 
@@ -130,7 +130,7 @@ TEST_F(BraveTemplateURLPrepopulateDataTest, UniqueIDs) {
 }
 
 // Verifies that each prepopulate data entry has required fields
-TEST_F(BraveTemplateURLPrepopulateDataTest, ProvidersFromPrepopulated) {
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest, ProvidersFromPrepopulated) {
   size_t default_index;
   std::vector<std::unique_ptr<TemplateURLData>> t_urls =
       TemplateURLPrepopulateData::GetPrepopulatedEngines(&prefs_,
@@ -152,78 +152,78 @@ TEST_F(BraveTemplateURLPrepopulateDataTest, ProvidersFromPrepopulated) {
 }
 
 // Verifies default search provider for locale
-TEST_F(BraveTemplateURLPrepopulateDataTest, DefaultSearchProvidersForUSA) {
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest, DefaultSearchProvidersForUSA) {
   CheckForCountry('U', 'S', "Google");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest, DefaultSearchProvidersForGermany) {
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest, DefaultSearchProvidersForGermany) {
   CheckForCountry('D', 'E', "DuckDuckGo");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest, DefaultSearchProvidersForFrance) {
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest, DefaultSearchProvidersForFrance) {
   CheckForCountry('F', 'R', "Qwant");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForAustralia) {
   CheckForCountry('A', 'U', "DuckDuckGo");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForNewZealand) {
   CheckForCountry('N', 'Z', "DuckDuckGo");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest, DefaultSearchProvidersForIreland) {
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest, DefaultSearchProvidersForIreland) {
   CheckForCountry('I', 'E', "DuckDuckGo");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForRepublicOfArmenia) {
   CheckForCountry('A', 'M', "Yandex");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForRepublicOfAzerbaijan) {
   CheckForCountry('A', 'Z', "Yandex");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForRepublicOfBelarus) {
   CheckForCountry('B', 'Y', "Yandex");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForKyrgyzRepublic) {
   CheckForCountry('K', 'G', "Yandex");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForRepublicOfKazakhstan) {
   CheckForCountry('K', 'Z', "Yandex");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForRepublicOfMoldova) {
   CheckForCountry('M', 'D', "Yandex");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForRussianFederation) {
   CheckForCountry('R', 'U', "Yandex");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForRepublicOfTajikistan) {
   CheckForCountry('T', 'J', "Yandex");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForTurkmenistan) {
   CheckForCountry('T', 'M', "Yandex");
 }
 
-TEST_F(BraveTemplateURLPrepopulateDataTest,
+TEST_F(adrbrowsielTemplateURLPrepopulateDataTest,
        DefaultSearchProvidersForRepublicOfUzbekistan) {
   CheckForCountry('U', 'Z', "Yandex");
 }

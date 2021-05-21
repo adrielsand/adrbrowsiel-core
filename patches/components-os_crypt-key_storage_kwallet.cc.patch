@@ -6,7 +6,7 @@ index 10eb2a15cf7682e46c4bee2b32cd3eb8e14d10b2..533cb4c4d76edd5f0666f99975bfdbeb
    // Read password
    base::Optional<std::string> password;
    error =
-+      BRAVE_KEY_STORAGE_KWALLET_GET_KEY_IMPL
++      adrbrowsiel_KEY_STORAGE_KWALLET_GET_KEY_IMPL
        kwallet_dbus_->ReadPassword(handle_, KeyStorageLinux::kFolderName,
                                    KeyStorageLinux::kKey, app_name_, &password);
    if (error)
@@ -14,7 +14,7 @@ index 10eb2a15cf7682e46c4bee2b32cd3eb8e14d10b2..533cb4c4d76edd5f0666f99975bfdbeb
  bool KeyStorageKWallet::InitFolder() {
    bool has_folder = false;
    KWalletDBus::Error error = kwallet_dbus_->HasFolder(
-+      BRAVE_KEY_STORAGE_KWALLET_INIT_FOLDER
++      adrbrowsiel_KEY_STORAGE_KWALLET_INIT_FOLDER
        handle_, KeyStorageLinux::kFolderName, app_name_, &has_folder);
    if (error)
      return false;

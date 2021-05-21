@@ -1,19 +1,19 @@
-import("//brave/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
 import("//extensions/buildflags/buildflags.gni")
 
 source_set("browsing_data") {
-  # Remove when https://github.com/brave/brave-browser/issues/10657 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10657 is resolved
   check_includes = false
   sources = [
-    "brave_browsing_data_remover_delegate.cc",
-    "brave_browsing_data_remover_delegate.h",
-    "brave_clear_browsing_data.cc",
-    "brave_clear_browsing_data.h",
+    "adrbrowsiel_browsing_data_remover_delegate.cc",
+    "adrbrowsiel_browsing_data_remover_delegate.h",
+    "adrbrowsiel_clear_browsing_data.cc",
+    "adrbrowsiel_clear_browsing_data.h",
   ]
 
   deps = [
     "//base",
-    "//brave/components/ipfs/buildflags",
+    "//adrbrowsiel/components/ipfs/buildflags",
     "//chrome/browser/browsing_data:constants",
     "//chrome/common",
     "//components/browsing_data/core",
@@ -25,13 +25,13 @@ source_set("browsing_data") {
 
   if (enable_extensions) {
     deps += [
-      "//brave/common/extensions/api",
+      "//adrbrowsiel/common/extensions/api",
       "//extensions/browser",
     ]
   }
 
   if (ipfs_enabled) {
-    deps += [ "//brave/components/ipfs" ]
+    deps += [ "//adrbrowsiel/components/ipfs" ]
   }
 }
 
@@ -40,7 +40,7 @@ if (!is_android) {
     testonly = true
 
     sources = [
-      "//brave/browser/browsing_data/brave_clear_browsing_data_browsertest.cc",
+      "//adrbrowsiel/browser/browsing_data/adrbrowsiel_clear_browsing_data_browsertest.cc",
     ]
 
     defines = [ "HAS_OUT_OF_PROC_TEST_RUNNER" ]
@@ -48,7 +48,7 @@ if (!is_android) {
     deps = [
       "//base",
       "//base/test:test_support",
-      "//brave/browser/browsing_data",
+      "//adrbrowsiel/browser/browsing_data",
       "//chrome/app:command_ids",
       "//chrome/browser",
       "//chrome/browser/browsing_data:constants",

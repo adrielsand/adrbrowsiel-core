@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_ads/ad_notification_header_view.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification_header_view.h"
 
 #include <memory>
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/ui/brave_ads/insets_util.h"
-#include "brave/browser/ui/brave_ads/spacer_view.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/insets_util.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/spacer_view.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "ui/accessibility/ax_enums.mojom.h"
 #include "ui/accessibility/ax_node_data.h"
 #include "ui/base/l10n/l10n_util.h"
@@ -24,7 +24,7 @@
 #include "ui/views/layout/flex_layout.h"
 #include "ui/views/metadata/metadata_impl_macros.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 namespace {
 
@@ -169,4 +169,4 @@ void AdNotificationHeaderView::UpdateTitleLabel() {
 BEGIN_METADATA(AdNotificationHeaderView, views::View)
 END_METADATA
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

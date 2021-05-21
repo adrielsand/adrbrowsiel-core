@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Requirements: bash, coreutils, git, pylint.
 # The python3 version of pylint should be used (`pip3 install pylint').
-# This is called via `npm run pylint' with the top of the brave-core repo as $PWD.
+# This is called via `npm run pylint' with the top of the adrbrowsiel-core repo as $PWD.
 
 # Fail on any error.
 shopt -s inherit_errexit

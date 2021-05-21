@@ -6,8 +6,8 @@ import("//tools/polymer/polymer.gni")
 import("//ui/webui/resources/tools/generate_grd.gni")
 
 preprocess_folder = "preprocessed"
-preprocess_manifest = "brave_preprocessed_manifest.json"
-preprocess_gen_manifest = "brave_preprocessed_gen_manifest.json"
+preprocess_manifest = "adrbrowsiel_preprocessed_manifest.json"
+preprocess_gen_manifest = "adrbrowsiel_preprocessed_gen_manifest.json"
 
 grit("resources") {
   grit_flags = [
@@ -22,23 +22,23 @@ grit("resources") {
   enable_input_discovery_for_gn_analyze = false
   defines +=
       [ "SHARED_INTERMEDIATE_DIR=" + rebase_path(root_gen_dir, root_build_dir) ]
-  extensions_gen_dir = "$root_gen_dir/brave/browser/resources/extensions"
-  source = "$extensions_gen_dir/brave_extensions_resources.grd"
+  extensions_gen_dir = "$root_gen_dir/adrbrowsiel/browser/resources/extensions"
+  source = "$extensions_gen_dir/adrbrowsiel_extensions_resources.grd"
   deps = [ ":build_grd" ]
 
   outputs = [
-    "grit/brave_extensions_resources.h",
-    "grit/brave_extensions_resources_map.cc",
-    "grit/brave_extensions_resources_map.h",
-    "brave_extensions_resources.pak",
+    "grit/adrbrowsiel_extensions_resources.h",
+    "grit/adrbrowsiel_extensions_resources_map.cc",
+    "grit/adrbrowsiel_extensions_resources_map.h",
+    "adrbrowsiel_extensions_resources.pak",
   ]
 
-  output_dir = "$root_gen_dir/brave/browser/resources/extensions"
-  resource_ids = "//brave/browser/resources/resource_ids"
+  output_dir = "$root_gen_dir/adrbrowsiel/browser/resources/extensions"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 }
 
 generate_grd("build_grd") {
-  grd_prefix = "brave_extensions"
+  grd_prefix = "adrbrowsiel_extensions"
   out_grd = "$target_gen_dir/${grd_prefix}_resources.grd"
   input_files = []
   input_files_base_dir = rebase_path(".", "//")
@@ -60,22 +60,22 @@ preprocess_if_expr("preprocess") {
   out_manifest =
       "$root_gen_dir/chrome/browser/resources/extensions/$preprocess_manifest"
   in_files = [
-    "brave_overrides/extensions_detail_view.js",
-    "brave_overrides/index.js",
+    "adrbrowsiel_overrides/extensions_detail_view.js",
+    "adrbrowsiel_overrides/index.js",
   ]
 }
 
 preprocess_if_expr("preprocess_generated") {
-  deps = [ ":brave_item_list_more_items_module" ]
+  deps = [ ":adrbrowsiel_item_list_more_items_module" ]
   in_folder = target_gen_dir
   out_folder =
       "$root_gen_dir/chrome/browser/resources/extensions/$preprocess_folder"
   out_manifest = "$root_gen_dir/chrome/browser/resources/extensions/$preprocess_gen_manifest"
-  in_files = [ "brave_item_list_more_items.js" ]
+  in_files = [ "adrbrowsiel_item_list_more_items.js" ]
 }
 
-polymer_modulizer("brave_item_list_more_items") {
-  js_file = "brave_item_list_more_items.js"
-  html_file = "brave_item_list_more_items.html"
+polymer_modulizer("adrbrowsiel_item_list_more_items") {
+  js_file = "adrbrowsiel_item_list_more_items.js"
+  html_file = "adrbrowsiel_item_list_more_items.html"
   html_type = "v3-ready"
 }

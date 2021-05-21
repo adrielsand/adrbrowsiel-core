@@ -7,7 +7,7 @@ index c8d6031565de2ba8ea4a3df3fc1ac005c6c7cdab..b7a64a3c8988901fb1a9a79c6937f148
  KeyedService* ToolbarActionsModelFactory::BuildServiceInstanceFor(
      content::BrowserContext* context) const {
 -  return new ToolbarActionsModel(
-+  return new BraveToolbarActionsModel(
++  return new adrbrowsielToolbarActionsModel(
        Profile::FromBrowserContext(context),
        extensions::ExtensionPrefsFactory::GetForBrowserContext(context));
  }

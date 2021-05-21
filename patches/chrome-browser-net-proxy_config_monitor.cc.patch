@@ -6,7 +6,7 @@ index 55cc762b92193ed3f65b4d0b562202869530e1ac..d3cf6c87b3fd96ddb3895081fd49d2e4
              profile->GetPrefs(), g_browser_process->local_state());
    }
  
-+  BRAVE_PROXY_CONFIG_MONITOR
++  adrbrowsiel_PROXY_CONFIG_MONITOR
    proxy_config_service_ = ProxyServiceFactory::CreateProxyConfigService(
        pref_proxy_config_tracker_.get());
  

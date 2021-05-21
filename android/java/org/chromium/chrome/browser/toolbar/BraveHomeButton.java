@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -16,12 +16,12 @@ import org.chromium.chrome.browser.theme.ThemeColorProvider;
 import org.chromium.chrome.browser.theme.ThemeColorProvider.TintObserver;
 
 /**
- * Brave's extension of HomeButton.
+ * adrbrowsiel's extension of HomeButton.
  */
-public class BraveHomeButton extends HomeButton implements TintObserver {
+public class adrbrowsielHomeButton extends HomeButton implements TintObserver {
     private ThemeColorProvider mThemeColorProvider;
 
-    public BraveHomeButton(Context context, AttributeSet attrs) {
+    public adrbrowsielHomeButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

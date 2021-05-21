@@ -1,11 +1,11 @@
-# Copyright (c) 2019 The Brave Authors. All rights reserved.
+# Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import("//third_party/protobuf/proto_library.gni")
 
-import("//brave/vendor/bat-native-ledger/config.gni")
+import("//adrbrowsiel/vendor/bat-native-ledger/config.gni")
 
 if (is_android) {
   import("//build/config/android/rules.gni")
@@ -24,9 +24,9 @@ config("external_config") {
 config("internal_config") {
   visibility = [
     ":*",
-    "//brave/components/brave_rewards/test:*",
-    "//brave/test:*",
-    "//brave/vendor/bat-native-ledger/test:*",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/test:*",
+    "//adrbrowsiel/test:*",
+    "//adrbrowsiel/vendor/bat-native-ledger/test:*",
   ]
   defines = [
     "BITFLYER_CLIENT_ID=\"$bitflyer_client_id\"",
@@ -71,11 +71,11 @@ source_set("headers") {
 
     # add this only when ads is in the same process
     # rebase_path("bat-native-ads", dep_base),
-    "//brave/browser/extensions:extensions",
-    "//brave/browser/ui:ui",
-    "//brave/components/brave_rewards/browser:browser",
-    "//brave/components/brave_rewards/browser:testutil",
-    "//brave/vendor/brave-ios:rewards_db",
+    "//adrbrowsiel/browser/extensions:extensions",
+    "//adrbrowsiel/browser/ui:ui",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/browser:browser",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/browser:testutil",
+    "//adrbrowsiel/vendor/adrbrowsiel-ios:rewards_db",
   ]
 
   public_configs = [ ":external_config" ]
@@ -329,8 +329,8 @@ source_set("ledger") {
     "src/bat/ledger/internal/endpoint/promotion/post_captcha/post_captcha.h",
     "src/bat/ledger/internal/endpoint/promotion/post_claim_bitflyer/post_claim_bitflyer.cc",
     "src/bat/ledger/internal/endpoint/promotion/post_claim_bitflyer/post_claim_bitflyer.h",
-    "src/bat/ledger/internal/endpoint/promotion/post_claim_brave/post_claim_brave.cc",
-    "src/bat/ledger/internal/endpoint/promotion/post_claim_brave/post_claim_brave.h",
+    "src/bat/ledger/internal/endpoint/promotion/post_claim_adrbrowsiel/post_claim_adrbrowsiel.cc",
+    "src/bat/ledger/internal/endpoint/promotion/post_claim_adrbrowsiel/post_claim_adrbrowsiel.h",
     "src/bat/ledger/internal/endpoint/promotion/post_claim_uphold/post_claim_uphold.cc",
     "src/bat/ledger/internal/endpoint/promotion/post_claim_uphold/post_claim_uphold.h",
     "src/bat/ledger/internal/endpoint/promotion/post_clobbered_claims/post_clobbered_claims.cc",
@@ -345,8 +345,8 @@ source_set("ledger") {
     "src/bat/ledger/internal/endpoint/promotion/post_suggestions/post_suggestions.h",
     "src/bat/ledger/internal/endpoint/promotion/post_suggestions_claim/post_suggestions_claim.cc",
     "src/bat/ledger/internal/endpoint/promotion/post_suggestions_claim/post_suggestions_claim.h",
-    "src/bat/ledger/internal/endpoint/promotion/post_wallet_brave/post_wallet_brave.cc",
-    "src/bat/ledger/internal/endpoint/promotion/post_wallet_brave/post_wallet_brave.h",
+    "src/bat/ledger/internal/endpoint/promotion/post_wallet_adrbrowsiel/post_wallet_adrbrowsiel.cc",
+    "src/bat/ledger/internal/endpoint/promotion/post_wallet_adrbrowsiel/post_wallet_adrbrowsiel.h",
     "src/bat/ledger/internal/endpoint/promotion/promotion_server.cc",
     "src/bat/ledger/internal/endpoint/promotion/promotion_server.h",
     "src/bat/ledger/internal/endpoint/promotion/promotions_util.cc",
@@ -458,8 +458,8 @@ source_set("ledger") {
     "src/bat/ledger/internal/report/report.cc",
     "src/bat/ledger/internal/report/report.h",
     "src/bat/ledger/internal/sku/sku.h",
-    "src/bat/ledger/internal/sku/sku_brave.cc",
-    "src/bat/ledger/internal/sku/sku_brave.h",
+    "src/bat/ledger/internal/sku/sku_adrbrowsiel.cc",
+    "src/bat/ledger/internal/sku/sku_adrbrowsiel.h",
     "src/bat/ledger/internal/sku/sku_common.cc",
     "src/bat/ledger/internal/sku/sku_common.h",
     "src/bat/ledger/internal/sku/sku_factory.cc",
@@ -526,8 +526,8 @@ source_set("ledger") {
   deps = [
     ":publishers_proto",
     "//base",
-    "//brave/components/brave_private_cdn",
-    "//brave/components/challenge_bypass_ristretto",
+    "//adrbrowsiel/components/adrbrowsiel_private_cdn",
+    "//adrbrowsiel/components/challenge_bypass_ristretto",
     "//crypto",
     "//net:net",
     "//sql:sql",
@@ -539,7 +539,7 @@ source_set("ledger") {
     rebase_path("bip39wally-core-native:bip39wally-core", dep_base),
     rebase_path("bat-native-tweetnacl:tweetnacl", dep_base),
     rebase_path("bat-native-rapidjson", dep_base),
-    rebase_path("brave_base", dep_base),
+    rebase_path("adrbrowsiel_base", dep_base),
   ]
 
   public_deps = [ ":headers" ]

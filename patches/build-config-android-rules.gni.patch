@@ -6,7 +6,7 @@ index 2f7b6441dcf5a48c24c14850131c76e983f414ca..2dbbd9510059f987612bd30301a87ce9
    #     ]
    #   }
    template("java_cpp_enum") {
-+    foreach(source, invoker.sources) { foreach(filter, brave_java_cpp_enum_filter) { if(source == filter) { invoker.sources -= [filter] }}}
++    foreach(source, invoker.sources) { foreach(filter, adrbrowsiel_java_cpp_enum_filter) { if(source == filter) { invoker.sources -= [filter] }}}
      action_with_pydeps(target_name) {
        forward_variables_from(invoker, TESTONLY_AND_VISIBILITY + [ "sources" ])
  
@@ -14,7 +14,7 @@ index 2f7b6441dcf5a48c24c14850131c76e983f414ca..2dbbd9510059f987612bd30301a87ce9
    #     output = "$target_gen_dir/AndroidManifest.xml"
    #   }
    template("jinja_template") {
-+    if (defined(invoker.includes)) { invoker.includes += brave_android_manifest_includes } else { invoker.includes = brave_android_manifest_includes }
++    if (defined(invoker.includes)) { invoker.includes += adrbrowsiel_android_manifest_includes } else { invoker.includes = adrbrowsiel_android_manifest_includes }
      action_with_pydeps(target_name) {
        forward_variables_from(invoker, TESTONLY_AND_VISIBILITY + [ "deps" ])
        inputs = [ invoker.input ]

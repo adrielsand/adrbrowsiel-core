@@ -13,7 +13,7 @@ include_rules = [
 # Existing exceptions
 specific_include_rules = {
   "browser_main_loop.cc": [
-    "+brave/browser/brave_browser_main_loop.cc",
-    "+brave/browser/brave_browser_main_loop.h",
+    "+adrbrowsiel/browser/adrbrowsiel_browser_main_loop.cc",
+    "+adrbrowsiel/browser/adrbrowsiel_browser_main_loop.h",
   ],
 }

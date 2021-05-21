@@ -6,7 +6,7 @@ index 27c85d41b2f6c0f9b52d7913b57f56790f509d70..b886b6465a35f25e99e43ac191dfc4f8
        const std::vector<ImporterAutofillFormDataEntry>&
            autofill_form_data_entry_group) override;
  
-+  BRAVE_EXTERNAL_PROCESS_IMPORTER_CLIENT_H
++  adrbrowsiel_EXTERNAL_PROCESS_IMPORTER_CLIENT_H
   protected:
    ~ExternalProcessImporterClient() override;
  

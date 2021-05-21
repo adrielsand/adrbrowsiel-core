@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 The Brave Authors. All rights reserved.
+ * Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -28,15 +28,15 @@ import androidx.fragment.app.Fragment;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveRewardsHelper;
-import org.chromium.chrome.browser.BraveRewardsNativeWorker;
+import org.chromium.chrome.browser.adrbrowsielRewardsHelper;
+import org.chromium.chrome.browser.adrbrowsielRewardsNativeWorker;
 import org.chromium.chrome.browser.customtabs.CustomTabActivity;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
-import org.chromium.chrome.browser.BraveAdsNativeHelper;
+import org.chromium.chrome.browser.adrbrowsielAdsNativeHelper;
 import org.chromium.chrome.browser.profiles.Profile;
 
-public class BraveRewardsOnboardingFragment extends Fragment {
+public class adrbrowsielRewardsOnboardingFragment extends Fragment {
     private OnViewPagerAction onViewPagerAction;
 
     private TextView tvTitle;
@@ -46,14 +46,14 @@ public class BraveRewardsOnboardingFragment extends Fragment {
     private Button btnSkip;
     private Button btnNext;
 
-    private static final String BRAVE_TERMS_PAGE =
+    private static final String adrbrowsiel_TERMS_PAGE =
         "https://basicattentiontoken.org/user-terms-of-service/";
 
     private boolean isAdsAvailable;
 
     private boolean isAnonWallet;
 
-    public BraveRewardsOnboardingFragment() {
+    public adrbrowsielRewardsOnboardingFragment() {
         // Required empty public constructor
     }
 
@@ -62,10 +62,10 @@ public class BraveRewardsOnboardingFragment extends Fragment {
         LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         isAdsAvailable = OnboardingPrefManager.getInstance().isAdsAvailable();
 
-        isAnonWallet = BraveRewardsHelper.isAnonWallet();
+        isAnonWallet = adrbrowsielRewardsHelper.isAnonWallet();
 
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_brave_rewards_onboarding, container, false);
+        View root = inflater.inflate(R.layout.fragment_adrbrowsiel_rewards_onboarding, container, false);
 
         initializeViews(root);
 
@@ -88,20 +88,20 @@ public class BraveRewardsOnboardingFragment extends Fragment {
         btnNext.setText(getResources().getString(R.string.earn_and_give));
         btnSkip.setText(getResources().getString(R.string.skip));
 
-        String braveRewardsText = "<b>" + String.format(getResources().getString(R.string.earn_tokens), isAnonWallet ? getResources().getString(R.string.point) : getResources().getString(R.string.token)) + "</b> " + getResources().getString(R.string.brave_rewards_onboarding_text);
-        Spanned textToInsert = BraveRewardsHelper.spannedFromHtmlString(braveRewardsText);
+        String adrbrowsielRewardsText = "<b>" + String.format(getResources().getString(R.string.earn_tokens), isAnonWallet ? getResources().getString(R.string.point) : getResources().getString(R.string.token)) + "</b> " + getResources().getString(R.string.adrbrowsiel_rewards_onboarding_text);
+        Spanned textToInsert = adrbrowsielRewardsHelper.spannedFromHtmlString(adrbrowsielRewardsText);
         tvText.setText(textToInsert);
         tvText.setMovementMethod(new ScrollingMovementMethod());
 
         String termsText = getResources().getString(R.string.terms_text) + " "
                            + getResources().getString(R.string.terms_of_service) + ".";
-        Spanned textToAgree = BraveRewardsHelper.spannedFromHtmlString(termsText);
+        Spanned textToAgree = adrbrowsielRewardsHelper.spannedFromHtmlString(termsText);
         SpannableString ss = new SpannableString(textToAgree.toString());
 
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View textView) {
-                CustomTabActivity.showInfoPage(getActivity(), BRAVE_TERMS_PAGE);
+                CustomTabActivity.showInfoPage(getActivity(), adrbrowsiel_TERMS_PAGE);
             }
             @Override
             public void updateDrawState(@NonNull TextPaint ds) {
@@ -132,8 +132,8 @@ public class BraveRewardsOnboardingFragment extends Fragment {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
-                BraveRewardsNativeWorker.getInstance().SetAutoContributeEnabled(true);
+                adrbrowsielAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
+                adrbrowsielRewardsNativeWorker.getInstance().SetAutoContributeEnabled(true);
                 assert onViewPagerAction != null;
                 if (onViewPagerAction != null)
                     onViewPagerAction.onNext();

@@ -1,18 +1,18 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/decentralized_dns_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/decentralized_dns_network_delegate_helper.h"
 
 #include <memory>
 
 #include "base/test/scoped_feature_list.h"
-#include "brave/browser/net/url_context.h"
-#include "brave/components/decentralized_dns/constants.h"
-#include "brave/components/decentralized_dns/features.h"
-#include "brave/components/decentralized_dns/pref_names.h"
-#include "brave/components/decentralized_dns/utils.h"
+#include "adrbrowsiel/browser/net/url_context.h"
+#include "adrbrowsiel/components/decentralized_dns/constants.h"
+#include "adrbrowsiel/components/decentralized_dns/features.h"
+#include "adrbrowsiel/components/decentralized_dns/pref_names.h"
+#include "adrbrowsiel/components/decentralized_dns/utils.h"
 #include "chrome/test/base/scoped_testing_local_state.h"
 #include "chrome/test/base/testing_browser_process.h"
 #include "chrome/test/base/testing_profile.h"
@@ -22,7 +22,7 @@
 #include "testing/gtest/include/gtest/gtest.h"
 #include "url/gurl.h"
 
-using brave::ResponseCallback;
+using adrbrowsiel::ResponseCallback;
 
 namespace decentralized_dns {
 
@@ -56,55 +56,55 @@ class DecentralizedDnsNetworkDelegateHelperTest : public testing::Test {
 
 TEST_F(DecentralizedDnsNetworkDelegateHelperTest,
        DecentralizedDnsPreRedirectWork) {
-  GURL url("http://brave.crypto");
-  auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-  brave_request_info->browser_context = profile();
+  GURL url("http://adrbrowsiel.crypto");
+  auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+  adrbrowsiel_request_info->browser_context = profile();
 
   // No redirect if resolve method is not set to Ethereum.
   EXPECT_FALSE(IsUnstoppableDomainsResolveMethodEthereum(local_state()));
   int rc = OnBeforeURLRequest_DecentralizedDnsPreRedirectWork(
-      ResponseCallback(), brave_request_info);
+      ResponseCallback(), adrbrowsiel_request_info);
   EXPECT_EQ(rc, net::OK);
-  EXPECT_TRUE(brave_request_info->new_url_spec.empty());
+  EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
 
   local_state()->SetInteger(kUnstoppableDomainsResolveMethod,
                             static_cast<int>(ResolveMethodTypes::ETHEREUM));
   EXPECT_TRUE(IsUnstoppableDomainsResolveMethodEthereum(local_state()));
 
   // No redirect for OTR context.
-  brave_request_info->browser_context = profile()->GetPrimaryOTRProfile();
+  adrbrowsiel_request_info->browser_context = profile()->GetPrimaryOTRProfile();
   rc = OnBeforeURLRequest_DecentralizedDnsPreRedirectWork(ResponseCallback(),
-                                                          brave_request_info);
+                                                          adrbrowsiel_request_info);
   EXPECT_EQ(rc, net::OK);
-  EXPECT_TRUE(brave_request_info->new_url_spec.empty());
-  brave_request_info->browser_context = profile();
+  EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
+  adrbrowsiel_request_info->browser_context = profile();
 
   // TLD is not .crypto
-  brave_request_info->request_url = GURL("http://test.com");
+  adrbrowsiel_request_info->request_url = GURL("http://test.com");
   rc = OnBeforeURLRequest_DecentralizedDnsPreRedirectWork(ResponseCallback(),
-                                                          brave_request_info);
+                                                          adrbrowsiel_request_info);
   EXPECT_EQ(rc, net::OK);
-  EXPECT_TRUE(brave_request_info->new_url_spec.empty());
-  brave_request_info->request_url = url;
+  EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
+  adrbrowsiel_request_info->request_url = url;
 
   rc = OnBeforeURLRequest_DecentralizedDnsPreRedirectWork(ResponseCallback(),
-                                                          brave_request_info);
+                                                          adrbrowsiel_request_info);
   EXPECT_EQ(rc, net::ERR_IO_PENDING);
 }
 
 TEST_F(DecentralizedDnsNetworkDelegateHelperTest,
        DecentralizedDnsRedirectWork) {
-  GURL url("http://brave.crypto");
-  auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
+  GURL url("http://adrbrowsiel.crypto");
+  auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
 
   // No redirect for failed requests.
   OnBeforeURLRequest_DecentralizedDnsRedirectWork(
-      ResponseCallback(), brave_request_info, false, "");
-  EXPECT_TRUE(brave_request_info->new_url_spec.empty());
+      ResponseCallback(), adrbrowsiel_request_info, false, "");
+  EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
 
   OnBeforeURLRequest_DecentralizedDnsRedirectWork(ResponseCallback(),
-                                                  brave_request_info, true, "");
-  EXPECT_TRUE(brave_request_info->new_url_spec.empty());
+                                                  adrbrowsiel_request_info, true, "");
+  EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
 
   // Has both IPFS URI & fallback URL.
   std::string result =
@@ -143,9 +143,9 @@ TEST_F(DecentralizedDnsNetworkDelegateHelperTest,
       "68747470733a2f2f66616c6c6261636b322e746573742e636f6d000000000000";
 
   OnBeforeURLRequest_DecentralizedDnsRedirectWork(
-      ResponseCallback(), brave_request_info, true, result);
+      ResponseCallback(), adrbrowsiel_request_info, true, result);
   EXPECT_EQ("ipfs://QmWrdNJWMbvRxxzLhojVKaBDswS4KNVM7LvjsN7QbDrvka",
-            brave_request_info->new_url_spec);
+            adrbrowsiel_request_info->new_url_spec);
 
   // Has legacy IPFS URI & fallback URL
   result =
@@ -180,9 +180,9 @@ TEST_F(DecentralizedDnsNetworkDelegateHelperTest,
       // encoding for "https://fallback2.test.com"
       "68747470733a2f2f66616c6c6261636b322e746573742e636f6d000000000000";
   OnBeforeURLRequest_DecentralizedDnsRedirectWork(
-      ResponseCallback(), brave_request_info, true, result);
+      ResponseCallback(), adrbrowsiel_request_info, true, result);
   EXPECT_EQ("ipfs://QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR",
-            brave_request_info->new_url_spec);
+            adrbrowsiel_request_info->new_url_spec);
 
   // Has both fallback URL
   result =
@@ -214,8 +214,8 @@ TEST_F(DecentralizedDnsNetworkDelegateHelperTest,
       // encoding for "https://fallback2.test.com"
       "68747470733a2f2f66616c6c6261636b322e746573742e636f6d000000000000";
   OnBeforeURLRequest_DecentralizedDnsRedirectWork(
-      ResponseCallback(), brave_request_info, true, result);
-  EXPECT_EQ("https://fallback1.test.com/", brave_request_info->new_url_spec);
+      ResponseCallback(), adrbrowsiel_request_info, true, result);
+  EXPECT_EQ("https://fallback1.test.com/", adrbrowsiel_request_info->new_url_spec);
 
   // Has legacy URL
   result =
@@ -245,8 +245,8 @@ TEST_F(DecentralizedDnsNetworkDelegateHelperTest,
       // encoding for "https://fallback2.test.com"
       "68747470733a2f2f66616c6c6261636b322e746573742e636f6d000000000000";
   OnBeforeURLRequest_DecentralizedDnsRedirectWork(
-      ResponseCallback(), brave_request_info, true, result);
-  EXPECT_EQ("https://fallback2.test.com/", brave_request_info->new_url_spec);
+      ResponseCallback(), adrbrowsiel_request_info, true, result);
+  EXPECT_EQ("https://fallback2.test.com/", adrbrowsiel_request_info->new_url_spec);
 }
 
 }  // namespace decentralized_dns

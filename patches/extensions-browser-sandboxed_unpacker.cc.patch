@@ -6,7 +6,7 @@ index 40f40a2d2b3989f6b053df520225d7b2677a9ccb..f94e707c9005fd916038d984cbd115d7
    DCHECK(!public_key_.empty());
    base::Value final_manifest = manifest.Clone();
    final_manifest.SetStringKey(manifest_keys::kPublicKey, public_key_);
-+  BRAVE_SANDBOXEDUNPACKER_REWRITEMANIFESTFILE
++  adrbrowsiel_SANDBOXEDUNPACKER_REWRITEMANIFESTFILE
  
    {
      std::string differential_fingerprint;

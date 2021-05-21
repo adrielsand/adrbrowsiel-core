@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,27 +8,27 @@
 #undef IsComponentExtensionAllowlisted
 
 #include "base/stl_util.h"
-#include "brave/components/brave_extension/grit/brave_extension.h"
-#include "brave/components/brave_rewards/resources/extension/grit/brave_rewards_extension_resources.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/brave_webtorrent/grit/brave_webtorrent_resources.h"
-#include "components/grit/brave_components_resources.h"
+#include "adrbrowsiel/components/adrbrowsiel_extension/grit/adrbrowsiel_extension.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/resources/extension/grit/adrbrowsiel_rewards_extension_resources.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/grit/adrbrowsiel_webtorrent_resources.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
 #include "extensions/common/constants.h"
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
 #endif
 
 namespace extensions {
 
   bool IsComponentExtensionAllowlisted(const std::string& extension_id) {
     const char* const kAllowed[] = {
-      brave_extension_id,
-      brave_rewards_extension_id,
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
+      adrbrowsiel_extension_id,
+      adrbrowsiel_rewards_extension_id,
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
       ethereum_remote_client_extension_id,
 #endif
-      brave_webtorrent_extension_id
+      adrbrowsiel_webtorrent_extension_id
     };
 
     for (size_t i = 0; i < base::size(kAllowed); ++i) {
@@ -42,9 +42,9 @@ namespace extensions {
   bool IsComponentExtensionAllowlisted(int manifest_resource_id) {
     switch (manifest_resource_id) {
       // Please keep the list in alphabetical order.
-      case IDR_BRAVE_EXTENSION:
-      case IDR_BRAVE_REWARDS:
-      case IDR_BRAVE_WEBTORRENT:
+      case IDR_adrbrowsiel_EXTENSION:
+      case IDR_adrbrowsiel_REWARDS:
+      case IDR_adrbrowsiel_WEBTORRENT:
         return true;
     }
 

@@ -6,7 +6,7 @@ index f24ac7b0d34ca997f9a57ee82ad9cf2a9baed3e3..487f46cb0d79cc0e0d16149116e1b29a
  
  // static
  HostPortPair HostPortPair::FromURL(const GURL& url) {
-+  BRAVE_HOST_PORT_PAIR_FROM_URL_
++  adrbrowsiel_HOST_PORT_PAIR_FROM_URL_
    return HostPortPair(url.HostNoBrackets(),
                        static_cast<uint16_t>(url.EffectiveIntPort()));
  }
@@ -14,7 +14,7 @@ index f24ac7b0d34ca997f9a57ee82ad9cf2a9baed3e3..487f46cb0d79cc0e0d16149116e1b29a
  
  // static
  HostPortPair HostPortPair::FromString(const std::string& str) {
-+  BRAVE_HOST_PORT_PAIR_FROM_STRING_
++  adrbrowsiel_HOST_PORT_PAIR_FROM_STRING_
    std::vector<base::StringPiece> key_port = base::SplitStringPiece(
        str, ":", base::TRIM_WHITESPACE, base::SPLIT_WANT_ALL);
    if (key_port.size() != 2)
@@ -22,7 +22,7 @@ index f24ac7b0d34ca997f9a57ee82ad9cf2a9baed3e3..487f46cb0d79cc0e0d16149116e1b29a
    std::string ret(HostForURL());
    ret += ':';
    ret += base::NumberToString(port_);
-+  BRAVE_HOST_PORT_PAIR_TO_STRING_
++  adrbrowsiel_HOST_PORT_PAIR_TO_STRING_
    return ret;
  }
  

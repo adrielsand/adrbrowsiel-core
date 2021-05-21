@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,7 +12,7 @@ import org.chromium.chrome.browser.fullscreen.FullscreenManager;
 import org.chromium.ui.base.WindowAndroid;
 import org.chromium.ui.modelutil.PropertyModel;
 
-class BraveBottomControlsMediator extends BottomControlsMediator {
+class adrbrowsielBottomControlsMediator extends BottomControlsMediator {
     // To delete in bytecode, members from parent class will be used instead.
     private int mBottomControlsHeight;
     private PropertyModel mModel;
@@ -26,7 +26,7 @@ class BraveBottomControlsMediator extends BottomControlsMediator {
     private int mBottomControlsHeightSingle;
     private int mBottomControlsHeightDouble;
 
-    BraveBottomControlsMediator(WindowAndroid windowAndroid, PropertyModel model,
+    adrbrowsielBottomControlsMediator(WindowAndroid windowAndroid, PropertyModel model,
             BrowserControlsSizer controlsSizer, FullscreenManager fullscreenManager,
             int bottomControlsHeight, ObservableSupplier<Boolean> overlayPanelVisibilitySupplier) {
         super(windowAndroid, model, controlsSizer, fullscreenManager, bottomControlsHeight,

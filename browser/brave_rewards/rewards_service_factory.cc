@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,17 +6,17 @@
 #include <memory>
 #include <utility>
 
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
 
-#include "brave/browser/profiles/brave_profile_manager.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/components/brave_rewards/browser/buildflags/buildflags.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service_observer.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/components/brave_rewards/browser/rewards_service_observer.h"
-#include "brave/components/brave_rewards/browser/rewards_service_private_observer.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
-#include "brave/components/greaselion/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/profiles/adrbrowsiel_profile_manager.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_private_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/greaselion/browser/buildflags/buildflags.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/chrome_notification_types.h"
 #include "chrome/browser/profiles/incognito_helpers.h"
@@ -30,20 +30,20 @@
 
 #if BUILDFLAG(ENABLE_EXTENSIONS)
 #include "extensions/browser/event_router_factory.h"
-#include "brave/browser/brave_rewards/extension_rewards_service_observer.h"
-#include "brave/browser/brave_rewards/extension_rewards_notification_service_observer.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/extension_rewards_service_observer.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/extension_rewards_notification_service_observer.h"
 #endif
 
 #if BUILDFLAG(ENABLE_GREASELION)
-#include "brave/browser/greaselion/greaselion_service_factory.h"
-#include "brave/components/greaselion/browser/greaselion_service.h"
+#include "adrbrowsiel/browser/greaselion/greaselion_service_factory.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_service.h"
 #endif
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
 #endif
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 RewardsService* testing_service_;
 
@@ -54,7 +54,7 @@ RewardsService* RewardsServiceFactory::GetForProfile(
     return testing_service_;
   }
 
-  if (!brave::IsRegularProfile(profile)) {
+  if (!adrbrowsiel::IsRegularProfile(profile)) {
     return nullptr;
   }
 
@@ -81,7 +81,7 @@ RewardsServiceFactory::RewardsServiceFactory()
 
 KeyedService* RewardsServiceFactory::BuildServiceInstanceFor(
     content::BrowserContext* context) const {
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
   std::unique_ptr<RewardsServiceObserver> extension_observer = nullptr;
   std::unique_ptr<RewardsServicePrivateObserver> private_observer = nullptr;
   std::unique_ptr<RewardsNotificationServiceObserver> notification_observer =
@@ -122,4 +122,4 @@ bool RewardsServiceFactory::ServiceIsNULLWhileTesting() const {
   return false;
 }
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

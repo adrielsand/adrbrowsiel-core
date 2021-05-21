@@ -6,7 +6,7 @@ index 337da2ed9e468079d774ddc5abb95701b5b92e02..4cb1a161b2160303f444d5c777e7668b
        BuildOtherDevicesTabItem(session_tag, *tabs_in_session[k]);
      }  // for all tabs in one session
  
-+    BRAVE_BUILD_TABS_FROM_OTHER_DEVICES
++    adrbrowsiel_BUILD_TABS_FROM_OTHER_DEVICES
      ++num_sessions_added;
    }  // for all sessions
  

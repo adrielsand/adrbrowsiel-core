@@ -47,13 +47,13 @@
     </div>
 
     <template is="dom-if" if="[[isStatus_('configure', pageStatus_)]]">
-      <settings-brave-sync-configure syncStatus="[[syncStatus]]">
-      </settings-brave-sync-configure>
+      <settings-adrbrowsiel-sync-configure syncStatus="[[syncStatus]]">
+      </settings-adrbrowsiel-sync-configure>
     </template>
 
     <template is="dom-if" if="[[isStatus_('setup', pageStatus_)]]">
-      <settings-brave-sync-setup on-setup-success="onSetupSuccess_">
-      </settings-brave-sync-setup>
+      <settings-adrbrowsiel-sync-setup on-setup-success="onSetupSuccess_">
+      </settings-adrbrowsiel-sync-setup>
     </template>
   </div>
 </template>

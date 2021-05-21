@@ -1,20 +1,20 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/brave_wallet/wallet_panel_ui.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_wallet/wallet_panel_ui.h"
 
 #include <utility>
 
-#include "brave/common/webui_url_constants.h"
-#include "brave/components/brave_wallet_panel/resources/grit/brave_wallet_panel_generated_map.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet_panel/resources/grit/adrbrowsiel_wallet_panel_generated_map.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/webui/favicon_source.h"
 #include "chrome/browser/ui/webui/webui_util.h"
 #include "components/favicon_base/favicon_url_parser.h"
-#include "components/grit/brave_components_resources.h"
-#include "components/grit/brave_components_strings.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "content/public/browser/web_contents.h"
 #include "content/public/browser/web_ui.h"
 #include "content/public/browser/web_ui_data_source.h"
@@ -28,12 +28,12 @@ WalletPanelUI::WalletPanelUI(content::WebUI* web_ui)
       content::WebUIDataSource::Create(kWalletPanelHost);
 
   static constexpr webui::LocalizedString kStrings[] = {
-      {"braveWallet", IDS_BRAVE_WALLET},
+      {"adrbrowsielWallet", IDS_adrbrowsiel_WALLET},
   };
   source->AddLocalizedStrings(kStrings);
   webui::SetupWebUIDataSource(source,
-                              base::make_span(kBraveWalletPanelGenerated,
-                                              kBraveWalletPanelGeneratedSize),
+                              base::make_span(kadrbrowsielWalletPanelGenerated,
+                                              kadrbrowsielWalletPanelGeneratedSize),
                               IDR_WALLET_PANEL_HTML);
   content::WebUIDataSource::Add(web_ui->GetWebContents()->GetBrowserContext(),
                                 source);

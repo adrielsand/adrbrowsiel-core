@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_BRAVE_REWARDS_SOURCE_H_
-#define BRAVE_BROWSER_UI_WEBUI_BRAVE_REWARDS_SOURCE_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_REWARDS_SOURCE_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_REWARDS_SOURCE_H_
 
 #include <string>
 #include <vector>
@@ -17,13 +17,13 @@ class GURL;
 class Profile;
 class SkBitmap;
 
-class BraveRewardsSource : public content::URLDataSource {
+class adrbrowsielRewardsSource : public content::URLDataSource {
  public:
-  explicit BraveRewardsSource(Profile* profile);
-  BraveRewardsSource(const BraveRewardsSource&) = delete;
-  BraveRewardsSource& operator=(const BraveRewardsSource&) = delete;
+  explicit adrbrowsielRewardsSource(Profile* profile);
+  adrbrowsielRewardsSource(const adrbrowsielRewardsSource&) = delete;
+  adrbrowsielRewardsSource& operator=(const adrbrowsielRewardsSource&) = delete;
 
-  ~BraveRewardsSource() override;
+  ~adrbrowsielRewardsSource() override;
 
   // content::URLDataSource implementation.
   std::string GetSource() override;
@@ -48,7 +48,7 @@ class BraveRewardsSource : public content::URLDataSource {
   Profile* profile_;
   std::vector<GURL> resource_fetchers_;
 
-  base::WeakPtrFactory<BraveRewardsSource> weak_factory_{this};
+  base::WeakPtrFactory<adrbrowsielRewardsSource> weak_factory_{this};
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_BRAVE_REWARDS_SOURCE_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_REWARDS_SOURCE_H_

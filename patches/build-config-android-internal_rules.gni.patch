@@ -6,7 +6,7 @@ index 83f0c474b74fea54a351f06c05eaa2da64c06ec1..82e368004dbc8b1b46a48c3514ce0a84
          _deps = [ ":$_desugar_target" ]
          _previous_output_jar = _desugar_output_jar
        }
-+      foreach(bytecode_jar, brave_bytecode_jars) { if (rebase_path(invoker.input_jar_path, root_build_dir) == bytecode_jar) { _bytecode_rewriter_output_jar = "$target_out_dir/$target_name.bytecode-rewritten.jar" brave_bytecode_rewriter("${target_name}__bytecode_rewrite"){} _deps = [] _deps = [ ":${target_name}__bytecode_rewrite" ] _previous_output_jar = _bytecode_rewriter_output_jar } }
++      foreach(bytecode_jar, adrbrowsiel_bytecode_jars) { if (rebase_path(invoker.input_jar_path, root_build_dir) == bytecode_jar) { _bytecode_rewriter_output_jar = "$target_out_dir/$target_name.bytecode-rewritten.jar" adrbrowsiel_bytecode_rewriter("${target_name}__bytecode_rewrite"){} _deps = [] _deps = [ ":${target_name}__bytecode_rewrite" ] _previous_output_jar = _bytecode_rewriter_output_jar } }
  
        if (invoker.jacoco_instrument) {
          _filter_jar_target_name = "${target_name}_device__filter_jar"

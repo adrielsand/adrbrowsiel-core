@@ -6,7 +6,7 @@ index 5359becd83e4d958f7c77e0ad79979211b4ba00f..ce5648ea0bfdc40b25524ab0482c2099
      : AudioBasicInspectorHandler(kNodeTypeAnalyser, node, sample_rate),
        analyser_(
            node.context()->GetDeferredTaskHandler().RenderQuantumFrames()) {
-+  BRAVE_ANALYSERHANDLER_CONSTRUCTOR
++  adrbrowsiel_ANALYSERHANDLER_CONSTRUCTOR
    channel_count_ = 2;
    AddOutput(1);
  

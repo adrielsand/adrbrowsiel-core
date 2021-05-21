@@ -18,12 +18,12 @@ except ImportError:  # For Py3 compatibility
 import deps
 from rust_deps_config import RUST_DEPS_PACKAGES_URL, RUST_DEPS_PACKAGE_VERSION
 
-BRAVE_CORE_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+adrbrowsiel_CORE_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
-BRAVE_BROWSER_ROOT = os.path.abspath(
+adrbrowsiel_BROWSER_ROOT = os.path.abspath(
     os.path.join(os.path.dirname(__file__), os.pardir, os.pardir))
 
-RUSTUP_PATH = os.path.join(BRAVE_CORE_ROOT, 'build', 'rustup')
+RUSTUP_PATH = os.path.join(adrbrowsiel_CORE_ROOT, 'build', 'rustup')
 
 RUSTUP_HOME = os.path.join(RUSTUP_PATH, RUST_DEPS_PACKAGE_VERSION)
 
@@ -90,7 +90,7 @@ def get_android_linker(target_arch):
 
 def make_standalone_toolchain_for_android():
     ANDROID_NDK_PATH = os.path.join(
-        BRAVE_BROWSER_ROOT, 'third_party', 'android_ndk')
+        adrbrowsiel_BROWSER_ROOT, 'third_party', 'android_ndk')
 
     make_standalone_toolchain = os.path.join(
         ANDROID_NDK_PATH, 'build', 'tools', 'make_standalone_toolchain.py')

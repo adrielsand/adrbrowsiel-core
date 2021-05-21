@@ -1,15 +1,15 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_ads/ad_notification_view.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification_view.h"
 
 #include <string>
 
-#include "brave/browser/ui/brave_ads/ad_notification_popup.h"
-#include "brave/browser/ui/brave_ads/bounds_util.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification_popup.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/bounds_util.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "ui/accessibility/ax_enums.mojom.h"
 #include "ui/accessibility/ax_node_data.h"
 #include "ui/base/l10n/l10n_util.h"
@@ -19,7 +19,7 @@
 #include "ui/views/metadata/metadata_impl_macros.h"
 #include "ui/views/view.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 AdNotificationView::AdNotificationView(const AdNotification& ad_notification)
     : ad_notification_(ad_notification) {
@@ -51,7 +51,7 @@ void AdNotificationView::GetAccessibleNodeData(ui::AXNodeData* node_data) {
   node_data->role = ax::mojom::Role::kGenericContainer;
   node_data->AddStringAttribute(
       ax::mojom::StringAttribute::kRoleDescription,
-      l10n_util::GetStringUTF8(IDS_BRAVE_ADS_AD_NOTIFICATION_ACCESSIBLE_NAME));
+      l10n_util::GetStringUTF8(IDS_adrbrowsiel_ADS_AD_NOTIFICATION_ACCESSIBLE_NAME));
 
   if (accessible_name_.empty()) {
     node_data->SetNameFrom(ax::mojom::NameFrom::kAttributeExplicitlyEmpty);
@@ -135,4 +135,4 @@ void AdNotificationView::MaybeNotifyAccessibilityEvent() {
 BEGIN_METADATA(AdNotificationView, views::View)
 END_METADATA
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

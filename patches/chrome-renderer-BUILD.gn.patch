@@ -6,7 +6,7 @@ index cd4395923de75739b829a5eb9530b025cb9bc309..5710018ff35e4d0042c41dcec729bdae
      "//v8",
    ]
  
-+  sources += brave_chrome_renderer_sources public_deps += brave_chrome_renderer_public_deps
++  sources += adrbrowsiel_chrome_renderer_sources public_deps += adrbrowsiel_chrome_renderer_public_deps
    data_deps = [ "//tools/v8_context_snapshot" ]
  
    configs += [ "//build/config/compiler:wexit_time_destructors" ]

@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/ui/webui/settings/brave_sync_handler.h"
+#include "adrbrowsiel/browser/ui/webui/settings/adrbrowsiel_sync_handler.h"
 
 #include <string>
 #include <utility>
@@ -11,11 +11,11 @@
 
 #include "base/bind.h"
 #include "base/strings/string_number_conversions.h"
-#include "brave/components/brave_sync/brave_sync_prefs.h"
-#include "brave/components/brave_sync/crypto/crypto.h"
-#include "brave/components/brave_sync/profile_sync_service_helper.h"
-#include "brave/components/sync/driver/brave_sync_profile_sync_service.h"
-#include "brave/components/sync_device_info/brave_device_info.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/adrbrowsiel_sync_prefs.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/crypto/crypto.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/profile_sync_service_helper.h"
+#include "adrbrowsiel/components/sync/driver/adrbrowsiel_sync_profile_sync_service.h"
+#include "adrbrowsiel/components/sync_device_info/adrbrowsiel_device_info.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/sync/device_info_sync_service_factory.h"
 #include "chrome/browser/sync/profile_sync_service_factory.h"
@@ -26,54 +26,54 @@
 #include "content/public/browser/web_ui.h"
 #include "ui/base/webui/web_ui_util.h"
 
-BraveSyncHandler::BraveSyncHandler() : weak_ptr_factory_(this) {}
+adrbrowsielSyncHandler::adrbrowsielSyncHandler() : weak_ptr_factory_(this) {}
 
-BraveSyncHandler::~BraveSyncHandler() {}
+adrbrowsielSyncHandler::~adrbrowsielSyncHandler() {}
 
-void BraveSyncHandler::RegisterMessages() {
+void adrbrowsielSyncHandler::RegisterMessages() {
   profile_ = Profile::FromWebUI(web_ui());
   web_ui()->RegisterMessageCallback(
       "SyncGetDeviceList",
-      base::BindRepeating(&BraveSyncHandler::HandleGetDeviceList,
+      base::BindRepeating(&adrbrowsielSyncHandler::HandleGetDeviceList,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "SyncSetupSetSyncCode",
-      base::BindRepeating(&BraveSyncHandler::HandleSetSyncCode,
+      base::BindRepeating(&adrbrowsielSyncHandler::HandleSetSyncCode,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "SyncSetupGetSyncCode",
-      base::BindRepeating(&BraveSyncHandler::HandleGetSyncCode,
+      base::BindRepeating(&adrbrowsielSyncHandler::HandleGetSyncCode,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "SyncGetQRCode", base::BindRepeating(&BraveSyncHandler::HandleGetQRCode,
+      "SyncGetQRCode", base::BindRepeating(&adrbrowsielSyncHandler::HandleGetQRCode,
                                            base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "SyncSetupReset", base::BindRepeating(&BraveSyncHandler::HandleReset,
+      "SyncSetupReset", base::BindRepeating(&adrbrowsielSyncHandler::HandleReset,
                                             base::Unretained(this)));
 
   web_ui()->RegisterMessageCallback(
       "SyncDeleteDevice",
-      base::BindRepeating(&BraveSyncHandler::HandleDeleteDevice,
+      base::BindRepeating(&adrbrowsielSyncHandler::HandleDeleteDevice,
                           base::Unretained(this)));
 }
 
-void BraveSyncHandler::OnJavascriptAllowed() {
+void adrbrowsielSyncHandler::OnJavascriptAllowed() {
   syncer::DeviceInfoTracker* tracker = GetDeviceInfoTracker();
   DCHECK(tracker);
   if (tracker)
     device_info_tracker_observer_.Add(tracker);
 }
 
-void BraveSyncHandler::OnJavascriptDisallowed() {
+void adrbrowsielSyncHandler::OnJavascriptDisallowed() {
   device_info_tracker_observer_.RemoveAll();
 }
 
-void BraveSyncHandler::OnDeviceInfoChange() {
+void adrbrowsielSyncHandler::OnDeviceInfoChange() {
   if (IsJavascriptAllowed())
     FireWebUIListener("device-info-changed", GetSyncDeviceList());
 }
 
-void BraveSyncHandler::HandleGetDeviceList(const base::ListValue* args) {
+void adrbrowsielSyncHandler::HandleGetDeviceList(const base::ListValue* args) {
   AllowJavascript();
   const auto& list = args->GetList();
   CHECK_EQ(1U, list.size());
@@ -83,7 +83,7 @@ void BraveSyncHandler::HandleGetDeviceList(const base::ListValue* args) {
   ResolveJavascriptCallback(*callback_id, GetSyncDeviceList());
 }
 
-void BraveSyncHandler::HandleGetSyncCode(const base::ListValue* args) {
+void adrbrowsielSyncHandler::HandleGetSyncCode(const base::ListValue* args) {
   AllowJavascript();
 
   CHECK_EQ(1U, args->GetSize());
@@ -98,7 +98,7 @@ void BraveSyncHandler::HandleGetSyncCode(const base::ListValue* args) {
   ResolveJavascriptCallback(*callback_id, base::Value(sync_code));
 }
 
-void BraveSyncHandler::HandleGetQRCode(const base::ListValue* args) {
+void adrbrowsielSyncHandler::HandleGetQRCode(const base::ListValue* args) {
   AllowJavascript();
   CHECK_EQ(2U, args->GetSize());
   const base::Value* callback_id;
@@ -107,7 +107,7 @@ void BraveSyncHandler::HandleGetQRCode(const base::ListValue* args) {
   CHECK(args->Get(1, &sync_code));
 
   std::vector<uint8_t> seed;
-  if (!brave_sync::crypto::PassphraseToBytes32(sync_code->GetString(), &seed)) {
+  if (!adrbrowsiel_sync::crypto::PassphraseToBytes32(sync_code->GetString(), &seed)) {
     LOG(ERROR) << "invalid sync code when generating qr code";
     RejectJavascriptCallback(*callback_id, base::Value("invalid sync code"));
     return;
@@ -122,7 +122,7 @@ void BraveSyncHandler::HandleGetQRCode(const base::ListValue* args) {
 
   qr_code_service_remote_ = qrcode_generator::LaunchQRCodeGeneratorService();
   qr_code_service_remote_.set_disconnect_handler(
-      base::BindOnce(&BraveSyncHandler::OnCodeGeneratorResponse,
+      base::BindOnce(&adrbrowsielSyncHandler::OnCodeGeneratorResponse,
                      weak_ptr_factory_.GetWeakPtr(),
                      std::move(callback_id_disconnect), nullptr));
   qrcode_generator::mojom::QRCodeGeneratorService* generator =
@@ -140,12 +140,12 @@ void BraveSyncHandler::HandleGetQRCode(const base::ListValue* args) {
 
   generator->GenerateQRCode(
       std::move(request),
-      base::BindOnce(&BraveSyncHandler::OnCodeGeneratorResponse,
+      base::BindOnce(&adrbrowsielSyncHandler::OnCodeGeneratorResponse,
                      weak_ptr_factory_.GetWeakPtr(),
                      std::move(callback_id_arg)));
 }
 
-void BraveSyncHandler::HandleSetSyncCode(const base::ListValue* args) {
+void adrbrowsielSyncHandler::HandleSetSyncCode(const base::ListValue* args) {
   AllowJavascript();
   CHECK_EQ(2U, args->GetSize());
   const base::Value* callback_id;
@@ -168,7 +168,7 @@ void BraveSyncHandler::HandleSetSyncCode(const base::ListValue* args) {
   ResolveJavascriptCallback(*callback_id, base::Value(true));
 }
 
-void BraveSyncHandler::HandleReset(const base::ListValue* args) {
+void adrbrowsielSyncHandler::HandleReset(const base::ListValue* args) {
   AllowJavascript();
   CHECK_EQ(1U, args->GetSize());
   const base::Value* callback_id;
@@ -183,13 +183,13 @@ void BraveSyncHandler::HandleReset(const base::ListValue* args) {
   base::Value callback_id_arg(callback_id->Clone());
   auto* device_info_sync_service =
       DeviceInfoSyncServiceFactory::GetForProfile(profile_);
-  brave_sync::ResetSync(sync_service, device_info_sync_service,
-                        base::BindOnce(&BraveSyncHandler::OnResetDone,
+  adrbrowsiel_sync::ResetSync(sync_service, device_info_sync_service,
+                        base::BindOnce(&adrbrowsielSyncHandler::OnResetDone,
                                        weak_ptr_factory_.GetWeakPtr(),
                                        std::move(callback_id_arg)));
 }
 
-void BraveSyncHandler::HandleDeleteDevice(const base::ListValue* args) {
+void adrbrowsielSyncHandler::HandleDeleteDevice(const base::ListValue* args) {
   AllowJavascript();
   CHECK_EQ(2U, args->GetSize());
   const base::Value* callback_id;
@@ -213,34 +213,34 @@ void BraveSyncHandler::HandleDeleteDevice(const base::ListValue* args) {
   base::Value callback_id_arg(callback_id->Clone());
   auto* device_info_sync_service =
       DeviceInfoSyncServiceFactory::GetForProfile(profile_);
-  brave_sync::DeleteDevice(sync_service, device_info_sync_service, device_guid);
+  adrbrowsiel_sync::DeleteDevice(sync_service, device_info_sync_service, device_guid);
 }
 
-syncer::BraveProfileSyncService* BraveSyncHandler::GetSyncService() const {
+syncer::adrbrowsielProfileSyncService* adrbrowsielSyncHandler::GetSyncService() const {
   return ProfileSyncServiceFactory::IsSyncAllowed(profile_)
-             ? static_cast<syncer::BraveProfileSyncService*>(
+             ? static_cast<syncer::adrbrowsielProfileSyncService*>(
                  ProfileSyncServiceFactory::GetForProfile(profile_))
              : nullptr;
 }
 
-syncer::DeviceInfoTracker* BraveSyncHandler::GetDeviceInfoTracker() const {
+syncer::DeviceInfoTracker* adrbrowsielSyncHandler::GetDeviceInfoTracker() const {
   auto* device_info_sync_service =
       DeviceInfoSyncServiceFactory::GetForProfile(profile_);
   return device_info_sync_service->GetDeviceInfoTracker();
 }
 
-syncer::LocalDeviceInfoProvider* BraveSyncHandler::GetLocalDeviceInfoProvider()
+syncer::LocalDeviceInfoProvider* adrbrowsielSyncHandler::GetLocalDeviceInfoProvider()
     const {
   auto* device_info_sync_service =
       DeviceInfoSyncServiceFactory::GetForProfile(profile_);
   return device_info_sync_service->GetLocalDeviceInfoProvider();
 }
 
-void BraveSyncHandler::OnResetDone(base::Value callback_id) {
+void adrbrowsielSyncHandler::OnResetDone(base::Value callback_id) {
   ResolveJavascriptCallback(callback_id, base::Value(true));
 }
 
-base::Value BraveSyncHandler::GetSyncDeviceList() {
+base::Value adrbrowsielSyncHandler::GetSyncDeviceList() {
   AllowJavascript();
   syncer::DeviceInfoTracker* tracker = GetDeviceInfoTracker();
   DCHECK(tracker);
@@ -249,7 +249,7 @@ base::Value BraveSyncHandler::GetSyncDeviceList() {
 
   base::Value device_list(base::Value::Type::LIST);
 
-  for (const auto& device : tracker->GetAllBraveDeviceInfo()) {
+  for (const auto& device : tracker->GetAlladrbrowsielDeviceInfo()) {
     auto device_value = base::Value::FromUniquePtrValue(device->ToValue());
     bool is_current_device =
         local_device_info ? local_device_info->guid() == device->guid() : false;
@@ -265,7 +265,7 @@ base::Value BraveSyncHandler::GetSyncDeviceList() {
   return device_list;
 }
 
-void BraveSyncHandler::OnCodeGeneratorResponse(
+void adrbrowsielSyncHandler::OnCodeGeneratorResponse(
     base::Value callback_id,
     const qrcode_generator::mojom::GenerateQRCodeResponsePtr response) {
   if (!response || response->error_code !=

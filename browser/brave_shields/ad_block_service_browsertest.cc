@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_shields/ad_block_service_browsertest.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/ad_block_service_browsertest.h"
 
 #include <memory>
 #include <string>
@@ -13,19 +13,19 @@
 #include "base/path_service.h"
 #include "base/task/post_task.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/net/brave_ad_block_tp_network_delegate_helper.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
-#include "brave/components/brave_shields/browser/ad_block_regional_service.h"
-#include "brave/components/brave_shields/browser/ad_block_regional_service_manager.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
-#include "brave/components/brave_shields/common/features.h"
-#include "brave/components/brave_shields/common/pref_names.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_ad_block_tp_network_delegate_helper.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_regional_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_regional_service_manager.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/pref_names.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
@@ -68,7 +68,7 @@ const char kRegionalAdBlockComponentTest64PublicKey[] =
     "ieMF3JB9CZPr+qDKIap+RZUfsraV47QebRi/JA17nbDMlXOmK7mILfFU7Jhjx04F"
     "LwIDAQAB";
 
-using brave_shields::features::kBraveAdblockCosmeticFiltering;
+using adrbrowsiel_shields::features::kadrbrowsielAdblockCosmeticFiltering;
 using content::BrowserThread;
 
 void AdBlockServiceTest::SetUpOnMainThread() {
@@ -84,7 +84,7 @@ void AdBlockServiceTest::SetUp() {
 void AdBlockServiceTest::PreRunTestOnMainThread() {
   ExtensionBrowserTest::PreRunTestOnMainThread();
   WaitForAdBlockServiceThreads();
-  ASSERT_TRUE(g_brave_browser_process->ad_block_service()->IsInitialized());
+  ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_service()->IsInitialized());
 }
 
 HostContentSettingsMap* AdBlockServiceTest::content_settings() {
@@ -94,17 +94,17 @@ HostContentSettingsMap* AdBlockServiceTest::content_settings() {
 void AdBlockServiceTest::UpdateAdBlockInstanceWithRules(
     const std::string& rules,
     const std::string& resources) {
-  g_brave_browser_process->ad_block_service()->ResetForTest(rules, resources);
+  g_adrbrowsiel_browser_process->ad_block_service()->ResetForTest(rules, resources);
 }
 
 void AdBlockServiceTest::AssertTagExists(const std::string& tag,
                                          bool expected_exists) const {
   bool exists_default =
-      g_brave_browser_process->ad_block_service()->TagExists(tag);
+      g_adrbrowsiel_browser_process->ad_block_service()->TagExists(tag);
   ASSERT_EQ(exists_default, expected_exists);
 
   for (const auto& regional_service :
-       g_brave_browser_process->ad_block_regional_service_manager()
+       g_adrbrowsiel_browser_process->ad_block_regional_service_manager()
            ->regional_services_) {
     bool exists_regional = regional_service.second->TagExists(tag);
     ASSERT_EQ(exists_regional, expected_exists);
@@ -112,9 +112,9 @@ void AdBlockServiceTest::AssertTagExists(const std::string& tag,
 }
 
 void AdBlockServiceTest::InitEmbeddedTestServer() {
-  brave::RegisterPathProvider();
+  adrbrowsiel::RegisterPathProvider();
   base::FilePath test_data_dir;
-  base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+  base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
   embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
   content::SetupCrossSiteRedirector(embedded_test_server());
   ASSERT_TRUE(embedded_test_server()->Start());
@@ -122,13 +122,13 @@ void AdBlockServiceTest::InitEmbeddedTestServer() {
 
 void AdBlockServiceTest::GetTestDataDir(base::FilePath* test_data_dir) {
   base::ScopedAllowBlockingForTesting allow_blocking;
-  base::PathService::Get(brave::DIR_TEST_DATA, test_data_dir);
+  base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, test_data_dir);
 }
 
 bool AdBlockServiceTest::InstallDefaultAdBlockExtension(
     const std::string& extension_dir,
     int expected_change) {
-  brave_shields::AdBlockService::SetComponentIdAndBase64PublicKeyForTest(
+  adrbrowsiel_shields::AdBlockService::SetComponentIdAndBase64PublicKeyForTest(
       kDefaultAdBlockComponentTestId, kDefaultAdBlockComponentTest64PublicKey);
   base::FilePath test_data_dir;
   GetTestDataDir(&test_data_dir);
@@ -138,7 +138,7 @@ bool AdBlockServiceTest::InstallDefaultAdBlockExtension(
   if (!ad_block_extension)
     return false;
 
-  g_brave_browser_process->ad_block_service()->OnComponentReady(
+  g_adrbrowsiel_browser_process->ad_block_service()->OnComponentReady(
       ad_block_extension->id(), ad_block_extension->path(), "");
   WaitForAdBlockServiceThreads();
 
@@ -147,7 +147,7 @@ bool AdBlockServiceTest::InstallDefaultAdBlockExtension(
 
 bool AdBlockServiceTest::InstallRegionalAdBlockExtension(
     const std::string& uuid) {
-  brave_shields::AdBlockRegionalService::
+  adrbrowsiel_shields::AdBlockRegionalService::
       SetComponentIdAndBase64PublicKeyForTest(
           kRegionalAdBlockComponentTestId,
           kRegionalAdBlockComponentTest64PublicKey);
@@ -171,7 +171,7 @@ bool AdBlockServiceTest::InstallRegionalAdBlockExtension(
           "hwI1lqfKbFnyr4aP"
           "Odg3JcOZZVoyi+ko3rKG3vH9JPWEy24Ys9A3SYpTwIDAQAB",
           "Removes advertisements from French websites")};
-  g_brave_browser_process->ad_block_regional_service_manager()
+  g_adrbrowsiel_browser_process->ad_block_regional_service_manager()
       ->SetRegionalCatalog(regional_catalog);
   const extensions::Extension* ad_block_extension =
       InstallExtension(test_data_dir.AppendASCII("adblock-data")
@@ -181,14 +181,14 @@ bool AdBlockServiceTest::InstallRegionalAdBlockExtension(
   if (!ad_block_extension)
     return false;
 
-  g_brave_browser_process->ad_block_regional_service_manager()
+  g_adrbrowsiel_browser_process->ad_block_regional_service_manager()
       ->EnableFilterList(uuid, true);
-  EXPECT_EQ(g_brave_browser_process->ad_block_regional_service_manager()
+  EXPECT_EQ(g_adrbrowsiel_browser_process->ad_block_regional_service_manager()
                 ->regional_services_.size(),
             1ULL);
 
   auto regional_service =
-      g_brave_browser_process->ad_block_regional_service_manager()
+      g_adrbrowsiel_browser_process->ad_block_regional_service_manager()
           ->regional_services_.find(uuid);
   regional_service->second->OnComponentReady(ad_block_extension->id(),
                                              ad_block_extension->path(), "");
@@ -198,8 +198,8 @@ bool AdBlockServiceTest::InstallRegionalAdBlockExtension(
 }
 
 bool AdBlockServiceTest::StartAdBlockRegionalServices() {
-  g_brave_browser_process->ad_block_regional_service_manager()->Start();
-  if (!g_brave_browser_process->ad_block_regional_service_manager()
+  g_adrbrowsiel_browser_process->ad_block_regional_service_manager()->Start();
+  if (!g_adrbrowsiel_browser_process->ad_block_regional_service_manager()
            ->IsInitialized())
     return false;
   return true;
@@ -207,18 +207,18 @@ bool AdBlockServiceTest::StartAdBlockRegionalServices() {
 
 void AdBlockServiceTest::WaitForAdBlockServiceThreads() {
   scoped_refptr<base::ThreadTestHelper> tr_helper(new base::ThreadTestHelper(
-      g_brave_browser_process->local_data_files_service()->GetTaskRunner()));
+      g_adrbrowsiel_browser_process->local_data_files_service()->GetTaskRunner()));
   ASSERT_TRUE(tr_helper->Run());
   scoped_refptr<base::ThreadTestHelper> io_helper(new base::ThreadTestHelper(
       base::CreateSingleThreadTaskRunner({BrowserThread::IO}).get()));
   ASSERT_TRUE(io_helper->Run());
 }
 
-void AdBlockServiceTest::WaitForBraveExtensionShieldsDataReady() {
+void AdBlockServiceTest::WaitForadrbrowsielExtensionShieldsDataReady() {
   // Sometimes, the page can start loading before the Shields panel has
   // received information about the window and tab it's loaded in.
   ExtensionTestMessageListener extension_listener(
-      "brave-extension-shields-data-ready", false);
+      "adrbrowsiel-extension-shields-data-ready", false);
   ASSERT_TRUE(extension_listener.WaitUntilSatisfied());
 }
 
@@ -242,7 +242,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, AdsGetBlockedByDefaultBlocker) {
 // blocked by custom filters.
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest,
                        NotAdsDoNotGetBlockedByCustomBlocker) {
-  ASSERT_TRUE(g_brave_browser_process->ad_block_custom_filters_service()
+  ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_custom_filters_service()
                   ->UpdateCustomFilters("*ad_banner.png"));
 
   EXPECT_EQ(browser()->profile()->GetPrefs()->GetUint64(kAdsBlocked), 0ULL);
@@ -262,7 +262,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest,
 // filters.
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, AdsGetBlockedByCustomBlocker) {
   EXPECT_EQ(browser()->profile()->GetPrefs()->GetUint64(kAdsBlocked), 0ULL);
-  ASSERT_TRUE(g_brave_browser_process->ad_block_custom_filters_service()
+  ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_custom_filters_service()
                   ->UpdateCustomFilters("*ad_banner.png"));
 
   GURL url = embedded_test_server()->GetURL(kAdBlockTestPage);
@@ -281,7 +281,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, AdsGetBlockedByCustomBlocker) {
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, DefaultBlockCustomException) {
   EXPECT_EQ(browser()->profile()->GetPrefs()->GetUint64(kAdsBlocked), 0ULL);
   UpdateAdBlockInstanceWithRules("*ad_banner.png");
-  ASSERT_TRUE(g_brave_browser_process->ad_block_custom_filters_service()
+  ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_custom_filters_service()
                   ->UpdateCustomFilters("@@ad_banner.png"));
 
   GURL url = embedded_test_server()->GetURL(kAdBlockTestPage);
@@ -300,7 +300,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, DefaultBlockCustomException) {
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CustomBlockDefaultException) {
   EXPECT_EQ(browser()->profile()->GetPrefs()->GetUint64(kAdsBlocked), 0ULL);
   UpdateAdBlockInstanceWithRules("@@ad_banner.png");
-  ASSERT_TRUE(g_brave_browser_process->ad_block_custom_filters_service()
+  ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_custom_filters_service()
                   ->UpdateCustomFilters("*ad_banner.png"));
 
   GURL url = embedded_test_server()->GetURL(kAdBlockTestPage);
@@ -517,7 +517,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, ServiceWorkerRequest) {
   ASSERT_EQ(true, EvalJs(contents,
                          "setExpectations(0, 0, 0, 1);"
                          "installBlockingServiceWorker()"));
-  // https://github.com/brave/brave-browser/issues/14087
+  // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/14087
   // EXPECT_EQ(browser()->profile()->GetPrefs()->GetUint64(kAdsBlocked), 1ULL);
 }
 
@@ -614,7 +614,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CnameCloakedRequestsGetBlocked) {
 
   network::HostResolver resolver(inner_resolver.get(), net::NetLog::Get());
 
-  brave::SetAdblockCnameHostResolverForTesting(&resolver);
+  adrbrowsiel::SetAdblockCnameHostResolverForTesting(&resolver);
 
   ui_test_utils::NavigateToURL(browser(), tab_url);
 
@@ -661,7 +661,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CnameCloakedRequestsGetBlocked) {
   ASSERT_EQ(4ULL, inner_resolver->num_resolve());
 
   // Unset the host resolver so as not to interfere with later tests.
-  brave::SetAdblockCnameHostResolverForTesting(nullptr);
+  adrbrowsiel::SetAdblockCnameHostResolverForTesting(nullptr);
 }
 
 // Make sure that an exception for a URL can apply to a blocking decision made
@@ -699,7 +699,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CnameCloakedRequestsCanBeExcepted) {
 
   network::HostResolver resolver(inner_resolver.get(), net::NetLog::Get());
 
-  brave::SetAdblockCnameHostResolverForTesting(&resolver);
+  adrbrowsiel::SetAdblockCnameHostResolverForTesting(&resolver);
 
   ui_test_utils::NavigateToURL(browser(), tab_url);
 
@@ -746,7 +746,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CnameCloakedRequestsCanBeExcepted) {
   ASSERT_EQ(4ULL, inner_resolver->num_resolve());
 
   // Unset the host resolver so as not to interfere with later tests.
-  brave::SetAdblockCnameHostResolverForTesting(nullptr);
+  adrbrowsiel::SetAdblockCnameHostResolverForTesting(nullptr);
 }
 
 // Load an image from a specific subdomain, and make sure it is blocked.
@@ -794,12 +794,12 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, FrameSourceURL) {
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, SocialButttonAdBlockTagTest) {
   UpdateAdBlockInstanceWithRules(
       base::StringPrintf("||example.com^$tag=%s",
-                         brave_shields::kFacebookEmbeds)
+                         adrbrowsiel_shields::kFacebookEmbeds)
           .c_str());
   EXPECT_EQ(browser()->profile()->GetPrefs()->GetUint64(kAdsBlocked), 0ULL);
   GURL tab_url = embedded_test_server()->GetURL("b.com", kAdBlockTestPage);
-  g_brave_browser_process->ad_block_service()->EnableTag(
-      brave_shields::kFacebookEmbeds, true);
+  g_adrbrowsiel_browser_process->ad_block_service()->EnableTag(
+      adrbrowsiel_shields::kFacebookEmbeds, true);
   WaitForAdBlockServiceThreads();
   GURL resource_url =
       embedded_test_server()->GetURL("example.com", "/logo.png");
@@ -818,8 +818,8 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, SocialButttonAdBlockDiffTagTest) {
   UpdateAdBlockInstanceWithRules("||example.com^$tag=sup");
   EXPECT_EQ(browser()->profile()->GetPrefs()->GetUint64(kAdsBlocked), 0ULL);
   GURL tab_url = embedded_test_server()->GetURL("b.com", kAdBlockTestPage);
-  g_brave_browser_process->ad_block_service()->EnableTag(
-      brave_shields::kFacebookEmbeds, true);
+  g_adrbrowsiel_browser_process->ad_block_service()->EnableTag(
+      adrbrowsiel_shields::kFacebookEmbeds, true);
   WaitForAdBlockServiceThreads();
   GURL resource_url =
       embedded_test_server()->GetURL("example.com", "/logo.png");
@@ -835,11 +835,11 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, SocialButttonAdBlockDiffTagTest) {
 
 // Tags are preserved after resetting
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, ResetPreservesTags) {
-  g_brave_browser_process->ad_block_service()->EnableTag(
-      brave_shields::kFacebookEmbeds, true);
+  g_adrbrowsiel_browser_process->ad_block_service()->EnableTag(
+      adrbrowsiel_shields::kFacebookEmbeds, true);
   WaitForAdBlockServiceThreads();
   UpdateAdBlockInstanceWithRules("");
-  AssertTagExists(brave_shields::kFacebookEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kFacebookEmbeds, true);
 }
 
 // Setting prefs sets the right tags
@@ -847,47 +847,47 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, TagPrefsControlTags) {
   auto* prefs = browser()->profile()->GetPrefs();
 
   // Default tags exist on startup
-  AssertTagExists(brave_shields::kFacebookEmbeds, true);
-  AssertTagExists(brave_shields::kTwitterEmbeds, true);
-  AssertTagExists(brave_shields::kLinkedInEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kFacebookEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kTwitterEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kLinkedInEmbeds, false);
 
   // Toggling prefs once is reflected in the adblock client.
-  prefs->SetBoolean(brave_shields::prefs::kLinkedInEmbedControlType, true);
+  prefs->SetBoolean(adrbrowsiel_shields::prefs::kLinkedInEmbedControlType, true);
   WaitForAdBlockServiceThreads();
-  AssertTagExists(brave_shields::kFacebookEmbeds, true);
-  AssertTagExists(brave_shields::kTwitterEmbeds, true);
-  AssertTagExists(brave_shields::kLinkedInEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kFacebookEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kTwitterEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kLinkedInEmbeds, true);
 
-  prefs->SetBoolean(brave_shields::prefs::kFBEmbedControlType, false);
+  prefs->SetBoolean(adrbrowsiel_shields::prefs::kFBEmbedControlType, false);
   WaitForAdBlockServiceThreads();
-  AssertTagExists(brave_shields::kFacebookEmbeds, false);
-  AssertTagExists(brave_shields::kTwitterEmbeds, true);
-  AssertTagExists(brave_shields::kLinkedInEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kFacebookEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kTwitterEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kLinkedInEmbeds, true);
 
-  prefs->SetBoolean(brave_shields::prefs::kTwitterEmbedControlType, false);
+  prefs->SetBoolean(adrbrowsiel_shields::prefs::kTwitterEmbedControlType, false);
   WaitForAdBlockServiceThreads();
-  AssertTagExists(brave_shields::kFacebookEmbeds, false);
-  AssertTagExists(brave_shields::kTwitterEmbeds, false);
-  AssertTagExists(brave_shields::kLinkedInEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kFacebookEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kTwitterEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kLinkedInEmbeds, true);
 
   // Toggling prefs back is reflected in the adblock client.
-  prefs->SetBoolean(brave_shields::prefs::kLinkedInEmbedControlType, false);
+  prefs->SetBoolean(adrbrowsiel_shields::prefs::kLinkedInEmbedControlType, false);
   WaitForAdBlockServiceThreads();
-  AssertTagExists(brave_shields::kFacebookEmbeds, false);
-  AssertTagExists(brave_shields::kTwitterEmbeds, false);
-  AssertTagExists(brave_shields::kLinkedInEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kFacebookEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kTwitterEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kLinkedInEmbeds, false);
 
-  prefs->SetBoolean(brave_shields::prefs::kFBEmbedControlType, true);
+  prefs->SetBoolean(adrbrowsiel_shields::prefs::kFBEmbedControlType, true);
   WaitForAdBlockServiceThreads();
-  AssertTagExists(brave_shields::kFacebookEmbeds, true);
-  AssertTagExists(brave_shields::kTwitterEmbeds, false);
-  AssertTagExists(brave_shields::kLinkedInEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kFacebookEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kTwitterEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kLinkedInEmbeds, false);
 
-  prefs->SetBoolean(brave_shields::prefs::kTwitterEmbedControlType, true);
+  prefs->SetBoolean(adrbrowsiel_shields::prefs::kTwitterEmbedControlType, true);
   WaitForAdBlockServiceThreads();
-  AssertTagExists(brave_shields::kFacebookEmbeds, true);
-  AssertTagExists(brave_shields::kTwitterEmbeds, true);
-  AssertTagExists(brave_shields::kLinkedInEmbeds, false);
+  AssertTagExists(adrbrowsiel_shields::kFacebookEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kTwitterEmbeds, true);
+  AssertTagExists(adrbrowsiel_shields::kLinkedInEmbeds, false);
 }
 
 // Load a page with a script which uses a redirect data URL.
@@ -956,7 +956,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CspRule) {
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CspRuleMerging) {
   UpdateAdBlockInstanceWithRules(
       "||example.com^$csp=script-src 'nonce-abcdef' 'unsafe-eval' 'self'");
-  ASSERT_TRUE(g_brave_browser_process->ad_block_custom_filters_service()
+  ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_custom_filters_service()
                   ->UpdateCustomFilters(
                       "||example.com^$csp=img-src 'none'\n"
                       "||sub.example.com^$csp=script-src 'nonce-abcdef' "
@@ -984,7 +984,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CspRuleMerging) {
 class CosmeticFilteringFlagDisabledTest : public AdBlockServiceTest {
  public:
   CosmeticFilteringFlagDisabledTest() {
-    feature_list_.InitAndDisableFeature(kBraveAdblockCosmeticFiltering);
+    feature_list_.InitAndDisableFeature(kadrbrowsielAdblockCosmeticFiltering);
   }
 
  private:
@@ -997,7 +997,7 @@ IN_PROC_BROWSER_TEST_F(CosmeticFilteringFlagDisabledTest,
   UpdateAdBlockInstanceWithRules(
       "b.com###ad-banner\n"
       "##.ad");
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1017,13 +1017,13 @@ IN_PROC_BROWSER_TEST_F(CosmeticFilteringFlagDisabledTest,
 
 // Ensure no cosmetic filtering occurs when the shields setting is disabled
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringDisabled) {
-  brave_shields::SetCosmeticFilteringControlType(
-      content_settings(), brave_shields::ControlType::ALLOW, GURL());
+  adrbrowsiel_shields::SetCosmeticFilteringControlType(
+      content_settings(), adrbrowsiel_shields::ControlType::ALLOW, GURL());
   UpdateAdBlockInstanceWithRules(
       "b.com###ad-banner\n"
       "##.ad");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1047,7 +1047,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringSimple) {
       "b.com###ad-banner\n"
       "##.ad");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1094,12 +1094,12 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringSimple) {
 }
 
 // Test cosmetic filtering ignores content determined to be 1st party
-// This is disabled due to https://github.com/brave/brave-browser/issues/13882
+// This is disabled due to https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/13882
 #define MAYBE_CosmeticFilteringProtect1p DISABLED_CosmeticFilteringProtect1p
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, MAYBE_CosmeticFilteringProtect1p) {
   UpdateAdBlockInstanceWithRules("b.com##.fpsponsored\n");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1114,11 +1114,11 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, MAYBE_CosmeticFilteringProtect1p) {
 
 // Test cosmetic filtering bypasses 1st party checks when toggled
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringHide1pContent) {
-  brave_shields::SetCosmeticFilteringControlType(
-      content_settings(), brave_shields::ControlType::BLOCK, GURL());
+  adrbrowsiel_shields::SetCosmeticFilteringControlType(
+      content_settings(), adrbrowsiel_shields::ControlType::BLOCK, GURL());
   UpdateAdBlockInstanceWithRules("b.com##.fpsponsored\n");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1144,7 +1144,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringHide1pContent) {
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringDynamic) {
   UpdateAdBlockInstanceWithRules("##.blockme");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1187,7 +1187,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringGenerichide) {
       "##img[src=\"https://example.com/logo.png\"]\n"
       "@@||b.com$generichide");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1210,7 +1210,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringGenerichide) {
 IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringCustomStyle) {
   UpdateAdBlockInstanceWithRules("b.com##.ad:style(padding-bottom: 10px)");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1240,7 +1240,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringUnhide) {
       "###ad-banner\n"
       "a.com#@##ad-banner");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1297,7 +1297,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringWindowScriptlet) {
       "uKHNlbGVjdG9yKSB7CiAgICByZXR1cm4geyAnY29sb3InOiAnSW1wb3NzaWJsZSB2YW"
       "x1ZScgfTsKICB9Cn0pKCk7Cg==\"}]");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/cosmetic_filtering.html");
@@ -1336,7 +1336,7 @@ IN_PROC_BROWSER_TEST_F(AdBlockServiceTest, CosmeticFilteringIframeScriptlet) {
       "\"content\": \"" +
           scriptlet_base64 + "\"}]");
 
-  WaitForBraveExtensionShieldsDataReady();
+  WaitForadrbrowsielExtensionShieldsDataReady();
 
   GURL tab_url =
       embedded_test_server()->GetURL("b.com", "/iframe_messenger.html");

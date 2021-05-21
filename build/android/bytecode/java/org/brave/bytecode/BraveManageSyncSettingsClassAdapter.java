@@ -1,31 +1,31 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BraveManageSyncSettingsClassAdapter extends BraveClassVisitor {
+public class adrbrowsielManageSyncSettingsClassAdapter extends adrbrowsielClassVisitor {
     static String sManageSyncSettingsClassName =
             "org/chromium/chrome/browser/sync/settings/ManageSyncSettings";
-    static String sBraveManageSyncSettingsClassName =
-            "org/chromium/chrome/browser/sync/settings/BraveManageSyncSettings";
+    static String sadrbrowsielManageSyncSettingsClassName =
+            "org/chromium/chrome/browser/sync/settings/adrbrowsielManageSyncSettings";
 
-    BraveManageSyncSettingsClassAdapter(ClassVisitor visitor) {
+    adrbrowsielManageSyncSettingsClassAdapter(ClassVisitor visitor) {
         super(visitor);
 
-        deleteField(sBraveManageSyncSettingsClassName, "mGoogleActivityControls");
+        deleteField(sadrbrowsielManageSyncSettingsClassName, "mGoogleActivityControls");
         makeProtectedField(sManageSyncSettingsClassName, "mGoogleActivityControls");
 
-        deleteField(sBraveManageSyncSettingsClassName, "mSyncEncryption");
+        deleteField(sadrbrowsielManageSyncSettingsClassName, "mSyncEncryption");
         makeProtectedField(sManageSyncSettingsClassName, "mSyncEncryption");
 
-        deleteField(sBraveManageSyncSettingsClassName, "mManageSyncData");
+        deleteField(sadrbrowsielManageSyncSettingsClassName, "mManageSyncData");
         makeProtectedField(sManageSyncSettingsClassName, "mManageSyncData");
 
-        deleteField(sBraveManageSyncSettingsClassName, "mSyncPaymentsIntegration");
+        deleteField(sadrbrowsielManageSyncSettingsClassName, "mSyncPaymentsIntegration");
         makeProtectedField(sManageSyncSettingsClassName, "mSyncPaymentsIntegration");
     }
 }

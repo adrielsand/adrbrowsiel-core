@@ -1,4 +1,4 @@
-# Copyright (c) 2021 The Brave Authors. All rights reserved.
+# Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -8,7 +8,7 @@ import("//build/config/ui.gni")
 import("//testing/test.gni")
 import("//ui/base/ui_features.gni")
 
-source_set("brave_ads") {
+source_set("adrbrowsiel_ads") {
   deps = [ "//base" ]
 
   sources = [
@@ -18,11 +18,11 @@ source_set("brave_ads") {
 
   if (is_win || is_linux || is_mac) {
     deps += [
-      "//brave/app:brave_generated_resources_grit",
-      "//brave/app/vector_icons",
-      "//brave/browser/profiles:util",
-      "//brave/components/brave_ads/browser",
-      "//brave/components/brave_ads/common",
+      "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+      "//adrbrowsiel/app/vector_icons",
+      "//adrbrowsiel/browser/profiles:util",
+      "//adrbrowsiel/components/adrbrowsiel_ads/browser",
+      "//adrbrowsiel/components/adrbrowsiel_ads/common",
       "//components/prefs",
       "//skia",
       "//ui/accessibility",

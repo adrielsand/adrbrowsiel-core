@@ -6,7 +6,7 @@ index fbaec388ddf82ae379e3abf66b5f4bb6069ead7b..5ff892de2f6074b1a24a099b5a3fecc1
        height: var(--md-toolbar-height);
      }
    </style>
-+  <link rel="stylesheet" href="chrome://brave-resources/page_specific/bookmarks/bookmarks_loading_shim.css">
++  <link rel="stylesheet" href="chrome://adrbrowsiel-resources/page_specific/bookmarks/bookmarks_loading_shim.css">
  </head>
  <body>
    <bookmarks-app></bookmarks-app>

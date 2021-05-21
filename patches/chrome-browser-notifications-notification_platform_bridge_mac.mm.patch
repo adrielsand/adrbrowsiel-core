@@ -6,7 +6,7 @@ index 568393de7669e60c388fe57124402acc77038ebc..b0bd46e19aa16e320d9907d8e9fc6b2e
    } else {
      NSUserNotification* toast = [builder buildUserNotification];
      [notification_center_ deliverNotification:toast];
-+    BRAVE_DISPLAY_
++    adrbrowsiel_DISPLAY_
    }
  }
  

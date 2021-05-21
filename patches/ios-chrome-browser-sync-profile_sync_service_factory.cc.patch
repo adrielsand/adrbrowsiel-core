@@ -7,7 +7,7 @@ index 1729fca2683944213c17d656568d7dd0e1bbc4d5..985d4c4d0df4a6377c4efec248832ddb
  
    auto pss =
 -      std::make_unique<syncer::ProfileSyncService>(std::move(init_params));
-+      BRAVE_BUILD_SERVICE_INSTANCE_FOR
++      adrbrowsiel_BUILD_SERVICE_INSTANCE_FOR
    pss->Initialize();
  
    // Hook PSS into PersonalDataManager (a circular dependency).

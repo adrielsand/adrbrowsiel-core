@@ -1,30 +1,30 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_CHROMIUM_SRC_CHROME_BROWSER_SERVICE_SANDBOX_TYPE_H_
-#define BRAVE_CHROMIUM_SRC_CHROME_BROWSER_SERVICE_SANDBOX_TYPE_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_CHROME_BROWSER_SERVICE_SANDBOX_TYPE_H_
+#define adrbrowsiel_CHROMIUM_SRC_CHROME_BROWSER_SERVICE_SANDBOX_TYPE_H_
 
 #include "../../../../chrome/browser/service_sandbox_type.h"
 
-#include "brave/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
 
-// brave::mojom::ProfileImport
-namespace brave {
+// adrbrowsiel::mojom::ProfileImport
+namespace adrbrowsiel {
 namespace mojom {
 class ProfileImport;
 }
-}  // namespace brave
+}  // namespace adrbrowsiel
 
 template <>
 inline sandbox::policy::SandboxType
-content::GetServiceSandboxType<brave::mojom::ProfileImport>() {
+content::GetServiceSandboxType<adrbrowsiel::mojom::ProfileImport>() {
   return sandbox::policy::SandboxType::kNoSandbox;
 }
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/ipfs/service_sandbox_type.h"
+#include "adrbrowsiel/components/ipfs/service_sandbox_type.h"
 #endif
 
 #if !defined(OS_ANDROID)  // Android will use default, which is kUtility.
@@ -41,4 +41,4 @@ content::GetServiceSandboxType<bat_ledger::mojom::BatLedgerService>() {
 }
 #endif  // !defined(OS_ANDROID)
 
-#endif  // BRAVE_CHROMIUM_SRC_CHROME_BROWSER_SERVICE_SANDBOX_TYPE_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_CHROME_BROWSER_SERVICE_SANDBOX_TYPE_H_

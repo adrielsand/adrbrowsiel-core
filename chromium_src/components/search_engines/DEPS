@@ -7,7 +7,7 @@ include_rules = [
 # Existing exceptions
 specific_include_rules = {
   "template_url_prepopulate_data.cc": [
-    "+brave/common/pref_names.h",
+    "+adrbrowsiel/common/pref_names.h",
   ],
 }
 

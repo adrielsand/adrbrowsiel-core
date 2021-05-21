@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_SEARCH_ENGINE_SEARCH_PROVIDERS_H_
-#define BRAVE_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_SEARCH_ENGINE_SEARCH_PROVIDERS_H_
+#ifndef adrbrowsiel_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_SEARCH_ENGINE_SEARCH_PROVIDERS_H_
+#define adrbrowsiel_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_SEARCH_ENGINE_SEARCH_PROVIDERS_H_
 
 #include <string>
 #include <vector>
@@ -29,7 +29,7 @@ const std::vector<SearchProviderInfo> _search_providers = {
                        true),
     SearchProviderInfo("DuckDuckGo",
                        "https://duckduckgo.com",
-                       "https://duckduckgo.com/?q={searchTerms}&t=brave",
+                       "https://duckduckgo.com/?q={searchTerms}&t=adrbrowsiel",
                        true),
     SearchProviderInfo("Fireball",
                        "https://fireball.com",
@@ -41,7 +41,7 @@ const std::vector<SearchProviderInfo> _search_providers = {
                        false),
     SearchProviderInfo(
         "Google",
-        // TODO(https://github.com/brave/brave-browser/issues/8487): Brave Ads
+        // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/8487): adrbrowsiel Ads
         // search providers definition doesn't match all patterns
         "https://google.com",
         "https://www.google.com/search?q={searchTerms}",
@@ -70,7 +70,7 @@ const std::vector<SearchProviderInfo> _search_providers = {
         false),
     SearchProviderInfo(
         "Yahoo",
-        // TODO(https://github.com/brave/brave-browser/issues/8487): Brave Ads
+        // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/8487): adrbrowsiel Ads
         // search providers definition doesn't match all patterns
         "https://search.yahoo.com",
         "https://search.yahoo.com/search?p={searchTerms}&fr=opensearch",
@@ -89,7 +89,7 @@ const std::vector<SearchProviderInfo> _search_providers = {
         false),
     SearchProviderInfo(
         "StartPage",
-        // TODO(https://github.com/brave/brave-browser/issues/8487): Brave Ads
+        // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/8487): adrbrowsiel Ads
         // search providers definition doesn't match all patterns
         "https://startpage.com",
         "https://www.startpage.com/do/"
@@ -110,7 +110,7 @@ const std::vector<SearchProviderInfo> _search_providers = {
                        true),
     SearchProviderInfo("Qwant",
                        "https://qwant.com",
-                       "https://www.qwant.com/?q={searchTerms}&client=brave",
+                       "https://www.qwant.com/?q={searchTerms}&client=adrbrowsiel",
                        true),
     SearchProviderInfo(
         "Yandex",
@@ -141,4 +141,4 @@ class SearchProviders {
 
 }  // namespace ads
 
-#endif  // BRAVE_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_SEARCH_ENGINE_SEARCH_PROVIDERS_H_
+#endif  // adrbrowsiel_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_SEARCH_ENGINE_SEARCH_PROVIDERS_H_

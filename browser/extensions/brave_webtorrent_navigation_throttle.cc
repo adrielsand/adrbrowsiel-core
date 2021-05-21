@@ -1,17 +1,17 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/brave_webtorrent_navigation_throttle.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_webtorrent_navigation_throttle.h"
 
 #include "base/bind.h"
-#include "brave/browser/extensions/brave_component_loader.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/common/pref_names.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/brave_webtorrent/browser/buildflags/buildflags.h"
-#include "brave/components/brave_webtorrent/browser/webtorrent_util.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_component_loader.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/webtorrent_util.h"
 #include "chrome/browser/extensions/extension_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "content/public/browser/browser_context.h"
@@ -24,13 +24,13 @@
 #include "extensions/common/constants.h"
 #include "extensions/common/extension.h"
 
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
-#include "brave/browser/net/brave_torrent_redirect_network_delegate_helper.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
+#include "adrbrowsiel/browser/net/adrbrowsiel_torrent_redirect_network_delegate_helper.h"
 #endif
 
 namespace extensions {
 
-BraveWebTorrentNavigationThrottle::BraveWebTorrentNavigationThrottle(
+adrbrowsielWebTorrentNavigationThrottle::adrbrowsielWebTorrentNavigationThrottle(
         content::NavigationHandle* navigation_handle) :
     content::NavigationThrottle(navigation_handle),
     resume_pending_(false) {
@@ -38,19 +38,19 @@ BraveWebTorrentNavigationThrottle::BraveWebTorrentNavigationThrottle(
       navigation_handle->GetWebContents()->GetBrowserContext()));
 }
 
-BraveWebTorrentNavigationThrottle::~BraveWebTorrentNavigationThrottle() {
+adrbrowsielWebTorrentNavigationThrottle::~adrbrowsielWebTorrentNavigationThrottle() {
   timer_.Stop();
 }
 
 content::NavigationThrottle::ThrottleCheckResult
-BraveWebTorrentNavigationThrottle::WillStartRequest() {
+adrbrowsielWebTorrentNavigationThrottle::WillStartRequest() {
   // This handles magnet URLs and .torrent filenames in the URL but not
   // response headers.
   return CommonWillProcessRequestResponse();
 }
 
 content::NavigationThrottle::ThrottleCheckResult
-BraveWebTorrentNavigationThrottle::WillProcessResponse() {
+adrbrowsielWebTorrentNavigationThrottle::WillProcessResponse() {
   // This handles response headers with headers that indicate torrent content.
   // This is not as good as if we catch it in the WillStartRequest section
   // because the user will need to manually restart the request to make it work.
@@ -58,7 +58,7 @@ BraveWebTorrentNavigationThrottle::WillProcessResponse() {
 }
 
 // static
-bool BraveWebTorrentNavigationThrottle::MaybeLoadWebtorrent(
+bool adrbrowsielWebTorrentNavigationThrottle::MaybeLoadWebtorrent(
   content::BrowserContext* context,
   const GURL& url) {
   // No need to load Webtorrent if pref is off or it is already enabled.
@@ -73,13 +73,13 @@ bool BraveWebTorrentNavigationThrottle::MaybeLoadWebtorrent(
     return false;
 
   extensions::ComponentLoader* loader = service->component_loader();
-  static_cast<extensions::BraveComponentLoader*>(loader)->
+  static_cast<extensions::adrbrowsielComponentLoader*>(loader)->
     AddWebTorrentExtension();
   return true;
 }
 
 content::NavigationThrottle::ThrottleCheckResult
-BraveWebTorrentNavigationThrottle::CommonWillProcessRequestResponse() {
+adrbrowsielWebTorrentNavigationThrottle::CommonWillProcessRequestResponse() {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   content::WebContents* web_contents = navigation_handle()->GetWebContents();
 
@@ -101,20 +101,20 @@ BraveWebTorrentNavigationThrottle::CommonWillProcessRequestResponse() {
   return content::NavigationThrottle::PROCEED;
 }
 
-const char* BraveWebTorrentNavigationThrottle::GetNameForLogging() {
-  return "BraveWebTorrentNavigationThrottle";
+const char* adrbrowsielWebTorrentNavigationThrottle::GetNameForLogging() {
+  return "adrbrowsielWebTorrentNavigationThrottle";
 }
 
-void BraveWebTorrentNavigationThrottle::OnExtensionReady(
+void adrbrowsielWebTorrentNavigationThrottle::OnExtensionReady(
     content::BrowserContext* browser_context,
     const Extension* extension) {
   if (resume_pending_ &&
-      extension->id() == brave_webtorrent_extension_id) {
+      extension->id() == adrbrowsiel_webtorrent_extension_id) {
     ResumeThrottle();
   }
 }
 
-void BraveWebTorrentNavigationThrottle::ResumeThrottle() {
+void adrbrowsielWebTorrentNavigationThrottle::ResumeThrottle() {
   timer_.Stop();
   resume_pending_ = false;
   Resume();

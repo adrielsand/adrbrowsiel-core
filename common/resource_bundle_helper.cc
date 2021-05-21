@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/common/resource_bundle_helper.h"
+#include "adrbrowsiel/common/resource_bundle_helper.h"
 
 #include <string>
 
@@ -31,11 +31,11 @@ namespace {
 base::FilePath GetResourcesPakFilePath() {
 #if defined(OS_MAC)
   return base::mac::PathForFrameworkBundleResource(
-      CFSTR("brave_resources.pak"));
+      CFSTR("adrbrowsiel_resources.pak"));
 #else
   base::FilePath pak_path;
   base::PathService::Get(base::DIR_MODULE, &pak_path);
-  pak_path = pak_path.AppendASCII("brave_resources.pak");
+  pak_path = pak_path.AppendASCII("adrbrowsiel_resources.pak");
   return pak_path;
 #endif  // OS_MAC
 }
@@ -47,8 +47,8 @@ base::FilePath GetScaledResourcesPakFilePath(ui::ScaleFactor scale_factor) {
          scale_factor == ui::SCALE_FACTOR_200P);
 
   const char* pak_file =
-      (scale_factor == ui::SCALE_FACTOR_100P) ? "brave_100_percent.pak"
-                                              : "brave_200_percent.pak";
+      (scale_factor == ui::SCALE_FACTOR_100P) ? "adrbrowsiel_100_percent.pak"
+                                              : "adrbrowsiel_200_percent.pak";
 #if defined(OS_MAC)
   base::ScopedCFTypeRef<CFStringRef> pak_file_mac(
       base::SysUTF8ToCFStringRef(pak_file));
@@ -64,13 +64,13 @@ base::FilePath GetScaledResourcesPakFilePath(ui::ScaleFactor scale_factor) {
 
 }  // namespace
 
-namespace brave {
+namespace adrbrowsiel {
 
 void InitializeResourceBundle() {
 #if defined(OS_ANDROID)
-  ui::BraveLoadMainAndroidPackFile("assets/brave_resources.pak",
+  ui::adrbrowsielLoadMainAndroidPackFile("assets/adrbrowsiel_resources.pak",
                                    base::FilePath());
-  ui::BraveLoadBrave100PercentPackFile("assets/brave_100_percent.pak",
+  ui::adrbrowsielLoadadrbrowsiel100PercentPackFile("assets/adrbrowsiel_100_percent.pak",
                                        base::FilePath());
 #else
   auto& rb = ui::ResourceBundle::GetSharedInstance();
@@ -108,4 +108,4 @@ bool SubprocessNeedsResourceBundle() {
 #endif  // defined(OS_IOS)
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

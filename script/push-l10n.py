@@ -12,8 +12,8 @@ from lib.transifex import (check_for_chromium_upgrade,
 from lib.grd_string_replacements import get_override_file_path
 
 
-BRAVE_SOURCE_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-SOURCE_ROOT = os.path.dirname(BRAVE_SOURCE_ROOT)
+adrbrowsiel_SOURCE_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+SOURCE_ROOT = os.path.dirname(adrbrowsiel_SOURCE_ROOT)
 
 
 def parse_args():
@@ -36,7 +36,7 @@ def main():
     args = parse_args()
     check_args()
 
-    source_string_path = os.path.join(BRAVE_SOURCE_ROOT,
+    source_string_path = os.path.join(adrbrowsiel_SOURCE_ROOT,
                                       args.source_string_path[0])
     filename = os.path.basename(source_string_path).split('.')[0]
     if not should_use_transifex(source_string_path, filename):
@@ -59,7 +59,7 @@ def main():
         check_missing_source_grd_strings_to_transifex(source_string_path)
     upload_source_strings_desc(source_string_path, filename)
     if ('ethereum-remote-client' in source_string_path or
-            'brave-site-specific-scripts' in source_string_path):
+            'adrbrowsiel-site-specific-scripts' in source_string_path):
         upload_missing_json_translations_to_transifex(source_string_path)
 
 

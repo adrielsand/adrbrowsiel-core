@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_block_safebrowsing_urls.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_block_safebrowsing_urls.h"
 
 #include <vector>
 
@@ -11,7 +11,7 @@
 #include "net/base/net_errors.h"
 #include "url/gurl.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 const char kDummyUrl[] = "https://no-thanks.invalid";
 
@@ -57,4 +57,4 @@ int OnBeforeURLRequest_BlockSafeBrowsingReportingURLs(const GURL& request_url,
   return net::OK;
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

@@ -1,4 +1,4 @@
-/** Copyright (c) 2020 The Brave Authors. All rights reserved.
+/** Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
   * This Source Code Form is subject to the terms of the Mozilla Public
   * License, v. 2.0. If a copy of the MPL was not distributed with this file,
   * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -13,14 +13,14 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class BraveRewardsBalance {
+public class adrbrowsielRewardsBalance {
     public static final String WALLET_ANONYMOUS = "anonymous";
     public static final String WALLET_UPHOLD = "uphold";
     public static final String WALLET_BLINDED = "blinded";
 
     /**
      * matching consts in
-     * src/brave/components/brave_rewards/browser/balance.h
+     * src/adrbrowsiel/components/adrbrowsiel_rewards/browser/balance.h
      */
     public static final String JSON_TOTAL = "total";
     public static final String JSON_WALLETS = "wallets";
@@ -28,7 +28,7 @@ public class BraveRewardsBalance {
     double mTotal;
     Map <String, Double> mWallets;
 
-    BraveRewardsBalance (String json_balance) throws JSONException {
+    adrbrowsielRewardsBalance (String json_balance) throws JSONException {
         fromJson (json_balance);
     }
 
@@ -53,7 +53,7 @@ public class BraveRewardsBalance {
     @VisibleForTesting
     @Override
     public String toString() {
-        return "BraveRewardsBalance{" +
+        return "adrbrowsielRewardsBalance{" +
                 "mTotal=" + mTotal +
                 ", mWallets=" + mWallets +'}';
     }

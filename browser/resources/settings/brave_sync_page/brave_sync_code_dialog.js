@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -12,18 +12,18 @@ import 'chrome://resources/cr_elements/cr_icon_button/cr_icon_button.m.js';
 import {Polymer, html} from 'chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js';
 import {I18nBehavior} from 'chrome://resources/js/i18n_behavior.m.js';
 
-import {BraveSyncBrowserProxy} from './brave_sync_browser_proxy.js';
+import {adrbrowsielSyncBrowserProxy} from './adrbrowsiel_sync_browser_proxy.js';
 
 
 /**
  * @fileoverview
- * 'settings-brave-sync-code-dialog' contains the dialog for displaying or
+ * 'settings-adrbrowsiel-sync-code-dialog' contains the dialog for displaying or
  * inputting the sync code. It can display in input mode or in read-only
  * words, qr-code, or a 'chooser' which will allow the user to choose words or
  * qr-code.
  */
 Polymer({
-  is: 'settings-brave-sync-code-dialog',
+  is: 'settings-adrbrowsiel-sync-code-dialog',
 
   _template: html`{__html_template__}`,
 
@@ -68,11 +68,11 @@ Polymer({
     'getQRCode_(syncCode, codeType)',
   ],
 
-  /** @private {?BraveSyncBrowserProxy} */
+  /** @private {?adrbrowsielSyncBrowserProxy} */
   syncBrowserProxy_: null,
 
   created: function() {
-    this.syncBrowserProxy_ = BraveSyncBrowserProxy.getInstance();
+    this.syncBrowserProxy_ = adrbrowsielSyncBrowserProxy.getInstance();
   },
 
   updateSyncCodeValidity_: function() {

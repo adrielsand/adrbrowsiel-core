@@ -9,19 +9,19 @@ Public facing API documentation can be found in `ads.h` and `ads_client.h`
 Use production Ads server. Default for official builds, i.e. Release
 
 ```
---brave-ads-production
+--adrbrowsiel-ads-production
 ```
 
 Use staging Ads server. Default for non official builds, i.e. Debug
 
 ```
---brave-ads-staging
+--adrbrowsiel-ads-staging
 ```
 
 Use development Ads server.
 
 ```
---brave-ads-development
+--adrbrowsiel-ads-development
 ```
 
 Collect initial activity after 25 seconds instead of 1 hour as defined by
@@ -30,11 +30,11 @@ minutes instead of 2 hours as defined by `kDebugCatalogPing` in
 `static_values.h`
 
 ```
---brave-ads-debug
+--adrbrowsiel-ads-debug
 ```
 
 ## Unit Tests
 
 ```
-npm run test -- brave_unit_tests --filter=BatAds*
+npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 ```

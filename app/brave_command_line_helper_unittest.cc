@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/app/brave_command_line_helper.h"
+#include "adrbrowsiel/app/adrbrowsiel_command_line_helper.h"
 
 #include <set>
 #include <string>
@@ -57,9 +57,9 @@ void CheckDisabledFeatures(const base::CommandLine& command_line,
 
 }  // namespace
 
-TEST(BraveCommandLineHelperUnitTest, TestAppendSwitch) {
+TEST(adrbrowsielCommandLineHelperUnitTest, TestAppendSwitch) {
   base::CommandLine& command_line = *base::CommandLine::ForCurrentProcess();
-  BraveCommandLineHelper helper(&command_line);
+  adrbrowsielCommandLineHelper helper(&command_line);
   // Test that append switch works.
   helper.AppendSwitch("a");
   ASSERT_TRUE(command_line.HasSwitch("a"));
@@ -76,11 +76,11 @@ TEST(BraveCommandLineHelperUnitTest, TestAppendSwitch) {
   ASSERT_EQ(2, CountA(command_line.argv()));
 }
 
-TEST(BraveCommandLineHelperUnitTest, TestParseFeatures) {
+TEST(adrbrowsielCommandLineHelperUnitTest, TestParseFeatures) {
   base::CommandLine& command_line = *base::CommandLine::ForCurrentProcess();
   command_line.AppendSwitchASCII(switches::kEnableFeatures, "a,b,x");
   command_line.AppendSwitchASCII(switches::kDisableFeatures, "x,y,z");
-  BraveCommandLineHelper helper(&command_line);
+  adrbrowsielCommandLineHelper helper(&command_line);
   // Test that intersecting enabled and disabled features have been removed from
   // enabled set.
   const std::unordered_set<std::string>& enabled = helper.enabled_features();
@@ -91,9 +91,9 @@ TEST(BraveCommandLineHelperUnitTest, TestParseFeatures) {
             FeaturesToSet("x,y,z"));
 }
 
-TEST(BraveCommandLineHelperUnitTest, TestAppendFeatures) {
+TEST(adrbrowsielCommandLineHelperUnitTest, TestAppendFeatures) {
   base::CommandLine& command_line = *base::CommandLine::ForCurrentProcess();
-  BraveCommandLineHelper helper(&command_line);
+  adrbrowsielCommandLineHelper helper(&command_line);
   // Test enabled features: none on command line.
   helper.AppendFeatures({"a"}, {});
   CheckEnabledFeatures(command_line, "a");

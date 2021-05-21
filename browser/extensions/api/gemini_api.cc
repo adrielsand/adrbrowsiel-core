@@ -1,20 +1,20 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/api/gemini_api.h"
+#include "adrbrowsiel/browser/extensions/api/gemini_api.h"
 
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
 
-#include "brave/common/extensions/api/gemini.h"
-#include "brave/browser/gemini/gemini_service_factory.h"
-#include "brave/components/ntp_widget_utils/browser/ntp_widget_utils_region.h"
-#include "brave/components/gemini/browser/gemini_service.h"
-#include "brave/components/gemini/browser/regions.h"
+#include "adrbrowsiel/common/extensions/api/gemini.h"
+#include "adrbrowsiel/browser/gemini/gemini_service_factory.h"
+#include "adrbrowsiel/components/ntp_widget_utils/browser/ntp_widget_utils_region.h"
+#include "adrbrowsiel/components/gemini/browser/gemini_service.h"
+#include "adrbrowsiel/components/gemini/browser/regions.h"
 #include "chrome/browser/extensions/api/tabs/tabs_constants.h"
 #include "chrome/browser/extensions/extension_tab_util.h"
 #include "chrome/browser/infobars/infobar_service.h"

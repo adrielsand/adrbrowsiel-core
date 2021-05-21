@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,7 +9,7 @@
 #include "bat/ads/internal/unittest_base.h"
 #include "bat/ads/internal/unittest_util.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 
@@ -64,7 +64,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_1.segment = "Technology & Computing-Software";
   info_1.dayparts.push_back(daypart_info);
   info_1.geo_targets = {"US"};
-  info_1.target_url = "https://brave.com";
+  info_1.target_url = "https://adrbrowsiel.com";
   info_1.title = "Test Ad 1 Title";
   info_1.description = "Test Ad 1 Body";
   info_1.ptr = 1.0;
@@ -85,7 +85,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_2.segment = "Technology & Computing-Software";
   info_2.dayparts.push_back(daypart_info);
   info_2.geo_targets = {"US"};
-  info_2.target_url = "https://brave.com";
+  info_2.target_url = "https://adrbrowsiel.com";
   info_2.title = "Test Ad 2 Title";
   info_2.description = "Test Ad 2 Body";
   info_2.ptr = 0.8;
@@ -135,7 +135,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_1.segment = "Technology & Computing-Software";
   info_1.dayparts.push_back(daypart_info);
   info_1.geo_targets = {"US"};
-  info_1.target_url = "https://brave.com";
+  info_1.target_url = "https://adrbrowsiel.com";
   info_1.title = "Test Ad 1 Title";
   info_1.description = "Test Ad 1 Body";
   info_1.ptr = 1.0;
@@ -157,7 +157,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_2.segment = "Technology & Computing-Software";
   info_2.dayparts.push_back(daypart_info);
   info_2.geo_targets = {"US"};
-  info_2.target_url = "https://brave.com";
+  info_2.target_url = "https://adrbrowsiel.com";
   info_2.title = "Test Ad 2 Title";
   info_2.description = "Test Ad 2 Body";
   info_2.ptr = 1.0;
@@ -179,7 +179,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_3.segment = "Technology & Computing-Software";
   info_3.dayparts.push_back(daypart_info);
   info_3.geo_targets = {"US"};
-  info_3.target_url = "https://brave.com";
+  info_3.target_url = "https://adrbrowsiel.com";
   info_3.title = "Test Ad 3 Title";
   info_3.description = "Test Ad 3 Body";
   info_3.ptr = 1.0;
@@ -227,7 +227,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info.segment = "Technology & Computing-Software";
   info.dayparts.push_back(daypart_info);
   info.geo_targets = {"US"};
-  info.target_url = "https://brave.com";
+  info.target_url = "https://adrbrowsiel.com";
   info.title = "Test Ad 1 Title";
   info.description = "Test Ad 1 Body";
   info.ptr = 1.0;
@@ -277,7 +277,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest, GetForCategories) {
   info_1.segment = "Technology & Computing-Software";
   info_1.dayparts.push_back(daypart_info);
   info_1.geo_targets = {"US"};
-  info_1.target_url = "https://brave.com";
+  info_1.target_url = "https://adrbrowsiel.com";
   info_1.title = "Test Ad 1 Title";
   info_1.description = "Test Ad 1 Body";
   info_1.ptr = 1.0;
@@ -299,7 +299,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest, GetForCategories) {
   info_2.segment = "Technology & Computing-Software";
   info_2.dayparts.push_back(daypart_info);
   info_2.geo_targets = {"US"};
-  info_2.target_url = "https://brave.com";
+  info_2.target_url = "https://adrbrowsiel.com";
   info_2.title = "Test Ad 2 Title";
   info_2.description = "Test Ad 2 Body";
   info_2.ptr = 1.0;
@@ -348,7 +348,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info.segment = "Technology & Computing-Software";
   info.dayparts.push_back(daypart_info);
   info.geo_targets = {"US"};
-  info.target_url = "https://brave.com";
+  info.target_url = "https://adrbrowsiel.com";
   info.title = "Test Ad 1 Title";
   info.description = "Test Ad 1 Body";
   info.ptr = 1.0;
@@ -398,7 +398,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info.segment = "Technology & Computing-Software";
   info.dayparts.push_back(daypart_info);
   info.geo_targets = {"US"};
-  info.target_url = "https://brave.com";
+  info.target_url = "https://adrbrowsiel.com";
   info.title = "Test Ad 1 Title";
   info.description = "Test Ad 1 Body";
   info.ptr = 1.0;
@@ -442,7 +442,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info.segment = "Technology & Computing-Software";
   info.dayparts.push_back(daypart_info);
   info.geo_targets = {"US"};
-  info.target_url = "https://brave.com";
+  info.target_url = "https://adrbrowsiel.com";
   info.title = "Test Ad 1 Title";
   info.description = "Test Ad 1 Body";
   info.ptr = 1.0;
@@ -491,7 +491,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info.segment = "Technology & Computing-Software";
   info.dayparts.push_back(daypart_info);
   info.geo_targets = {"US"};
-  info.target_url = "https://brave.com";
+  info.target_url = "https://adrbrowsiel.com";
   info.title = "Test Ad 1 Title";
   info.description = "Test Ad 1 Body";
   info.ptr = 1.0;
@@ -540,7 +540,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_1.segment = "Technology & Computing-Software";
   info_1.dayparts.push_back(daypart_info);
   info_1.geo_targets = {"US"};
-  info_1.target_url = "https://brave.com";
+  info_1.target_url = "https://adrbrowsiel.com";
   info_1.title = "Test Ad 1 Title";
   info_1.description = "Test Ad 1 Body";
   info_1.ptr = 1.0;
@@ -562,7 +562,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_2.segment = "Food & Drink";
   info_2.dayparts.push_back(daypart_info);
   info_2.geo_targets = {"US"};
-  info_2.target_url = "https://brave.com";
+  info_2.target_url = "https://adrbrowsiel.com";
   info_2.title = "Test Ad 2 Title";
   info_2.description = "Test Ad 2 Body";
   info_2.ptr = 1.0;
@@ -584,7 +584,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_3.segment = "Automobiles";
   info_3.dayparts.push_back(daypart_info);
   info_3.geo_targets = {"US"};
-  info_3.target_url = "https://brave.com";
+  info_3.target_url = "https://adrbrowsiel.com";
   info_3.title = "Test Ad 3 Title";
   info_3.description = "Test Ad 3 Body";
   info_3.ptr = 1.0;
@@ -635,7 +635,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_1.segment = "Technology & Computing-Software";
   info_1.dayparts.push_back(daypart_info);
   info_1.geo_targets = {"US"};
-  info_1.target_url = "https://brave.com";
+  info_1.target_url = "https://adrbrowsiel.com";
   info_1.title = "Test Ad 1 Title";
   info_1.description = "Test Ad 1 Body";
   info_1.ptr = 1.0;
@@ -657,7 +657,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_2.segment = "Technology & Computing-Software";
   info_2.dayparts.push_back(daypart_info);
   info_2.geo_targets = {"US"};
-  info_2.target_url = "https://brave.com";
+  info_2.target_url = "https://adrbrowsiel.com";
   info_2.title = "Test Ad 2 Title";
   info_2.description = "Test Ad 2 Body";
   info_2.ptr = 1.0;
@@ -707,7 +707,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_1.segment = "Technology & Computing-Software";
   info_1.dayparts.push_back(daypart_info);
   info_1.geo_targets = {"US"};
-  info_1.target_url = "https://brave.com";
+  info_1.target_url = "https://adrbrowsiel.com";
   info_1.title = "Test Ad 1 Title";
   info_1.description = "Test Ad 1 Body";
   info_1.ptr = 1.0;
@@ -729,7 +729,7 @@ TEST_F(BatAdsCreativePromotedContentAdsDatabaseTableTest,
   info_2.segment = "Food & Drink";
   info_2.dayparts.push_back(daypart_info);
   info_2.geo_targets = {"US"};
-  info_2.target_url = "https://brave.com";
+  info_2.target_url = "https://adrbrowsiel.com";
   info_2.title = "Test Ad 2 Title";
   info_2.description = "Test Ad 2 Body";
   info_2.ptr = 1.0;

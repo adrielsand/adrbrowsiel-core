@@ -1,13 +1,13 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/decentralized_dns/decentralized_dns_navigation_throttle.h"
+#include "adrbrowsiel/components/decentralized_dns/decentralized_dns_navigation_throttle.h"
 
 #include "base/test/scoped_feature_list.h"
-#include "brave/components/decentralized_dns/features.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/components/decentralized_dns/features.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/test/base/testing_browser_process.h"
 #include "chrome/test/base/testing_profile.h"
@@ -20,7 +20,7 @@
 #include "testing/gtest/include/gtest/gtest.h"
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/browser/tor/tor_profile_manager.h"
+#include "adrbrowsiel/browser/tor/tor_profile_manager.h"
 #endif
 
 constexpr char kTestProfileName[] = "TestProfile";

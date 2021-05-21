@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -20,27 +20,27 @@ import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
 import org.chromium.components.browser_ui.settings.SettingsUtils;
 import org.chromium.ui.UiUtils;
 
 /**
  * Fragment to manage webrtc policy settings.
  */
-public class BraveWebrtcPolicyPreferencesFragment extends BravePreferenceFragment {
+public class adrbrowsielWebrtcPolicyPreferencesFragment extends adrbrowsielPreferenceFragment {
     static final String PREF_WEBRTC_POLICY = "webrtc_policy";
 
     @Override
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, String rootKey) {
-        SettingsUtils.addPreferencesFromResource(this, R.xml.brave_webrtc_policy_preferences);
+        SettingsUtils.addPreferencesFromResource(this, R.xml.adrbrowsiel_webrtc_policy_preferences);
         getActivity().setTitle(R.string.settings_webrtc_policy_label);
 
-        BraveWebrtcPolicyPreference webrtcPolicyPreference =
-                (BraveWebrtcPolicyPreference) findPreference(PREF_WEBRTC_POLICY);
-        webrtcPolicyPreference.initialize(BravePrefServiceBridge.getInstance().getWebrtcPolicy());
+        adrbrowsielWebrtcPolicyPreference webrtcPolicyPreference =
+                (adrbrowsielWebrtcPolicyPreference) findPreference(PREF_WEBRTC_POLICY);
+        webrtcPolicyPreference.initialize(adrbrowsielPrefServiceBridge.getInstance().getWebrtcPolicy());
 
         webrtcPolicyPreference.setOnPreferenceChangeListener((preference, newValue) -> {
-            BravePrefServiceBridge.getInstance().setWebrtcPolicy((int) newValue);
+            adrbrowsielPrefServiceBridge.getInstance().setWebrtcPolicy((int) newValue);
             return true;
         });
     }

@@ -1,5 +1,5 @@
 #include "base/command_line.h"
-#include "brave/common/brave_switches.h"
+#include "adrbrowsiel/common/adrbrowsiel_switches.h"
 
 // switches::kDisableEncryptionWin
 const char kDisableEncryptionWin[] = "disable-encryption-win";

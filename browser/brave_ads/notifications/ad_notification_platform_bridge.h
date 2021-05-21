@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_ADS_NOTIFICATIONS_AD_NOTIFICATION_PLATFORM_BRIDGE_H_
-#define BRAVE_BROWSER_BRAVE_ADS_NOTIFICATIONS_AD_NOTIFICATION_PLATFORM_BRIDGE_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_ADS_NOTIFICATIONS_AD_NOTIFICATION_PLATFORM_BRIDGE_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_ADS_NOTIFICATIONS_AD_NOTIFICATION_PLATFORM_BRIDGE_H_
 
 #include <string>
 
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/ui/brave_ads/ad_notification.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 class AdNotificationPlatformBridge {
  public:
@@ -29,6 +29,6 @@ class AdNotificationPlatformBridge {
       delete;
 };
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_BROWSER_BRAVE_ADS_NOTIFICATIONS_AD_NOTIFICATION_PLATFORM_BRIDGE_H_
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_ADS_NOTIFICATIONS_AD_NOTIFICATION_PLATFORM_BRIDGE_H_

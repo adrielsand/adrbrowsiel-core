@@ -1,15 +1,15 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_API_FTX_API_H_
-#define BRAVE_BROWSER_EXTENSIONS_API_FTX_API_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_API_FTX_API_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_API_FTX_API_H_
 
 #include <string>
 #include <vector>
 
-#include "brave/components/ftx/browser/ftx_service.h"
+#include "adrbrowsiel/components/ftx/browser/ftx_service.h"
 #include "extensions/browser/extension_function.h"
 
 class Profile;
@@ -137,4 +137,4 @@ class FtxExecuteConvertQuoteFunction : public ExtensionFunction {
 }  // namespace api
 }  // namespace extensions
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_API_FTX_API_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_API_FTX_API_H_

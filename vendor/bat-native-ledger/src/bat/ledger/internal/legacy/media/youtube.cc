@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -19,7 +19,7 @@ using std::placeholders::_1;
 using std::placeholders::_2;
 using std::placeholders::_3;
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 YouTube::YouTube(ledger::LedgerImpl* ledger):
   ledger_(ledger) {
@@ -97,12 +97,12 @@ std::string YouTube::GetChannelUrl(const std::string& publisher_key) {
 
 // static
 std::string YouTube::GetFavIconUrl(const std::string& data) {
-  std::string favicon_url = braveledger_media::ExtractData(
+  std::string favicon_url = adrbrowsielledger_media::ExtractData(
       data,
       "\"avatar\":{\"thumbnails\":[{\"url\":\"", "\"");
 
   if (favicon_url.empty()) {
-    favicon_url = braveledger_media::ExtractData(
+    favicon_url = adrbrowsielledger_media::ExtractData(
       data,
       "\"width\":88,\"height\":88},{\"url\":\"", "\"");
   }
@@ -112,22 +112,22 @@ std::string YouTube::GetFavIconUrl(const std::string& data) {
 
 // static
 std::string YouTube::GetChannelId(const std::string& data) {
-  std::string id = braveledger_media::ExtractData(data, "\"ucid\":\"", "\"");
+  std::string id = adrbrowsielledger_media::ExtractData(data, "\"ucid\":\"", "\"");
   if (id.empty()) {
-    id = braveledger_media::ExtractData(
+    id = adrbrowsielledger_media::ExtractData(
         data,
         "HeaderRenderer\":{\"channelId\":\"", "\"");
   }
 
   if (id.empty()) {
-    id = braveledger_media::ExtractData(
+    id = adrbrowsielledger_media::ExtractData(
         data,
         "<link rel=\"canonical\" href=\"https://www.youtube.com/channel/",
         "\">");
   }
 
   if (id.empty()) {
-    id = braveledger_media::ExtractData(
+    id = adrbrowsielledger_media::ExtractData(
       data,
       "browseEndpoint\":{\"browseId\":\"",
       "\"");
@@ -139,15 +139,15 @@ std::string YouTube::GetChannelId(const std::string& data) {
 // static
 std::string YouTube::GetPublisherName(const std::string& data) {
   std::string publisher_name;
-  std::string publisher_json_name = braveledger_media::ExtractData(
+  std::string publisher_json_name = adrbrowsielledger_media::ExtractData(
       data,
       "\"author\":\"", "\"");
-  std::string publisher_json = "{\"brave_publisher\":\"" +
+  std::string publisher_json = "{\"adrbrowsiel_publisher\":\"" +
       publisher_json_name + "\"}";
   // scraped data could come in with JSON code points added.
   // Make to JSON object above so we can decode.
-  braveledger_bat_helper::getJSONValue(
-      "brave_publisher", publisher_json, &publisher_name);
+  adrbrowsielledger_bat_helper::getJSONValue(
+      "adrbrowsiel_publisher", publisher_json, &publisher_name);
   return publisher_name;
 }
 
@@ -207,14 +207,14 @@ std::string YouTube::GetMediaIdFromUrl(
 // static
 std::string YouTube::GetNameFromChannel(const std::string& data) {
   std::string publisher_name;
-  const std::string publisher_json_name = braveledger_media::ExtractData(data,
+  const std::string publisher_json_name = adrbrowsielledger_media::ExtractData(data,
       "channelMetadataRenderer\":{\"title\":\"", "\"");
-  const std::string publisher_json = "{\"brave_publisher\":\"" +
+  const std::string publisher_json = "{\"adrbrowsiel_publisher\":\"" +
       publisher_json_name + "\"}";
   // scraped data could come in with JSON code points added.
   // Make to JSON object above so we can decode.
-  braveledger_bat_helper::getJSONValue(
-      "brave_publisher", publisher_json, &publisher_name);
+  adrbrowsielledger_bat_helper::getJSONValue(
+      "adrbrowsiel_publisher", publisher_json, &publisher_name);
   return publisher_name;
 }
 
@@ -225,7 +225,7 @@ std::string YouTube::GetPublisherKeyFromUrl(
     return std::string();
   }
 
-  const std::string id = braveledger_media::ExtractData(path + "/",
+  const std::string id = adrbrowsielledger_media::ExtractData(path + "/",
       "/channel/", "/");
 
   if (id.empty()) {
@@ -244,7 +244,7 @@ std::string YouTube::GetPublisherKeyFromUrl(
 // static
 std::string YouTube::GetChannelIdFromCustomPathPage(
     const std::string& data) {
-  return braveledger_media::ExtractData(data,
+  return adrbrowsielledger_media::ExtractData(data,
       "{\"key\":\"browse_id\",\"value\":\"", "\"");
 }
 
@@ -305,7 +305,7 @@ std::string YouTube::GetUserFromUrl(const std::string& path) {
     return std::string();
   }
 
-  const std::string id = braveledger_media::ExtractData(path + "/",
+  const std::string id = adrbrowsielledger_media::ExtractData(path + "/",
       "/user/", "/");
 
   if (id.empty()) {
@@ -348,7 +348,7 @@ void YouTube::ProcessMedia(
     return;
   }
 
-  std::string media_key = braveledger_media::GetMediaKey(media_id,
+  std::string media_key = adrbrowsielledger_media::GetMediaKey(media_id,
                                                          YOUTUBE_MEDIA_TYPE);
   uint64_t duration = GetMediaDurationFromParts(parts, media_key);
 
@@ -470,12 +470,12 @@ void YouTube::OnEmbedResponse(
   }
 
   std::string publisher_url;
-  braveledger_bat_helper::getJSONValue(
+  adrbrowsielledger_bat_helper::getJSONValue(
       "author_url",
       response.body,
       &publisher_url);
   std::string publisher_name;
-  braveledger_bat_helper::getJSONValue(
+  adrbrowsielledger_bat_helper::getJSONValue(
       "author_name",
       response.body,
       &publisher_name);
@@ -588,7 +588,7 @@ void YouTube::FetchDataFromUrl(
 void YouTube::WatchPath(uint64_t window_id,
                              const ledger::type::VisitData& visit_data) {
   std::string media_id = GetMediaIdFromUrl(visit_data.url);
-  std::string media_key = braveledger_media::GetMediaKey(media_id,
+  std::string media_key = adrbrowsielledger_media::GetMediaKey(media_id,
                                                          YOUTUBE_MEDIA_TYPE);
 
   if (!media_key.empty() || !media_id.empty()) {
@@ -815,4 +815,4 @@ void YouTube::OnChannelIdForUser(
 }
 
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

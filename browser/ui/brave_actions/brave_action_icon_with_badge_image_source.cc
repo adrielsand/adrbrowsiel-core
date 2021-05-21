@@ -1,9 +1,9 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_actions/brave_action_icon_with_badge_image_source.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_actions/adrbrowsiel_action_icon_with_badge_image_source.h"
 
 #include <algorithm>
 
@@ -23,23 +23,23 @@
 #include "ui/gfx/skia_paint_util.h"
 
 base::Optional<int>
-BraveActionIconWithBadgeImageSource::GetCustomGraphicSize() {
-  return kBraveActionGraphicSize;
+adrbrowsielActionIconWithBadgeImageSource::GetCustomGraphicSize() {
+  return kadrbrowsielActionGraphicSize;
 }
 
 base::Optional<int>
-BraveActionIconWithBadgeImageSource::GetCustomGraphicXOffset() {
+adrbrowsielActionIconWithBadgeImageSource::GetCustomGraphicXOffset() {
   return std::floor(
-      (size().width() - kBraveActionRightMargin - kBraveActionGraphicSize) /
+      (size().width() - kadrbrowsielActionRightMargin - kadrbrowsielActionGraphicSize) /
       2.0);
 }
 
 base::Optional<int>
-BraveActionIconWithBadgeImageSource::GetCustomGraphicYOffset() {
-  return std::floor((size().height() - kBraveActionGraphicSize) / 2.0);
+adrbrowsielActionIconWithBadgeImageSource::GetCustomGraphicYOffset() {
+  return std::floor((size().height() - kadrbrowsielActionGraphicSize) / 2.0);
 }
 
-void BraveActionIconWithBadgeImageSource::PaintBadge(gfx::Canvas* canvas) {
+void adrbrowsielActionIconWithBadgeImageSource::PaintBadge(gfx::Canvas* canvas) {
     if (!badge_ || badge_->text.empty())
     return;
 
@@ -74,7 +74,7 @@ void BraveActionIconWithBadgeImageSource::PaintBadge(gfx::Canvas* canvas) {
                              0, gfx::Canvas::NO_ELLIPSIS);
   // Leaving extremely verbose log lines commented in case we want to change
   // any sizes in this algorithm, these logs are helpful.
-  // LOG(ERROR) << "BraveAction badge text size initial, "
+  // LOG(ERROR) << "adrbrowsielAction badge text size initial, "
   //            << "w:"
   //            << text_width
   //            << " h:"
@@ -160,6 +160,6 @@ void BraveActionIconWithBadgeImageSource::PaintBadge(gfx::Canvas* canvas) {
                                   gfx::Canvas::TEXT_ALIGN_CENTER);
 }
 
-gfx::Rect BraveActionIconWithBadgeImageSource::GetIconAreaRect() const {
+gfx::Rect adrbrowsielActionIconWithBadgeImageSource::GetIconAreaRect() const {
   return gfx::Rect(size());
 }

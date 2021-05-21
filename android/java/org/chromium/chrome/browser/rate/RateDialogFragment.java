@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -107,7 +107,7 @@ public class RateDialogFragment extends DialogFragment implements View.OnClickLi
         mNegativeButton = view.findViewById(R.id.rate_negative_btn);
 
         mSmileyLayout = view.findViewById(R.id.smiley_layout);
-        mRateActionLayout = view.findViewById(R.id.brave_rate_action_layout);
+        mRateActionLayout = view.findViewById(R.id.adrbrowsiel_rate_action_layout);
 
         if (GlobalNightModeStateProviderHolder.getInstance().isInNightMode()) {
             mHappyImageButton.setColorFilter(Color.argb(255, 255, 255, 255));

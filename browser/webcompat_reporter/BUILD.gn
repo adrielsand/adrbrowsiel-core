@@ -1,7 +1,7 @@
 import("//build/config/features.gni")
 
 source_set("webcompat_reporter") {
-  # Remove when https://github.com/brave/brave-browser/issues/10664 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10664 is resolved
   check_includes = false
   sources = [
     "webcompat_reporter_dialog.cc",
@@ -10,7 +10,7 @@ source_set("webcompat_reporter") {
 
   deps = [
     "//base",
-    "//brave/common",
+    "//adrbrowsiel/common",
     "//content/public/browser",
     "//ui/web_dialogs",
   ]

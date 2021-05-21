@@ -1,19 +1,19 @@
-// Copyright 2020 The Brave Authors. All rights reserved.
+// Copyright 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 #include "base/path_service.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/browser/tor/tor_profile_manager.h"
-#include "brave/browser/tor/tor_profile_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/tor/mock_tor_launcher_factory.h"
-#include "brave/components/tor/tor_constants.h"
-#include "brave/components/tor/tor_profile_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/tor/tor_profile_manager.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/mock_tor_launcher_factory.h"
+#include "adrbrowsiel/components/tor/tor_constants.h"
+#include "adrbrowsiel/components/tor/tor_profile_service.h"
 #include "chrome/browser/bookmarks/bookmark_model_factory.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
@@ -39,7 +39,7 @@
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
 #endif
 
 namespace {
@@ -158,9 +158,9 @@ IN_PROC_BROWSER_TEST_F(TorProfileManagerTest,
   ASSERT_TRUE(tor_profile->IsTor());
   EXPECT_TRUE(tor_profile->IsOffTheRecord());
 
-  EXPECT_EQ(brave_rewards::RewardsServiceFactory::GetForProfile(tor_profile),
+  EXPECT_EQ(adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(tor_profile),
             nullptr);
-  EXPECT_EQ(brave_ads::AdsServiceFactory::GetForProfile(tor_profile), nullptr);
+  EXPECT_EQ(adrbrowsiel_ads::AdsServiceFactory::GetForProfile(tor_profile), nullptr);
 #if BUILDFLAG(IPFS_ENABLED)
   EXPECT_EQ(ipfs::IpfsServiceFactory::GetForContext(tor_profile), nullptr);
 #endif
@@ -193,7 +193,7 @@ IN_PROC_BROWSER_TEST_F(TorProfileManagerTest, SwitchToTorProfileInheritPrefs) {
 
 IN_PROC_BROWSER_TEST_F(TorProfileManagerTest,
                        SwitchToTorProfileInheritContentSettings) {
-  const GURL brave_url("https://www.brave.com");
+  const GURL adrbrowsiel_url("https://www.adrbrowsiel.com");
   ProfileManager* profile_manager = g_browser_process->profile_manager();
   ASSERT_TRUE(profile_manager);
 
@@ -213,24 +213,24 @@ IN_PROC_BROWSER_TEST_F(TorProfileManagerTest,
   // Check Tor profile's content settings are inherited from its parent.
   HostContentSettingsMap* tor_content_settings =
       HostContentSettingsMapFactory::GetForProfile(tor_profile);
-  ContentSetting setting = GetScriptSetting(tor_content_settings, brave_url);
+  ContentSetting setting = GetScriptSetting(tor_content_settings, adrbrowsiel_url);
   EXPECT_EQ(setting, CONTENT_SETTING_BLOCK);
 
   // Check changes of content settings from the parent profile will reflected
   // in Tor profile when the setting is not set directly in Tor profile.
   SetScriptSetting(parent_content_settings, ContentSettingsPattern::Wildcard(),
                    CONTENT_SETTING_ALLOW);
-  setting = GetScriptSetting(tor_content_settings, brave_url);
+  setting = GetScriptSetting(tor_content_settings, adrbrowsiel_url);
   EXPECT_EQ(setting, CONTENT_SETTING_ALLOW);
 
   // Check changes of content settings from the parent profile will not
   // overwrite the one in Tor profile when it is set directly in Tor profile.
   SetScriptSetting(tor_content_settings,
-                   ContentSettingsPattern::FromURL(brave_url),
+                   ContentSettingsPattern::FromURL(adrbrowsiel_url),
                    CONTENT_SETTING_BLOCK);
-  setting = GetScriptSetting(parent_content_settings, brave_url);
+  setting = GetScriptSetting(parent_content_settings, adrbrowsiel_url);
   EXPECT_EQ(setting, CONTENT_SETTING_ALLOW);
-  setting = GetScriptSetting(tor_content_settings, brave_url);
+  setting = GetScriptSetting(tor_content_settings, adrbrowsiel_url);
   EXPECT_EQ(setting, CONTENT_SETTING_BLOCK);
 }
 
@@ -257,8 +257,8 @@ class TorProfileManagerExtensionTest : public extensions::ExtensionBrowserTest {
     extensions::ExtensionBrowserTest::SetUpOnMainThread();
 
     // Override extension data dir.
-    brave::RegisterPathProvider();
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir_);
+    adrbrowsiel::RegisterPathProvider();
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir_);
     extension_path_ = test_data_dir_.AppendASCII("extensions")
                           .AppendASCII("trivial_extension");
     incognito_not_allowed_ext_path_ =

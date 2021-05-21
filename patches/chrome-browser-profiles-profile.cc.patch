@@ -6,7 +6,7 @@ index 94aafe60eb458a39957690e41950a4cd8a9fec36..556e6daef188f3998d76305750dca447
    // DevTools::BrowserContext and MediaRouter::Presentation are an
    // exception to this ban.
    return *this == PrimaryID() ||
-+         BRAVE_ALLOWS_BROWSER_WINDOWS
++         adrbrowsiel_ALLOWS_BROWSER_WINDOWS
           base::StartsWith(profile_id_, kDevToolsOTRProfileIDPrefix,
                            base::CompareCase::SENSITIVE) ||
           base::StartsWith(profile_id_, kMediaRouterOTRProfileIDPrefix,

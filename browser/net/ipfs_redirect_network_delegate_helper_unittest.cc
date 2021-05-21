@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/ipfs_redirect_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/ipfs_redirect_network_delegate_helper.h"
 
 #include <memory>
 #include <string>
@@ -11,12 +11,12 @@
 #include <vector>
 
 #include "base/test/scoped_feature_list.h"
-#include "brave/browser/net/url_context.h"
-#include "brave/common/translate_network_constants.h"
-#include "brave/components/ipfs/features.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_utils.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/browser/net/url_context.h"
+#include "adrbrowsiel/common/translate_network_constants.h"
+#include "adrbrowsiel/components/ipfs/features.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #include "chrome/common/channel_info.h"
 #include "chrome/test/base/chrome_render_view_host_test_harness.h"
 #include "chrome/test/base/testing_profile.h"
@@ -61,73 +61,73 @@ class IPFSRedirectNetworkDelegateHelperTest : public testing::Test {
 
 TEST_F(IPFSRedirectNetworkDelegateHelperTest, TranslateIPFSURIHTTPScheme) {
   GURL url("http://a.com/ipfs/QmfM2r8seH2GiRaC4esTjeraXEachRt8ZsSeGaWTPLyMoG");
-  auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-  brave_request_info->browser_context = profile();
-  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(brave::ResponseCallback(),
-                                                     brave_request_info);
+  auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+  adrbrowsiel_request_info->browser_context = profile();
+  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(adrbrowsiel::ResponseCallback(),
+                                                     adrbrowsiel_request_info);
   EXPECT_EQ(rc, net::OK);
-  EXPECT_TRUE(brave_request_info->new_url_spec.empty());
+  EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
 }
 
 TEST_F(IPFSRedirectNetworkDelegateHelperTest, TranslateIPFSURIIPFSSchemeLocal) {
   GURL url("ipfs://QmfM2r8seH2GiRaC4esTjeraXEachRt8ZsSeGaWTPLyMoG");
-  auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-  brave_request_info->browser_context = profile();
-  brave_request_info->ipfs_gateway_url = GetLocalGateway();
-  brave_request_info->initiator_url = ipfs::GetIPFSGatewayURL(
+  auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+  adrbrowsiel_request_info->browser_context = profile();
+  adrbrowsiel_request_info->ipfs_gateway_url = GetLocalGateway();
+  adrbrowsiel_request_info->initiator_url = ipfs::GetIPFSGatewayURL(
       initiator_cid, "",
       ipfs::GetDefaultIPFSLocalGateway(chrome::GetChannel()));
-  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(brave::ResponseCallback(),
-                                                     brave_request_info);
+  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(adrbrowsiel::ResponseCallback(),
+                                                     adrbrowsiel_request_info);
   EXPECT_EQ(rc, net::OK);
-  EXPECT_EQ(brave_request_info->new_url_spec,
+  EXPECT_EQ(adrbrowsiel_request_info->new_url_spec,
             "http://localhost:48080/ipfs/"
             "QmfM2r8seH2GiRaC4esTjeraXEachRt8ZsSeGaWTPLyMoG");
 }
 
 TEST_F(IPFSRedirectNetworkDelegateHelperTest, TranslateIPFSURIIPFSScheme) {
   GURL url("ipfs://QmfM2r8seH2GiRaC4esTjeraXEachRt8ZsSeGaWTPLyMoG");
-  auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-  brave_request_info->browser_context = profile();
-  brave_request_info->ipfs_gateway_url = GetPublicGateway();
-  brave_request_info->initiator_url = ipfs::GetIPFSGatewayURL(
+  auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+  adrbrowsiel_request_info->browser_context = profile();
+  adrbrowsiel_request_info->ipfs_gateway_url = GetPublicGateway();
+  adrbrowsiel_request_info->initiator_url = ipfs::GetIPFSGatewayURL(
       initiator_cid, "", ipfs::GetDefaultIPFSGateway(profile()));
-  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(brave::ResponseCallback(),
-                                                     brave_request_info);
+  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(adrbrowsiel::ResponseCallback(),
+                                                     adrbrowsiel_request_info);
   EXPECT_EQ(rc, net::OK);
   EXPECT_EQ(
-      brave_request_info->new_url_spec,
+      adrbrowsiel_request_info->new_url_spec,
       "https://dweb.link/ipfs/QmfM2r8seH2GiRaC4esTjeraXEachRt8ZsSeGaWTPLyMoG");
 }
 
 TEST_F(IPFSRedirectNetworkDelegateHelperTest, TranslateIPFSURIIPNSSchemeLocal) {
   GURL url("ipns://QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd");
-  auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-  brave_request_info->browser_context = profile();
-  brave_request_info->ipfs_gateway_url = GetLocalGateway();
-  brave_request_info->initiator_url = ipfs::GetIPFSGatewayURL(
+  auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+  adrbrowsiel_request_info->browser_context = profile();
+  adrbrowsiel_request_info->ipfs_gateway_url = GetLocalGateway();
+  adrbrowsiel_request_info->initiator_url = ipfs::GetIPFSGatewayURL(
       initiator_cid, "",
       ipfs::GetDefaultIPFSLocalGateway(chrome::GetChannel()));
-  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(brave::ResponseCallback(),
-                                                     brave_request_info);
+  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(adrbrowsiel::ResponseCallback(),
+                                                     adrbrowsiel_request_info);
   EXPECT_EQ(rc, net::OK);
-  EXPECT_EQ(brave_request_info->new_url_spec,
+  EXPECT_EQ(adrbrowsiel_request_info->new_url_spec,
             "http://localhost:48080/ipns/"
             "QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd");
 }
 
 TEST_F(IPFSRedirectNetworkDelegateHelperTest, TranslateIPFSURIIPNSScheme) {
   GURL url("ipns://QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd");
-  auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-  brave_request_info->browser_context = profile();
-  brave_request_info->ipfs_gateway_url = GetPublicGateway();
-  brave_request_info->initiator_url = ipfs::GetIPFSGatewayURL(
+  auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+  adrbrowsiel_request_info->browser_context = profile();
+  adrbrowsiel_request_info->ipfs_gateway_url = GetPublicGateway();
+  adrbrowsiel_request_info->initiator_url = ipfs::GetIPFSGatewayURL(
       initiator_cid, "", ipfs::GetDefaultIPFSGateway(profile()));
-  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(brave::ResponseCallback(),
-                                                     brave_request_info);
+  int rc = ipfs::OnBeforeURLRequest_IPFSRedirectWork(adrbrowsiel::ResponseCallback(),
+                                                     adrbrowsiel_request_info);
   EXPECT_EQ(rc, net::OK);
   EXPECT_EQ(
-      brave_request_info->new_url_spec,
+      adrbrowsiel_request_info->new_url_spec,
       "https://dweb.link/ipns/QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd");
 }
 
@@ -135,7 +135,7 @@ TEST_F(IPFSRedirectNetworkDelegateHelperTest, HeadersIPFSWorkWithRedirect) {
   GURL url(
       "https://cloudflare-ipfs.com/ipfs/"
       "QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd");
-  auto request_info = std::make_shared<brave::BraveRequestInfo>(url);
+  auto request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
   request_info->browser_context = profile();
   request_info->ipfs_gateway_url = GetPublicGateway();
   request_info->initiator_url = ipfs::GetIPFSGatewayURL(
@@ -152,7 +152,7 @@ TEST_F(IPFSRedirectNetworkDelegateHelperTest, HeadersIPFSWorkWithRedirect) {
 
   int rc = ipfs::OnHeadersReceived_IPFSRedirectWork(
       orig_response_headers.get(), &overwrite_response_headers,
-      &allowed_unsafe_redirect_url, brave::ResponseCallback(), request_info);
+      &allowed_unsafe_redirect_url, adrbrowsiel::ResponseCallback(), request_info);
 
   EXPECT_EQ(rc, net::OK);
 
@@ -168,7 +168,7 @@ TEST_F(IPFSRedirectNetworkDelegateHelperTest, HeadersIPFSWorkNoRedirect) {
   GURL url(
       "https://cloudflare-ipfs.com/ipfs/"
       "QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd");
-  auto request_info = std::make_shared<brave::BraveRequestInfo>(url);
+  auto request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
   request_info->browser_context = profile();
   request_info->ipfs_gateway_url = GetPublicGateway();
   request_info->initiator_url = ipfs::GetIPFSGatewayURL(
@@ -185,7 +185,7 @@ TEST_F(IPFSRedirectNetworkDelegateHelperTest, HeadersIPFSWorkNoRedirect) {
 
   int rc = ipfs::OnHeadersReceived_IPFSRedirectWork(
       orig_response_headers.get(), &overwrite_response_headers,
-      &allowed_unsafe_redirect_url, brave::ResponseCallback(), request_info);
+      &allowed_unsafe_redirect_url, adrbrowsiel::ResponseCallback(), request_info);
 
   EXPECT_EQ(rc, net::OK);
 

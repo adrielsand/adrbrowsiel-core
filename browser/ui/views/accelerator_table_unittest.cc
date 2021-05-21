@@ -1,11 +1,11 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <vector>
 
-#include "brave/app/brave_command_ids.h"
+#include "adrbrowsiel/app/adrbrowsiel_command_ids.h"
 #include "chrome/browser/ui/views/accelerator_table.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
@@ -23,6 +23,6 @@ bool HasCommandID(int command_id) {
 
 }  // namespace
 
-TEST(AcceleratorTableTest, CheckBraveAccelerators) {
+TEST(AcceleratorTableTest, CheckadrbrowsielAccelerators) {
   EXPECT_TRUE(HasCommandID(IDC_NEW_OFFTHERECORD_WINDOW_TOR));
 }

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_THEMES_BRAVE_DARK_MODE_UTILS_H_
-#define BRAVE_BROWSER_THEMES_BRAVE_DARK_MODE_UTILS_H_
+#ifndef adrbrowsiel_BROWSER_THEMES_adrbrowsiel_DARK_MODE_UTILS_H_
+#define adrbrowsiel_BROWSER_THEMES_adrbrowsiel_DARK_MODE_UTILS_H_
 
 #include <string>
 
@@ -20,33 +20,33 @@ class PrefRegistrySyncable;
 
 namespace dark_mode {
 
-enum class BraveDarkModeType {
+enum class adrbrowsielDarkModeType {
   // DEFAULT type acts as two ways depends on system theme mode.
   // If system dark mode is not supported, we override it with channel based
   // policy. In this case, user can see dark or light option in settings.
   // Otherwise, it acts like system dark mode mode. It respects system's dark
   // mode. In this case, user can see all three options in theme settings.
-  BRAVE_DARK_MODE_TYPE_DEFAULT,
-  BRAVE_DARK_MODE_TYPE_DARK,
-  BRAVE_DARK_MODE_TYPE_LIGHT,
+  adrbrowsiel_DARK_MODE_TYPE_DEFAULT,
+  adrbrowsiel_DARK_MODE_TYPE_DARK,
+  adrbrowsiel_DARK_MODE_TYPE_LIGHT,
 };
 
 // APIs for prefs.
-void MigrateBraveDarkModePrefs(Profile* profile);
-void RegisterBraveDarkModePrefsForMigration(
+void MigrateadrbrowsielDarkModePrefs(Profile* profile);
+void RegisteradrbrowsielDarkModePrefsForMigration(
     user_prefs::PrefRegistrySyncable* registry);
-void RegisterBraveDarkModeLocalStatePrefs(PrefRegistrySimple* registry);
+void RegisteradrbrowsielDarkModeLocalStatePrefs(PrefRegistrySimple* registry);
 
-std::string GetStringFromBraveDarkModeType(BraveDarkModeType type);
-base::Value GetBraveDarkModeTypeList();
-void SetBraveDarkModeType(const std::string& type);
-void SetBraveDarkModeType(BraveDarkModeType type);
+std::string GetStringFromadrbrowsielDarkModeType(adrbrowsielDarkModeType type);
+base::Value GetadrbrowsielDarkModeTypeList();
+void SetadrbrowsielDarkModeType(const std::string& type);
+void SetadrbrowsielDarkModeType(adrbrowsielDarkModeType type);
 // Returns current effective theme type. dark or light.
-BraveDarkModeType GetActiveBraveDarkModeType();
+adrbrowsielDarkModeType GetActiveadrbrowsielDarkModeType();
 // Returns current theme type.
 // dark/light will be returned if platform doesn't support system dark mode.
 // Otherwise, returns default/dark/light.
-BraveDarkModeType GetBraveDarkModeType();
+adrbrowsielDarkModeType GetadrbrowsielDarkModeType();
 bool SystemDarkModeEnabled();
 void SetUseSystemDarkModeEnabledForTest(bool enabled);
 
@@ -54,9 +54,9 @@ void SetUseSystemDarkModeEnabledForTest(bool enabled);
 // Currently, only MacOS support it.
 // Otherewise, we need to overrides from native theme level and explicitly
 // notifying to let observers know.
-// By overriding, base ui components also use same brave theme type.
-void SetSystemDarkMode(BraveDarkModeType type);
+// By overriding, base ui components also use same adrbrowsiel theme type.
+void SetSystemDarkMode(adrbrowsielDarkModeType type);
 
 }  // namespace dark_mode
 
-#endif  // BRAVE_BROWSER_THEMES_BRAVE_DARK_MODE_UTILS_H_
+#endif  // adrbrowsiel_BROWSER_THEMES_adrbrowsiel_DARK_MODE_UTILS_H_

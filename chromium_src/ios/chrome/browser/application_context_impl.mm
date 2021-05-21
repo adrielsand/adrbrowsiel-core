@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -17,7 +17,7 @@
 #include "base/task/post_task.h"
 #include "base/time/default_clock.h"
 #include "base/time/default_tick_clock.h"
-#include "brave/ios/browser/metrics/ios_brave_metrics_services_manager_client.h"
+#include "adrbrowsiel/ios/browser/metrics/ios_adrbrowsiel_metrics_services_manager_client.h"
 #include "components/breadcrumbs/core/breadcrumb_manager.h"
 #include "components/component_updater/component_updater_service.h"
 #include "components/gcm_driver/gcm_driver.h"
@@ -210,7 +210,7 @@ ApplicationContextImpl::GetMetricsServicesManager() {
   if (!metrics_services_manager_) {
     metrics_services_manager_.reset(
         new metrics_services_manager::MetricsServicesManager(
-            std::make_unique<IOSBraveMetricsServicesManagerClient>(
+            std::make_unique<IOSadrbrowsielMetricsServicesManagerClient>(
                 GetLocalState())));
   }
   return metrics_services_manager_.get();

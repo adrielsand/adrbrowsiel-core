@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,9 +7,9 @@
 #include "base/strings/stringprintf.h"
 #include "base/task/post_task.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/brave_content_browser_client.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/browser/adrbrowsiel_content_browser_client.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -38,15 +38,15 @@ class AutoplayBrowserTest : public InProcessBrowserTest {
 
     content_client_.reset(new ChromeContentClient);
     content::SetContentClient(content_client_.get());
-    browser_content_client_.reset(new BraveContentBrowserClient());
+    browser_content_client_.reset(new adrbrowsielContentBrowserClient());
     content::SetBrowserClientForTesting(browser_content_client_.get());
 
     host_resolver()->AddRule("*", "127.0.0.1");
     content::SetupCrossSiteRedirector(embedded_test_server());
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     test_data_dir = test_data_dir.AppendASCII(kEmbeddedTestServerDirectory);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
 
@@ -135,7 +135,7 @@ class AutoplayBrowserTest : public InProcessBrowserTest {
   GURL file_autoplay_attr_url_;
   ContentSettingsPattern top_level_page_pattern_;
   std::unique_ptr<ChromeContentClient> content_client_;
-  std::unique_ptr<BraveContentBrowserClient> browser_content_client_;
+  std::unique_ptr<adrbrowsielContentBrowserClient> browser_content_client_;
 };
 
 IN_PROC_BROWSER_TEST_F(AutoplayBrowserTest, AllowAutoplay) {

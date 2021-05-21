@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_BRAVE_ACTIONS_BRAVE_ACTIONS_CONTAINER_H_
-#define BRAVE_BROWSER_UI_VIEWS_BRAVE_ACTIONS_BRAVE_ACTIONS_CONTAINER_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_ACTIONS_adrbrowsiel_ACTIONS_CONTAINER_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_ACTIONS_adrbrowsiel_ACTIONS_CONTAINER_H_
 
 #include <map>
 #include <memory>
 #include <string>
 
-#include "brave/browser/extensions/api/brave_action_api.h"
-#include "brave/components/brave_rewards/browser/buildflags/buildflags.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/browser/extensions/api/adrbrowsiel_action_api.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
 #include "chrome/browser/extensions/api/extension_action/extension_action_api.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/toolbar/toolbar_action_view_controller.h"
@@ -23,12 +23,12 @@
 #include "extensions/common/extension.h"
 #include "ui/views/view.h"
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-#include "brave/browser/ui/views/brave_actions/brave_rewards_action_stub_view.h"
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+#include "adrbrowsiel/browser/ui/views/adrbrowsiel_actions/adrbrowsiel_rewards_action_stub_view.h"
 #endif
 
-class BraveActionViewController;
-class BraveActionsContainerTest;
+class adrbrowsielActionViewController;
+class adrbrowsielActionsContainerTest;
 class RewardsBrowserTest;
 
 namespace extensions {
@@ -39,21 +39,21 @@ namespace views {
 class Button;
 }
 
-// This View contains all the built-in BraveActions such as Shields and Payments
+// This View contains all the built-in adrbrowsielActions such as Shields and Payments
 // TODO(petemill): consider splitting to separate model, like
 // ToolbarActionsModel and ToolbarActionsBar
-class BraveActionsContainer : public views::View,
-                              public extensions::BraveActionAPI::Observer,
+class adrbrowsielActionsContainer : public views::View,
+                              public extensions::adrbrowsielActionAPI::Observer,
                               public extensions::ExtensionActionAPI::Observer,
                               public extensions::ExtensionRegistryObserver,
                               public ToolbarActionView::Delegate,
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-                              public BraveRewardsActionStubView::Delegate
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+                              public adrbrowsielRewardsActionStubView::Delegate
 #endif
                               {
  public:
-  BraveActionsContainer(Browser* browser, Profile* profile);
-  ~BraveActionsContainer() override;
+  adrbrowsielActionsContainer(Browser* browser, Profile* profile);
+  ~adrbrowsielActionsContainer() override;
   void Init();
   void Update();
   void SetShouldHide(bool should_hide);
@@ -76,8 +76,8 @@ class BraveActionsContainer : public views::View,
                            const gfx::Point& press_pt,
                            const gfx::Point& p) override;
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-  // BraveRewardsActionStubView::Delegate
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+  // adrbrowsielRewardsActionStubView::Delegate
   void OnRewardsStubButtonClicked() override;
 #endif
 
@@ -100,14 +100,14 @@ class BraveActionsContainer : public views::View,
       content::WebContents* web_contents,
       content::BrowserContext* browser_context) override;
 
-  // Brave Rewards preferences change observers callback.
-  void OnBraveRewardsPreferencesChanged();
+  // adrbrowsiel Rewards preferences change observers callback.
+  void OnadrbrowsielRewardsPreferencesChanged();
 
   // views::View:
   void ChildPreferredSizeChanged(views::View* child) override;
 
  private:
-  friend class ::BraveActionsContainerTest;
+  friend class ::adrbrowsielActionsContainerTest;
   friend class ::RewardsBrowserTest;
 
   class EmptyExtensionsContainer;
@@ -118,35 +118,35 @@ class BraveActionsContainer : public views::View,
   };
 
   // Action info container
-  struct BraveActionInfo {
-    BraveActionInfo();
-    ~BraveActionInfo();
+  struct adrbrowsielActionInfo {
+    adrbrowsielActionInfo();
+    ~adrbrowsielActionInfo();
     // Reset view and view controller
     void Reset();
 
     int position_;
     std::unique_ptr<views::Button> view_;
-    std::unique_ptr<BraveActionViewController> view_controller_;
+    std::unique_ptr<adrbrowsielActionViewController> view_controller_;
   };
 
   // Actions that belong to the container
-  std::map<std::string, BraveActionInfo> actions_;
+  std::map<std::string, adrbrowsielActionInfo> actions_;
 
   // Actions operations
   bool ShouldAddAction(const std::string& id) const;
   bool IsContainerAction(const std::string& id) const;
   void AddAction(const extensions::Extension* extension);
   void AddAction(const std::string& id);
-  bool ShouldAddBraveRewardsAction() const;
+  bool ShouldAddadrbrowsielRewardsAction() const;
   void AddActionStubForRewards();
   void RemoveAction(const std::string& id);
   void ShowAction(const std::string& id, bool show);
   bool IsActionShown(const std::string& id) const;
   void UpdateActionState(const std::string& id);
-  void AttachAction(BraveActionInfo &action);
+  void AttachAction(adrbrowsielActionInfo &action);
 
-  // BraveActionAPI::Observer
-  void OnBraveActionShouldTrigger(const std::string& extension_id,
+  // adrbrowsielActionAPI::Observer
+  void OnadrbrowsielActionShouldTrigger(const std::string& extension_id,
       std::unique_ptr<std::string> ui_relative_path) override;
 
   bool should_hide_ = false;
@@ -164,7 +164,7 @@ class BraveActionsContainer : public views::View,
   extensions::ExtensionActionAPI* extension_action_api_;
   extensions::ExtensionRegistry* extension_registry_;
   extensions::ExtensionActionManager* extension_action_manager_;
-  extensions::BraveActionAPI* brave_action_api_;
+  extensions::adrbrowsielActionAPI* adrbrowsiel_action_api_;
 
   // Listen to extension load, unloaded notifications.
   ScopedObserver<extensions::ExtensionRegistry,
@@ -177,21 +177,21 @@ class BraveActionsContainer : public views::View,
       extension_action_observer_;
 
   // Listen to when we need to open a popup
-  ScopedObserver<extensions::BraveActionAPI,
-                 extensions::BraveActionAPI::Observer>
-      brave_action_observer_;
+  ScopedObserver<extensions::adrbrowsielActionAPI,
+                 extensions::adrbrowsielActionAPI::Observer>
+      adrbrowsiel_action_observer_;
 
-  // Listen for Brave Rewards preferences changes.
-  BooleanPrefMember brave_rewards_enabled_;
-  BooleanPrefMember hide_brave_rewards_button_;
+  // Listen for adrbrowsiel Rewards preferences changes.
+  BooleanPrefMember adrbrowsiel_rewards_enabled_;
+  BooleanPrefMember hide_adrbrowsiel_rewards_button_;
 
   std::unique_ptr<EmptyExtensionsContainer> empty_extensions_container_;
 
-  brave_rewards::RewardsService* rewards_service_;
+  adrbrowsiel_rewards::RewardsService* rewards_service_;
 
-  base::WeakPtrFactory<BraveActionsContainer> weak_ptr_factory_;
+  base::WeakPtrFactory<adrbrowsielActionsContainer> weak_ptr_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveActionsContainer);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielActionsContainer);
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_BRAVE_ACTIONS_BRAVE_ACTIONS_CONTAINER_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_ACTIONS_adrbrowsiel_ACTIONS_CONTAINER_H_

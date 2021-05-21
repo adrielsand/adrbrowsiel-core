@@ -1,22 +1,22 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BravePermissionDialogModelClassAdapter extends BraveClassVisitor {
+public class adrbrowsielPermissionDialogModelClassAdapter extends adrbrowsielClassVisitor {
     static String sPermissionDialogModelClassName =
             "org/chromium/components/permissions/PermissionDialogModel";
 
-    static String sBravePermissionDialogModelClassName =
-            "org/chromium/components/permissions/BravePermissionDialogModel";
+    static String sadrbrowsielPermissionDialogModelClassName =
+            "org/chromium/components/permissions/adrbrowsielPermissionDialogModel";
 
-    public BravePermissionDialogModelClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielPermissionDialogModelClassAdapter(ClassVisitor visitor) {
         super(visitor);
         changeMethodOwner(
-                sPermissionDialogModelClassName, "getModel", sBravePermissionDialogModelClassName);
+                sPermissionDialogModelClassName, "getModel", sadrbrowsielPermissionDialogModelClassName);
     }
 }

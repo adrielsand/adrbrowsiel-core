@@ -1,22 +1,22 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_browser_command_controller.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser_command_controller.h"
 
 #include <vector>
 
-#include "brave/app/brave_command_ids.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/ui/brave_pages.h"
-#include "brave/browser/ui/browser_commands.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_rewards/browser/buildflags/buildflags.h"
-#include "brave/components/brave_sync/buildflags/buildflags.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/sidebar/buildflags/buildflags.h"
+#include "adrbrowsiel/app/adrbrowsiel_command_ids.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_pages.h"
+#include "adrbrowsiel/browser/ui/browser_commands.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/sidebar/buildflags/buildflags.h"
 #include "chrome/app/chrome_command_ids.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/profiles/profile.h"
@@ -26,27 +26,27 @@
 #include "chrome/common/pref_names.h"
 #include "components/prefs/pref_service.h"
 
-#if BUILDFLAG(ENABLE_BRAVE_SYNC)
+#if BUILDFLAG(ENABLE_adrbrowsiel_SYNC)
 #include "components/sync/driver/sync_driver_switches.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
-#include "brave/browser/ui/sidebar/sidebar_utils.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_utils.h"
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_utils.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #endif
 
 namespace {
 
-bool IsBraveCommands(int id) {
-  return id >= IDC_BRAVE_COMMANDS_START && id <= IDC_BRAVE_COMMANDS_LAST;
+bool IsadrbrowsielCommands(int id) {
+  return id >= IDC_adrbrowsiel_COMMANDS_START && id <= IDC_adrbrowsiel_COMMANDS_LAST;
 }
 
-bool IsBraveOverrideCommands(int id) {
+bool IsadrbrowsielOverrideCommands(int id) {
   static std::vector<int> override_commands({
       IDC_NEW_WINDOW,
       IDC_NEW_INCOGNITO_WINDOW,
@@ -59,79 +59,79 @@ bool IsBraveOverrideCommands(int id) {
 
 namespace chrome {
 
-BraveBrowserCommandController::BraveBrowserCommandController(Browser* browser)
+adrbrowsielBrowserCommandController::adrbrowsielBrowserCommandController(Browser* browser)
     : BrowserCommandController(browser),
       browser_(browser),
-      brave_command_updater_(nullptr) {
-  InitBraveCommandState();
+      adrbrowsiel_command_updater_(nullptr) {
+  InitadrbrowsielCommandState();
 }
 
-bool BraveBrowserCommandController::SupportsCommand(int id) const {
-  return IsBraveCommands(id)
-      ? brave_command_updater_.SupportsCommand(id)
+bool adrbrowsielBrowserCommandController::SupportsCommand(int id) const {
+  return IsadrbrowsielCommands(id)
+      ? adrbrowsiel_command_updater_.SupportsCommand(id)
       : BrowserCommandController::SupportsCommand(id);
 }
 
-bool BraveBrowserCommandController::IsCommandEnabled(int id) const {
-  return IsBraveCommands(id)
-      ? brave_command_updater_.IsCommandEnabled(id)
+bool adrbrowsielBrowserCommandController::IsCommandEnabled(int id) const {
+  return IsadrbrowsielCommands(id)
+      ? adrbrowsiel_command_updater_.IsCommandEnabled(id)
       : BrowserCommandController::IsCommandEnabled(id);
 }
 
-bool BraveBrowserCommandController::ExecuteCommandWithDisposition(
+bool adrbrowsielBrowserCommandController::ExecuteCommandWithDisposition(
     int id,
     WindowOpenDisposition disposition,
     base::TimeTicks time_stamp) {
-  return IsBraveCommands(id) || IsBraveOverrideCommands(id)
-             ? ExecuteBraveCommandWithDisposition(id, disposition, time_stamp)
+  return IsadrbrowsielCommands(id) || IsadrbrowsielOverrideCommands(id)
+             ? ExecuteadrbrowsielCommandWithDisposition(id, disposition, time_stamp)
              : BrowserCommandController::ExecuteCommandWithDisposition(
                    id, disposition, time_stamp);
 }
 
-void BraveBrowserCommandController::AddCommandObserver(
+void adrbrowsielBrowserCommandController::AddCommandObserver(
     int id, CommandObserver* observer) {
-  IsBraveCommands(id)
-      ? brave_command_updater_.AddCommandObserver(id, observer)
+  IsadrbrowsielCommands(id)
+      ? adrbrowsiel_command_updater_.AddCommandObserver(id, observer)
       : BrowserCommandController::AddCommandObserver(id, observer);
 }
 
-void BraveBrowserCommandController::RemoveCommandObserver(
+void adrbrowsielBrowserCommandController::RemoveCommandObserver(
     int id, CommandObserver* observer) {
-  IsBraveCommands(id)
-      ? brave_command_updater_.RemoveCommandObserver(id, observer)
+  IsadrbrowsielCommands(id)
+      ? adrbrowsiel_command_updater_.RemoveCommandObserver(id, observer)
       : BrowserCommandController::RemoveCommandObserver(id, observer);
 }
 
-void BraveBrowserCommandController::RemoveCommandObserver(
+void adrbrowsielBrowserCommandController::RemoveCommandObserver(
     CommandObserver* observer) {
-  brave_command_updater_.RemoveCommandObserver(observer);
+  adrbrowsiel_command_updater_.RemoveCommandObserver(observer);
   BrowserCommandController::RemoveCommandObserver(observer);
 }
 
-bool BraveBrowserCommandController::UpdateCommandEnabled(int id, bool state) {
-  return IsBraveCommands(id)
-      ? brave_command_updater_.UpdateCommandEnabled(id, state)
+bool adrbrowsielBrowserCommandController::UpdateCommandEnabled(int id, bool state) {
+  return IsadrbrowsielCommands(id)
+      ? adrbrowsiel_command_updater_.UpdateCommandEnabled(id, state)
       : BrowserCommandController::UpdateCommandEnabled(id, state);
 }
 
-void BraveBrowserCommandController::InitBraveCommandState() {
+void adrbrowsielBrowserCommandController::InitadrbrowsielCommandState() {
   // Sync & Rewards pages doesn't work on tor(guest) session.
   // They also doesn't work on private window but they are redirected
   // to normal window in this case.
   const bool is_guest_session = browser_->profile()->IsGuestSession();
   if (!is_guest_session) {
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-    UpdateCommandForBraveRewards();
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+    UpdateCommandForadrbrowsielRewards();
 #endif
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-    UpdateCommandForBraveWallet();
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+    UpdateCommandForadrbrowsielWallet();
 #endif
-#if BUILDFLAG(ENABLE_BRAVE_SYNC)
+#if BUILDFLAG(ENABLE_adrbrowsiel_SYNC)
     if (switches::IsSyncAllowedByFlag())
-      UpdateCommandForBraveSync();
+      UpdateCommandForadrbrowsielSync();
 #endif
   }
-  UpdateCommandForBraveAdblock();
+  UpdateCommandForadrbrowsielAdblock();
   UpdateCommandForWebcompatReporter();
 #if BUILDFLAG(ENABLE_TOR)
   UpdateCommandForTor();
@@ -152,46 +152,46 @@ void BraveBrowserCommandController::InitBraveCommandState() {
   UpdateCommandEnabled(IDC_TOGGLE_SPEEDREADER, true);
 }
 
-void BraveBrowserCommandController::UpdateCommandForBraveRewards() {
-  UpdateCommandEnabled(IDC_SHOW_BRAVE_REWARDS, true);
+void adrbrowsielBrowserCommandController::UpdateCommandForadrbrowsielRewards() {
+  UpdateCommandEnabled(IDC_SHOW_adrbrowsiel_REWARDS, true);
 }
 
-void BraveBrowserCommandController::UpdateCommandForBraveAdblock() {
-  UpdateCommandEnabled(IDC_SHOW_BRAVE_ADBLOCK, true);
+void adrbrowsielBrowserCommandController::UpdateCommandForadrbrowsielAdblock() {
+  UpdateCommandEnabled(IDC_SHOW_adrbrowsiel_ADBLOCK, true);
 }
 
-void BraveBrowserCommandController::UpdateCommandForWebcompatReporter() {
-  UpdateCommandEnabled(IDC_SHOW_BRAVE_WEBCOMPAT_REPORTER, true);
+void adrbrowsielBrowserCommandController::UpdateCommandForWebcompatReporter() {
+  UpdateCommandEnabled(IDC_SHOW_adrbrowsiel_WEBCOMPAT_REPORTER, true);
 }
 
 #if BUILDFLAG(ENABLE_TOR)
-void BraveBrowserCommandController::UpdateCommandForTor() {
+void adrbrowsielBrowserCommandController::UpdateCommandForTor() {
   // Enable new tor connection only for tor profile.
   UpdateCommandEnabled(IDC_NEW_TOR_CONNECTION_FOR_SITE,
                        browser_->profile()->IsTor());
   UpdateCommandEnabled(IDC_NEW_OFFTHERECORD_WINDOW_TOR,
-                       !brave::IsTorDisabledForProfile(browser_->profile()));
+                       !adrbrowsiel::IsTorDisabledForProfile(browser_->profile()));
 }
 #endif
 
-void BraveBrowserCommandController::UpdateCommandForSidebar() {
+void adrbrowsielBrowserCommandController::UpdateCommandForSidebar() {
 #if BUILDFLAG(ENABLE_SIDEBAR)
   if (sidebar::CanUseSidebar(browser_->profile()))
     UpdateCommandEnabled(IDC_SIDEBAR_SHOW_OPTION_MENU, true);
 #endif
 }
 
-void BraveBrowserCommandController::UpdateCommandForBraveSync() {
-  UpdateCommandEnabled(IDC_SHOW_BRAVE_SYNC, true);
+void adrbrowsielBrowserCommandController::UpdateCommandForadrbrowsielSync() {
+  UpdateCommandEnabled(IDC_SHOW_adrbrowsiel_SYNC, true);
 }
 
-void BraveBrowserCommandController::UpdateCommandForBraveWallet() {
-  UpdateCommandEnabled(IDC_SHOW_BRAVE_WALLET, true);
-  UpdateCommandEnabled(IDC_SHOW_BRAVE_WALLET_PANEL, true);
-  UpdateCommandEnabled(IDC_CLOSE_BRAVE_WALLET_PANEL, true);
+void adrbrowsielBrowserCommandController::UpdateCommandForadrbrowsielWallet() {
+  UpdateCommandEnabled(IDC_SHOW_adrbrowsiel_WALLET, true);
+  UpdateCommandEnabled(IDC_SHOW_adrbrowsiel_WALLET_PANEL, true);
+  UpdateCommandEnabled(IDC_CLOSE_adrbrowsiel_WALLET_PANEL, true);
 }
 
-bool BraveBrowserCommandController::ExecuteBraveCommandWithDisposition(
+bool adrbrowsielBrowserCommandController::ExecuteadrbrowsielCommandWithDisposition(
     int id,
     WindowOpenDisposition disposition,
     base::TimeTicks time_stamp) {
@@ -218,41 +218,41 @@ bool BraveBrowserCommandController::ExecuteBraveCommandWithDisposition(
             id, disposition, time_stamp);
       NewIncognitoWindow(browser_->profile()->GetOriginalProfile());
       break;
-    case IDC_SHOW_BRAVE_REWARDS:
-      brave::ShowBraveRewards(browser_);
+    case IDC_SHOW_adrbrowsiel_REWARDS:
+      adrbrowsiel::ShowadrbrowsielRewards(browser_);
       break;
-    case IDC_SHOW_BRAVE_ADBLOCK:
-      brave::ShowBraveAdblock(browser_);
+    case IDC_SHOW_adrbrowsiel_ADBLOCK:
+      adrbrowsiel::ShowadrbrowsielAdblock(browser_);
       break;
-    case IDC_SHOW_BRAVE_WEBCOMPAT_REPORTER:
-      brave::ShowWebcompatReporter(browser_);
+    case IDC_SHOW_adrbrowsiel_WEBCOMPAT_REPORTER:
+      adrbrowsiel::ShowWebcompatReporter(browser_);
       break;
     case IDC_NEW_OFFTHERECORD_WINDOW_TOR:
-      brave::NewOffTheRecordWindowTor(browser_);
+      adrbrowsiel::NewOffTheRecordWindowTor(browser_);
       break;
     case IDC_NEW_TOR_CONNECTION_FOR_SITE:
-      brave::NewTorConnectionForSite(browser_);
+      adrbrowsiel::NewTorConnectionForSite(browser_);
       break;
-    case IDC_SHOW_BRAVE_SYNC:
-      brave::ShowSync(browser_);
+    case IDC_SHOW_adrbrowsiel_SYNC:
+      adrbrowsiel::ShowSync(browser_);
       break;
-    case IDC_SHOW_BRAVE_WALLET:
-      brave::ShowBraveWallet(browser_);
+    case IDC_SHOW_adrbrowsiel_WALLET:
+      adrbrowsiel::ShowadrbrowsielWallet(browser_);
       break;
     case IDC_ADD_NEW_PROFILE:
-      brave::AddNewProfile();
+      adrbrowsiel::AddNewProfile();
       break;
     case IDC_OPEN_GUEST_PROFILE:
-      brave::OpenGuestProfile();
+      adrbrowsiel::OpenGuestProfile();
       break;
     case IDC_TOGGLE_SPEEDREADER:
-      brave::ToggleSpeedreader(browser_);
+      adrbrowsiel::ToggleSpeedreader(browser_);
       break;
-    case IDC_SHOW_BRAVE_WALLET_PANEL:
-      brave::ShowWalletBubble(browser_);
+    case IDC_SHOW_adrbrowsiel_WALLET_PANEL:
+      adrbrowsiel::ShowWalletBubble(browser_);
       break;
-    case IDC_CLOSE_BRAVE_WALLET_PANEL:
-      brave::CloseWalletBubble(browser_);
+    case IDC_CLOSE_adrbrowsiel_WALLET_PANEL:
+      adrbrowsiel::CloseWalletBubble(browser_);
       break;
     default:
       LOG(WARNING) << "Received Unimplemented Command: " << id;

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -19,10 +19,10 @@ StateMigrationV7::StateMigrationV7(LedgerImpl* ledger) :
 StateMigrationV7::~StateMigrationV7() = default;
 
 void StateMigrationV7::Migrate(ledger::ResultCallback callback) {
-  const std::string brave =
-      ledger_->ledger_client()->GetStringState(kWalletBrave);
+  const std::string adrbrowsiel =
+      ledger_->ledger_client()->GetStringState(kWalletadrbrowsiel);
   bool success =
-      ledger_->ledger_client()->SetEncryptedStringState(kWalletBrave, brave);
+      ledger_->ledger_client()->SetEncryptedStringState(kWalletadrbrowsiel, adrbrowsiel);
 
   if (!success) {
     callback(type::Result::LEDGER_ERROR);

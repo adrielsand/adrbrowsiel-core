@@ -6,7 +6,7 @@ index 21d0b1fad8b2390b16c68d7256712a06f5532465..ea9fb46c118af5425db73035ecbdef4e
    static const unsigned kMaxFFTSize;
    static const unsigned kInputBufferSize;
  
-+  BRAVE_REALTIMEANALYSER_H
++  adrbrowsiel_REALTIMEANALYSER_H
   private:
    // The audio thread writes the input audio here.
    AudioFloatArray input_buffer_;

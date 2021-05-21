@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMMON_PREF_NAMES_H_
-#define BRAVE_COMMON_PREF_NAMES_H_
+#ifndef adrbrowsiel_COMMON_PREF_NAMES_H_
+#define adrbrowsiel_COMMON_PREF_NAMES_H_
 
 #include "build/build_config.h"
 #include "components/gcm_driver/gcm_buildflags.h"
@@ -25,8 +25,8 @@ extern const char kWidevineOptedIn[];
 extern const char kAskWidevineInstall[];
 extern const char kUseAlternativeSearchEngineProvider[];
 extern const char kAlternativeSearchEngineProviderInTor[];
-extern const char kBraveThemeType[];
-extern const char kUseOverriddenBraveThemeType[];
+extern const char kadrbrowsielThemeType[];
+extern const char kUseOverriddenadrbrowsielThemeType[];
 extern const char kLocationBarIsWide[];
 extern const char kReferralDownloadID[];
 extern const char kReferralTimestamp[];
@@ -53,25 +53,25 @@ extern const char kNewTabPageShowBinance[];
 extern const char kNewTabPageShowGemini[];
 extern const char kNewTabPageShowTogether[];
 extern const char kNewTabPageShowsOptions[];
-extern const char kBraveTodaySources[];
-extern const char kBraveTodayIntroDismissed[];
-extern const char kBraveTodayOptedIn[];
-extern const char kBraveTodayWeeklySessionCount[];
-extern const char kBraveTodayWeeklyCardViewsCount[];
-extern const char kBraveTodayWeeklyCardVisitsCount[];
-extern const char kBraveEnabledMediaRouter[];
+extern const char kadrbrowsielTodaySources[];
+extern const char kadrbrowsielTodayIntroDismissed[];
+extern const char kadrbrowsielTodayOptedIn[];
+extern const char kadrbrowsielTodayWeeklySessionCount[];
+extern const char kadrbrowsielTodayWeeklyCardViewsCount[];
+extern const char kadrbrowsielTodayWeeklyCardVisitsCount[];
+extern const char kadrbrowsielEnabledMediaRouter[];
 extern const char kAlwaysShowBookmarkBarOnNTP[];
 extern const char kAutocompleteEnabled[];
 extern const char kTopSiteSuggestionsEnabled[];
-extern const char kBraveSuggestedSiteSuggestionsEnabled[];
-extern const char kBraveDarkMode[];
+extern const char kadrbrowsielSuggestedSiteSuggestionsEnabled[];
+extern const char kadrbrowsielDarkMode[];
 extern const char kOtherBookmarksMigrated[];
-extern const char kBraveShieldsSettingsVersion[];
+extern const char kadrbrowsielShieldsSettingsVersion[];
 extern const char kBinanceAccessToken[];
 extern const char kBinanceRefreshToken[];
 extern const char kDefaultBrowserPromptEnabled[];
 #if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
-extern const char kBraveGCMChannelStatus[];
+extern const char kadrbrowsielGCMChannelStatus[];
 #endif
 extern const char kImportDialogExtensions[];
 extern const char kImportDialogPayments[];
@@ -86,6 +86,6 @@ extern const char kSafetynetStatus[];
 #endif
 
 extern const char kDefaultBrowserLaunchingCount[];
-extern const char kBraveDefaultSearchVersion[];
+extern const char kadrbrowsielDefaultSearchVersion[];
 
-#endif  // BRAVE_COMMON_PREF_NAMES_H_
+#endif  // adrbrowsiel_COMMON_PREF_NAMES_H_

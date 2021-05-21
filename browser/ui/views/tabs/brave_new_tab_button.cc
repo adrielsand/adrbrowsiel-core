@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * you can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/tabs/brave_new_tab_button.h"
+#include "adrbrowsiel/browser/ui/views/tabs/adrbrowsiel_new_tab_button.h"
 
 #include <algorithm>
 
@@ -15,20 +15,20 @@
 #include "ui/gfx/skia_util.h"
 
 // static
-const gfx::Size BraveNewTabButton::kButtonSize{20, 20};
+const gfx::Size adrbrowsielNewTabButton::kButtonSize{20, 20};
 
-gfx::Size BraveNewTabButton::CalculatePreferredSize() const {
-  // Overriden so that we use Brave's custom button size
+gfx::Size adrbrowsielNewTabButton::CalculatePreferredSize() const {
+  // Overriden so that we use adrbrowsiel's custom button size
   gfx::Size size = kButtonSize;
   const auto insets = GetInsets();
   size.Enlarge(insets.width(), insets.height());
   return size;
 }
 
-SkPath BraveNewTabButton::GetBorderPath(const gfx::Point& origin,
+SkPath adrbrowsielNewTabButton::GetBorderPath(const gfx::Point& origin,
                                         float scale,
                                         bool extend_to_top) const {
-  // Overriden to use Brave's non-circular shape
+  // Overriden to use adrbrowsiel's non-circular shape
   gfx::PointF scaled_origin(origin);
   scaled_origin.Scale(scale);
   const float radius = GetCornerRadius() * scale;
@@ -45,7 +45,7 @@ SkPath BraveNewTabButton::GetBorderPath(const gfx::Point& origin,
   return path;
 }
 
-void BraveNewTabButton::PaintIcon(gfx::Canvas* canvas) {
+void adrbrowsielNewTabButton::PaintIcon(gfx::Canvas* canvas) {
   // Overriden to fix chromium assumption that border radius
   // will be 50% of width.
   gfx::ScopedCanvas scoped_canvas(canvas);
@@ -60,7 +60,7 @@ void BraveNewTabButton::PaintIcon(gfx::Canvas* canvas) {
   NewTabButton::PaintIcon(canvas);
 }
 
-gfx::Insets BraveNewTabButton::GetInsets() const {
+gfx::Insets adrbrowsielNewTabButton::GetInsets() const {
   // Give an additional left margin to make more space from tab.
   // TabStripRegionView::UpdateNewTabButtonBorder() gives this button's inset.
   // So, adding more insets here is easy solution.

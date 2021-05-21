@@ -1,18 +1,18 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_SIDEBAR_SIDEBAR_CONTROLLER_H_
-#define BRAVE_BROWSER_UI_SIDEBAR_SIDEBAR_CONTROLLER_H_
+#ifndef adrbrowsiel_BROWSER_UI_SIDEBAR_SIDEBAR_CONTROLLER_H_
+#define adrbrowsiel_BROWSER_UI_SIDEBAR_SIDEBAR_CONTROLLER_H_
 
 #include <memory>
 #include <string>
 
 #include "base/scoped_observer.h"
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 
-class BraveBrowser;
+class adrbrowsielBrowser;
 class GURL;
 class Profile;
 
@@ -31,7 +31,7 @@ class SidebarModel;
 // Controller will request about add/delete items to SidebarService.
 class SidebarController : public SidebarService::Observer {
  public:
-  SidebarController(BraveBrowser* browser, Profile* profile);
+  SidebarController(adrbrowsielBrowser* browser, Profile* profile);
   ~SidebarController() override;
 
   SidebarController(const SidebarController&) = delete;
@@ -58,7 +58,7 @@ class SidebarController : public SidebarService::Observer {
   void OnPreferenceChanged(const std::string& pref_name);
   void UpdateSidebarVisibility();
 
-  BraveBrowser* browser_ = nullptr;
+  adrbrowsielBrowser* browser_ = nullptr;
   // Interface to view.
   Sidebar* sidebar_ = nullptr;
 
@@ -69,4 +69,4 @@ class SidebarController : public SidebarService::Observer {
 
 }  // namespace sidebar
 
-#endif  // BRAVE_BROWSER_UI_SIDEBAR_SIDEBAR_CONTROLLER_H_
+#endif  // adrbrowsiel_BROWSER_UI_SIDEBAR_SIDEBAR_CONTROLLER_H_

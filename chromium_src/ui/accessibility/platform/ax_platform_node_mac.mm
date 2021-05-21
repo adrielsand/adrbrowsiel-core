@@ -1,4 +1,4 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,10 +7,10 @@
 #include "base/debug/dump_without_crashing.h"
 
 // Assumed to be a temporary fix for
-// https://github.com/brave/brave-browser/issues/13778
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/13778
 // and
-// https://github.com/brave/brave-browser/issues/13837
-#define BRAVE_ACCESSIBILITY_ATTRIBUTED_STRING_FOR_RANGE             \
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/13837
+#define adrbrowsiel_ACCESSIBILITY_ATTRIBUTED_STRING_FOR_RANGE             \
   id value = [self AXValue];                                        \
   if (![value isKindOfClass:[NSString class]]) {                    \
     ax::mojom::Role role = _node->GetData().role;                   \

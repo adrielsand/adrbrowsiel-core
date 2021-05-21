@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_TOOLBAR_BRAVE_LOCATION_BAR_MODEL_DELEGATE_H_
-#define BRAVE_BROWSER_UI_TOOLBAR_BRAVE_LOCATION_BAR_MODEL_DELEGATE_H_
+#ifndef adrbrowsiel_BROWSER_UI_TOOLBAR_adrbrowsiel_LOCATION_BAR_MODEL_DELEGATE_H_
+#define adrbrowsiel_BROWSER_UI_TOOLBAR_adrbrowsiel_LOCATION_BAR_MODEL_DELEGATE_H_
 
 #include "base/compiler_specific.h"
 #include "base/macros.h"
@@ -12,10 +12,10 @@
 
 class Browser;
 
-class BraveLocationBarModelDelegate : public BrowserLocationBarModelDelegate {
+class adrbrowsielLocationBarModelDelegate : public BrowserLocationBarModelDelegate {
  public:
-  explicit BraveLocationBarModelDelegate(Browser* browser);
-  ~BraveLocationBarModelDelegate() override;
+  explicit adrbrowsielLocationBarModelDelegate(Browser* browser);
+  ~adrbrowsielLocationBarModelDelegate() override;
   static void FormattedStringFromURL(const GURL& url,
                                      std::u16string* new_formatted_url);
 
@@ -24,7 +24,7 @@ class BraveLocationBarModelDelegate : public BrowserLocationBarModelDelegate {
       const GURL& url,
       const std::u16string& formatted_url) const override;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveLocationBarModelDelegate);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielLocationBarModelDelegate);
 };
 
-#endif  // BRAVE_BROWSER_UI_TOOLBAR_BRAVE_LOCATION_BAR_MODEL_DELEGATE_H_
+#endif  // adrbrowsiel_BROWSER_UI_TOOLBAR_adrbrowsiel_LOCATION_BAR_MODEL_DELEGATE_H_

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE translationbundle>
 <translationbundle lang="ar">
-<translation id="7307834434086582547">تمكين/تعطيل طرق حماية Brave</translation>
+<translation id="7307834434086582547">تمكين/تعطيل طرق حماية adrbrowsiel</translation>
 <translation id="3570081523466826008">ترقية الاتصالات إلى HTTPS</translation>
 <translation id="94154759592465111">حظر النصوص</translation>
 <translation id="5709627087332022422">حظر برامج التتبع عبر المواقع</translation>
@@ -10,7 +10,7 @@
 <translation id="863171915776379000">السماح بتسجيل الدخول إلى فيسبوك والمشاركات المدمجة</translation>
 <translation id="5165042248369837294">السماح بدمج تغريدات من تويتر</translation>
 <translation id="958971637207126733">السماح بالمشاركات المدمجة في LinkedIn</translation>
-<translation id="6302422639282249274">إدارة مكافآت Brave</translation>
+<translation id="6302422639282249274">إدارة مكافآت adrbrowsiel</translation>
 <translation id="1506061864768559482">محرك البحث</translation>
 <translation id="1468415711258933398">علامة تبويب قياسية</translation>
 <translation id="3377025655491224618">علامة تبويب للتصفح المتخفي</translation>
@@ -32,8 +32,8 @@
 <translation id="5787084571334399599">يمنع المتصفح من استخدام البصمة</translation>
 <translation id="7459000603787995422">غلق علامات التبويب عند الخروج</translation>
 <translation id="1680858055899097121">لا تواصل استخدام علامات التبويب بين جلسات التصفح</translation>
-<translation id="6469509880167172749">إرسال تحليلات المنتج الخاصة بالكامل تلقائيًا إلى Brave</translation>
-<translation id="7090566321964540749">تتيح هذه المعلومات المُجهلة فقط لمتصفح Brave تقدير الاستخدام الكلي لبعض الميزات.</translation>
+<translation id="6469509880167172749">إرسال تحليلات المنتج الخاصة بالكامل تلقائيًا إلى adrbrowsiel</translation>
+<translation id="7090566321964540749">تتيح هذه المعلومات المُجهلة فقط لمتصفح adrbrowsiel تقدير الاستخدام الكلي لبعض الميزات.</translation>
 <translation id="7977176350719484850">البيانات التقديرية المحفوظة</translation>
 <translation id="9008534313521214777">الوقت المقدر\nالذي تم توفيره</translation>
 <translation id="6572660632052512096">نمط سطح المكتب</translation>
@@ -41,48 +41,48 @@
 <translation id="7924540991929826186">استخدم إصدارات الهواتف المحمولة للمواقع لعلامات التبويب الجديدة (يُنصح بذلك)</translation>
 <translation id="807636106793708118">يفضل إصدار الهاتف المحمول للمواقع</translation>
 <translation id="4479934682648362332">يفضل إصدار سطح المكتب  للمواقع</translation>
-<translation id="1842747674580016420">إعادة تشغيل الفيديو في متصفح Brave</translation>
-<translation id="5368992950177874750">في حالة التمكين، سيتم تشغيل مقاطع الفيديو في متصفح Brave بدلاً من التطبيق المقابل</translation>
+<translation id="1842747674580016420">إعادة تشغيل الفيديو في متصفح adrbrowsiel</translation>
+<translation id="5368992950177874750">في حالة التمكين، سيتم تشغيل مقاطع الفيديو في متصفح adrbrowsiel بدلاً من التطبيق المقابل</translation>
 <translation id="2645380101799517405">أدوات التحكم</translation>
 <translation id="5965081608816406060">إعادة تشغيل الفيديو في الخلفية</translation>
-<translation id="6332924730165919598">يؤدي إغلاق جميع علامات التبويب إلى إغلاق Brave</translation>
+<translation id="6332924730165919598">يؤدي إغلاق جميع علامات التبويب إلى إغلاق adrbrowsiel</translation>
 <translation id="1580125697191336644">إصدار تجريبي. لتمكين تشغيل الصوت من الفيديو الجاري في الخلفية عندما لا تكون علامة التبويب نشطة أو عند إطفاء شاشة الجهاز. في حال عدم عمل هذه الميزة على أكمل وجه حاول التحويل إلى وضع سطح المكتب.</translation>
 <translation id="59174027418879706">تم التمكين</translation>
 <translation id="4150201353443180367">عرض</translation>
 <translation id="2433507940547922241">المظهر</translation>
-<translation id="2804710924397009224">إخفاء أيقونة مكافآت Brave</translation>
-<translation id="7289740269305509613">يخفي أيقونة Brave Rewards</translation>
+<translation id="2804710924397009224">إخفاء أيقونة مكافآت adrbrowsiel</translation>
+<translation id="7289740269305509613">يخفي أيقونة adrbrowsiel Rewards</translation>
 <translation id="8495235435594442882">تمكين شريط الأدوات السفلي</translation>
-<translation id="6587448235155023666">ستسري التغييرات في المرة التالية التي تعيد فيها تشغيل متصفح Brave</translation>
+<translation id="6587448235155023666">ستسري التغييرات في المرة التالية التي تعيد فيها تشغيل متصفح adrbrowsiel</translation>
 <translation id="8701563696941209024">إعادة بدء التشغيل الآن</translation>
 <translation id="834487290629916192">لاحقاً</translation>
 <translation id="8281886186245836920">تخطّي</translation>
 <translation id="986879628471635371">استكشاف الأخطاء وإصلاحها أثناء عمل الخدمة</translation>
 <translation id="5808759341041733958">اختر محرك البحث الافتراضي</translation>
 <translation id="1331593888918588693">يمكنك دائماً تغيير تفضيلاتك لاحقاً في إعدادات التطبيق.</translation>
-<translation id="5806601733251372221">دروع Brave</translation>
+<translation id="5806601733251372221">دروع adrbrowsiel</translation>
 <translation id="8537217141725709400">اكسب <ph name="TOKEN"/>s</translation>
-<translation id="3333887201479867589">مكافآت Brave</translation>
+<translation id="3333887201479867589">مكافآت adrbrowsiel</translation>
 <translation id="5870330605209713397">من خلال عرض الإعلانات التي تحترم الخصوصية ودعم مواقعك ومنشئي المحتوى المفضلين لديك بشكل افتراضي.</translation>
-<translation id="5302488867897327287">من خلال النقر على "البدء في استخدام Brave Rewards"، فإنك توافق على</translation>
+<translation id="5302488867897327287">من خلال النقر على "البدء في استخدام adrbrowsiel Rewards"، فإنك توافق على</translation>
 <translation id="4281844954008187215">شروط الخدمة</translation>
 <translation id="6871397658902960384">ابدأ التصفح</translation>
 <translation id="454386012157232640">لم أرى إعلان</translation>
-<translation id="1448877943847791441">سيعرض Brave إعلانك الأول في</translation>
-<translation id="4410793187232041318">ستربح الآن رمزاً مميزاً من Brave Ads.</translation>
-<translation id="6511854390690723657">هذا هو إعلانك الأول من Brave. انقر للاطلاع على المزيد.</translation>
-<translation id="2070991379950719711">ابدأ في استخدام Brave Rewards</translation>
+<translation id="1448877943847791441">سيعرض adrbrowsiel إعلانك الأول في</translation>
+<translation id="4410793187232041318">ستربح الآن رمزاً مميزاً من adrbrowsiel Ads.</translation>
+<translation id="6511854390690723657">هذا هو إعلانك الأول من adrbrowsiel. انقر للاطلاع على المزيد.</translation>
+<translation id="2070991379950719711">ابدأ في استخدام adrbrowsiel Rewards</translation>
 <translation id="48520986898237073">الاستمرار إلى المحفظة</translation>
 <translation id="3570367516044491911">تعيين كمتصفح افتراضي</translation>
-<translation id="19715420010996093">حدد متصفح Brave وانقر على "دائماً"</translation>
-<translation id="3546439402724649282">تم تعيين Brave بالفعل كمتصفح افتراضي.</translation>
+<translation id="19715420010996093">حدد متصفح adrbrowsiel وانقر على "دائماً"</translation>
+<translation id="3546439402724649282">تم تعيين adrbrowsiel بالفعل كمتصفح افتراضي.</translation>
 <translation id="8389661903259423907">لقد قمت بالفعل بتعيين المتصفح الافتراضي. يمكنك تغيير المتصفح الافتراضي في إعدادات التطبيق الخاصة بك.</translation>
-<translation id="7091885296442320770">Brave بسرعة البرق</translation>
-<translation id="2171928016777725844">اجعل Brave متصفحك الافتراضي!</translation>
+<translation id="7091885296442320770">adrbrowsiel بسرعة البرق</translation>
+<translation id="2171928016777725844">اجعل adrbrowsiel متصفحك الافتراضي!</translation>
 <translation id="7136694880210472378">تعيين كافتراضي</translation>
 <translation id="4250680216510889253">لا</translation>
 <translation id="4501702055016678577">هل تريد إجراء عملية بحث خاصة بواسطة DuckDuckGo؟</translation>
-<translation id="910419239800579753">مع البحث الخاص، سيقوم متصفح Brave باستخدام DuckDuckGo للرد على عمليات البحث الخاصة بك أثناء وجودك في علامة التبويب الخاصة هذه. DuckDuckGo هو محرك بحث لا يتتبع سجل البحث الخاص بك، مما يتيح لك البحث بشكلٍ خاص.</translation>
+<translation id="910419239800579753">مع البحث الخاص، سيقوم متصفح adrbrowsiel باستخدام DuckDuckGo للرد على عمليات البحث الخاصة بك أثناء وجودك في علامة التبويب الخاصة هذه. DuckDuckGo هو محرك بحث لا يتتبع سجل البحث الخاص بك، مما يتيح لك البحث بشكلٍ خاص.</translation>
 <translation id="1426410128494586442">نعم</translation>
 <translation id="5628466560184522265">تعرف على البحث الخاص مع DuckDuckGo</translation>
 <translation id="8826007068782654809">شكراً لك</translation>
@@ -90,7 +90,7 @@
 <translation id="5441565662498481293">إنك ترسل الإكراميات تلقائيًا إلى:</translation>
 <translation id="1166682575529520472">شهريًا</translation>
 <translation id="1628742278973105368">سيتم إرسال إكراميتك الشهرية الأولى في:</translation>
-<translation id="298349922412901215">ملاحظة: لم يقم منشئ المحتوى هذا بتسجيل الاشتراك حتى الآن لتلقي مساهمات من مستخدمي Brave. سنستمر في محاولة تقديم المساهمة حتى يقوم بإجراء التحقق وتأكيد بياناته، أو إلى أن يمر 90 يوماً.</translation>
+<translation id="298349922412901215">ملاحظة: لم يقم منشئ المحتوى هذا بتسجيل الاشتراك حتى الآن لتلقي مساهمات من مستخدمي adrbrowsiel. سنستمر في محاولة تقديم المساهمة حتى يقوم بإجراء التحقق وتأكيد بياناته، أو إلى أن يمر 90 يوماً.</translation>
 <translation id="1910721550319506122">مرحباً بك!</translation>
 <translation id="3165726837666415756">يمكنك دعم هذا الموقع عن طريق إرسال نصائح. إنها طريقة لشكرهم لإنشائهم محتوى رائع. يتقاضى منشئو المحتوى الذين تم التحقق منهم وتأكيد بياناتهم مبالغ مقابل نصائحهم خلال الأسبوع الأول من كل شهر.</translation>
 <translation id="1704859330137112950">إذا كنت ترغب في ذلك، يمكنك جدولة مكافآت شهرية لدعم هذا الموقع على أساس مستمر.</translation>
@@ -115,9 +115,9 @@
 <translation id="3826081199286264109">دولار أمريكي</translation>
 <translation id="1165667598801520610">إضافة أموال</translation>
 <translation id="8428213095426709021">الإعدادات</translation>
-<translation id="8772672608371898774">ناشر تم التحقق منه لدى Brave</translation>
+<translation id="8772672608371898774">ناشر تم التحقق منه لدى adrbrowsiel</translation>
 <translation id="1397683270551078781">لم يقم بتأكيد حسابه بعد</translation>
-<translation id="5727208111992260840">لم يشترك هذا المنشئ بعد لتلقي المساهمات من مستخدمي Brave.
+<translation id="5727208111992260840">لم يشترك هذا المنشئ بعد لتلقي المساهمات من مستخدمي adrbrowsiel.
         أي مساهمات ترسلها ستظل في محفظتك حتى يتم التحقق منها.</translation>
 <translation id="8918760045046434238">جارٍ إرسال نصيحة...</translation>
 <translation id="1978261665418056203">لا توجد أنشطة بعد في هذا
@@ -138,15 +138,15 @@
 <translation id="5306913077198665897">حدثت مشكلة أثناء معالجة نصيحتك، يرجى إعادة المحاولة مرةً أخرى.</translation>
 <translation id="2429828319207652823">كانت هناك مشكلة في معالجة مساهمتك.</translation>
 <translation id="3453206261112715431">الحصول على أموال مجانًا</translation>
-<translation id="6417420737057016607">إعلانات Brave</translation>
+<translation id="6417420737057016607">إعلانات adrbrowsiel</translation>
 <translation id="5497435273900537730">تتوفر منحة <ph name="TOKEN"/> مجانية.</translation>
 <translation id="8689997599821157251">لقد ربحت</translation>
 <translation id="7550470870580166294">الرصيد لا يكفي</translation>
-<translation id="2775064702681588061">ينتظر حساب Brave Rewards الخاص بك إيداعًا.</translation>
+<translation id="2775064702681588061">ينتظر حساب adrbrowsiel Rewards الخاص بك إيداعًا.</translation>
 <translation id="765834632354589737">عمل نسخة احتياطية عن المحفظة</translation>
-<translation id="1713542052890184975">يرجى عمل نسخة احتياطية عن محفظة Brave الخاصة بك.</translation>
+<translation id="1713542052890184975">يرجى عمل نسخة احتياطية عن محفظة adrbrowsiel الخاصة بك.</translation>
 <translation id="2323069945529668668">آه!</translation>
-<translation id="7510166204621526816">خادم مكافآت Brave لا يستجيب. سوف نصلح هذا في أقرب وقت ممكن.</translation>
+<translation id="7510166204621526816">خادم مكافآت adrbrowsiel لا يستجيب. سوف نصلح هذا في أقرب وقت ممكن.</translation>
 <translation id="683765328936486920">على يوتيوب</translation>
 <translation id="8969049974285901797">على تويتش</translation>
 <translation id="3692362746128814480">لقد تم تخصيصك <ph name="BAT_VALUE"/> BAT لمنشئي المحتوى الذين لم يقوموا بتسجيل الاشتراك حتى الآن لتلقي المساهمات. سوف يستمر متصفحك في محاولة المساهمة حتى يتم التحقق منهم وتأكيد بياناتهم، أو إلى أن يمر 90 يوماً.</translation>
@@ -154,7 +154,7 @@
 <translation id="6940273954212603510">من فضلك</translation>
 <translation id="1036277985068412734">إضافة الأموال.</translation>
 <translation id="3492491948683276944">تعيين النصيحة الشهرية</translation>
-<translation id="8038539967102225446">إعلانات Brave هنا!</translation>
+<translation id="8038539967102225446">إعلانات adrbrowsiel هنا!</translation>
 <translation id="222883304157347087">(هذا الجهاز)</translation>
 <translation id="4157741509680155021">الأجهزة المرتبطة بسلسلة التزامن</translation>
 <translation id="279635009973773843">جارٍ تحميل الأجهزة...</translation>
@@ -163,10 +163,10 @@
 <translation id="4282642752844565114">عدد غير صحيح من الكلمات</translation>
 <translation id="7507533586185621084">كود مزامنة خاطئ</translation>
 <translation id="8284063834901328650">كود QR للمزامنة غير صحيح</translation>
-<translation id="3149880132460839085">مزامنة Brave</translation>
-<translation id="3680755684186855422">تتيح لك مزامنة Brave إمكانية مزامنة بيانات الإشارات المرجعية بشكل خاص بين متصفحات Brave الخاصة بك على أجهزتك المختلفة.</translation>
+<translation id="3149880132460839085">مزامنة adrbrowsiel</translation>
+<translation id="3680755684186855422">تتيح لك مزامنة adrbrowsiel إمكانية مزامنة بيانات الإشارات المرجعية بشكل خاص بين متصفحات adrbrowsiel الخاصة بك على أجهزتك المختلفة.</translation>
 <translation id="3735228155296883311">كل ما عليك فعله هو مسح الرمز من سلسلة المزامنة التي قمت بإنشائها على جهاز آخر. أو ابدأ سلسلة مزامنة جديدة.</translation>
-<translation id="2614069607859982576">باستخدام الجهاز المتزامن الحالي، افتح إعدادات Brave وانتقل إلى الإعدادات والمزامنة. اختر "إضافة جهاز جديد" وقم بمسح رمز QR المعروض على الشاشة.</translation>
+<translation id="2614069607859982576">باستخدام الجهاز المتزامن الحالي، افتح إعدادات adrbrowsiel وانتقل إلى الإعدادات والمزامنة. اختر "إضافة جهاز جديد" وقم بمسح رمز QR المعروض على الشاشة.</translation>
 <translation id="5241263629636958324">تم النسخ إلى الحافظة</translation>
 <translation id="5817918615728894473">إقران</translation>
 <translation id="7090325819305486658">تفضيلات البيانات</translation>
@@ -176,12 +176,12 @@
 <translation id="1602067095281698985">بدء سلسلة مزامنة جديدة</translation>
 <translation id="1475223680121592371">إضافة هاتف محمول</translation>
 <translation id="2965377893636908578">إضافة جهاز كمبيوتر</translation>
-<translation id="6604289897677913048">باستخدام هاتف أو جهاز لوحي ثانٍ، انتقل إلى إعدادات مزامنة ومسح Brave &gt;  &gt; ضوئياً.</translation>
-<translation id="8508856434435157945">على هاتفك المحمول، انتقل إلى مزامنة Brave  في لوحة الإعدادات وانقر على زر "مسح رمز المزامنة ضوئياً". استخدم الكاميرا لمسح رمز QR الموجود أدناه.</translation>
-<translation id="2590683710114839102">على جهاز الكمبيوتر الخاص بك، انتقل إلى إعدادات مزامنة Brave &gt;. اختر "إدخال رمز سلسلة المزامنة"</translation>
+<translation id="6604289897677913048">باستخدام هاتف أو جهاز لوحي ثانٍ، انتقل إلى إعدادات مزامنة ومسح adrbrowsiel &gt;  &gt; ضوئياً.</translation>
+<translation id="8508856434435157945">على هاتفك المحمول، انتقل إلى مزامنة adrbrowsiel  في لوحة الإعدادات وانقر على زر "مسح رمز المزامنة ضوئياً". استخدم الكاميرا لمسح رمز QR الموجود أدناه.</translation>
+<translation id="2590683710114839102">على جهاز الكمبيوتر الخاص بك، انتقل إلى إعدادات مزامنة adrbrowsiel &gt;. اختر "إدخال رمز سلسلة المزامنة"</translation>
 <translation id="65315202420929965">مسح رمز المزامنة هذا ضوئياً</translation>
 <translation id="6764016175302339802">تعامل مع هذا الرمز مثل كلمة المرور. إذا حصل عليه شخص ما، فيمكنه قراءة وتعديل بياناتك المتزامنة.</translation>
-<translation id="6707003343517029414">على جهاز الكمبيوتر الخاص بك المستهدف، انتقل إلى مزامنة Brave في الإعدادات وانقر فوق زر "لدي رمز المزامنة". \nأدخل الكلمات الرمزية الخاصة بسلسلة المزامنة الموضحة أدناه.</translation>
+<translation id="6707003343517029414">على جهاز الكمبيوتر الخاص بك المستهدف، انتقل إلى مزامنة adrbrowsiel في الإعدادات وانقر فوق زر "لدي رمز المزامنة". \nأدخل الكلمات الرمزية الخاصة بسلسلة المزامنة الموضحة أدناه.</translation>
 <translation id="2731921493694251495">أدخل رمز سلسلة المزامنة</translation>
 <translation id="2175927920773552910">رمز الاستجابة السريعة</translation>
 <translation id="8653433343015102968">الكلمات الرمزية</translation>
@@ -191,36 +191,36 @@
 <translation id="6776430845975754238">سيؤثر تغيير الإعدادات فقط على البيانات التي يشاركها هذا الجهاز مع الآخرين.</translation>
 <translation id="1061533051865606843">إضافة جهاز جديد</translation>
 <translation id="7539985410310934287">أدخل الكلمات الرمزية</translation>
-<translation id="2886391679017857869">باستخدام الجهاز المتزامن الحالي، افتح إعدادات Brave وانتقل إلى الإعدادات &gt; والمزامنة. اختر "إضافة جهاز جديد" ثم "عرض كلمات الرموز بدلاً من ذلك".</translation>
+<translation id="2886391679017857869">باستخدام الجهاز المتزامن الحالي، افتح إعدادات adrbrowsiel وانتقل إلى الإعدادات &gt; والمزامنة. اختر "إضافة جهاز جديد" ثم "عرض كلمات الرموز بدلاً من ذلك".</translation>
 <translation id="8131740175452115882">التأكيد</translation>
 <translation id="4973653569293835178">سأستخدم الكاميرا...</translation>
 <translation id="326454632686131209">مزامنة الجهاز</translation>
 <translation id="327726072512457161">الخروج من الإعدادات</translation>
-<translation id="8050847734948770789">تمكين مكافآت Brave</translation>
+<translation id="8050847734948770789">تمكين مكافآت adrbrowsiel</translation>
 <translation id="9187185473011056079">أنا معكم!</translation>
-<translation id="8185825081026121627">اربح عملة Basic Attention الرمزية مقابل استعراضك لإعلانات Brave Rewards التي تحترم الخصوصية.</translation>
+<translation id="8185825081026121627">اربح عملة Basic Attention الرمزية مقابل استعراضك لإعلانات adrbrowsiel Rewards التي تحترم الخصوصية.</translation>
 <translation id="5321518976657560663">حدث خطأ أثناء إعادة التعيين</translation>
-<translation id="4114170343590425996">لقد حدث خطأ أثناء إعادة تعيين مكافآت Brave. يرجى إعادة تشغيل متصفح Brave وإعادة المحاولة مرةً أخرى.</translation>
-<translation id="6393502589311632553">عرض الإعلانات عندما لا يكون Brave قيد الاستخدام</translation>
-<translation id="3349204812119681938">إعادة تعيين Brave Rewards</translation>
-<translation id="8782039523249932839">سيؤدي هذا إلى حذف محفظة Brave الخاصة بك وإعادة تعيين كل ما لديك من بيانات مكافآت Brave</translation>
+<translation id="4114170343590425996">لقد حدث خطأ أثناء إعادة تعيين مكافآت adrbrowsiel. يرجى إعادة تشغيل متصفح adrbrowsiel وإعادة المحاولة مرةً أخرى.</translation>
+<translation id="6393502589311632553">عرض الإعلانات عندما لا يكون adrbrowsiel قيد الاستخدام</translation>
+<translation id="3349204812119681938">إعادة تعيين adrbrowsiel Rewards</translation>
+<translation id="8782039523249932839">سيؤدي هذا إلى حذف محفظة adrbrowsiel الخاصة بك وإعادة تعيين كل ما لديك من بيانات مكافآت adrbrowsiel</translation>
 <translation id="6810078320346589989">إنشاء إشارة مرجعية</translation>
-<translation id="3396347744975515056">تمت ترقية Brave Sync وتتطلب الإعداد</translation>
+<translation id="3396347744975515056">تمت ترقية adrbrowsiel Sync وتتطلب الإعداد</translation>
 <translation id="7473245612074035141">بدء الإعداد</translation>
 <translation id="8985635554450124959">لا يمكن إعداد المزامنة</translation>
-<translation id="2514300153301737214">اكتشفنا أنه تم تمكين مزامنة Brave، ولكن تم إيقاف تشغيل مزامنة نظامك ولن تسمح لـ Brave بالمزامنة. اضغط لفتح الإعدادات</translation>
+<translation id="2514300153301737214">اكتشفنا أنه تم تمكين مزامنة adrbrowsiel، ولكن تم إيقاف تشغيل مزامنة نظامك ولن تسمح لـ adrbrowsiel بالمزامنة. اضغط لفتح الإعدادات</translation>
 <translation id="7173114856073700355">فتح الإعدادات</translation>
 <translation id="6965382102122355670">موافق</translation>
 <translation id="4450893287417543264">لا تظهر مرة أخرى</translation>
-<translation id="597993392929850353">رخصة Brave</translation>
+<translation id="597993392929850353">رخصة adrbrowsiel</translation>
 <translation id="6336451774241870485">علامة تبويب خاصة جديدة</translation>
 <translation id="6199596294742117349">هذه علامة تبويب خاصة</translation>
 <translation id="5858455511731621847">على الرغم من أن المواقع التي تزورها في علامات التبويب الخاصة لا يتم حفظها محلياً، إلا أنها لا تجعلك مجهول الهوية أو غير مرئي لمزود خدمة الإنترنت أو للشركة التي تعمل بها أو للمواقع التي تزورها.</translation>
-<translation id="5789441016350810005">إعلانات Brave المرسلة عندما يكون المتصفح في الخلفية</translation>
+<translation id="5789441016350810005">إعلانات adrbrowsiel المرسلة عندما يكون المتصفح في الخلفية</translation>
 <translation id="3690140184638701871">المساهمات والإكراميات</translation>
 <translation id="844921671123185605">تمت معالجة إكرامياتك الشهرية!</translation>
 <translation id="3124090095880236567">تشغيل الإعلانات</translation>
-<translation id="2975780980638932742">ها قد وصلت إعلانات Brave!</translation>
+<translation id="2975780980638932742">ها قد وصلت إعلانات adrbrowsiel!</translation>
 <translation id="7541582550122501404">مساهمة قيد الانتظار</translation>
 <translation id="8520059774736886747">تم التحقق مؤخراً من المنشئ <ph name="PUBLISHER_NAME"/></translation>
 <translation id="7924320838799747606">رصيدك</translation>
@@ -232,7 +232,7 @@
 <translation id="8522669544471808198">إظهار صور الخلفية</translation>
 <translation id="3870475560794762985">إظهار صور الرعاة الدعائية</translation>
 <translation id="8297488609722895137">الصورة بعدسة <ph name="PHOTO_BY"/></translation>
-<translation id="4761229094276239865">من خلال النقر على "البدء في استخدام Brave Rewards"، فإنك توافق على <ph name="TERMS_OF_SERVICE"/>.</translation>
+<translation id="4761229094276239865">من خلال النقر على "البدء في استخدام adrbrowsiel Rewards"، فإنك توافق على <ph name="TERMS_OF_SERVICE"/>.</translation>
 <translation id="3794079107601824147">تقاضَ أجراً لرؤية صورة الخلفية هذه.</translation>
 <translation id="7136586167396205364">إخفاء صور الرعاة الدعائية</translation>
 <translation id="2927095357213611519">يمكنك دعم منشئي الويب باستخدام الرموز المميزة.\nاكسب رموزاً مميزة من خلال مشاهدة إعلانات مراعية للخصوصية.</translation>
@@ -244,15 +244,15 @@
 <translation id="8558636200953226885">لكن إذا قمت بالتحقق فسيمكنك...</translation>
 <translation id="8697510149346635496">اسحب رموز BAT التي تكسبها من عرض الإعلانات التي تحترم الخصوصية</translation>
 <translation id="1481480653609649134">قم بشراء رموز BAT إضافية بواسطة بطاقات الائتمان وغيرها من المصادر</translation>
-<translation id="9096003370755878766">اسحب رموز BAT التي قد تكون أضفتها سابقاً في محفظة مكافآت Brave الخاصة بك</translation>
+<translation id="9096003370755878766">اسحب رموز BAT التي قد تكون أضفتها سابقاً في محفظة مكافآت adrbrowsiel الخاصة بك</translation>
 <translation id="1554282356558968486">تتوفر خدمتنا للمحافظ من قبل</translation>
 <translation id="6569877533335686968">Uphold</translation>
 <translation id="8465442795593991224">قد يتطلب منك Uphold التحقق من هويتك بناءً على الخدمات المطلوبة.</translation>
-<translation id="723054503945711909">لا تقوم شركة Brave Software Inc بمعالجة أو تخزين أو الوصول إلى أي من المعلومات الشخصية التي تقدمها إلى Uphold عند إنشاء حساب معهم.</translation>
+<translation id="723054503945711909">لا تقوم شركة adrbrowsiel Software Inc بمعالجة أو تخزين أو الوصول إلى أي من المعلومات الشخصية التي تقدمها إلى Uphold عند إنشاء حساب معهم.</translation>
 <translation id="3699674790322420653">أكمل التحقق من المحفظة</translation>
 <translation id="2193391216824305230">محفظة المستخدم</translation>
 <translation id="7591798679868259510">الانتقال إلى حساب Uphold الخاص بي</translation>
-<translation id="9200453331904391567">قطع الاتصال بـ Brave Rewards</translation>
+<translation id="9200453331904391567">قطع الاتصال بـ adrbrowsiel Rewards</translation>
 <translation id="6239274080752256452">سحب رصيد</translation>
 <translation id="8874184842967597500">غير متصل</translation>
 <translation id="3368922792935385530">متصل</translation>
@@ -264,14 +264,14 @@
 <translation id="4190454391025419535">المنطقة غير مدعومة</translation>
 <translation id="6830703472632069884">طرأت مشكلة أثناء التحقق من محفظتك. يرجى إعادة المحاولة في وقتٍ لاحق.</translation>
 <translation id="3512533646933434345">خطأ في التحقق من المحفظة</translation>
-<translation id="2260513517001048012">ملاحظة: لم يضبط منشئ Brave المعتمد هذا حسابه لتلقي المساهمات من مستخدمي Brave حتى الآن. سيستمر متصفحك في محاولة المساهمة حتى يجري التحقق أو حتى مرور 90 يوم.</translation>
-<translation id="4488355059795908907">لم يضبط منشئ Brave المعتمد هذا حسابه لتلقي المساهمات من مستخدمي Brave حتى الآن. ستظل أي مساهمات ترسلها في محفظتك حتى يستكمل هذه العملية.</translation>
-<translation id="2495032782748793764">Brave Default</translation>
-<translation id="9132378787893584761">شارك Brave مع أصدقائك!</translation>
+<translation id="2260513517001048012">ملاحظة: لم يضبط منشئ adrbrowsiel المعتمد هذا حسابه لتلقي المساهمات من مستخدمي adrbrowsiel حتى الآن. سيستمر متصفحك في محاولة المساهمة حتى يجري التحقق أو حتى مرور 90 يوم.</translation>
+<translation id="4488355059795908907">لم يضبط منشئ adrbrowsiel المعتمد هذا حسابه لتلقي المساهمات من مستخدمي adrbrowsiel حتى الآن. ستظل أي مساهمات ترسلها في محفظتك حتى يستكمل هذه العملية.</translation>
+<translation id="2495032782748793764">adrbrowsiel Default</translation>
+<translation id="9132378787893584761">شارك adrbrowsiel مع أصدقائك!</translation>
 <translation id="717952606991220586">عذرًا، حدث خطأ ما. الرجاء المحاولة مرة أخرى لاحقًا.</translation>
-<translation id="2524310205387880526">تقييم Brave</translation>
+<translation id="2524310205387880526">تقييم adrbrowsiel</translation>
 <translation id="6680650203439190394">المعدل</translation>
-<translation id="2635089463885398597">كيف تقيّم تجربتك مع Brave؟</translation>
+<translation id="2635089463885398597">كيف تقيّم تجربتك مع adrbrowsiel؟</translation>
 <translation id="141901961143729572">شاركنا آراءك</translation>
 <translation id="7961015016161918242">مطلقًا</translation>
 <translation id="1275213816424141989">ربما لاحقاً</translation>
@@ -279,11 +279,11 @@
 <translation id="8851456134224363571">رائع! هلّا تركت لنا تقييماً في متجر Play؟</translation>
 <translation id="8668962040900592974">أعلمنا كيف يمكننا التحسن</translation>
 <translation id="4406937629441301400">اكسب رموزاً مقابل عرض هذه الصورة وردّ الصنيع إلى منشئي المحتوى. <ph name="LEARN_MORE"/></translation>
-<translation id="1992363542751124282">اكسب العملات الرمزية مقابل مشاهدة هذه الصورة. انقر فوق بدء استخدام Brave Rewards للمطالبة بحصتك.</translation>
+<translation id="1992363542751124282">اكسب العملات الرمزية مقابل مشاهدة هذه الصورة. انقر فوق بدء استخدام adrbrowsiel Rewards للمطالبة بحصتك.</translation>
 <translation id="6632345639591919543">أنت تكسب رموزاً مقابل عرض هذه الصورة.\n<ph name="LEARN_MORE"/></translation>
 <translation id="1465733111003593696">أنت تكسب رموزاً مقابل عرض هذه الصورة.</translation>
 <translation id="7877201489035217175">تعرف على المزيد حول الصور الدعائية</translation>
-<translation id="828092975561478703">مقابل كل صورة دعائية تشاهدها تتلقى 70% من العائد بصيغة رموز. مع Brave Ads فإنك دائماً تتحكم في الإعلانات التي تراها.</translation>
+<translation id="828092975561478703">مقابل كل صورة دعائية تشاهدها تتلقى 70% من العائد بصيغة رموز. مع adrbrowsiel Ads فإنك دائماً تتحكم في الإعلانات التي تراها.</translation>
 <translation id="4941539331405513605">حجب ملفات تعريف الارتباط عبر المواقع</translation>
 <translation id="3763681089644577874">حجب ملفات تعريف الارتباط</translation>
 <translation id="614747795780742163">يمنع مواقع الويب من تخزين معلومات حول زياراتك السابقة</translation>
@@ -296,34 +296,34 @@
 <translation id="769702552748212954">السماح بجميع عمليات أخذ البصمات</translation>
 <translation id="876424292214881779">الإعلانات والأشياء المريبة الأخرى التي تم حظرها</translation>
 <translation id="5142293891785304489">تم حظر برامج تتبع وإعلانات وأكثر</translation>
-<translation id="6930134873084561197">غالبًا ما تتضمن المواقع ملفات تعريف ارتباط ونصوص برمجية تحاول التعرف على هويتك وجهازك. إنهم يريدون معرفة هويتك ومتابعتك عبر الويب لتتبع ما تفعله في كل موقع.\n\nيحجب Brave هذه الأشياء عنك لكي تتمكن من التصفح دون أن يتم تتبعك.</translation>
-<translation id="8553998445606452168">حول Brave Shields</translation>
+<translation id="6930134873084561197">غالبًا ما تتضمن المواقع ملفات تعريف ارتباط ونصوص برمجية تحاول التعرف على هويتك وجهازك. إنهم يريدون معرفة هويتك ومتابعتك عبر الويب لتتبع ما تفعله في كل موقع.\n\nيحجب adrbrowsiel هذه الأشياء عنك لكي تتمكن من التصفح دون أن يتم تتبعك.</translation>
+<translation id="8553998445606452168">حول adrbrowsiel Shields</translation>
 <translation id="8912304686498704084">قيد التشغيل</translation>
 <translation id="4963218453264888510">معطل</translation>
-<translation id="7474113515179313724">إنك تتصفح هذا الموقع دون حماية الخصوصية من Brave. ألا يعمل بشكل صحيح أثناء تشغيل Shields؟</translation>
+<translation id="7474113515179313724">إنك تتصفح هذا الموقع دون حماية الخصوصية من adrbrowsiel. ألا يعمل بشكل صحيح أثناء تشغيل Shields؟</translation>
 <translation id="9055546041146396417">إذا كان هذا الموقع يبدو معطلاً فجرّب إيقاف تشغيل Shields.</translation>
 <translation id="1209739344687072997">الإبلاغ عن موقع إلكتروني معطل</translation>
-<translation id="8510478288840333677">إخطار مطوري Brave بأن هذا الموقع لا يعمل بشكلٍ سليم مع Shields:</translation>
-<translation id="5429200298326665264">ملاحظة: سيتم إرسال عنوان هذا الموقع مع رقم إصدار Brave الخاص بك وعنوان IP الخاص بك (والذي لن يتم تخزينه).</translation>
+<translation id="8510478288840333677">إخطار مطوري adrbrowsiel بأن هذا الموقع لا يعمل بشكلٍ سليم مع Shields:</translation>
+<translation id="5429200298326665264">ملاحظة: سيتم إرسال عنوان هذا الموقع مع رقم إصدار adrbrowsiel الخاص بك وعنوان IP الخاص بك (والذي لن يتم تخزينه).</translation>
 <translation id="5299848999918506028">شكراً لك!</translation>
-<translation id="76550953340008122">شكراً لإخطارك مطوري Brave بوجود خطأٍ في هذا الموقع. سنبذل قصارى جهدنا لإصلاحه!</translation>
+<translation id="76550953340008122">شكراً لإخطارك مطوري adrbrowsiel بوجود خطأٍ في هذا الموقع. سنبذل قصارى جهدنا لإصلاحه!</translation>
 <translation id="650318023204990401">الضوابط المتقدمة</translation>
 <translation id="7182293319417450928">مطلوب 25 BAT كحد أدنى للتحقق.</translation>
 <translation id="1275664486910646411">أظهر المواقع الأكثر تقدما بشكل إكمال تلقائي</translation>
 <translation id="5516010970279932133">أظهر المواقع المقترحة بشكل إكمال تلقائي</translation>
 <translation id="5370478469168390143">حفظ البيانات عبر الإنترنت</translation>
-<translation id="1118508688433541158">تصفّح أسرع وقم بحظر الإعلانات مع متصفح Brave</translation>
+<translation id="1118508688433541158">تصفّح أسرع وقم بحظر الإعلانات مع متصفح adrbrowsiel</translation>
 <translation id="6589609065569680305">برامج التتبع &amp; والإعلانات محظورة على هذه الصفحة.</translation>
-<translation id="1283922192221545319">تحمي Brave Shields خصوصيتك تماماً.</translation>
+<translation id="1283922192221545319">تحمي adrbrowsiel Shields خصوصيتك تماماً.</translation>
 <translation id="3286927551967858325">إلق نظرة</translation>
 <translation id="6227291358910554399">يتم حظر الإعلانات أثناء مشاهدة مقاطع الفيديو على هذا الموقع.</translation>
 <translation id="7802980684512102010">تستهلك مقاطع الفيديو بدون إعلانات بيانات أقل.</translation>
 <translation id="2046475855484346614">أكثر من 10برامج تتبع &amp; وإعلانات تم حظرها في هذه الصفحة.</translation>
-<translation id="5806208250835099572">تحمي Brave Shields خصوصيتك على الإنترنت في كل موقع.</translation>
+<translation id="5806208250835099572">تحمي adrbrowsiel Shields خصوصيتك على الإنترنت في كل موقع.</translation>
 <translation id="5617673581653540121">تم تشفير اتصالك الآن.</translation>
-<translation id="4055107796760496928">إن كان هذا متاحاً، يقوم Brave بترقيتك إلى اتصال آمن تلقائياً.</translation>
+<translation id="4055107796760496928">إن كان هذا متاحاً، يقوم adrbrowsiel بترقيتك إلى اتصال آمن تلقائياً.</translation>
 <translation id="8869714780588464835">مشاركة الأخبار</translation>
-<translation id="7888588008014907646">أحفظ البيانات يوميًا عبر تصفح موقع الويب باستخدام Brave.</translation>
+<translation id="7888588008014907646">أحفظ البيانات يوميًا عبر تصفح موقع الويب باستخدام adrbrowsiel.</translation>
 <translation id="5372054974373489308">تم حظر 1000 أداة تتبع وإعلان!</translation>
 <translation id="2338952568654182692">تم حظر 5000 أداة تتبع وإعلان!</translation>
 <translation id="5289711064670408815">تم حظر 10,000 أداة تتبع وإعلان!</translation>
@@ -339,16 +339,16 @@
 <translation id="4625546020186631261">تهانينا. لقد أصبحت أستاذًا.</translation>
 <translation id="4288835546846020774">تهانينا. لقد أصبحت أستاذًا كبيرًا.</translation>
 <translation id="6863752373888328811">تهانينا. أنت أسطوري.</translation>
-<translation id="4776948189086901857">Brave يعمل في كل مكان</translation>
-<translation id="1606322780901645965">قم بتنزيل Brave على موقع brave.com على الكمبيوتر المحمول أو الجهاز اللوحي الخاص بك للحصول على شبكة ويب أسرع وأكثر خصوصية</translation>
+<translation id="4776948189086901857">adrbrowsiel يعمل في كل مكان</translation>
+<translation id="1606322780901645965">قم بتنزيل adrbrowsiel على موقع adrbrowsiel.com على الكمبيوتر المحمول أو الجهاز اللوحي الخاص بك للحصول على شبكة ويب أسرع وأكثر خصوصية</translation>
 <translation id="8374242949413616101">حماية الخصوصية</translation>
-<translation id="4955406228638026265">يمنع متصفح Brave الإعلانات &amp; وأدوات التتبع من جمع معلومات عنك دون موافقتك.</translation>
+<translation id="4955406228638026265">يمنع متصفح adrbrowsiel الإعلانات &amp; وأدوات التتبع من جمع معلومات عنك دون موافقتك.</translation>
 <translation id="752842701893882688">توفير البيانات والبطارية</translation>
 <translation id="1685837926613452362">بدون إعلانات &amp; فإنّ برامج التتبع والمواقع الإلكترونية تستهلك البيانات والبطارية بصورة أقل. يمكنك حتى توفير المال على رسوم ناقل الخدمة.</translation>
 <translation id="5440744330377972191">المواقع الإلكترونية تقوم بالتحميل بشكل أسرع</translation>
-<translation id="3000738865641747653">تحميل بيانات أقل يعني أنه يتم تحميل المواقع الإلكترونية في Brave بشكل أسرع - حتى 8 مرات أسرع من المتصفحات الأخرى.</translation>
+<translation id="3000738865641747653">تحميل بيانات أقل يعني أنه يتم تحميل المواقع الإلكترونية في adrbrowsiel بشكل أسرع - حتى 8 مرات أسرع من المتصفحات الأخرى.</translation>
 <translation id="8903462729414407077">احصل على تحديثات أسبوعية</translation>
-<translation id="8029219208182772618">كن على اطلاع حول المواقع الإلكترونية التي تزورها والتي تعد الأكثر تغلغلًا في الخصوصية.\n\nيمكنك فقط مشاهدة إحصائيات الخصوصية هذه. لا توجد بيانات شخصية أو سجل تصفح يترك متصفح Brave على جهازك.</translation>
+<translation id="8029219208182772618">كن على اطلاع حول المواقع الإلكترونية التي تزورها والتي تعد الأكثر تغلغلًا في الخصوصية.\n\nيمكنك فقط مشاهدة إحصائيات الخصوصية هذه. لا توجد بيانات شخصية أو سجل تصفح يترك متصفح adrbrowsiel على جهازك.</translation>
 <translation id="6170159749517116894">قم بتشغيل تقارير الخصوصية</translation>
 <translation id="5966707198760109579">الأسبوع</translation>
 <translation id="8987927404178983737">شهر</translation>
@@ -364,20 +364,20 @@
 <translation id="3694122362646626770">المواقع الإلكترونية</translation>
 <translation id="2225863440766607138">أدوات تتبع</translation>
 <translation id="2993367530362078067"><ph name="COUNT"/><ph name="COUNT_TEXT"/></translation>
-<translation id="6737820963776538947">لقد قمت بحظر <ph name="COUNT"/> أدوات تتبع &amp; وإعلانات مع متصفح Brave في الساعات الثلاث الماضية.</translation>
-<translation id="3621193901658023971">تصفح بسرعة تصل إلى 6 أضعاف على المواقع الإخبارية الرئيسية في Brave عن طريق حجب أدوات التتبع &amp; والإعلانات.</translation>
+<translation id="6737820963776538947">لقد قمت بحظر <ph name="COUNT"/> أدوات تتبع &amp; وإعلانات مع متصفح adrbrowsiel في الساعات الثلاث الماضية.</translation>
+<translation id="3621193901658023971">تصفح بسرعة تصل إلى 6 أضعاف على المواقع الإخبارية الرئيسية في adrbrowsiel عن طريق حجب أدوات التتبع &amp; والإعلانات.</translation>
 <translation id="7427567994475794038">قم بتشغيل تقارير الخصوصية لمعرفة عدد أدوات التتبع &amp; والإعلانات التي قد تم حظرها في الساعات الثلاث الماضية.</translation>
-<translation id="2053891538879944400">لقد حفظت <ph name="DATA"/> <ph name="DATA_TEXT"/> من البيانات مع متصفح Brave.</translation>
+<translation id="2053891538879944400">لقد حفظت <ph name="DATA"/> <ph name="DATA_TEXT"/> من البيانات مع متصفح adrbrowsiel.</translation>
 <translation id="8640064498452534195">قم بتشغيل تقارير الخصوصية لمعرفة مقدار البيانات التي قمت بحفظها.</translation>
-<translation id="2252497442547961651">يستخدم متصفح Brave بطارية أقل بنسبة 40% في المتوسط. &#128267;</translation>
-<translation id="1945330434665345785">لقد قمت بحظر <ph name="COUNT"/> أدوات تتبع &amp; وإعلانات مع متصفح Brave الأسبوع الماضي.</translation>
+<translation id="2252497442547961651">يستخدم متصفح adrbrowsiel بطارية أقل بنسبة 40% في المتوسط. &#128267;</translation>
+<translation id="1945330434665345785">لقد قمت بحظر <ph name="COUNT"/> أدوات تتبع &amp; وإعلانات مع متصفح adrbrowsiel الأسبوع الماضي.</translation>
 <translation id="2883868922264431515">اربح عملات رمزية عند مشاهدة إعلانات تحترم الخصوصية وادعم المواقع الإلكترونية المفضلة لديك.</translation>
-<translation id="5678925890616256956">رائع! لقد قمت بحظر 250 من برامج التتبع &amp; والإعلانات بواسطة متصفح Brave. &#128293;</translation>
-<translation id="9199047775708635708">رائع! لقد قمت بتوفير مساحة 10 ميغابايت مع متصفح Brave.&#128267;</translation>
-<translation id="1880168210969863408">رائع! لقد قمت بتوفير 10 دقائق من وقت التحميل باستخدام متصفح Brave.&#128168;&#128168;</translation>
+<translation id="5678925890616256956">رائع! لقد قمت بحظر 250 من برامج التتبع &amp; والإعلانات بواسطة متصفح adrbrowsiel. &#128293;</translation>
+<translation id="9199047775708635708">رائع! لقد قمت بتوفير مساحة 10 ميغابايت مع متصفح adrbrowsiel.&#128267;</translation>
+<translation id="1880168210969863408">رائع! لقد قمت بتوفير 10 دقائق من وقت التحميل باستخدام متصفح adrbrowsiel.&#128168;&#128168;</translation>
 <translation id="7408493389591475748">ابدأ التصفح لمشاهدة تقرير الخصوصية</translation>
-<translation id="9080777565335515917">قم بتعيين Brave كمتصفحك الافتراضي للتصفح الخاص والآمن.</translation>
-<translation id="1390943217516275883">السماح لـ Brave بإظهار إحصائيات الخصوصية الخاصة بك</translation>
+<translation id="9080777565335515917">قم بتعيين adrbrowsiel كمتصفحك الافتراضي للتصفح الخاص والآمن.</translation>
+<translation id="1390943217516275883">السماح لـ adrbrowsiel بإظهار إحصائيات الخصوصية الخاصة بك</translation>
 <translation id="1763352720905582220">يُرسل تقرير خصوصية أسبوعي</translation>
 <translation id="1811691435325545066">مسح كافة بيانات تقارير الخصوصية</translation>
 <translation id="8089997572759938512">يعيد تعيين تقارير الخصوصية الخاصة بك إلى الصفر</translation>
@@ -427,16 +427,16 @@
 <translation id="1627064138060308910">فشل التحويل. يُرجى المحاولة مرة أخرى.</translation>
 <translation id="1449790603979388000"><ph name="COUNT"/><ph name="COUNT_TEXT"/></translation>
 <translation id="7465614181960492526">اكسب العملات الرمزية &amp; وأعطها مرة أخرى</translation>
-<translation id="244362569344671266">اربح العملات الرمزية من خلال عرض إعلانات Brave الخاصة وادعم منشئي المحتوى تلقائياً.</translation>
+<translation id="244362569344671266">اربح العملات الرمزية من خلال عرض إعلانات adrbrowsiel الخاصة وادعم منشئي المحتوى تلقائياً.</translation>
 <translation id="631124996535890460">بالمتابعة، فإنك توافق على <ph name="TERMS_OF_SERVICE"/> and <ph name="PRIVACY_POLICY"/>.</translation>
 <translation id="8804164990146287819">سياسة الخصوصية</translation>
 <translation id="6318696841371191107">قم بجولة سريعة</translation>
-<translation id="7930505144430343145">مرحباً بك في Brave Rewards!</translation>
-<translation id="3477340970981564961">تكافئك Brave Private Ads برموز لدعم منشئي المحتوى على عكس الإعلانات التقليدية، كل ذلك مع الحفاظ على خصوصية معلوماتك الشخصية.</translation>
+<translation id="7930505144430343145">مرحباً بك في adrbrowsiel Rewards!</translation>
+<translation id="3477340970981564961">تكافئك adrbrowsiel Private Ads برموز لدعم منشئي المحتوى على عكس الإعلانات التقليدية، كل ذلك مع الحفاظ على خصوصية معلوماتك الشخصية.</translation>
 <translation id="6973095375773523904">أين تظهر الإعلانات؟</translation>
-<translation id="7556325460112047619">ستظهر Brave Private Ads كإشعار عادي. يمكنك التحكم في عدد المرات التي تشاهد فيها هذه الإعلانات في الإعدادات.</translation>
+<translation id="7556325460112047619">ستظهر adrbrowsiel Private Ads كإشعار عادي. يمكنك التحكم في عدد المرات التي تشاهد فيها هذه الإعلانات في الإعدادات.</translation>
 <translation id="5816125157889950051">متى تحصل على المكافآت</translation>
-<translation id="310863932297733723">ستصل الرموز المميزة المكتسبة من Brave Private Ads طوال الشهر الحالي في الخامس من الشهر التالي.</translation>
+<translation id="310863932297733723">ستصل الرموز المميزة المكتسبة من adrbrowsiel Private Ads طوال الشهر الحالي في الخامس من الشهر التالي.</translation>
 <translation id="7712287524451429139">أصبح العطاء أمراً هيناً</translation>
 <translation id="105037569026952831">يتلقى منشئو المحتوى مساهماتك الرمزية تلقائياً بناءً على مستويات المشاركة التي نقيسها كـ‘انتباه’.</translation>
 <translation id="5323267338679539010">اشكر من خلال تقديم الإكراميات</translation>
@@ -450,7 +450,7 @@
 <translation id="66599604460581068">ما مقدار الدعم الذي تريد تقديمه للمُنشِئين والمطوريين المفضلين لديك؟</translation>
 <translation id="3164498053837913829">(من أرباح إعلاناتك)</translation>
 <translation id="827315274423079662">مرحى، أنت ’ جاهز تماماً!</translation>
-<translation id="3895246934788932488">باستخدام Brave Rewards، فأنت تحمي خصوصيتك وتساعد في جعل الويب مكاناً أفضل للجميع. وهذا الـ’s رائعاً!</translation>
+<translation id="3895246934788932488">باستخدام adrbrowsiel Rewards، فأنت تحمي خصوصيتك وتساعد في جعل الويب مكاناً أفضل للجميع. وهذا الـ’s رائعاً!</translation>
 <translation id="5705882733397021510">العودة</translation>
 <translation id="5140321319944305531">لنقم بجولة سريعة</translation>
 <translation id="2434574859640694129">بعد تلقي أول عائد لإعلاناتك، يمكنك العودة ودفع إكرامية لمنشئ المحتوى هذا!</translation>
@@ -471,18 +471,18 @@
 <translation id="8295049095570748497">محرك بحث رائد في روسيا</translation>
 <translation id="2642661895835126239">نباتات الأشجار، ومقرها برلين</translation>
 <translation id="1410130669636877548">تحمي بعض محركات البحث خصوصيتك بشكل أفضل من غيرها عند البحث في الويب.</translation>
-<translation id="1078265935778232285">مرحباً بك في متصفح Brave</translation>
+<translation id="1078265935778232285">مرحباً بك في متصفح adrbrowsiel</translation>
 <translation id="6824713633331856331">ساعدنا على التعلم بشكل مجهول</translation>
-<translation id="6116685031674149112">يحمي Brave خصوصيتك \n ويقدر موافقتك على ما يلي:</translation>
-<translation id="3971666849661839619">ساعد في تحسين Brave عن طريق إرسال تقارير الأعطال وإخفاء هويتها تماماً <ph name="PRIVATE_PRODUCT_ANALYSIS"/></translation>
+<translation id="6116685031674149112">يحمي adrbrowsiel خصوصيتك \n ويقدر موافقتك على ما يلي:</translation>
+<translation id="3971666849661839619">ساعد في تحسين adrbrowsiel عن طريق إرسال تقارير الأعطال وإخفاء هويتها تماماً <ph name="PRIVATE_PRODUCT_ANALYSIS"/></translation>
 <translation id="6478996494082389936">تحليلات المنتج الخاص.</translation>
 <translation id="5187052478998910855">هل تحتاج إلى تذكير بـ Rewards؟</translation>
 <translation id="8622329973403382303">قم بجولة سريعة للتعرف على الطريقة التي تعمل بها لتدخل التاريخ كنجم Rewards لامع!</translation>
-<translation id="8401711613788729448">افتح جميع الروابط بواسطة متصفح Brave لحماية خصوصيتك</translation>
-<translation id="3184805785843994538">تمنع Brave Shields برامج التتبع &amp; والإعلانات، وتحفظ البيانات، وتوفر لك الوقت في كل موقع تزوره.</translation>
-<translation id="8722651357687610395">تعيين Brave كمتصفح افتراضي</translation>
+<translation id="8401711613788729448">افتح جميع الروابط بواسطة متصفح adrbrowsiel لحماية خصوصيتك</translation>
+<translation id="3184805785843994538">تمنع adrbrowsiel Shields برامج التتبع &amp; والإعلانات، وتحفظ البيانات، وتوفر لك الوقت في كل موقع تزوره.</translation>
+<translation id="8722651357687610395">تعيين adrbrowsiel كمتصفح افتراضي</translation>
 <translation id="3479552764303398839">ليس الآن</translation>
-<translation id="6232491755501685494">جاري تحويل Brave Rewards في اليابان إلى نظام جديد!</translation>
+<translation id="6232491755501685494">جاري تحويل adrbrowsiel Rewards في اليابان إلى نظام جديد!</translation>
 <translation id="7444515017164572362">بدءاً من 13 مارس، لن تتمكن ’ من استخدام رصيدك من BAP. ولكن بمجرد
          التحديث إلى النظام الجديد في أبريل، ستبدأ ’ باستخدام عملات رمزية جديدة!</translation>
 <translation id="8587285254008006694">كجزء من هذا الانتقال، ستكون ميزتا الإكرامية والمساهمة غير متاحتين  

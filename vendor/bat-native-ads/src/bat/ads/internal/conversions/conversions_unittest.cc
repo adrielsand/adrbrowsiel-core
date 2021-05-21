@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -17,7 +17,7 @@
 #include "bat/ads/internal/unittest_util.h"
 #include "bat/ads/pref_names.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 
@@ -642,7 +642,7 @@ TEST_F(BatAdsConversionsTest, ExtractConversionId) {
       "ofIveUY/bM7qlL9eIkAv/xbjDItFs1xRTTYKRZZsPHI=";
   conversion.creative_set_id = "3519f52c-46a4-4c48-9c2b-c264c0067f04";
   conversion.type = "postview";
-  conversion.url_pattern = "https://brave.com/thankyou";
+  conversion.url_pattern = "https://adrbrowsiel.com/thankyou";
   conversion.observation_window = 3;
   conversion.expiry_timestamp =
       CalculateExpiryTimestamp(conversion.observation_window);
@@ -654,7 +654,7 @@ TEST_F(BatAdsConversionsTest, ExtractConversionId) {
 
   // Act
   conversions_->MaybeConvert(
-      {"https://foo.bar/", "https://brave.com/thankyou"},
+      {"https://foo.bar/", "https://adrbrowsiel.com/thankyou"},
       "<html><meta name=\"ad-conversion-id\" content=\"abc123\"></html>",
       resource.get());
 
@@ -687,7 +687,7 @@ TEST_F(BatAdsConversionsTest, ExtractConversionIdWithResourcePatternFromHtml) {
       "ofIveUY/bM7qlL9eIkAv/xbjDItFs1xRTTYKRZZsPHI=";
   conversion.creative_set_id = "3519f52c-46a4-4c48-9c2b-c264c0067f04";
   conversion.type = "postview";
-  conversion.url_pattern = "https://brave.com/foobar";
+  conversion.url_pattern = "https://adrbrowsiel.com/foobar";
   conversion.observation_window = 3;
   conversion.expiry_timestamp =
       CalculateExpiryTimestamp(conversion.observation_window);
@@ -701,7 +701,7 @@ TEST_F(BatAdsConversionsTest, ExtractConversionIdWithResourcePatternFromHtml) {
   // See associated patterns in the verifiable conversion resource
   // /data/test/resources/nnqccijfhvzwyrxpxwjrpmynaiazctqb
   conversions_->MaybeConvert(
-      {"https://foo.bar/", "https://brave.com/foobar"},
+      {"https://foo.bar/", "https://adrbrowsiel.com/foobar"},
       "<html><div id=\"conversion-id\">abc123</div></html>", resource.get());
 
   // Assert
@@ -733,7 +733,7 @@ TEST_F(BatAdsConversionsTest, ExtractConversionIdWithResourcePatternFromUrl) {
       "ofIveUY/bM7qlL9eIkAv/xbjDItFs1xRTTYKRZZsPHI=";
   conversion.creative_set_id = "3519f52c-46a4-4c48-9c2b-c264c0067f04";
   conversion.type = "postview";
-  conversion.url_pattern = "https://brave.com/foobar?conversion_id=*";
+  conversion.url_pattern = "https://adrbrowsiel.com/foobar?conversion_id=*";
   conversion.observation_window = 3;
   conversion.expiry_timestamp =
       CalculateExpiryTimestamp(conversion.observation_window);
@@ -747,7 +747,7 @@ TEST_F(BatAdsConversionsTest, ExtractConversionIdWithResourcePatternFromUrl) {
   // See associated patterns in the verifiable conversion resource
   // /data/test/resources/nnqccijfhvzwyrxpxwjrpmynaiazctqb
   conversions_->MaybeConvert(
-      {"https://foo.bar/", "https://brave.com/foobar?conversion_id=abc123"},
+      {"https://foo.bar/", "https://adrbrowsiel.com/foobar?conversion_id=abc123"},
       "<html><div id=\"conversion-id\">foobar</div></html>", resource.get());
 
   // Assert

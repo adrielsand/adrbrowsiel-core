@@ -17,7 +17,7 @@ std::string WinHttpMessage(const char* extra);
 
 namespace {
 
-void BraveSetSessionOptions(HINTERNET hSession) {
+void adrbrowsielSetSessionOptions(HINTERNET hSession) {
   // Windows 8.1+ already have TLS 1.1 and 1.2 available by default.
   if (IsWindows8Point1OrGreater())
     return;

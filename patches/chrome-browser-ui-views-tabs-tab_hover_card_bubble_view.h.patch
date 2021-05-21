@@ -6,7 +6,7 @@ index 8f0f84a46bd2604792b6198dc7f83c31a2549aca..de714b41d0b2996692484a760544e553
    void ClearPreviewImage();
    void SetPreviewImage(gfx::ImageSkia preview_image);
  
-+  BRAVE_TAB_HOVER_CARD_BUBBLE_VIEW_H_
++  adrbrowsiel_TAB_HOVER_CARD_BUBBLE_VIEW_H_
   private:
    friend class TabHoverCardBubbleViewBrowserTest;
    friend class TabHoverCardBubbleViewInteractiveUiTest;

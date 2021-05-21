@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,14 +13,14 @@ import androidx.fragment.app.ListFragment;
 
 import org.chromium.chrome.browser.search_engines.R;
 
-public class BraveSearchEnginePreference extends SearchEngineSettings {
+public class adrbrowsielSearchEnginePreference extends SearchEngineSettings {
     // These members will be deleted in bytecode, member from parent class will be used instead.
     private SearchEngineAdapter mSearchEngineAdapter;
 
     // Own members.
     private boolean mPrivate;
 
-    public BraveSearchEnginePreference(boolean isPrivate) {
+    public adrbrowsielSearchEnginePreference(boolean isPrivate) {
         mPrivate = isPrivate;
     }
 
@@ -33,6 +33,6 @@ public class BraveSearchEnginePreference extends SearchEngineSettings {
 
     public void createAdapterIfNecessary() {
         if (mSearchEngineAdapter != null) return;
-        mSearchEngineAdapter = new BraveSearchEngineAdapter(getActivity(), mPrivate);
+        mSearchEngineAdapter = new adrbrowsielSearchEngineAdapter(getActivity(), mPrivate);
     }
 }

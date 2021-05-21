@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2020 The Brave Authors. All rights reserved.
+<!-- Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
      This Source Code Form is subject to the terms of the Mozilla Public
      License, v. 2.0. If a copy of the MPL was not distributed with this file,
      You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -22,7 +22,7 @@
         android:textStyle="bold"
         android:layout_marginTop="24dp"
         android:text="@string/basic_settings"
-        android:textColor="@color/brave_rewards_modal_title_color"/>
+        android:textColor="@color/adrbrowsiel_rewards_modal_title_color"/>
 
       <TextView
         android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
         android:layout_marginBottom="16dp"
         android:textSize="14sp"
         android:text="@string/you_can_change_this_later"
-        android:textColor="@color/brave_rewards_tos_color"/>
+        android:textColor="@color/adrbrowsiel_rewards_tos_color"/>
 
       <TextView
         android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
         android:gravity="center"
         android:textSize="14sp"
         android:text="@string/how_often_do_you_see_ads"
-        android:textColor="@color/brave_rewards_modal_text_color"/>
+        android:textColor="@color/adrbrowsiel_rewards_modal_text_color"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
         android:textSize="14sp"
         android:layout_marginBottom="8dp"
         android:text="@string/ads_per_hour"
-        android:textColor="@color/brave_rewards_tos_color"/>
+        android:textColor="@color/adrbrowsiel_rewards_tos_color"/>
 
       <RadioGroup
             android:id="@+id/hour_radio_group"
@@ -149,7 +149,7 @@
         android:gravity="center"
         android:textSize="14sp"
         android:text="@string/how_much_support"
-        android:textColor="@color/brave_rewards_modal_text_color"/>
+        android:textColor="@color/adrbrowsiel_rewards_modal_text_color"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -159,7 +159,7 @@
         android:textSize="14sp"
         android:layout_marginBottom="8dp"
         android:text="@string/from_your_ads_earnings"
-        android:textColor="@color/brave_rewards_tos_color"/>
+        android:textColor="@color/adrbrowsiel_rewards_tos_color"/>
 
       <RadioGroup
             android:id="@+id/contribute_radio_group"

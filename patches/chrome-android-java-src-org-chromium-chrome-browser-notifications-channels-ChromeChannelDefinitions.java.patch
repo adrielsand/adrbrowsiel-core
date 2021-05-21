@@ -15,7 +15,7 @@ index bc6ad6815cf2f5fe687b871dd8019aa2ec9a785f..c92ca88fae11427fd4111b9e6d4fe729
       * more detailed instructions.
       */
      @StringDef({ChannelId.BROWSER, ChannelId.DOWNLOADS, ChannelId.INCOGNITO,
-+            BraveChannelDefinitions.ChannelId.BRAVE_ADS, BraveChannelDefinitions.ChannelId.BRAVE_ADS_BACKGROUND,
++            adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_ADS, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_ADS_BACKGROUND,
              ChannelId.MEDIA_PLAYBACK, ChannelId.SCREEN_CAPTURE, ChannelId.CONTENT_SUGGESTIONS,
              ChannelId.WEBAPP_ACTIONS, ChannelId.SITES, ChannelId.SHARING, ChannelId.UPDATES,
              ChannelId.COMPLETED_DOWNLOADS, ChannelId.PERMISSION_REQUESTS,
@@ -24,7 +24,7 @@ index bc6ad6815cf2f5fe687b871dd8019aa2ec9a785f..c92ca88fae11427fd4111b9e6d4fe729
      }
  
 -    @StringDef({ChannelGroupId.GENERAL, ChannelGroupId.SITES})
-+    @StringDef({BraveChannelDefinitions.ChannelGroupId.BRAVE_ADS, ChannelGroupId.GENERAL, ChannelGroupId.SITES})
++    @StringDef({adrbrowsielChannelDefinitions.ChannelGroupId.adrbrowsiel_ADS, ChannelGroupId.GENERAL, ChannelGroupId.SITES})
      @Retention(RetentionPolicy.SOURCE)
      public @interface ChannelGroupId {
          String SITES = "sites";
@@ -32,7 +32,7 @@ index bc6ad6815cf2f5fe687b871dd8019aa2ec9a785f..c92ca88fae11427fd4111b9e6d4fe729
              Map<String, PredefinedChannel> map = new HashMap<>();
              Set<String> startup = new HashSet<>();
  
-+            BraveChannelDefinitions.addBraveChannels(map, startup);
++            adrbrowsielChannelDefinitions.addadrbrowsielChannels(map, startup);
              map.put(ChannelId.BROWSER,
                      PredefinedChannel.create(ChannelId.BROWSER,
                              R.string.notification_category_browser,
@@ -40,7 +40,7 @@ index bc6ad6815cf2f5fe687b871dd8019aa2ec9a785f..c92ca88fae11427fd4111b9e6d4fe729
          static final Map<String, PredefinedChannelGroup> MAP;
          static {
              Map<String, PredefinedChannelGroup> map = new HashMap<>();
-+            BraveChannelDefinitions.addBraveChannelGroups(map);
++            adrbrowsielChannelDefinitions.addadrbrowsielChannelGroups(map);
              map.put(ChannelGroupId.GENERAL,
                      new PredefinedChannelGroup(
                              ChannelGroupId.GENERAL, R.string.notification_category_group_general));

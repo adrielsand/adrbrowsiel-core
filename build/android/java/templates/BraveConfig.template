@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,23 +6,23 @@
 package org.chromium.chrome.browser;
 
 /**
- *  Brave configuration.
+ *  adrbrowsiel configuration.
  */
-public class BraveConfig {
-#if defined(BRAVE_ANDROID_DEVELOPER_OPTIONS_CODE)
-  public static final String DEVELOPER_OPTIONS_CODE = BRAVE_ANDROID_DEVELOPER_OPTIONS_CODE;
+public class adrbrowsielConfig {
+#if defined(adrbrowsiel_ANDROID_DEVELOPER_OPTIONS_CODE)
+  public static final String DEVELOPER_OPTIONS_CODE = adrbrowsiel_ANDROID_DEVELOPER_OPTIONS_CODE;
 #else
   public static final String DEVELOPER_OPTIONS_CODE = "";
 #endif
 
-#if defined(BRAVE_ANDROID_SYNC_ENABLED)
-  public static final boolean SYNC_ENABLED = BRAVE_ANDROID_SYNC_ENABLED;
+#if defined(adrbrowsiel_ANDROID_SYNC_ENABLED)
+  public static final boolean SYNC_ENABLED = adrbrowsiel_ANDROID_SYNC_ENABLED;
 #else
   public static final boolean SYNC_ENABLED = false;
 #endif
 
-#if defined(BRAVE_ANDROID_P3A_ENABLED)
-public static final boolean P3A_ENABLED = BRAVE_ANDROID_P3A_ENABLED;
+#if defined(adrbrowsiel_ANDROID_P3A_ENABLED)
+public static final boolean P3A_ENABLED = adrbrowsiel_ANDROID_P3A_ENABLED;
 #else
 public static final boolean P3A_ENABLED = false;
 #endif

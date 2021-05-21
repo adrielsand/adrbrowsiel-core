@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,7 +13,7 @@
 #include "third_party/blink/renderer/core/exported/web_view_impl.h"
 #include "third_party/blink/renderer/core/frame/local_dom_window.h"
 #include "third_party/blink/renderer/core/frame/web_local_frame_impl.h"
-#include "third_party/blink/renderer/modules/storage/brave_dom_window_storage.h"
+#include "third_party/blink/renderer/modules/storage/adrbrowsiel_dom_window_storage.h"
 
 namespace blink {
 
@@ -137,37 +137,37 @@ EphemeralStorageNamespaces* EphemeralStorageNamespaces::From(
 }
 
 // static
-const char BraveDOMWindowStorage::kSupplementName[] = "BraveDOMWindowStorage";
+const char adrbrowsielDOMWindowStorage::kSupplementName[] = "adrbrowsielDOMWindowStorage";
 
 // static
-BraveDOMWindowStorage& BraveDOMWindowStorage::From(LocalDOMWindow& window) {
-  BraveDOMWindowStorage* supplement =
-      Supplement<LocalDOMWindow>::From<BraveDOMWindowStorage>(window);
+adrbrowsielDOMWindowStorage& adrbrowsielDOMWindowStorage::From(LocalDOMWindow& window) {
+  adrbrowsielDOMWindowStorage* supplement =
+      Supplement<LocalDOMWindow>::From<adrbrowsielDOMWindowStorage>(window);
   if (!supplement) {
-    supplement = MakeGarbageCollected<BraveDOMWindowStorage>(window);
+    supplement = MakeGarbageCollected<adrbrowsielDOMWindowStorage>(window);
     ProvideTo(window, supplement);
   }
   return *supplement;
 }
 
 // static
-StorageArea* BraveDOMWindowStorage::sessionStorage(
+StorageArea* adrbrowsielDOMWindowStorage::sessionStorage(
     LocalDOMWindow& window,
     ExceptionState& exception_state) {
   return From(window).sessionStorage(exception_state);
 }
 
 // static
-StorageArea* BraveDOMWindowStorage::localStorage(
+StorageArea* adrbrowsielDOMWindowStorage::localStorage(
     LocalDOMWindow& window,
     ExceptionState& exception_state) {
   return From(window).localStorage(exception_state);
 }
 
-BraveDOMWindowStorage::BraveDOMWindowStorage(LocalDOMWindow& window)
+adrbrowsielDOMWindowStorage::adrbrowsielDOMWindowStorage(LocalDOMWindow& window)
     : Supplement<LocalDOMWindow>(window) {}
 
-StorageArea* BraveDOMWindowStorage::sessionStorage(
+StorageArea* adrbrowsielDOMWindowStorage::sessionStorage(
     ExceptionState& exception_state) {
   LocalDOMWindow* window = GetSupplementable();
   auto* storage =
@@ -180,7 +180,7 @@ StorageArea* BraveDOMWindowStorage::sessionStorage(
   return ephemeralSessionStorage();
 }
 
-StorageArea* BraveDOMWindowStorage::ephemeralSessionStorage() {
+StorageArea* adrbrowsielDOMWindowStorage::ephemeralSessionStorage() {
   if (ephemeral_session_storage_)
     return ephemeral_session_storage_;
 
@@ -200,7 +200,7 @@ StorageArea* BraveDOMWindowStorage::ephemeralSessionStorage() {
   return ephemeral_session_storage_;
 }
 
-StorageArea* BraveDOMWindowStorage::localStorage(
+StorageArea* adrbrowsielDOMWindowStorage::localStorage(
     ExceptionState& exception_state) {
   LocalDOMWindow* window = GetSupplementable();
   auto* storage = DOMWindowStorage::From(*window).localStorage(exception_state);
@@ -212,7 +212,7 @@ StorageArea* BraveDOMWindowStorage::localStorage(
   return ephemeralLocalStorage();
 }
 
-StorageArea* BraveDOMWindowStorage::ephemeralLocalStorage() {
+StorageArea* adrbrowsielDOMWindowStorage::ephemeralLocalStorage() {
   if (ephemeral_local_storage_)
     return ephemeral_local_storage_;
 
@@ -239,7 +239,7 @@ StorageArea* BraveDOMWindowStorage::ephemeralLocalStorage() {
   return ephemeral_local_storage_;
 }
 
-void BraveDOMWindowStorage::Trace(Visitor* visitor) const {
+void adrbrowsielDOMWindowStorage::Trace(Visitor* visitor) const {
   visitor->Trace(ephemeral_session_storage_);
   visitor->Trace(ephemeral_local_storage_);
   Supplement<LocalDOMWindow>::Trace(visitor);

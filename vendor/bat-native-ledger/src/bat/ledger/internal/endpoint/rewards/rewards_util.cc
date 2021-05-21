@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,9 +10,9 @@ namespace ledger {
 namespace endpoint {
 namespace rewards {
 
-const char kDevelopment[] = "https://rewards-dev.brave.software";
-const char kStaging[] = "https://rewards-stg.bravesoftware.com";
-const char kProduction[] = "https://rewards.brave.com";
+const char kDevelopment[] = "https://rewards-dev.adrbrowsiel.software";
+const char kStaging[] = "https://rewards-stg.adrbrowsielsoftware.com";
+const char kProduction[] = "https://rewards.adrbrowsiel.com";
 
 std::string GetServerUrl(const std::string& path) {
   DCHECK(!path.empty());

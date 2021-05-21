@@ -1,20 +1,20 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <memory>
 
-#include "brave/browser/extensions/api/rewards_notifications_api.h"
+#include "adrbrowsiel/browser/extensions/api/rewards_notifications_api.h"
 
-#include "brave/common/extensions/api/rewards_notifications.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/common/extensions/api/rewards_notifications.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
 #include "chrome/browser/profiles/profile.h"
 
-using brave_rewards::RewardsNotificationService;
-using brave_rewards::RewardsServiceFactory;
+using adrbrowsiel_rewards::RewardsNotificationService;
+using adrbrowsiel_rewards::RewardsServiceFactory;
 
 namespace extensions {
 namespace api {

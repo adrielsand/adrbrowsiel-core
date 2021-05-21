@@ -6,11 +6,11 @@
 'use strict';
 
 /**
- * 'settings-default-brave-shields-page' is the settings page containing brave's
+ * 'settings-default-adrbrowsiel-shields-page' is the settings page containing adrbrowsiel's
  * default shields.
  */
 Polymer({
-  is: 'settings-default-brave-shields-page',
+  is: 'settings-default-adrbrowsiel-shields-page',
 
   properties: {
     adControlTypes_: {
@@ -54,12 +54,12 @@ Polymer({
     fingerprintingControlType_: String,
   },
 
-  /** @private {?settings.DefaultBraveShieldsBrowserProxy} */
+  /** @private {?settings.DefaultadrbrowsielShieldsBrowserProxy} */
   browserProxy_: null,
 
   /** @override */
   created: function() {
-    this.browserProxy_ = settings.DefaultBraveShieldsBrowserProxyImpl.getInstance();
+    this.browserProxy_ = settings.DefaultadrbrowsielShieldsBrowserProxyImpl.getInstance();
   },
 
   /** @override */

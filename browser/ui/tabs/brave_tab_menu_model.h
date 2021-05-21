@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_TABS_BRAVE_TAB_MENU_MODEL_H_
-#define BRAVE_BROWSER_UI_TABS_BRAVE_TAB_MENU_MODEL_H_
+#ifndef adrbrowsiel_BROWSER_UI_TABS_adrbrowsiel_TAB_MENU_MODEL_H_
+#define adrbrowsiel_BROWSER_UI_TABS_adrbrowsiel_TAB_MENU_MODEL_H_
 
 #include "chrome/browser/ui/tabs/tab_menu_model.h"
 #include "chrome/browser/ui/tabs/tab_strip_model.h"
@@ -17,19 +17,19 @@ namespace sessions {
 class TabRestoreService;
 }  // namespace sessions
 
-class BraveTabMenuModel : public TabMenuModel {
+class adrbrowsielTabMenuModel : public TabMenuModel {
  public:
-  enum BraveTabContextMenuCommand {
+  enum adrbrowsielTabContextMenuCommand {
     CommandStart = TabStripModel::CommandLast,
     CommandRestoreTab,
     CommandBookmarkAllTabs,
     CommandLast,
   };
 
-  BraveTabMenuModel(ui::SimpleMenuModel::Delegate* delegate,
+  adrbrowsielTabMenuModel(ui::SimpleMenuModel::Delegate* delegate,
                     TabStripModel* tab_strip_model,
                     int index);
-  ~BraveTabMenuModel() override;
+  ~adrbrowsielTabMenuModel() override;
 
  private:
   void Build();
@@ -38,7 +38,7 @@ class BraveTabMenuModel : public TabMenuModel {
   content::WebContents* web_contents_;
   sessions::TabRestoreService* restore_service_ = nullptr;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveTabMenuModel);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielTabMenuModel);
 };
 
-#endif  // BRAVE_BROWSER_UI_TABS_BRAVE_TAB_MENU_MODEL_H_
+#endif  // adrbrowsiel_BROWSER_UI_TABS_adrbrowsiel_TAB_MENU_MODEL_H_

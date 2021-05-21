@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,7 +13,7 @@ import androidx.preference.DialogPreference;
 
 import org.chromium.chrome.R;
 
-public class BraveDialogPreference extends DialogPreference {
+public class adrbrowsielDialogPreference extends DialogPreference {
     private CharSequence[] mDialogEntries;
     private String mDialogSubs;
     private int mCheckedIndex;
@@ -22,25 +22,25 @@ public class BraveDialogPreference extends DialogPreference {
         this.mDialogEntries = mDialogEntries;
     }
 
-    public BraveDialogPreference(Context context, AttributeSet attrs) {
+    public adrbrowsielDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setDialogLayoutResource(R.layout.brave_dialog_preference);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.brave_list_preference);
+        setDialogLayoutResource(R.layout.adrbrowsiel_dialog_preference);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.adrbrowsiel_list_preference);
 
         // Sets dialog entries
-        CharSequence[] entries = a.getTextArray(R.styleable.brave_list_preference_dialog_entries);
+        CharSequence[] entries = a.getTextArray(R.styleable.adrbrowsiel_list_preference_dialog_entries);
         if (entries != null) {
             this.setDialogEntries(entries);
         }
 
         // Sets dialog subtitle
-        String subtitle = a.getString(R.styleable.brave_list_preference_dialog_subtitle);
+        String subtitle = a.getString(R.styleable.adrbrowsiel_list_preference_dialog_subtitle);
         if (subtitle != null) {
             this.setDialogSubtitle(subtitle);
         }
 
         // Sets default checked index
-        int defaultChecked = a.getInt(R.styleable.brave_list_preference_dialog_default_index, 1);
+        int defaultChecked = a.getInt(R.styleable.adrbrowsiel_list_preference_dialog_default_index, 1);
         this.setCheckedIndex(defaultChecked);
 
         a.recycle();

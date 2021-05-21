@@ -6,7 +6,7 @@ index 9829059249489c6f6fdd8c176061ce4b4ef6ee2b..00eefd3c2e833412ec8b6e80052771de
    bool AllowScriptFromSource(bool enabled_per_settings,
                               const blink::WebURL& script_url) override;
    bool ShouldAutoupgradeMixedContent() override;
-+  BRAVE_WORKER_CONTENT_SETTINGS_CLIENT_H
++  adrbrowsiel_WORKER_CONTENT_SETTINGS_CLIENT_H
  
   private:
    explicit WorkerContentSettingsClient(

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 The Brave Authors. All rights reserved.
+ * Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -26,12 +26,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveRewardsHelper;
-import org.chromium.chrome.browser.app.BraveActivity;
+import org.chromium.chrome.browser.adrbrowsielRewardsHelper;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
 import org.chromium.chrome.browser.customtabs.CustomTabActivity;
 import org.chromium.chrome.browser.night_mode.GlobalNightModeStateProviderHolder;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
 import org.chromium.chrome.browser.util.PackageUtils;
 
 public class P3aOnboardingActivity extends AppCompatActivity {
@@ -49,7 +49,7 @@ public class P3aOnboardingActivity extends AppCompatActivity {
         CheckBox p3aOnboardingCheckbox = findViewById(R.id.p3a_onboarding_checkbox);
         boolean isP3aEnabled = true;
         try {
-            isP3aEnabled = BravePrefServiceBridge.getInstance().getP3AEnabled();
+            isP3aEnabled = adrbrowsielPrefServiceBridge.getInstance().getP3AEnabled();
         } catch (Exception e) {
             Log.e("P3aOnboarding", e.getMessage());
         }
@@ -59,8 +59,8 @@ public class P3aOnboardingActivity extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         try {
-                            BravePrefServiceBridge.getInstance().setP3AEnabled(isChecked);
-                            BravePrefServiceBridge.getInstance().setP3ANoticeAcknowledged(true);
+                            adrbrowsielPrefServiceBridge.getInstance().setP3AEnabled(isChecked);
+                            adrbrowsielPrefServiceBridge.getInstance().setP3ANoticeAcknowledged(true);
                         } catch (Exception e) {
                             Log.e("P3aOnboarding", e.getMessage());
                         }
@@ -68,7 +68,7 @@ public class P3aOnboardingActivity extends AppCompatActivity {
                 });
         ImageView p3aOnboardingImg = findViewById(R.id.p3a_onboarding_img);
         p3aOnboardingImg.setImageResource(isFirstInstall
-                        ? R.drawable.ic_brave_logo
+                        ? R.drawable.ic_adrbrowsiel_logo
                         : (GlobalNightModeStateProviderHolder.getInstance().isInNightMode()
                                         ? R.drawable.ic_spot_graphic_dark
                                         : R.drawable.ic_spot_graphic));
@@ -79,8 +79,8 @@ public class P3aOnboardingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (PackageUtils.isFirstInstall(P3aOnboardingActivity.this)
                         && !OnboardingPrefManager.getInstance().isNewOnboardingShown()
-                        && BraveActivity.getBraveActivity() != null) {
-                    BraveActivity.getBraveActivity().showOnboardingV2(false);
+                        && adrbrowsielActivity.getadrbrowsielActivity() != null) {
+                    adrbrowsielActivity.getadrbrowsielActivity().showOnboardingV2(false);
                 }
                 OnboardingPrefManager.getInstance().setP3aOnboardingShown(true);
                 OnboardingPrefManager.getInstance().setShowDefaultBrowserModalAfterP3A(true);
@@ -94,14 +94,14 @@ public class P3aOnboardingActivity extends AppCompatActivity {
         int productAnalysisIndex = productAnalysisString.indexOf(
                 getResources().getString(R.string.private_product_analysis_text));
         Spanned productAnalysisSpanned =
-                BraveRewardsHelper.spannedFromHtmlString(productAnalysisString);
+                adrbrowsielRewardsHelper.spannedFromHtmlString(productAnalysisString);
         SpannableString productAnalysisTextSS =
                 new SpannableString(productAnalysisSpanned.toString());
 
         ClickableSpan productAnalysisClickableSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View textView) {
-                CustomTabActivity.showInfoPage(P3aOnboardingActivity.this, BraveActivity.P3A_URL);
+                CustomTabActivity.showInfoPage(P3aOnboardingActivity.this, adrbrowsielActivity.P3A_URL);
             }
             @Override
             public void updateDrawState(@NonNull TextPaint ds) {
@@ -115,7 +115,7 @@ public class P3aOnboardingActivity extends AppCompatActivity {
                         + getResources().getString(R.string.private_product_analysis_text).length(),
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         productAnalysisTextSS.setSpan(
-                new ForegroundColorSpan(getResources().getColor(R.color.brave_blue_tint_color)),
+                new ForegroundColorSpan(getResources().getColor(R.color.adrbrowsiel_blue_tint_color)),
                 productAnalysisIndex,
                 productAnalysisIndex
                         + getResources().getString(R.string.private_product_analysis_text).length(),

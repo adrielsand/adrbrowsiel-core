@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/brave_default_browser_dialog_view.h"
+#include "adrbrowsiel/browser/ui/views/adrbrowsiel_default_browser_dialog_view.h"
 
 #include <utility>
 
 #include "base/bind.h"
 #include "base/memory/scoped_refptr.h"
-#include "brave/browser/ui/browser_dialogs.h"
-#include "brave/common/pref_names.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/ui/browser_dialogs.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/shell_integration.h"
 #include "chrome/browser/ui/browser.h"
@@ -25,15 +25,15 @@
 #include "ui/views/layout/box_layout.h"
 #include "ui/views/layout/layout_provider.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 void ShowDefaultBrowserDialog(Browser* browser) {
   constrained_window::CreateBrowserModalDialogViews(
-      new BraveDefaultBrowserDialogView(), browser->window()->GetNativeWindow())
+      new adrbrowsielDefaultBrowserDialogView(), browser->window()->GetNativeWindow())
       ->Show();
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
 namespace {
 
@@ -59,27 +59,27 @@ class NoSnappedBubbleFrameView : public views::BubbleFrameView {
 
 }  // namespace
 
-BraveDefaultBrowserDialogView::BraveDefaultBrowserDialogView() {
+adrbrowsielDefaultBrowserDialogView::adrbrowsielDefaultBrowserDialogView() {
   SetButtonLabel(ui::DIALOG_BUTTON_OK,
                  l10n_util::GetStringUTF16(
-                     IDS_BRAVE_DEFAULT_BROWSER_DIALOG_OK_BUTTON_LABEL));
+                     IDS_adrbrowsiel_DEFAULT_BROWSER_DIALOG_OK_BUTTON_LABEL));
   SetButtonLabel(ui::DIALOG_BUTTON_CANCEL,
                  l10n_util::GetStringUTF16(
-                     IDS_BRAVE_DEFAULT_BROWSER_DIALOG_CANCEL_BUTTON_LABEL));
+                     IDS_adrbrowsiel_DEFAULT_BROWSER_DIALOG_CANCEL_BUTTON_LABEL));
 
   SetAcceptCallback(
-      base::BindOnce(&BraveDefaultBrowserDialogView::OnAcceptButtonClicked,
+      base::BindOnce(&adrbrowsielDefaultBrowserDialogView::OnAcceptButtonClicked,
                      base::Unretained(this)));
   SetCancelCallback(
-      base::BindOnce(&BraveDefaultBrowserDialogView::OnCancelButtonClicked,
+      base::BindOnce(&adrbrowsielDefaultBrowserDialogView::OnCancelButtonClicked,
                      base::Unretained(this)));
 
   CreateChildViews();
 }
 
-BraveDefaultBrowserDialogView::~BraveDefaultBrowserDialogView() = default;
+adrbrowsielDefaultBrowserDialogView::~adrbrowsielDefaultBrowserDialogView() = default;
 
-void BraveDefaultBrowserDialogView::CreateChildViews() {
+void adrbrowsielDefaultBrowserDialogView::CreateChildViews() {
   constexpr int kChildSpacing = 16;
   constexpr int kBottomPadding = 36;
 
@@ -95,7 +95,7 @@ void BraveDefaultBrowserDialogView::CreateChildViews() {
           .DeriveWithSizeDelta(size_diff)
           .DeriveWithWeight(gfx::Font::Weight::SEMIBOLD)};
   header_label_ = AddChildView(std::make_unique<views::Label>(
-      l10n_util::GetStringUTF16(IDS_BRAVE_DEFAULT_BROWSER_DIALOG_HEADER_TEXT),
+      l10n_util::GetStringUTF16(IDS_adrbrowsiel_DEFAULT_BROWSER_DIALOG_HEADER_TEXT),
       header_font));
   header_label_->SetHorizontalAlignment(gfx::ALIGN_LEFT);
 
@@ -106,18 +106,18 @@ void BraveDefaultBrowserDialogView::CreateChildViews() {
           .DeriveWithSizeDelta(size_diff)
           .DeriveWithWeight(gfx::Font::Weight::NORMAL)};
   contents_label_ = AddChildView(std::make_unique<views::Label>(
-      l10n_util::GetStringUTF16(IDS_BRAVE_DEFAULT_BROWSER_DIALOG_CONTENTS_TEXT),
+      l10n_util::GetStringUTF16(IDS_adrbrowsiel_DEFAULT_BROWSER_DIALOG_CONTENTS_TEXT),
       contents_font));
   contents_label_->SetHorizontalAlignment(gfx::ALIGN_LEFT);
   contents_label_->SetMultiLine(true);
   contents_label_->SetMaximumWidth(350);
 
   dont_ask_again_checkbox_ = AddChildView(std::make_unique<views::Checkbox>(
-      l10n_util::GetStringUTF16(IDS_BRAVE_DEFAULT_BROWSER_DIALOG_DONT_ASK)));
+      l10n_util::GetStringUTF16(IDS_adrbrowsiel_DEFAULT_BROWSER_DIALOG_DONT_ASK)));
 }
 
 std::unique_ptr<views::NonClientFrameView>
-BraveDefaultBrowserDialogView::CreateNonClientFrameView(views::Widget* widget) {
+adrbrowsielDefaultBrowserDialogView::CreateNonClientFrameView(views::Widget* widget) {
   if (!use_custom_frame())
     return DialogDelegateView::CreateNonClientFrameView(widget);
 
@@ -138,24 +138,24 @@ BraveDefaultBrowserDialogView::CreateNonClientFrameView(views::Widget* widget) {
   return frame;
 }
 
-ui::ModalType BraveDefaultBrowserDialogView::GetModalType() const {
+ui::ModalType adrbrowsielDefaultBrowserDialogView::GetModalType() const {
   return ui::MODAL_TYPE_WINDOW;
 }
 
-bool BraveDefaultBrowserDialogView::ShouldShowCloseButton() const {
+bool adrbrowsielDefaultBrowserDialogView::ShouldShowCloseButton() const {
   return false;
 }
 
-void BraveDefaultBrowserDialogView::OnDialogInitialized() {
+void adrbrowsielDefaultBrowserDialogView::OnDialogInitialized() {
   SetButtonRowInsets(gfx::Insets(0, kPadding, kPadding, kPadding));
 }
 
-void BraveDefaultBrowserDialogView::OnCancelButtonClicked() {
+void adrbrowsielDefaultBrowserDialogView::OnCancelButtonClicked() {
   g_browser_process->local_state()->SetBoolean(
       kDefaultBrowserPromptEnabled, !dont_ask_again_checkbox_->GetChecked());
 }
 
-void BraveDefaultBrowserDialogView::OnAcceptButtonClicked() {
+void adrbrowsielDefaultBrowserDialogView::OnAcceptButtonClicked() {
   // The worker pointer is reference counted. While it is running, the
   // message loops of the FILE and UI thread will hold references to it
   // and it will be automatically freed once all its tasks have finished.

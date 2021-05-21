@@ -1,15 +1,15 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_TOOLBAR_WALLET_BUTTON_H_
-#define BRAVE_BROWSER_UI_VIEWS_TOOLBAR_WALLET_BUTTON_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_TOOLBAR_WALLET_BUTTON_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_TOOLBAR_WALLET_BUTTON_H_
 
 #include <memory>
 
 #include "base/time/time.h"
-#include "brave/browser/ui/webui/brave_wallet/wallet_panel_ui.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_wallet/wallet_panel_ui.h"
 #include "chrome/browser/ui/views/bubble/webui_bubble_manager.h"
 #include "chrome/browser/ui/views/toolbar/toolbar_button.h"
 #include "components/prefs/pref_change_registrar.h"
@@ -68,4 +68,4 @@ class WalletButton : public ToolbarButton, public views::WidgetObserver {
       bubble_widget_observation_{this};
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_TOOLBAR_WALLET_BUTTON_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_TOOLBAR_WALLET_BUTTON_H_

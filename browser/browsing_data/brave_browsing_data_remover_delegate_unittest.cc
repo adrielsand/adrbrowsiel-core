@@ -1,18 +1,18 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/browsing_data/brave_browsing_data_remover_delegate.h"
+#include "adrbrowsiel/browser/browsing_data/adrbrowsiel_browsing_data_remover_delegate.h"
 
 #include <memory>
 #include <string>
 #include <utility>
 
 #include "base/bind.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
-#include "brave/components/content_settings/core/browser/brave_content_settings_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
+#include "adrbrowsiel/components/content_settings/core/browser/adrbrowsiel_content_settings_utils.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/test/base/testing_profile.h"
 #include "components/content_settings/core/browser/host_content_settings_map.h"
@@ -21,7 +21,7 @@
 #include "testing/gtest/include/gtest/gtest.h"
 #include "url/gurl.h"
 
-class BraveBrowsingDataRemoverDelegateTest : public testing::Test {
+class adrbrowsielBrowsingDataRemoverDelegateTest : public testing::Test {
  public:
   void SetUp() override {
     profile_ = std::make_unique<TestingProfile>();
@@ -32,8 +32,8 @@ class BraveBrowsingDataRemoverDelegateTest : public testing::Test {
 
   HostContentSettingsMap* map() { return map_.get(); }
 
-  BraveBrowsingDataRemoverDelegate* delegate() {
-    return static_cast<BraveBrowsingDataRemoverDelegate*>(
+  adrbrowsielBrowsingDataRemoverDelegate* delegate() {
+    return static_cast<adrbrowsielBrowsingDataRemoverDelegate*>(
         profile()->GetBrowsingDataRemoverDelegate());
   }
 
@@ -55,20 +55,20 @@ class BraveBrowsingDataRemoverDelegateTest : public testing::Test {
   scoped_refptr<HostContentSettingsMap> map_;
 };
 
-TEST_F(BraveBrowsingDataRemoverDelegateTest, ShieldsSettingsClearTest) {
-  const GURL kBraveURL("https://www.brave.com");
+TEST_F(adrbrowsielBrowsingDataRemoverDelegateTest, ShieldsSettingsClearTest) {
+  const GURL kadrbrowsielURL("https://www.adrbrowsiel.com");
   const GURL kBatURL("https://basicattentiontoken.org");
   const GURL kGoogleURL("https://www.google.com");
   const GURL kAbcURL("https://www.abc.com");
   // Three settings are added.
   map()->SetContentSettingDefaultScope(
-      kBraveURL, GURL(), ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES,
+      kadrbrowsielURL, GURL(), ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES,
       CONTENT_SETTING_ALLOW);
   map()->SetContentSettingDefaultScope(
-      kBatURL, GURL(), ContentSettingsType::BRAVE_FINGERPRINTING_V2,
+      kBatURL, GURL(), ContentSettingsType::adrbrowsiel_FINGERPRINTING_V2,
       CONTENT_SETTING_ALLOW);
   map()->SetContentSettingCustomScope(
-      brave_shields::GetPatternFromURL(kGoogleURL),
+      adrbrowsiel_shields::GetPatternFromURL(kGoogleURL),
       ContentSettingsPattern::Wildcard(), ContentSettingsType::JAVASCRIPT,
       CONTENT_SETTING_BLOCK);
 

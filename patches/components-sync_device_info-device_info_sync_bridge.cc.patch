@@ -6,7 +6,7 @@ index 8216d6e11619d7e0fa07885d45004edbac342f2d..15dec9ae56da802756572fae9522d3ca
          GetSpecificsFieldNumberFromModelType(data_type));
    }
  
-+  BRAVE_MAKE_LOCAL_DEVICE_SPECIFICS
++  adrbrowsiel_MAKE_LOCAL_DEVICE_SPECIFICS
    return specifics;
  }
  

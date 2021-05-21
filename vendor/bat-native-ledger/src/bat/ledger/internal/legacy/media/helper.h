@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_MEDIA_HELPER_H_
-#define BRAVELEDGER_MEDIA_HELPER_H_
+#ifndef adrbrowsielLEDGER_MEDIA_HELPER_H_
+#define adrbrowsielLEDGER_MEDIA_HELPER_H_
 
 #include <functional>
 #include <string>
@@ -12,7 +12,7 @@
 
 #include "base/containers/flat_map.h"
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 std::string GetMediaKey(const std::string& mediaId, const std::string& type);
 
@@ -28,6 +28,6 @@ void GetVimeoParts(
     const std::string& query,
     std::vector<base::flat_map<std::string, std::string>>* parts);
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media
 
-#endif  // BRAVELEDGER_MEDIA_HELPER_H_
+#endif  // adrbrowsielLEDGER_MEDIA_HELPER_H_

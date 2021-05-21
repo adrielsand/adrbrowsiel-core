@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_CONTENT_SETTINGS_BRAVE_GLOBAL_VALUE_MAP_H_
-#define BRAVE_BROWSER_CONTENT_SETTINGS_BRAVE_GLOBAL_VALUE_MAP_H_
+#ifndef adrbrowsiel_BROWSER_CONTENT_SETTINGS_adrbrowsiel_GLOBAL_VALUE_MAP_H_
+#define adrbrowsiel_BROWSER_CONTENT_SETTINGS_adrbrowsiel_GLOBAL_VALUE_MAP_H_
 
 #include <memory>
 
@@ -16,10 +16,10 @@ namespace content_settings {
 
 class RuleIterator;
 
-class BraveGlobalValueMap : public GlobalValueMap {
+class adrbrowsielGlobalValueMap : public GlobalValueMap {
  public:
-  BraveGlobalValueMap();
-  ~BraveGlobalValueMap();
+  adrbrowsielGlobalValueMap();
+  ~adrbrowsielGlobalValueMap();
 
   // Returns nullptr to indicate the RuleIterator is empty.
   std::unique_ptr<RuleIterator> GetRuleIterator(
@@ -29,9 +29,9 @@ class BraveGlobalValueMap : public GlobalValueMap {
   ContentSetting GetContentSetting(ContentSettingsType content_type) const;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveGlobalValueMap);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielGlobalValueMap);
 };
 
 }  // namespace content_settings
 
-#endif  // BRAVE_BROWSER_CONTENT_SETTINGS_BRAVE_GLOBAL_VALUE_MAP_H_
+#endif  // adrbrowsiel_BROWSER_CONTENT_SETTINGS_adrbrowsiel_GLOBAL_VALUE_MAP_H_

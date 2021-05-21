@@ -2,12 +2,12 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/common/brave_channel_info_posix.h"
+#include "adrbrowsiel/common/adrbrowsiel_channel_info_posix.h"
 
 #include "base/strings/string_util.h"
 #include "build/build_config.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 version_info::Channel GetChannelImpl(std::string* modifier_out,
                                      std::string* data_dir_suffix_out) {
@@ -21,17 +21,17 @@ version_info::Channel GetChannelImpl(std::string* modifier_out,
     modifier = env;
 
   if (modifier == LINUX_CHANNEL_DEV)
-    modifier = BRAVE_LINUX_CHANNEL_DEV;
+    modifier = adrbrowsiel_LINUX_CHANNEL_DEV;
   if (modifier == LINUX_CHANNEL_STABLE) {
     channel = version_info::Channel::STABLE;
-    modifier = BRAVE_LINUX_CHANNEL_STABLE;
-  } else if (modifier == BRAVE_LINUX_CHANNEL_DEV) {
+    modifier = adrbrowsiel_LINUX_CHANNEL_STABLE;
+  } else if (modifier == adrbrowsiel_LINUX_CHANNEL_DEV) {
     channel = version_info::Channel::DEV;
     data_dir_suffix = "-Dev";
   } else if (modifier == LINUX_CHANNEL_BETA) {
     channel = version_info::Channel::BETA;
     data_dir_suffix = "-Beta";
-  } else if (modifier == BRAVE_LINUX_CHANNEL_NIGHTLY) {
+  } else if (modifier == adrbrowsiel_LINUX_CHANNEL_NIGHTLY) {
     channel = version_info::Channel::CANARY;
     data_dir_suffix = "-Nightly";
   } else {
@@ -49,4 +49,4 @@ version_info::Channel GetChannelImpl(std::string* modifier_out,
   return channel;
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

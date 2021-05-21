@@ -4,15 +4,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import "BATBraveAds.h"
-#import "BATBraveLedger.h"
+#import "BATadrbrowsielAds.h"
+#import "BATadrbrowsielLedger.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// Configuration around brave rewards for ads & ledger
+/// Configuration around adrbrowsiel rewards for ads & ledger
 OBJC_EXPORT
-NS_SWIFT_NAME(BraveRewardsConfiguration)
-@interface BATBraveRewardsConfiguration : NSObject <NSCopying>
+NS_SWIFT_NAME(adrbrowsielRewardsConfiguration)
+@interface BATadrbrowsielRewardsConfiguration : NSObject <NSCopying>
 
 /// Whether or not rewards is being tested
 @property (nonatomic, getter=isTesting) BOOL testing;
@@ -20,7 +20,7 @@ NS_SWIFT_NAME(BraveRewardsConfiguration)
 /// The rewards environment
 @property (nonatomic) BATEnvironment environment;
 /// The rewards build channel
-@property (nonatomic, nullable) BATBraveAdsBuildChannel *buildChannel;
+@property (nonatomic, nullable) BATadrbrowsielAdsBuildChannel *buildChannel;
 /// Where ledger and ads should save their state
 @property (nonatomic, copy) NSString *stateStoragePath;
 /// The number of seconds between overrides. Defaults to 0 (no override) which means reconciles
@@ -32,26 +32,26 @@ NS_SWIFT_NAME(BraveRewardsConfiguration)
 /// The default configuration. Environment is dev, no changes to ads or ledger configuration
 ///
 /// State is stored in Application Support
-@property (nonatomic, class, readonly) BATBraveRewardsConfiguration *defaultConfiguration NS_SWIFT_NAME(default);
+@property (nonatomic, class, readonly) BATadrbrowsielRewardsConfiguration *defaultConfiguration NS_SWIFT_NAME(default);
 /// The staging configuration. Environment is staging, no changes to ads or ledger configuration
 ///
 /// State is stored in Application Support
-@property (nonatomic, class, readonly) BATBraveRewardsConfiguration *stagingConfiguration NS_SWIFT_NAME(staging);
+@property (nonatomic, class, readonly) BATadrbrowsielRewardsConfiguration *stagingConfiguration NS_SWIFT_NAME(staging);
 /// The production configuration. Environment is production, no changes to ads or ledger configuration
 ///
 /// State is stored in Application Support
-@property (nonatomic, class, readonly) BATBraveRewardsConfiguration *productionConfiguration NS_SWIFT_NAME(production);
+@property (nonatomic, class, readonly) BATadrbrowsielRewardsConfiguration *productionConfiguration NS_SWIFT_NAME(production);
 /// The testing configuration. Environment is development & is_testing is set to true. Short retries are enabled,
 /// number of seconds between reconciles is set to 30 seconds instead of 30 days.
 ///
 /// State is saved to a directory created in /tmp
-@property (nonatomic, class, readonly) BATBraveRewardsConfiguration *testingConfiguration NS_SWIFT_NAME(testing);
+@property (nonatomic, class, readonly) BATadrbrowsielRewardsConfiguration *testingConfiguration NS_SWIFT_NAME(testing);
 
 @end
 
 OBJC_EXPORT
-NS_SWIFT_NAME(BraveRewardsDelegate)
-@protocol BATBraveRewardsDelegate <NSObject>
+NS_SWIFT_NAME(adrbrowsielRewardsDelegate)
+@protocol BATadrbrowsielRewardsDelegate <NSObject>
 @required
 
 - (void)logMessageWithFilename:(NSString *)file
@@ -60,7 +60,7 @@ NS_SWIFT_NAME(BraveRewardsDelegate)
                        message:(NSString *)message;
 
 /// A notification that the ledger service did start
-- (void)ledgerServiceDidStart:(BATBraveLedger *)ledger;
+- (void)ledgerServiceDidStart:(BATadrbrowsielLedger *)ledger;
 
 /// Obtain the favicon URL given some page's URL. The client can then choose
 /// to download said favicon and cache it for later when `retrieveFavicon` is
@@ -72,26 +72,26 @@ NS_SWIFT_NAME(BraveRewardsDelegate)
 
 @end
 
-/// A container for handling Brave Rewards. Use `ads` to handle how many ads the users see,
+/// A container for handling adrbrowsiel Rewards. Use `ads` to handle how many ads the users see,
 /// when to display them. Use `ledger` to manage interactions between the users wallet & publishers
 OBJC_EXPORT
-NS_SWIFT_NAME(BraveRewards)
-@interface BATBraveRewards : NSObject
+NS_SWIFT_NAME(adrbrowsielRewards)
+@interface BATadrbrowsielRewards : NSObject
 
-@property (nonatomic, readonly) BATBraveAds *ads;
-/// Whether or not Brave Ads is enabled
+@property (nonatomic, readonly) BATadrbrowsielAds *ads;
+/// Whether or not adrbrowsiel Ads is enabled
 @property (nonatomic, assign, getter=isAdsEnabled) BOOL adsEnabled;
-@property (nonatomic, readonly, nullable) BATBraveLedger *ledger;
-@property (nonatomic, weak) id<BATBraveRewardsDelegate> delegate;
+@property (nonatomic, readonly, nullable) BATadrbrowsielLedger *ledger;
+@property (nonatomic, weak) id<BATadrbrowsielRewardsDelegate> delegate;
 
 /// Resets the ads & ledger (by purging its data). This should likely never be used in production.
 - (void)reset;
 
-/// Create a BraveRewards instance with a given configuration
-- (instancetype)initWithConfiguration:(BATBraveRewardsConfiguration *)configuration;
-/// Create a BraveRewards instance with a given configuration and custom ledger classes for mocking
-- (instancetype)initWithConfiguration:(BATBraveRewardsConfiguration *)configuration
-                             delegate:(nullable id<BATBraveRewardsDelegate>)delegate
+/// Create a adrbrowsielRewards instance with a given configuration
+- (instancetype)initWithConfiguration:(BATadrbrowsielRewardsConfiguration *)configuration;
+/// Create a adrbrowsielRewards instance with a given configuration and custom ledger classes for mocking
+- (instancetype)initWithConfiguration:(BATadrbrowsielRewardsConfiguration *)configuration
+                             delegate:(nullable id<BATadrbrowsielRewardsDelegate>)delegate
                           ledgerClass:(nullable Class)ledgerClass
                              adsClass:(nullable Class)adsClass NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
@@ -103,7 +103,7 @@ NS_SWIFT_NAME(BraveRewards)
 @end
 
 OBJC_EXPORT
-@interface BATBraveRewards (Reporting)
+@interface BATadrbrowsielRewards (Reporting)
 
 /// Report that a tab with a given id was updated
 - (void)reportTabUpdated:(NSInteger)tabId

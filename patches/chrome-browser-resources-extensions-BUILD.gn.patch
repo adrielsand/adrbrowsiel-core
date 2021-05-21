@@ -6,7 +6,7 @@ index 84fb44123917cbd91b80e16c6ad632fced584d30..b029a86b499d2298bb823c0dfc53ca35
        "../../../../ui/webui/resources:preprocess",
      ]
      excludes = [ "chrome://resources/js/cr.m.js" ]
-+    deps += brave_deps_chrome_browser_resources_extensions_build
++    deps += adrbrowsiel_deps_chrome_browser_resources_extensions_build
    }
  }
  
@@ -14,7 +14,7 @@ index 84fb44123917cbd91b80e16c6ad632fced584d30..b029a86b499d2298bb823c0dfc53ca35
        "$target_gen_dir/$preprocess_gen_manifest",
      ]
    }
-+  deps += [ "//brave/browser/resources/extensions:resources" ]
++  deps += [ "//adrbrowsiel/browser/resources/extensions:resources" ]
  }
  
  preprocess_if_expr("preprocess") {

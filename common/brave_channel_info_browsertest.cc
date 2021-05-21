@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,9 +9,9 @@
 #include "components/version_info/channel.h"
 #include "content/public/test/browser_test.h"
 
-using BraveChannelInfoBrowserTest = InProcessBrowserTest;
+using adrbrowsielChannelInfoBrowserTest = InProcessBrowserTest;
 
-IN_PROC_BROWSER_TEST_F(BraveChannelInfoBrowserTest, DefaultChannelTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielChannelInfoBrowserTest, DefaultChannelTest) {
 #if defined(OFFICIAL_BUILD)
 #if defined(OS_LINUX)
   // Set channel info explicitly to test. Linux uses this env vars to determine

@@ -1,12 +1,12 @@
 <style include="settings-shared md-select">
 </style>
 <div class="settings-box first">
-  <div class="start">$i18n{appearanceSettingsBraveTheme}</div>
-  <select id="braveThemeType" class="md-select"
-      on-change="onBraveThemeTypeChange_">
-    <template is="dom-repeat" items="[[braveThemeList_]]">
+  <div class="start">$i18n{appearanceSettingsadrbrowsielTheme}</div>
+  <select id="adrbrowsielThemeType" class="md-select"
+      on-change="onadrbrowsielThemeTypeChange_">
+    <template is="dom-repeat" items="[[adrbrowsielThemeList_]]">
       <option value="[[item.value]]"
-          selected="[[braveThemeTypeEqual_(item.value, braveThemeType_)]]">
+          selected="[[adrbrowsielThemeTypeEqual_(item.value, adrbrowsielThemeType_)]]">
         [[item.name]]
       </option>
     </template>

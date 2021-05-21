@@ -1,24 +1,24 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_BROWSER_TAB_STRIP_CONTROLLER_H_
-#define BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_BROWSER_TAB_STRIP_CONTROLLER_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_BROWSER_TAB_STRIP_CONTROLLER_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_BROWSER_TAB_STRIP_CONTROLLER_H_
 
 #include <memory>
 
 #include "chrome/browser/ui/views/tabs/browser_tab_strip_controller.h"
 
-class BraveTabContextMenuContents;
+class adrbrowsielTabContextMenuContents;
 
-class BraveBrowserTabStripController : public BrowserTabStripController {
+class adrbrowsielBrowserTabStripController : public BrowserTabStripController {
  public:
-  BraveBrowserTabStripController(TabStripModel* model,
+  adrbrowsielBrowserTabStripController(TabStripModel* model,
                                  BrowserView* browser_view,
                                  std::unique_ptr<TabMenuModelFactory>
                                      menu_model_factory_override = nullptr);
-  ~BraveBrowserTabStripController() override;
+  ~adrbrowsielBrowserTabStripController() override;
 
   // BrowserTabStripController overrides:
   void ShowContextMenuForTab(Tab* tab,
@@ -27,9 +27,9 @@ class BraveBrowserTabStripController : public BrowserTabStripController {
 
  private:
   // If non-NULL it means we're showing a menu for the tab.
-  std::unique_ptr<BraveTabContextMenuContents> context_menu_contents_;
+  std::unique_ptr<adrbrowsielTabContextMenuContents> context_menu_contents_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveBrowserTabStripController);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielBrowserTabStripController);
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_BROWSER_TAB_STRIP_CONTROLLER_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_BROWSER_TAB_STRIP_CONTROLLER_H_

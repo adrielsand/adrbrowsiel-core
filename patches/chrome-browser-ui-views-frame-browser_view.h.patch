@@ -6,7 +6,7 @@ index 59ddc0ac10f942dd60a71f5d99cf7a024ddf4e9e..51110e5f3b48fa2a55046a236dd82ddf
      return accessibility_focus_highlight_.get();
    }
  
-+  BRAVE_BROWSER_VIEW_H
++  adrbrowsiel_BROWSER_VIEW_H
   private:
    // Do not friend BrowserViewLayout. Use the BrowserViewLayoutDelegate
    // interface to keep these two classes decoupled and testable.

@@ -6,7 +6,7 @@ index dc5dacc02b67d4f53b4c8348e64846d22e157eb3..96b9f271730dae3c56c23d7e7f4cfd09
      EMPTY_BODY_IF_DCHECK_IS_OFF;
  
  class BASE_EXPORT ScopedAllowBaseSyncPrimitives {
-+  BRAVE_SCOPED_ALLOW_BASE_SYNC_PRIMITIVES_H
++  adrbrowsiel_SCOPED_ALLOW_BASE_SYNC_PRIMITIVES_H
   private:
    // This can only be instantiated by friends. Use
    // ScopedAllowBaseSyncPrimitivesForTesting in unit tests to avoid the friend

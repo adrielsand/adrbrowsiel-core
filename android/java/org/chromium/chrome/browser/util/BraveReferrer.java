@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -23,31 +23,31 @@ import org.chromium.base.Log;
 import org.chromium.base.task.PostTask;
 import org.chromium.base.task.TaskTraits;
 
-public class BraveReferrer implements InstallReferrerStateListener {
-    private static final String TAG = "BraveReferrer";
+public class adrbrowsielReferrer implements InstallReferrerStateListener {
+    private static final String TAG = "adrbrowsielReferrer";
     private static final String APP_CHROME_DIR = "app_chrome";
     private static final String PROMO_CODE_FILE_NAME = "promoCode";
-    private static final String BRAVE_REFERRER_RECEIVED = "brave_referrer_received";
+    private static final String adrbrowsiel_REFERRER_RECEIVED = "adrbrowsiel_referrer_received";
 
     private String promoCodeFilePath;
     private InstallReferrerClient referrerClient;
 
-    private static BraveReferrer sInstance;
+    private static adrbrowsielReferrer sInstance;
 
-    private BraveReferrer() {}
+    private adrbrowsielReferrer() {}
 
-    public static BraveReferrer getInstance() {
+    public static adrbrowsielReferrer getInstance() {
         if (sInstance != null) return sInstance;
-        sInstance = new BraveReferrer();
+        sInstance = new adrbrowsielReferrer();
         return sInstance;
     }
 
     private class InitReferrerRunnable implements Runnable {
         private Context mContext;
-        private BraveReferrer mBraveReferrer;
-        public InitReferrerRunnable(Context context, BraveReferrer braveReferrer) {
+        private adrbrowsielReferrer madrbrowsielReferrer;
+        public InitReferrerRunnable(Context context, adrbrowsielReferrer adrbrowsielReferrer) {
           mContext = context;
-          mBraveReferrer = braveReferrer;
+          madrbrowsielReferrer = adrbrowsielReferrer;
         }
 
         @Override
@@ -55,13 +55,13 @@ public class BraveReferrer implements InstallReferrerStateListener {
             promoCodeFilePath = mContext.getApplicationInfo().dataDir +
                     File.separator + APP_CHROME_DIR + File.separator + PROMO_CODE_FILE_NAME;
             SharedPreferences sharedPref = ContextUtils.getAppSharedPreferences();
-            if (!sharedPref.getBoolean(BRAVE_REFERRER_RECEIVED, false) &&
+            if (!sharedPref.getBoolean(adrbrowsiel_REFERRER_RECEIVED, false) &&
                 PackageUtils.isFirstInstall(mContext)) {
                 referrerClient = InstallReferrerClient.newBuilder(mContext).build();
                 // This seems to be known issue, for now just wrapping it into try/catch block
                 // https://issuetracker.google.com/issues/72926755
                 try {
-                    referrerClient.startConnection(mBraveReferrer);
+                    referrerClient.startConnection(madrbrowsielReferrer);
                 } catch (SecurityException e) {
                     Log.e(TAG, "Unable to start connection for referrer client: " + e);
                 }
@@ -117,7 +117,7 @@ public class BraveReferrer implements InstallReferrerStateListener {
                     // Set flag to not repeat this procedure
                     SharedPreferences sharedPref = ContextUtils.getAppSharedPreferences();
                     SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putBoolean(BRAVE_REFERRER_RECEIVED, true);
+                    editor.putBoolean(adrbrowsiel_REFERRER_RECEIVED, true);
                     editor.apply();
                 } catch (RemoteException e) {
                     Log.e(TAG, "Could not get referral: " + e.getMessage());

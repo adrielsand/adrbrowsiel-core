@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,7 +13,7 @@
 #include "bat/ads/internal/bundle/creative_ad_info.h"
 #include "bat/ads/internal/locale/subdivision_code_util.h"
 #include "bat/ads/internal/logging.h"
-#include "brave/components/l10n/browser/locale_helper.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper.h"
 
 namespace ads {
 
@@ -87,7 +87,7 @@ std::string SubdivisionTargetingFrequencyCap::get_last_message() const {
 bool SubdivisionTargetingFrequencyCap::DoesRespectCap(
     const CreativeAdInfo& ad) {
   const std::string locale =
-      brave_l10n::LocaleHelper::GetInstance()->GetLocale();
+      adrbrowsiel_l10n::LocaleHelper::GetInstance()->GetLocale();
 
   if (!subdivision_targeting_->ShouldAllowForLocale(locale)) {
     return !DoesAdTargetSubdivision(ad);

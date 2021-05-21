@@ -6,8 +6,8 @@ index d4e2ce7eb5231574962e57e6e3fb8ee7115a21bf..77ab1a0f57b235e6a3765dd8bf79ee26
      # First look up the processed Chromium config.
      from .chromium_config import ChromiumCodeSignConfig
      config_class = ChromiumCodeSignConfig
-+    from signing_helper import GetBraveSigningConfig
-+    config_class = GetBraveSigningConfig(config_class)
++    from signing_helper import GetadrbrowsielSigningConfig
++    config_class = GetadrbrowsielSigningConfig(config_class)
  
      # Then search for the internal config for Google Chrome.
      try:

@@ -6,7 +6,7 @@ index 9153f5f5d9ecfec33cebc12cc018902f73d7fada..9315feebbd32b30180873212f98b56eb
  
      # Remove unneeded entries from material design values.xml files.
      resource_values_filter_rules = [ "${_material_package}:[Tt]oolbarLayout" ]
-+    resource_exclusion_exceptions += brave_resources_exclusion_exceptions
++    resource_exclusion_exceptions += adrbrowsiel_resources_exclusion_exceptions
  
      if (!_is_monochrome) {
        product_config_java_packages = [ "org.chromium.chrome.browser" ]
@@ -14,7 +14,7 @@ index 9153f5f5d9ecfec33cebc12cc018902f73d7fada..9315feebbd32b30180873212f98b56eb
        if (!defined(proguard_configs)) {
          proguard_configs = []
        }
-+      proguard_configs += ["//brave/android/java/proguard.flags",]
++      proguard_configs += ["//adrbrowsiel/android/java/proguard.flags",]
        proguard_configs += [
          "//chrome/android/proguard/main.flags",
          "//base/android/proguard/chromium_apk.flags",

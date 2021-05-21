@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <string>
 
-#include "brave/browser/net/brave_system_request_handler.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_system_request_handler.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/net/system_network_context_manager.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -19,7 +19,7 @@
 #include "net/traffic_annotation/network_traffic_annotation_test_helper.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// Test to check if key is added for brave apis
+// Test to check if key is added for adrbrowsiel apis
 class SystemNetworkContextManagerBrowsertest : public InProcessBrowserTest {
  public:
   SystemNetworkContextManagerBrowsertest()
@@ -65,7 +65,7 @@ class SystemNetworkContextManagerBrowsertest : public InProcessBrowserTest {
 
  private:
   void MonitorResourceRequest(const net::test_server::HttpRequest& request) {
-    service_key_present_ = request.headers.count(kBraveServicesKeyHeader) > 0;
+    service_key_present_ = request.headers.count(kadrbrowsielServicesKeyHeader) > 0;
   }
 
   bool service_key_present_ = false;
@@ -74,9 +74,9 @@ class SystemNetworkContextManagerBrowsertest : public InProcessBrowserTest {
 };
 
 IN_PROC_BROWSER_TEST_F(SystemNetworkContextManagerBrowsertest,
-                       CheckForBraveServiceKey) {
-  EXPECT_TRUE(LoadURL("demo.brave.com"));
-  EXPECT_TRUE(LoadURL("demo.bravesoftware.com"));
-  EXPECT_FALSE(LoadURL("brave.demo.com"));
+                       CheckForadrbrowsielServiceKey) {
+  EXPECT_TRUE(LoadURL("demo.adrbrowsiel.com"));
+  EXPECT_TRUE(LoadURL("demo.adrbrowsielsoftware.com"));
+  EXPECT_FALSE(LoadURL("adrbrowsiel.demo.com"));
   EXPECT_FALSE(LoadURL("randomdomain.com"));
 }

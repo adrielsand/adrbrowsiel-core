@@ -6,7 +6,7 @@ index f5f55e59b07825d7ab26d9033ea1681f66457138..4c71a2fe59ad032eb6fe6fee61d8b69e
        const blink::WebFrame* frame,
        const blink::WebURL& secondary_url);
  
-+  BRAVE_CONTENT_SETTINGS_AGENT_IMPL_H_
++  adrbrowsiel_CONTENT_SETTINGS_AGENT_IMPL_H_
   protected:
    // Allow this to be overridden by tests.
    virtual void BindContentSettingsManager(

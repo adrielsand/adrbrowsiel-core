@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -26,7 +26,7 @@ const char kUpholdDestinationStaging[] =
 const char kUpholdDestinationProduction[] =
     "5d4be2ad-1c65-4802-bea1-e0f3a3a487cb";
 
-std::string GetBraveDestination(const std::string& wallet_type) {
+std::string GetadrbrowsielDestination(const std::string& wallet_type) {
   if (wallet_type == constant::kWalletUphold) {
     return GetUpholdDestination();
   }

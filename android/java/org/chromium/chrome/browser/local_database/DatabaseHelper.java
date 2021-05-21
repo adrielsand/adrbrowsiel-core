@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
 
     // Database Name
-    private static final String DATABASE_NAME = "brave_db";
+    private static final String DATABASE_NAME = "adrbrowsiel_db";
 
     public static DatabaseHelper getInstance() {
         synchronized (DatabaseHelper.class) {
@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // create notes table
         db.execSQL(TopSiteTable.CREATE_TABLE);
-        db.execSQL(BraveStatsTable.CREATE_TABLE);
+        db.execSQL(adrbrowsielStatsTable.CREATE_TABLE);
         db.execSQL(SavedBandwidthTable.CREATE_TABLE);
     }
 
@@ -133,29 +133,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                   new String[] {destinationUrl});
     }
 
-    public long insertStats(BraveStatsTable braveStat) {
-        // if (!isAdsTrackerAlreadyAdded(braveStat)) {
+    public long insertStats(adrbrowsielStatsTable adrbrowsielStat) {
+        // if (!isAdsTrackerAlreadyAdded(adrbrowsielStat)) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(BraveStatsTable.COLUMN_URL, braveStat.getUrl());
-        values.put(BraveStatsTable.COLUMN_DOMAIN, braveStat.getDomain());
-        values.put(BraveStatsTable.COLUMN_STAT_TYPE, braveStat.getStatType());
-        values.put(BraveStatsTable.COLUMN_STAT_SITE, braveStat.getStatSite());
-        values.put(BraveStatsTable.COLUMN_STAT_SITE_DOMAIN, braveStat.getStatSiteDomain());
-        values.put(BraveStatsTable.COLUMN_TIMESTAMP, braveStat.getTimestamp());
+        values.put(adrbrowsielStatsTable.COLUMN_URL, adrbrowsielStat.getUrl());
+        values.put(adrbrowsielStatsTable.COLUMN_DOMAIN, adrbrowsielStat.getDomain());
+        values.put(adrbrowsielStatsTable.COLUMN_STAT_TYPE, adrbrowsielStat.getStatType());
+        values.put(adrbrowsielStatsTable.COLUMN_STAT_SITE, adrbrowsielStat.getStatSite());
+        values.put(adrbrowsielStatsTable.COLUMN_STAT_SITE_DOMAIN, adrbrowsielStat.getStatSiteDomain());
+        values.put(adrbrowsielStatsTable.COLUMN_TIMESTAMP, adrbrowsielStat.getTimestamp());
 
-        return  db.insert(BraveStatsTable.TABLE_NAME, null, values);
+        return  db.insert(adrbrowsielStatsTable.TABLE_NAME, null, values);
         // }
         // return -1;
     }
 
-    private boolean isAdsTrackerAlreadyAdded(BraveStatsTable braveStat) {
+    private boolean isAdsTrackerAlreadyAdded(adrbrowsielStatsTable adrbrowsielStat) {
 
         String sql = "SELECT * FROM "
-                     + BraveStatsTable.TABLE_NAME
-                     + " WHERE " + BraveStatsTable.COLUMN_STAT_SITE + " = '" + braveStat.getStatSite() + "'"
-                     + " AND " + BraveStatsTable.COLUMN_URL + " = '" + braveStat.getUrl() + "'";
+                     + adrbrowsielStatsTable.TABLE_NAME
+                     + " WHERE " + adrbrowsielStatsTable.COLUMN_STAT_SITE + " = '" + adrbrowsielStat.getStatSite() + "'"
+                     + " AND " + adrbrowsielStatsTable.COLUMN_URL + " = '" + adrbrowsielStat.getUrl() + "'";
 
         Log.e("NTP", sql);
 
@@ -168,12 +168,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count > 0;
     }
 
-    public List<BraveStatsTable> getAllStats() {
-        List<BraveStatsTable> braveStats = new ArrayList<>();
+    public List<adrbrowsielStatsTable> getAllStats() {
+        List<adrbrowsielStatsTable> adrbrowsielStats = new ArrayList<>();
 
         // Select All Query
         String selectQuery = "SELECT  * FROM "
-                             + BraveStatsTable.TABLE_NAME;
+                             + adrbrowsielStatsTable.TABLE_NAME;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -181,29 +181,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                BraveStatsTable braveStat = new BraveStatsTable(
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_URL)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_DOMAIN)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_STAT_TYPE)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_STAT_SITE)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_STAT_SITE_DOMAIN)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_TIMESTAMP)));
+                adrbrowsielStatsTable adrbrowsielStat = new adrbrowsielStatsTable(
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_URL)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_DOMAIN)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_STAT_TYPE)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_STAT_SITE)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_STAT_SITE_DOMAIN)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_TIMESTAMP)));
 
-                braveStats.add(braveStat);
+                adrbrowsielStats.add(adrbrowsielStat);
             } while (cursor.moveToNext());
         }
 
         cursor.close();
 
-        return braveStats;
+        return adrbrowsielStats;
     }
 
-    public List<BraveStatsTable> getAllStatsWithDate(String thresholdTime, String currentTime) {
-        List<BraveStatsTable> braveStats = new ArrayList<>();
+    public List<adrbrowsielStatsTable> getAllStatsWithDate(String thresholdTime, String currentTime) {
+        List<adrbrowsielStatsTable> adrbrowsielStats = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM "
-                             + BraveStatsTable.TABLE_NAME
-                             + " WHERE " + BraveStatsTable.COLUMN_TIMESTAMP
+                             + adrbrowsielStatsTable.TABLE_NAME
+                             + " WHERE " + adrbrowsielStatsTable.COLUMN_TIMESTAMP
                              + " BETWEEN date('" + thresholdTime + "') AND date('" + currentTime + "')";
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -212,31 +212,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                BraveStatsTable braveStat = new BraveStatsTable(
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_URL)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_DOMAIN)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_STAT_TYPE)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_STAT_SITE)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_STAT_SITE_DOMAIN)),
-                    cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_TIMESTAMP)));
+                adrbrowsielStatsTable adrbrowsielStat = new adrbrowsielStatsTable(
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_URL)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_DOMAIN)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_STAT_TYPE)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_STAT_SITE)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_STAT_SITE_DOMAIN)),
+                    cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_TIMESTAMP)));
 
-                braveStats.add(braveStat);
+                adrbrowsielStats.add(adrbrowsielStat);
             } while (cursor.moveToNext());
         }
 
         cursor.close();
 
-        return braveStats;
+        return adrbrowsielStats;
     }
 
     public List<Pair<String, Integer>> getStatsWithDate(String thresholdTime, String currentTime) {
-        List<Pair<String, Integer>> braveStats = new ArrayList<>();
+        List<Pair<String, Integer>> adrbrowsielStats = new ArrayList<>();
 
-        String selectQuery = "SELECT  " + BraveStatsTable.COLUMN_DOMAIN + ", " + BraveStatsTable.COLUMN_TIMESTAMP + " , COUNT(*) as stat_count FROM "
-                             + BraveStatsTable.TABLE_NAME
-                             + " WHERE " + BraveStatsTable.COLUMN_TIMESTAMP
+        String selectQuery = "SELECT  " + adrbrowsielStatsTable.COLUMN_DOMAIN + ", " + adrbrowsielStatsTable.COLUMN_TIMESTAMP + " , COUNT(*) as stat_count FROM "
+                             + adrbrowsielStatsTable.TABLE_NAME
+                             + " WHERE " + adrbrowsielStatsTable.COLUMN_TIMESTAMP
                              + " BETWEEN date('" + thresholdTime + "') AND date('" + currentTime + "')"
-                             + " GROUP BY " + BraveStatsTable.COLUMN_DOMAIN
+                             + " GROUP BY " + adrbrowsielStatsTable.COLUMN_DOMAIN
                              + " ORDER BY stat_count DESC";
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -244,24 +244,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                Pair<String, Integer> statPair = new Pair<>(cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_DOMAIN)), cursor.getInt(cursor.getColumnIndex("stat_count")));
-                braveStats.add(statPair);
+                Pair<String, Integer> statPair = new Pair<>(cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_DOMAIN)), cursor.getInt(cursor.getColumnIndex("stat_count")));
+                adrbrowsielStats.add(statPair);
             } while (cursor.moveToNext());
         }
 
         cursor.close();
 
-        return braveStats;
+        return adrbrowsielStats;
     }
 
     public List<Pair<String, Integer>> getSitesWithDate(String thresholdTime, String currentTime) {
-        List<Pair<String, Integer>> braveStats = new ArrayList<>();
+        List<Pair<String, Integer>> adrbrowsielStats = new ArrayList<>();
         // Select All Query
-        String selectQuery = "SELECT  " + BraveStatsTable.COLUMN_STAT_SITE_DOMAIN + ", COUNT(*) as site_count FROM "
-                             + BraveStatsTable.TABLE_NAME
-                             + " WHERE " + BraveStatsTable.COLUMN_TIMESTAMP
+        String selectQuery = "SELECT  " + adrbrowsielStatsTable.COLUMN_STAT_SITE_DOMAIN + ", COUNT(*) as site_count FROM "
+                             + adrbrowsielStatsTable.TABLE_NAME
+                             + " WHERE " + adrbrowsielStatsTable.COLUMN_TIMESTAMP
                              + " BETWEEN date('" + thresholdTime + "') AND date('" + currentTime + "')"
-                             + " GROUP BY " + BraveStatsTable.COLUMN_STAT_SITE_DOMAIN
+                             + " GROUP BY " + adrbrowsielStatsTable.COLUMN_STAT_SITE_DOMAIN
                              + " ORDER BY site_count DESC";
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -270,18 +270,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Pair<String, Integer> statPair = new Pair<>(cursor.getString(cursor.getColumnIndex(BraveStatsTable.COLUMN_STAT_SITE_DOMAIN)), cursor.getInt(cursor.getColumnIndex("site_count")));
-                braveStats.add(statPair);
+                Pair<String, Integer> statPair = new Pair<>(cursor.getString(cursor.getColumnIndex(adrbrowsielStatsTable.COLUMN_STAT_SITE_DOMAIN)), cursor.getInt(cursor.getColumnIndex("site_count")));
+                adrbrowsielStats.add(statPair);
             } while (cursor.moveToNext());
         }
 
         cursor.close();
 
-        return braveStats;
+        return adrbrowsielStats;
     }
 
     public void clearStatsTable() {
-        String selectQuery = "DELETE FROM " + BraveStatsTable.TABLE_NAME;
+        String selectQuery = "DELETE FROM " + adrbrowsielStatsTable.TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(selectQuery);
     }
@@ -302,7 +302,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long sum = 0;
         String selectQuery = "SELECT  SUM(" + SavedBandwidthTable.COLUMN_SAVED_BANDWIDTH + ") as total FROM "
                              + SavedBandwidthTable.TABLE_NAME
-                             + " WHERE " + BraveStatsTable.COLUMN_TIMESTAMP
+                             + " WHERE " + adrbrowsielStatsTable.COLUMN_TIMESTAMP
                              + " BETWEEN date('" + thresholdTime + "') AND date('" + currentTime + "')";
 
         SQLiteDatabase db = this.getReadableDatabase();

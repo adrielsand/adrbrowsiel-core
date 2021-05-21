@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,7 +6,7 @@
 #include "bat/ledger/internal/common/brotli_util.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter='BraveLedgerBrotliHelpersTest.*'
+// npm run test -- adrbrowsiel_unit_tests --filter='adrbrowsielLedgerBrotliHelpersTest.*'
 
 namespace {
 
@@ -30,14 +30,14 @@ constexpr char kUncompressed[] =
 namespace ledger {
 namespace util {
 
-class BraveLedgerBrotliHelpersTest : public testing::Test {
+class adrbrowsielLedgerBrotliHelpersTest : public testing::Test {
  protected:
   static std::string GetInput() {
     return std::string(kCompressed, sizeof(kCompressed) / sizeof(char));
   }
 };
 
-TEST_F(BraveLedgerBrotliHelpersTest, TestDecode) {
+TEST_F(adrbrowsielLedgerBrotliHelpersTest, TestDecode) {
   std::string s;
 
   EXPECT_TRUE(DecodeBrotliString(GetInput(), 43, &s));
@@ -53,7 +53,7 @@ TEST_F(BraveLedgerBrotliHelpersTest, TestDecode) {
   EXPECT_FALSE(DecodeBrotliString("not brotli", 16, &s));
 }
 
-TEST_F(BraveLedgerBrotliHelpersTest, TestDecodeWithBuffer) {
+TEST_F(adrbrowsielLedgerBrotliHelpersTest, TestDecodeWithBuffer) {
   std::string s;
 
   EXPECT_TRUE(DecodeBrotliStringWithBuffer(GetInput(), 16, &s));

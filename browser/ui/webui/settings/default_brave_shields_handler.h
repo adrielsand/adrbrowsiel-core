@@ -1,19 +1,19 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_SETTINGS_DEFAULT_BRAVE_SHIELDS_HANDLER_H_
-#define BRAVE_BROWSER_UI_WEBUI_SETTINGS_DEFAULT_BRAVE_SHIELDS_HANDLER_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_DEFAULT_adrbrowsiel_SHIELDS_HANDLER_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_DEFAULT_adrbrowsiel_SHIELDS_HANDLER_H_
 
 #include "chrome/browser/ui/webui/settings/settings_page_ui_handler.h"
 
 class Profile;
 
-class DefaultBraveShieldsHandler : public settings::SettingsPageUIHandler {
+class DefaultadrbrowsielShieldsHandler : public settings::SettingsPageUIHandler {
  public:
-  DefaultBraveShieldsHandler() = default;
-  ~DefaultBraveShieldsHandler() override = default;
+  DefaultadrbrowsielShieldsHandler() = default;
+  ~DefaultadrbrowsielShieldsHandler() override = default;
 
  private:
   // SettingsPageUIHandler overrides:
@@ -36,7 +36,7 @@ class DefaultBraveShieldsHandler : public settings::SettingsPageUIHandler {
 
   Profile* profile_ = nullptr;
 
-  DISALLOW_COPY_AND_ASSIGN(DefaultBraveShieldsHandler);
+  DISALLOW_COPY_AND_ASSIGN(DefaultadrbrowsielShieldsHandler);
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_SETTINGS_DEFAULT_BRAVE_SHIELDS_HANDLER_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_DEFAULT_adrbrowsiel_SHIELDS_HANDLER_H_

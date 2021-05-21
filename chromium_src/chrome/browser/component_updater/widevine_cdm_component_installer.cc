@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,7 +7,7 @@
 #include "../../../../../chrome/browser/component_updater/widevine_cdm_component_installer.cc"  // NOLINT
 #undef RegisterWidevineCdmComponent
 
-#include "brave/browser/widevine/widevine_utils.h"
+#include "adrbrowsiel/browser/widevine/widevine_utils.h"
 #include "chrome/browser/component_updater/component_updater_utils.h"
 #include "components/component_updater/component_updater_service.h"
 #include "extensions/common/constants.h"
@@ -17,7 +17,7 @@ namespace component_updater {
 namespace {
 
 void OnWidevineRegistered() {
-  component_updater::BraveOnDemandUpdate(widevine_extension_id);
+  component_updater::adrbrowsielOnDemandUpdate(widevine_extension_id);
 }
 
 void RegisterAndInstallWidevine(ComponentUpdateService* cus) {

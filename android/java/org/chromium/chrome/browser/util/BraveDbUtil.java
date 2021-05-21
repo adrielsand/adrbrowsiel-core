@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -26,8 +26,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class BraveDbUtil {
-    private static final String TAG = "BraveDbUtil";
+public class adrbrowsielDbUtil {
+    private static final String TAG = "adrbrowsielDbUtil";
     private static final String PUBLISHER_INFO_DB = "publisher_info_db";
     private static final String REWARDS_DB_SRC_DIR = "app_chrome/Default";
     private static final String REWARDS_DB_DST_DIR = "rewards";
@@ -39,15 +39,15 @@ public class BraveDbUtil {
     private String mRewardsDst;
     private String mRewardsDstDir;
 
-    private static BraveDbUtil sInstance;
+    private static adrbrowsielDbUtil sInstance;
 
-    private BraveDbUtil() {
+    private adrbrowsielDbUtil() {
     }
 
-    public static BraveDbUtil getInstance() {
+    public static adrbrowsielDbUtil getInstance() {
         if (sInstance != null)
             return sInstance;
-        sInstance = new BraveDbUtil();
+        sInstance = new adrbrowsielDbUtil();
         return sInstance;
     }
 

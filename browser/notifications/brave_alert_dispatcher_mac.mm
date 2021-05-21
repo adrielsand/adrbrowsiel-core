@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Software Team. Distributed under the MPL2
+/* Copyright (c) 2019 The adrbrowsiel Software Team. Distributed under the MPL2
  * license. This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#import "brave/browser/notifications/brave_alert_dispatcher_mac.h"
+#import "adrbrowsiel/browser/notifications/adrbrowsiel_alert_dispatcher_mac.h"
 
 #include <memory>
 #include <set>
@@ -18,7 +18,7 @@
 #include "chrome/services/mac_notifications/public/cpp/notification_constants_mac.h"
 
 // clang-format off
-@implementation BraveAlertDispatcherMac {
+@implementation adrbrowsielAlertDispatcherMac {
   base::scoped_nsobject<NSMutableArray> alerts_;
 }
 

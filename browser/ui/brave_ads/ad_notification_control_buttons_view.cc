@@ -1,18 +1,18 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_ads/ad_notification_control_buttons_view.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification_control_buttons_view.h"
 
 #include <memory>
 
 #include "base/bind.h"
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/browser/ui/brave_ads/ad_notification_view.h"
-#include "brave/browser/ui/brave_ads/padded_image_button.h"
-#include "brave/browser/ui/brave_ads/padded_image_view.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification_view.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/padded_image_button.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/padded_image_view.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/compositor/layer.h"
 #include "ui/gfx/color_palette.h"
@@ -22,7 +22,7 @@
 #include "ui/views/layout/box_layout.h"
 #include "ui/views/metadata/metadata_impl_macros.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 namespace {
 
@@ -85,8 +85,8 @@ void AdNotificationControlButtonsView::UpdateInfoButton() {
   const bool should_use_dark_colors = GetNativeTheme()->ShouldUseDarkColors();
 
   const gfx::ImageSkia image_skia = gfx::CreateVectorIcon(
-      should_use_dark_colors ? kBraveAdsDarkModeInfoButtonIcon
-                             : kBraveAdsLightModeInfoButtonIcon,
+      should_use_dark_colors ? kadrbrowsielAdsDarkModeInfoButtonIcon
+                             : kadrbrowsielAdsLightModeInfoButtonIcon,
       kInfoButtonIconDipSize, SK_ColorTRANSPARENT);
   info_button_->SetImage(image_skia);
 }
@@ -98,7 +98,7 @@ void AdNotificationControlButtonsView::CreateCloseButton() {
                           base::Unretained(ad_notification_view_))));
 
   close_button_->SetAccessibleName(
-      l10n_util::GetStringUTF16(IDS_BRAVE_ADS_AD_NOTIFICATION_CLOSE_BUTTON));
+      l10n_util::GetStringUTF16(IDS_adrbrowsiel_ADS_AD_NOTIFICATION_CLOSE_BUTTON));
 
   UpdateCloseButton();
 }
@@ -109,7 +109,7 @@ void AdNotificationControlButtonsView::UpdateCloseButton() {
   const bool should_use_dark_colors = GetNativeTheme()->ShouldUseDarkColors();
 
   const gfx::ImageSkia image_skia = gfx::CreateVectorIcon(
-      kBraveAdsCloseButtonIcon, kCloseButtonIconDipSize,
+      kadrbrowsielAdsCloseButtonIcon, kCloseButtonIconDipSize,
       should_use_dark_colors ? kDarkModeCloseButtonIconColor
                              : kLightModeCloseButtonIconColor);
   close_button_->SetImage(views::Button::STATE_NORMAL, image_skia);
@@ -120,4 +120,4 @@ void AdNotificationControlButtonsView::UpdateCloseButton() {
 BEGIN_METADATA(AdNotificationControlButtonsView, views::View)
 END_METADATA
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

@@ -1,14 +1,14 @@
-# Copyright (c) 2019 The Brave Authors. All rights reserved.
+# Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import("//brave/components/decentralized_dns/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/decentralized_dns/buildflags/buildflags.gni")
 
-brave_net_sources = [
-  "//brave/net/decentralized_dns/constants.h",
-  "//brave/net/dns/brave_resolve_context.cc",
-  "//brave/net/dns/brave_resolve_context.h",
-  "//brave/net/proxy_resolution/proxy_config_service_tor.cc",
-  "//brave/net/proxy_resolution/proxy_config_service_tor.h",
+adrbrowsiel_net_sources = [
+  "//adrbrowsiel/net/decentralized_dns/constants.h",
+  "//adrbrowsiel/net/dns/adrbrowsiel_resolve_context.cc",
+  "//adrbrowsiel/net/dns/adrbrowsiel_resolve_context.h",
+  "//adrbrowsiel/net/proxy_resolution/proxy_config_service_tor.cc",
+  "//adrbrowsiel/net/proxy_resolution/proxy_config_service_tor.h",
 ]

@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <string>
 
-#include "brave/browser/ui/views/translate/brave_translate_bubble_view.h"
+#include "adrbrowsiel/browser/ui/views/translate/adrbrowsiel_translate_bubble_view.h"
 #include "base/test/scoped_feature_list.h"
 #include "chrome/test/views/chrome_views_test_base.h"
 #include "ui/events/keycodes/dom/dom_code.h"
@@ -149,20 +149,20 @@ class MockTranslateBubbleModel : public TranslateBubbleModel {
   bool can_blocklist_site_;
 };
 
-class MockBraveTranslateBubbleView : public BraveTranslateBubbleView {
+class MockadrbrowsielTranslateBubbleView : public adrbrowsielTranslateBubbleView {
  public:
-  MockBraveTranslateBubbleView(views::View* anchor_view,
+  MockadrbrowsielTranslateBubbleView(views::View* anchor_view,
                                std::unique_ptr<TranslateBubbleModel> model,
                                translate::TranslateErrors::Type error_type,
                                content::WebContents* web_contents)
-    : BraveTranslateBubbleView(anchor_view,
+    : adrbrowsielTranslateBubbleView(anchor_view,
                                std::move(model),
                                error_type,
                                web_contents)
     , install_google_translate_called_(false) {
   }
 
-  ~MockBraveTranslateBubbleView() override {
+  ~MockadrbrowsielTranslateBubbleView() override {
   }
 
   bool install_google_translate_called() {
@@ -180,9 +180,9 @@ class MockBraveTranslateBubbleView : public BraveTranslateBubbleView {
 
 }  // namespace
 
-class BraveTranslateBubbleViewTest : public ChromeViewsTestBase {
+class adrbrowsielTranslateBubbleViewTest : public ChromeViewsTestBase {
  public:
-  BraveTranslateBubbleViewTest() {}
+  adrbrowsielTranslateBubbleViewTest() {}
 
  protected:
   void SetUp() override {
@@ -204,7 +204,7 @@ class BraveTranslateBubbleViewTest : public ChromeViewsTestBase {
 
   void CreateAndShowBubble() {
     std::unique_ptr<TranslateBubbleModel> model(mock_model_);
-    bubble_ = new MockBraveTranslateBubbleView(
+    bubble_ = new MockadrbrowsielTranslateBubbleView(
         anchor_widget_->GetContentsView(),
         std::move(model),
         translate::TranslateErrors::NONE, NULL);
@@ -227,11 +227,11 @@ class BraveTranslateBubbleViewTest : public ChromeViewsTestBase {
 
   std::unique_ptr<views::Widget> anchor_widget_;
   MockTranslateBubbleModel* mock_model_;
-  MockBraveTranslateBubbleView* bubble_;
+  MockadrbrowsielTranslateBubbleView* bubble_;
   base::test::ScopedFeatureList scoped_feature_list_;
 };
 
-TEST_F(BraveTranslateBubbleViewTest, BraveBeforeTranslateView) {
+TEST_F(adrbrowsielTranslateBubbleViewTest, adrbrowsielBeforeTranslateView) {
   CreateAndShowBubble();
   views::Button* accept_button = static_cast<views::Button*>(
       bubble_->GetViewByID(TranslateBubbleView::BUTTON_ID_DONE));
@@ -241,7 +241,7 @@ TEST_F(BraveTranslateBubbleViewTest, BraveBeforeTranslateView) {
   EXPECT_TRUE(cancel_button);
 }
 
-TEST_F(BraveTranslateBubbleViewTest, TranslateButton) {
+TEST_F(adrbrowsielTranslateBubbleViewTest, TranslateButton) {
   CreateAndShowBubble();
   EXPECT_FALSE(mock_model_->translate_called_);
   EXPECT_FALSE(bubble_->install_google_translate_called());
@@ -252,7 +252,7 @@ TEST_F(BraveTranslateBubbleViewTest, TranslateButton) {
   EXPECT_TRUE(bubble_->install_google_translate_called());
 }
 
-TEST_F(BraveTranslateBubbleViewTest, CancelButton) {
+TEST_F(adrbrowsielTranslateBubbleViewTest, CancelButton) {
   CreateAndShowBubble();
   EXPECT_FALSE(bubble_->GetWidget()->IsClosed());
 
@@ -261,7 +261,7 @@ TEST_F(BraveTranslateBubbleViewTest, CancelButton) {
   EXPECT_TRUE(bubble_->GetWidget()->IsClosed());
 }
 
-TEST_F(BraveTranslateBubbleViewTest, ReturnKey) {
+TEST_F(adrbrowsielTranslateBubbleViewTest, ReturnKey) {
   CreateAndShowBubble();
   EXPECT_FALSE(mock_model_->translate_called_);
   EXPECT_FALSE(bubble_->install_google_translate_called());

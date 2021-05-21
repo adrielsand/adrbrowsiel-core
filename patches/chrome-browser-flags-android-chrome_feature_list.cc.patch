@@ -6,7 +6,7 @@ index 27085587c735c03aac79d1001d0a4a27e4b5729f..b6cf4210918961488d4230a4d2e7b728
  };
  
  const base::Feature* FindFeatureExposedToJava(const std::string& feature_name) {
-+  BRAVE_FIND_FEATURE_EXPOSED_TO_JAVA
++  adrbrowsiel_FIND_FEATURE_EXPOSED_TO_JAVA
    for (const auto* feature : kFeaturesExposedToJava) {
      if (feature->name == feature_name)
        return feature;

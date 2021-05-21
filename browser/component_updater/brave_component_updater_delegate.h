@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_COMPONENT_UPDATER_BRAVE_COMPONENT_UPDATER_DELEGATE_H_
-#define BRAVE_BROWSER_COMPONENT_UPDATER_BRAVE_COMPONENT_UPDATER_DELEGATE_H_
+#ifndef adrbrowsiel_BROWSER_COMPONENT_UPDATER_adrbrowsiel_COMPONENT_UPDATER_DELEGATE_H_
+#define adrbrowsiel_BROWSER_COMPONENT_UPDATER_adrbrowsiel_COMPONENT_UPDATER_DELEGATE_H_
 
 #include <string>
 
 #include "base/macros.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
 #include "components/component_updater/component_updater_service.h"
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
 namespace base {
 class SequencedTaskRunner;
@@ -20,19 +20,19 @@ class SequencedTaskRunner;
 
 class PrefService;
 
-namespace brave {
+namespace adrbrowsiel {
 
-class BraveComponentUpdaterDelegate : public BraveComponent::Delegate {
+class adrbrowsielComponentUpdaterDelegate : public adrbrowsielComponent::Delegate {
  public:
-  BraveComponentUpdaterDelegate();
-  ~BraveComponentUpdaterDelegate() override;
+  adrbrowsielComponentUpdaterDelegate();
+  ~adrbrowsielComponentUpdaterDelegate() override;
 
   using ComponentObserver = update_client::UpdateClient::Observer;
-  // brave_component_updater::BraveComponent::Delegate implementation
+  // adrbrowsiel_component_updater::adrbrowsielComponent::Delegate implementation
   void Register(const std::string& component_name,
                 const std::string& component_base64_public_key,
                 base::OnceClosure registered_callback,
-                BraveComponent::ReadyCallback ready_callback) override;
+                adrbrowsielComponent::ReadyCallback ready_callback) override;
   bool Unregister(const std::string& component_id) override;
   void OnDemandUpdate(const std::string& component_id) override;
 
@@ -47,9 +47,9 @@ class BraveComponentUpdaterDelegate : public BraveComponent::Delegate {
  private:
   scoped_refptr<base::SequencedTaskRunner> task_runner_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveComponentUpdaterDelegate);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielComponentUpdaterDelegate);
 };
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_BROWSER_COMPONENT_UPDATER_BRAVE_COMPONENT_UPDATER_DELEGATE_H_
+#endif  // adrbrowsiel_BROWSER_COMPONENT_UPDATER_adrbrowsiel_COMPONENT_UPDATER_DELEGATE_H_

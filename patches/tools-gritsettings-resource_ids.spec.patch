@@ -6,7 +6,7 @@ index 1d3809cbdc35cccd7c75b5f71a8a96db4e34e2d5..cf0a622e5f22edbd0dd6c2f9b6f9ec5c
    "chrome/app/chromium_strings.grd": {
      "messages": [400],
    },
-+  "chrome/app/brave_strings.grd": {
++  "chrome/app/adrbrowsiel_strings.grd": {
 +    "messages": [400],
 +  },
    "chrome/app/google_chrome_strings.grd": {
@@ -16,7 +16,7 @@ index 1d3809cbdc35cccd7c75b5f71a8a96db4e34e2d5..cf0a622e5f22edbd0dd6c2f9b6f9ec5c
      "META": {"align": 100},
      "messages": [2700],
    },
-+  "components/components_brave_strings.grd": {
++  "components/components_adrbrowsiel_strings.grd": {
 +    "messages": [2700],
 +  },
    "components/components_google_chrome_strings.grd": {

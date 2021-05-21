@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/sidebar/sidebar_controller.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_controller.h"
 
-#include "brave/browser/ui/brave_browser.h"
-#include "brave/browser/ui/sidebar/sidebar.h"
-#include "brave/browser/ui/sidebar/sidebar_model.h"
-#include "brave/browser/ui/sidebar/sidebar_model_data.h"
-#include "brave/browser/ui/sidebar/sidebar_service_factory.h"
-#include "brave/browser/ui/sidebar/sidebar_utils.h"
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model_data.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_service_factory.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_utils.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 #include "chrome/browser/history/history_service_factory.h"
 #include "chrome/browser/ui/browser_navigator.h"
 #include "chrome/browser/ui/browser_navigator_params.h"
@@ -29,7 +29,7 @@ SidebarService* GetSidebarService(Browser* browser) {
 
 }  // namespace
 
-SidebarController::SidebarController(BraveBrowser* browser, Profile* profile)
+SidebarController::SidebarController(adrbrowsielBrowser* browser, Profile* profile)
     : browser_(browser), sidebar_model_(new SidebarModel(profile)) {
   sidebar_service_observed_.Add(GetSidebarService(browser_));
 }

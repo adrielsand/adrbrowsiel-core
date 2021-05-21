@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_PROFILES_BRAVE_PROFILE_MANAGER_H_
-#define BRAVE_BROWSER_PROFILES_BRAVE_PROFILE_MANAGER_H_
+#ifndef adrbrowsiel_BROWSER_PROFILES_adrbrowsiel_PROFILE_MANAGER_H_
+#define adrbrowsiel_BROWSER_PROFILES_adrbrowsiel_PROFILE_MANAGER_H_
 
 #include <string>
 
@@ -13,12 +13,12 @@
 #include "chrome/browser/profiles/profile_manager_observer.h"
 #include "chrome/browser/profiles/profile_observer.h"
 
-class BraveProfileManager : public ProfileManager,
+class adrbrowsielProfileManager : public ProfileManager,
                             public ProfileManagerObserver,
                             public ProfileObserver {
  public:
-  explicit BraveProfileManager(const base::FilePath& user_data_dir);
-  ~BraveProfileManager() override;
+  explicit adrbrowsielProfileManager(const base::FilePath& user_data_dir);
+  ~adrbrowsielProfileManager() override;
 
   void InitProfileUserPrefs(Profile* profile) override;
   void SetNonPersonalProfilePrefs(Profile* profile) override;
@@ -42,15 +42,15 @@ class BraveProfileManager : public ProfileManager,
   void MigrateProfileNames();
   ScopedObserver<Profile, ProfileObserver> observed_profiles_{this};
 
-  DISALLOW_COPY_AND_ASSIGN(BraveProfileManager);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielProfileManager);
 };
 
-class BraveProfileManagerWithoutInit : public BraveProfileManager {
+class adrbrowsielProfileManagerWithoutInit : public adrbrowsielProfileManager {
  public:
-  explicit BraveProfileManagerWithoutInit(const base::FilePath& user_data_dir);
+  explicit adrbrowsielProfileManagerWithoutInit(const base::FilePath& user_data_dir);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveProfileManagerWithoutInit);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielProfileManagerWithoutInit);
 };
 
-#endif  // BRAVE_BROWSER_PROFILES_BRAVE_PROFILE_MANAGER_H_
+#endif  // adrbrowsiel_BROWSER_PROFILES_adrbrowsiel_PROFILE_MANAGER_H_

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_ADS_ADS_TAB_HELPER_H_
-#define BRAVE_BROWSER_BRAVE_ADS_ADS_TAB_HELPER_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_ADS_ADS_TAB_HELPER_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_ADS_ADS_TAB_HELPER_H_
 
 #include <cstdint>
 
@@ -36,7 +36,7 @@ class DomDistillerResult;
 
 }  // namespace dom_distiller
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 class AdsService;
 
@@ -98,6 +98,6 @@ class AdsTabHelper : public content::WebContentsObserver,
   WEB_CONTENTS_USER_DATA_KEY_DECL();
 };
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_BROWSER_BRAVE_ADS_ADS_TAB_HELPER_H_
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_ADS_ADS_TAB_HELPER_H_

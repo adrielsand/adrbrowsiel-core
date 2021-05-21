@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/greaselion/greaselion_service_factory.h"
+#include "adrbrowsiel/browser/greaselion/greaselion_service_factory.h"
 
 #include <memory>
 #include <string>
 
 #include "base/memory/singleton.h"
 #include "base/path_service.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/components/greaselion/browser/greaselion_service.h"
-#include "brave/components/greaselion/browser/greaselion_service_impl.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_service.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_service_impl.h"
 #include "chrome/common/chrome_paths.h"
 #include "components/keyed_service/content/browser_context_dependency_manager.h"
 #include "components/keyed_service/core/keyed_service.h"
@@ -60,10 +60,10 @@ KeyedService* GreaselionServiceFactory::BuildServiceInstanceFor(
   scoped_refptr<base::SequencedTaskRunner> task_runner =
       extensions::GetExtensionFileTaskRunner();
   greaselion::GreaselionDownloadService* download_service = nullptr;
-  // Brave browser process may be null if we are being created within a unit
+  // adrbrowsiel browser process may be null if we are being created within a unit
   // test.
-  if (g_brave_browser_process)
-    download_service = g_brave_browser_process->greaselion_download_service();
+  if (g_adrbrowsiel_browser_process)
+    download_service = g_adrbrowsiel_browser_process->greaselion_download_service();
   std::unique_ptr<GreaselionServiceImpl> greaselion_service(
       new GreaselionServiceImpl(download_service, install_directory,
                                 extension_system, extension_registry,

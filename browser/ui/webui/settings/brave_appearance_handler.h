@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_APPEARANCE_HANDLER_H_
-#define BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_APPEARANCE_HANDLER_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_APPEARANCE_HANDLER_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_APPEARANCE_HANDLER_H_
 
 #include <string>
 
@@ -13,13 +13,13 @@
 
 class Profile;
 
-class BraveAppearanceHandler : public settings::SettingsPageUIHandler {
+class adrbrowsielAppearanceHandler : public settings::SettingsPageUIHandler {
  public:
-  BraveAppearanceHandler();
-  ~BraveAppearanceHandler() override;
+  adrbrowsielAppearanceHandler();
+  ~adrbrowsielAppearanceHandler() override;
 
-  BraveAppearanceHandler(const BraveAppearanceHandler&) = delete;
-  BraveAppearanceHandler& operator=(const BraveAppearanceHandler&) = delete;
+  adrbrowsielAppearanceHandler(const adrbrowsielAppearanceHandler&) = delete;
+  adrbrowsielAppearanceHandler& operator=(const adrbrowsielAppearanceHandler&) = delete;
 
  private:
   // SettingsPageUIHandler overrides:
@@ -27,11 +27,11 @@ class BraveAppearanceHandler : public settings::SettingsPageUIHandler {
   void OnJavascriptAllowed() override {}
   void OnJavascriptDisallowed() override {}
 
-  void OnBraveDarkModeChanged();
+  void OnadrbrowsielDarkModeChanged();
   void OnBackgroundPreferenceChanged(const std::string& pref_name);
   void OnPreferenceChanged(const std::string& pref_name);
-  void SetBraveThemeType(const base::ListValue* args);
-  void GetBraveThemeType(const base::ListValue* args);
+  void SetadrbrowsielThemeType(const base::ListValue* args);
+  void GetadrbrowsielThemeType(const base::ListValue* args);
   void GetNewTabShowsOptionsList(const base::ListValue* args);
   void ShouldShowNewTabDashboardSettings(const base::ListValue* args);
 
@@ -40,4 +40,4 @@ class BraveAppearanceHandler : public settings::SettingsPageUIHandler {
   PrefChangeRegistrar profile_state_change_registrar_;
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_APPEARANCE_HANDLER_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_APPEARANCE_HANDLER_H_

@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/permissions/permission_lifetime_manager.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_manager.h"
 
 #include "base/bind.h"
 #include "base/command_line.h"
@@ -16,10 +16,10 @@
 #include "base/test/test_mock_time_task_runner.h"
 #include "base/threading/sequenced_task_runner_handle.h"
 #include "base/time/time.h"
-#include "brave/browser/ephemeral_storage/ephemeral_storage_tab_helper.h"
-#include "brave/browser/permissions/mock_permission_lifetime_prompt_factory.h"
-#include "brave/browser/permissions/permission_lifetime_manager_factory.h"
-#include "brave/components/permissions/permission_lifetime_pref_names.h"
+#include "adrbrowsiel/browser/ephemeral_storage/ephemeral_storage_tab_helper.h"
+#include "adrbrowsiel/browser/permissions/mock_permission_lifetime_prompt_factory.h"
+#include "adrbrowsiel/browser/permissions/permission_lifetime_manager_factory.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_pref_names.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"

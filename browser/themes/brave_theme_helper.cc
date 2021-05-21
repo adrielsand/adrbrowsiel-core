@@ -1,13 +1,13 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/themes/brave_theme_helper.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_theme_helper.h"
 
 #include "base/numerics/safe_conversions.h"
-#include "brave/browser/themes/brave_dark_mode_utils.h"
-#include "brave/browser/themes/theme_properties.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_dark_mode_utils.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
 #include "chrome/browser/themes/theme_properties.h"
 #include "chrome/browser/ui/omnibox/omnibox_theme.h"
 #include "ui/gfx/color_palette.h"
@@ -19,7 +19,7 @@
 
 namespace {
 
-// TODO(simonhong): Get colors from brave's palette.
+// TODO(simonhong): Get colors from adrbrowsiel's palette.
 // Omnibox text colors
 const SkColor kDarkOmniboxText = SkColorSetRGB(0xff, 0xff, 0xff);
 const SkColor kLightOmniboxText = SkColorSetRGB(0x42, 0x42, 0x42);
@@ -82,45 +82,45 @@ bool IsUsingSystemTheme(const CustomThemeSupplier* theme_supplier) {
 
 }  // namespace
 
-BraveThemeHelper::~BraveThemeHelper() = default;
+adrbrowsielThemeHelper::~adrbrowsielThemeHelper() = default;
 
-SkColor BraveThemeHelper::GetDefaultColor(
+SkColor adrbrowsielThemeHelper::GetDefaultColor(
     int id,
     bool incognito,
     const CustomThemeSupplier* theme_supplier) const {
-  const bool is_brave_theme_properties =
-      BraveThemeProperties::IsBraveThemeProperties(id);
+  const bool is_adrbrowsiel_theme_properties =
+      adrbrowsielThemeProperties::IsadrbrowsielThemeProperties(id);
 #if defined(OS_LINUX)
   // IF gtk theme is selected, respect it.
-  if (!is_brave_theme_properties && IsUsingSystemTheme(theme_supplier)) {
+  if (!is_adrbrowsiel_theme_properties && IsUsingSystemTheme(theme_supplier)) {
     return ThemeHelper::GetDefaultColor(id, incognito, theme_supplier);
   }
 #endif
 
-  if (!is_brave_theme_properties && theme_supplier)
+  if (!is_adrbrowsiel_theme_properties && theme_supplier)
     return ThemeHelper::GetDefaultColor(id, incognito, theme_supplier);
 
-  // Brave Tor profiles are always 'incognito' (for now)
+  // adrbrowsiel Tor profiles are always 'incognito' (for now)
   if (!incognito && (is_tor_ || is_guest_)) {
     incognito = true;
   }
-  const dark_mode::BraveDarkModeType type =
-      dark_mode::GetActiveBraveDarkModeType();
-  const base::Optional<SkColor> braveColor =
-      MaybeGetDefaultColorForBraveUi(id, incognito, is_tor_, type);
-  if (braveColor) {
-    return braveColor.value();
+  const dark_mode::adrbrowsielDarkModeType type =
+      dark_mode::GetActiveadrbrowsielDarkModeType();
+  const base::Optional<SkColor> adrbrowsielColor =
+      MaybeGetDefaultColorForadrbrowsielUi(id, incognito, is_tor_, type);
+  if (adrbrowsielColor) {
+    return adrbrowsielColor.value();
   }
   // Make sure we fallback to Chrome's dark theme (incognito) for our dark theme
-  if (type == dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK) {
+  if (type == dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK) {
     incognito = true;
   }
 
-  DCHECK(!is_brave_theme_properties);
+  DCHECK(!is_adrbrowsiel_theme_properties);
   return ThemeHelper::GetDefaultColor(id, incognito, theme_supplier);
 }
 
-base::Optional<SkColor> BraveThemeHelper::GetOmniboxColor(
+base::Optional<SkColor> adrbrowsielThemeHelper::GetOmniboxColor(
     int id,
     bool incognito,
     const CustomThemeSupplier* theme_supplier,
@@ -137,8 +137,8 @@ base::Optional<SkColor> BraveThemeHelper::GetOmniboxColor(
     return ThemeHelper::GetOmniboxColor(id, incognito, theme_supplier,
                                         has_custom_color);
 
-  const bool dark = dark_mode::GetActiveBraveDarkModeType() ==
-                    dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK;
+  const bool dark = dark_mode::GetActiveadrbrowsielDarkModeType() ==
+                    dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK;
   incognito = incognito || is_tor_ || is_guest_;
   // TODO(petemill): Get colors from color-pallete and theme constants
   switch (id) {

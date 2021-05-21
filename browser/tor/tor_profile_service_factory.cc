@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
 
 #include <memory>
 
-#include "brave/browser/brave_browser_process.h"
-#include "brave/components/tor/pref_names.h"
-#include "brave/components/tor/tor_profile_service_impl.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/components/tor/pref_names.h"
+#include "adrbrowsiel/components/tor/tor_profile_service_impl.h"
 #include "chrome/browser/browser_process.h"
 #include "components/keyed_service/content/browser_context_dependency_manager.h"
 #include "components/prefs/pref_service.h"
@@ -60,8 +60,8 @@ KeyedService* TorProfileServiceFactory::BuildServiceInstanceFor(
     content::BrowserContext* context) const {
   std::unique_ptr<tor::TorProfileService> tor_profile_service(
       new tor::TorProfileServiceImpl(
-          context, g_brave_browser_process
-                       ? g_brave_browser_process->tor_client_updater()
+          context, g_adrbrowsiel_browser_process
+                       ? g_adrbrowsiel_browser_process->tor_client_updater()
                        : nullptr));
 
   return tor_profile_service.release();

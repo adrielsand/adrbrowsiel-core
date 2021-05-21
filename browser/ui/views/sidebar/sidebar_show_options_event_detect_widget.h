@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_SHOW_OPTIONS_EVENT_DETECT_WIDGET_H_
-#define BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_SHOW_OPTIONS_EVENT_DETECT_WIDGET_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_SHOW_OPTIONS_EVENT_DETECT_WIDGET_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_SHOW_OPTIONS_EVENT_DETECT_WIDGET_H_
 
 #include <memory>
 
@@ -15,7 +15,7 @@ namespace views {
 class Widget;
 }  // namespace views
 
-class BraveBrowserView;
+class adrbrowsielBrowserView;
 
 class SidebarShowOptionsEventDetectWidget : public views::ViewObserver,
                                             public views::WidgetDelegate {
@@ -28,7 +28,7 @@ class SidebarShowOptionsEventDetectWidget : public views::ViewObserver,
     virtual ~Delegate() {}
   };
 
-  explicit SidebarShowOptionsEventDetectWidget(BraveBrowserView* browser_view,
+  explicit SidebarShowOptionsEventDetectWidget(adrbrowsielBrowserView* browser_view,
                                                Delegate* delegate);
   ~SidebarShowOptionsEventDetectWidget() override;
 
@@ -51,10 +51,10 @@ class SidebarShowOptionsEventDetectWidget : public views::ViewObserver,
   std::unique_ptr<views::Widget> CreateWidget(Delegate* delegate);
   void AdjustWidgetBounds();
 
-  BraveBrowserView* browser_view_ = nullptr;
+  adrbrowsielBrowserView* browser_view_ = nullptr;
   ContentsView* contents_view_ = nullptr;
   std::unique_ptr<views::Widget> widget_;
   base::ScopedObservation<views::View, views::ViewObserver> observation_{this};
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_SHOW_OPTIONS_EVENT_DETECT_WIDGET_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_SHOW_OPTIONS_EVENT_DETECT_WIDGET_H_

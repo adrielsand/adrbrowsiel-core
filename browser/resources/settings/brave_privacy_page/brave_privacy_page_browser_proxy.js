@@ -8,7 +8,7 @@
 
 cr.define('settings', function() {
   /** @interface */
-  /* #export */ class BravePrivacyBrowserProxy {
+  /* #export */ class adrbrowsielPrivacyBrowserProxy {
     /**
      * @return {!Promise<string>}
      */
@@ -24,9 +24,9 @@ cr.define('settings', function() {
   }
 
   /**
-   * @implements {settings.BravePrivacyBrowserProxy}
+   * @implements {settings.adrbrowsielPrivacyBrowserProxy}
    */
-  /* #export */ class BravePrivacyBrowserProxyImpl {
+  /* #export */ class adrbrowsielPrivacyBrowserProxyImpl {
     /** @overrides */
     getP3AEnabled() {
       return cr.sendWithPromise('getP3AEnabled');
@@ -41,11 +41,11 @@ cr.define('settings', function() {
     }
   }
 
-  cr.addSingletonGetter(BravePrivacyBrowserProxyImpl);
+  cr.addSingletonGetter(adrbrowsielPrivacyBrowserProxyImpl);
 
   // #cr_define_end
   return {
-    BravePrivacyBrowserProxy: BravePrivacyBrowserProxy,
-    BravePrivacyBrowserProxyImpl: BravePrivacyBrowserProxyImpl,
+    adrbrowsielPrivacyBrowserProxy: adrbrowsielPrivacyBrowserProxy,
+    adrbrowsielPrivacyBrowserProxyImpl: adrbrowsielPrivacyBrowserProxyImpl,
   };
 });

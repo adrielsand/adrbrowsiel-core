@@ -7,7 +7,7 @@ index 9b7bfb89b7352aec772c04e71d078f5bc61f4ac0..696c7729d60380e9f42cea77ae04e910
   */
  @SuppressLint("Instantiatable")
 -public class ToolbarTablet extends ToolbarLayout
-+public class ToolbarTablet extends BraveToolbarLayout
++public class ToolbarTablet extends adrbrowsielToolbarLayout
          implements OnClickListener, View.OnLongClickListener, TabCountObserver {
      private HomeButton mHomeButton;
      private ImageButton mBackButton;

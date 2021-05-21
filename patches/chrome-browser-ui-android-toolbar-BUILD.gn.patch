@@ -6,7 +6,7 @@ index 627a6bdef28253b08d6f9601988b2276acdb9cc2..c3b406e0bc80a513650f30342dfd1f03
      "java/src/org/chromium/chrome/browser/toolbar/top/TopToolbarSceneLayer.java",
      "java/src/org/chromium/chrome/browser/toolbar/top/ViewShiftingActionBarDelegate.java",
    ]
-+  sources += brave_browser_ui_android_toolbar_sources
++  sources += adrbrowsiel_browser_ui_android_toolbar_sources
  
    deps = [
      ":java_resources",

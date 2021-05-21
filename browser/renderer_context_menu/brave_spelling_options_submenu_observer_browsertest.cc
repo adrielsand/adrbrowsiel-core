@@ -1,15 +1,15 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/renderer_context_menu/brave_spelling_options_submenu_observer.h"
+#include "adrbrowsiel/browser/renderer_context_menu/adrbrowsiel_spelling_options_submenu_observer.h"
 
 #include <memory>
 
 #include "base/values.h"
-#include "brave/browser/renderer_context_menu/brave_mock_render_view_context_menu.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/browser/renderer_context_menu/adrbrowsiel_mock_render_view_context_menu.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/app/chrome_command_ids.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -25,10 +25,10 @@ namespace {
 
 // A test class used in this file. This test should be a browser test because it
 // accesses resources.
-class BraveSpellingOptionsSubMenuObserverTest : public InProcessBrowserTest {
+class adrbrowsielSpellingOptionsSubMenuObserverTest : public InProcessBrowserTest {
  public:
-  BraveSpellingOptionsSubMenuObserverTest() {}
-  ~BraveSpellingOptionsSubMenuObserverTest() override {}
+  adrbrowsielSpellingOptionsSubMenuObserverTest() {}
+  ~adrbrowsielSpellingOptionsSubMenuObserverTest() override {}
 
   void Clear() {
     if (menu_)
@@ -38,14 +38,14 @@ class BraveSpellingOptionsSubMenuObserverTest : public InProcessBrowserTest {
   }
 
   void Reset(bool incognito = false,
-             BraveSpellingOptionsSubMenuObserver::GtestMode gtest_mode =
-                 BraveSpellingOptionsSubMenuObserver::GTEST_MODE_NORMAL) {
+             adrbrowsielSpellingOptionsSubMenuObserver::GtestMode gtest_mode =
+                 adrbrowsielSpellingOptionsSubMenuObserver::GTEST_MODE_NORMAL) {
     Clear();
-    menu_.reset(new BraveMockRenderViewContextMenu(
+    menu_.reset(new adrbrowsielMockRenderViewContextMenu(
         incognito ? browser()->profile()->GetPrimaryOTRProfile()
                   : browser()->profile()));
-    std::unique_ptr<BraveSpellingOptionsSubMenuObserver> observer =
-        std::make_unique<BraveSpellingOptionsSubMenuObserver>(menu_.get(),
+    std::unique_ptr<adrbrowsielSpellingOptionsSubMenuObserver> observer =
+        std::make_unique<adrbrowsielSpellingOptionsSubMenuObserver>(menu_.get(),
                                                               menu_.get(), 1);
     observer->SetGtestMode(gtest_mode);
     observer_ = std::move(observer);
@@ -78,31 +78,31 @@ class BraveSpellingOptionsSubMenuObserverTest : public InProcessBrowserTest {
 
   void CheckExpected() {
     for (size_t i = 0; i < menu()->GetMenuSize(); ++i) {
-      BraveMockRenderViewContextMenu::MockMenuItem item;
+      adrbrowsielMockRenderViewContextMenu::MockMenuItem item;
       menu()->GetMenuItem(i, &item);
       EXPECT_NE(IDC_CONTENT_CONTEXT_SPELLING_TOGGLE, item.command_id);
     }
     // Check that the menu doesn't end with a separator.
-    BraveMockRenderViewContextMenu::MockMenuItem item;
+    adrbrowsielMockRenderViewContextMenu::MockMenuItem item;
     menu()->GetMenuItem(menu()->GetMenuSize() - 1, &item);
     EXPECT_NE(-1, item.command_id);  // -1 == separator
   }
 
-  BraveMockRenderViewContextMenu* menu() { return menu_.get(); }
+  adrbrowsielMockRenderViewContextMenu* menu() { return menu_.get(); }
   SpellingOptionsSubMenuObserver* observer() { return observer_.get(); }
 
  private:
-  std::unique_ptr<BraveMockRenderViewContextMenu> menu_;
+  std::unique_ptr<adrbrowsielMockRenderViewContextMenu> menu_;
   std::unique_ptr<SpellingOptionsSubMenuObserver> observer_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveSpellingOptionsSubMenuObserverTest);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielSpellingOptionsSubMenuObserverTest);
 };
 
-// Tests that "Ask Brave for suggestions" isn't shown in the menu and the menu
+// Tests that "Ask adrbrowsiel for suggestions" isn't shown in the menu and the menu
 // doesn't end with a separator.
 
-IN_PROC_BROWSER_TEST_F(BraveSpellingOptionsSubMenuObserverTest,
-                       CheckAskBraveNotShown) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielSpellingOptionsSubMenuObserverTest,
+                       CheckAskadrbrowsielNotShown) {
   // Test with spellcheck enabled.
   Reset();
   InitMenu(true, "en-US", std::vector<std::string>(1, "en-US"));
@@ -122,18 +122,18 @@ IN_PROC_BROWSER_TEST_F(BraveSpellingOptionsSubMenuObserverTest,
   CheckExpected();
 
   // Test empty submenu.
-  Reset(false, BraveSpellingOptionsSubMenuObserver::GTEST_MODE_EMPTY_SUBMENU);
+  Reset(false, adrbrowsielSpellingOptionsSubMenuObserver::GTEST_MODE_EMPTY_SUBMENU);
   InitMenu(false, "en-US", std::vector<std::string>());
   menu()->PrintMenu("Test empty submenu.");
   EXPECT_EQ(1U, menu()->GetMenuSize());
-  BraveMockRenderViewContextMenu::MockMenuItem item;
+  adrbrowsielMockRenderViewContextMenu::MockMenuItem item;
   menu()->GetMenuItem(0, &item);
   EXPECT_EQ(IDC_SPELLCHECK_MENU, item.command_id);
   EXPECT_FALSE(item.enabled);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveSpellingOptionsSubMenuObserverTest,
-                       CheckAskBraveNotShownIncognito) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielSpellingOptionsSubMenuObserverTest,
+                       CheckAskadrbrowsielNotShownIncognito) {
   // Test with spellcheck enabled.
   Reset(true);
   InitMenu(true, "en-US", std::vector<std::string>(1, "en-US"));

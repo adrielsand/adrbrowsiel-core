@@ -6,7 +6,7 @@ index e58b9a69537b2e49c90504fbdfe7e3444e853772..fea7416c7ada6702a2001afe6fb05d8d
    static bool Read(
        content_settings::mojom::RendererContentSettingRulesDataView data,
        RendererContentSettingRules* out);
-+  BRAVE_CONTENT_SETTINGS_MOJOM_TRAITS_H
++  adrbrowsiel_CONTENT_SETTINGS_MOJOM_TRAITS_H
  };
  
  }  // namespace mojo

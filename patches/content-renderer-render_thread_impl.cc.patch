@@ -6,7 +6,7 @@ index ed9d15a2832c8ca7fc919c12f4c80006063624b0..814d18b885ecfd95a98c9654d4be1491
  }
  
  void RenderThreadImpl::RegisterSchemes() {
-+  REGISTER_BRAVE_SCHEMES_DISPLAY_ISOLATED_AND_NO_JS
++  REGISTER_adrbrowsiel_SCHEMES_DISPLAY_ISOLATED_AND_NO_JS
    // chrome:
    WebString chrome_scheme(WebString::FromASCII(kChromeUIScheme));
    WebSecurityPolicy::RegisterURLSchemeAsDisplayIsolated(chrome_scheme);

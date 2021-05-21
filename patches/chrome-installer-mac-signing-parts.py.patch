@@ -6,7 +6,7 @@ index 9a20b98f19da9d35b7a87340262601ec40ec2660..cb3240b96c38460af81bc9f81c4c34dd
  
  from . import commands, signing
  from .model import CodeSignOptions, CodeSignedProduct, VerifyOptions
-+from signing_helper import AddBravePartsForSigning, GenerateBraveWidevineSigFile
++from signing_helper import AddadrbrowsielPartsForSigning, GenerateadrbrowsielWidevineSigFile
  
  _PROVISIONPROFILE_EXT = '.provisionprofile'
  _PROVISIONPROFILE_DEST = 'embedded.provisionprofile'
@@ -14,7 +14,7 @@ index 9a20b98f19da9d35b7a87340262601ec40ec2660..cb3240b96c38460af81bc9f81c4c34dd
              library_basename.replace('.dylib', ''),
              verify_options=verify_options)
  
-+    parts = AddBravePartsForSigning(parts, config)
++    parts = AddadrbrowsielPartsForSigning(parts, config)
      return parts
  
  
@@ -22,7 +22,7 @@ index 9a20b98f19da9d35b7a87340262601ec40ec2660..cb3240b96c38460af81bc9f81c4c34dd
                  continue
              signing.sign_part(paths, config, part)
  
-+        GenerateBraveWidevineSigFile(paths, config, parts['framework'])
++        GenerateadrbrowsielWidevineSigFile(paths, config, parts['framework'])
          # Sign the framework bundle.
          signing.sign_part(paths, config, parts['framework'])
  

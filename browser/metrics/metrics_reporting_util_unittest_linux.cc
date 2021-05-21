@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/metrics/metrics_reporting_util.h"
+#include "adrbrowsiel/browser/metrics/metrics_reporting_util.h"
 
 #include "base/environment.h"
 #include "chrome/common/channel_info.h"
@@ -26,7 +26,7 @@ TEST(MetricsUtilTest, DefaultValueTest) {
   EXPECT_EQ(version_info::Channel::DEV, chrome::GetChannel());
   EXPECT_TRUE(GetDefaultPrefValueForMetricsReporting());
 
-  env->SetVar("CHROME_VERSION_EXTRA", BRAVE_LINUX_CHANNEL_NIGHTLY);
+  env->SetVar("CHROME_VERSION_EXTRA", adrbrowsiel_LINUX_CHANNEL_NIGHTLY);
   EXPECT_EQ(version_info::Channel::CANARY, chrome::GetChannel());
   EXPECT_TRUE(GetDefaultPrefValueForMetricsReporting());
 #else  // OFFICIAL_BUILD

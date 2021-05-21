@@ -6,7 +6,7 @@ index 678065414188e5c371db7576ee6a5e241fbaa2fd..fc7e13326c861dcdb5d888555f2d1719
        controller->EncryptedMediaClient(window);
    media_client->RequestMediaKeySystemAccess(
        WebEncryptedMediaRequest(initializer));
-+  BRAVE_NAVIGATOR_REQUEST_MEDIA_KEY_SYSTEM_ACCESS
++  adrbrowsiel_NAVIGATOR_REQUEST_MEDIA_KEY_SYSTEM_ACCESS
  
    // 7. Return promise.
    return promise;

@@ -1,34 +1,34 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_STATS_BRAVE_STATS_UPDATER_PARAMS_H_
-#define BRAVE_BROWSER_BRAVE_STATS_BRAVE_STATS_UPDATER_PARAMS_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_STATS_adrbrowsiel_STATS_UPDATER_PARAMS_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_STATS_adrbrowsiel_STATS_UPDATER_PARAMS_H_
 
 #include <string>
 
 #include "base/macros.h"
 #include "base/time/time.h"
-#include "brave/components/brave_stats/browser/brave_stats_updater_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_stats/browser/adrbrowsiel_stats_updater_util.h"
 
-class BraveStatsUpdaterTest;
+class adrbrowsielStatsUpdaterTest;
 class PrefService;
 
-namespace brave_stats {
+namespace adrbrowsiel_stats {
 
-class BraveStatsUpdaterParams {
+class adrbrowsielStatsUpdaterParams {
  public:
-  explicit BraveStatsUpdaterParams(PrefService* stats_pref_service,
+  explicit adrbrowsielStatsUpdaterParams(PrefService* stats_pref_service,
                                    PrefService* profile_pref_service,
                                    const ProcessArch arch);
-  BraveStatsUpdaterParams(PrefService* stats_pref_service,
+  adrbrowsielStatsUpdaterParams(PrefService* stats_pref_service,
                           PrefService* profile_pref_service,
                           const ProcessArch arch,
                           const std::string& ymd,
                           int woy,
                           int month);
-  ~BraveStatsUpdaterParams();
+  ~adrbrowsielStatsUpdaterParams();
 
   std::string GetDailyParam() const;
   std::string GetWeeklyParam() const;
@@ -43,7 +43,7 @@ class BraveStatsUpdaterParams {
   void SavePrefs();
 
  private:
-  friend class ::BraveStatsUpdaterTest;
+  friend class ::adrbrowsielStatsUpdaterTest;
   PrefService* stats_pref_service_;
   PrefService* profile_pref_service_;
   ProcessArch arch_;
@@ -77,9 +77,9 @@ class BraveStatsUpdaterParams {
   // Returns the timestamp of the browsers first run
   static base::Time GetFirstRunTime(PrefService *pref_service);
 
-  DISALLOW_COPY_AND_ASSIGN(BraveStatsUpdaterParams);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielStatsUpdaterParams);
 };
 
-}  // namespace brave_stats
+}  // namespace adrbrowsiel_stats
 
-#endif  // BRAVE_BROWSER_BRAVE_STATS_BRAVE_STATS_UPDATER_PARAMS_H_
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_STATS_adrbrowsiel_STATS_UPDATER_PARAMS_H_

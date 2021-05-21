@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_REWARDS_ANDROID_BRAVE_REWARDS_NATIVE_WORKER_H_
-#define BRAVE_BROWSER_BRAVE_REWARDS_ANDROID_BRAVE_REWARDS_NATIVE_WORKER_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_REWARDS_ANDROID_adrbrowsiel_REWARDS_NATIVE_WORKER_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_REWARDS_ANDROID_adrbrowsiel_REWARDS_NATIVE_WORKER_H_
 
 #include <jni.h>
 #include <map>
@@ -16,11 +16,11 @@
 #include "base/containers/flat_map.h"
 #include "base/memory/weak_ptr.h"
 #include "bat/ledger/mojom_structs.h"
-#include "brave/components/brave_rewards/browser/rewards_service_observer.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service_observer.h"
-#include "brave/components/brave_rewards/browser/rewards_service_private_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_private_observer.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 class RewardsService;
 }
 
@@ -29,13 +29,13 @@ namespace android {
 
 typedef std::map<uint64_t, ledger::type::PublisherInfoPtr> PublishersInfoMap;
 
-class BraveRewardsNativeWorker : public brave_rewards::RewardsServiceObserver,
-    public brave_rewards::RewardsServicePrivateObserver,
-    public brave_rewards::RewardsNotificationServiceObserver {
+class adrbrowsielRewardsNativeWorker : public adrbrowsiel_rewards::RewardsServiceObserver,
+    public adrbrowsiel_rewards::RewardsServicePrivateObserver,
+    public adrbrowsiel_rewards::RewardsNotificationServiceObserver {
  public:
-    BraveRewardsNativeWorker(JNIEnv* env,
+    adrbrowsielRewardsNativeWorker(JNIEnv* env,
         const base::android::JavaRef<jobject>& obj);
-    ~BraveRewardsNativeWorker() override;
+    ~adrbrowsielRewardsNativeWorker() override;
 
     void Destroy(JNIEnv* env);
 
@@ -145,37 +145,37 @@ class BraveRewardsNativeWorker : public brave_rewards::RewardsServiceObserver,
     void OnGetPendingContributionsTotal(double amount);
 
     void OnPanelPublisherInfo(
-        brave_rewards::RewardsService* rewards_service,
+        adrbrowsiel_rewards::RewardsService* rewards_service,
         const ledger::type::Result result,
         const ledger::type::PublisherInfo* info,
         uint64_t tabId) override;
 
     void OnGetCurrentBalanceReport(
-        brave_rewards::RewardsService* rewards_service,
+        adrbrowsiel_rewards::RewardsService* rewards_service,
         const ledger::type::Result result,
         ledger::type::BalanceReportInfoPtr report);
 
     void OnGetRewardsParameters(
-        brave_rewards::RewardsService* rewards_service,
+        adrbrowsiel_rewards::RewardsService* rewards_service,
         ledger::type::RewardsParametersPtr parameters);
 
     void OnNotificationAdded(
-      brave_rewards::RewardsNotificationService* rewards_notification_service,
-      const brave_rewards::RewardsNotificationService::RewardsNotification&
+      adrbrowsiel_rewards::RewardsNotificationService* rewards_notification_service,
+      const adrbrowsiel_rewards::RewardsNotificationService::RewardsNotification&
         notification) override;
 
     void OnGetAllNotifications(
-      brave_rewards::RewardsNotificationService* rewards_notification_service,
-      const brave_rewards::RewardsNotificationService::RewardsNotificationsList&
+      adrbrowsiel_rewards::RewardsNotificationService* rewards_notification_service,
+      const adrbrowsiel_rewards::RewardsNotificationService::RewardsNotificationsList&
           notifications_list) override;
 
     void OnNotificationDeleted(
-      brave_rewards::RewardsNotificationService* rewards_notification_service,
-      const brave_rewards::RewardsNotificationService::RewardsNotification&
+      adrbrowsiel_rewards::RewardsNotificationService* rewards_notification_service,
+      const adrbrowsiel_rewards::RewardsNotificationService::RewardsNotification&
         notification) override;
 
     void OnPromotionFinished(
-        brave_rewards::RewardsService* rewards_service,
+        adrbrowsiel_rewards::RewardsService* rewards_service,
         const ledger::type::Result result,
         ledger::type::PromotionPtr promotion) override;
 
@@ -193,7 +193,7 @@ class BraveRewardsNativeWorker : public brave_rewards::RewardsServiceObserver,
                              ledger::type::ExternalWalletPtr wallet);
 
     void OnDisconnectWallet(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       const ledger::type::Result result,
       const std::string& wallet_type) override;
 
@@ -204,7 +204,7 @@ class BraveRewardsNativeWorker : public brave_rewards::RewardsServiceObserver,
         const base::flat_map<std::string, std::string>& args);
 
     void OnRecoverWallet(
-        brave_rewards::RewardsService* rewards_service,
+        adrbrowsiel_rewards::RewardsService* rewards_service,
         const ledger::type::Result result) override;
 
     void OnRefreshPublisher(
@@ -225,8 +225,8 @@ class BraveRewardsNativeWorker : public brave_rewards::RewardsServiceObserver,
 
     void OnStartProcess();
 
-    JavaObjectWeakGlobalRef weak_java_brave_rewards_native_worker_;
-    brave_rewards::RewardsService* brave_rewards_service_;
+    JavaObjectWeakGlobalRef weak_java_adrbrowsiel_rewards_native_worker_;
+    adrbrowsiel_rewards::RewardsService* adrbrowsiel_rewards_service_;
     ledger::type::RewardsParameters parameters_;
     ledger::type::Balance balance_;
     ledger::type::AutoContributePropertiesPtr auto_contrib_properties_;
@@ -235,9 +235,9 @@ class BraveRewardsNativeWorker : public brave_rewards::RewardsServiceObserver,
       map_recurrent_publishers_;
     std::map<std::string, std::string> addresses_;
     ledger::type::PromotionList promotions_;
-    base::WeakPtrFactory<BraveRewardsNativeWorker> weak_factory_;
+    base::WeakPtrFactory<adrbrowsielRewardsNativeWorker> weak_factory_;
 };
 }  // namespace android
 }  // namespace chrome
 
-#endif  // BRAVE_BROWSER_BRAVE_REWARDS_ANDROID_BRAVE_REWARDS_NATIVE_WORKER_H_
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_REWARDS_ANDROID_adrbrowsiel_REWARDS_NATIVE_WORKER_H_

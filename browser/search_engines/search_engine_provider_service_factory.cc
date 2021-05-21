@@ -1,17 +1,17 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/search_engines/search_engine_provider_service_factory.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_provider_service_factory.h"
 
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/search_engines/guest_window_search_engine_provider_service.h"
-#include "brave/browser/search_engines/private_window_search_engine_provider_service.h"
-#include "brave/browser/search_engines/search_engine_provider_util.h"
-#include "brave/browser/search_engines/tor_window_search_engine_provider_service.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/search_engines/brave_prepopulated_engines.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/search_engines/guest_window_search_engine_provider_service.h"
+#include "adrbrowsiel/browser/search_engines/private_window_search_engine_provider_service.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_provider_util.h"
+#include "adrbrowsiel/browser/search_engines/tor_window_search_engine_provider_service.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/search_engines/adrbrowsiel_prepopulated_engines.h"
 #include "chrome/browser/profiles/incognito_helpers.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/search_engines/template_url_service_factory.h"
@@ -31,10 +31,10 @@ KeyedService* InitializeSearchEngineProviderServiceIfNeeded(Profile* profile) {
 
   // Guest profile in qwant region doesn't need special handling of search
   // engine provider because its newtab doesn't have ddg toggle button.
-  if (brave::IsRegionForQwant(profile))
+  if (adrbrowsiel::IsRegionForQwant(profile))
     return nullptr;
 
-  if (brave::IsGuestProfile(profile) && profile->IsOffTheRecord()) {
+  if (adrbrowsiel::IsGuestProfile(profile) && profile->IsOffTheRecord()) {
     return new GuestWindowSearchEngineProviderService(profile);
   }
 

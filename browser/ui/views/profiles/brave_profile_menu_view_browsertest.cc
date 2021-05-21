@@ -1,4 +1,4 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -14,10 +14,10 @@
 #include "ui/gfx/geometry/point.h"
 #include "ui/views/controls/button/label_button.h"
 
-class BraveProfileMenuViewTest : public InProcessBrowserTest {
+class adrbrowsielProfileMenuViewTest : public InProcessBrowserTest {
  public:
-  BraveProfileMenuViewTest() = default;
-  ~BraveProfileMenuViewTest() override = default;
+  adrbrowsielProfileMenuViewTest() = default;
+  ~adrbrowsielProfileMenuViewTest() override = default;
 
  protected:
   AvatarToolbarButton* avatar_button() {
@@ -57,10 +57,10 @@ class BraveProfileMenuViewTest : public InProcessBrowserTest {
   }
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveProfileMenuViewTest);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielProfileMenuViewTest);
 };
 
-IN_PROC_BROWSER_TEST_F(BraveProfileMenuViewTest, TestCurrentProfileView) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielProfileMenuViewTest, TestCurrentProfileView) {
   OpenProfileMenuView();
   CheckIdentityHasNoText();
 }

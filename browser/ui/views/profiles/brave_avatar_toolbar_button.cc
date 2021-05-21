@@ -1,14 +1,14 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/profiles/brave_avatar_toolbar_button.h"
+#include "adrbrowsiel/browser/ui/views/profiles/adrbrowsiel_avatar_toolbar_button.h"
 
 #include <memory>
 
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/app/vector_icons/vector_icons.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/themes/theme_properties.h"
@@ -30,9 +30,9 @@
 namespace {
 
 constexpr int kHighlightRadius = 36;
-constexpr int kBraveAvatarButtonHorizontalSpacing = 10;
+constexpr int kadrbrowsielAvatarButtonHorizontalSpacing = 10;
 
-class BraveToolbarButtonHighlightPathGenerator
+class adrbrowsielToolbarButtonHighlightPathGenerator
     : public views::HighlightPathGenerator {
  public:
   // HighlightPathGenerator:
@@ -47,14 +47,14 @@ class BraveToolbarButtonHighlightPathGenerator
 };
 }  // namespace
 
-BraveAvatarToolbarButton::BraveAvatarToolbarButton(BrowserView* browser_view)
+adrbrowsielAvatarToolbarButton::adrbrowsielAvatarToolbarButton(BrowserView* browser_view)
     : AvatarToolbarButton(browser_view) {
   // Replace ToolbarButton's highlight path generator.
   views::HighlightPathGenerator::Install(
-      this, std::make_unique<BraveToolbarButtonHighlightPathGenerator>());
+      this, std::make_unique<adrbrowsielToolbarButtonHighlightPathGenerator>());
 }
 
-void BraveAvatarToolbarButton::SetHighlight(
+void adrbrowsielAvatarToolbarButton::SetHighlight(
     const std::u16string& highlight_text,
     base::Optional<SkColor> highlight_color) {
   std::u16string revised_highlight_text;
@@ -71,7 +71,7 @@ void BraveAvatarToolbarButton::SetHighlight(
   AvatarToolbarButton::SetHighlight(revised_highlight_text, highlight_color);
 }
 
-void BraveAvatarToolbarButton::UpdateColorsAndInsets() {
+void adrbrowsielAvatarToolbarButton::UpdateColorsAndInsets() {
   // Use custom bg/border for private/tor window.
   const bool is_tor = browser_->profile()->IsTor();
   if (delegate_->GetState() == State::kIncognitoProfile || is_tor) {
@@ -92,18 +92,18 @@ void BraveAvatarToolbarButton::UpdateColorsAndInsets() {
     gfx::Insets target_insets =
         ::GetLayoutInsets(TOOLBAR_BUTTON) +
         *GetProperty(views::kInternalPaddingKey) +
-        gfx::Insets(0, kBraveAvatarButtonHorizontalSpacing);
+        gfx::Insets(0, kadrbrowsielAvatarButtonHorizontalSpacing);
     SetBorder(views::CreateEmptyBorder(target_insets));
 
-    constexpr int kBraveAvatarImageLabelSpacing = 8;
-    SetImageLabelSpacing(kBraveAvatarImageLabelSpacing);
+    constexpr int kadrbrowsielAvatarImageLabelSpacing = 8;
+    SetImageLabelSpacing(kadrbrowsielAvatarImageLabelSpacing);
     return;
   }
 
   AvatarToolbarButton::UpdateColorsAndInsets();
 }
 
-ui::ImageModel BraveAvatarToolbarButton::GetAvatarIcon(
+ui::ImageModel adrbrowsielAvatarToolbarButton::GetAvatarIcon(
     ButtonState state,
     const gfx::Image& gaia_account_image) const {
   // We don't use icon for tor avatar button.
@@ -119,7 +119,7 @@ ui::ImageModel BraveAvatarToolbarButton::GetAvatarIcon(
   return AvatarToolbarButton::GetAvatarIcon(state, gaia_account_image);
 }
 
-std::u16string BraveAvatarToolbarButton::GetAvatarTooltipText() const {
+std::u16string adrbrowsielAvatarToolbarButton::GetAvatarTooltipText() const {
   if (browser_->profile()->IsTor())
     return l10n_util::GetStringUTF16(IDS_TOR_AVATAR_BUTTON_TOOLTIP_TEXT);
 

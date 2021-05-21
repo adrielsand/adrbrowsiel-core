@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/widevine/widevine_utils.h"
+#include "adrbrowsiel/browser/widevine/widevine_utils.h"
 
 #include "base/files/file_util.h"
 #include "base/path_service.h"
 #include "base/task/task_traits.h"
 #include "base/task/thread_pool.h"
-#include "brave/browser/brave_drm_tab_helper.h"
-#include "brave/browser/widevine/widevine_permission_request.h"
-#include "brave/common/pref_names.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/adrbrowsiel_drm_tab_helper.h"
+#include "adrbrowsiel/browser/widevine/widevine_permission_request.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/component_updater/widevine_cdm_component_installer.h"
 #include "chrome/browser/profiles/profile.h"
@@ -33,7 +33,7 @@ namespace {
 constexpr char kWidevineInvalidVersion[] = "";
 
 // Added 11/2020.
-constexpr char kWidevineInstalledVersion[] = "brave.widevine_installed_version";
+constexpr char kWidevineInstalledVersion[] = "adrbrowsiel.widevine_installed_version";
 
 void OnDeletedOldWidevineBinary(bool result) {
   DCHECK_CURRENTLY_ON(BrowserThread::UI);
@@ -88,7 +88,7 @@ void DisableWidevineCdmComponent() {
 
   SetWidevineOptedIn(false);
   g_browser_process->component_updater()->UnregisterComponent(
-      BraveDrmTabHelper::kWidevineComponentId);
+      adrbrowsielDrmTabHelper::kWidevineComponentId);
 }
 
 int GetWidevinePermissionRequestTextFrangmentResourceId(bool for_restart) {

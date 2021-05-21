@@ -6,7 +6,7 @@ index 931da8429699964ffe18dc37bf257edd577cf830..e3d7907fdf808e3fbfa5f4f179df0070
  }
  
  static_library("version_info") {
-+  configs += [ "//brave/build:version" ]
++  configs += [ "//adrbrowsiel/build:version" ]
    sources = [
      "version_info.cc",
      "version_info.h",

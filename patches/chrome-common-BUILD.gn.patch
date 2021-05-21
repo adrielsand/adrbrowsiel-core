@@ -6,7 +6,7 @@ index 1e81d72976c0dfb5f42e8b712187abd125171b83..94b0155433530f2acca00af2c2649ea5
      "//build:branding_buildflags",
      "//build:chromeos_buildflags",
    ]
-+  deps += [ "//brave/common:channel_info" ]
++  deps += [ "//adrbrowsiel/common:channel_info" ]
    public_deps = [
      "//base",
      "//components/version_info",
@@ -14,7 +14,7 @@ index 1e81d72976c0dfb5f42e8b712187abd125171b83..94b0155433530f2acca00af2c2649ea5
    ]
  
    public_deps = [
-+    "//brave/common",
++    "//adrbrowsiel/common",
      ":available_offline_content_mojom",
      ":buildflags",
      ":channel_info",
@@ -22,7 +22,7 @@ index 1e81d72976c0dfb5f42e8b712187abd125171b83..94b0155433530f2acca00af2c2649ea5
      "//printing/buildflags",
      "//ui/base:buildflags",
    ]
-+  configs += [ "//brave/common:constants_configs" ]
++  configs += [ "//adrbrowsiel/common:constants_configs" ]
  }
  
  component("chrome_features") {

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,7 +10,7 @@
 #include "bat/ads/internal/unittest_base.h"
 #include "bat/ads/internal/unittest_util.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 namespace ad_targeting {
@@ -27,7 +27,7 @@ TEST_F(BatAdsPurchaseIntentModelTest, DoNotGetSegmentsForUnitializedResource) {
   resource::PurchaseIntent resource;
   processor::PurchaseIntent processor(&resource);
 
-  const GURL url = GURL("https://www.brave.com/test?foo=bar");
+  const GURL url = GURL("https://www.adrbrowsiel.com/test?foo=bar");
   processor.Process(url);
 
   // Act
@@ -47,7 +47,7 @@ TEST_F(BatAdsPurchaseIntentModelTest, DoNotGetSegmentsForExpiredSignals) {
 
   processor::PurchaseIntent processor(&resource);
 
-  const GURL url_1 = GURL("https://www.brave.com/test?foo=bar");
+  const GURL url_1 = GURL("https://www.adrbrowsiel.com/test?foo=bar");
   processor.Process(url_1);
 
   FastForwardClockBy(base::TimeDelta::FromDays(1));
@@ -108,7 +108,7 @@ TEST_F(BatAdsPurchaseIntentModelTest, GetSegmentsForPreviouslyMatchedSite) {
 
   processor::PurchaseIntent processor(&resource);
 
-  const GURL url_1 = GURL("https://www.brave.com/test?foo=bar");
+  const GURL url_1 = GURL("https://www.adrbrowsiel.com/test?foo=bar");
   processor.Process(url_1);
 
   const GURL url_2 = GURL("https://www.basicattentiontoken.org/test?bar=foo");

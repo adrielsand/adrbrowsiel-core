@@ -6,7 +6,7 @@ index f8685459a875480b5b428bd04a859210316139df..d8ff61490ce2c1c5460a31a485cf024c
  
    // Returns the current view state.
    TranslateBubbleModel::ViewState GetViewState() const;
-+  BRAVE_TRANSLATE_BUBBLE_VIEW_H_
++  adrbrowsiel_TRANSLATE_BUBBLE_VIEW_H_
  
   protected:
    // LocationBarBubbleDelegateView:

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 The Brave Authors. All rights reserved.
+ * Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -31,15 +31,15 @@ public class OnboardingViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
         case 0:
-            BraveRewardsOnboardingFragment braveRewardsOnboardingFragment =
-                new BraveRewardsOnboardingFragment();
-            braveRewardsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
-            return braveRewardsOnboardingFragment;
+            adrbrowsielRewardsOnboardingFragment adrbrowsielRewardsOnboardingFragment =
+                new adrbrowsielRewardsOnboardingFragment();
+            adrbrowsielRewardsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+            return adrbrowsielRewardsOnboardingFragment;
         case 1:
-            BraveAdsOnboardingFragment braveAdsOnboardingFragment =
-                new BraveAdsOnboardingFragment();
-            braveAdsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
-            return braveAdsOnboardingFragment;
+            adrbrowsielAdsOnboardingFragment adrbrowsielAdsOnboardingFragment =
+                new adrbrowsielAdsOnboardingFragment();
+            adrbrowsielAdsOnboardingFragment.setOnViewPagerAction(onViewPagerAction);
+            return adrbrowsielAdsOnboardingFragment;
         case 2:
             TroubleshootingOnboardingFragment troubleshootingOnboardingFragment =
                 new TroubleshootingOnboardingFragment();

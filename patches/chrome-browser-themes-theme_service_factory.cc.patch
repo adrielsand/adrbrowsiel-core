@@ -6,7 +6,7 @@ index dc2350f0b2443c44a684db90a3b92ecfcc5fa00a..3d3c595058b5b0c132e052572aae081c
  
  KeyedService* ThemeServiceFactory::BuildServiceInstanceFor(
      content::BrowserContext* profile) const {
-+  BRAVE_THEMESERVICEFACTORY_BUILDSERVICEINSTANCEFOR
++  adrbrowsiel_THEMESERVICEFACTORY_BUILDSERVICEINSTANCEFOR
  // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
  // of lacros-chrome is complete.
  #if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)

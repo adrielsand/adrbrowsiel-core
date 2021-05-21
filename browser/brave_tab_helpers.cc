@@ -1,75 +1,75 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_tab_helpers.h"
+#include "adrbrowsiel/browser/adrbrowsiel_tab_helpers.h"
 
 #include "base/command_line.h"
 #include "base/feature_list.h"
-#include "brave/browser/brave_ads/ads_tab_helper.h"
-#include "brave/browser/brave_shields/brave_shields_web_contents_observer.h"
-#include "brave/browser/brave_stats/brave_stats_tab_helper.h"
-#include "brave/browser/ephemeral_storage/ephemeral_storage_tab_helper.h"
-#include "brave/browser/ui/bookmark/brave_bookmark_tab_helper.h"
-#include "brave/components/brave_perf_predictor/browser/buildflags.h"
-#include "brave/components/brave_rewards/browser/buildflags/buildflags.h"
-#include "brave/components/brave_wayback_machine/buildflags.h"
-#include "brave/components/greaselion/browser/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/speedreader/buildflags.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_tab_helper.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/adrbrowsiel_stats_tab_helper.h"
+#include "adrbrowsiel/browser/ephemeral_storage/ephemeral_storage_tab_helper.h"
+#include "adrbrowsiel/browser/ui/bookmark/adrbrowsiel_bookmark_tab_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/buildflags.h"
+#include "adrbrowsiel/components/greaselion/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/speedreader/buildflags.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/web_contents.h"
 #include "net/base/features.h"
 #include "third_party/widevine/cdm/buildflags.h"
 
 #if BUILDFLAG(ENABLE_GREASELION)
-#include "brave/browser/greaselion/greaselion_tab_helper.h"
+#include "adrbrowsiel/browser/greaselion/greaselion_tab_helper.h"
 #endif
 
 #if defined(OS_ANDROID)
-#include "brave/browser/android/preferences/background_video_playback_tab_helper.h"
-#include "brave/browser/android/preferences/website/desktop_mode_tab_helper.h"
+#include "adrbrowsiel/browser/android/preferences/background_video_playback_tab_helper.h"
+#include "adrbrowsiel/browser/android/preferences/website/desktop_mode_tab_helper.h"
 #endif
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-#include "brave/browser/brave_rewards/rewards_tab_helper.h"
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_tab_helper.h"
 #endif
 
 #if BUILDFLAG(ENABLE_WIDEVINE)
-#include "brave/browser/brave_drm_tab_helper.h"
+#include "adrbrowsiel/browser/adrbrowsiel_drm_tab_helper.h"
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_WAYBACK_MACHINE)
-#include "brave/browser/infobars/brave_wayback_machine_delegate_impl.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_WAYBACK_MACHINE)
+#include "adrbrowsiel/browser/infobars/adrbrowsiel_wayback_machine_delegate_impl.h"
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_PERF_PREDICTOR)
-#include "brave/components/brave_perf_predictor/browser/perf_predictor_tab_helper.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_PERF_PREDICTOR)
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/perf_predictor_tab_helper.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SPEEDREADER)
-#include "brave/browser/speedreader/speedreader_tab_helper.h"
+#include "adrbrowsiel/browser/speedreader/speedreader_tab_helper.h"
 #endif
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/components/tor/onion_location_tab_helper.h"
-#include "brave/components/tor/tor_tab_helper.h"
+#include "adrbrowsiel/components/tor/onion_location_tab_helper.h"
+#include "adrbrowsiel/components/tor/tor_tab_helper.h"
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/browser/ipfs/ipfs_tab_helper.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_tab_helper.h"
 #endif
 
-namespace brave {
+namespace adrbrowsiel {
 
 void AttachTabHelpers(content::WebContents* web_contents) {
 #if BUILDFLAG(ENABLE_GREASELION)
   greaselion::GreaselionTabHelper::CreateForWebContents(web_contents);
 #endif
-  brave_shields::BraveShieldsWebContentsObserver::CreateForWebContents(
+  adrbrowsiel_shields::adrbrowsielShieldsWebContentsObserver::CreateForWebContents(
       web_contents);
 
 #if defined(OS_ANDROID)
@@ -77,27 +77,27 @@ void AttachTabHelpers(content::WebContents* web_contents) {
   BackgroundVideoPlaybackTabHelper::CreateForWebContents(web_contents);
 #else
   // Add tab helpers here unless they are intended for android too
-  BraveBookmarkTabHelper::CreateForWebContents(web_contents);
+  adrbrowsielBookmarkTabHelper::CreateForWebContents(web_contents);
 #endif
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-  brave_rewards::RewardsTabHelper::CreateForWebContents(web_contents);
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+  adrbrowsiel_rewards::RewardsTabHelper::CreateForWebContents(web_contents);
 #endif
 
 #if BUILDFLAG(ENABLE_WIDEVINE)
-  BraveDrmTabHelper::CreateForWebContents(web_contents);
+  adrbrowsielDrmTabHelper::CreateForWebContents(web_contents);
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_WAYBACK_MACHINE)
-  BraveWaybackMachineDelegateImpl::AttachTabHelperIfNeeded(web_contents);
+#if BUILDFLAG(ENABLE_adrbrowsiel_WAYBACK_MACHINE)
+  adrbrowsielWaybackMachineDelegateImpl::AttachTabHelperIfNeeded(web_contents);
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_PERF_PREDICTOR)
-  brave_perf_predictor::PerfPredictorTabHelper::CreateForWebContents(
+#if BUILDFLAG(ENABLE_adrbrowsiel_PERF_PREDICTOR)
+  adrbrowsiel_perf_predictor::PerfPredictorTabHelper::CreateForWebContents(
       web_contents);
 #endif
 
-  brave_ads::AdsTabHelper::CreateForWebContents(web_contents);
+  adrbrowsiel_ads::AdsTabHelper::CreateForWebContents(web_contents);
 
 #if BUILDFLAG(ENABLE_SPEEDREADER)
   speedreader::SpeedreaderTabHelper::CreateForWebContents(web_contents);
@@ -113,12 +113,12 @@ void AttachTabHelpers(content::WebContents* web_contents) {
   ipfs::IPFSTabHelper::MaybeCreateForWebContents(web_contents);
 #endif
 
-  brave_stats::BraveStatsTabHelper::CreateForWebContents(web_contents);
+  adrbrowsiel_stats::adrbrowsielStatsTabHelper::CreateForWebContents(web_contents);
 
-  if (base::FeatureList::IsEnabled(net::features::kBraveEphemeralStorage)) {
+  if (base::FeatureList::IsEnabled(net::features::kadrbrowsielEphemeralStorage)) {
     ephemeral_storage::EphemeralStorageTabHelper::CreateForWebContents(
         web_contents);
   }
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

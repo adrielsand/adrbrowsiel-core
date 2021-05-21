@@ -7,7 +7,7 @@ index cf33525790377668a857f209c651a6759a6e30a5..f83e924c6d7caef6f87f2b01d7998ca4
  
          NotificationManagerProxyImpl notificationManagerProxy =
 -                new NotificationManagerProxyImpl(context);
-+                new BraveNotificationManagerProxyImpl(context);
++                new adrbrowsielNotificationManagerProxyImpl(context);
  
          ChannelsInitializer channelsInitializer = new ChannelsInitializer(notificationManagerProxy,
                  ChromeChannelDefinitions.getInstance(), context.getResources());

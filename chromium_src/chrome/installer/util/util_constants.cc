@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -24,11 +24,11 @@ namespace installer {
 namespace env_vars {
 
 #if defined(OFFICIAL_BUILD)
-const char kGoogleUpdateIsMachineEnvVar[] = "BraveSoftwareUpdateIsMachine";
+const char kGoogleUpdateIsMachineEnvVar[] = "adrbrowsielSoftwareUpdateIsMachine";
 #endif
 
 }  // namespace env_vars
 
-const wchar_t kChromeExe[] = L"brave.exe";
+const wchar_t kChromeExe[] = L"adrbrowsiel.exe";
 
 }  // namespace installer

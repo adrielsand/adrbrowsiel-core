@@ -1,4 +1,4 @@
-// Copyright 2019 The Brave Authors. All rights reserved.
+// Copyright 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -6,11 +6,11 @@
 #include <vector>
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/tor/tor_constants.h"
-#include "brave/components/tor/tor_utils.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/tor_constants.h"
+#include "adrbrowsiel/components/tor/tor_utils.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/profiles/profile_attributes_entry.h"
@@ -26,8 +26,8 @@
 
 #if BUILDFLAG(IPFS_ENABLED)
 #include "base/test/scoped_feature_list.h"
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/components/ipfs/features.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/components/ipfs/features.h"
 #endif
 
 namespace {
@@ -66,9 +66,9 @@ std::vector<TestProfileData> GetTestProfileData(
 
 }  // namespace
 
-class BraveProfileManagerTest : public InProcessBrowserTest {
+class adrbrowsielProfileManagerTest : public InProcessBrowserTest {
  public:
-  BraveProfileManagerTest() {
+  adrbrowsielProfileManagerTest() {
 #if BUILDFLAG(IPFS_ENABLED)
     feature_list_.InitAndEnableFeature(ipfs::features::kIpfsFeature);
 #endif
@@ -82,8 +82,8 @@ class BraveProfileManagerTest : public InProcessBrowserTest {
 
 // Test that legacy profile names (Person X) that have
 // not been user-modified are automatically renamed
-// to brave profile names (Profile X).
-IN_PROC_BROWSER_TEST_F(BraveProfileManagerTest,
+// to adrbrowsiel profile names (Profile X).
+IN_PROC_BROWSER_TEST_F(adrbrowsielProfileManagerTest,
                        DISABLED_PRE_MigrateProfileNames) {
   ProfileManager* profile_manager = g_browser_process->profile_manager();
   ProfileAttributesStorage& storage =
@@ -114,7 +114,7 @@ IN_PROC_BROWSER_TEST_F(BraveProfileManagerTest,
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveProfileManagerTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielProfileManagerTest,
                        DISABLED_MigrateProfileNames) {
   ProfileManager* profile_manager = g_browser_process->profile_manager();
   ProfileAttributesStorage& storage =
@@ -137,7 +137,7 @@ IN_PROC_BROWSER_TEST_F(BraveProfileManagerTest,
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveProfileManagerTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielProfileManagerTest,
                        ExcludeServicesInOTRAndGuestProfiles) {
   ProfileManager* profile_manager = g_browser_process->profile_manager();
   ASSERT_TRUE(profile_manager);
@@ -153,18 +153,18 @@ IN_PROC_BROWSER_TEST_F(BraveProfileManagerTest,
   ASSERT_TRUE(guest_profile->IsGuestSession());
 
   EXPECT_NE(
-      brave_rewards::RewardsServiceFactory::GetForProfile(profile), nullptr);
+      adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile), nullptr);
   EXPECT_EQ(
-      brave_rewards::RewardsServiceFactory::GetForProfile(otr_profile),
+      adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(otr_profile),
       nullptr);
   EXPECT_EQ(
-      brave_rewards::RewardsServiceFactory::GetForProfile(guest_profile),
+      adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(guest_profile),
       nullptr);
 
-  EXPECT_NE(brave_ads::AdsServiceFactory::GetForProfile(profile), nullptr);
-  EXPECT_EQ(brave_ads::AdsServiceFactory::GetForProfile(otr_profile),
+  EXPECT_NE(adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile), nullptr);
+  EXPECT_EQ(adrbrowsiel_ads::AdsServiceFactory::GetForProfile(otr_profile),
             nullptr);
-  EXPECT_EQ(brave_ads::AdsServiceFactory::GetForProfile(guest_profile),
+  EXPECT_EQ(adrbrowsiel_ads::AdsServiceFactory::GetForProfile(guest_profile),
             nullptr);
 
 #if BUILDFLAG(IPFS_ENABLED)
@@ -174,7 +174,7 @@ IN_PROC_BROWSER_TEST_F(BraveProfileManagerTest,
 #endif
 }
 
-IN_PROC_BROWSER_TEST_F(BraveProfileManagerTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielProfileManagerTest,
                        GetLastUsedProfileName) {
   g_browser_process->local_state()->SetString(
       prefs::kProfileLastUsed,

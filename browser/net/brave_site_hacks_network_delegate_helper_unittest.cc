@@ -1,23 +1,23 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_site_hacks_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_site_hacks_network_delegate_helper.h"
 
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
 
-#include "brave/browser/net/url_context.h"
-#include "brave/common/network_constants.h"
+#include "adrbrowsiel/browser/net/url_context.h"
+#include "adrbrowsiel/common/network_constants.h"
 #include "net/base/net_errors.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-using brave::ResponseCallback;
+using adrbrowsiel::ResponseCallback;
 
-TEST(BraveSiteHacksNetworkDelegateHelperTest, UAWhitelistedTest) {
+TEST(adrbrowsielSiteHacksNetworkDelegateHelperTest, UAWhitelistedTest) {
   const std::vector<const GURL> urls(
       {GURL("https://duckduckgo.com"), GURL("https://duckduckgo.com/something"),
        GURL("https://netflix.com"), GURL("https://netflix.com/something"),
@@ -30,59 +30,59 @@ TEST(BraveSiteHacksNetworkDelegateHelperTest, UAWhitelistedTest) {
     headers.SetHeader(kUserAgentHeader,
                       "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 "
                       "(KHTML, like Gecko) Chrome/33.0.1750.117 Safari/537.36");
-    auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-    int rc = brave::OnBeforeStartTransaction_SiteHacksWork(
-        &headers, ResponseCallback(), brave_request_info);
+    auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+    int rc = adrbrowsiel::OnBeforeStartTransaction_SiteHacksWork(
+        &headers, ResponseCallback(), adrbrowsiel_request_info);
     std::string user_agent;
     headers.GetHeader(kUserAgentHeader, &user_agent);
     EXPECT_EQ(rc, net::OK);
     EXPECT_EQ(user_agent,
               "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 "
-              "(KHTML, like Gecko) Brave Chrome/33.0.1750.117 Safari/537.36");
+              "(KHTML, like Gecko) adrbrowsiel Chrome/33.0.1750.117 Safari/537.36");
   }
 }
 
-TEST(BraveSiteHacksNetworkDelegateHelperTest, ChangeUAOnlyOnce) {
+TEST(adrbrowsielSiteHacksNetworkDelegateHelperTest, ChangeUAOnlyOnce) {
   const GURL whitelisted_url("https://netflix.com/");
   net::HttpRequestHeaders headers;
   headers.SetHeader(kUserAgentHeader,
                     "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 "
                     "(KHTML, like Gecko) Chrome/33.0.1750.117 Safari/537.36");
-  auto brave_request_info =
-      std::make_shared<brave::BraveRequestInfo>(whitelisted_url);
+  auto adrbrowsiel_request_info =
+      std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(whitelisted_url);
 
   // Check once.
-  int rc = brave::OnBeforeStartTransaction_SiteHacksWork(
-      &headers, ResponseCallback(), brave_request_info);
+  int rc = adrbrowsiel::OnBeforeStartTransaction_SiteHacksWork(
+      &headers, ResponseCallback(), adrbrowsiel_request_info);
   std::string user_agent;
   headers.GetHeader(kUserAgentHeader, &user_agent);
   EXPECT_EQ(rc, net::OK);
   EXPECT_EQ(user_agent,
             "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 "
-            "(KHTML, like Gecko) Brave Chrome/33.0.1750.117 Safari/537.36");
+            "(KHTML, like Gecko) adrbrowsiel Chrome/33.0.1750.117 Safari/537.36");
 
   // Check twice.
-  rc = brave::OnBeforeStartTransaction_SiteHacksWork(
-      &headers, ResponseCallback(), brave_request_info);
+  rc = adrbrowsiel::OnBeforeStartTransaction_SiteHacksWork(
+      &headers, ResponseCallback(), adrbrowsiel_request_info);
   headers.GetHeader(kUserAgentHeader, &user_agent);
   EXPECT_EQ(rc, net::OK);
   EXPECT_EQ(user_agent,
             "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 "
-            "(KHTML, like Gecko) Brave Chrome/33.0.1750.117 Safari/537.36");
+            "(KHTML, like Gecko) adrbrowsiel Chrome/33.0.1750.117 Safari/537.36");
 }
 
-TEST(BraveSiteHacksNetworkDelegateHelperTest, NOTUAWhitelistedTest) {
+TEST(adrbrowsielSiteHacksNetworkDelegateHelperTest, NOTUAWhitelistedTest) {
   const std::vector<const GURL> urls({GURL("https://brianbondy.com"),
-                                      GURL("https://bravecombo.com"),
-                                      GURL("https://brave.example.com")});
+                                      GURL("https://adrbrowsielcombo.com"),
+                                      GURL("https://adrbrowsiel.example.com")});
   for (const auto& url : urls) {
     net::HttpRequestHeaders headers;
     headers.SetHeader(kUserAgentHeader,
                       "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 "
                       "(KHTML, like Gecko) Chrome/33.0.1750.117 Safari/537.36");
-    auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-    int rc = brave::OnBeforeStartTransaction_SiteHacksWork(
-        &headers, ResponseCallback(), brave_request_info);
+    auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+    int rc = adrbrowsiel::OnBeforeStartTransaction_SiteHacksWork(
+        &headers, ResponseCallback(), adrbrowsiel_request_info);
     std::string user_agent;
     headers.GetHeader(kUserAgentHeader, &user_agent);
     EXPECT_EQ(rc, net::OK);
@@ -92,7 +92,7 @@ TEST(BraveSiteHacksNetworkDelegateHelperTest, NOTUAWhitelistedTest) {
   }
 }
 
-TEST(BraveSiteHacksNetworkDelegateHelperTest, ReferrerPreserved) {
+TEST(adrbrowsielSiteHacksNetworkDelegateHelperTest, ReferrerPreserved) {
   const std::vector<const GURL> urls(
       {GURL("https://brianbondy.com/7"), GURL("https://www.brianbondy.com/5"),
        GURL("https://brian.bondy.brianbondy.com")});
@@ -100,59 +100,59 @@ TEST(BraveSiteHacksNetworkDelegateHelperTest, ReferrerPreserved) {
     net::HttpRequestHeaders headers;
     const GURL original_referrer("https://hello.brianbondy.com/about");
 
-    auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-    brave_request_info->referrer = original_referrer;
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+    adrbrowsiel_request_info->referrer = original_referrer;
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
     // new_url should not be set.
-    EXPECT_TRUE(brave_request_info->new_url_spec.empty());
-    EXPECT_EQ(brave_request_info->referrer, original_referrer);
+    EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
+    EXPECT_EQ(adrbrowsiel_request_info->referrer, original_referrer);
   }
 }
 
-TEST(BraveSiteHacksNetworkDelegateHelperTest, ReferrerTruncated) {
+TEST(adrbrowsielSiteHacksNetworkDelegateHelperTest, ReferrerTruncated) {
   const std::vector<const GURL> urls({GURL("https://digg.com/7"),
                                       GURL("https://slashdot.org/5"),
                                       GURL("https://bondy.brian.org")});
   for (const auto& url : urls) {
     const GURL original_referrer("https://hello.brianbondy.com/about");
 
-    auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-    brave_request_info->referrer = original_referrer;
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+    adrbrowsiel_request_info->referrer = original_referrer;
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
     // new_url should not be set.
-    EXPECT_TRUE(brave_request_info->new_url_spec.empty());
-    EXPECT_TRUE(brave_request_info->new_referrer.has_value());
-    EXPECT_EQ(brave_request_info->new_referrer.value(),
+    EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
+    EXPECT_TRUE(adrbrowsiel_request_info->new_referrer.has_value());
+    EXPECT_EQ(adrbrowsiel_request_info->new_referrer.value(),
               original_referrer.GetOrigin().spec());
   }
 }
 
-TEST(BraveSiteHacksNetworkDelegateHelperTest,
+TEST(adrbrowsielSiteHacksNetworkDelegateHelperTest,
      ReferrerWouldBeClearedButExtensionSite) {
   const std::vector<const GURL> urls({GURL("https://digg.com/7"),
                                       GURL("https://slashdot.org/5"),
                                       GURL("https://bondy.brian.org")});
   for (const auto& url : urls) {
-    auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(url);
-    brave_request_info->tab_origin =
+    auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(url);
+    adrbrowsiel_request_info->tab_origin =
         GURL("chrome-extension://aemmndcbldboiebfnladdacbdfmadadm/");
     const GURL original_referrer("https://hello.brianbondy.com/about");
-    brave_request_info->referrer = original_referrer;
+    adrbrowsiel_request_info->referrer = original_referrer;
 
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
     // new_url should not be set
-    EXPECT_TRUE(brave_request_info->new_url_spec.empty());
-    EXPECT_EQ(brave_request_info->referrer, original_referrer);
+    EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
+    EXPECT_EQ(adrbrowsiel_request_info->referrer, original_referrer);
   }
 }
 
-TEST(BraveSiteHacksNetworkDelegateHelperTest, QueryStringUntouched) {
+TEST(adrbrowsielSiteHacksNetworkDelegateHelperTest, QueryStringUntouched) {
   const std::vector<const std::string> urls({
       "https://example.com/",
       "https://example.com/?",
@@ -173,19 +173,19 @@ TEST(BraveSiteHacksNetworkDelegateHelperTest, QueryStringUntouched) {
       "https://example.com/?__ss=1234-abcd",
   });
   for (const auto& url : urls) {
-    auto brave_request_info =
-        std::make_shared<brave::BraveRequestInfo>(GURL(url));
-    brave_request_info->initiator_url =
+    auto adrbrowsiel_request_info =
+        std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(GURL(url));
+    adrbrowsiel_request_info->initiator_url =
         GURL("https://example.net");  // cross-site
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
     // new_url should not be set
-    EXPECT_TRUE(brave_request_info->new_url_spec.empty());
+    EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
   }
 }
 
-TEST(BraveSiteHacksNetworkDelegateHelperTest, QueryStringExempted) {
+TEST(adrbrowsielSiteHacksNetworkDelegateHelperTest, QueryStringExempted) {
   const GURL tracking_url("https://example.com/?fbclid=1");
 
   const std::string initiators[] = {
@@ -194,49 +194,49 @@ TEST(BraveSiteHacksNetworkDelegateHelperTest, QueryStringExempted) {
   };
 
   for (const auto& initiator : initiators) {
-    auto brave_request_info =
-        std::make_shared<brave::BraveRequestInfo>(tracking_url);
-    brave_request_info->initiator_url = GURL(initiator);
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    auto adrbrowsiel_request_info =
+        std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(tracking_url);
+    adrbrowsiel_request_info->initiator_url = GURL(initiator);
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
     // new_url should not be set
-    EXPECT_TRUE(brave_request_info->new_url_spec.empty());
+    EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
   }
 
   // Internal redirect
   {
-    auto brave_request_info =
-        std::make_shared<brave::BraveRequestInfo>(tracking_url);
-    brave_request_info->initiator_url =
+    auto adrbrowsiel_request_info =
+        std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(tracking_url);
+    adrbrowsiel_request_info->initiator_url =
         GURL("https://example.net");  // cross-site
-    brave_request_info->internal_redirect = true;
-    brave_request_info->redirect_source =
+    adrbrowsiel_request_info->internal_redirect = true;
+    adrbrowsiel_request_info->redirect_source =
         GURL("https://example.org");  // cross-site
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
     // new_url should not be set
-    EXPECT_TRUE(brave_request_info->new_url_spec.empty());
+    EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
   }
 
   // Same-site redirect
   {
-    auto brave_request_info =
-        std::make_shared<brave::BraveRequestInfo>(tracking_url);
-    brave_request_info->initiator_url =
+    auto adrbrowsiel_request_info =
+        std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(tracking_url);
+    adrbrowsiel_request_info->initiator_url =
         GURL("https://example.net");  // cross-site
-    brave_request_info->redirect_source =
+    adrbrowsiel_request_info->redirect_source =
         GURL("https://sub.example.com");  // same-site
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
     // new_url should not be set
-    EXPECT_TRUE(brave_request_info->new_url_spec.empty());
+    EXPECT_TRUE(adrbrowsiel_request_info->new_url_spec.empty());
   }
 }
 
-TEST(BraveSiteHacksNetworkDelegateHelperTest, QueryStringFiltered) {
+TEST(adrbrowsielSiteHacksNetworkDelegateHelperTest, QueryStringFiltered) {
   const std::vector<const std::pair<const std::string, const std::string>> urls(
       {
           // { original url, expected url after filtering }
@@ -264,38 +264,38 @@ TEST(BraveSiteHacksNetworkDelegateHelperTest, QueryStringFiltered) {
            "https://example.com/?a+b+c=some%20thing&1%202=3+4"},
       });
   for (const auto& pair : urls) {
-    auto brave_request_info =
-        std::make_shared<brave::BraveRequestInfo>(GURL(pair.first));
-    brave_request_info->initiator_url =
+    auto adrbrowsiel_request_info =
+        std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(GURL(pair.first));
+    adrbrowsiel_request_info->initiator_url =
         GURL("https://example.net");  // cross-site
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
-    EXPECT_EQ(brave_request_info->new_url_spec, pair.second);
+    EXPECT_EQ(adrbrowsiel_request_info->new_url_spec, pair.second);
   }
 
   // Cross-site redirect
   {
-    auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(
+    auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(
         GURL("https://example.com/?fbclid=1"));
-    brave_request_info->initiator_url =
+    adrbrowsiel_request_info->initiator_url =
         GURL("https://example.com");  // same-origin
-    brave_request_info->redirect_source =
+    adrbrowsiel_request_info->redirect_source =
         GURL("https://example.net");  // cross-site
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
-    EXPECT_EQ(brave_request_info->new_url_spec, "https://example.com/");
+    EXPECT_EQ(adrbrowsiel_request_info->new_url_spec, "https://example.com/");
   }
 
   // Direct navigation
   {
-    auto brave_request_info = std::make_shared<brave::BraveRequestInfo>(
+    auto adrbrowsiel_request_info = std::make_shared<adrbrowsiel::adrbrowsielRequestInfo>(
         GURL("https://example.com/?fbclid=2"));
-    brave_request_info->initiator_url = GURL();
-    int rc = brave::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
-                                                     brave_request_info);
+    adrbrowsiel_request_info->initiator_url = GURL();
+    int rc = adrbrowsiel::OnBeforeURLRequest_SiteHacksWork(ResponseCallback(),
+                                                     adrbrowsiel_request_info);
     EXPECT_EQ(rc, net::OK);
-    EXPECT_EQ(brave_request_info->new_url_spec, "https://example.com/");
+    EXPECT_EQ(adrbrowsiel_request_info->new_url_spec, "https://example.com/");
   }
 }

@@ -8,7 +8,7 @@ index 9bdc5998805853db894a381d722e19c8474d86c8..c92ac7bbc6aa256b54b47ac11926c3a0
  
 -_packaging_dir = "$root_out_dir/$chrome_product_full_name Packaging"
 +_packaging_dir = "$root_out_dir/" + string_replace("$chrome_product_full_name Packaging", " ", "_")
-+_packaging_dir = "$brave_packaging_base_dir/" + string_replace("$chrome_product_full_name Packaging", " ", "_")
++_packaging_dir = "$adrbrowsiel_packaging_base_dir/" + string_replace("$chrome_product_full_name Packaging", " ", "_")
  
  process_version_rc_template("sign_config") {
    visibility = [ ":copy_signing" ]

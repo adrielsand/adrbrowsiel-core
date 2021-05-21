@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -37,7 +37,7 @@ void WalletCreate::Start(ledger::ResultCallback callback) {
     return;
   }
 
-  wallet = type::BraveWallet::New();
+  wallet = type::adrbrowsielWallet::New();
   const auto key_info_seed = util::Security::GenerateSeed();
   wallet->recovery_seed = key_info_seed;
   const bool success = ledger_->wallet()->SetWallet(std::move(wallet));
@@ -54,7 +54,7 @@ void WalletCreate::Start(ledger::ResultCallback callback) {
       _2,
       callback);
 
-  promotion_server_->post_wallet_brave()->Request(url_callback);
+  promotion_server_->post_wallet_adrbrowsiel()->Request(url_callback);
 }
 
 void WalletCreate::OnCreate(

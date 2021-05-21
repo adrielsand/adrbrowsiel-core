@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -29,9 +29,9 @@ using bookmarks::BookmarkModel;
 using bookmarks::BookmarkNode;
 using content::BrowserThread;
 
-class BraveBookmarkContextMenuControllerTest : public testing::Test {
+class adrbrowsielBookmarkContextMenuControllerTest : public testing::Test {
  public:
-  BraveBookmarkContextMenuControllerTest() : model_(nullptr) {}
+  adrbrowsielBookmarkContextMenuControllerTest() : model_(nullptr) {}
 
   void SetUp() override {
     TestingProfile::Builder builder;
@@ -54,7 +54,7 @@ class BraveBookmarkContextMenuControllerTest : public testing::Test {
   BookmarkModel* model_;
 };
 
-TEST_F(BraveBookmarkContextMenuControllerTest,
+TEST_F(adrbrowsielBookmarkContextMenuControllerTest,
        DontShowAppsShortcutContextMenuInBookmarksBar) {
   BookmarkContextMenuController controller(
       NULL, NULL, NULL, profile_.get(), NullNavigatorGetter(),

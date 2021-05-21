@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -30,8 +30,8 @@ import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.ntp_background_images.NTPBackgroundImagesBridge;
 
 public class RateFeedbackUtils {
-	private static final String TAG = "Rate_Brave";
-	private static final String RATE_URL = "https://laptop-updates.brave.com/1/feedback";
+	private static final String TAG = "Rate_adrbrowsiel";
+	private static final String RATE_URL = "https://laptop-updates.adrbrowsiel.com/1/feedback";
 
 	public interface RateFeedbackCallback {
 		void rateFeedbackSubmitted();

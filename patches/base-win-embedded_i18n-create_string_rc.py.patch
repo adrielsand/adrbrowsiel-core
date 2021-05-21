@@ -10,7 +10,7 @@ index 934131c2af25d4b2bdf5b5af648d5df453582cf8..b8a196381149c6906c89468a078c3c58
 +    # A base name is calculated from grd_file so that's why we don't
 +    # just change that from chrome/installer/util/BUILD.gn
 +    if "chromium_strings" in grd_file:
-+      sax_parser.parse("../../chrome/app/brave_strings.grd")
++      sax_parser.parse("../../chrome/app/adrbrowsiel_strings.grd")
 +    else:
 +      sax_parser.parse(grd_file)
 +

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Software Team. Distributed under the MPL2
+/* Copyright (c) 2019 The adrbrowsiel Software Team. Distributed under the MPL2
  * license. This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_NOTIFICATIONS_BRAVE_ALERT_DISPATCHER_MAC_H_
-#define BRAVE_BROWSER_NOTIFICATIONS_BRAVE_ALERT_DISPATCHER_MAC_H_
+#ifndef adrbrowsiel_BROWSER_NOTIFICATIONS_adrbrowsiel_ALERT_DISPATCHER_MAC_H_
+#define adrbrowsiel_BROWSER_NOTIFICATIONS_adrbrowsiel_ALERT_DISPATCHER_MAC_H_
 
 #import <Foundation/Foundation.h>
 
@@ -13,7 +13,7 @@
 #include "chrome/browser/notifications/alert_dispatcher_mac.h"
 
 // clang-format off
-@interface BraveAlertDispatcherMac : NSObject<AlertDispatcher>
+@interface adrbrowsielAlertDispatcherMac : NSObject<AlertDispatcher>
 
 - (void)dispatchNotification:(NSDictionary *)data;                               // NOLINT
 
@@ -37,4 +37,4 @@ getDisplayedAlertsForProfileId:(NSString *)profileId                            
 @end
 // clang-format on
 
-#endif  // BRAVE_BROWSER_NOTIFICATIONS_BRAVE_ALERT_DISPATCHER_MAC_H_
+#endif  // adrbrowsiel_BROWSER_NOTIFICATIONS_adrbrowsiel_ALERT_DISPATCHER_MAC_H_

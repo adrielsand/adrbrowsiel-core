@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/themes/brave_theme_service.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_theme_service.h"
 // Below files are included in advance to prevent overriding
 // GetBrowserContextToUse.
 #include "chrome/browser/extensions/extension_system_factory.h"
@@ -12,17 +12,17 @@
 #include "extensions/browser/extension_registry_factory.h"
 
 #if !defined(OS_LINUX)
-#define BRAVE_THEMESERVICEFACTORY_BUILDSERVICEINSTANCEFOR \
-  using ThemeService = BraveThemeService;
+#define adrbrowsiel_THEMESERVICEFACTORY_BUILDSERVICEINSTANCEFOR \
+  using ThemeService = adrbrowsielThemeService;
 #else
-// On Linux ThemeServiceAuraLinux derives from BraveThemeService instead.
-#define BRAVE_THEMESERVICEFACTORY_BUILDSERVICEINSTANCEFOR
+// On Linux ThemeServiceAuraLinux derives from adrbrowsielThemeService instead.
+#define adrbrowsiel_THEMESERVICEFACTORY_BUILDSERVICEINSTANCEFOR
 #endif
 
 #define GetBrowserContextToUse GetBrowserContextToUse_ChromiumImpl
 
 #include "../../../../../chrome/browser/themes/theme_service_factory.cc"
-#undef BRAVE_THEMESERVICEFACTORY_BUILDSERVICEINSTANCEFOR
+#undef adrbrowsiel_THEMESERVICEFACTORY_BUILDSERVICEINSTANCEFOR
 #undef GetBrowserContextToUse
 
 content::BrowserContext* ThemeServiceFactory::GetBrowserContextToUse(

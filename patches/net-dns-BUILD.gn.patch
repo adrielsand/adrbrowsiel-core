@@ -6,7 +6,7 @@ index 72ec4c53076394990da99eb48b3e75a196671d3a..56af0ed052310c042717330a0d3f2e30
      "//net/*",
      "//services/network/*",
    ]
-+  friend += brave_dns_friend
++  friend += adrbrowsiel_dns_friend
  
    public = []
    sources = [
@@ -14,7 +14,7 @@ index 72ec4c53076394990da99eb48b3e75a196671d3a..56af0ed052310c042717330a0d3f2e30
      # wrapper.
      "//services/proxy_resolver/*",
    ]
-+  friend += brave_dns_friend
++  friend += adrbrowsiel_dns_friend
  
    sources = []
    public = []
@@ -22,7 +22,7 @@ index 72ec4c53076394990da99eb48b3e75a196671d3a..56af0ed052310c042717330a0d3f2e30
      "//net/*",
      "//services/network/*",
    ]
-+  friend += brave_dns_friend
++  friend += adrbrowsiel_dns_friend
  
    sources = []
    public = []

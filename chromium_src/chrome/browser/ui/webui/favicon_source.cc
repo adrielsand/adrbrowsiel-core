@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -71,7 +71,7 @@ class InstantService {
 #if !defined(TOOLKIT_VIEWS)
 namespace webui {
 ui::NativeTheme* GetNativeTheme(content::WebContents* web_contents) {
-  return ui::NativeTheme::BraveGetInstanceForNativeUi();
+  return ui::NativeTheme::adrbrowsielGetInstanceForNativeUi();
 }
 }  // namespace webui
 #endif  // !defined(TOOLKIT_VIEWS)

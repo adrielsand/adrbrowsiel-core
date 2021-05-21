@@ -1,12 +1,12 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
-#include "brave/browser/extensions/api/brave_shields_api.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/browser/extensions/api/adrbrowsiel_shields_api.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/extensions/api/content_settings/content_settings_api.h"
 #include "chrome/browser/extensions/api/content_settings/content_settings_api_constants.h"
@@ -32,18 +32,18 @@ namespace extensions {
 
 using extension_function_test_utils::RunFunctionAndReturnError;
 using extension_function_test_utils::RunFunctionAndReturnSingleResult;
-using extensions::api::BraveShieldsAllowScriptsOnceFunction;
+using extensions::api::adrbrowsielShieldsAllowScriptsOnceFunction;
 
-class BraveShieldsAPIBrowserTest : public InProcessBrowserTest {
+class adrbrowsielShieldsAPIBrowserTest : public InProcessBrowserTest {
  public:
   void SetUpOnMainThread() override {
     InProcessBrowserTest::SetUpOnMainThread();
     host_resolver()->AddRule("*", "127.0.0.1");
     content::SetupCrossSiteRedirector(embedded_test_server());
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
 
     ASSERT_TRUE(embedded_test_server()->Start());
@@ -76,8 +76,8 @@ class BraveShieldsAPIBrowserTest : public InProcessBrowserTest {
 
   void AllowScriptOriginOnce(const std::string& origin) {
     // run extension function to temporarily allow origin
-    scoped_refptr<BraveShieldsAllowScriptsOnceFunction> function(
-        new BraveShieldsAllowScriptsOnceFunction());
+    scoped_refptr<adrbrowsielShieldsAllowScriptsOnceFunction> function(
+        new adrbrowsielShieldsAllowScriptsOnceFunction());
     function->set_extension(extension().get());
     function->set_has_callback(true);
 
@@ -97,8 +97,8 @@ class BraveShieldsAPIBrowserTest : public InProcessBrowserTest {
 
   void AllowScriptOriginAndDataURLOnce(const std::string& origin,
       const std::string& dataURL) {
-    scoped_refptr<BraveShieldsAllowScriptsOnceFunction> function(
-        new BraveShieldsAllowScriptsOnceFunction());
+    scoped_refptr<adrbrowsielShieldsAllowScriptsOnceFunction> function(
+        new adrbrowsielShieldsAllowScriptsOnceFunction());
     function->set_extension(extension().get());
     function->set_has_callback(true);
 
@@ -122,7 +122,7 @@ class BraveShieldsAPIBrowserTest : public InProcessBrowserTest {
   scoped_refptr<const extensions::Extension> extension_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest, AllowScriptsOnce) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielShieldsAPIBrowserTest, AllowScriptsOnce) {
   BlockScripts();
 
   EXPECT_TRUE(
@@ -160,7 +160,7 @@ IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest, AllowScriptsOnce) {
       << "All script loadings should be blocked after navigating away.";
 }
 
-IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest, AllowScriptsOnceDataURL) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielShieldsAPIBrowserTest, AllowScriptsOnceDataURL) {
   EXPECT_TRUE(
       NavigateToURLUntilLoadStop("a.com", "/load_js_from_origins.html"));
   EXPECT_EQ(active_contents()->GetAllFrames().size(), 4u)
@@ -182,7 +182,7 @@ IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest, AllowScriptsOnceDataURL) {
       << "Scripts from a.com and data URL should be temporarily allowed.";
 }
 
-IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest, AllowScriptsOnceIframe) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielShieldsAPIBrowserTest, AllowScriptsOnceIframe) {
   BlockScripts();
 
   EXPECT_TRUE(NavigateToURLUntilLoadStop("a.com", "/remote_iframe.html"));
@@ -197,20 +197,20 @@ IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest, AllowScriptsOnceIframe) {
 }
 
 constexpr char kJavascriptSetParams[] =
-    "[\"block\", \"https://www.brave.com/\"]";
-constexpr char kJavascriptGetParams[] = "[\"https://www.brave.com/\"]";
+    "[\"block\", \"https://www.adrbrowsiel.com/\"]";
+constexpr char kJavascriptGetParams[] = "[\"https://www.adrbrowsiel.com/\"]";
 
-const GURL& GetBraveURL() {
-  static const GURL kBraveURL("https://www.brave.com");
-  return kBraveURL;
+const GURL& GetadrbrowsielURL() {
+  static const GURL kadrbrowsielURL("https://www.adrbrowsiel.com");
+  return kadrbrowsielURL;
 }
 
-// Test javascript content setting works properly via braveShields api.
-IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest,
+// Test javascript content setting works properly via adrbrowsielShields api.
+IN_PROC_BROWSER_TEST_F(adrbrowsielShieldsAPIBrowserTest,
                        GetNoScriptControlTypeFunction) {
   // Default content settings for javascript is allow.
-  scoped_refptr<api::BraveShieldsGetNoScriptControlTypeFunction> get_function(
-      new api::BraveShieldsGetNoScriptControlTypeFunction());
+  scoped_refptr<api::adrbrowsielShieldsGetNoScriptControlTypeFunction> get_function(
+      new api::adrbrowsielShieldsGetNoScriptControlTypeFunction());
   get_function->set_extension(extension().get());
   std::unique_ptr<base::Value> value;
   value.reset(RunFunctionAndReturnSingleResult(
@@ -218,11 +218,11 @@ IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest,
   EXPECT_EQ(value->GetString(), std::string("allow"));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielShieldsAPIBrowserTest,
                        SetNoScriptControlTypeFunction) {
   // Block javascript.
-  scoped_refptr<api::BraveShieldsSetNoScriptControlTypeFunction> set_function(
-      new api::BraveShieldsSetNoScriptControlTypeFunction());
+  scoped_refptr<api::adrbrowsielShieldsSetNoScriptControlTypeFunction> set_function(
+      new api::adrbrowsielShieldsSetNoScriptControlTypeFunction());
   set_function->set_extension(extension().get());
   RunFunctionAndReturnSingleResult(set_function.get(), kJavascriptSetParams,
                                    browser());
@@ -230,34 +230,34 @@ IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest,
   // Check Block is set.
   ContentSetting setting =
       HostContentSettingsMapFactory::GetForProfile(browser()->profile())
-          ->GetContentSetting(GetBraveURL(), GURL(),
+          ->GetContentSetting(GetadrbrowsielURL(), GURL(),
                               ContentSettingsType::JAVASCRIPT);
   EXPECT_EQ(setting, CONTENT_SETTING_BLOCK);
 }
 
 // Checks shields configuration is persisted across the sessions.
-IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielShieldsAPIBrowserTest,
                        PRE_ShieldSettingsPersistTest) {
   HostContentSettingsMapFactory::GetForProfile(browser()->profile())
       ->SetContentSettingDefaultScope(
-          GetBraveURL(), GURL(),
-          ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES,
+          GetadrbrowsielURL(), GURL(),
+          ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES,
           CONTENT_SETTING_ALLOW);
 
   ContentSetting setting =
       HostContentSettingsMapFactory::GetForProfile(browser()->profile())
           ->GetContentSetting(
-              GetBraveURL(), GURL(),
-              ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES);
+              GetadrbrowsielURL(), GURL(),
+              ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES);
   EXPECT_EQ(setting, CONTENT_SETTING_ALLOW);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveShieldsAPIBrowserTest, ShieldSettingsPersistTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielShieldsAPIBrowserTest, ShieldSettingsPersistTest) {
   ContentSetting setting =
       HostContentSettingsMapFactory::GetForProfile(browser()->profile())
           ->GetContentSetting(
-              GetBraveURL(), GURL(),
-              ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES);
+              GetadrbrowsielURL(), GURL(),
+              ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES);
   EXPECT_EQ(setting, CONTENT_SETTING_ALLOW);
 }
 

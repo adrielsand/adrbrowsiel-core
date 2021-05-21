@@ -1,23 +1,23 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 import {html} from 'chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js'
-import {RegisterStyleOverride,RegisterPolymerTemplateModifications} from 'chrome://brave-resources/polymer_overriding.js'
+import {RegisterStyleOverride,RegisterPolymerTemplateModifications} from 'chrome://adrbrowsiel-resources/polymer_overriding.js'
 import {Router} from '../router.js'
 import {loadTimeData} from '../i18n_setup.js'
 import {pageVisibility} from './page_visibility.js'
 
 import '../getting_started_page/getting_started.js'
-import '../brave_default_extensions_page/brave_default_extensions_page.m.js'
-import '../default_brave_shields_page/default_brave_shields_page.m.js'
+import '../adrbrowsiel_default_extensions_page/adrbrowsiel_default_extensions_page.m.js'
+import '../default_adrbrowsiel_shields_page/default_adrbrowsiel_shields_page.m.js'
 import '../social_blocking_page/social_blocking_page.m.js'
-import '../brave_ipfs_page/brave_ipfs_page.m.js'
-import '../brave_wallet_page/brave_wallet_page.m.js'
-import '../brave_sync_page/brave_sync_page.js'
-import '../brave_help_tips_page/brave_help_tips_page.m.js'
-import '../brave_new_tab_page/brave_new_tab_page.m.js'
+import '../adrbrowsiel_ipfs_page/adrbrowsiel_ipfs_page.m.js'
+import '../adrbrowsiel_wallet_page/adrbrowsiel_wallet_page.m.js'
+import '../adrbrowsiel_sync_page/adrbrowsiel_sync_page.js'
+import '../adrbrowsiel_help_tips_page/adrbrowsiel_help_tips_page.m.js'
+import '../adrbrowsiel_new_tab_page/adrbrowsiel_new_tab_page.m.js'
 
 const isGuest = loadTimeData.getBoolean('isGuest')
 
@@ -25,7 +25,7 @@ export function getSectionElement (templateContent, sectionName) {
   const sectionEl = templateContent.querySelector(`template[if*='pageVisibility.${sectionName}']`) ||
     templateContent.querySelector(`settings-section[section="${sectionName}"]`)
   if (!sectionEl) {
-    console.error(`[Brave Settings Overrides] Could not find section '${sectionName}'`)
+    console.error(`[adrbrowsiel Settings Overrides] Could not find section '${sectionName}'`)
   }
   return sectionEl
 }
@@ -66,7 +66,7 @@ RegisterPolymerTemplateModifications({
     // Routes
     const r = Router.getInstance().routes_
     if (!r.BASIC) {
-      console.error('[Brave Settings Overrides] Routes: could not find BASIC page')
+      console.error('[adrbrowsiel Settings Overrides] Routes: could not find BASIC page')
     }
     if (pageVisibility.getStarted) {
       r.GET_STARTED = r.BASIC.createSection('/getStarted', 'getStarted')
@@ -76,49 +76,49 @@ RegisterPolymerTemplateModifications({
     r.SHIELDS = r.BASIC.createSection('/shields', 'shields')
     r.SOCIAL_BLOCKING = r.BASIC.createSection('/socialBlocking', 'socialBlocking')
     r.EXTENSIONS = r.BASIC.createSection('/extensions', 'extensions')
-    if (pageVisibility.braveSync) {
-      r.BRAVE_SYNC = r.BASIC.createSection('/braveSync', 'braveSync')
-      r.BRAVE_SYNC_SETUP = r.BRAVE_SYNC.createChild('/braveSync/setup');
+    if (pageVisibility.adrbrowsielSync) {
+      r.adrbrowsiel_SYNC = r.BASIC.createSection('/adrbrowsielSync', 'adrbrowsielSync')
+      r.adrbrowsiel_SYNC_SETUP = r.adrbrowsiel_SYNC.createChild('/adrbrowsielSync/setup');
     }
-    if (pageVisibility.braveIPFS) {
-      r.BRAVE_IPFS = r.BASIC.createSection('/ipfs', 'ipfs')
-      r.BRAVE_IPFS_KEYS = r.BRAVE_IPFS.createChild('/ipfs/keys');
+    if (pageVisibility.adrbrowsielIPFS) {
+      r.adrbrowsiel_IPFS = r.BASIC.createSection('/ipfs', 'ipfs')
+      r.adrbrowsiel_IPFS_KEYS = r.adrbrowsiel_IPFS.createChild('/ipfs/keys');
     }
-    if (pageVisibility.braveWallet) {
-      r.BRAVE_WALLET = r.BASIC.createSection('/wallet', 'wallet')
+    if (pageVisibility.adrbrowsielWallet) {
+      r.adrbrowsiel_WALLET = r.BASIC.createSection('/wallet', 'wallet')
     }
 
-    r.BRAVE_HELP_TIPS = r.BASIC.createSection('/braveHelpTips', 'braveHelpTips')
-    r.BRAVE_NEW_TAB = r.BASIC.createSection('/newTab', 'newTab')
+    r.adrbrowsiel_HELP_TIPS = r.BASIC.createSection('/adrbrowsielHelpTips', 'adrbrowsielHelpTips')
+    r.adrbrowsiel_NEW_TAB = r.BASIC.createSection('/newTab', 'newTab')
     if (r.SITE_SETTINGS) {
       r.SITE_SETTINGS_AUTOPLAY = r.SITE_SETTINGS.createChild('autoplay')
     } else if (!isGuest) {
-      console.error('[Brave Settings Overrides] Routes: could not find SITE_SETTINGS page')
+      console.error('[adrbrowsiel Settings Overrides] Routes: could not find SITE_SETTINGS page')
     }
     // Autofill route is moved to advanced,
     // otherwise its sections won't show up when opened.
     if (r.AUTOFILL && r.ADVANCED) {
       r.AUTOFILL.parent = r.ADVANCED
     } else if (!isGuest) {
-      console.error('[Brave Settings Overrides] Could not move autofill route to advanced route', r)
+      console.error('[adrbrowsiel Settings Overrides] Could not move autofill route to advanced route', r)
     }
     // Privacy route is moved to advanced.
     if (r.PRIVACY && r.ADVANCED) {
       r.PRIVACY.parent = r.ADVANCED
       r.CLEAR_BROWSER_DATA.parent = r.ADVANCED
     } else if (!isGuest) {
-      console.error('[Brave Settings Overrides] Could not move privacy route to advanced route', r)
+      console.error('[adrbrowsiel Settings Overrides] Could not move privacy route to advanced route', r)
     }
     // Add 'Getting Started' section
     // Entire content is wrapped in another conditional template
     const actualTemplate = templateContent.querySelector('template')
     if (!actualTemplate) {
-      console.error('[Brave Settings Overrides] Could not find basic-page template')
+      console.error('[adrbrowsiel Settings Overrides] Could not find basic-page template')
       return
     }
     const basicPageEl = actualTemplate.content.querySelector('#basicPage')
     if (!basicPageEl) {
-      console.error('[Brave Settings Overrides] Could not find basicPage element to insert Getting Started section')
+      console.error('[adrbrowsiel Settings Overrides] Could not find basicPage element to insert Getting Started section')
     } else {
       const sectionGetStarted = document.createElement('template')
       sectionGetStarted.setAttribute('is', 'dom-if')
@@ -126,8 +126,8 @@ RegisterPolymerTemplateModifications({
       sectionGetStarted.setAttribute('if', '[[showPage_(pageVisibility.getStarted)]]')
       sectionGetStarted.content.appendChild(createSectionElement(
         'getStarted',
-        'braveGetStartedTitle',
-        'brave-settings-getting-started',
+        'adrbrowsielGetStartedTitle',
+        'adrbrowsiel-settings-getting-started',
         {
           prefs: '{{prefs}}',
           'page-visibility': '[[pageVisibility]]'
@@ -139,8 +139,8 @@ RegisterPolymerTemplateModifications({
       sectionExtensions.setAttribute('if', '[[showPage_(pageVisibility.extensions)]]')
       sectionExtensions.content.appendChild(createSectionElement(
         'extensions',
-        'braveDefaultExtensions',
-        'settings-brave-default-extensions-page',
+        'adrbrowsielDefaultExtensions',
+        'settings-adrbrowsiel-default-extensions-page',
         {
           prefs: '{{prefs}}'
         }
@@ -148,11 +148,11 @@ RegisterPolymerTemplateModifications({
       const sectionIPFS = document.createElement('template')
       sectionIPFS.setAttribute('is', 'dom-if')
       sectionIPFS.setAttribute('restamp', true)
-      sectionIPFS.setAttribute('if', '[[showPage_(pageVisibility.braveIPFS)]]')
+      sectionIPFS.setAttribute('if', '[[showPage_(pageVisibility.adrbrowsielIPFS)]]')
       sectionIPFS.content.appendChild(createSectionElement(
         'ipfs',
-        'braveIPFS',
-        'settings-brave-ipfs-page',
+        'adrbrowsielIPFS',
+        'settings-adrbrowsiel-ipfs-page',
         {
           prefs: '{{prefs}}'
         }
@@ -160,11 +160,11 @@ RegisterPolymerTemplateModifications({
       const sectionWallet = document.createElement('template')
       sectionWallet.setAttribute('is', 'dom-if')
       sectionWallet.setAttribute('restamp', true)
-      sectionWallet.setAttribute('if', '[[showPage_(pageVisibility.braveWallet)]]')
+      sectionWallet.setAttribute('if', '[[showPage_(pageVisibility.adrbrowsielWallet)]]')
       sectionWallet.content.appendChild(createSectionElement(
         'wallet',
-        'braveWallet',
-        'settings-brave-wallet-page',
+        'adrbrowsielWallet',
+        'settings-adrbrowsiel-wallet-page',
         {
           prefs: '{{prefs}}'
         }
@@ -172,11 +172,11 @@ RegisterPolymerTemplateModifications({
       const sectionSync = document.createElement('template')
       sectionSync.setAttribute('is', 'dom-if')
       sectionSync.setAttribute('restamp', true)
-      sectionSync.setAttribute('if', '[[showPage_(pageVisibility.braveSync)]]')
+      sectionSync.setAttribute('if', '[[showPage_(pageVisibility.adrbrowsielSync)]]')
       sectionSync.content.appendChild(createSectionElement(
-        'braveSync',
-        'braveSync',
-        'settings-brave-sync-page',
+        'adrbrowsielSync',
+        'adrbrowsielSync',
+        'settings-adrbrowsiel-sync-page',
         {}
       ))
 
@@ -186,8 +186,8 @@ RegisterPolymerTemplateModifications({
       sectionShields.setAttribute('if', '[[showPage_(pageVisibility.shields)]]')
       sectionShields.content.appendChild(createSectionElement(
         'shields',
-        'braveShieldsTitle',
-        'settings-default-brave-shields-page',
+        'adrbrowsielShieldsTitle',
+        'settings-default-adrbrowsiel-shields-page',
         {
           prefs: '{{prefs}}'
         }
@@ -207,11 +207,11 @@ RegisterPolymerTemplateModifications({
       const sectionHelpTips = document.createElement('template')
       sectionHelpTips.setAttribute('is', 'dom-if')
       sectionHelpTips.setAttribute('restamp', true)
-      sectionHelpTips.setAttribute('if', '[[showPage_(pageVisibility.braveHelpTips)]]')
+      sectionHelpTips.setAttribute('if', '[[showPage_(pageVisibility.adrbrowsielHelpTips)]]')
       sectionHelpTips.content.appendChild(createSectionElement(
-        'braveHelpTips',
-        'braveHelpTips',
-        'settings-brave-help-tips-page',
+        'adrbrowsielHelpTips',
+        'adrbrowsielHelpTips',
+        'settings-adrbrowsiel-help-tips-page',
         {
           prefs: '{{prefs}}'
         }
@@ -222,8 +222,8 @@ RegisterPolymerTemplateModifications({
       sectionNewTab.setAttribute('if', '[[showPage_(pageVisibility.newTab)]]')
       sectionNewTab.content.appendChild(createSectionElement(
         'newTab',
-        'braveNewTab',
-        'settings-brave-new-tab-page',
+        'adrbrowsielNewTab',
+        'settings-adrbrowsiel-new-tab-page',
         {
           prefs: '{{prefs}}'
         }
@@ -253,21 +253,21 @@ RegisterPolymerTemplateModifications({
       // Advanced
       const advancedTemplate = templateContent.querySelector('template[if="[[showAdvancedSettings_(pageVisibility.advancedSettings)]]"]')
       if (!advancedTemplate) {
-        console.error('[Brave Settings Overrides] Could not find advanced section')
+        console.error('[adrbrowsiel Settings Overrides] Could not find advanced section')
       }
       const advancedSubSectionsTemplate = advancedTemplate.content.querySelector('settings-idle-load template')
       if (!advancedSubSectionsTemplate) {
-        console.error('[Brave Settings Overrides] Could not find advanced sub-sections container')
+        console.error('[adrbrowsiel Settings Overrides] Could not find advanced sub-sections container')
       }
       const advancedToggleTemplate = advancedTemplate.content.querySelector('template')
       if (!advancedToggleTemplate) {
-        console.error('[Brave Settings Overrides] Could not find advanced toggle template')
+        console.error('[adrbrowsiel Settings Overrides] Could not find advanced toggle template')
       }
       const advancedToggleText = advancedToggleTemplate.content.querySelector('cr-button span')
       if (!advancedToggleText) {
-        console.error('[Brave Settings Overrides] Could not find advanced toggle text')
+        console.error('[adrbrowsiel Settings Overrides] Could not find advanced toggle text')
       }
-      advancedToggleText.innerText = loadTimeData.getString('braveAdditionalSettingsTitle')
+      advancedToggleText.innerText = loadTimeData.getString('adrbrowsielAdditionalSettingsTitle')
       // Move autofill to before languages
       const sectionAutofill = getSectionElement(actualTemplate.content, 'autofill')
       const sectionLanguages = getSectionElement(advancedSubSectionsTemplate.content, 'languages')

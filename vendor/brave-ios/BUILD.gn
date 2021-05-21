@@ -1,16 +1,16 @@
-# Copyright (c) 2019 The Brave Authors. All rights reserved.
+# Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import("//build/config/ios/rules.gni")
 import("//build/config/python.gni")
-import("//brave/ios/app/headers.gni")
+import("//adrbrowsiel/ios/app/headers.gni")
 
 config("internal_config") {
   visibility = [
     ":*",
-    "//brave/test:*",
+    "//adrbrowsiel/test:*",
     "tests:*",
   ]
 
@@ -37,19 +37,19 @@ config("internal_config") {
   ]
 }
 
-group("brave-ios") {
-  public_deps = [ ":brave_rewards_ios_framework" ]
+group("adrbrowsiel-ios") {
+  public_deps = [ ":adrbrowsiel_rewards_ios_framework" ]
 }
 
-group("brave_ios_tests") {
+group("adrbrowsiel_ios_tests") {
   testonly = true
   public_deps = [
-    "tests:brave_rewards_ios_tests"
+    "tests:adrbrowsiel_rewards_ios_tests"
   ]
 }
 
-ios_framework_bundle("brave_rewards_ios_framework") {
-  output_name = "BraveRewards"
+ios_framework_bundle("adrbrowsiel_rewards_ios_framework") {
+  output_name = "adrbrowsielRewards"
   output_dir = root_out_dir
 
   info_plist = "Info.plist"
@@ -58,9 +58,9 @@ ios_framework_bundle("brave_rewards_ios_framework") {
   configs += [ "//build/config/compiler:enable_arc" ]
 
   deps = [
-    "//brave/ios/app",
-    "//brave/vendor/bat-native-ledger",
-    "//brave/vendor/bat-native-ads",
+    "//adrbrowsiel/ios/app",
+    "//adrbrowsiel/vendor/bat-native-ledger",
+    "//adrbrowsiel/vendor/bat-native-ads",
     "//net:net",
     "//sql",
     "//url",
@@ -72,12 +72,12 @@ ios_framework_bundle("brave_rewards_ios_framework") {
   ]
 
   sources = [
-    "BATBraveRewards.h",
-    "BATBraveRewards.mm",
-    "Ledger/BATBraveLedger.h",
-    "Ledger/BATBraveLedger.mm",
-    "Ledger/BATBraveLedgerObserver.h",
-    "Ledger/BATBraveLedgerObserver.mm",
+    "BATadrbrowsielRewards.h",
+    "BATadrbrowsielRewards.mm",
+    "Ledger/BATadrbrowsielLedger.h",
+    "Ledger/BATadrbrowsielLedger.mm",
+    "Ledger/BATadrbrowsielLedgerObserver.h",
+    "Ledger/BATadrbrowsielLedgerObserver.mm",
     "Ledger/Data/BATLedgerDatabase.h",
     "Ledger/Data/BATLedgerDatabase.mm",
     "Ledger/Data/DataController.h",
@@ -98,9 +98,9 @@ ios_framework_bundle("brave_rewards_ios_framework") {
     "objc-gen/CppTransformations.h",
     "Ads/BATAdNotification.h",
     "Ads/BATAdNotification.mm",
-    "Ads/BATBraveAds.h",
-    "Ads/BATBraveAds+Private.h",
-    "Ads/BATBraveAds.mm",
+    "Ads/BATadrbrowsielAds.h",
+    "Ads/BATadrbrowsielAds+Private.h",
+    "Ads/BATadrbrowsielAds.mm",
     "Ads/Generated/NativeAdsClientBridge.h",
     "Ads/Generated/NativeAdsClient.h",
     "Ads/Generated/NativeAdsClient.mm",
@@ -144,20 +144,20 @@ ios_framework_bundle("brave_rewards_ios_framework") {
   ]
 
   public_headers = [
-    "BraveRewards.h",
-    "BATBraveRewards.h",
-    "Ledger/BATBraveLedger.h",
-    "Ledger/BATBraveLedgerObserver.h",
+    "adrbrowsielRewards.h",
+    "BATadrbrowsielRewards.h",
+    "Ledger/BATadrbrowsielLedger.h",
+    "Ledger/BATadrbrowsielLedgerObserver.h",
     "Ledger/Generated/Enums.h",
     "Ledger/Models/BATRewardsNotification.h",
     "Ledger/Models/BATPromotionSolution.h",
-    "Ads/BATBraveAds.h",
+    "Ads/BATadrbrowsielAds.h",
     "Ads/BATAdNotification.h",
     "$target_gen_dir/ledger.mojom.objc.h",
     "$target_gen_dir/ads.mojom.objc.h",
   ]
 
-  public_headers += brave_core_public_headers
+  public_headers += adrbrowsiel_core_public_headers
 
   frameworks = [
     "Foundation.framework",
@@ -171,7 +171,7 @@ ios_framework_bundle("brave_rewards_ios_framework") {
 }
 
 bundle_data("resources") {
-  ads_dir = "//brave/vendor/bat-native-ads"
+  ads_dir = "//adrbrowsiel/vendor/bat-native-ads"
   sources = [
     "$ads_dir/data/resources/catalog-schema.json",
     "Ledger/Data/migrate.sql"
@@ -219,8 +219,8 @@ action("compile_coredata") {
 
 python2_action("ledger_mojo_gen_wrappers") {
   script = "scripts/mojo/gen_model_wrappers.py"
-  mojom_module = rebase_path("$root_gen_dir/brave/vendor/bat-native-ledger/include/bat/ledger/public/interfaces/ledger.mojom-module")
-  mojom_idl = rebase_path("//brave/vendor/bat-native-ledger/include/bat/ledger/public/interfaces/ledger.mojom")
+  mojom_module = rebase_path("$root_gen_dir/adrbrowsiel/vendor/bat-native-ledger/include/bat/ledger/public/interfaces/ledger.mojom-module")
+  mojom_idl = rebase_path("//adrbrowsiel/vendor/bat-native-ledger/include/bat/ledger/public/interfaces/ledger.mojom")
   inputs = [
     mojom_module,
     mojom_idl,
@@ -247,14 +247,14 @@ python2_action("ledger_mojo_gen_wrappers") {
     "--output-dir=$output_dir",
   ]
   deps = [
-    "//brave/vendor/bat-native-ledger/include/bat/ledger/public/interfaces:interfaces__parser"
+    "//adrbrowsiel/vendor/bat-native-ledger/include/bat/ledger/public/interfaces:interfaces__parser"
   ]
 }
 
 python2_action("ads_mojo_gen_wrappers") {
   script = "scripts/mojo/gen_model_wrappers.py"
-  mojom_module = rebase_path("$root_gen_dir/brave/vendor/bat-native-ads/include/bat/ads/public/interfaces/ads.mojom-module")
-  mojom_idl = rebase_path("//brave/vendor/bat-native-ads/include/bat/ads/public/interfaces/ads.mojom")
+  mojom_module = rebase_path("$root_gen_dir/adrbrowsiel/vendor/bat-native-ads/include/bat/ads/public/interfaces/ads.mojom-module")
+  mojom_idl = rebase_path("//adrbrowsiel/vendor/bat-native-ads/include/bat/ads/public/interfaces/ads.mojom")
   inputs = [
     mojom_module,
     mojom_idl,
@@ -281,6 +281,6 @@ python2_action("ads_mojo_gen_wrappers") {
     "--output-dir=$output_dir",
   ]
   deps = [
-    "//brave/vendor/bat-native-ads/include/bat/ads/public/interfaces:interfaces__parser"
+    "//adrbrowsiel/vendor/bat-native-ads/include/bat/ads/public/interfaces:interfaces__parser"
   ]
 }

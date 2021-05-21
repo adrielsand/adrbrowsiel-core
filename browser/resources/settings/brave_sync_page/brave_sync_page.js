@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
- * 'settings-brave-sync-page' is the settings page containing brave's
+ * 'settings-adrbrowsiel-sync-page' is the settings page containing adrbrowsiel's
  * custom sync.
  */
 import 'chrome://resources/cr_elements/cr_dialog/cr_dialog.m.js';
@@ -13,7 +13,7 @@ import '../settings_page/settings_animated_pages.js';
 import '../settings_page/settings_subpage.js';
 import '../settings_shared_css.js';
 import '../settings_vars_css.js';
-import './brave_sync_subpage.js';
+import './adrbrowsiel_sync_subpage.js';
 
 import {I18nBehavior} from 'chrome://resources/js/i18n_behavior.m.js';
 import {WebUIListenerBehavior} from 'chrome://resources/js/web_ui_listener_behavior.m.js';
@@ -21,10 +21,10 @@ import {Polymer, html} from 'chrome://resources/polymer/v3_0/polymer/polymer_bun
 
 import {Router} from '../router.js';
 import {SyncBrowserProxyImpl} from '../people_page/sync_browser_proxy.js';
-import {BraveSyncBrowserProxy} from './brave_sync_browser_proxy.js';
+import {adrbrowsielSyncBrowserProxy} from './adrbrowsiel_sync_browser_proxy.js';
 
 Polymer({
-  is: 'settings-brave-sync-page',
+  is: 'settings-adrbrowsiel-sync-page',
 
   _template: html`{__html_template__}`,
 
@@ -52,19 +52,19 @@ Polymer({
   /** @private {?SyncBrowserProxy} */
   browserProxy_: null,
   /** @private */
-  braveBrowserProxy_: null,
+  adrbrowsielBrowserProxy_: null,
 
   /** @override */
   created: function() {
     this.browserProxy_ = SyncBrowserProxyImpl.getInstance();
-    this.braveBrowserProxy_ = BraveSyncBrowserProxy.getInstance();
+    this.adrbrowsielBrowserProxy_ = adrbrowsielSyncBrowserProxy.getInstance();
   },
 
   /** @private */
   computeSyncLabel_() {
     const isAlreadySetup = this.syncStatus_ !== undefined &&
         !this.syncStatus_.firstSetupInProgress;
-    const key = isAlreadySetup ? 'braveSyncManageActionLabel' : 'braveSyncSetupActionLabel';
+    const key = isAlreadySetup ? 'adrbrowsielSyncManageActionLabel' : 'adrbrowsielSyncSetupActionLabel';
     return I18nBehavior.i18n(key);
   },
 
@@ -81,7 +81,7 @@ Polymer({
   onSyncTap_: function() {
     // Users can go to sync subpage regardless of sync status.
     const router = Router.getInstance();
-    router.navigateTo(router.getRoutes().BRAVE_SYNC_SETUP);
+    router.navigateTo(router.getRoutes().adrbrowsiel_SYNC_SETUP);
   },
 
   /**
@@ -99,7 +99,7 @@ Polymer({
    */
   handleSyncPrefsChanged_: async function(syncPrefs) {
     if (this.syncStatus_ && !this.syncStatus_.firstSetupInProgress) {
-      const syncCode = await this.braveBrowserProxy_.getSyncCode()
+      const syncCode = await this.adrbrowsielBrowserProxy_.getSyncCode()
       if (syncPrefs.passphraseRequired) {
         await this.browserProxy_.setDecryptionPassphrase(syncCode);
       } else if (!this.isEncryptionSet_) {

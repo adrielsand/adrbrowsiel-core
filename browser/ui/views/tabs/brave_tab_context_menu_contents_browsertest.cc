@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/tabs/brave_tab_menu_model.h"
-#include "brave/browser/ui/views/tabs/brave_tab_context_menu_contents.h"
-#include "brave/browser/ui/views/tabs/brave_browser_tab_strip_controller.h"
+#include "adrbrowsiel/browser/ui/tabs/adrbrowsiel_tab_menu_model.h"
+#include "adrbrowsiel/browser/ui/views/tabs/adrbrowsiel_tab_context_menu_contents.h"
+#include "adrbrowsiel/browser/ui/views/tabs/adrbrowsiel_browser_tab_strip_controller.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_commands.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
@@ -16,37 +16,37 @@
 #include "content/public/test/browser_test.h"
 #include "url/gurl.h"
 
-using BraveTabContextMenuContentsTest = InProcessBrowserTest;
+using adrbrowsielTabContextMenuContentsTest = InProcessBrowserTest;
 
-IN_PROC_BROWSER_TEST_F(BraveTabContextMenuContentsTest, Basics) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielTabContextMenuContentsTest, Basics) {
   TabStrip* tabstrip =
       BrowserView::GetBrowserViewForBrowser(browser())->tabstrip();
-  BraveTabContextMenuContents menu(
+  adrbrowsielTabContextMenuContents menu(
       tabstrip->tab_at(0),
-      static_cast<BraveBrowserTabStripController*>(
+      static_cast<adrbrowsielBrowserTabStripController*>(
           BrowserView::GetBrowserViewForBrowser(
               browser())->tabstrip()->controller()),
       0);
 
   // All items are disable state when there is only one tab.
   EXPECT_FALSE(menu.IsCommandIdEnabled(
-      BraveTabMenuModel::CommandRestoreTab));
+      adrbrowsielTabMenuModel::CommandRestoreTab));
   EXPECT_FALSE(menu.IsCommandIdEnabled(
-      BraveTabMenuModel::CommandBookmarkAllTabs));
+      adrbrowsielTabMenuModel::CommandBookmarkAllTabs));
 
   chrome::NewTab(browser());
   // Still restore tab menu is disabled because there is no closed tab.
   EXPECT_FALSE(menu.IsCommandIdEnabled(
-      BraveTabMenuModel::CommandRestoreTab));
+      adrbrowsielTabMenuModel::CommandRestoreTab));
   // Bookmark all tabs item is enabled if the number of tabs are 2 or more.
   EXPECT_TRUE(menu.IsCommandIdEnabled(
-      BraveTabMenuModel::CommandBookmarkAllTabs));
+      adrbrowsielTabMenuModel::CommandBookmarkAllTabs));
 
   // When a tab is closed, restore tab menu item is enabled.
-  ui_test_utils::NavigateToURL(browser(), GURL("brave://version/"));
+  ui_test_utils::NavigateToURL(browser(), GURL("adrbrowsiel://version/"));
   chrome::CloseTab(browser());
   EXPECT_TRUE(menu.IsCommandIdEnabled(
-      BraveTabMenuModel::CommandRestoreTab));
+      adrbrowsielTabMenuModel::CommandRestoreTab));
   EXPECT_FALSE(menu.IsCommandIdEnabled(
-      BraveTabMenuModel::CommandBookmarkAllTabs));
+      adrbrowsielTabMenuModel::CommandBookmarkAllTabs));
 }

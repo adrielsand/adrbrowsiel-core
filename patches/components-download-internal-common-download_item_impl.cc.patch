@@ -9,7 +9,7 @@ index f557ef87951a2d9dbd6140298d4440b9f8f87cb2..a56a43b666eda25045ed84b54e63ab17
 -                     delegate_->IsOffTheRecord() ? GURL() : GetURL(),
 -                     delegate_->IsOffTheRecord() ? GURL() : GetReferrerUrl(),
 +                     GURL(),  // Never leak download URLs in metadata.
-+                     GURL(),  // See brave-browser#2766.
++                     GURL(),  // See adrbrowsiel-browser#2766.
                       std::move(quarantine), std::move(callback)));
  }
  

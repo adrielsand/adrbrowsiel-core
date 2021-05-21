@@ -1,18 +1,18 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "components/page_info/page_info_ui.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/vector_icons/vector_icons.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/vector_icons/vector_icons.h"
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/ipfs/ipfs_utils.h"
-#include "components/grit/brave_components_strings.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #endif  // BUILDFLAG(IPFS_ENABLED)
 
-#define BRAVE_PAGE_INFO_UI_GET_PERMISSION_ICON \
+#define adrbrowsiel_PAGE_INFO_UI_GET_PERMISSION_ICON \
   case ContentSettingsType::AUTOPLAY:          \
     icon = &kAutoplayStatusIcon;               \
     break;
@@ -36,4 +36,4 @@ PageInfoUI::GetSecurityDescription(const IdentityInfo& identity_info) const {
 }
 #endif  // BUILDFLAG(IPFS_ENABLED)
 
-#undef BRAVE_PAGE_INFO_UI_GET_PERMISSION_ICON
+#undef adrbrowsiel_PAGE_INFO_UI_GET_PERMISSION_ICON

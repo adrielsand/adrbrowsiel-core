@@ -1,18 +1,18 @@
-import("//brave/components/brave_ads/browser/buildflags/buildflags.gni")
-import("//brave/components/tor/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_ads/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/tor/buildflags/buildflags.gni")
 import("//extensions/buildflags/buildflags.gni")
 
 source_set("tor") {
-  # Remove when https://github.com/brave/brave-browser/issues/10655 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10655 is resolved
   check_includes = false
   visibility = [
     ":*",
-    "//brave/browser",
-    "//brave/browser/decentralized_dns/test:unit_tests",
-    "//brave/browser/ipfs/test:*",
-    "//brave/browser/profiles",
-    "//brave/browser/ui",
-    "//brave/test:*",
+    "//adrbrowsiel/browser",
+    "//adrbrowsiel/browser/decentralized_dns/test:unit_tests",
+    "//adrbrowsiel/browser/ipfs/test:*",
+    "//adrbrowsiel/browser/profiles",
+    "//adrbrowsiel/browser/ui",
+    "//adrbrowsiel/test:*",
     "//chrome/browser",
   ]
 
@@ -28,11 +28,11 @@ source_set("tor") {
 
     deps = [
       "//base",
-      "//brave/browser/translate/buildflags",
-      "//brave/common:pref_names",
-      "//brave/components/brave_webtorrent/browser/buildflags",
-      "//brave/components/tor",
-      "//brave/components/tor:pref_names",
+      "//adrbrowsiel/browser/translate/buildflags",
+      "//adrbrowsiel/common:pref_names",
+      "//adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags",
+      "//adrbrowsiel/components/tor",
+      "//adrbrowsiel/components/tor:pref_names",
       "//chrome/common",
       "//components/keyed_service/content",
       "//components/safe_browsing/core/common:safe_browsing_prefs",
@@ -43,13 +43,13 @@ source_set("tor") {
 
     # Below dep list are not directly used tor target.
     # Only added to fix intermittent build failure.
-    # Most of the case comes from including brave_browser_process_impl.h`
+    # Most of the case comes from including adrbrowsiel_browser_process_impl.h`
     # headers. That header includes some buildflags but sometimes they are
     # not generated before evaluating tor target.
     deps += [
-      "//brave/components/brave_referrals/buildflags",
-      "//brave/components/greaselion/browser/buildflags",
-      "//brave/components/speedreader:buildflags",
+      "//adrbrowsiel/components/adrbrowsiel_referrals/buildflags",
+      "//adrbrowsiel/components/greaselion/browser/buildflags",
+      "//adrbrowsiel/components/speedreader:buildflags",
     ]
   }
 }
@@ -65,12 +65,12 @@ source_set("unit_tests") {
     deps = [
       "//base",
       "//base/test:test_support",
-      "//brave/browser/tor",
-      "//brave/browser/translate/buildflags",
-      "//brave/common:pref_names",
-      "//brave/components/brave_webtorrent/browser/buildflags",
-      "//brave/components/tor",
-      "//brave/components/tor:test_support",
+      "//adrbrowsiel/browser/tor",
+      "//adrbrowsiel/browser/translate/buildflags",
+      "//adrbrowsiel/common:pref_names",
+      "//adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags",
+      "//adrbrowsiel/components/tor",
+      "//adrbrowsiel/components/tor:test_support",
       "//chrome/common",
       "//chrome/test:test_support",
       "//components/keyed_service/content",
@@ -89,23 +89,23 @@ source_set("browser_tests") {
   testonly = true
   if (enable_tor) {
     sources = [
-      "brave_local_state_browsertest.cc",
-      "brave_tor_client_updater_browsertest.cc",
+      "adrbrowsiel_local_state_browsertest.cc",
+      "adrbrowsiel_tor_client_updater_browsertest.cc",
       "onion_location_navigation_throttle_browsertest.cc",
       "tor_profile_manager_browsertest.cc",
     ]
 
     deps = [
       "//base",
-      "//brave/app:brave_generated_resources_grit",
-      "//brave/browser",
-      "//brave/browser/tor",
-      "//brave/browser/ui",
-      "//brave/common",
-      "//brave/components/ipfs/buildflags",
-      "//brave/components/tor",
-      "//brave/components/tor:pref_names",
-      "//brave/components/tor:test_support",
+      "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+      "//adrbrowsiel/browser",
+      "//adrbrowsiel/browser/tor",
+      "//adrbrowsiel/browser/ui",
+      "//adrbrowsiel/common",
+      "//adrbrowsiel/components/ipfs/buildflags",
+      "//adrbrowsiel/components/tor",
+      "//adrbrowsiel/components/tor:pref_names",
+      "//adrbrowsiel/components/tor:test_support",
       "//chrome/browser",
       "//chrome/browser:browser_process",
       "//chrome/test:test_support",
@@ -125,10 +125,10 @@ source_set("browser_tests") {
       ]
     }
 
-    if (brave_ads_enabled) {
+    if (adrbrowsiel_ads_enabled) {
       deps += [
-        "//brave/browser/brave_ads",
-        "//brave/components/brave_ads/browser",
+        "//adrbrowsiel/browser/adrbrowsiel_ads",
+        "//adrbrowsiel/components/adrbrowsiel_ads/browser",
       ]
     }
 

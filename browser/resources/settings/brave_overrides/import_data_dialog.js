@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-import {RegisterPolymerTemplateModifications, RegisterPolymerComponentBehaviors} from 'chrome://brave-resources/polymer_overriding.js'
+import {RegisterPolymerTemplateModifications, RegisterPolymerComponentBehaviors} from 'chrome://adrbrowsiel-resources/polymer_overriding.js'
 import {I18nBehavior} from 'chrome://resources/js/i18n_behavior.m.js'
 
 RegisterPolymerTemplateModifications({
@@ -26,12 +26,12 @@ RegisterPolymerComponentBehaviors({
     registered: function () {
       const oldPrefsChanged = this.prefsChanged_
       if (!oldPrefsChanged) {
-        console.error('[Brave Settings Overrides] cannot find prefsChanged_ on ImportDataDialog')
+        console.error('[adrbrowsiel Settings Overrides] cannot find prefsChanged_ on ImportDataDialog')
         return
       }
       this.prefsChanged_ = function () {
         if (typeof this.noImportDataTypeSelected_ !== 'boolean') {
-          console.error('[Brave Settings Overrides] cannot find noImportDataTypeSelected_ on ImportDataDialog')
+          console.error('[adrbrowsiel Settings Overrides] cannot find noImportDataTypeSelected_ on ImportDataDialog')
           return
         }
         oldPrefsChanged.apply(this)

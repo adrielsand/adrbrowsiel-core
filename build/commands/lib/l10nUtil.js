@@ -6,8 +6,8 @@
 /**
  * This file manages the following:
  * - Lists of files needed to be translated (Which is all top level GRD and JSON files)
- * - All mappings for auto-generated Brave files from the associated Chromium files.
- * - Top level global string replacements, such as replacing Chromium with Brave
+ * - All mappings for auto-generated adrbrowsiel files from the associated Chromium files.
+ * - Top level global string replacements, such as replacing Chromium with adrbrowsiel
  */
 
 const path = require('path')
@@ -21,43 +21,43 @@ const verboseLogFindGrd = false
 const srcDir = path.join(rootDir, 'src')
 
 // chromium_strings.grd and any of its parts files that we track localization for in transifex
-// These map to brave/app/resources/chromium_strings*.xtb
+// These map to adrbrowsiel/app/resources/chromium_strings*.xtb
 const chromiumStringsPath = path.resolve(path.join(srcDir, 'chrome', 'app', 'chromium_strings.grd'))
-const braveStringsPath = path.resolve(path.join(srcDir, 'brave', 'app', 'brave_strings.grd'))
+const adrbrowsielStringsPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'app', 'adrbrowsiel_strings.grd'))
 const chromiumSettingsPartPath = path.resolve(path.join(srcDir, 'chrome', 'app', 'settings_chromium_strings.grdp'))
-const braveSettingsPartPath = path.resolve(path.join(srcDir, 'brave', 'app', 'settings_brave_strings.grdp'))
+const adrbrowsielSettingsPartPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'app', 'settings_adrbrowsiel_strings.grdp'))
 
 //Replace android strings.
 const androidChromeStringsPath = path.resolve(path.join(srcDir, 'chrome', 'browser', 'ui', 'android', 'strings', 'android_chrome_strings.grd'))
-const braveAndroidChromeStringsPath = path.resolve(path.join(srcDir, 'brave', 'browser', 'ui', 'android', 'strings', 'android_chrome_strings.grd'))
+const adrbrowsielAndroidChromeStringsPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'browser', 'ui', 'android', 'strings', 'android_chrome_strings.grd'))
 
 // component_chromium_strings.grd and any of its parts files that we track localization for in transifex
-// These map to brave/app/strings/components_chromium_strings*.xtb
+// These map to adrbrowsiel/app/strings/components_chromium_strings*.xtb
 const chromiumComponentsChromiumStringsPath = path.resolve(path.join(srcDir, 'components', 'components_chromium_strings.grd'))
-const braveComponentsBraveStringsPath = path.resolve(path.join(srcDir, 'brave', 'components', 'components_brave_strings.grd'))
+const adrbrowsielComponentsadrbrowsielStringsPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'components', 'components_adrbrowsiel_strings.grd'))
 
 // components/component_strings.grd and any of its parts files that we track localization for in transifex
-// These map to brave/components/component_strings*.xtb
+// These map to adrbrowsiel/components/component_strings*.xtb
 const chromiumComponentsStringsPath = path.resolve(path.join(srcDir, 'components', 'components_strings.grd'))
-const braveComponentsStringsPath = path.resolve(path.join(srcDir, 'brave', 'components', 'components_strings.grd'))
+const adrbrowsielComponentsStringsPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'components', 'components_strings.grd'))
 
 // generated_resources.grd and any of its parts files that we track localization for in transifex
 // There is also chromeos_strings.grdp, but we don't need to track it here because it is explicitly skipped in transifex.py
-// These map to brave/app/resources/generated_resoruces*.xtb
+// These map to adrbrowsiel/app/resources/generated_resoruces*.xtb
 const chromiumGeneratedResourcesPath = path.resolve(path.join(srcDir, 'chrome', 'app', 'generated_resources.grd'))
-const braveGeneratedResourcesPath = path.resolve(path.join(srcDir, 'brave', 'app', 'generated_resources.grd'))
+const adrbrowsielGeneratedResourcesPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'app', 'generated_resources.grd'))
 const chromiumGeneratedResourcesExcludes = new Set(["chromeos_strings.grdp"])
 
 // The following are not generated files but still need to be tracked so they get sent to transifex
 // These xtb files don't need to be copied anywhere.
-// brave_generated_resources.grd maps to brave/app/resources/brave_generated_resources*.xtb,
-// brave_components_strings.grd maps to brave/components/resources/strings/brave_components_resources*.xtb
-// messages.json localization is handled inside of brave-extension.
-const braveSpecificGeneratedResourcesPath = path.resolve(path.join(srcDir, 'brave', 'app', 'brave_generated_resources.grd'))
-const braveResourcesComponentsStringsPath = path.resolve(path.join(srcDir, 'brave', 'components', 'resources', 'brave_components_strings.grd'))
-const braveExtensionMessagesPath = path.resolve(path.join(srcDir, 'brave', 'components', 'brave_extension', 'extension', 'brave_extension', '_locales', 'en_US', 'messages.json'))
-const braveRewardsExtensionMessagesPath = path.resolve(path.join(srcDir, 'brave', 'components', 'brave_rewards', 'resources', 'extension', 'brave_rewards', '_locales', 'en_US', 'messages.json'))
-const braveAndroidBraveStringsPath = path.resolve(path.join(srcDir, 'brave', 'browser', 'ui', 'android', 'strings', 'android_brave_strings.grd'))
+// adrbrowsiel_generated_resources.grd maps to adrbrowsiel/app/resources/adrbrowsiel_generated_resources*.xtb,
+// adrbrowsiel_components_strings.grd maps to adrbrowsiel/components/resources/strings/adrbrowsiel_components_resources*.xtb
+// messages.json localization is handled inside of adrbrowsiel-extension.
+const adrbrowsielSpecificGeneratedResourcesPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'app', 'adrbrowsiel_generated_resources.grd'))
+const adrbrowsielResourcesComponentsStringsPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'components', 'resources', 'adrbrowsiel_components_strings.grd'))
+const adrbrowsielExtensionMessagesPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'components', 'adrbrowsiel_extension', 'extension', 'adrbrowsiel_extension', '_locales', 'en_US', 'messages.json'))
+const adrbrowsielRewardsExtensionMessagesPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'components', 'adrbrowsiel_rewards', 'resources', 'extension', 'adrbrowsiel_rewards', '_locales', 'en_US', 'messages.json'))
+const adrbrowsielAndroidadrbrowsielStringsPath = path.resolve(path.join(srcDir, 'adrbrowsiel', 'browser', 'ui', 'android', 'strings', 'android_adrbrowsiel_strings.grd'))
 
 // Helper function to find all grdp parts in a grd.
 function getGrdPartsFromGrd(path) {
@@ -71,7 +71,7 @@ function getGrdPartsFromGrd(path) {
 }
 
 // Helper function to create a mapping for grd and all of its grdp parts.
-function addGrd(chromiumPath, bravePath, exclude = new Set()) {
+function addGrd(chromiumPath, adrbrowsielPath, exclude = new Set()) {
   if (verboseLogFindGrd)
     console.log("Adding mappings for GRD: " + chromiumPath)
   if (!fs.existsSync(chromiumPath)) {
@@ -85,33 +85,33 @@ function addGrd(chromiumPath, bravePath, exclude = new Set()) {
   const grdps = getGrdPartsFromGrd(chromiumPath)
   if (grdps.length) {
     const chromiumDir = path.dirname(chromiumPath)
-    const braveDir = path.dirname(bravePath)
+    const adrbrowsielDir = path.dirname(adrbrowsielPath)
     for (const grdp of grdps) {
       if (exclude.has(grdp)) {
         continue
       }
-      mapping[path.resolve(path.join(chromiumDir, grdp))] = path.resolve(path.join(braveDir, grdp))
+      mapping[path.resolve(path.join(chromiumDir, grdp))] = path.resolve(path.join(adrbrowsielDir, grdp))
     }
     if (verboseLogFindGrd)
       console.log("  - Added " + (Object.keys(mapping).length - 1) + " GRDP.")
   }
-  mapping[chromiumPath] = bravePath
+  mapping[chromiumPath] = adrbrowsielPath
   return mapping
 }
 
-// Helper functions that's, for a given pair of chromium to brave GRD mapping
+// Helper functions that's, for a given pair of chromium to adrbrowsiel GRD mapping
 // from the supplied map, determines which GRDP parts are no longer present in
 // the chromium GRD file.
 function getRemovedGRDParts(mapping) {
   let removedMap = new Map()
   for (const [sourcePath, destPath] of Object.entries(mapping)) {
     if (path.extname(destPath) === ".grd") {
-      const braveGRDPs = getGrdPartsFromGrd(destPath)
+      const adrbrowsielGRDPs = getGrdPartsFromGrd(destPath)
       const chromiumGRDPs = getGrdPartsFromGrd(sourcePath)
       let removed = new Set()
-      for (let i = 0; i < braveGRDPs.length; i++) {
-        if (!chromiumGRDPs.includes(braveGRDPs[i])) {
-          removed.add(braveGRDPs[i])
+      for (let i = 0; i < adrbrowsielGRDPs.length; i++) {
+        if (!chromiumGRDPs.includes(adrbrowsielGRDPs[i])) {
+          removed.add(adrbrowsielGRDPs[i])
         }
       }
       if (removed.size) {
@@ -126,7 +126,7 @@ function getRemovedGRDParts(mapping) {
 function getAutoGeneratedGrdMappings() {
   if (typeof(getAutoGeneratedGrdMappings.mappings) === 'undefined') {
     console.log(chalk.italic('Recursing through GRD to find GRDP files...'))
-    // Brave specific only grd and grdp files should NOT be added.
+    // adrbrowsiel specific only grd and grdp files should NOT be added.
     // Using AddGrd will add GRD and all of its GRDPs.
     getAutoGeneratedGrdMappings.mappings = {
       ...addGrd(chromiumComponentsStringsPath, braveComponentsStringsPath),

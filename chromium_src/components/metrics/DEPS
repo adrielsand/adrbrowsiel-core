@@ -8,7 +8,7 @@ include_rules = [
 # Existing exceptions
 specific_include_rules = {
   "machine_id_provider_win.cc": [
-    "+brave/common/brave_switches.h",
+    "+adrbrowsiel/common/adrbrowsiel_switches.h",
   ],
 }
 

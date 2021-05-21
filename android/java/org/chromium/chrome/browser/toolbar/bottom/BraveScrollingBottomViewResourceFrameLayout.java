@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -17,7 +17,7 @@ import org.chromium.chrome.R;
 import org.chromium.components.browser_ui.widget.gesture.SwipeGestureListener;
 import org.chromium.components.browser_ui.widget.gesture.SwipeGestureListener.SwipeHandler;
 
-public class BraveScrollingBottomViewResourceFrameLayout
+public class adrbrowsielScrollingBottomViewResourceFrameLayout
         extends ScrollingBottomViewResourceFrameLayout {
     /** A swipe recognizer for handling swipe gestures. */
     private SwipeGestureListener mSwipeGestureListener;
@@ -26,7 +26,7 @@ public class BraveScrollingBottomViewResourceFrameLayout
     View mBottomToolbar;
     View mBottomContainerSlot;
 
-    public BraveScrollingBottomViewResourceFrameLayout(Context context, AttributeSet attrs) {
+    public adrbrowsielScrollingBottomViewResourceFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         mCallbackController = new CallbackController();
     }
@@ -82,7 +82,7 @@ public class BraveScrollingBottomViewResourceFrameLayout
             return;
         }
         mBottomControlsCoordinatorSupplier = bottomControlsCoordinatorSupplier;
-        braveBottomControlsCoordinator().getBottomToolbarVisibleSupplier().addObserver(
+        adrbrowsielBottomControlsCoordinator().getBottomToolbarVisibleSupplier().addObserver(
                 mCallbackController.makeCancelable((visible) -> {
                     // Only make changes if visibility changed.
                     if (mBottomToolbar != null
@@ -92,7 +92,7 @@ public class BraveScrollingBottomViewResourceFrameLayout
                         getResourceAdapter().dropCachedBitmap();
                     }
                 }));
-        braveBottomControlsCoordinator().getTabGroupUiVisibleSupplier().addObserver(
+        adrbrowsielBottomControlsCoordinator().getTabGroupUiVisibleSupplier().addObserver(
                 mCallbackController.makeCancelable((visible) -> {
                     // Only make changes if visibility changed.
                     if (mBottomContainerSlot != null
@@ -104,11 +104,11 @@ public class BraveScrollingBottomViewResourceFrameLayout
                 }));
     }
 
-    private BraveBottomControlsCoordinator braveBottomControlsCoordinator() {
+    private adrbrowsielBottomControlsCoordinator adrbrowsielBottomControlsCoordinator() {
         if (mBottomControlsCoordinatorSupplier != null
                 && mBottomControlsCoordinatorSupplier.get()
-                                instanceof BraveBottomControlsCoordinator) {
-            return (BraveBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get();
+                                instanceof adrbrowsielBottomControlsCoordinator) {
+            return (adrbrowsielBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get();
         }
         return null;
     }

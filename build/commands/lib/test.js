@@ -10,11 +10,11 @@ const getTestBinary = (suite) => {
 
 const getTestsToRun = (config, suite) => {
   let testsToRun = [suite]
-  if (suite === 'brave_unit_tests') {
+  if (suite === 'adrbrowsiel_unit_tests') {
     if (config.targetOS !== 'android') {
-      testsToRun.push('brave_installer_unittests')
+      testsToRun.push('adrbrowsiel_installer_unittests')
     } else {
-      testsToRun.push('bin/run_brave_public_test_apk')
+      testsToRun.push('bin/run_adrbrowsiel_public_test_apk')
     }
   }
   return testsToRun
@@ -24,48 +24,48 @@ const test = (passthroughArgs, suite, buildConfig = config.defaultBuildConfig, o
   config.buildConfig = buildConfig
   config.update(options)
 
-  let braveArgs = [
+  let adrbrowsielArgs = [
     '--enable-logging=stderr'
   ]
 
   // Android doesn't support --v
   if (config.targetOS !== 'android') {
-    braveArgs.push('--v=' + options.v)
+    adrbrowsielArgs.push('--v=' + options.v)
 
     if (options.vmodule) {
-      braveArgs.push('--vmodule=' + options.vmodule)
+      adrbrowsielArgs.push('--vmodule=' + options.vmodule)
     }
   }
 
   if (options.filter) {
-    braveArgs.push('--gtest_filter=' + options.filter)
+    adrbrowsielArgs.push('--gtest_filter=' + options.filter)
   }
 
   if (options.run_disabled_tests) {
-    braveArgs.push('--gtest_also_run_disabled_tests')
+    adrbrowsielArgs.push('--gtest_also_run_disabled_tests')
   }
 
   if (options.output) {
-    braveArgs.push('--gtest_output=xml:' + options.output)
+    adrbrowsielArgs.push('--gtest_output=xml:' + options.output)
   }
 
-  if (options.disable_brave_extension) {
-    braveArgs.push('--disable-brave-extension')
+  if (options.disable_adrbrowsiel_extension) {
+    adrbrowsielArgs.push('--disable-adrbrowsiel-extension')
   }
 
   if (options.single_process) {
-    braveArgs.push('--single_process')
+    adrbrowsielArgs.push('--single_process')
   }
 
   if (options.test_launcher_jobs) {
-    braveArgs.push('--test-launcher-jobs=' + options.test_launcher_jobs)
+    adrbrowsielArgs.push('--test-launcher-jobs=' + options.test_launcher_jobs)
   }
 
-  braveArgs = braveArgs.concat(passthroughArgs)
+  adrbrowsielArgs = adrbrowsielArgs.concat(passthroughArgs)
 
   // Build the tests
-  if (suite === 'brave_unit_tests' || suite === 'brave_browser_tests') {
-    util.run('ninja', ['-C', config.outputDir, "brave/test:" + suite], config.defaultOptions)
+  if (suite === 'adrbrowsiel_unit_tests' || suite === 'adrbrowsiel_browser_tests') {
+    util.run('ninja', ['-C', config.outputDir, "adrbrowsiel/test:" + suite], config.defaultOptions)
   } else {
     util.run('ninja', ['-C', config.outputDir, suite], config.defaultOptions)
   }
@@ -79,8 +79,8 @@ const test = (passthroughArgs, suite, buildConfig = config.defaultBuildConfig, o
     // Run the tests
     getTestsToRun(config, suite).forEach((testSuite) => {
       if (options.output) {
-        braveArgs.splice(braveArgs.indexOf('--gtest_output=xml:' + options.output), 1)
-        braveArgs.push(`--gtest_output=xml:${testSuite}.xml`)
+        adrbrowsielArgs.splice(adrbrowsielArgs.indexOf('--gtest_output=xml:' + options.output), 1)
+        adrbrowsielArgs.push(`--gtest_output=xml:${testSuite}.xml`)
       }
       if (config.targetOS === 'android') {
         assert(
@@ -89,9 +89,9 @@ const test = (passthroughArgs, suite, buildConfig = config.defaultBuildConfig, o
       }
       if (config.targetOS === 'android' && !options.manual_android_test_device) {
         // Specify emulator to run tests on
-        braveArgs.push(`--avd-config tools/android/avd/proto/generic_android28.textpb`)
+        adrbrowsielArgs.push(`--avd-config tools/android/avd/proto/generic_android28.textpb`)
       }
-      util.run(path.join(config.outputDir, getTestBinary(testSuite)), braveArgs, config.defaultOptions)
+      util.run(path.join(config.outputDir, getTestBinary(testSuite)), adrbrowsielArgs, config.defaultOptions)
     })
   }
 }

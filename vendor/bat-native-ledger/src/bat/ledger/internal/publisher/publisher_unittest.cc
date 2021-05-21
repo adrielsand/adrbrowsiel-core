@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -19,7 +19,7 @@
 using ::testing::_;
 using ::testing::Invoke;
 
-// npm run test -- brave_unit_tests --filter=PublisherTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=PublisherTest.*
 
 namespace ledger {
 namespace publisher {
@@ -186,20 +186,20 @@ TEST_F(PublisherTest, GetShareURL) {
   EXPECT_EQ(Publisher::GetShareURL(args), "");
 
   // Ensure that intent looks correct when no tweet ID is specified
-  args.insert({"name", "brave"});
-  args.insert({"comment", "I just tipped someone using the Brave browser."});
-  args.insert({"hashtag", "TipWithBrave"});
+  args.insert({"name", "adrbrowsiel"});
+  args.insert({"comment", "I just tipped someone using the adrbrowsiel browser."});
+  args.insert({"hashtag", "TipWithadrbrowsiel"});
   EXPECT_EQ(Publisher::GetShareURL(args),
             "https://twitter.com/intent/tweet?text=I just tipped someone using "
-            "the Brave browser.%20%23TipWithBrave");
+            "the adrbrowsiel browser.%20%23TipWithadrbrowsiel");
 
   // Ensure that intent includes quoted tweet when tweet ID is
   // specified
   args.insert({"tweet_id", "794221010484502528"});
   EXPECT_EQ(Publisher::GetShareURL(args),
             "https://twitter.com/intent/tweet?text=I just tipped someone using "
-            "the Brave browser.%20%23TipWithBrave"
-            "&url=https://twitter.com/brave/status/794221010484502528");
+            "the adrbrowsiel browser.%20%23TipWithadrbrowsiel"
+            "&url=https://twitter.com/adrbrowsiel/status/794221010484502528");
 }
 
 }  // namespace publisher

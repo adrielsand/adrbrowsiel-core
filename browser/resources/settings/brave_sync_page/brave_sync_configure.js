@@ -1,25 +1,25 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 /**
  * @fileoverview
- * 'settings-brave-sync-configure' is the set of controls which fetches, displays
+ * 'settings-adrbrowsiel-sync-configure' is the set of controls which fetches, displays
  * and updates the sync configuration.
  */
 
-import './brave_sync_code_dialog.js';
+import './adrbrowsiel_sync_code_dialog.js';
 
 import {Polymer, html} from 'chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js';
 import {I18nBehavior} from 'chrome://resources/js/i18n_behavior.m.js';
 import {WebUIListenerBehavior} from 'chrome://resources/js/web_ui_listener_behavior.m.js';
 
 import {Router} from '../router.js';
-import {BraveSyncBrowserProxy} from './brave_sync_browser_proxy.js';
+import {adrbrowsielSyncBrowserProxy} from './adrbrowsiel_sync_browser_proxy.js';
 
 Polymer({
-  is: 'settings-brave-sync-configure',
+  is: 'settings-adrbrowsiel-sync-configure',
 
   _template: html`{__html_template__}`,
 
@@ -59,7 +59,7 @@ Polymer({
 
   /** @override */
   created: function() {
-    this.browserProxy_ = BraveSyncBrowserProxy.getInstance();
+    this.browserProxy_ = adrbrowsielSyncBrowserProxy.getInstance();
   },
 
   attached: async function() {
@@ -104,7 +104,7 @@ Polymer({
   },
 
   onResetSyncChain_: async function() {
-    const messageText = this.i18n('braveSyncResetConfirmation')
+    const messageText = this.i18n('adrbrowsielSyncResetConfirmation')
     const shouldReset = confirm(messageText)
     if (!shouldReset) {
       return
@@ -114,11 +114,11 @@ Polymer({
     // chain without reload
     this.syncCode = undefined
     const router = Router.getInstance();
-    router.navigateTo(router.getRoutes().BRAVE_SYNC);
+    router.navigateTo(router.getRoutes().adrbrowsiel_SYNC);
   },
 
   onDeleteDevice_: async function(e) {
-    const messageText = this.i18n('braveSyncDeleteDeviceConfirmation')
+    const messageText = this.i18n('adrbrowsielSyncDeleteDeviceConfirmation')
     const shouldDeleteDevice = confirm(messageText)
     if (!shouldDeleteDevice) {
       return

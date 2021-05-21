@@ -6,7 +6,7 @@ index ab9704b8d0836d74b627f669cf7aeea16ea04722..cbcb2aee4470650cc547a7e216ed1282
    };
  
    if (!url.SchemeIs(content::kChromeUIScheme))
-+  if (!url.SchemeIs(content::kBraveUIScheme))
++  if (!url.SchemeIs(content::kadrbrowsielUIScheme))
      return false;
  
    return base::Contains(kill_hosts, url.host_piece());

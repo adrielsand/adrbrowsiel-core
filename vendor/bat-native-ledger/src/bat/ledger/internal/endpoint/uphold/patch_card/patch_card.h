@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_ENDPOINT_UPHOLD_PATCH_CARD_PATCH_CARD_H_
-#define BRAVELEDGER_ENDPOINT_UPHOLD_PATCH_CARD_PATCH_CARD_H_
+#ifndef adrbrowsielLEDGER_ENDPOINT_UPHOLD_PATCH_CARD_PATCH_CARD_H_
+#define adrbrowsielLEDGER_ENDPOINT_UPHOLD_PATCH_CARD_PATCH_CARD_H_
 
 #include <string>
 
@@ -15,7 +15,7 @@
 //
 // Request body:
 // {
-//   "label": "Brave Browser",
+//   "label": "adrbrowsiel Browser",
 //   "settings": {
 //     "position": -1,
 //     "starred": true
@@ -38,7 +38,7 @@
 //   "balance": "0.00",
 //   "currency": "BAT",
 //   "id": "bd91a720-f3f9-42f8-b2f5-19548004f6a7",
-//   "label": "Brave Browser",
+//   "label": "adrbrowsiel Browser",
 //   "lastTransactionAt": null,
 //   "settings": {
 //     "position": 8,
@@ -117,4 +117,4 @@ class PatchCard {
 }  // namespace endpoint
 }  // namespace ledger
 
-#endif  // BRAVELEDGER_ENDPOINT_UPHOLD_PATCH_CARD_PATCH_CARD_H_
+#endif  // adrbrowsielLEDGER_ENDPOINT_UPHOLD_PATCH_CARD_PATCH_CARD_H_

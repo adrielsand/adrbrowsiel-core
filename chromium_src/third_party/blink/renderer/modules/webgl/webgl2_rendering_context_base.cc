@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "third_party/blink/renderer/modules/webgl/webgl2_rendering_context_base.h"
-#include "brave/components/content_settings/renderer/brave_content_settings_agent_impl_helper.h"
+#include "adrbrowsiel/components/content_settings/renderer/adrbrowsiel_content_settings_agent_impl_helper.h"
 #include "third_party/blink/renderer/bindings/modules/v8/webgl_any.h"
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
 
@@ -26,7 +26,7 @@ ScriptValue FarbleGLIntParameter(WebGL2RenderingContextBase* owner,
     owner->ContextGL()->GetIntegerv(pname, &value);
   if (value > 0) {
     std::mt19937_64 prng =
-        brave::BraveSessionCache::From(*ExecutionContext::From(script_state))
+        adrbrowsiel::adrbrowsielSessionCache::From(*ExecutionContext::From(script_state))
             .MakePseudoRandomGenerator();
     prng.discard(discard);
     if (prng() % 2 != 0) {
@@ -45,7 +45,7 @@ ScriptValue FarbleGLInt64Parameter(WebGL2RenderingContextBase* owner,
     owner->ContextGL()->GetInteger64v(pname, &value);
   if (value > 0) {
     std::mt19937_64 prng =
-        brave::BraveSessionCache::From(*ExecutionContext::From(script_state))
+        adrbrowsiel::adrbrowsielSessionCache::From(*ExecutionContext::From(script_state))
             .MakePseudoRandomGenerator();
     prng.discard(discard);
     if (prng() % 2 != 0) {
@@ -57,15 +57,15 @@ ScriptValue FarbleGLInt64Parameter(WebGL2RenderingContextBase* owner,
 
 }  // namespace
 
-#define BRAVE_WEBGL2_RENDERING_CONTEXT_BASE                                 \
+#define adrbrowsiel_WEBGL2_RENDERING_CONTEXT_BASE                                 \
   if (canvas() && !AllowFingerprinting(canvas()->GetDocument().GetFrame())) \
     return ScriptValue::CreateNull(script_state->GetIsolate());
 
-#define BRAVE_WEBGL2_RENDERING_CONTEXT_BASE_GETPARAMETER                      \
+#define adrbrowsiel_WEBGL2_RENDERING_CONTEXT_BASE_GETPARAMETER                      \
   if (ExecutionContext* context = ExecutionContext::From(script_state)) {     \
     if (WebContentSettingsClient* settings =                                  \
-        brave::GetContentSettingsClientFor(context)) {                  \
-      if (settings->GetBraveFarblingLevel() == BraveFarblingLevel::MAXIMUM) { \
+        adrbrowsiel::GetContentSettingsClientFor(context)) {                  \
+      if (settings->GetadrbrowsielFarblingLevel() == adrbrowsielFarblingLevel::MAXIMUM) { \
         switch (pname) {                                                      \
           case GL_SHADING_LANGUAGE_VERSION:                                   \
           case GL_VERSION:                                                    \
@@ -86,8 +86,8 @@ ScriptValue FarbleGLInt64Parameter(WebGL2RenderingContextBase* owner,
           case GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS:                   \
             return ScriptValue::CreateNull(script_state->GetIsolate());       \
         }                                                                     \
-      } else if (settings->GetBraveFarblingLevel() ==                         \
-                 BraveFarblingLevel::BALANCED) {                              \
+      } else if (settings->GetadrbrowsielFarblingLevel() ==                         \
+                 adrbrowsielFarblingLevel::BALANCED) {                              \
         switch (pname) {                                                      \
           case GL_MAX_VERTEX_UNIFORM_COMPONENTS:                              \
             return FarbleGLIntParameter(this, script_state, pname, 1);        \
@@ -119,5 +119,5 @@ ScriptValue FarbleGLInt64Parameter(WebGL2RenderingContextBase* owner,
   }
 
 #include "../../../../../../../third_party/blink/renderer/modules/webgl/webgl2_rendering_context_base.cc"
-#undef BRAVE_WEBGL2_RENDERING_CONTEXT_BASE
-#undef BRAVE_WEBGL2_RENDERING_CONTEXT_BASE_GETPARAMETER
+#undef adrbrowsiel_WEBGL2_RENDERING_CONTEXT_BASE
+#undef adrbrowsiel_WEBGL2_RENDERING_CONTEXT_BASE_GETPARAMETER

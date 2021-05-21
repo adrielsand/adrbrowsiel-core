@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -13,12 +13,12 @@
 #include "components/content_settings/core/common/content_settings_types.h"
 #include "content/public/test/browser_test.h"
 
-const GURL& GetBraveURL() {
-  static const GURL kBraveURL("https://www.brave.com");
-  return kBraveURL;
+const GURL& GetadrbrowsielURL() {
+  static const GURL kadrbrowsielURL("https://www.adrbrowsiel.com");
+  return kadrbrowsielURL;
 }
 
-class BraveContentSettingsRegistryBrowserTest : public InProcessBrowserTest {
+class adrbrowsielContentSettingsRegistryBrowserTest : public InProcessBrowserTest {
  public:
   using InProcessBrowserTest::InProcessBrowserTest;
 
@@ -32,38 +32,38 @@ class BraveContentSettingsRegistryBrowserTest : public InProcessBrowserTest {
   }
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveContentSettingsRegistryBrowserTest);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielContentSettingsRegistryBrowserTest);
 };
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsRegistryBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsRegistryBrowserTest,
                        WithoutWildcardContentSetting) {
-  ContentSetting brave_url_shields_setting =
-      content_settings()->GetContentSetting(GetBraveURL(), GetBraveURL(),
-                                            ContentSettingsType::BRAVE_SHIELDS);
-  EXPECT_EQ(CONTENT_SETTING_DEFAULT, brave_url_shields_setting);
+  ContentSetting adrbrowsiel_url_shields_setting =
+      content_settings()->GetContentSetting(GetadrbrowsielURL(), GetadrbrowsielURL(),
+                                            ContentSettingsType::adrbrowsiel_SHIELDS);
+  EXPECT_EQ(CONTENT_SETTING_DEFAULT, adrbrowsiel_url_shields_setting);
 
-  ContentSetting brave_url_shields_setting_private =
+  ContentSetting adrbrowsiel_url_shields_setting_private =
       private_content_settings()->GetContentSetting(
-          GetBraveURL(), GetBraveURL(), ContentSettingsType::BRAVE_SHIELDS);
-  EXPECT_EQ(CONTENT_SETTING_DEFAULT, brave_url_shields_setting_private);
+          GetadrbrowsielURL(), GetadrbrowsielURL(), ContentSettingsType::adrbrowsiel_SHIELDS);
+  EXPECT_EQ(CONTENT_SETTING_DEFAULT, adrbrowsiel_url_shields_setting_private);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsRegistryBrowserTest,
-                       WithBraveShieldsContentSetting) {
-  ContentSettingsPattern brave_url_pattern =
-      ContentSettingsPattern::FromURL(GetBraveURL());
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsRegistryBrowserTest,
+                       WithadrbrowsielShieldsContentSetting) {
+  ContentSettingsPattern adrbrowsiel_url_pattern =
+      ContentSettingsPattern::FromURL(GetadrbrowsielURL());
 
   content_settings()->SetContentSettingCustomScope(
-      brave_url_pattern, brave_url_pattern, ContentSettingsType::BRAVE_SHIELDS,
+      adrbrowsiel_url_pattern, adrbrowsiel_url_pattern, ContentSettingsType::adrbrowsiel_SHIELDS,
       CONTENT_SETTING_ALLOW);
 
-  ContentSetting brave_url_shields_setting =
-      content_settings()->GetContentSetting(GetBraveURL(), GetBraveURL(),
-                                            ContentSettingsType::BRAVE_SHIELDS);
-  EXPECT_EQ(CONTENT_SETTING_ALLOW, brave_url_shields_setting);
+  ContentSetting adrbrowsiel_url_shields_setting =
+      content_settings()->GetContentSetting(GetadrbrowsielURL(), GetadrbrowsielURL(),
+                                            ContentSettingsType::adrbrowsiel_SHIELDS);
+  EXPECT_EQ(CONTENT_SETTING_ALLOW, adrbrowsiel_url_shields_setting);
 
-  ContentSetting brave_url_shields_setting_private =
+  ContentSetting adrbrowsiel_url_shields_setting_private =
       private_content_settings()->GetContentSetting(
-          GetBraveURL(), GetBraveURL(), ContentSettingsType::BRAVE_SHIELDS);
-  EXPECT_EQ(CONTENT_SETTING_ALLOW, brave_url_shields_setting_private);
+          GetadrbrowsielURL(), GetadrbrowsielURL(), ContentSettingsType::adrbrowsiel_SHIELDS);
+  EXPECT_EQ(CONTENT_SETTING_ALLOW, adrbrowsiel_url_shields_setting_private);
 }

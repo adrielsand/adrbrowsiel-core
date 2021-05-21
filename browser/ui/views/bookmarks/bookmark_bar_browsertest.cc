@@ -1,10 +1,10 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_view_ids.h"
-#include "brave/browser/ui/views/bookmarks/bookmark_bar_instructions_view.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_view_ids.h"
+#include "adrbrowsiel/browser/ui/views/bookmarks/bookmark_bar_instructions_view.h"
 #include "chrome/app/chrome_command_ids.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/bookmarks/bookmark_model_factory.h"
@@ -33,7 +33,7 @@ class BookmarkBarTest : public InProcessBrowserTest {
 
   BookmarkBarInstructionsView* GetInstructionView() {
     for (auto* child : bookmark_bar()->children()) {
-      if (child->GetID() == BRAVE_VIEW_ID_BOOKMARK_IMPORT_INSTRUCTION_VIEW)
+      if (child->GetID() == adrbrowsiel_VIEW_ID_BOOKMARK_IMPORT_INSTRUCTION_VIEW)
         return static_cast<BookmarkBarInstructionsView*>(child);
     }
     return nullptr;

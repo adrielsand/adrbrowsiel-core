@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/brave_rewards_internals_ui.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_rewards_internals_ui.h"
 
 #include <memory>
 #include <string>
@@ -12,11 +12,11 @@
 
 #include "base/memory/weak_ptr.h"
 #include "bat/ledger/mojom_structs.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/browser/ui/webui/brave_webui_source.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/components/brave_rewards/resources/grit/brave_rewards_internals_generated_map.h"
-#include "brave/components/brave_rewards/resources/grit/brave_rewards_resources.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_webui_source.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/resources/grit/adrbrowsiel_rewards_internals_generated_map.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/resources/grit/adrbrowsiel_rewards_resources.h"
 #include "chrome/browser/profiles/profile.h"
 #include "content/public/browser/web_ui.h"
 #include "content/public/browser/web_ui_message_handler.h"
@@ -58,7 +58,7 @@ class RewardsInternalsDOMHandler : public content::WebUIMessageHandler {
   void GetEventLogs(const base::ListValue* args);
   void OnGetEventLogs(ledger::type::EventLogs logs);
 
-  brave_rewards::RewardsService* rewards_service_;  // NOT OWNED
+  adrbrowsiel_rewards::RewardsService* rewards_service_;  // NOT OWNED
   Profile* profile_;
   base::WeakPtrFactory<RewardsInternalsDOMHandler> weak_ptr_factory_;
 
@@ -72,46 +72,46 @@ RewardsInternalsDOMHandler::~RewardsInternalsDOMHandler() {}
 
 void RewardsInternalsDOMHandler::RegisterMessages() {
   web_ui()->RegisterMessageCallback(
-      "brave_rewards_internals.getRewardsInternalsInfo",
+      "adrbrowsiel_rewards_internals.getRewardsInternalsInfo",
       base::BindRepeating(
           &RewardsInternalsDOMHandler::HandleGetRewardsInternalsInfo,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "brave_rewards_internals.getBalance",
+      "adrbrowsiel_rewards_internals.getBalance",
       base::BindRepeating(
           &RewardsInternalsDOMHandler::GetBalance,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "brave_rewards_internals.getContributions",
+      "adrbrowsiel_rewards_internals.getContributions",
       base::BindRepeating(
           &RewardsInternalsDOMHandler::GetContributions,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "brave_rewards_internals.getPromotions",
+      "adrbrowsiel_rewards_internals.getPromotions",
       base::BindRepeating(
           &RewardsInternalsDOMHandler::GetPromotions,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "brave_rewards_internals.getPartialLog",
+      "adrbrowsiel_rewards_internals.getPartialLog",
       base::BindRepeating(
           &RewardsInternalsDOMHandler::GetPartialLog,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "brave_rewards_internals.getFullLog",
+      "adrbrowsiel_rewards_internals.getFullLog",
       base::BindRepeating(
           &RewardsInternalsDOMHandler::GetFulllLog,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "brave_rewards_internals.clearLog",
+      "adrbrowsiel_rewards_internals.clearLog",
       base::BindRepeating(
           &RewardsInternalsDOMHandler::ClearLog,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "brave_rewards_internals.getExternalWallet",
+      "adrbrowsiel_rewards_internals.getExternalWallet",
       base::BindRepeating(&RewardsInternalsDOMHandler::GetExternalWallet,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
-      "brave_rewards_internals.getEventLogs",
+      "adrbrowsiel_rewards_internals.getEventLogs",
       base::BindRepeating(
           &RewardsInternalsDOMHandler::GetEventLogs,
           base::Unretained(this)));
@@ -120,7 +120,7 @@ void RewardsInternalsDOMHandler::RegisterMessages() {
 void RewardsInternalsDOMHandler::Init() {
   profile_ = Profile::FromWebUI(web_ui());
   rewards_service_ =
-      brave_rewards::RewardsServiceFactory::GetForProfile(profile_);
+      adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile_);
   rewards_service_->StartProcess(base::DoNothing());
 }
 
@@ -144,7 +144,7 @@ void RewardsInternalsDOMHandler::OnGetRewardsInternalsInfo(
     info_dict.SetInteger("bootStamp", info->boot_stamp);
   }
   web_ui()->CallJavascriptFunctionUnsafe(
-      "brave_rewards_internals.onGetRewardsInternalsInfo", info_dict);
+      "adrbrowsiel_rewards_internals.onGetRewardsInternalsInfo", info_dict);
 }
 
 void RewardsInternalsDOMHandler::GetBalance(const base::ListValue* args) {
@@ -176,7 +176,7 @@ void RewardsInternalsDOMHandler::OnGetBalance(
   }
 
   web_ui()->CallJavascriptFunctionUnsafe(
-      "brave_rewards_internals.balance",
+      "adrbrowsiel_rewards_internals.balance",
       std::move(balance_value));
 }
 
@@ -224,7 +224,7 @@ void RewardsInternalsDOMHandler::OnGetContributions(
   }
 
   web_ui()->CallJavascriptFunctionUnsafe(
-      "brave_rewards_internals.contributions",
+      "adrbrowsiel_rewards_internals.contributions",
       std::move(list));
 }
 
@@ -260,7 +260,7 @@ void RewardsInternalsDOMHandler::OnGetPromotions(
   }
 
   web_ui()->CallJavascriptFunctionUnsafe(
-      "brave_rewards_internals.promotions",
+      "adrbrowsiel_rewards_internals.promotions",
       std::move(promotions));
 }
 
@@ -282,7 +282,7 @@ void RewardsInternalsDOMHandler::OnGetPartialLog(const std::string& log) {
   }
 
   web_ui()->CallJavascriptFunctionUnsafe(
-      "brave_rewards_internals.partialLog",
+      "adrbrowsiel_rewards_internals.partialLog",
       base::Value(log));
 }
 
@@ -304,7 +304,7 @@ void RewardsInternalsDOMHandler::OnGetFulllLog(const std::string& log) {
   }
 
   web_ui()->CallJavascriptFunctionUnsafe(
-      "brave_rewards_internals.fullLog",
+      "adrbrowsiel_rewards_internals.fullLog",
       base::Value(log));
 }
 
@@ -329,7 +329,7 @@ void RewardsInternalsDOMHandler::OnClearLog(const bool success) {
   }
 
   web_ui()->CallJavascriptFunctionUnsafe(
-      "brave_rewards_internals.partialLog",
+      "adrbrowsiel_rewards_internals.partialLog",
       base::Value(""));
 }
 
@@ -363,7 +363,7 @@ void RewardsInternalsDOMHandler::OnGetExternalWallet(
   data.SetKey("wallet", std::move(wallet_dict));
 
   web_ui()->CallJavascriptFunctionUnsafe(
-      "brave_rewards_internals.externalWallet",
+      "adrbrowsiel_rewards_internals.externalWallet",
       data);
 }
 
@@ -395,18 +395,18 @@ void RewardsInternalsDOMHandler::OnGetEventLogs(ledger::type::EventLogs logs) {
   }
 
   web_ui()->CallJavascriptFunctionUnsafe(
-      "brave_rewards_internals.eventLogs",
+      "adrbrowsiel_rewards_internals.eventLogs",
       std::move(data));
 }
 
 }  // namespace
 
-BraveRewardsInternalsUI::BraveRewardsInternalsUI(content::WebUI* web_ui,
+adrbrowsielRewardsInternalsUI::adrbrowsielRewardsInternalsUI(content::WebUI* web_ui,
                                                  const std::string& name)
     : WebUIController(web_ui) {
-  CreateAndAddWebUIDataSource(web_ui, name, kBraveRewardsInternalsGenerated,
-                              kBraveRewardsInternalsGeneratedSize,
-                              IDR_BRAVE_REWARDS_INTERNALS_HTML);
+  CreateAndAddWebUIDataSource(web_ui, name, kadrbrowsielRewardsInternalsGenerated,
+                              kadrbrowsielRewardsInternalsGeneratedSize,
+                              IDR_adrbrowsiel_REWARDS_INTERNALS_HTML);
 
   auto handler_owner = std::make_unique<RewardsInternalsDOMHandler>();
   RewardsInternalsDOMHandler* handler = handler_owner.get();
@@ -414,4 +414,4 @@ BraveRewardsInternalsUI::BraveRewardsInternalsUI(content::WebUI* web_ui,
   handler->Init();
 }
 
-BraveRewardsInternalsUI::~BraveRewardsInternalsUI() = default;
+adrbrowsielRewardsInternalsUI::~adrbrowsielRewardsInternalsUI() = default;

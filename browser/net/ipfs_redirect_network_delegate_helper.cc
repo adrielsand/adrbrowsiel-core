@@ -1,20 +1,20 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/ipfs_redirect_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/ipfs_redirect_network_delegate_helper.h"
 
 #include <string>
 
-#include "brave/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
 #include "net/base/net_errors.h"
 
 namespace ipfs {
 
 int OnBeforeURLRequest_IPFSRedirectWork(
-    const brave::ResponseCallback& next_callback,
-    std::shared_ptr<brave::BraveRequestInfo> ctx) {
+    const adrbrowsiel::ResponseCallback& next_callback,
+    std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx) {
   if (!ctx->browser_context ||
       IsIpfsResolveMethodDisabled(ctx->browser_context)) {
     return net::OK;
@@ -24,7 +24,7 @@ int OnBeforeURLRequest_IPFSRedirectWork(
   if (ipfs::TranslateIPFSURI(ctx->request_url, &new_url, ctx->ipfs_gateway_url,
                              false)) {
     // We only allow translating ipfs:// and ipns:// URIs if the initiator_url
-    // is from the same Brave ipfs/ipns gateway.
+    // is from the same adrbrowsiel ipfs/ipns gateway.
     // For the local case, we don't want a normal site to be able to populate
     // a user's IPFS local cache with content they didn't know about.
     // In which case that user would also be able to serve that content.
@@ -36,7 +36,7 @@ int OnBeforeURLRequest_IPFSRedirectWork(
          IsDefaultGatewayURL(ctx->initiator_url, ctx->browser_context))) {
       ctx->new_url_spec = new_url.spec();
     } else {
-      ctx->blocked_by = brave::kOtherBlocked;
+      ctx->blocked_by = adrbrowsiel::kOtherBlocked;
     }
   }
   return net::OK;
@@ -46,8 +46,8 @@ int OnHeadersReceived_IPFSRedirectWork(
     const net::HttpResponseHeaders* response_headers,
     scoped_refptr<net::HttpResponseHeaders>* override_response_headers,
     GURL* allowed_unsafe_redirect_url,
-    const brave::ResponseCallback& next_callback,
-    std::shared_ptr<brave::BraveRequestInfo> ctx) {
+    const adrbrowsiel::ResponseCallback& next_callback,
+    std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx) {
   if (!ctx->browser_context ||
       IsIpfsResolveMethodDisabled(ctx->browser_context)) {
     return net::OK;

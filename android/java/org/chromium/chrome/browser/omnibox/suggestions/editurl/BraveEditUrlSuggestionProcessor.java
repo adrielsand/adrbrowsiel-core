@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -17,10 +17,10 @@ import org.chromium.chrome.browser.tab.Tab;
 import org.chromium.components.favicon.LargeIconBridge;
 import org.chromium.components.omnibox.AutocompleteMatch;
 
-public class BraveEditUrlSuggestionProcessor extends EditUrlSuggestionProcessor {
+public class adrbrowsielEditUrlSuggestionProcessor extends EditUrlSuggestionProcessor {
     private boolean mHasClearedOmniboxForFocus;
 
-    public BraveEditUrlSuggestionProcessor(Context context, SuggestionHost suggestionHost,
+    public adrbrowsielEditUrlSuggestionProcessor(Context context, SuggestionHost suggestionHost,
             UrlBarDelegate locationBarDelegate, Supplier<LargeIconBridge> iconBridgeSupplier,
             Supplier<Tab> tabSupplier, Supplier<ShareDelegate> shareDelegateSupplier) {
         super(context, suggestionHost, locationBarDelegate, iconBridgeSupplier, tabSupplier,

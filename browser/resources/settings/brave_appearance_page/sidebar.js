@@ -1,4 +1,4 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,13 +10,13 @@ import {I18nBehavior} from 'chrome://resources/js/i18n_behavior.m.js'
 import {loadTimeData} from "../i18n_setup.js"
 
 /**
- * 'settings-brave-appearance-sidebar' is the settings page area containing
- * brave's sidebar settings in appearance settings.
- * This is separated from 'settings-brave-appearance-toolbar' because sidebar
+ * 'settings-adrbrowsiel-appearance-sidebar' is the settings page area containing
+ * adrbrowsiel's sidebar settings in appearance settings.
+ * This is separated from 'settings-adrbrowsiel-appearance-toolbar' because sidebar
  * option is located below the home button option.
  */
 Polymer({
-  is: 'settings-brave-appearance-sidebar',
+  is: 'settings-adrbrowsiel-appearance-sidebar',
 
   _template: html`{__html_template__}`,
 
@@ -68,7 +68,7 @@ Polymer({
   },
 
   getCurrentSidebarOption_: function() {
-    return this.get('prefs.brave.sidebar.sidebar_show_option.value');
+    return this.get('prefs.adrbrowsiel.sidebar.sidebar_show_option.value');
   },
 });
 

@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/profiles/brave_profile_manager.h"
+#include "adrbrowsiel/browser/profiles/adrbrowsiel_profile_manager.h"
 
 #include <memory>
 #include <string>
@@ -11,16 +11,16 @@
 #include <vector>
 
 #include "base/metrics/histogram_macros.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/content_settings/core/browser/brave_content_settings_pref_provider.h"
-#include "brave/components/decentralized_dns/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/tor/tor_constants.h"
-#include "brave/content/browser/webui/brave_shared_resources_data_source.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/content_settings/core/browser/adrbrowsiel_content_settings_pref_provider.h"
+#include "adrbrowsiel/components/decentralized_dns/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/tor_constants.h"
+#include "adrbrowsiel/content/browser/webui/adrbrowsiel_shared_resources_data_source.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/chrome_notification_types.h"
 #include "chrome/browser/profiles/profile_attributes_entry.h"
@@ -37,45 +37,45 @@
 #include "content/public/browser/url_data_source.h"
 #include "ui/base/l10n/l10n_util.h"
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-#include "brave/browser/brave_wallet/brave_wallet_service_factory.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+#include "adrbrowsiel/browser/adrbrowsiel_wallet/adrbrowsiel_wallet_service_factory.h"
 #endif
 
 #if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
-#include "brave/browser/gcm_driver/brave_gcm_channel_status.h"
+#include "adrbrowsiel/browser/gcm_driver/adrbrowsiel_gcm_channel_status.h"
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
 #endif
 
 #if BUILDFLAG(DECENTRALIZED_DNS_ENABLED)
-#include "brave/browser/decentralized_dns/decentralized_dns_service_factory.h"
+#include "adrbrowsiel/browser/decentralized_dns/decentralized_dns_service_factory.h"
 #endif
 
 using content::BrowserThread;
 
 namespace {
 
-void AddBraveSharedResourcesDataSourceToProfile(Profile* profile) {
+void AddadrbrowsielSharedResourcesDataSourceToProfile(Profile* profile) {
   content::URLDataSource::Add(
       profile,
-      std::make_unique<brave_content::BraveSharedResourcesDataSource>());
+      std::make_unique<adrbrowsiel_content::adrbrowsielSharedResourcesDataSource>());
 }
 
 }  // namespace
 
-BraveProfileManager::BraveProfileManager(const base::FilePath& user_data_dir)
+adrbrowsielProfileManager::adrbrowsielProfileManager(const base::FilePath& user_data_dir)
     : ProfileManager(user_data_dir) {
   MigrateProfileNames();
 
   AddObserver(this);
 }
 
-BraveProfileManager::~BraveProfileManager() {
+adrbrowsielProfileManager::~adrbrowsielProfileManager() {
   std::vector<Profile*> profiles = GetLoadedProfiles();
   for (Profile* profile : profiles) {
-    if (brave::IsSessionProfile(profile)) {
+    if (adrbrowsiel::IsSessionProfile(profile)) {
       // passing false for `success` removes the profile from the info cache
       OnProfileCreated(profile, false, false);
     }
@@ -83,27 +83,27 @@ BraveProfileManager::~BraveProfileManager() {
   RemoveObserver(this);
 }
 
-void BraveProfileManager::InitProfileUserPrefs(Profile* profile) {
+void adrbrowsielProfileManager::InitProfileUserPrefs(Profile* profile) {
   // migrate obsolete plugin prefs to temporary migration pref because otherwise
   // they get deleteed by PrefProvider before we can migrate them in
-  // BravePrefProvider
-  content_settings::BravePrefProvider::CopyPluginSettingsForMigration(
+  // adrbrowsielPrefProvider
+  content_settings::adrbrowsielPrefProvider::CopyPluginSettingsForMigration(
       profile->GetPrefs());
 
   ProfileManager::InitProfileUserPrefs(profile);
-  brave::RecordInitialP3AValues(profile);
-  brave::SetDefaultSearchVersion(profile, profile->IsNewProfile());
+  adrbrowsiel::RecordInitialP3AValues(profile);
+  adrbrowsiel::SetDefaultSearchVersion(profile, profile->IsNewProfile());
 }
 
-void BraveProfileManager::DoFinalInitForServices(Profile* profile,
+void adrbrowsielProfileManager::DoFinalInitForServices(Profile* profile,
                                                  bool go_off_the_record) {
   ProfileManager::DoFinalInitForServices(profile, go_off_the_record);
   if (!do_final_services_init_)
     return;
-  brave_ads::AdsServiceFactory::GetForProfile(profile);
-  brave_rewards::RewardsServiceFactory::GetForProfile(profile);
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-  BraveWalletServiceFactory::GetForContext(profile);
+  adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile);
+  adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile);
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+  adrbrowsielWalletServiceFactory::GetForContext(profile);
 #endif
 #if BUILDFLAG(IPFS_ENABLED)
   ipfs::IpfsServiceFactory::GetForContext(profile);
@@ -112,14 +112,14 @@ void BraveProfileManager::DoFinalInitForServices(Profile* profile,
   decentralized_dns::DecentralizedDnsServiceFactory::GetForContext(profile);
 #endif
 #if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
-  gcm::BraveGCMChannelStatus* status =
-      gcm::BraveGCMChannelStatus::GetForProfile(profile);
+  gcm::adrbrowsielGCMChannelStatus* status =
+      gcm::adrbrowsielGCMChannelStatus::GetForProfile(profile);
   DCHECK(status);
   status->UpdateGCMDriverStatus();
 #endif
 }
 
-bool BraveProfileManager::IsAllowedProfilePath(
+bool adrbrowsielProfileManager::IsAllowedProfilePath(
     const base::FilePath& path) const {
   // Chromium only allows profiles to be created in the user_data_dir, but we
   // want to also be able to create profile in subfolders of user_data_dir.
@@ -127,7 +127,7 @@ bool BraveProfileManager::IsAllowedProfilePath(
          user_data_dir().IsParent(path.DirName());
 }
 
-bool BraveProfileManager::LoadProfileByPath(const base::FilePath& profile_path,
+bool adrbrowsielProfileManager::LoadProfileByPath(const base::FilePath& profile_path,
                          bool incognito,
                          ProfileLoadedCallback callback) {
   // Prevent legacy tor session profile to be loaded so we won't hit
@@ -146,14 +146,14 @@ bool BraveProfileManager::LoadProfileByPath(const base::FilePath& profile_path,
 // This overridden method doesn't clear |kDefaultSearchProviderDataPrefName|.
 // W/o this, prefs set by TorWindowSearchEngineProviderService is cleared
 // during the initialization.
-void BraveProfileManager::SetNonPersonalProfilePrefs(Profile* profile) {
+void adrbrowsielProfileManager::SetNonPersonalProfilePrefs(Profile* profile) {
   PrefService* prefs = profile->GetPrefs();
   prefs->SetBoolean(prefs::kSigninAllowed, false);
   prefs->SetBoolean(bookmarks::prefs::kEditBookmarksEnabled, false);
   prefs->SetBoolean(bookmarks::prefs::kShowBookmarkBar, false);
 }
 
-void BraveProfileManager::MigrateProfileNames() {
+void adrbrowsielProfileManager::MigrateProfileNames() {
 #if !defined(OS_ANDROID) && !defined(OS_CHROMEOS)
   // If any profiles have a default name using an
   // older version of the default name string format,
@@ -178,26 +178,26 @@ void BraveProfileManager::MigrateProfileNames() {
 #endif
 }
 
-void BraveProfileManager::OnProfileAdded(Profile* profile) {
+void adrbrowsielProfileManager::OnProfileAdded(Profile* profile) {
   // Observe new profiles for creation of OTR profiles so that we can add our
   // shared resources to them.
   observed_profiles_.Add(profile);
-  AddBraveSharedResourcesDataSourceToProfile(profile);
+  AddadrbrowsielSharedResourcesDataSourceToProfile(profile);
 }
 
-void BraveProfileManager::OnOffTheRecordProfileCreated(
+void adrbrowsielProfileManager::OnOffTheRecordProfileCreated(
     Profile* off_the_record) {
-  AddBraveSharedResourcesDataSourceToProfile(off_the_record);
+  AddadrbrowsielSharedResourcesDataSourceToProfile(off_the_record);
 }
 
-void BraveProfileManager::OnProfileWillBeDestroyed(Profile* profile) {
+void adrbrowsielProfileManager::OnProfileWillBeDestroyed(Profile* profile) {
   if (!profile->IsOffTheRecord()) {
     observed_profiles_.Remove(profile);
   }
 }
 
-BraveProfileManagerWithoutInit::BraveProfileManagerWithoutInit(
+adrbrowsielProfileManagerWithoutInit::adrbrowsielProfileManagerWithoutInit(
     const base::FilePath& user_data_dir)
-    : BraveProfileManager(user_data_dir) {
+    : adrbrowsielProfileManager(user_data_dir) {
   set_do_final_services_init(false);
 }

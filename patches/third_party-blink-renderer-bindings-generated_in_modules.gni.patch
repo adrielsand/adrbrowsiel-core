@@ -6,7 +6,7 @@ index 66d798528137f50164a655449e9330a0cef7183c..45c2428def217e5b8fe467a160025309
    "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_xr_webgl_layer.cc",
    "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_xr_webgl_layer.h",
  ]
-+generated_interface_sources_in_modules += brave_generated_interface_sources_in_modules
++generated_interface_sources_in_modules += adrbrowsiel_generated_interface_sources_in_modules
  
  generated_namespace_sources_in_modules = []
  

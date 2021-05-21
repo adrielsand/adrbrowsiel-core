@@ -6,7 +6,7 @@ index aac67f9733e5a5f1adba22268337d2cc3319d386..b1fd438f1037077c56cf977d1551a7d0
    virtual ui::AXMode GetAXModeForBrowserContext(
        BrowserContext* browser_context);
  
-+  BRAVE_CONTENT_BROWSER_CLIENT_H
++  adrbrowsiel_CONTENT_BROWSER_CLIENT_H
  #if defined(OS_ANDROID)
    // Defines the heuristics we can use to enable wide color gamut (WCG).
    enum class WideColorGamutHeuristic {

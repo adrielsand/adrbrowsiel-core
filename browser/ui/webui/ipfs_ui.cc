@@ -1,21 +1,21 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/ipfs_ui.h"
+#include "adrbrowsiel/browser/ui/webui/ipfs_ui.h"
 
 #include <utility>
 
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/browser/ui/webui/brave_webui_source.h"
-#include "brave/components/ipfs/addresses_config.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/repo_stats.h"
-#include "brave/components/ipfs_ui/resources/grit/ipfs_generated_map.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_webui_source.h"
+#include "adrbrowsiel/components/ipfs/addresses_config.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/repo_stats.h"
+#include "adrbrowsiel/components/ipfs_ui/resources/grit/ipfs_generated_map.h"
 #include "chrome/browser/browser_process_impl.h"
-#include "components/grit/brave_components_resources.h"
-#include "components/grit/brave_components_strings.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/update_client/crx_update_item.h"
 #include "content/public/browser/web_contents.h"
 #include "content/public/browser/web_ui.h"

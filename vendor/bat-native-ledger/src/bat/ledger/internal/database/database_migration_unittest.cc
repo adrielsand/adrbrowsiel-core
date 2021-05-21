@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -118,7 +118,7 @@ TEST_F(LedgerDatabaseMigrationTest, Migration_4_ActivityInfo) {
     list.push_back(std::move(info));
   }
 
-  EXPECT_EQ(list.at(0)->id, "brave.com");
+  EXPECT_EQ(list.at(0)->id, "adrbrowsiel.com");
   EXPECT_EQ(list.at(0)->visits, 5u);
   EXPECT_EQ(list.at(1)->id, "slo-tech.com");
   EXPECT_EQ(list.at(1)->visits, 5u);
@@ -143,7 +143,7 @@ TEST_F(LedgerDatabaseMigrationTest, Migration_5_ActivityInfo) {
 
   EXPECT_EQ(list.at(0)->id, "basicattentiontoken.org");
   EXPECT_EQ(list.at(0)->visits, 3u);
-  EXPECT_EQ(list.at(1)->id, "brave.com");
+  EXPECT_EQ(list.at(1)->id, "adrbrowsiel.com");
   EXPECT_EQ(list.at(1)->visits, 1u);
   EXPECT_EQ(list.at(2)->id, "slo-tech.com");
   EXPECT_EQ(list.at(2)->visits, 1u);
@@ -181,7 +181,7 @@ TEST_F(LedgerDatabaseMigrationTest, Migration_6_ActivityInfo) {
   EXPECT_NEAR(list.at(0)->weight, 25.919327084376, 0.001f);
   EXPECT_EQ(list.at(0)->reconcile_stamp, 1553423066u);
 
-  EXPECT_EQ(list.at(1)->id, "brave.com");
+  EXPECT_EQ(list.at(1)->id, "adrbrowsiel.com");
   EXPECT_EQ(list.at(1)->duration, 20u);
   EXPECT_EQ(list.at(1)->visits, 2u);
   EXPECT_NEAR(list.at(1)->score, 1.07471534438942, 0.001f);

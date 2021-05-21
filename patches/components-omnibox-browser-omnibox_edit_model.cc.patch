@@ -6,7 +6,7 @@ index 054f82c09ca9d21436324a491bc0ef8b1aba4cf5..38f4e87a3d5f97f1f5ea688d826ff103
        (*text == display_text_ || *text == url_for_editing_)) {
      *url_from_text = controller()->GetLocationBarModel()->GetURL();
      *write_url = true;
-+    BRAVE_ADJUST_TEXT_FOR_COPY
++    adrbrowsiel_ADJUST_TEXT_FOR_COPY
  
      // Don't let users copy Reader Mode page URLs.
      // We display the original article's URL in the omnibox, so users will

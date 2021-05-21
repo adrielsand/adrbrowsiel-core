@@ -4,10 +4,10 @@
 
 [
   {
-    "namespace": "braveShields",
-    "description": "Use the <code>chrome.braveShields</code> API to receive notifications about the status of brave shields.",
+    "namespace": "adrbrowsielShields",
+    "description": "Use the <code>chrome.adrbrowsielShields</code> API to receive notifications about the status of adrbrowsiel shields.",
     "compiler_options": {
-      "implemented_in": "brave/browser/extensions/api/brave_shields_api.h"
+      "implemented_in": "adrbrowsiel/browser/extensions/api/adrbrowsiel_shields_api.h"
     },
     "events": [
       {
@@ -47,9 +47,9 @@
         ]
       },
       {
-        "name": "setBraveShieldsEnabled",
+        "name": "setadrbrowsielShieldsEnabled",
         "type": "function",
-        "description": "Set brave shields control type for a url",
+        "description": "Set adrbrowsiel shields control type for a url",
         "parameters": [
           {
             "name": "enabled",
@@ -143,7 +143,7 @@
       {
         "name": "migrateLegacyCosmeticFilters",
         "type": "function",
-        "description": "Appends the provided legacy cosmetic filters to the custom filters of brave://adblock",
+        "description": "Appends the provided legacy cosmetic filters to the custom filters of adrbrowsiel://adblock",
         "parameters": [
           {
             "name": "legacyFilters",
@@ -172,7 +172,7 @@
       {
         "name": "addSiteCosmeticFilter",
         "type": "function",
-        "description": "Saves an element to hide on a page by creating a new filter of the form `host##cssSelector` in the custom filters of brave://adblock",
+        "description": "Saves an element to hide on a page by creating a new filter of the form `host##cssSelector` in the custom filters of adrbrowsiel://adblock",
         "parameters": [
           {
             "name": "host",
@@ -189,13 +189,13 @@
       {
         "name": "openFilterManagementPage",
         "type": "function",
-        "description": "Opens brave://adblock for the purpose of adding, editing, or removing custom filters",
+        "description": "Opens adrbrowsiel://adblock for the purpose of adding, editing, or removing custom filters",
         "parameters": []
       },
       {
-        "name": "getBraveShieldsEnabled",
+        "name": "getadrbrowsielShieldsEnabled",
         "type": "function",
-        "description": "Get brave shields control type for a url",
+        "description": "Get adrbrowsiel shields control type for a url",
         "parameters": [
           {
             "name": "url",
@@ -511,7 +511,7 @@
       {
         "name": "reportBrokenSite",
         "type": "function",
-        "description": "Bring up a modal for reporting a site broken by Shields to the Brave developers",
+        "description": "Bring up a modal for reporting a site broken by Shields to the adrbrowsiel developers",
         "parameters": [
           {
             "name": "tabId",

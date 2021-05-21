@@ -6,7 +6,7 @@ index 905cd3eaba0407d9a4e7003ee05bd00fd651d084..cc4561b1fda0abc7f049ac31ecb48d5c
  #if !BUILDFLAG(IS_CHROMEOS_ASH)
    welcome_enabled =
        welcome::IsEnabled(profile_) && welcome::HasModulesToShow(profile_);
-+  BRAVE_STARTUPBROWSERCREATORIMPL_DETERMINEURLSANDLAUNCH
++  adrbrowsiel_STARTUPBROWSERCREATORIMPL_DETERMINEURLSANDLAUNCH
  #endif  // !BUILDFLAG(IS_CHROMEOS_ASH)
  
    bool serve_extensions_page =

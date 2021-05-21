@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,7 +9,7 @@
 
 #include "base/strings/string_util.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/components/search_engines/brave_prepopulated_engines.h"
+#include "adrbrowsiel/components/search_engines/adrbrowsiel_prepopulated_engines.h"
 #include "components/country_codes/country_codes.h"
 #include "components/search_engines/search_engines_pref_names.h"
 #include "components/search_engines/search_terms_data.h"
@@ -22,7 +22,7 @@
 
 namespace TemplateURLPrepopulateData {
 extern void LocalizeEngineList(int country_id,
-                               std::vector<BravePrepopulatedEngineID>* engines);
+                               std::vector<adrbrowsielPrepopulatedEngineID>* engines);
 }
 
 namespace {
@@ -42,7 +42,7 @@ std::unique_ptr<TemplateURLData> CreatePrepopulateTemplateURLData(
 
 }  // namespace
 
-class BraveTemplateURLServiceUtilTest : public testing::Test {
+class adrbrowsielTemplateURLServiceUtilTest : public testing::Test {
  public:
   void SetUp() override {
     TemplateURLPrepopulateData::RegisterProfilePrefs(prefs_.registry());
@@ -91,7 +91,7 @@ WDKeywordsResult InitKeywordResult(
   return kwResult;
 }
 
-TEST_F(BraveTemplateURLServiceUtilTest, GetSearchProvidersUsingKeywordResult) {
+TEST_F(adrbrowsielTemplateURLServiceUtilTest, GetSearchProvidersUsingKeywordResult) {
   std::vector<TemplateURLData> local_turls = GetSampleTemplateData();
   std::unique_ptr<TemplateURL> default_turl =
       std::make_unique<TemplateURL>(local_turls.back());
@@ -118,7 +118,7 @@ TEST_F(BraveTemplateURLServiceUtilTest, GetSearchProvidersUsingKeywordResult) {
                                    "random1", "random2"});
 }
 
-TEST_F(BraveTemplateURLServiceUtilTest,
+TEST_F(adrbrowsielTemplateURLServiceUtilTest,
        GetSearchProvidersUsingKeywordResultGermany) {
   std::vector<TemplateURLData> local_turls = GetSampleTemplateData();
   std::unique_ptr<TemplateURL> default_turl =

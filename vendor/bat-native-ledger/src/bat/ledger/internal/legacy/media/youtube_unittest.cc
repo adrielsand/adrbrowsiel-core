@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,9 +12,9 @@
 #include "bat/ledger/ledger.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=MediaYouTubeTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=MediaYouTubeTest.*
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 class MediaYouTubeTest : public testing::Test {
 };
@@ -25,35 +25,35 @@ TEST(MediaYouTubeTest, GetMediaIdFromUrl) {
   data.url = "https://www.youtube.com/watch";
 
   std::string media =
-      braveledger_media::YouTube::GetMediaIdFromUrl(data.url);
+      adrbrowsielledger_media::YouTube::GetMediaIdFromUrl(data.url);
   ASSERT_EQ(media, "");
 
   // single element in the url
   data.url = "https://www.youtube.com/watch?v=44444444";
 
   media =
-      braveledger_media::YouTube::GetMediaIdFromUrl(data.url);
+      adrbrowsielledger_media::YouTube::GetMediaIdFromUrl(data.url);
   ASSERT_EQ(media, "44444444");
 
   // single element in the url with & appended
   data.url = "https://www.youtube.com/watch?v=44444444&";
 
   media =
-      braveledger_media::YouTube::GetMediaIdFromUrl(data.url);
+      adrbrowsielledger_media::YouTube::GetMediaIdFromUrl(data.url);
   ASSERT_EQ(media, "44444444");
 
   // multiple elements in the url (id first)
   data.url = "https://www.youtube.com/watch?v=44444444&time_continue=580";
 
   media =
-      braveledger_media::YouTube::GetMediaIdFromUrl(data.url);
+      adrbrowsielledger_media::YouTube::GetMediaIdFromUrl(data.url);
   ASSERT_EQ(media, "44444444");
 
   // multiple elements in the url
   data.url = "https://www.youtube.com/watch?time_continue=580&v=44444444";
 
   media =
-      braveledger_media::YouTube::GetMediaIdFromUrl(data.url);
+      adrbrowsielledger_media::YouTube::GetMediaIdFromUrl(data.url);
   ASSERT_EQ(media, "44444444");
 }
 
@@ -62,47 +62,47 @@ TEST(MediaYouTubeTest, GetPublisherKeyFromUrl) {
   std::string path = "";
   std::string key;
 
-  key = braveledger_media::YouTube::GetPublisherKeyFromUrl(path);
+  key = adrbrowsielledger_media::YouTube::GetPublisherKeyFromUrl(path);
   ASSERT_EQ(key, "");
 
   // path is just slash
   path = "/";
 
-  key = braveledger_media::YouTube::GetPublisherKeyFromUrl(path);
+  key = adrbrowsielledger_media::YouTube::GetPublisherKeyFromUrl(path);
   ASSERT_EQ(key, "");
 
   // wrong path
   path = "/test";
 
-  key = braveledger_media::YouTube::GetPublisherKeyFromUrl(path);
+  key = adrbrowsielledger_media::YouTube::GetPublisherKeyFromUrl(path);
   ASSERT_EQ(key, "");
 
   // single element in the url
   path = "https://www.youtube.com/channel/"
              "UCRkcacarvLbUfygxUAAAAAA";
 
-  key = braveledger_media::YouTube::GetPublisherKeyFromUrl(path);
+  key = adrbrowsielledger_media::YouTube::GetPublisherKeyFromUrl(path);
   ASSERT_EQ(key, "UCRkcacarvLbUfygxUAAAAAA");
 
   // multiple elements in the url
   path = "https://www.youtube.com/channel/"
              "UCRkcacarvLbUfygxUAAAAAA?view_as=subscriber";
 
-  key = braveledger_media::YouTube::GetPublisherKeyFromUrl(path);
+  key = adrbrowsielledger_media::YouTube::GetPublisherKeyFromUrl(path);
   ASSERT_EQ(key, "UCRkcacarvLbUfygxUAAAAAA");
 
   // multiple paths in the url
   path = "https://www.youtube.com/channel/"
              "UCRkcacarvLbUfygxUAAAAAA/playlist";
 
-  key = braveledger_media::YouTube::GetPublisherKeyFromUrl(path);
+  key = adrbrowsielledger_media::YouTube::GetPublisherKeyFromUrl(path);
   ASSERT_EQ(key, "UCRkcacarvLbUfygxUAAAAAA");
 
   // multiple paths in the url
   path = "https://www.youtube.com/channel/"
              "UCRkcacarvLbUfygxUAAAAAA/playlist?view_as=subscriber";
 
-  key = braveledger_media::YouTube::GetPublisherKeyFromUrl(path);
+  key = adrbrowsielledger_media::YouTube::GetPublisherKeyFromUrl(path);
   ASSERT_EQ(key, "UCRkcacarvLbUfygxUAAAAAA");
 }
 
@@ -110,14 +110,14 @@ TEST(MediaYouTubeTest, GetUserFromUrl) {
   // path is empty
   std::string path = "/";
 
-  std::string user = braveledger_media::YouTube::
+  std::string user = adrbrowsielledger_media::YouTube::
       GetUserFromUrl(path);
   ASSERT_EQ(user, "");
 
   // path is just slash
   path = "/";
 
-  user = braveledger_media::YouTube::
+  user = adrbrowsielledger_media::YouTube::
       GetUserFromUrl(path);
 
   ASSERT_EQ(user, "");
@@ -126,115 +126,115 @@ TEST(MediaYouTubeTest, GetUserFromUrl) {
   path = "https://www.youtube.com/test";
 
   user =
-      braveledger_media::YouTube::GetUserFromUrl(path);
+      adrbrowsielledger_media::YouTube::GetUserFromUrl(path);
   ASSERT_EQ(user, "");
 
   // single element in the url
-  path = "https://www.youtube.com/user/brave";
+  path = "https://www.youtube.com/user/adrbrowsiel";
 
   user =
-      braveledger_media::YouTube::GetUserFromUrl(path);
-  ASSERT_EQ(user, "brave");
+      adrbrowsielledger_media::YouTube::GetUserFromUrl(path);
+  ASSERT_EQ(user, "adrbrowsiel");
 
   // multiple elements in the url
   path = "https://www.youtube.com/user/"
-             "brave?view_as=subscriber";
+             "adrbrowsiel?view_as=subscriber";
 
   user =
-      braveledger_media::YouTube::GetUserFromUrl(path);
-  ASSERT_EQ(user, "brave");
+      adrbrowsielledger_media::YouTube::GetUserFromUrl(path);
+  ASSERT_EQ(user, "adrbrowsiel");
 
   // multiple paths in the url
   path = "https://www.youtube.com/user/"
-             "brave/playlist";
+             "adrbrowsiel/playlist";
 
   user =
-      braveledger_media::YouTube::GetUserFromUrl(path);
-  ASSERT_EQ(user, "brave");
+      adrbrowsielledger_media::YouTube::GetUserFromUrl(path);
+  ASSERT_EQ(user, "adrbrowsiel");
 
   // multiple paths + elements in the url
   path = "https://www.youtube.com/user/"
-             "brave/playlist?view_as=subscriber";
+             "adrbrowsiel/playlist?view_as=subscriber";
 
   user =
-      braveledger_media::YouTube::GetUserFromUrl(path);
-  ASSERT_EQ(user, "brave");
+      adrbrowsielledger_media::YouTube::GetUserFromUrl(path);
+  ASSERT_EQ(user, "adrbrowsiel");
 }
 
 TEST(MediaYouTubeTest, GetBasicPath) {
   std::string path = "/gaming";
   std::string realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
   ASSERT_EQ(realPath, "/gaming");
 
   path = "/watch?v=000000000000000";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
   ASSERT_EQ(realPath, "/watch");
 
   path = "/playlist?list=0000000000000";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
   ASSERT_EQ(realPath, "/playlist");
 
-  path = "/bravesoftware";
+  path = "/adrbrowsielsoftware";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
-  ASSERT_EQ(realPath, "/bravesoftware");
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
+  ASSERT_EQ(realPath, "/adrbrowsielsoftware");
 
-  path = "/bravesoftware/videos";
+  path = "/adrbrowsielsoftware/videos";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
-  ASSERT_EQ(realPath, "/bravesoftware");
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
+  ASSERT_EQ(realPath, "/adrbrowsielsoftware");
 
-  path = "bravesoftware/videos";
+  path = "adrbrowsielsoftware/videos";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
-  ASSERT_EQ(realPath, "bravesoftware");
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
+  ASSERT_EQ(realPath, "adrbrowsielsoftware");
 
-  path = "/bravesoftware/playlists";
+  path = "/adrbrowsielsoftware/playlists";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
-  ASSERT_EQ(realPath, "/bravesoftware");
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
+  ASSERT_EQ(realPath, "/adrbrowsielsoftware");
 
-  path = "/bravesoftware/community";
+  path = "/adrbrowsielsoftware/community";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
-  ASSERT_EQ(realPath, "/bravesoftware");
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
+  ASSERT_EQ(realPath, "/adrbrowsielsoftware");
 
-  path = "/bravesoftware/channels";
+  path = "/adrbrowsielsoftware/channels";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
-  ASSERT_EQ(realPath, "/bravesoftware");
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
+  ASSERT_EQ(realPath, "/adrbrowsielsoftware");
 
-  path = "/bravesoftware/about";
+  path = "/adrbrowsielsoftware/about";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
-  ASSERT_EQ(realPath, "/bravesoftware");
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
+  ASSERT_EQ(realPath, "/adrbrowsielsoftware");
 
   path = "/gaminggiant";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
   ASSERT_EQ(realPath, "/gaminggiant");
 
   path = "/feed/trending";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
   ASSERT_EQ(realPath, "/feed");
 
   path = "/subscription_manager?disable_polymer=1";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
   ASSERT_EQ(realPath, "/subscription_manager");
 
   path = "";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
   ASSERT_EQ(realPath, "");
 
   path = "/";
   realPath =
-      braveledger_media::YouTube::GetBasicPath(path);
+      adrbrowsielledger_media::YouTube::GetBasicPath(path);
   ASSERT_EQ(realPath, "/");
 }
 
@@ -245,60 +245,60 @@ TEST(MediaYouTubeTest, GetNameFromChannel) {
 
   // empty string
   std::string resolve =
-      braveledger_media::YouTube::GetNameFromChannel(std::string());
+      adrbrowsielledger_media::YouTube::GetNameFromChannel(std::string());
   ASSERT_EQ(resolve, std::string());
 
   // quote
   resolve =
-      braveledger_media::YouTube::GetNameFromChannel("\"");
+      adrbrowsielledger_media::YouTube::GetNameFromChannel("\"");
   ASSERT_EQ(resolve, std::string());
 
   // double quote
   resolve =
-      braveledger_media::YouTube::GetNameFromChannel("\"\"");
+      adrbrowsielledger_media::YouTube::GetNameFromChannel("\"\"");
   ASSERT_EQ(resolve, std::string());
 
   // invalid json
   std::string subject(
       json_envelope_open + "invalid\"json\"}" + json_envelope_close);
   resolve =
-      braveledger_media::YouTube::GetNameFromChannel(subject);
+      adrbrowsielledger_media::YouTube::GetNameFromChannel(subject);
   ASSERT_EQ(resolve, "invalid");
 
   // ampersand (&)
   subject = json_envelope_open + "A\\u0026B" + json_envelope_close;
   resolve =
-      braveledger_media::YouTube::GetNameFromChannel(subject);
+      adrbrowsielledger_media::YouTube::GetNameFromChannel(subject);
   ASSERT_EQ(resolve, "A&B");
 
   // quotation mark (")
   subject = json_envelope_open + "A\\u0022B" + json_envelope_close;
   resolve =
-      braveledger_media::YouTube::GetNameFromChannel(subject);
+      adrbrowsielledger_media::YouTube::GetNameFromChannel(subject);
   ASSERT_EQ(resolve, "A\"B");
 
   // pound (#)
   subject = json_envelope_open + "A\\u0023B" + json_envelope_close;
   resolve =
-      braveledger_media::YouTube::GetNameFromChannel(subject);
+      adrbrowsielledger_media::YouTube::GetNameFromChannel(subject);
   ASSERT_EQ(resolve, "A#B");
 
   // dollar ($)
   subject = json_envelope_open + "A\\u0024B" + json_envelope_close;
   resolve =
-      braveledger_media::YouTube::GetNameFromChannel(subject);
+      adrbrowsielledger_media::YouTube::GetNameFromChannel(subject);
   ASSERT_EQ(resolve, "A$B");
 
   // percent (%)
   subject = json_envelope_open + "A\\u0025B" + json_envelope_close;
   resolve =
-      braveledger_media::YouTube::GetNameFromChannel(subject);
+      adrbrowsielledger_media::YouTube::GetNameFromChannel(subject);
   ASSERT_EQ(resolve, "A%B");
 
   // single quote (')
   subject = json_envelope_open + "A\\u0027B" + json_envelope_close;
   resolve =
-      braveledger_media::YouTube::GetNameFromChannel(subject);
+      adrbrowsielledger_media::YouTube::GetNameFromChannel(subject);
   ASSERT_EQ(resolve, "A'B");
 }
 
@@ -308,42 +308,42 @@ TEST(MediaYouTubeTest, GetPublisherName) {
 
   // empty string
   std::string publisher_name =
-      braveledger_media::YouTube::GetPublisherName(std::string());
+      adrbrowsielledger_media::YouTube::GetPublisherName(std::string());
   ASSERT_EQ(publisher_name, std::string());
 
   // quote
   publisher_name =
-      braveledger_media::YouTube::GetPublisherName("\"");
+      adrbrowsielledger_media::YouTube::GetPublisherName("\"");
   ASSERT_EQ(publisher_name, std::string());
 
   // double quote
   publisher_name =
-      braveledger_media::YouTube::GetPublisherName("\"\"");
+      adrbrowsielledger_media::YouTube::GetPublisherName("\"\"");
   ASSERT_EQ(publisher_name, std::string());
 
   // invalid json
   std::string subject(
       json_envelope + "invalid\"json}");
   publisher_name =
-      braveledger_media::YouTube::GetPublisherName(subject);
+      adrbrowsielledger_media::YouTube::GetPublisherName(subject);
   ASSERT_EQ(publisher_name, "invalid");
 
   // string name
   subject = json_envelope + "publisher_name";
   publisher_name =
-      braveledger_media::YouTube::GetPublisherName(subject);
+      adrbrowsielledger_media::YouTube::GetPublisherName(subject);
   ASSERT_EQ(publisher_name, "publisher_name");
 
   // ampersand (& code point)
   subject = json_envelope + "A\\u0026B";
   publisher_name =
-      braveledger_media::YouTube::GetPublisherName(subject);
+      adrbrowsielledger_media::YouTube::GetPublisherName(subject);
   ASSERT_EQ(publisher_name, "A&B");
 
   // ampersand (&) straight
   subject = json_envelope + "A&B";
   publisher_name =
-      braveledger_media::YouTube::GetPublisherName(subject);
+      adrbrowsielledger_media::YouTube::GetPublisherName(subject);
   ASSERT_EQ(publisher_name, "A&B");
 }
 
@@ -558,11 +558,11 @@ TEST(MediaYouTubeTest, GetChannelId) {
   std::string channel_id(YouTube::GetChannelId(data));
   EXPECT_TRUE(channel_id.empty());
 
-  data = "<div id=\"microformat\"><title>Brave</title><link rel=\"canonical\" h"
+  data = "<div id=\"microformat\"><title>adrbrowsiel</title><link rel=\"canonical\" h"
          "ref=\"https://www.youtube.com/channel/UCFNTTISby1c_H-rm5Ww5rZg\"><met"
          "a property=\"og:site_name\" content=\"YouTube\"><meta property=\"og:u"
          "rl\" content=\"https://www.youtube.com/channel/UCFNTTISby1c_H-rm5Ww5r"
-         "Zg\"><meta property=\"og:title\" content=\"Brave\"><meta property=\"o"
+         "Zg\"><meta property=\"og:title\" content=\"adrbrowsiel\"><meta property=\"o"
          "g:description\" content=\"\">";
   channel_id = YouTube::GetChannelId(data);
   std::string expected_channel_id("UCFNTTISby1c_H-rm5Ww5rZg");
@@ -597,17 +597,17 @@ TEST(MediaYouTubeTest, IsPredefinedPath) {
   EXPECT_TRUE(YouTube::IsPredefinedPath(path));
   path = "/playlist?list=0000000000";
   EXPECT_TRUE(YouTube::IsPredefinedPath(path));
-  path = "/bravesoftware";
+  path = "/adrbrowsielsoftware";
   EXPECT_FALSE(YouTube::IsPredefinedPath(path));
-  path = "/bravesoftware/videos";
+  path = "/adrbrowsielsoftware/videos";
   EXPECT_FALSE(YouTube::IsPredefinedPath(path));
-  path = "/bravesoftware/playlists";
+  path = "/adrbrowsielsoftware/playlists";
   EXPECT_FALSE(YouTube::IsPredefinedPath(path));
-  path = "/bravesoftware/community";
+  path = "/adrbrowsielsoftware/community";
   EXPECT_FALSE(YouTube::IsPredefinedPath(path));
-  path = "/bravesoftware/channels";
+  path = "/adrbrowsielsoftware/channels";
   EXPECT_FALSE(YouTube::IsPredefinedPath(path));
-  path = "/bravesoftware/about";
+  path = "/adrbrowsielsoftware/about";
   EXPECT_FALSE(YouTube::IsPredefinedPath(path));
   path = "/gaminggiant";
   EXPECT_FALSE(YouTube::IsPredefinedPath(path));
@@ -635,4 +635,4 @@ TEST(MediaYouTubeTest, GetPublisherKey) {
   EXPECT_EQ(publisher_key, publisher_key_prefix + key);
 }
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -29,13 +29,13 @@ import org.chromium.components.browser_ui.bottomsheet.BottomSheetController;
 import org.chromium.ui.UiUtils;
 import org.chromium.ui.base.WindowAndroid;
 
-public class BraveFeedSurfaceCoordinator extends FeedSurfaceCoordinator {
+public class adrbrowsielFeedSurfaceCoordinator extends FeedSurfaceCoordinator {
     private Activity mActivity;
     private ScrollView mScrollViewForPolicy;
     private View mNtpHeader;
     private FrameLayout mRootView;
 
-    public BraveFeedSurfaceCoordinator(Activity activity, SnackbarManager snackbarManager,
+    public adrbrowsielFeedSurfaceCoordinator(Activity activity, SnackbarManager snackbarManager,
             WindowAndroid windowAndroid, @Nullable SnapScrollHelper snapScrollHelper,
             @Nullable View ntpHeader, @Nullable SectionHeaderView sectionHeaderView,
             boolean showDarkBackground, FeedSurfaceDelegate delegate,

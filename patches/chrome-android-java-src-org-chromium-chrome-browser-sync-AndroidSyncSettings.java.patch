@@ -7,7 +7,7 @@ index efa532570fd5ef0d32c0519a1ef1b1b5e57fff95..4e1401758dd9487888a874123b650211
          ThreadUtils.assertOnUiThread();
          if (sInstance == null) {
 -            sInstance = new AndroidSyncSettings(getSyncAccount());
-+            sInstance = new BraveAndroidSyncSettings(getSyncAccount());
++            sInstance = new adrbrowsielAndroidSyncSettings(getSyncAccount());
          }
          return sInstance;
      }

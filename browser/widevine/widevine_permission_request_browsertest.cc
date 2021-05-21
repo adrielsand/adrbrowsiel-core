@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,11 +6,11 @@
 #include <memory>
 
 #include "base/path_service.h"
-#include "brave/browser/brave_drm_tab_helper.h"
-#include "brave/browser/widevine/widevine_permission_request.h"
-#include "brave/browser/widevine/widevine_utils.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/browser/adrbrowsiel_drm_tab_helper.h"
+#include "adrbrowsiel/browser/widevine/widevine_permission_request.h"
+#include "adrbrowsiel/browser/widevine/widevine_utils.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/browser/ssl/cert_verifier_browser_test.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_commands.h"
@@ -71,8 +71,8 @@ class WidevinePermissionRequestBrowserTest
         GetActiveWebContents());
   }
 
-  BraveDrmTabHelper* GetBraveDrmTabHelper() {
-    return BraveDrmTabHelper::FromWebContents(GetActiveWebContents());
+  adrbrowsielDrmTabHelper* GetadrbrowsielDrmTabHelper() {
+    return adrbrowsielDrmTabHelper::FromWebContents(GetActiveWebContents());
   }
 
   TestObserver observer;
@@ -82,7 +82,7 @@ class WidevinePermissionRequestBrowserTest
 IN_PROC_BROWSER_TEST_F(WidevinePermissionRequestBrowserTest, VisibilityTest) {
   GetPermissionRequestManager()->set_auto_response_for_test(
       permissions::PermissionRequestManager::DISMISS);
-  auto* drm_tab_helper = GetBraveDrmTabHelper();
+  auto* drm_tab_helper = GetadrbrowsielDrmTabHelper();
 
   // Check permission bubble is visible.
   drm_tab_helper->OnWidevineKeySystemAccessRequest();
@@ -127,7 +127,7 @@ IN_PROC_BROWSER_TEST_F(WidevinePermissionRequestBrowserTest, BubbleTest) {
   auto* permission_request_manager =
       GetPermissionRequestManager();
   EXPECT_FALSE(permission_request_manager->IsRequestInProgress());
-  GetBraveDrmTabHelper()->OnWidevineKeySystemAccessRequest();
+  GetadrbrowsielDrmTabHelper()->OnWidevineKeySystemAccessRequest();
   content::RunAllTasksUntilIdle();
   EXPECT_TRUE(permission_request_manager->IsRequestInProgress());
 
@@ -152,7 +152,7 @@ IN_PROC_BROWSER_TEST_F(WidevinePermissionRequestBrowserTest,
 
   GetPermissionRequestManager()->set_auto_response_for_test(
       permissions::PermissionRequestManager::ACCEPT_ALL);
-  auto* drm_tab_helper = GetBraveDrmTabHelper();
+  auto* drm_tab_helper = GetadrbrowsielDrmTabHelper();
   drm_tab_helper->OnWidevineKeySystemAccessRequest();
   content::RunAllTasksUntilIdle();
 
@@ -177,14 +177,14 @@ IN_PROC_BROWSER_TEST_F(WidevinePermissionRequestBrowserTest,
   permission_request_manager->set_auto_response_for_test(
       permissions::PermissionRequestManager::ACCEPT_ALL);
 
-  GetBraveDrmTabHelper()->OnWidevineKeySystemAccessRequest();
+  GetadrbrowsielDrmTabHelper()->OnWidevineKeySystemAccessRequest();
   content::RunAllTasksUntilIdle();
 
   WidevinePermissionRequest::is_test_ = true;
-  GetBraveDrmTabHelper()->OnEvent(
+  GetadrbrowsielDrmTabHelper()->OnEvent(
       component_updater::ComponentUpdateService::Observer
           ::Events::COMPONENT_UPDATED,
-      BraveDrmTabHelper::kWidevineComponentId);
+      adrbrowsielDrmTabHelper::kWidevineComponentId);
   content::RunAllTasksUntilIdle();
 
   // Check two permission bubble are created.

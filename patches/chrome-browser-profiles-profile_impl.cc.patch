@@ -7,7 +7,7 @@ index 14417b3a654864de1c7e07ab0703395f322dd8a9..9c745235d5e150e4fe30b408efd39451
    }
  
 -  std::unique_ptr<Profile> profile = base::WrapUnique(new ProfileImpl(
-+  std::unique_ptr<Profile> profile = base::WrapUnique(new BraveProfileImpl(
++  std::unique_ptr<Profile> profile = base::WrapUnique(new adrbrowsielProfileImpl(
        path, delegate, create_mode, creation_time, io_task_runner));
    return profile;
  }

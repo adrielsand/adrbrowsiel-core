@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#define BRAVE_K_PUBLIC_KEY \
+#define adrbrowsiel_K_PUBLIC_KEY \
   0x30, 0x59, 0x30, 0x13, 0x06, 0x07, 0x2a, 0x86, 0x48, 0xce, 0x3d, 0x02, \
   0x01, 0x06, 0x08, 0x2a, 0x86, 0x48, 0xce, 0x3d, 0x03, 0x01, 0x07, 0x03, \
   0x42, 0x00, 0x04, 0xbb, 0x6e, 0xed, 0x61, 0xf1, 0xfb, 0xf5, 0x4c, 0xfe, \
@@ -15,4 +15,4 @@
 }; \
 const uint8_t kPublicKey_ChromiumImpl[] = {
 #include "../../../../components/variations/variations_seed_store.cc"
-#undef BRAVE_K_PUBLIC_KEY
+#undef adrbrowsiel_K_PUBLIC_KEY

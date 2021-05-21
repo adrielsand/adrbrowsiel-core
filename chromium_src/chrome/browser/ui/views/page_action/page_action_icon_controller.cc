@@ -1,12 +1,12 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/translate/buildflags/buildflags.h"
-#include "brave/browser/ui/views/location_bar/brave_star_view.h"
-#include "brave/browser/ui/views/translate/brave_translate_icon_view.h"
-#include "brave/browser/ui/views/reader_mode/brave_reader_mode_icon_view.h"
+#include "adrbrowsiel/browser/translate/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/ui/views/location_bar/adrbrowsiel_star_view.h"
+#include "adrbrowsiel/browser/ui/views/translate/adrbrowsiel_translate_icon_view.h"
+#include "adrbrowsiel/browser/ui/views/reader_mode/adrbrowsiel_reader_mode_icon_view.h"
 #include "chrome/browser/ui/page_action/page_action_icon_type.h"
 
 namespace {
@@ -22,14 +22,14 @@ constexpr PageActionIconType kUndefinedPageActionIconType =
   break;                \
   case kUndefinedPageActionIconType
 
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_EXTENSION)
-#define TranslateIconView BraveTranslateIconView
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_EXTENSION)
+#define TranslateIconView adrbrowsielTranslateIconView
 #endif
-#define ReaderModeIconView BraveReaderModeIconView
-#define StarView BraveStarView
+#define ReaderModeIconView adrbrowsielReaderModeIconView
+#define StarView adrbrowsielStarView
 #include "../../../../../../../chrome/browser/ui/views/page_action/page_action_icon_controller.cc"
 #undef StarView
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_EXTENSION)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_EXTENSION)
 #undef TranslateIconView
 #endif
 #undef ReaderModeIconView

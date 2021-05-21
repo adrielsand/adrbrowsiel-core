@@ -1,21 +1,21 @@
-source_set("brave_wayback_machine") {
-  # Remove when https://github.com/brave/brave-browser/issues/10652 is resolved
+source_set("adrbrowsiel_wayback_machine") {
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10652 is resolved
   check_includes = false
   sources = [
-    "brave_wayback_machine_infobar_button_container.cc",
-    "brave_wayback_machine_infobar_button_container.h",
-    "brave_wayback_machine_infobar_contents_view.cc",
-    "brave_wayback_machine_infobar_contents_view.h",
-    "brave_wayback_machine_infobar_throbber.cc",
-    "brave_wayback_machine_infobar_throbber.h",
-    "brave_wayback_machine_infobar_view.cc",
-    "brave_wayback_machine_infobar_view.h",
+    "adrbrowsiel_wayback_machine_infobar_button_container.cc",
+    "adrbrowsiel_wayback_machine_infobar_button_container.h",
+    "adrbrowsiel_wayback_machine_infobar_contents_view.cc",
+    "adrbrowsiel_wayback_machine_infobar_contents_view.h",
+    "adrbrowsiel_wayback_machine_infobar_throbber.cc",
+    "adrbrowsiel_wayback_machine_infobar_throbber.h",
+    "adrbrowsiel_wayback_machine_infobar_view.cc",
+    "adrbrowsiel_wayback_machine_infobar_view.h",
   ]
 
   deps = [
-    "//brave/app:brave_generated_resources_grit",
-    "//brave/app/vector_icons",
-    "//brave/components/brave_wayback_machine",
+    "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+    "//adrbrowsiel/app/vector_icons",
+    "//adrbrowsiel/components/adrbrowsiel_wayback_machine",
     "//components/resources",
     "//content/public/browser",
     "//ui/base",
@@ -25,12 +25,12 @@ source_set("brave_wayback_machine") {
     "//url",
   ]
 
-  # Below dep list are indirectly used by brave_wayback_machine target.
+  # Below dep list are indirectly used by adrbrowsiel_wayback_machine target.
   # Only added to fix intermittent build failure.
   # chrome/common/buildflags.h is included indirectly from
-  # brave_wayback_machine_infobar_contents_view.cc.
+  # adrbrowsiel_wayback_machine_infobar_contents_view.cc.
   # However, this buildflags.h sometimes not generated when
-  # brave_wayback_machine_infobar_contents_view.cc is compiled.
+  # adrbrowsiel_wayback_machine_infobar_contents_view.cc is compiled.
   deps += [
     "//chrome/common:buildflags",
   ]

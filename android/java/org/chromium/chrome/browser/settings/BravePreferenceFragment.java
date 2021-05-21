@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -18,13 +18,13 @@ import android.content.Intent;
 
 import org.chromium.chrome.R;
 import org.chromium.base.ContextUtils;
-import org.chromium.chrome.browser.BraveFeatureList;
+import org.chromium.chrome.browser.adrbrowsielFeatureList;
 import org.chromium.chrome.browser.ChromeTabbedActivity;
 import org.chromium.chrome.browser.flags.ChromeFeatureList;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
-import org.chromium.chrome.browser.settings.developer.BraveRewardsDebugPreferences;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
+import org.chromium.chrome.browser.settings.developer.adrbrowsielRewardsDebugPreferences;
 
-public class BravePreferenceFragment extends PreferenceFragmentCompat {
+public class adrbrowsielPreferenceFragment extends PreferenceFragmentCompat {
     protected static final int STORAGE_PERMISSION_EXPORT_REQUEST_CODE = 8000;
     protected static final int STORAGE_PERMISSION_IMPORT_REQUEST_CODE = STORAGE_PERMISSION_EXPORT_REQUEST_CODE + 1;
 
@@ -57,13 +57,13 @@ public class BravePreferenceFragment extends PreferenceFragmentCompat {
     @Override
     public void onResume() {
         super.onResume();
-        if (!ChromeFeatureList.isEnabled(BraveFeatureList.BRAVE_REWARDS)
-                || BravePrefServiceBridge.getInstance().getSafetynetCheckFailed()) {
+        if (!ChromeFeatureList.isEnabled(adrbrowsielFeatureList.adrbrowsiel_REWARDS)
+                || adrbrowsielPrefServiceBridge.getInstance().getSafetynetCheckFailed()) {
             if (getPreferenceScreen() == null) return;
-            Preference braveRewardsDebugPreference =
-                    getPreferenceScreen().findPreference(BraveRewardsDebugPreferences.KEY);
-            if (braveRewardsDebugPreference != null) {
-                getPreferenceScreen().removePreference(braveRewardsDebugPreference);
+            Preference adrbrowsielRewardsDebugPreference =
+                    getPreferenceScreen().findPreference(adrbrowsielRewardsDebugPreferences.KEY);
+            if (adrbrowsielRewardsDebugPreference != null) {
+                getPreferenceScreen().removePreference(adrbrowsielRewardsDebugPreference);
             }
         }
     }

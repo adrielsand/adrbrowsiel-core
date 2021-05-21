@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,7 +10,7 @@
 #include "bat/ads/internal/unittest_base.h"
 #include "bat/ads/internal/unittest_util.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 using ::testing::_;
 using ::testing::AllOf;
@@ -70,7 +70,7 @@ class BatAdsAdNotificationPacingTest : public UnitTestBase {
     ad_creative_1.total_max = 6;
     ad_creative_1.segment = "Technology & Computing-Software";
     ad_creative_1.geo_targets = {"US"};
-    ad_creative_1.target_url = "https://brave.com";
+    ad_creative_1.target_url = "https://adrbrowsiel.com";
     ad_creative_1.title = "Test Ad 1 Title";
     ad_creative_1.body = "Test Ad 1 Body";
     ad_creative_1.ptr = 1.0;
@@ -91,7 +91,7 @@ class BatAdsAdNotificationPacingTest : public UnitTestBase {
     ad_creative_2.total_max = 6;
     ad_creative_2.segment = "Food & Drink";
     ad_creative_2.geo_targets = {"US"};
-    ad_creative_2.target_url = "https://brave.com";
+    ad_creative_2.target_url = "https://adrbrowsiel.com";
     ad_creative_2.title = "Test Ad 2 Title";
     ad_creative_2.body = "Test Ad 2 Body";
     ad_creative_2.ptr = 1.0;

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,29 +9,29 @@ import android.view.ViewStub;
 
 import org.chromium.chrome.browser.toolbar.menu_button.MenuButtonCoordinator;
 
-class BraveTabSwitcherModeTTCoordinatorPhone extends TabSwitcherModeTTCoordinatorPhone {
+class adrbrowsielTabSwitcherModeTTCoordinatorPhone extends TabSwitcherModeTTCoordinatorPhone {
     private TabSwitcherModeTTPhone mTabSwitcherModeToolbar;
 
     private boolean mIsBottomToolbarVisible;
-    private MenuButtonCoordinator mBraveMenuButtonCoordinator;
+    private MenuButtonCoordinator madrbrowsielMenuButtonCoordinator;
 
-    BraveTabSwitcherModeTTCoordinatorPhone(ViewStub tabSwitcherToolbarStub,
+    adrbrowsielTabSwitcherModeTTCoordinatorPhone(ViewStub tabSwitcherToolbarStub,
             MenuButtonCoordinator menuButtonCoordinator, boolean isGridTabSwitcherEnabled,
             boolean isTabToGtsAnimationEnabled, boolean isStartSurfaceEnabled) {
         super(tabSwitcherToolbarStub, menuButtonCoordinator, isGridTabSwitcherEnabled,
                 isTabToGtsAnimationEnabled, isStartSurfaceEnabled);
-        mBraveMenuButtonCoordinator = menuButtonCoordinator;
+        madrbrowsielMenuButtonCoordinator = menuButtonCoordinator;
     }
 
     @Override
     public void setTabSwitcherMode(boolean inTabSwitcherMode) {
         super.setTabSwitcherMode(inTabSwitcherMode);
-        if (inTabSwitcherMode && (mTabSwitcherModeToolbar instanceof BraveTabSwitcherModeTTPhone)) {
-            ((BraveTabSwitcherModeTTPhone) mTabSwitcherModeToolbar)
+        if (inTabSwitcherMode && (mTabSwitcherModeToolbar instanceof adrbrowsielTabSwitcherModeTTPhone)) {
+            ((adrbrowsielTabSwitcherModeTTPhone) mTabSwitcherModeToolbar)
                     .onBottomToolbarVisibilityChanged(mIsBottomToolbarVisible);
         }
-        if (mBraveMenuButtonCoordinator != null && mIsBottomToolbarVisible) {
-            mBraveMenuButtonCoordinator.setVisibility(!inTabSwitcherMode);
+        if (madrbrowsielMenuButtonCoordinator != null && mIsBottomToolbarVisible) {
+            madrbrowsielMenuButtonCoordinator.setVisibility(!inTabSwitcherMode);
         }
     }
 
@@ -40,8 +40,8 @@ class BraveTabSwitcherModeTTCoordinatorPhone extends TabSwitcherModeTTCoordinato
             return;
         }
         mIsBottomToolbarVisible = isVisible;
-        if (mTabSwitcherModeToolbar instanceof BraveTabSwitcherModeTTPhone) {
-            ((BraveTabSwitcherModeTTPhone) mTabSwitcherModeToolbar)
+        if (mTabSwitcherModeToolbar instanceof adrbrowsielTabSwitcherModeTTPhone) {
+            ((adrbrowsielTabSwitcherModeTTPhone) mTabSwitcherModeToolbar)
                     .onBottomToolbarVisibilityChanged(isVisible);
         }
     }

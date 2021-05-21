@@ -13,9 +13,9 @@
 #include "chrome/test/base/ui_test_utils.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-class BraveSaveCardBubbleControllerImplTest : public InProcessBrowserTest {
+class adrbrowsielSaveCardBubbleControllerImplTest : public InProcessBrowserTest {
  public:
-  BraveSaveCardBubbleControllerImplTest() {}
+  adrbrowsielSaveCardBubbleControllerImplTest() {}
 
   void ShowUi() {
     content::WebContents* web_contents =
@@ -34,12 +34,12 @@ class BraveSaveCardBubbleControllerImplTest : public InProcessBrowserTest {
  private:
   autofill::SaveCardBubbleControllerImpl* controller_ = nullptr;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveSaveCardBubbleControllerImplTest);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielSaveCardBubbleControllerImplTest);
 };
 
 // Tests that requesting to open signin promo bubble doesn't result in the
 // bubble being shown.
-IN_PROC_BROWSER_TEST_F(BraveSaveCardBubbleControllerImplTest, NoSignInPromo) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielSaveCardBubbleControllerImplTest, NoSignInPromo) {
   ShowUi();
   EXPECT_EQ(nullptr, controller()->save_card_bubble_view());
 }

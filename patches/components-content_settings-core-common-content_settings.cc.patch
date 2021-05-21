@@ -6,7 +6,7 @@ index 5906e8452977cd100487f58874703f8766582ec8..5770fc9da0597aa71cc67eabcd3d174d
      {ContentSettingsType::FILE_SYSTEM_LAST_PICKED_DIRECTORY, 73},
      {ContentSettingsType::DISPLAY_CAPTURE, 74},
      {ContentSettingsType::FILE_HANDLING, 75},
-+    BRAVE_HISTOGRAM_VALUE_LIST
++    adrbrowsiel_HISTOGRAM_VALUE_LIST
  };
  
  }  // namespace
@@ -14,7 +14,7 @@ index 5906e8452977cd100487f58874703f8766582ec8..5770fc9da0597aa71cc67eabcd3d174d
           content_type == ContentSettingsType::JAVASCRIPT ||
           content_type == ContentSettingsType::CLIENT_HINTS ||
           content_type == ContentSettingsType::POPUPS ||
-+         BRAVE_IS_RENDERER_CONTENT_SETTING
++         adrbrowsiel_IS_RENDERER_CONTENT_SETTING
           content_type == ContentSettingsType::MIXEDSCRIPT;
  }
  

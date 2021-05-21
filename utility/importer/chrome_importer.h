@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_UTILITY_IMPORTER_CHROME_IMPORTER_H_
-#define BRAVE_UTILITY_IMPORTER_CHROME_IMPORTER_H_
+#ifndef adrbrowsiel_UTILITY_IMPORTER_CHROME_IMPORTER_H_
+#define adrbrowsiel_UTILITY_IMPORTER_CHROME_IMPORTER_H_
 
 #include <stdint.h>
 
@@ -74,4 +74,4 @@ class ChromeImporter : public Importer {
   DISALLOW_COPY_AND_ASSIGN(ChromeImporter);
 };
 
-#endif  // BRAVE_UTILITY_IMPORTER_CHROME_IMPORTER_H_
+#endif  // adrbrowsiel_UTILITY_IMPORTER_CHROME_IMPORTER_H_

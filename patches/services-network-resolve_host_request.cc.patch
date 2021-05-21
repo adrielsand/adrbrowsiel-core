@@ -6,7 +6,7 @@ index 937cfa8d35461b1cc8a0edf623c86ef8dcbebe3b..1be0e3d59e3c5fe84827fd19c67c4a96
    mojo::Remote<mojom::ResolveHostClient> response_client(
        std::move(pending_response_client));
    if (rv != net::ERR_IO_PENDING) {
-+    BRAVE_START
++    adrbrowsiel_START
      response_client->OnComplete(rv, GetResolveErrorInfo(), GetAddressResults());
      return rv;
    }

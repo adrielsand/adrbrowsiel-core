@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#ifndef BRAVE_BROWSER_CONTEXT_KEYED_SERVICE_FACTORIES_H_
-#define BRAVE_BROWSER_CONTEXT_KEYED_SERVICE_FACTORIES_H_
+#ifndef adrbrowsiel_BROWSER_CONTEXT_KEYED_SERVICE_FACTORIES_H_
+#define adrbrowsiel_BROWSER_CONTEXT_KEYED_SERVICE_FACTORIES_H_
 
-namespace brave {
+namespace adrbrowsiel {
 
 void EnsureBrowserContextKeyedServiceFactoriesBuilt();
 
 }  // namespace apps
 
-#endif  // BRAVE_BROWSER_CONTEXT_KEYED_SERVICE_FACTORIES_H_
+#endif  // adrbrowsiel_BROWSER_CONTEXT_KEYED_SERVICE_FACTORIES_H_

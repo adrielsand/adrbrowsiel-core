@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_INFOBARS_CRYPTO_WALLETS_INFOBAR_DELEGATE_H_
-#define BRAVE_BROWSER_INFOBARS_CRYPTO_WALLETS_INFOBAR_DELEGATE_H_
+#ifndef adrbrowsiel_BROWSER_INFOBARS_CRYPTO_WALLETS_INFOBAR_DELEGATE_H_
+#define adrbrowsiel_BROWSER_INFOBARS_CRYPTO_WALLETS_INFOBAR_DELEGATE_H_
 
 #include "base/compiler_specific.h"
 #include "base/memory/weak_ptr.h"
@@ -49,4 +49,4 @@ class CryptoWalletsInfoBarDelegate : public ConfirmInfoBarDelegate {
   base::WeakPtrFactory<CryptoWalletsInfoBarDelegate> weak_ptr_factory_{this};
 };
 
-#endif  // BRAVE_BROWSER_INFOBARS_CRYPTO_WALLETS_INFOBAR_DELEGATE_H_
+#endif  // adrbrowsiel_BROWSER_INFOBARS_CRYPTO_WALLETS_INFOBAR_DELEGATE_H_

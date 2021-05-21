@@ -7,17 +7,17 @@
 <translation id="1036727731225946849"><ph name="WEBAPK_NAME"/> थप्दै...</translation>
 <translation id="1041308826830691739">वेबसाइटहरूबाट</translation>
 <translation id="1045899828449635435">यी साइटहरूको डेटा पनि मेटाउने हो?</translation>
-<translation id="586375142137960011">Brave ले तपाईंको जानकारी पुष्टि गर्न सकेन</translation>
+<translation id="586375142137960011">adrbrowsiel ले तपाईंको जानकारी पुष्टि गर्न सकेन</translation>
 <translation id="10614374240317010">कहिले पनि बचत नगर्नुहोस्</translation>
-<translation id="5428209950370661546">Brave का अन्य सेवाहरू</translation>
+<translation id="5428209950370661546">adrbrowsiel का अन्य सेवाहरू</translation>
 <translation id="107147699690128016">तपाईंले फाइलको एक्स्टेन्सन परिवर्तन गर्नुभयो भने यो फाइल कुनै अर्को अनुप्रयोगमा खुल्न सक्छ जुन तपाईंको डिभाइसका लागि हानिकारक पनि हुन सक्छ।</translation>
 <translation id="1100066534610197918">समूहमा नयाँ ट्याबमा खोल्नुहोस्</translation>
 <translation id="1105960400813249514">स्क्रिन क्याप्चर</translation>
 <translation id="1111673857033749125">तपाईँका अन्य यन्त्रहरूमा सुरक्षित गरिएका पुस्तक चिन्हहरू यहाँ देखिनेछन्।</translation>
 <translation id="1113597929977215864">सरलीकृत दृश्य देखाउनुहोस्</translation>
 <translation id="1118561384561215815">वेबमा कार्यहरू गर्न मद्दत प्राप्त गर्नु…</translation>
-<translation id="8577410793886633063">यसअन्तर्गत तपाईंले Brave प्रयोग गर्ने तरिका, तपाईंले चयन गर्नुभएका सेटिङ, Brave क्र्यास भएका घटनाका विवरण समावेश हुन्छन्</translation>
-<translation id="1295971429974142731">तपाईंलाई जोखिमपूर्ण वेबसाइट, डाउनलोड वा एक्स्टेन्सनहरूविरुद्ध सुरक्षा प्रदान गर्दैन। उपलब्ध भएसम्म तपाईं अझै पनि Gmail र खोज जस्ता Brave का अन्य सेवाहरूमा सुरक्षित ब्राउजिङको सुरक्षा प्राप्त गर्नु हुने छ।</translation>
+<translation id="8577410793886633063">यसअन्तर्गत तपाईंले adrbrowsiel प्रयोग गर्ने तरिका, तपाईंले चयन गर्नुभएका सेटिङ, adrbrowsiel क्र्यास भएका घटनाका विवरण समावेश हुन्छन्</translation>
+<translation id="1295971429974142731">तपाईंलाई जोखिमपूर्ण वेबसाइट, डाउनलोड वा एक्स्टेन्सनहरूविरुद्ध सुरक्षा प्रदान गर्दैन। उपलब्ध भएसम्म तपाईं अझै पनि Gmail र खोज जस्ता adrbrowsiel का अन्य सेवाहरूमा सुरक्षित ब्राउजिङको सुरक्षा प्राप्त गर्नु हुने छ।</translation>
 <translation id="1129510026454351943">विवरणहरू: <ph name="ERROR_DESCRIPTION"/></translation>
 <translation id="1141800923049248244">{FILE_COUNT,plural, =1{१ डाउनलोड विचारधीन छ।}other{# डाउनलोडहरू विचारधीन छन्।}}</translation>
 <translation id="1142732900304639782">यी साइटहरू अनुवाद गर्ने प्रस्ताव नगरियोस्</translation>
@@ -38,7 +38,7 @@
 <translation id="1231733316453485619">सिंक गर्ने सुविधा सक्रिय गर्ने हो?</translation>
 <translation id="123724288017357924">क्यास गरिएको सामग्रीको बेवास्ता गर्दै हालको पृष्ठलाई पुनःलोड गर्नुहोस्</translation>
 <translation id="124678866338384709">हालको ट्याब बन्द गर्नुहोस्</translation>
-<translation id="1996480094660735607">Brave केरकार: <ph name="DOODLE_DESCRIPTION"/></translation>
+<translation id="1996480094660735607">adrbrowsiel केरकार: <ph name="DOODLE_DESCRIPTION"/></translation>
 <translation id="1263231323834454256">पाठ्य सूची</translation>
 <translation id="1266864766717917324"><ph name="CONTENT_TYPE"/> आदान प्रदान गर्न सकिएन</translation>
 <translation id="1283039547216852943">विस्तृत गर्न ट्याप गर्नुहोस्</translation>
@@ -52,8 +52,8 @@
 <translation id="1310482092992808703">ट्याबहरू समूहबद्ध गर्नुहोस्</translation>
 <translation id="1311657260431405215">यो QR कोड कुनै URL होइन: <ph name="QRCODEVALUE"/></translation>
 <translation id="1327257854815634930">नेभिगेसनको इतिहास खोलियो</translation>
-<translation id="6773423637732432200">Brave अद्यावधिक गर्न सकिँदैन। थप विकल्पहरू</translation>
-<translation id="3169981355900570544">Brave को विशेषताका सर्टकटहरू</translation>
+<translation id="6773423637732432200">adrbrowsiel अद्यावधिक गर्न सकिँदैन। थप विकल्पहरू</translation>
+<translation id="3169981355900570544">adrbrowsiel को विशेषताका सर्टकटहरू</translation>
 <translation id="133857033449832692"><ph name="LANG"/> भाषा प्याक डाउनलोड गरिँदै…</translation>
 <translation id="1344653310988386453">हाइलाइट गरिएको पाठको लिंक समावेश गर्नुहोस्</translation>
 <translation id="1347468774581902829">क्रियाकलाप व्यवस्थापन गर्नुहोस्</translation>
@@ -61,14 +61,14 @@
 <translation id="1373696734384179344">चयन गरिएको सामग्री डाउनलोड गर्नको लागि मेमोरी अपर्याप्त।</translation>
 <translation id="1376578503827013741">हिसाब गर्दै…</translation>
 <translation id="1383876407941801731">खोज्नुहोस्</translation>
-<translation id="6742797871341508947">Brave लेन्स प्रयोग गरी फोटोमा भएका कुरा अनुवाद गर्नुहोस् <ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
+<translation id="6742797871341508947">adrbrowsiel लेन्स प्रयोग गरी फोटोमा भएका कुरा अनुवाद गर्नुहोस् <ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
 <translation id="1386674309198842382"><ph name="LAST_UPDATED"/> दिनअघि सक्रिय</translation>
 <translation id="1397811292916898096"><ph name="PRODUCT_NAME"/> मार्फत खोज्नुहोस्</translation>
 <translation id="1406000523432664303">“ट्रयाक नगर्नुहोस्”</translation>
 <translation id="1407135791313364759">सबै खोल्नुहोस्</translation>
 <translation id="1409426117486808224">खुला ट्याबहरूका लागि सरलीकृत दृश्य</translation>
 <translation id="1409879593029778104"><ph name="FILE_NAME"/> फाइल पहिल्यै अवस्थित भएकाले डाउनलोड रोकियो।</translation>
-<translation id="1853026300647876496">Brave मा सम्पर्क गर्दै। यस कार्यमा एक मिनेट जति लाग्नसक्छ…</translation>
+<translation id="1853026300647876496">adrbrowsiel मा सम्पर्क गर्दै। यस कार्यमा एक मिनेट जति लाग्नसक्छ…</translation>
 <translation id="1416550906796893042">एपको संस्करण</translation>
 <translation id="1430915738399379752">प्रिन्ट गर्नुहोस्</translation>
 <translation id="1450753235335490080"><ph name="CONTENT_TYPE"/> आदान प्रदान गर्न सकिएन</translation>
@@ -79,13 +79,13 @@
 <translation id="1513858653616922153">पासवर्ड मेट्नुहोस्</translation>
 <translation id="1521774566618522728">आज सक्रिय गरिएको समय</translation>
 <translation id="1538801903729528855">वेबमा भ्वाइस सर्च गर्दा अझ राम्रा सुविधाहरू प्राप्त गर्नुहोस्</translation>
-<translation id="8090895580117672212">आफ्नो Brave खाताको व्यवस्थापन गर्न "खाताको व्यवस्थापन गर्नुहोस्" नामक बटनमा क्लिक गर्नुहोस्</translation>
+<translation id="8090895580117672212">आफ्नो adrbrowsiel खाताको व्यवस्थापन गर्न "खाताको व्यवस्थापन गर्नुहोस्" नामक बटनमा क्लिक गर्नुहोस्</translation>
 <translation id="1549000191223877751">अर्को विन्डोमा सार्नुहोस्</translation>
-<translation id="1705567146636171298">Brave अपडेट गर्नुहोस्</translation>
+<translation id="1705567146636171298">adrbrowsiel अपडेट गर्नुहोस्</translation>
 <translation id="1569387923882100876">जडित यन्त्र</translation>
 <translation id="1571304935088121812">प्रयोगकर्ता नामको कपी गर्नुहोस्</translation>
 <translation id="1592864538817356322">मानक सुरक्षा:</translation>
-<translation id="852740676285943527">यन्त्रहरू स्क्यान गर्न Brave लाई स्थान माथिको पहुँच चाहिन्छ। यस यन्त्रमा स्थान माथिको पहुँचलाई <ph name="BEGIN_LINK"/>निष्क्रिय पारिएको छ<ph name="END_LINK"/>।</translation>
+<translation id="852740676285943527">यन्त्रहरू स्क्यान गर्न adrbrowsiel लाई स्थान माथिको पहुँच चाहिन्छ। यस यन्त्रमा स्थान माथिको पहुँचलाई <ph name="BEGIN_LINK"/>निष्क्रिय पारिएको छ<ph name="END_LINK"/>।</translation>
 <translation id="1628019612362412531">{NUM_SELECTED,plural, =1{चयन गरिएको १ वस्तु हटाउनुहोस्}other{चयन गरिएका # वस्तुहरू हटाउनुहोस्}}</translation>
 <translation id="1641113438599504367">सुरक्षित ब्राउजिङ</translation>
 <translation id="164269334534774161">तपाईं यस पृष्ठको <ph name="CREATION_TIME"/> को अफलाइन प्रतिलिपि हेर्दै हुनुहुन्छ</translation>
@@ -93,7 +93,7 @@
 <translation id="1670399744444387456">आधारभूत</translation>
 <translation id="1671236975893690980">डाउनलोड हुन बाँकी छ…</translation>
 <translation id="1672586136351118594">फेरि नदेखाउनुहोस्</translation>
-<translation id="297583746595929792">Brave लेन्समार्फत फोटो किन्नुहोस्<ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
+<translation id="297583746595929792">adrbrowsiel लेन्समार्फत फोटो किन्नुहोस्<ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
 <translation id="1682195225331129001">अहिले गरी हेर्नुहोस्</translation>
 <translation id="1692118695553449118">सिंक खुला छ</translation>
 <translation id="1697284962337958118">यहाँ राख्नुहोस्</translation>
@@ -108,45 +108,45 @@
 <translation id="1782483593938241562">अन्तिम मिति: <ph name="DATE"/></translation>
 <translation id="1791662854739702043">स्थापना गरियो</translation>
 <translation id="1792959175193046959">पूर्वनिर्धारित डाउनलोड स्थान जुनसुकै बेला परिवर्तन गर्नुहोस्</translation>
-<translation id="2368444735104192323">Brave र Chrome OS का सेवाका अतिरिक्त सर्तहरू</translation>
+<translation id="2368444735104192323">adrbrowsiel र Chrome OS का सेवाका अतिरिक्त सर्तहरू</translation>
 <translation id="1807246157184219062">हल्का</translation>
 <translation id="1810845389119482123">सिंक गर्ने कार्यको प्रारम्भिक सेटअप पूरा भएको छैन</translation>
 <translation id="1821253160463689938">तपाईं ती पृष्ठहरूमा नजानुभए तापनि तपाईंका प्राथमिकताहरू सम्झनका लागि कुकीहरूको प्रयोग गर्छ</translation>
 <translation id="1829244130665387512">पृष्ठमा फेला पार्नुहोस्</translation>
 <translation id="1830550083491357902">साइन इन भएको छैन</translation>
-<translation id="4056661250746096955">अझ राम्रो अनुवाद पाउन Brave खोजलाई हालको पृष्ठ प्रयोग गर्न दिनुहोस्</translation>
+<translation id="4056661250746096955">अझ राम्रो अनुवाद पाउन adrbrowsiel खोजलाई हालको पृष्ठ प्रयोग गर्न दिनुहोस्</translation>
 <translation id="1856325424225101786">लाइट मोड रिसेट गर्ने हो?</translation>
-<translation id="5817715962196959877">Brave ले अब फाइलहरू अझ छिटो डाउनलोड गर्छ</translation>
-<translation id="5173820533850252773">Brave को मिति समाप्त भएको छ</translation>
+<translation id="5817715962196959877">adrbrowsiel ले अब फाइलहरू अझ छिटो डाउनलोड गर्छ</translation>
+<translation id="5173820533850252773">adrbrowsiel को मिति समाप्त भएको छ</translation>
 <translation id="1883903952484604915">मेरा फाइलहरू</translation>
 <translation id="189358972401248634">अन्य भाषाहरू</translation>
 <translation id="1918175104945982129">सहायकको प्रयोग गरी भ्वाइस सर्च गर्ने कुराको सहमति लिने UI आधा उचाइमा खोलिएको छ</translation>
-<translation id="7021823858304886493">Brave मा साइन इन गर्ने अनुमति दिनुहोस्</translation>
+<translation id="7021823858304886493">adrbrowsiel मा साइन इन गर्ने अनुमति दिनुहोस्</translation>
 <translation id="1922362554271624559">सुझाव गरिएका भाषाहरू</translation>
 <translation id="1925021887439448749">आफू अनुकूल पारिएको वेब ठेगाना प्रविष्टि गर्नुहोस्</translation>
 <translation id="1928696683969751773">अपडेटहरू</translation>
-<translation id="1875543012935658554">Brave पुनः खोल्नुहोस्।</translation>
+<translation id="1875543012935658554">adrbrowsiel पुनः खोल्नुहोस्।</translation>
 <translation id="1933845786846280168">चयन गरिएको ट्याब</translation>
 <translation id="1943432128510653496">पासवर्डहरू संग्रह गर्नुहोस्</translation>
 <translation id="1952172573699511566">सम्भव भए सम्म वेबसाइटहरूले तपाईंको रुचाइएको भाषामा पाठ देखाउनेछ।</translation>
-<translation id="3968054912784331254">Brave का अद्यावधिकहरू उपलब्ध गराउने सुविधा Android को यो संस्करणमा अब उप्रान्त समर्थित छैन</translation>
+<translation id="3968054912784331254">adrbrowsiel का अद्यावधिकहरू उपलब्ध गराउने सुविधा Android को यो संस्करणमा अब उप्रान्त समर्थित छैन</translation>
 <translation id="1963976881984600709">मानक सुरक्षा</translation>
 <translation id="1966710179511230534">कृपया तपाईंको साइन इन विवरण अपडेट गर्नुहोस्।</translation>
 <translation id="1973912524893600642">डेटा राख्नुहोस्</translation>
 <translation id="1974060860693918893">उन्नत</translation>
 <translation id="1984417487208496350">सुरक्षारहित मोड (सिफारिस गरिँदैन)</translation>
-<translation id="714362445477979774">Brave को आफ्नो डेटा सिंक गर्नुहोस्</translation>
+<translation id="714362445477979774">adrbrowsiel को आफ्नो डेटा सिंक गर्नुहोस्</translation>
 <translation id="1986685561493779662">नाम पहिलेदेखि नै विद्यमान छ</translation>
 <translation id="1987739130650180037"><ph name="MESSAGE"/> <ph name="LINK_NAME"/> बटन</translation>
 <translation id="1993768208584545658"><ph name="SITE"/> जोडा बनाउन चाहन्छ</translation>
 <translation id="2000419248597011803">यसले ठेगाना पट्टी र खोज बाकसका केही कुकी र खोजहरूलाई तपाईंको पूर्वनिर्धारित खोज इन्जिनमा पठाउँछ</translation>
-<translation id="1320169905922104972">Brave Pay को प्रयोग गर्ने क्रेडिट कार्ड र ठेगानाहरू</translation>
+<translation id="1320169905922104972">adrbrowsiel Pay को प्रयोग गर्ने क्रेडिट कार्ड र ठेगानाहरू</translation>
 <translation id="2013642289801508067">{FILE_COUNT,plural, =1{# फाइल}other{# फाइलहरू}}</translation>
 <translation id="2017836877785168846">ठेगाना पट्टीबाट इतिहास र स्वतः पूर्णतासम्बन्धी सुविधाहरूलाई खाली गर्दछ।</translation>
 <translation id="2021896219286479412">पूर्ण स्क्रिनको साइटका नियन्त्रणहरू</translation>
 <translation id="2038563949887743358">अनुरोध डेस्कटप साइट खोल्नुहोस्</translation>
 <translation id="2039379262107991683">पेजहरूबारे रिमाइन्डर प्राप्त गर्न ती पेजहरू आफ्नो अध्ययन सूचीमा हाल्नुहोस्।</translation>
-<translation id="7675869148432102528"><ph name="APP_NAME"/> ले Brave मा पनि डेटा राखेको छ</translation>
+<translation id="7675869148432102528"><ph name="APP_NAME"/> ले adrbrowsiel मा पनि डेटा राखेको छ</translation>
 <translation id="2046634576464120978">दर्ता गर्न सकिएन</translation>
 <translation id="2049574241039454490"><ph name="FILE_SIZE_OF_TOTAL"/> <ph name="SEPARATOR"/> <ph name="DESCRIPTION"/></translation>
 <translation id="2052422354554967744">इन्टरनेटमा खोज्ने तरिका</translation>
@@ -158,31 +158,31 @@
 <translation id="2096012225669085171">यन्त्रहरूभरि सिंक र वैयक्तीकृत गर्नुहोस्</translation>
 <translation id="2100273922101894616">स्वत: साइन-इन</translation>
 <translation id="2100314319871056947">पाठलाई विभाजन गरी साना खण्ड बनाएर आदान प्रदान गरी हेर्नुहोस्</translation>
-<translation id="4749189475009528195">यो पृष्ठ नछोडिकन वेबसाइटहरूमा रहेका शीर्षकहरूबारे जान्नुहोस्। खोज्नका लागि छुनुहोस् नामक सुविधाले कुनै शब्द र त्यसको सन्दर्भलाई Brave खोजमा पठाउँछ र उक्त शब्दको परिभाषा, त्यससँग सम्बन्धित तस्बिर, खोज परिणाम र अन्य विवरणहरू देखाउँछ।
+<translation id="4749189475009528195">यो पृष्ठ नछोडिकन वेबसाइटहरूमा रहेका शीर्षकहरूबारे जान्नुहोस्। खोज्नका लागि छुनुहोस् नामक सुविधाले कुनै शब्द र त्यसको सन्दर्भलाई adrbrowsiel खोजमा पठाउँछ र उक्त शब्दको परिभाषा, त्यससँग सम्बन्धित तस्बिर, खोज परिणाम र अन्य विवरणहरू देखाउँछ।
 
 कुनै शब्द खोज्न उक्त शब्दमा ट्याप गर्नुहोस्। आफ्नो खोज परिष्कृत गर्न सम्बन्धित पाठमा छोइराखेर अझ धेरै वा कम शब्दहरू चयन गर्नुहोस्। आफ्नो खोज पद सम्पादन गर्न प्यानल खोल्नुहोस्, नयाँ ट्याबमा खोल्ने आइकनमा ट्याप गर्नुहोस् र खोज बाकसमा रहेको खोज पदमा आवश्यक परिवर्तनहरू गर्नुहोस्।</translation>
 <translation id="2111511281910874386">पृष्ठमा जानुहोस्</translation>
 <translation id="2122601567107267586">एप खोल्न सकिएन</translation>
-<translation id="796823723482603597">Brave द्वारा संचालित</translation>
+<translation id="796823723482603597">adrbrowsiel द्वारा संचालित</translation>
 <translation id="2131665479022868825"><ph name="DATA"/> बचत गरियो</translation>
 <translation id="213279576345780926"><ph name="TAB_TITLE"/> बन्द भयो</translation>
-<translation id="6516933364477884970">तपाईं Brave सँग कुन कुन जानकारी सेयर गर्न चाहनुहुन्छ भन्ने कुरा छनौट गर्नुहोस्। तपाईंले सेयर गर्ने मेट्रिकहरू Brave का सुविधा, कार्यसम्पादन र स्थिरता सुधार गर्न प्रयोग गरिने छ।</translation>
+<translation id="6516933364477884970">तपाईं adrbrowsiel सँग कुन कुन जानकारी सेयर गर्न चाहनुहुन्छ भन्ने कुरा छनौट गर्नुहोस्। तपाईंले सेयर गर्ने मेट्रिकहरू adrbrowsiel का सुविधा, कार्यसम्पादन र स्थिरता सुधार गर्न प्रयोग गरिने छ।</translation>
 <translation id="2154484045852737596">कार्ड सम्पादन गर्नुहोस्</translation>
 <translation id="2154710561487035718">URL प्रतिलिपि गर्नुहोस्</translation>
 <translation id="2156074688469523661">बाँकी साइटहरू (<ph name="NUMBER_OF_SITES"/>)</translation>
-<translation id="6162454065885854378">तपाईंको फोनको कुनै कुरा अर्को यन्त्रसँग आदान प्रदान गर्न दुवै यन्त्रमा Brave को सेटिङमा गई सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
-<translation id="4162910516440006395">Brave ले सबै पासवर्डहरू जाँच्न सकेन</translation>
+<translation id="6162454065885854378">तपाईंको फोनको कुनै कुरा अर्को यन्त्रसँग आदान प्रदान गर्न दुवै यन्त्रमा adrbrowsiel को सेटिङमा गई सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
+<translation id="4162910516440006395">adrbrowsiel ले सबै पासवर्डहरू जाँच्न सकेन</translation>
 <translation id="2169830938017475061">अहिले</translation>
 <translation id="2172688499998841696">'फोटोको वर्णन' सुविधा अफ छ</translation>
 <translation id="2175927920773552910">QR कोड</translation>
 <translation id="218608176142494674">आदान प्रदान गर्दै</translation>
-<translation id="3842811252050200766">Brave को सबैभन्दा बलियो सुरक्षा विकल्प चयन गर्नुहोस्</translation>
+<translation id="3842811252050200766">adrbrowsiel को सबैभन्दा बलियो सुरक्षा विकल्प चयन गर्नुहोस्</translation>
 <translation id="2200113223741723867">प्रयोगसम्बन्धी डेटा सेयर गर्ने सेटिङ व्यवस्थापन गर्नुहोस्</translation>
 <translation id="2227444325776770048"><ph name="USER_FULL_NAME"/> का रूपमा जारी राख्नुहोस्</translation>
-<translation id="7956662517480676674">सिंक तथा Brave सेवाहरू</translation>
+<translation id="7956662517480676674">सिंक तथा adrbrowsiel सेवाहरू</translation>
 <translation id="2239812875700136898">Discover का विकल्पहरू नामक बटन प्रयोग गरी आफ्नो समाचार फिडमा देखिने सामग्री नियन्त्रण गर्नुहोस्</translation>
 <translation id="2259659629660284697">पासवर्डहरू निर्यात गर्नुहोस्…</translation>
-<translation id="781982477617612877">आफ्ना पासवर्डहरू जाँच गर्न आफ्नो Brave खातामा साइन इन गर्नुहोस्</translation>
+<translation id="781982477617612877">आफ्ना पासवर्डहरू जाँच गर्न आफ्नो adrbrowsiel खातामा साइन इन गर्नुहोस्</translation>
 <translation id="2278052315791335171">तपाईंले यो पासवर्ड मेटाउनुभयो भने पनि <ph name="SITE"/> मा रहेको तपाईंको खाता मेटिने छैन</translation>
 <translation id="2286841657746966508">बिल पठाउने ठेगाना</translation>
 <translation id="230115972905494466">कुनै पनि मिल्दाजुल्दा यन्त्र भेटिएनन्</translation>
@@ -199,42 +199,42 @@
 <ph name="BEGIN_LIST_ITEM2"/>विज्ञापनदाताहरू विभिन्न साइटहरूमा तपाईंले गर्ने क्रियाकलाप ट्र्याक नगरिकनै विज्ञापनको प्रभावकारिताका बारेमा अध्ययन गर्न सक्छन्।<ph name="END_LIST_ITEM2"/></translation>
 <translation id="234265804618409743">तपाईंको क्यामेरा खोल्न सकिएन। केही चिज गडबड भयो।</translation>
 <translation id="2345671828921229300">कुनै शब्दबारे जानकारी खोज्न त्यसलाई टच एण्ड होल्ड गर्नुहोस्</translation>
-<translation id="3587672679800759167">खाता, पुस्तक चिन्ह र सुरक्षित गरिएका सेटिङहरू सहित Brave ले प्रयोग गरेको कुल डेटा</translation>
+<translation id="3587672679800759167">खाता, पुस्तक चिन्ह र सुरक्षित गरिएका सेटिङहरू सहित adrbrowsiel ले प्रयोग गरेको कुल डेटा</translation>
 <translation id="2353636109065292463">तपाईंको इन्टरनेट जडानको जाँच गर्दै</translation>
 <translation id="2359808026110333948">जारी राख्नुहोस्</translation>
 <translation id="2369533728426058518">ट्याबहरू खोल्नुहोस्</translation>
 <translation id="2387895666653383613">पाठ स्केलिङ</translation>
 <translation id="2394602618534698961">तपाईंले डाउनलोड गर्ने फाइलहरू यहाँ देखिन्छन्</translation>
-<translation id="801672626447970525">तपाईंले आफ्नो Brave खातामा साइन इन गर्दा यो सुविधा सक्रिय हुन्छ</translation>
+<translation id="801672626447970525">तपाईंले आफ्नो adrbrowsiel खातामा साइन इन गर्दा यो सुविधा सक्रिय हुन्छ</translation>
 <translation id="2410754283952462441">कुनै खाता छान्नुहोस्</translation>
 <translation id="2414886740292270097">अँध्यारो</translation>
 <translation id="2426805022920575512">कुनै अर्को खाता छनौट गर्नुहोस्‌</translation>
 <translation id="2433507940547922241">रूपरंग</translation>
 <translation id="2450083983707403292">तपाईं <ph name="FILE_NAME"/> लाई फेरि डाउनलोड गर्न चाहनुहुन्छ?</translation>
-<translation id="934250516944040460">यो पृष्ठ नछोडिकन वेबसाइटहरूमा रहेका शीर्षकहरूबारे जान्नुहोस्। खोज्नका लागि छुनुहोस् नामक सुविधाले कुनै शब्द र त्यसको सन्दर्भलाई Brave खोजमा पठाउँछ र उक्त शब्दको परिभाषा, त्यससँग सम्बन्धित तस्बिर, खोज परिणाम र अन्य विवरणहरू देखाउँछ।
+<translation id="934250516944040460">यो पृष्ठ नछोडिकन वेबसाइटहरूमा रहेका शीर्षकहरूबारे जान्नुहोस्। खोज्नका लागि छुनुहोस् नामक सुविधाले कुनै शब्द र त्यसको सन्दर्भलाई adrbrowsiel खोजमा पठाउँछ र उक्त शब्दको परिभाषा, त्यससँग सम्बन्धित तस्बिर, खोज परिणाम र अन्य विवरणहरू देखाउँछ।
 
 कुनै शब्द खोज्न उक्त शब्दमा टच एण्ड होल्ड गर्नुहोस्। आफ्नो खोज परिष्कृत गर्न अझ धेरै वा कम शब्दहरू चयन गर्नुहोस्। आफ्नो खोज पद सम्पादन गर्न प्यानल खोल्नुहोस्, नयाँ ट्याबमा खोल्ने आइकनमा ट्याप गर्नुहोस् र खोज बाकसमा रहेको खोज पदमा आवश्यक परिवर्तनहरू गर्नुहोस्।</translation>
 <translation id="2459390580524506445">परिष्कृत भ्वाइस सर्च</translation>
 <translation id="246532703174860178">सेयर गर्नुहोस्</translation>
 <translation id="247737702124049222">'फोटोको वर्णन गर्ने' सुविधा अन छ</translation>
 <translation id="2482878487686419369">सूचनाहरू</translation>
-<translation id="6361779936989026201">Brave को Brave सहायक</translation>
+<translation id="6361779936989026201">adrbrowsiel को adrbrowsiel सहायक</translation>
 <translation id="2496180316473517155">ब्राउजिङ इतिहास</translation>
 <translation id="2497852260688568942">तपाईंको प्रशासकले सिंंक असक्षम पार्नुभएको छ।</translation>
-<translation id="7229462727772664332">तपाईं Brave मा आफ्नो <ph name="SITE_NAME"/> को साइन इनसम्बन्धी अवस्था, ब्राउजिङ डेटा र साइट डेटा देख्नु हुने छ</translation>
+<translation id="7229462727772664332">तपाईं adrbrowsiel मा आफ्नो <ph name="SITE_NAME"/> को साइन इनसम्बन्धी अवस्था, ब्राउजिङ डेटा र साइट डेटा देख्नु हुने छ</translation>
 <translation id="2512164632052122970">सामग्रीका भाषाहरू</translation>
 <translation id="7222718784508482526">गोपनीयता, सुरक्षा र डेटाको सङ्कलनसँग सम्बन्धित थप सेटिङहरूका लागि <ph name="BEGIN_LINK"/>सिंक तथा वैयक्तीकरण<ph name="END_LINK"/> नामक खण्ड हेर्नुहोस्</translation>
 <translation id="2517472476991765520">स्क्यान गर्नुहोस्</translation>
-<translation id="7340390500800578919">लाइट मोडमा हुँदा Brave ले पृष्ठहरू अझ छिटो लोड गर्नाका साथै ६० प्रतिशतसम्म कम डेटा प्रयोग गर्छ। तपाईंले भ्रमण गर्ने पृष्ठहरू अप्टिमाइज गर्न, Brave ले तपाईंको वेबसम्बन्धी ट्राफिक Brave मा पठाउँछ। <ph name="BEGIN_LINK"/>थप जान्नुहोस्<ph name="END_LINK"/></translation>
-<translation id="284843628681142937">तपाईं जाने पृष्ठका URL हरू Brave मा पठाउँछ</translation>
+<translation id="7340390500800578919">लाइट मोडमा हुँदा adrbrowsiel ले पृष्ठहरू अझ छिटो लोड गर्नाका साथै ६० प्रतिशतसम्म कम डेटा प्रयोग गर्छ। तपाईंले भ्रमण गर्ने पृष्ठहरू अप्टिमाइज गर्न, adrbrowsiel ले तपाईंको वेबसम्बन्धी ट्राफिक adrbrowsiel मा पठाउँछ। <ph name="BEGIN_LINK"/>थप जान्नुहोस्<ph name="END_LINK"/></translation>
+<translation id="284843628681142937">तपाईं जाने पृष्ठका URL हरू adrbrowsiel मा पठाउँछ</translation>
 <translation id="2532336938189706096">वेब दृश्य</translation>
 <translation id="2534155362429831547"><ph name="NUMBER_OF_ITEMS"/> वस्तुहरू मेटाइए</translation>
 <translation id="2536728043171574184">यो पृष्ठको एक अफलाइन प्रतिलिपि हेर्दै</translation>
 <translation id="2537178555904266562">पासवर्डहरू सिंक गर्ने क्रममा त्रुटि भयो</translation>
 <translation id="2546283357679194313">कुकीहरू र साइट डाटा</translation>
 <translation id="2567385386134582609">छवि</translation>
-<translation id="5079947353572974060">अन्य भाषामा रहेका पृष्ठहरू Brave अनुवादकमा पठाउने प्रस्ताव गरियोस्</translation>
-<translation id="2324920234469020158">यसले कुकी, क्यास र साइटहरूको Brave लाई महत्वपूर्ण नलाग्ने अन्य डाटा खाली गर्ने छ।</translation>
+<translation id="5079947353572974060">अन्य भाषामा रहेका पृष्ठहरू adrbrowsiel अनुवादकमा पठाउने प्रस्ताव गरियोस्</translation>
+<translation id="2324920234469020158">यसले कुकी, क्यास र साइटहरूको adrbrowsiel लाई महत्वपूर्ण नलाग्ने अन्य डाटा खाली गर्ने छ।</translation>
 <translation id="2587052924345400782">नयाँ संस्करण उपलब्ध छ</translation>
 <translation id="2593272815202181319">मोनोस्पेस</translation>
 <translation id="2612676031748830579">कार्ड नम्बर</translation>
@@ -244,7 +244,7 @@
 <translation id="2650751991977523696">फाइल पुनः डाउनलोड गर्ने हो?</translation>
 <translation id="2651091186440431324">{FILE_COUNT,plural, =1{# अडियो फाइल}other{# अडियो फाइलहरू}}</translation>
 <translation id="2656405586795711023">वेब एपहरू</translation>
-<translation id="4550860619133710557">Brave प्रयोग गरेर तपाईं <ph name="BEGIN_LINK1"/>Brave का सेवाका सर्तहरू<ph name="END_LINK1"/> र <ph name="BEGIN_LINK2"/>Brave र Chrome OS का सेवाका अतिरिक्त सर्तहरू<ph name="END_LINK2"/>मा सहमति जनाउनुहुन्छ। <ph name="BEGIN_LINK3"/>Family Link मार्फत व्यवस्थापन गरिएका Brave खाताहरूको गोपनीयता सूचना<ph name="END_LINK3"/> पनि लागू हुन्छ।</translation>
+<translation id="4550860619133710557">adrbrowsiel प्रयोग गरेर तपाईं <ph name="BEGIN_LINK1"/>adrbrowsiel का सेवाका सर्तहरू<ph name="END_LINK1"/> र <ph name="BEGIN_LINK2"/>adrbrowsiel र Chrome OS का सेवाका अतिरिक्त सर्तहरू<ph name="END_LINK2"/>मा सहमति जनाउनुहुन्छ। <ph name="BEGIN_LINK3"/>Family Link मार्फत व्यवस्थापन गरिएका adrbrowsiel खाताहरूको गोपनीयता सूचना<ph name="END_LINK3"/> पनि लागू हुन्छ।</translation>
 <translation id="2704606927547763573">प्रतिलिपि गरियो</translation>
 <translation id="2707726405694321444">पृष्ठ ताजा गर्नुहोस्</translation>
 <translation id="2709516037105925701">स्वत:भर्नुहोस्</translation>
@@ -256,13 +256,13 @@
 <translation id="2744248271121720757">तत्कालै खोज्नका लागि कुनै शब्दमा ट्याप गर्नुहोस् वा सम्बन्धित कारबाहीहरू हेर्नुहोस्</translation>
 <translation id="2760989362628427051">तपाईंको यन्त्रमा अँध्यारो थिम वा ब्याट्री सेभर मोड सक्रिय हुँदा अँध्यारो थिम सक्रिय गर्नुहोस्</translation>
 <translation id="2762000892062317888">भर्खरै</translation>
-<translation id="8312774691909088652">गोपनीयता, सुरक्षा र डेटाको सङ्कलनसँग सम्बन्धित थप सेटिङका लागि <ph name="BEGIN_LINK"/>Brave का सेवाहरू<ph name="END_LINK"/> नामक खण्ड हेर्नुहोस्</translation>
+<translation id="8312774691909088652">गोपनीयता, सुरक्षा र डेटाको सङ्कलनसँग सम्बन्धित थप सेटिङका लागि <ph name="BEGIN_LINK"/>adrbrowsiel का सेवाहरू<ph name="END_LINK"/> नामक खण्ड हेर्नुहोस्</translation>
 <translation id="2777555524387840389"><ph name="SECONDS"/> सेकेन्ड बाँकी छ</translation>
 <translation id="2779651927720337254">डाउनलोड गर्न सकिएन</translation>
 <translation id="2781151931089541271">१ सेकेन्ड बाँकी छ</translation>
-<translation id="1379423114029199501">Brave को नवीनतम संस्करणमा आफ्नो भाषा प्राप्त गर्न अपडेट गर्नुहोस्</translation>
+<translation id="1379423114029199501">adrbrowsiel को नवीनतम संस्करणमा आफ्नो भाषा प्राप्त गर्न अपडेट गर्नुहोस्</translation>
 <translation id="2810645512293415242">डेटा बचत गर्न र अझ छिटो लोड गर्नका लागि सरलीकृत पृष्ठ।</translation>
-<translation id="7068873021383263704">आफ्नो <ph name="BEGIN_LINK"/>Brave खाता<ph name="END_LINK"/> मा सुरक्षित गरिएका पासवर्डहरू हेर्नुहोस् र व्यवस्थापन गर्नुहोस्</translation>
+<translation id="7068873021383263704">आफ्नो <ph name="BEGIN_LINK"/>adrbrowsiel खाता<ph name="END_LINK"/> मा सुरक्षित गरिएका पासवर्डहरू हेर्नुहोस् र व्यवस्थापन गर्नुहोस्</translation>
 <translation id="2818669890320396765">आफ्ना सबै यन्त्रमा पुस्तक चिन्हहरू प्राप्त गर्न साइन इन गरी सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
 <translation id="2827278682606527653">फिड कार्ड मेनु आधा उचाइमा खुला छ</translation>
 <translation id="2841216154655874070">{NUM_DAYS,plural, =1{१ दिनअघि जाँच गरिएको}other{# दिनअघि जाँच गरिएको}}</translation>
@@ -270,17 +270,17 @@
 <translation id="2856503607207334158">साइन इन गर्न सकिएन</translation>
 <translation id="2860954141821109167">यस यन्त्रमा कुनै फोन एप सक्षम गरिएको कुरा सुनिश्चित गर्नुहोस्</translation>
 <translation id="2870560284913253234">साइट</translation>
-<translation id="2876369937070532032">यसले तपाईंको सुरक्षा जोखिममा हुँदा तपाईंले भ्रमण गर्ने केही पृष्ठका URL हरू Brave मा पठाउँछ</translation>
-<translation id="8541922081612557424">Brave को बारेमा</translation>
+<translation id="2876369937070532032">यसले तपाईंको सुरक्षा जोखिममा हुँदा तपाईंले भ्रमण गर्ने केही पृष्ठका URL हरू adrbrowsiel मा पठाउँछ</translation>
+<translation id="8541922081612557424">adrbrowsiel को बारेमा</translation>
 <translation id="2891154217021530873">पृष्ठ लोड गर्न रोक्नुहोस्</translation>
 <translation id="2892647708214602204">यो फाइल तयार भएपछि तपाईंले सूचना प्राप्त गर्नु हुने छ</translation>
-<translation id="4013614219085422040">Brave ले खोज र Brave का अन्य सेवाहरूलाई वैयक्तीकृत गर्न तपाईंको इतिहाससम्बन्धी जानकारी प्रयोग गर्न सक्छ</translation>
+<translation id="4013614219085422040">adrbrowsiel ले खोज र adrbrowsiel का अन्य सेवाहरूलाई वैयक्तीकृत गर्न तपाईंको इतिहाससम्बन्धी जानकारी प्रयोग गर्न सक्छ</translation>
 <translation id="2900528713135656174">कार्यक्रम सिर्जना गर्नुहोस्</translation>
 <translation id="2901411048554510387"><ph name="WEBSITE_TITLE"/> सम्बन्धी सुझावहरू देखाइँदै</translation>
 <translation id="2904414404539560095">ट्याब आदान प्रदान गरिनु पर्ने डिभाइसहरूको सूची पूर्ण उचाइमा खोलिएको छ।</translation>
-<translation id="7339921667754113786">Brave का सूचनाहरूको प्लेटफर्म</translation>
+<translation id="7339921667754113786">adrbrowsiel का सूचनाहरूको प्लेटफर्म</translation>
 <translation id="2923908459366352541">नाम मान्य छैन</translation>
-<translation id="6355102470683871794">Brave <ph name="APP_NAME"/> को भण्डारण</translation>
+<translation id="6355102470683871794">adrbrowsiel <ph name="APP_NAME"/> को भण्डारण</translation>
 <translation id="2942036813789421260">पूर्वावलोकन ट्याब बन्द छ</translation>
 <translation id="2956410042958133412">यो खाता <ph name="PARENT_NAME_1"/> र <ph name="PARENT_NAME_2"/> द्वारा व्यवस्थित गरिएको छ।</translation>
 <translation id="2961208450284224863">{READING_LIST_UNREAD_PAGE_COUNT,plural, =1{<ph name="READING_LIST_UNREAD_PAGE_COUNT_ONE"/> वटा पेज पढ्न बाँकी छ}other{<ph name="READING_LIST_UNREAD_PAGE_COUNT_MANY"/> वटा पेज पढ्न बाँकी छ}}</translation>
@@ -298,13 +298,13 @@
 <translation id="305593374596241526">स्थानसम्बन्धी सुविधा निष्क्रिय छ; <ph name="BEGIN_LINK"/>Android का सेटिङहरू<ph name="END_LINK"/> मा गई यसलाई सक्रिय गर्नुहोस्।</translation>
 <translation id="3058498974290601450">तपाईं सेटिङहरूमा गई जुनसुकै बेला सिंक सक्रिय गर्न सक्नुहुन्छ</translation>
 <translation id="3060635849835183725">{BOOKMARKS_COUNT,plural, =1{<ph name="BOOKMARKS_COUNT_ONE"/> पुस्तक चिन्ह}other{<ph name="BOOKMARKS_COUNT_MANY"/> पुस्तक चिन्हहरू}}</translation>
-<translation id="6153252609477956632">Brave मा तपाईंको रुचिका विषयसँग सम्बन्धित लेखहरू पढ्नुहोस्</translation>
+<translation id="6153252609477956632">adrbrowsiel मा तपाईंको रुचिका विषयसँग सम्बन्धित लेखहरू पढ्नुहोस्</translation>
 <translation id="3070005020161560471">स्वतः अनुवाद गरियोस्</translation>
-<translation id="821565628224723530">तपाईंलाई उपलब्ध गराइने वर्णनको गुणस्तर सुधार गर्न केही फोटोहरू Brave मा पठाइन्छन्</translation>
+<translation id="821565628224723530">तपाईंलाई उपलब्ध गराइने वर्णनको गुणस्तर सुधार गर्न केही फोटोहरू adrbrowsiel मा पठाइन्छन्</translation>
 <translation id="3114507951000454849">आजको समाचार पढ्नुहोस् <ph name="NEWS_ICON"/></translation>
 <translation id="3123734510202723619">घोषणाहरू</translation>
 <translation id="3143515551205905069">सिंक रद्द गर्नुहोस्</translation>
-<translation id="5063487983358782016">Brave को गृहपृष्ठ</translation>
+<translation id="5063487983358782016">adrbrowsiel को गृहपृष्ठ</translation>
 <translation id="3157842584138209013">थप विकल्पहरू नामक बटनमार्फत आफूले सुरक्षित गरेको डेटाको मात्रा हेर्नुहोस्</translation>
 <translation id="3166827708714933426">ट्याब र विन्डोका सर्टकटहरू</translation>
 <translation id="3169472444629675720">पत्ता लगाउनुहोस्</translation>
@@ -314,7 +314,7 @@
 <translation id="3208584281581115441">अहिले नै जाँच्नुहोस्</translation>
 <translation id="3211426585530211793"><ph name="ITEM_TITLE"/> मेटाइयो</translation>
 <translation id="321773570071367578">यदि तपाईँले आफ्नो पासफ्रेज बिर्सनुभएको छ वा यस सेटिङलाई परिवर्तन गर्न चाहनुहुन्छ भने <ph name="BEGIN_LINK"/>सिंकलाई रिसेट गर्नुहोस्<ph name="END_LINK"/></translation>
-<translation id="9047551989591319903">सुरक्षा साँचोका रूपमा Brave</translation>
+<translation id="9047551989591319903">सुरक्षा साँचोका रूपमा adrbrowsiel</translation>
 <translation id="3232754137068452469">वेब एप</translation>
 <translation id="3236059992281584593">१ मिनेट बाँकी छ</translation>
 <translation id="3244271242291266297">MM</translation>
@@ -324,9 +324,9 @@
 <translation id="3264124641674805320">पछि हेर्ने वा पढ्ने प्रयोजनका लागि सामग्री डाउनलोड गर्ने तरिका</translation>
 <translation id="3269093882174072735">छवि लोड गर्नुहोस्</translation>
 <translation id="3269956123044984603">तपाईंका अन्य यन्त्रहरूबाट आफ्ना ट्याबहरू प्राप्त गर्न, Android खाताको सेटिङहरूमा गई "डेटालाई स्वतः सिंक गर्नुहोस्" लाई सक्रिय गर्नुहोस्।</translation>
-<translation id="82609232232243542">Brave मा साइन इन गर्नुहोस्</translation>
+<translation id="82609232232243542">adrbrowsiel मा साइन इन गर्नुहोस्</translation>
 <translation id="3284510035090979597">क्रियाशील मद्दत</translation>
-<translation id="1793814306828610181">Brave प्रयोग गर्ने तरिका देखाउने भिडियोहरू</translation>
+<translation id="1793814306828610181">adrbrowsiel प्रयोग गर्ने तरिका देखाउने भिडियोहरू</translation>
 <translation id="3288003805934695103">पृष्ठलाई पुनः लोड गर्नुहोस्</translation>
 <translation id="32895400574683172">यस कार्यका लागि सूचनाहरूलाई अनुमति दिइएको छ</translation>
 <translation id="3290991969712132877">यही पेजमा अझ छिटो जान 'थप विकल्पहरू' बटनमा क्लिक गरी आफ्नो होम स्क्रिनमा सो पेज हाल्नुहोस्</translation>
@@ -334,15 +334,15 @@
 <translation id="3297344142967351106">आवाज सहायता</translation>
 <translation id="3298243779924642547">लाइट</translation>
 <translation id="3303414029551471755">सामग्री डाउनलोड गर्न अगाडि बढ्ने हो?</translation>
-<translation id="5294439808117722387">तपाईं हाल आफ्ना सिंक तथा Brave का सेवासम्बन्धी सेटिङहरूलाई आफू अनुकूल पार्दै हुनुहुन्छ। सिंक सेवा सक्रिय पार्ने कार्य पूरा गर्न स्क्रिन बटनको छेवैमा रहेको सुनिश्चित गर्नुहोस् नामक बटनमा ट्याप गर्नुहोस्। माथि नेभिगेसन गर्नुहोस्</translation>
+<translation id="5294439808117722387">तपाईं हाल आफ्ना सिंक तथा adrbrowsiel का सेवासम्बन्धी सेटिङहरूलाई आफू अनुकूल पार्दै हुनुहुन्छ। सिंक सेवा सक्रिय पार्ने कार्य पूरा गर्न स्क्रिन बटनको छेवैमा रहेको सुनिश्चित गर्नुहोस् नामक बटनमा ट्याप गर्नुहोस्। माथि नेभिगेसन गर्नुहोस्</translation>
 <translation id="3334729583274622784">फाइलको एक्स्टेन्सन परिवर्तन गर्ने हो?</translation>
 <translation id="3341058695485821946">आफूले सुरक्षित गरेको डेटाको मात्रा हेर्नुहोस्</translation>
-<translation id="8134317863207426198">Brave ले प्रदान गरेको मूल पृष्ठको लाइट संस्करण। मूल पृष्ठ लोड गर्न मूल पृष्ठ लोड गर्नुहोस् नामक बटन ट्याप गर्नुहोस्।</translation>
+<translation id="8134317863207426198">adrbrowsiel ले प्रदान गरेको मूल पृष्ठको लाइट संस्करण। मूल पृष्ठ लोड गर्न मूल पृष्ठ लोड गर्नुहोस् नामक बटन ट्याप गर्नुहोस्।</translation>
 <translation id="3359667936385849800">तपाईंको हालको सेवा प्रदायक प्रयोग गर्नुहोस्</translation>
 <translation id="3367813778245106622">सिंक सुरु गर्न फेरि साइन इन गर्नुहोस्</translation>
 <translation id="337236281855091893">कुनै शब्दबारे जानकारी खोज्न त्यसमा ट्याप गर्नुको साटो त्यसलाई टच एण्ड होल्ड गर्नुहोस्</translation>
-<translation id="2746024117903470217">यो पृष्ठ अर्को यन्त्रसँग आदान प्रदान गर्न अर्को यन्त्रमा रहेको Brave ब्राउजरको सेटिङमा गई सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
-<translation id="8801234437789558906">अब उप्रान्त तपाईंको Brave खातामा तपाईंका पुस्तक चिन्ह, इतिहास, पासवर्ड र Brave का अन्य डेटा सिंक हुने छैनन्</translation>
+<translation id="2746024117903470217">यो पृष्ठ अर्को यन्त्रसँग आदान प्रदान गर्न अर्को यन्त्रमा रहेको adrbrowsiel ब्राउजरको सेटिङमा गई सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
+<translation id="8801234437789558906">अब उप्रान्त तपाईंको adrbrowsiel खातामा तपाईंका पुस्तक चिन्ह, इतिहास, पासवर्ड र adrbrowsiel का अन्य डेटा सिंक हुने छैनन्</translation>
 <translation id="3384347053049321195">छवि सेयर गर्नुहोस्</translation>
 <translation id="3387650086002190359"><ph name="FILE_NAME"/> डाउनलोड फाइल प्रणाली त्रूटिका कारण असफल भयो।</translation>
 <translation id="3389286852084373014">पाठ ज्यादै ठुलो छ</translation>
@@ -363,7 +363,7 @@
 <translation id="3493531032208478708">सुझाव दिइएको सामग्रीको बारेमा <ph name="BEGIN_LINK"/>थप जान्नुहोस्<ph name="END_LINK"/></translation>
 <translation id="3499246418971111862">chrome_qrcode_<ph name="CURRENT_TIMESTAMP_MS"/></translation>
 <translation id="3507132249039706973">'मानक सुरक्षा' सक्रिय छ</translation>
-<translation id="8669829441518807650">अफलाइन छ। Brave ले अपडेट उपलब्ध छन् कि छैनन् भन्ने कुरा जाँच गर्न सकेन।</translation>
+<translation id="8669829441518807650">अफलाइन छ। adrbrowsiel ले अपडेट उपलब्ध छन् कि छैनन् भन्ने कुरा जाँच गर्न सकेन।</translation>
 <translation id="3513704683820682405">अग्मेन्टेड रियालिटी</translation>
 <translation id="3518985090088779359">स्वीकार र जारी</translation>
 <translation id="3522247891732774234">अद्यावधिक उपलब्ध छ। थप विकल्पहरू</translation>
@@ -372,12 +372,12 @@
 <translation id="3542235761944717775"><ph name="KILOBYTES"/> के.बि. उपलब्ध छ</translation>
 <translation id="3549657413697417275">आफ्नो ब्राउजिङको इतिहासमा खोज्नुहोस्।</translation>
 <translation id="3557336313807607643">सम्पर्क ठेगानामा थप्नुहोस्</translation>
-<translation id="1908301351964700579">Brave ले अझै VR का लागि तयारी गर्दै छ। Brave पछि पुनः सुरु गर्नुहोस्।</translation>
+<translation id="1908301351964700579">adrbrowsiel ले अझै VR का लागि तयारी गर्दै छ। adrbrowsiel पछि पुनः सुरु गर्नुहोस्।</translation>
 <translation id="3568688522516854065">आफ्ना अन्य यन्त्रहरूबाट आफ्ना ट्याबहरू प्राप्त गर्न साइन इन गरी सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
 <translation id="3587482841069643663">सबै</translation>
 <translation id="3587596251841506391">वेब प्रयोग गर्ने सबै जनालाई सुरक्षित रहन मद्दत गर्नुहोस्</translation>
 <translation id="807110510029471880">साइन इन गर्न इन्कोग्निटो मोड प्रयोग गर्नुहोस्</translation>
-<translation id="3551285888947169900">साइन इन गरिएका सबै यन्त्रहरूबाट इतिहास खाली गर्दछ। तपाईंको Brave खाताको <ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/> मा अन्य किसिमका ब्राउजिङ इतिहास रहेका हुन सक्छन्।</translation>
+<translation id="3551285888947169900">साइन इन गरिएका सबै यन्त्रहरूबाट इतिहास खाली गर्दछ। तपाईंको adrbrowsiel खाताको <ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/> मा अन्य किसिमका ब्राउजिङ इतिहास रहेका हुन सक्छन्।</translation>
 <translation id="3602290021589620013">पूर्वावलोकन</translation>
 <translation id="3616113530831147358">अडियो</translation>
 <translation id="3631987586758005671"><ph name="DEVICE_NAME"/> सँग आदान प्रदान गर्दै</translation>
@@ -390,15 +390,15 @@
 <translation id="3701167022068948696">अहिले नै समाधान गर्नुहोस्</translation>
 <translation id="371230970611282515">खतरनाक घटनाहरू घट्नुअघि नै तिनको पूर्वानुमान गर्छ र तपाईंलाई सोबारे चेतावनी दिन्छ।</translation>
 <translation id="3714981814255182093">खोजको पट्टी खोल्नुहोस्</translation>
-<translation id="5805364706385912897">यस पृष्ठले अत्यधिक मेमोरी प्रयोग गर्ने भएकाले Brave ले यसलाई पज गर्‍यो।</translation>
-<translation id="8397843425685839889">तपाईं र Brave</translation>
+<translation id="5805364706385912897">यस पृष्ठले अत्यधिक मेमोरी प्रयोग गर्ने भएकाले adrbrowsiel ले यसलाई पज गर्‍यो।</translation>
+<translation id="8397843425685839889">तपाईं र adrbrowsiel</translation>
 <translation id="3737319253362202215">अनुवादसम्बन्धी सेटिङहरू</translation>
 <translation id="3738139272394829648">खोज गर्न छुनुहोस्</translation>
 <translation id="3739899004075612870"><ph name="PRODUCT_NAME"/> मा पुस्तक चिन्ह लगाइयो</translation>
 <translation id="3749259744154402564">असमर्थित</translation>
 <translation id="3771001275138982843">अद्यावधिक डाउनलोड गर्न सकिएन</translation>
 <translation id="3771290962915251154">अभिभावकीय नियन्त्रणहरू सक्रिय गरिएका हुनाले यो सेटिङ असक्षम छ</translation>
-<translation id="1138681184697033370">Brave का सेवाका सर्तहरू</translation>
+<translation id="1138681184697033370">adrbrowsiel का सेवाका सर्तहरू</translation>
 <translation id="3773755127849930740">जोडा बनाउने प्रक्रियालाई अनुमति दिन <ph name="BEGIN_LINK"/>ब्लुटुथ<ph name="END_LINK"/> लाई सक्रिय गर्नुहोस्</translation>
 <translation id="3773856050682458546">यसअन्तर्गत आधारभूत डेटाका साथै तपाईं जाने वेबसाइट र तपाईंले चलाउने एपसम्बन्धी जानकारी समावेश हुन्छन्</translation>
 <translation id="3775705724665058594">आफ्ना यन्त्रहरूमा पठाउनुहोस्</translation>
@@ -417,13 +417,13 @@
 <translation id="3927692899758076493">स्यान्स सेरिफ</translation>
 <translation id="3928666092801078803">मेरो डेटालाई संयोजन गर्नुहोस्</translation>
 <translation id="393697183122708255">कुनैपनि सक्षम गरिएको आवाज खोजी उपलब्ध छैन</translation>
-<translation id="6208931723626310729">मैले आफ्नो Brave खातामा साइन इन गर्दा Brave मा साइन इन गर्ने सुझाव दिइयोस्</translation>
+<translation id="6208931723626310729">मैले आफ्नो adrbrowsiel खातामा साइन इन गर्दा adrbrowsiel मा साइन इन गर्ने सुझाव दिइयोस्</translation>
 <translation id="395206256282351086">खोज र साइटसम्बन्धी सुझावहरू असक्षम पारियो</translation>
-<translation id="6945986954012067786">{NUM_IN_PROGRESS,plural, =1{यन्त्र तयार भएपछि Brave ले तपाईंको पृष्ठ लोड गर्ने छ}other{यन्त्र तयार भएपछि Brave ले तपाईंका पृष्ठहरू लोड गर्ने छ}}</translation>
-<translation id="8997474919031554666">पासफ्रेजमार्फत इन्क्रिप्सन गर्ने कार्यअन्तर्गत Brave Pay का भुक्तानी विधि र ठेगानाहरू समावेश हुँदैनन्। तपाईंको पासफ्रेज थाहा हुने व्यक्तिले मात्र तपाईंको इन्क्रिप्ट गरिएको डेटा पढ्न सक्छ। उक्त पासफ्रेज Brave मा पठाइँदैन वा त्यहाँ भण्डारण गरिँदैन। तपाईंले आफ्नो पासफ्रेज बिर्सनुभयो वा तपाईं यो सेटिङ परिवर्तन गर्न चाहनुहुन्छ भने तपाईंले सिंक रिसेट गर्नु पर्ने हुन्छ। <ph name="BEGIN_LINK"/>थप जान्नुहोस्<ph name="END_LINK"/></translation>
+<translation id="6945986954012067786">{NUM_IN_PROGRESS,plural, =1{यन्त्र तयार भएपछि adrbrowsiel ले तपाईंको पृष्ठ लोड गर्ने छ}other{यन्त्र तयार भएपछि adrbrowsiel ले तपाईंका पृष्ठहरू लोड गर्ने छ}}</translation>
+<translation id="8997474919031554666">पासफ्रेजमार्फत इन्क्रिप्सन गर्ने कार्यअन्तर्गत adrbrowsiel Pay का भुक्तानी विधि र ठेगानाहरू समावेश हुँदैनन्। तपाईंको पासफ्रेज थाहा हुने व्यक्तिले मात्र तपाईंको इन्क्रिप्ट गरिएको डेटा पढ्न सक्छ। उक्त पासफ्रेज adrbrowsiel मा पठाइँदैन वा त्यहाँ भण्डारण गरिँदैन। तपाईंले आफ्नो पासफ्रेज बिर्सनुभयो वा तपाईं यो सेटिङ परिवर्तन गर्न चाहनुहुन्छ भने तपाईंले सिंक रिसेट गर्नु पर्ने हुन्छ। <ph name="BEGIN_LINK"/>थप जान्नुहोस्<ph name="END_LINK"/></translation>
 <translation id="3967822245660637423">डाउनलोड पूर्ण भयो</translation>
-<translation id="1453002554835005700">Brave ले तपाईंका पासवर्डहरू जाँच्न सकेन</translation>
-<translation id="7961941514656597723"><ph name="APP_NAME"/> Brave मा खुल्ने छ। जारी राखेर तपाईं <ph name="BEGIN_LINK1"/>Brave का सेवाका सर्तहरू<ph name="END_LINK1"/> र <ph name="BEGIN_LINK2"/>Brave र Chrome OS का सेवाका अतिरिक्त सर्तहरू<ph name="END_LINK2"/>मा सहमति जनाउनुहुन्छ। <ph name="BEGIN_LINK3"/>Family Link मार्फत व्यवस्थापन गरिएका Brave खाताहरूको गोपनीयता सूचना<ph name="END_LINK3"/> पनि लागू हुन्छ।</translation>
+<translation id="1453002554835005700">adrbrowsiel ले तपाईंका पासवर्डहरू जाँच्न सकेन</translation>
+<translation id="7961941514656597723"><ph name="APP_NAME"/> adrbrowsiel मा खुल्ने छ। जारी राखेर तपाईं <ph name="BEGIN_LINK1"/>adrbrowsiel का सेवाका सर्तहरू<ph name="END_LINK1"/> र <ph name="BEGIN_LINK2"/>adrbrowsiel र Chrome OS का सेवाका अतिरिक्त सर्तहरू<ph name="END_LINK2"/>मा सहमति जनाउनुहुन्छ। <ph name="BEGIN_LINK3"/>Family Link मार्फत व्यवस्थापन गरिएका adrbrowsiel खाताहरूको गोपनीयता सूचना<ph name="END_LINK3"/> पनि लागू हुन्छ।</translation>
 <translation id="397583555483684758">सिंकले काम गर्न छाड्यो</translation>
 <translation id="3976396876660209797">यो सर्टकट हटाउनुहोस्‌ र यसलाई पुन: सिर्जना गर्नुहोस्‌</translation>
 <translation id="3985215325736559418">तपाईं फेरि <ph name="FILE_NAME"/> डाउनलोड गर्न चाहनुहुन्छ?</translation>
@@ -437,24 +437,24 @@
 <translation id="4060598801229743805">स्क्रिनको शीर्ष भाग नजिकै विकल्पहरू उपलब्ध छन्</translation>
 <translation id="4062305924942672200">कानूनी जानकारी</translation>
 <translation id="4084682180776658562">बुकमार्क</translation>
-<translation id="4521874409998847950"><ph name="PUBLISHER_ORIGIN"/> द्वारा – <ph name="BEGIN_DEEMPHASIZED"/>Brave ले डेलिभर गरेको<ph name="END_DEEMPHASIZED"/></translation>
+<translation id="4521874409998847950"><ph name="PUBLISHER_ORIGIN"/> द्वारा – <ph name="BEGIN_DEEMPHASIZED"/>adrbrowsiel ले डेलिभर गरेको<ph name="END_DEEMPHASIZED"/></translation>
 <translation id="4095146165863963773">एपको डेटा मेट्ने हो?</translation>
 <translation id="4095189195365058471">पछि पढ्नुहोस् <ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
-<translation id="673197144963363525">Brave मा प्रयोग तथ्याङ्क र क्रयास रिपोर्टहरू पठाएर Brave लाई राम्रो बनाउन सहयोग गर्नुहोस्!</translation>
+<translation id="673197144963363525">adrbrowsiel मा प्रयोग तथ्याङ्क र क्रयास रिपोर्टहरू पठाएर adrbrowsiel लाई राम्रो बनाउन सहयोग गर्नुहोस्!</translation>
 <translation id="4108314971463891922">फलो गर्नुहोस्</translation>
 <translation id="4108998448622696017">खतरनाक गतिविधि हुँदा पत्ता लगाउँछ र तपाईंलाई सोबारे चेतावनी दिन्छ।</translation>
 <translation id="4116038641877404294">पृष्ठहरूलाई अफलाइन हेर्न तिनीहरूलाई डाउनलोड गर्नुहोस्</translation>
 <translation id="4135200667068010335">ट्याब आदान प्रदान गरिनु पर्ने डिभाइसहरूको सूची बन्द छ।</translation>
-<translation id="4159350418181625094">Brave चलाउन सिक्नुहोस्</translation>
+<translation id="4159350418181625094">adrbrowsiel चलाउन सिक्नुहोस्</translation>
 <translation id="4149994727733219643">वेब पृष्ठहरूका लागि सरलीकृत दृश्य</translation>
 <translation id="4170011742729630528">यो सेवा उपलब्ध छैन, पछि पुन: प्रयास गर्नुहोस्।</translation>
 <translation id="4179980317383591987"><ph name="AMOUNT"/> प्रयोग गरियो</translation>
 <translation id="4181841719683918333">भाषाहरू</translation>
-<translation id="3845332215609790146">Brave Lens प्रयोग गरी खोज्नुहोस् <ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
+<translation id="3845332215609790146">adrbrowsiel Lens प्रयोग गरी खोज्नुहोस् <ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
 <translation id="4195643157523330669">नयाँ ट्याबमा खोल्नुहोस्</translation>
 <translation id="4198423547019359126">डाउनलोडसम्बन्धी कुनै पनि स्थानहरू उपलब्ध छैनन्</translation>
-<translation id="6003646045106347985">Brave ले सिफारिस गरेको वैयक्तीकृत सामग्री प्राप्त गर्न सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
-<translation id="7810580217418711046">Brave को पासवर्डमार्फत <ph name="TIME"/> सम्मका सिंक गरिएको डेटा इन्क्रिप्ट गर्नुहोस्</translation>
+<translation id="6003646045106347985">adrbrowsiel ले सिफारिस गरेको वैयक्तीकृत सामग्री प्राप्त गर्न सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
+<translation id="7810580217418711046">adrbrowsiel को पासवर्डमार्फत <ph name="TIME"/> सम्मका सिंक गरिएको डेटा इन्क्रिप्ट गर्नुहोस्</translation>
 <translation id="4242533952199664413">सेटिङहरू खोल्नुहोस्</translation>
 <translation id="4248098802131000011">डेटा चोरी हुने तथा सुरक्षासम्बन्धी अन्य समस्याबाट आफ्ना पासवर्डहरू सुरक्षित राख्नुहोस्</translation>
 <translation id="4250229828105606438">स्क्रिसट</translation>
@@ -474,22 +474,22 @@
 <translation id="4404568932422911380">कुनै पनि पुस्तक चिन्ह छैन</translation>
 <translation id="4405224443901389797">यहाँ सार्नुहोस्…</translation>
 <translation id="4411535500181276704">लाइट मोड</translation>
-<translation id="5749788945734786627">आफ्नो Brave खाताको व्यवस्थापन गर्नुहोस्</translation>
+<translation id="5749788945734786627">आफ्नो adrbrowsiel खाताको व्यवस्थापन गर्नुहोस्</translation>
 <translation id="4427306783828095590">परिष्कृत सुरक्षा प्रयोग गरी फिसिङ तथा मालवेयरमाथि अझ राम्रोसँग रोक लगाउन सकिन्छ</translation>
-<translation id="8856898588039823173">Brave ले उपलब्ध गराएको मूल पृष्ठको लाइट संस्करण। मूल पृष्ठ लोड गर्न ट्याप गर्नुहोस्।</translation>
+<translation id="8856898588039823173">adrbrowsiel ले उपलब्ध गराएको मूल पृष्ठको लाइट संस्करण। मूल पृष्ठ लोड गर्न ट्याप गर्नुहोस्।</translation>
 <translation id="4452411734226507615"><ph name="TAB_TITLE"/> ट्याब बन्द गर्नुहोस्‌</translation>
 <translation id="4452548195519783679"><ph name="FOLDER_NAME"/> मा पुस्तक चिन्ह लगाइयो</translation>
 <translation id="4472118726404937099">यन्त्रहरूभरि सिंक र वैयक्तीकृत गर्न साइन इन गरी सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
-<translation id="918192811481327695">Brave का सुविधा तथा कार्यसम्पादन सुधार्न मद्दत गर्नुहोस्</translation>
-<translation id="3133489217401741157">Brave को <ph name="MODULE"/> स्थापना गरिँदै…</translation>
-<translation id="53119194224775367">Brave का एप सम्बन्धी सबै डेटा सदाका लागि मेटिने छन्। यस अन्तर्गत सबै फाइल, सेटिङ, खाता, डेटाबेसहरू आदि पर्दछन्।</translation>
+<translation id="918192811481327695">adrbrowsiel का सुविधा तथा कार्यसम्पादन सुधार्न मद्दत गर्नुहोस्</translation>
+<translation id="3133489217401741157">adrbrowsiel को <ph name="MODULE"/> स्थापना गरिँदै…</translation>
+<translation id="53119194224775367">adrbrowsiel का एप सम्बन्धी सबै डेटा सदाका लागि मेटिने छन्। यस अन्तर्गत सबै फाइल, सेटिङ, खाता, डेटाबेसहरू आदि पर्दछन्।</translation>
 <translation id="4493497663118223949">लाइट मोड सक्रिय छ</translation>
 <translation id="4508528996305412043">फिड कार्ड मेनु खुला छ</translation>
 <translation id="4508642716788467538">आफ्नो भाषा छान्नुहोस्</translation>
 <translation id="4513387527876475750">{DAYS,plural, =1{# दिन अघि}other{# दिन अघि}}</translation>
 <translation id="451872707440238414">आफ्ना पुस्तक चिन्हहरू खोज्नुहोस्</translation>
-<translation id="1664855196866195614">चयन गरिएको डेटालाई Brave र सिंक गरिएका तपाईंका यन्त्रहरूबाट हटाइएको छ।
-<ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/> मा तपाईंको Brave खातासँग रहेको तपाईंका अन्य Brave सेवाहरूका खोज र गतिविधि जस्ता ब्राउजिङ सम्बन्धी इतिहासका अन्य ढाँचाहरू हुनसक्छन्।</translation>
+<translation id="1664855196866195614">चयन गरिएको डेटालाई adrbrowsiel र सिंक गरिएका तपाईंका यन्त्रहरूबाट हटाइएको छ।
+<ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/> मा तपाईंको adrbrowsiel खातासँग रहेको तपाईंका अन्य adrbrowsiel सेवाहरूका खोज र गतिविधि जस्ता ब्राउजिङ सम्बन्धी इतिहासका अन्य ढाँचाहरू हुनसक्छन्।</translation>
 <translation id="4532845899244822526">फोल्डर छान्नुहोस्</translation>
 <translation id="4538018662093857852">लाइट मोड सक्रिय गर्नुहोस्</translation>
 <translation id="4550003330909367850">यहाँ आफ्नो पासवर्ड हेर्न वा प्रतिलिपि गर्न यो यन्त्रमा स्क्रिन लक सेट गर्नुहोस्।</translation>
@@ -521,7 +521,7 @@
 <translation id="4714588616299687897">आफ्नो डेटाको ६०% सम्म जोगाउनुहोस्</translation>
 <translation id="4719927025381752090">अनुवादको गर्न प्रस्ताव गर्नुहोस्</translation>
 <translation id="4720023427747327413"><ph name="PRODUCT_NAME"/>मा खोल्नुहोस्</translation>
-<translation id="4939482511480190003">Brave लाई सुधार्न मद्दत गर्नुहोस्। <ph name="BEGIN_LINK"/>सर्वेक्षणमा भाग लिनुहोस्।<ph name="END_LINK"/></translation>
+<translation id="4939482511480190003">adrbrowsiel लाई सुधार्न मद्दत गर्नुहोस्। <ph name="BEGIN_LINK"/>सर्वेक्षणमा भाग लिनुहोस्।<ph name="END_LINK"/></translation>
 <translation id="47217992755561375">तपाईंका लागि सिफारिस गरिएका शीर्ष साइटहरू हेर्नुहोस्</translation>
 <translation id="4732120983431207637">स्ट्याक Unwinder</translation>
 <translation id="4732693703583195378">तपाईं यो साइटमा अझ सजिलैसँग जानका खातिर आफ्नो ट्याब्लेटको होम स्क्रिनमा उक्त साइटको लिंक हाल्नुहोस्</translation>
@@ -533,28 +533,28 @@
 <translation id="4766678251456904326">यन्त्रमा खाता जोड्नुहोस्</translation>
 <translation id="4767937498890654900">{FILE_COUNT,plural, =1{एउटा डाउनलोडको समयतालिका निर्धारण गरियो।}other{# वटा डाउनलोडको समयतालिका निर्धारण गरियो।}}</translation>
 <translation id="4791358705705538979">तपाईंलाई वेबमा चेकआउट जस्ता कार्यहरू पूरा गर्न मद्दत गर्छ</translation>
-<translation id="5149495116300586333">पासफ्रेजमार्फत इन्क्रिप्सन गर्ने कार्यअन्तर्गत Brave Pay का भुक्तानी विधि र ठेगानाहरू समावेश हुँदैनन्।
+<translation id="5149495116300586333">पासफ्रेजमार्फत इन्क्रिप्सन गर्ने कार्यअन्तर्गत adrbrowsiel Pay का भुक्तानी विधि र ठेगानाहरू समावेश हुँदैनन्।
 
 यो सेटिङ परिवर्तन गर्न <ph name="BEGIN_LINK"/>सिंक रिसेट गर्नुहोस्<ph name="END_LINK"/></translation>
 <translation id="4807098396393229769">कार्डमा रहेको नाम</translation>
 <translation id="4818017973810341238"><ph name="VIOLATED_URL"/> मा Digital Asset Links पुष्टि गर्न सकिएन</translation>
 <translation id="4824958205181053313">सिंक रद्द गर्ने हो?</translation>
 <translation id="4831037795716408498">सामग्री डाउनलोड गर्ने तरिका</translation>
-<translation id="2593289874938379417">Brave सँग अनुरोध गरिएको स्रोत माथिको पहुँच छैन।</translation>
+<translation id="2593289874938379417">adrbrowsiel सँग अनुरोध गरिएको स्रोत माथिको पहुँच छैन।</translation>
 <translation id="4837753911714442426">पृष्ठ छाप्ने सम्बन्धी विकल्पहरू खोल्नुहोस्</translation>
 <translation id="4842092870884894799">पासवर्ड उत्पादन पपअप देखाउँदै</translation>
 <translation id="4860895144060829044">कल गर्नुहोस्</translation>
 <translation id="4864369630010738180">साइन इन गरिँदै...</translation>
 <translation id="4865987431642283918">यन्त्रको पूर्वनिर्धारित भाषा</translation>
-<translation id="5131234170665854056">Brave को <ph name="MODULE"/> स्थापना गर्न सकिएन</translation>
+<translation id="5131234170665854056">adrbrowsiel को <ph name="MODULE"/> स्थापना गर्न सकिएन</translation>
 <translation id="4875775213178255010">सामग्रीसम्बन्धी सुझावहरू</translation>
 <translation id="4878404682131129617">प्रोक्सी सर्भरमार्फत कुनै टनेल स्थापना गर्न सकिएन</translation>
 <translation id="4880127995492972015">अनुवाद गर्नुहोस्…</translation>
 <translation id="4881695831933465202">खोल्नुहोस्</translation>
 <translation id="488187801263602086">फाइलको पुनः नामकरण गर्नुहोस्</translation>
 <translation id="4882831918239250449">खोज, विज्ञापन र थप कुराहरू वैयक्तीकृत गर्ने प्रयोजनका लागि तपाईंको ब्राउजिङ इतिहासको प्रयोग गरिने तरिका नियन्त्रण गर्नुहोस्</translation>
-<translation id="1248710015876067820">असमर्थित संख्याका Brave दृष्टान्तहरू।</translation>
-<translation id="3217997482476578430">Brave को Discover</translation>
+<translation id="1248710015876067820">असमर्थित संख्याका adrbrowsiel दृष्टान्तहरू।</translation>
+<translation id="3217997482476578430">adrbrowsiel को Discover</translation>
 <translation id="4910889077668685004">भुक्तानी सम्बन्धी एपहरू</translation>
 <translation id="4913161338056004800">तथ्याङ्कहरू रिसेट गर्नुहोस्</translation>
 <translation id="4913169188695071480">पुन: ताजा गर्ने काम रोक्नुहोस्</translation>
@@ -562,18 +562,18 @@
 <translation id="4921180162323349895">{FILE_COUNT,plural, =1{# पृष्ठ}other{# पृष्ठहरू}}</translation>
 <translation id="4925120120285606924">स्क्रिनसट <ph name="CURRENT_DATE_ISO"/></translation>
 <translation id="49268022542405662">तपाईंका पासवर्डहरू एक्स्पोर्ट गरी एउटा पाठ फाइलका रूपमा डाउनलोड गरिने छ। गन्तव्य फोल्डर हेर्ने अनुमति भएका जोसुकै व्यक्ति वा जुनसुकै एप यी पासवर्डहरू हेर्न सक्ने छन्।</translation>
-<translation id="1955495299630319741">तपाईं <ph name="DOMAIN_NAME"/> ले व्यवस्थापन गरेको खाताबाट साइन आउट गरिरहनुभएको हुनाले तपाईंको Brave को डेटा यस यन्त्रबाट मेटाइने छ। यो डेटा तपाईंको Brave खातामै रहिरहने छ।</translation>
+<translation id="1955495299630319741">तपाईं <ph name="DOMAIN_NAME"/> ले व्यवस्थापन गरेको खाताबाट साइन आउट गरिरहनुभएको हुनाले तपाईंको adrbrowsiel को डेटा यस यन्त्रबाट मेटाइने छ। यो डेटा तपाईंको adrbrowsiel खातामै रहिरहने छ।</translation>
 <translation id="4936039914467572121">यो साइटमा अझ छिटो जानुहोस्</translation>
 <translation id="4943703118917034429">भर्चुअल रियालिटी</translation>
 <translation id="4943872375798546930">कुनै नतिजा छैन</translation>
 <translation id="4961107849584082341">यस पृष्ठलाई जुनसुकै भाषामा अनुवाद गर्नुहोस्</translation>
 <translation id="4970824347203572753">तपाईंको स्थानमा उपलब्ध छैन</translation>
-<translation id="7307583170263691471">खतरनाक वेबसाइट, डाउनलोड र एक्स्टेन्सनहरूबाट अझ छिटो र सक्रिय सुरक्षा। तपाईंलाई पासवर्डहरूको चोरी हुन सक्ने सम्भावनाबारे चेतावनी दिन्छ। ब्राउजिङ डेटा Brave लाई पठाउनु पर्ने हुन्छ।</translation>
+<translation id="7307583170263691471">खतरनाक वेबसाइट, डाउनलोड र एक्स्टेन्सनहरूबाट अझ छिटो र सक्रिय सुरक्षा। तपाईंलाई पासवर्डहरूको चोरी हुन सक्ने सम्भावनाबारे चेतावनी दिन्छ। ब्राउजिङ डेटा adrbrowsiel लाई पठाउनु पर्ने हुन्छ।</translation>
 <translation id="497421865427891073">अगाडि जानुहोस्</translation>
 <translation id="4986638582553854481">मान</translation>
 <translation id="4988210275050210843">फाइलहरू डाउनलोड गर्दै (<ph name="MEGABYTES"/>)।</translation>
 <translation id="4988526792673242964">पृष्ठहरू</translation>
-<translation id="6447211988989208781">Brave का क्रियाकलापसम्बन्धी नियन्त्रणहरू</translation>
+<translation id="6447211988989208781">adrbrowsiel का क्रियाकलापसम्बन्धी नियन्त्रणहरू</translation>
 <translation id="5005498671520578047">पासवर्ड प्रतिलिपि गर्नुहोस्</translation>
 <translation id="5011311129201317034"><ph name="SITE"/> जडान गर्न चाहन्छ</translation>
 <translation id="5016205925109358554">सेरिफ</translation>
@@ -591,7 +591,7 @@
 <translation id="5161254044473106830">शीर्षक आवश्यक छ</translation>
 <translation id="5162754098604580781">{FILE_COUNT,plural, =1{१ डाउनलोड असफल भयो।}other{# डाउनलोडहरू असफल भए।}}</translation>
 <translation id="5170568018924773124">फोल्डरमा देखाउनुहोस्</translation>
-<translation id="8445059357334030806">Brave मा खोल्नुहोस्</translation>
+<translation id="8445059357334030806">adrbrowsiel मा खोल्नुहोस्</translation>
 <translation id="5191251636205085390">तेस्रो पक्षीय कुकीहरूलाई प्रतिस्थापन गर्ने प्रविधिका बारेमा जानकारी प्राप्त गर्नुहोस् र तिनलाई नियन्त्रण गर्ने तरिका सिक्नुहोस्</translation>
 <translation id="5193988420012215838">तपाईंको क्लिपबोर्डमा प्रतिलिपि गरियो</translation>
 <translation id="5199929503336119739">कार्य प्रोफाइल</translation>
@@ -610,14 +610,14 @@
 <translation id="5304593522240415983">यो क्षेत्र खाली हुन सक्दैन</translation>
 <translation id="5308380583665731573">जडान गर्नुहोस्</translation>
 <translation id="5317780077021120954">बचत गर्नुहोस्</translation>
-<translation id="989239400026154074">Brave ले Brave प्रयोग गर्ने सुझाव दिन्छ</translation>
+<translation id="989239400026154074">adrbrowsiel ले adrbrowsiel प्रयोग गर्ने सुझाव दिन्छ</translation>
 <translation id="5324858694974489420">अभिभावक सेटिङहरू</translation>
 <translation id="5327248766486351172">नाम</translation>
 <translation id="5342314432463739672">अनुमतिसम्बन्धी अनुरोधहरू</translation>
 <translation id="5355191726083956201">'उन्नत सुरक्षा' सक्रिय छ</translation>
 <translation id="5357811892247919462">ट्याब प्राप्त भयो</translation>
 <translation id="5368958499335451666">{OPEN_TABS,plural, =1{<ph name="OPEN_TABS_ONE"/> ट्याब खोल्नुहोस्, एउटा ट्याबबाट अर्को ट्याबमा जान ट्याप गर्नुहोस्}other{<ph name="OPEN_TABS_MANY"/> ट्याबहरू खोल्नुहोस्, एउटा ट्याबबाट अर्को ट्याबमा जान ट्याप गर्नुहोस्}}</translation>
-<translation id="1271180036744122948">Brave Lens मार्फत फोटो खोज्नुहोस् <ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
+<translation id="1271180036744122948">adrbrowsiel Lens मार्फत फोटो खोज्नुहोस् <ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
 <translation id="5403644198645076998">निश्चित साइटहरूलाई मात्र अनुमति दिनुहोस्</translation>
 <translation id="5414836363063783498">प्रमाणीकरण गर्दै...</translation>
 <translation id="5423934151118863508">तपाईँले धेरै भ्रमण गर्नुभएका पृष्ठहरू यहाँ देखिने छन्।</translation>
@@ -631,7 +631,7 @@
 <translation id="545042621069398927">तपाईंको डाउनलोडको गति बढाउँदै।</translation>
 <translation id="5456381639095306749">पृष्ठ डाउनलोड गर्नुहोस्</translation>
 <translation id="548278423535722844">नक्सा अनुप्रयोगमा खोल्नुहोस्</translation>
-<translation id="7176798998723526245">Brave नेभिगेट गर्ने तरिका</translation>
+<translation id="7176798998723526245">adrbrowsiel नेभिगेट गर्ने तरिका</translation>
 <translation id="5487521232677179737">डेटा खाली गर्नुहोस्</translation>
 <translation id="549025011754480756">बोलेर खोज्ने तरिका</translation>
 <translation id="5500777121964041360">तपाईंको स्थानमा उपलब्ध नहुन सक्छ</translation>
@@ -640,7 +640,7 @@
 <translation id="5515439363601853141">आफ्नो पासवर्ड हेर्न अनलक गर्नुहोस्</translation>
 <translation id="5517095782334947753">तपाईंसँग <ph name="FROM_ACCOUNT"/> का पुस्तक चिन्ह, इतिहास, पासवर्ड र अन्य सेटिङहरू छन्।</translation>
 <translation id="5524843473235508879">रिडिरेक्ट गर्न रोक लगाइयो।</translation>
-<translation id="2367014990350929709">यन्त्रहरू स्क्यान गर्न Brave लाई स्थान माथिको पहुँच चाहिन्छ। <ph name="BEGIN_LINK1"/>अनुमतिहरूलाई अपडेट गर्नुहोस्<ph name="END_LINK1"/>। यो यन्त्रमा स्थान माथिको पहुँचलाई पनि <ph name="BEGIN_LINK2"/>निष्क्रिय पारिएको छ<ph name="END_LINK2"/>।</translation>
+<translation id="2367014990350929709">यन्त्रहरू स्क्यान गर्न adrbrowsiel लाई स्थान माथिको पहुँच चाहिन्छ। <ph name="BEGIN_LINK1"/>अनुमतिहरूलाई अपडेट गर्नुहोस्<ph name="END_LINK1"/>। यो यन्त्रमा स्थान माथिको पहुँचलाई पनि <ph name="BEGIN_LINK2"/>निष्क्रिय पारिएको छ<ph name="END_LINK2"/>।</translation>
 <translation id="5534640966246046842">साइट प्रतिलिपि गरियो</translation>
 <translation id="5548606607480005320">सुरक्षा जाँच</translation>
 <translation id="5556459405103347317">पुन: लोड गर्नुहोस्</translation>
@@ -648,7 +648,7 @@
 <translation id="55737423895878184">यस कार्यका लागि स्थानसम्बन्धी सेवा तथा सूचनाहरूलाई अनुमति छ</translation>
 <translation id="5578795271662203820">यस छविको लागि <ph name="SEARCH_ENGINE"/> खोज्नुहोस्</translation>
 <translation id="5581519193887989363">तपाईं जुनसुकै बेला <ph name="BEGIN_LINK1"/>सेटिङहरू<ph name="END_LINK1"/> मा गई सिंक गर्ने कुरा छनौट गर्न सक्नुहुन्छ।</translation>
-<translation id="6157610782452852023">Brave सहायकले विभिन्न वेबसाइटहरूमा तपाईंले अह्राएका काम गर्न सक्छ</translation>
+<translation id="6157610782452852023">adrbrowsiel सहायकले विभिन्न वेबसाइटहरूमा तपाईंले अह्राएका काम गर्न सक्छ</translation>
 <translation id="5620163320393916465">कुनै पनि पासवर्ड सुरक्षित गरिएको छैन</translation>
 <translation id="5620928963363755975">थप विकल्पहरू नामक बटनमार्फत डाउनलोडरू नाम फोल्डरमा भएका आफ्ना फाइल र पृष्ठहरू भेट्टाउनुहोस्</translation>
 <translation id="562168087174703495">हाइलाइट गरिएको पाठको लिंक सिर्जना गर्न सकिएन। पेजको लिंक सेयर गर्नुहोस्।</translation>
@@ -661,10 +661,10 @@
 <translation id="5659593005791499971">इमेल</translation>
 <translation id="5665379678064389456"><ph name="APP_NAME"/> मा घटना सिर्जना गर्नुहोस्</translation>
 <translation id="5668404140385795438">जूमिङ इनलाई रोक्न वेबसाइटको अनुरोधलाई ओभरराइड गर्नुहोस्</translation>
-<translation id="5668833306439455813">Brave ले अपडेट उपलब्ध छन् कि छैनन् भन्ने कुरा जाँच गर्न सकेन</translation>
+<translation id="5668833306439455813">adrbrowsiel ले अपडेट उपलब्ध छन् कि छैनन् भन्ने कुरा जाँच गर्न सकेन</translation>
 <translation id="5686790454216892815">फाइलको नाम ज्यादै लामो छ</translation>
 <translation id="569536719314091526">थप विकल्पहरू नामक बटनबाट यस पृष्ठलाई जुनसुकै भाषामा अनुवाद गर्नुहोस्</translation>
-<translation id="2320748512701464301">Brave ले तपाईंलाई डेटा चोरीका घटना, असुरक्षित वेबसाइटहरू र थप समस्याहरूबाट जोगिन मद्दत गर्न सक्छ</translation>
+<translation id="2320748512701464301">adrbrowsiel ले तपाईंलाई डेटा चोरीका घटना, असुरक्षित वेबसाइटहरू र थप समस्याहरूबाट जोगिन मद्दत गर्न सक्छ</translation>
 <translation id="5697688514913266141">तपाईंका फाइलहरू <ph name="BEGIN_BOLD"/><ph name="DIRECTORY"/><ph name="END_BOLD"/> मा सुरक्षित गरिने छन्। <ph name="BEGIN_LINK2"/>सुरक्षित गरिने स्थान सम्पादन गर्नुहोस्<ph name="END_LINK2"/>।</translation>
 <translation id="570347048394355941">ट्याब प्रयोग गर्न थाल्नुहोस्</translation>
 <translation id="572328651809341494">हालका ट्याबहरू</translation>
@@ -673,7 +673,7 @@
 <translation id="5732819098735351888">Wi-Fi मा कनेक्ट भएका बेला डाउनलोड सुरु हुने छ।</translation>
 <translation id="5733983706093266635">QR कोड सिर्जना गर्न सकिएन। URL मा <ph name="CHARACTER_LIMIT"/> भन्दा बढी वर्ण प्रयोग गरिएको छ।</translation>
 <translation id="5748802427693696783">मानक ट्याबहरूमा स्विच गरियो</translation>
-<translation id="3088191967551450609">Braveलाई फाइलहरु डाउनलोड गर्न भण्डारणको पहुँच आवश्यक छ ।</translation>
+<translation id="3088191967551450609">adrbrowsielलाई फाइलहरु डाउनलोड गर्न भण्डारणको पहुँच आवश्यक छ ।</translation>
 <translation id="5749237766298580851">अफ छ <ph name="SEPARATOR"/> सिफारिस गरिँदैन</translation>
 <translation id="5754350196967618083">Discover पुनः ताजा गर्न सकिएन</translation>
 <translation id="5763514718066511291">यस एपको URL प्रतिलिपि गर्न ट्याप गर्नुहोस्</translation>
@@ -683,42 +683,42 @@
 <translation id="5780792035410621042">पासवर्ड कपी गर्न सर्वप्रथम आफ्नो यन्त्रमा स्क्रिन लक सेट गर्नुहोस्</translation>
 <translation id="5793665092639000975"><ph name="SPACE_AVAILABLE"/> मध्ये <ph name="SPACE_USED"/> प्रयोग गरिँदै</translation>
 <translation id="5795872532621730126">खोज्नुहोस् तथा ब्राउज गर्नुहोस्</translation>
-<translation id="5736731321935944068">Brave ले खोज, विज्ञापन र Brave का अन्य सेवाहरूलाई वैयक्तीकृत गर्न तपाईंको इतिहाससम्बन्धी जानकारी प्रयोग गर्न सक्छ</translation>
+<translation id="5736731321935944068">adrbrowsiel ले खोज, विज्ञापन र adrbrowsiel का अन्य सेवाहरूलाई वैयक्तीकृत गर्न तपाईंको इतिहाससम्बन्धी जानकारी प्रयोग गर्न सक्छ</translation>
 <translation id="5809361687334836369">{HOURS,plural, =1{# घन्टा अघि}other{# घन्टा अघि}}</translation>
-<translation id="5311273890481188673">प्रतिलिपि अधिकार <ph name="YEAR"/> Brave LLC। सर्वाधिकार सुरक्षित।</translation>
+<translation id="5311273890481188673">प्रतिलिपि अधिकार <ph name="YEAR"/> adrbrowsiel LLC। सर्वाधिकार सुरक्षित।</translation>
 <translation id="5810864297166300463">वेबसम्बन्धी सहायता</translation>
 <translation id="5814131985548525293">सुरु गर्न यहाँ टाइप गर्नुहोस् वा माइक्रोफोनको आइकनमा ट्याप गर्नुहोस्</translation>
 <translation id="5817918615728894473">जोडा  बनाउनुहोस्</translation>
 <translation id="583281660410589416">अज्ञात</translation>
 <translation id="5833984609253377421">लिंक सेयर गर्नुहोस्</translation>
-<translation id="3888648114124182147">Brave को अद्यावधिक डाउनलोड गर्दै…</translation>
+<translation id="3888648114124182147">adrbrowsiel को अद्यावधिक डाउनलोड गर्दै…</translation>
 <translation id="5853623416121554550">पज गरियो</translation>
-<translation id="3518793343998771868">तथ्याङ्क वा क्र्यास रिपोर्टहरू Brave मा पठाइँदैन</translation>
+<translation id="3518793343998771868">तथ्याङ्क वा क्र्यास रिपोर्टहरू adrbrowsiel मा पठाइँदैन</translation>
 <translation id="5854790677617711513">३० दिनभन्दा पुरानो</translation>
 <translation id="5855546874025048181">यसअनुसार परिष्कृत गर्नुहोस्: <ph name="REFINE_TEXT"/></translation>
-<translation id="998321811308652668">Brave ले ब्लुटुथ एडाप्टरलाई सक्रिय गर्न सकेन</translation>
+<translation id="998321811308652668">adrbrowsiel ले ब्लुटुथ एडाप्टरलाई सक्रिय गर्न सकेन</translation>
 <translation id="5860491529813859533">सक्रिय गर्नुहोस्</translation>
 <translation id="5862731021271217234">आफ्ना अन्य यन्त्रहरूबाट आफ्ना ट्याबहरू प्राप्त गर्न सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
 <translation id="5864174910718532887">विवरणहरू: साइटको नामअनुसार क्रमबद्ध गरिएको</translation>
 <translation id="5864419784173784555">अर्को डाउनलोडको प्रतीक्षा गर्दै…</translation>
 <translation id="5869522115854928033">बचत गरिएका पासवर्डहरू</translation>
-<translation id="9037412730408024068">तपाईंलाई काम सम्पन्न गर्न मद्दत गर्न Brave ले तपाईंले सहायक प्रयोग गर्ने साइटका URL र सामग्रीहरूका साथै तपाईंले सहायकमार्फत पेस गर्न जानकारी प्राप्त गर्ने छ</translation>
+<translation id="9037412730408024068">तपाईंलाई काम सम्पन्न गर्न मद्दत गर्न adrbrowsiel ले तपाईंले सहायक प्रयोग गर्ने साइटका URL र सामग्रीहरूका साथै तपाईंले सहायकमार्फत पेस गर्न जानकारी प्राप्त गर्ने छ</translation>
 <translation id="5919204609460789179">सिंक सुरु गर्न <ph name="PRODUCT_NAME"/> लाई अपडेट गर्नुहोस्</translation>
 <translation id="5937580074298050696"><ph name="AMOUNT"/> बचत गरियो</translation>
 <translation id="5939518447894949180">रिसेट गर्नुहोस्</translation>
-<translation id="6103327872225198548">खोजीका लागि Brave प्रयोग गर्दै</translation>
+<translation id="6103327872225198548">खोजीका लागि adrbrowsiel प्रयोग गर्दै</translation>
 <translation id="5951119116059277034">लाइभ पेज हेरिँदै छ</translation>
 <translation id="5951615825629292797">भाषा प्याक तयार छ, <ph name="APP_NAME"/> रिस्टार्ट गर्नुहोस्</translation>
-<translation id="8109318360573330108">तपाईंले पहुँच राख्न खोजिरहनुभएको पृष्ठको URL Brave मा पठाउँछ</translation>
-<translation id="305870044889644984">Brave को मद्दत केन्द्र एउटा नयाँ ट्याबमा खोल्नुहोस्</translation>
+<translation id="8109318360573330108">तपाईंले पहुँच राख्न खोजिरहनुभएको पृष्ठको URL adrbrowsiel मा पठाउँछ</translation>
+<translation id="305870044889644984">adrbrowsiel को मद्दत केन्द्र एउटा नयाँ ट्याबमा खोल्नुहोस्</translation>
 <translation id="5957442310066583693">तपाईंका लागि सिफारिस गरिएका शीर्ष साइटहरू हेर्न होम बटनमा ट्याप गर्नुहोस्</translation>
 <translation id="5958275228015807058">डाउनलोडरू नामक फोल्डरमा भएका आफ्ना फाइल र पृष्ठहरू भेट्टाउनुहोस्</translation>
 <translation id="5962718611393537961">संक्षिप्त गर्न ट्याप गर्नुहोस्</translation>
-<translation id="7760665516427405230">यो पृष्ठ अर्को यन्त्रसँग आदान प्रदान गर्न Brave ब्राउजरको सेटिङमा गई सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
+<translation id="7760665516427405230">यो पृष्ठ अर्को यन्त्रसँग आदान प्रदान गर्न adrbrowsiel ब्राउजरको सेटिङमा गई सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
 <translation id="5964869237734432770">फोटो विवरण पाउन छाड्नुहोस्</translation>
 <translation id="5979084224081478209">पासवर्डहरूको जाँच गर्नुहोस्</translation>
 <translation id="1455125811784733159">इन्कोग्निटो ट्याब खोल्नुहोस्</translation>
-<translation id="6456271171669383967">Brave लाई पूर्वनिर्धारित खोज इञ्जिनका रूपमा कायम राख्नुहोस्</translation>
+<translation id="6456271171669383967">adrbrowsiel लाई पूर्वनिर्धारित खोज इञ्जिनका रूपमा कायम राख्नुहोस्</translation>
 <translation id="6005538289190791541">सिफारिस गरिएको पासवर्ड</translation>
 <translation id="6036057147555329831">अतिरिक्त ICU</translation>
 <translation id="6039379616847168523">अर्को ट्याबमा जानुहोस्</translation>
@@ -756,7 +756,7 @@
 <translation id="6255999984061454636">सामग्रीसम्बन्धी सुझावहरू</translation>
 <translation id="6277522088822131679">पृष्ठ प्रिन्टिङ गर्नमा एक समस्या थियो। कृपया पुन: प्रयास गर्नुहोस्।</translation>
 <translation id="6278428485366576908">विषयवस्तु</translation>
-<translation id="7766792282581704663">Brave प्रयोग गरेर तपाईं <ph name="BEGIN_LINK1"/>Brave का सेवाका सर्तहरू<ph name="END_LINK1"/> र <ph name="BEGIN_LINK2"/>Brave र Chrome OS का सेवाका अतिरिक्त सर्तहरू<ph name="END_LINK2"/>मा सहमति जनाउनुहुन्छ।</translation>
+<translation id="7766792282581704663">adrbrowsiel प्रयोग गरेर तपाईं <ph name="BEGIN_LINK1"/>adrbrowsiel का सेवाका सर्तहरू<ph name="END_LINK1"/> र <ph name="BEGIN_LINK2"/>adrbrowsiel र Chrome OS का सेवाका अतिरिक्त सर्तहरू<ph name="END_LINK2"/>मा सहमति जनाउनुहुन्छ।</translation>
 <translation id="629730747756840877">खाता</translation>
 <translation id="6297765934698848803">तपाईंको डिभाइसको व्यवस्थापन गर्ने सङ्गठनले तपाईंको डिभाइसको क्यामेरा निष्क्रिय पारेको छ।</translation>
 <translation id="6301525844455696527">आफ्नो अध्ययन सूची हेर्न नभुल्नुहोस्</translation>
@@ -773,7 +773,7 @@
 <translation id="6345878117466430440">पढिसकिएको सामग्रीका रूपमा चिन्ह लगाउनुहोस्</translation>
 <translation id="6364438453358674297">इतिहासबाट सुझाव हटाउने?</translation>
 <translation id="6378173571450987352">विवरणहरू: प्रयोग गरिएको डेटाको मात्राअनुसार क्रमबद्ध गरिएको</translation>
-<translation id="4993481112200507346"><ph name="APP_NAME"/> Brave मा खुल्ने छ। जारी राखेर तपाईं <ph name="BEGIN_LINK1"/>Brave का सेवाका सर्तहरू<ph name="END_LINK1"/> र <ph name="BEGIN_LINK2"/>Brave र Chrome OS का सेवाका अतिरिक्त सर्तहरू<ph name="END_LINK2"/>मा सहमति जनाउनुहुन्छ।</translation>
+<translation id="4993481112200507346"><ph name="APP_NAME"/> adrbrowsiel मा खुल्ने छ। जारी राखेर तपाईं <ph name="BEGIN_LINK1"/>adrbrowsiel का सेवाका सर्तहरू<ph name="END_LINK1"/> र <ph name="BEGIN_LINK2"/>adrbrowsiel र Chrome OS का सेवाका अतिरिक्त सर्तहरू<ph name="END_LINK2"/>मा सहमति जनाउनुहुन्छ।</translation>
 <translation id="6381421346744604172">वेबसाइटहरू अँध्यारो पार्नुहोस्</translation>
 <translation id="6395288395575013217">लिंक</translation>
 <translation id="6397616442223433927">यन्त्र फेरि अनलाइन भयो</translation>
@@ -782,7 +782,7 @@
 <translation id="6406506848690869874">समक्रमण</translation>
 <translation id="6410404864818553978">प्रयोगसम्बन्धी आधारभूत डेटा</translation>
 <translation id="6410883413783534063">एकै पटक विभिन्न पृष्ठहरूमा जान बेग्लाबेग्लै ट्याबहरू खोल्नुहोस्</translation>
-<translation id="7810992039564280750">Brave मा भण्डारण गरिएका असुरक्षित साइटको सूची जाँच गरी URL हरू सुरक्षित छन् वा छैनन् भन्ने कुरा यकिन गर्छ। कुनै साइटले तपाईंको पासवर्ड चोरी गर्न खोज्दा वा तपाईंले कुनै हानिकारक फाइल डाउनलोड गर्दा Brave ले पृष्ठका केही सामग्रीसहित URL हरूलाई सुरक्षित ब्राउजिङमा पठाउन पनि सक्छ।</translation>
+<translation id="7810992039564280750">adrbrowsiel मा भण्डारण गरिएका असुरक्षित साइटको सूची जाँच गरी URL हरू सुरक्षित छन् वा छैनन् भन्ने कुरा यकिन गर्छ। कुनै साइटले तपाईंको पासवर्ड चोरी गर्न खोज्दा वा तपाईंले कुनै हानिकारक फाइल डाउनलोड गर्दा adrbrowsiel ले पृष्ठका केही सामग्रीसहित URL हरूलाई सुरक्षित ब्राउजिङमा पठाउन पनि सक्छ।</translation>
 <translation id="641643625718530986">प्रिन्ट गर्नुहोस्...</translation>
 <translation id="6427112570124116297">वेब अनुवाद गर्नुहोस्</translation>
 <translation id="6433501201775827830">आफ्नो सर्च इन्जिन छनौट गर्नुहोस्</translation>
@@ -791,52 +791,52 @@
 <translation id="6444421004082850253">{FILE_COUNT,plural, =1{# छवि}other{# छविहरू}}</translation>
 <translation id="6447558397796644647">उक्त पुस्तक चिन्ह फेला पार्न सकिएन। आफ्नो हिज्जे जाँच्नुहोस् वा कुनै नयाँ पुस्तक चिन्ह थप्नुहोस्।</translation>
 <translation id="6461962085415701688">फाइल खोल्न सकिँदैन</translation>
-<translation id="9055113864158719823">तपाईं आफूले Brave मार्फत भ्रमण गर्ने साइटहरू हेर्न र तिनमा टाइमर सेट गर्न सक्नुहुन्छ।\n\nBrave ले तपाईंले टाइमर सेट गर्नुभएका साइटहरू तथा उक्त साइट भ्रमण गर्दा बिताउनुभएको समयसम्बन्धी जानकारी प्राप्त गर्छ। यो जानकारी डिजिटल वेलबिइङ सुविधालाई अझ राम्रो बनाउनका निम्ति प्रयोग गरिन्छ।</translation>
+<translation id="9055113864158719823">तपाईं आफूले adrbrowsiel मार्फत भ्रमण गर्ने साइटहरू हेर्न र तिनमा टाइमर सेट गर्न सक्नुहुन्छ।\n\nadrbrowsiel ले तपाईंले टाइमर सेट गर्नुभएका साइटहरू तथा उक्त साइट भ्रमण गर्दा बिताउनुभएको समयसम्बन्धी जानकारी प्राप्त गर्छ। यो जानकारी डिजिटल वेलबिइङ सुविधालाई अझ राम्रो बनाउनका निम्ति प्रयोग गरिन्छ।</translation>
 <translation id="6475951671322991020">भिडियो डाउनलोड गर्नुहोस्</translation>
 <translation id="6477928892249167417">यी साइटहरू तपाईंका लागि महत्त्वपूर्ण हुन सक्छन्:</translation>
 <translation id="6482749332252372425"><ph name="FILE_NAME"/> डाउनलोड भण्डारण ठाउँ कमीको कारण असफल भयो।</translation>
 <translation id="6489610539826642779">अध्ययन सूची <ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/></translation>
 <translation id="6490496612063106490">हाइलाइट गरिएको पाठको लिंक</translation>
 <translation id="6496823230996795692">पहिलोपटक <ph name="APP_NAME"/> प्रयोग गर्न कृपया इन्टरनेटमा जडान गर्नुहोस्।</translation>
-<translation id="3960299545138990065">Brave पुनः सुरु गर्नुहोस्</translation>
+<translation id="3960299545138990065">adrbrowsiel पुनः सुरु गर्नुहोस्</translation>
 <translation id="6527303717912515753">साझा गर्नुहोस्</translation>
-<translation id="708829030563435351">तपाईंले Brave मार्फत हेर्नुभएका साइटहरू देखिने छैनन्। साइटका सबै टाइमरहरू मेटाइने छन्।</translation>
-<translation id="7723158744459952869">Brave ले प्रतिक्रिया जनाउन निकै लामो समय लियो</translation>
+<translation id="708829030563435351">तपाईंले adrbrowsiel मार्फत हेर्नुभएका साइटहरू देखिने छैनन्। साइटका सबै टाइमरहरू मेटाइने छन्।</translation>
+<translation id="7723158744459952869">adrbrowsiel ले प्रतिक्रिया जनाउन निकै लामो समय लियो</translation>
 <translation id="6539092367496845964">केही चिज गडबड भयो। पछि फेरि प्रयास गर्नुहोस्।</translation>
 <translation id="6541983376925655882">{NUM_HOURS,plural, =1{१ घन्टाअघि जाँच गरिएको}other{# घन्टाअघि जाँच गरिएको}}</translation>
 <translation id="6545017243486555795">सबै डेटा खाली गर्नुहोस्</translation>
 <translation id="6560414384669816528">Sogou मार्फत खोजी गर्नुहोस्</translation>
 <translation id="656065428026159829">थप हेर्नुहोस्</translation>
 <translation id="6565959834589222080">Wi-Fi उपलब्ध हुँदा मोबाइल डेटा प्रयोग गरिँदैन</translation>
-<translation id="5813223329348543512">Brave ले तपाईंको <ph name="GIGABYTES"/> जि.बि. बचाएको छ</translation>
+<translation id="5813223329348543512">adrbrowsiel ले तपाईंको <ph name="GIGABYTES"/> जि.बि. बचाएको छ</translation>
 <translation id="6573096386450695060">सधैँ अनुमति दिनुहोस्</translation>
-<translation id="5157964048453367290">तपाईँले आफ्ना अन्य यन्त्रहरूमा Brave मा खोल्नुभएका ट्याबहरू यहाँ देखिनेछन्।</translation>
+<translation id="5157964048453367290">तपाईँले आफ्ना अन्य यन्त्रहरूमा adrbrowsiel मा खोल्नुभएका ट्याबहरू यहाँ देखिनेछन्।</translation>
 <translation id="6583199322650523874">हालको पृष्ठलाई पुस्तक चिन्ह लगाउनुहोस्</translation>
 <translation id="6588043302623806746">सुरक्षित DNS प्रयोग गर्नुहोस्</translation>
 <translation id="6590471736817333463">६०% सम्म डेटा बचत गर्नुहोस्</translation>
 <translation id="6590680911007613645">तपाईंले सुरक्षित गर्न लाग्नुभएको पासवर्ड तपाईंको <ph name="SITE"/> को पासवर्डसँग मेल खान्छ भन्ने कुरा सुनिश्चित गर्नुहोस्</translation>
 <translation id="6593061639179217415">डेस्कटप साइट</translation>
-<translation id="2466982615210189224">तपाईंलाई उपलब्ध गराइने विवरणहरूमा सुधार ल्याउन फोटोहरू Brave मा पठाइन्छन्।</translation>
+<translation id="2466982615210189224">तपाईंलाई उपलब्ध गराइने विवरणहरूमा सुधार ल्याउन फोटोहरू adrbrowsiel मा पठाइन्छन्।</translation>
 <translation id="6597891566292541626">QR/बार कोडलाई यस फ्रेमभित्र पार्नुहोस्।</translation>
-<translation id="663059986967017181">Brave मा प्रतिलिपि गरियो</translation>
+<translation id="663059986967017181">adrbrowsiel मा प्रतिलिपि गरियो</translation>
 <translation id="661266467055912436">तपाईं र वेब प्रयोग गर्ने सम्पूर्ण प्रयोगकर्ताहरूलाई झन् सुरक्षित पार्छ।</translation>
 <translation id="6618554661997243500">तपाईं आफ्ना लागि सिफारिस गरिएका शीर्ष साइट तथा समाचारहरू हेर्न चाहनुहुन्न भने होम बटनमा ट्याप गर्नुहोस्</translation>
 <translation id="6627583120233659107">फोल्डर सम्पादन गर्नुहोस्</translation>
-<translation id="2259649928554669581">गोपनीयता, सुरक्षा र डेटाको सङ्कलनसँग सम्बन्धित थप सेटिङका लागि <ph name="BEGIN_LINK1"/>सिंक<ph name="END_LINK1"/> तथा <ph name="BEGIN_LINK2"/>Brave का सेवाहरू<ph name="END_LINK2"/> नामक खण्ड हेर्नुहोस्</translation>
+<translation id="2259649928554669581">गोपनीयता, सुरक्षा र डेटाको सङ्कलनसँग सम्बन्धित थप सेटिङका लागि <ph name="BEGIN_LINK1"/>सिंक<ph name="END_LINK1"/> तथा <ph name="BEGIN_LINK2"/>adrbrowsiel का सेवाहरू<ph name="END_LINK2"/> नामक खण्ड हेर्नुहोस्</translation>
 <translation id="6643016212128521049">खालि गर्नुहोस्</translation>
 <translation id="6643649862576733715">बचत गरिएको डेटाको मात्राद्वारा क्रमबद्ध गर्नुहोस्</translation>
 <translation id="6648977384226967773">{CONTACT,plural, =1{<ph name="CONTACT_PREVIEW"/>\u2026 र <ph name="NUMBER_OF_ADDITIONAL_CONTACTS"/> थप}other{<ph name="CONTACT_PREVIEW"/>\u2026 र <ph name="NUMBER_OF_ADDITIONAL_CONTACTS"/> थप}}</translation>
 <translation id="6649642165559792194"><ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/> छविको पूर्वावलोकन गर्नुहोस्</translation>
-<translation id="8428644385678426438">Brave डिभाइसहरूको लागि स्क्यान गर्न स्थान पहुँच आवश्यक छ। <ph name="BEGIN_LINK"/> अनुमतिहरू अपडेट गर्नुहोस्<ph name="END_LINK"/></translation>
+<translation id="8428644385678426438">adrbrowsiel डिभाइसहरूको लागि स्क्यान गर्न स्थान पहुँच आवश्यक छ। <ph name="BEGIN_LINK"/> अनुमतिहरू अपडेट गर्नुहोस्<ph name="END_LINK"/></translation>
 <translation id="6657585470893396449">पासवर्ड</translation>
 <translation id="6659594942844771486">ट्याब</translation>
 <translation id="666731172850799929"><ph name="APP_NAME"/> मा खोल्नुहोस्</translation>
-<translation id="7392539049993970338">Brave गोपनीयता सूचना</translation>
+<translation id="7392539049993970338">adrbrowsiel गोपनीयता सूचना</translation>
 <translation id="6671495933530132209">छविको प्रतिलिपि गर्नुहोस्</translation>
-<translation id="8581481290581777242">यस यन्त्रबाट तपाईंको Brave को डेटा हटाउने हो?</translation>
+<translation id="8581481290581777242">यस यन्त्रबाट तपाईंको adrbrowsiel को डेटा हटाउने हो?</translation>
 <translation id="6697492270171225480">कुनै पृष्ठ फेला पार्न नसकिएको खण्डमा मिल्दाजुल्दा पृष्ठसम्बन्धी सुझावहरू देखाउनुहोस्</translation>
 <translation id="6698801883190606802">सिंक गरिएका डेटा व्यवस्थित गर्नुहोस्</translation>
-<translation id="1006927014032731288">Brave का सर्भरहरूले तपाईंले हेर्ने पृष्ठहरू अप्टिमाइज गर्ने छन्।</translation>
+<translation id="1006927014032731288">adrbrowsiel का सर्भरहरूले तपाईंले हेर्ने पृष्ठहरू अप्टिमाइज गर्ने छन्।</translation>
 <translation id="670498945988402717">हिजो जाँच गरिएको</translation>
 <translation id="6710213216561001401">अघिल्लो</translation>
 <translation id="671481426037969117">तपाईंको <ph name="FQDN"/> टाइमरको समय सकियो। यो भोलि फेरि सुरु हुने छ।</translation>
@@ -844,14 +844,14 @@
 <translation id="6767294960381293877">ट्याब आदान प्रदान गरिनु पर्ने डिभाइसहरूको सूची आधा उचाइमा खोलिएको छ।</translation>
 <translation id="6783942555455976443">यो पृष्ठ पछि पढ्ने प्रयोजनका लागि सेभ गर्नुहोस् र रिमाइन्डर प्राप्त गर्नुहोस्</translation>
 <translation id="6811034713472274749">पृष्ठ हेर्नका लागि तयार छ</translation>
-<translation id="8418237809013783651">Brave मा साइन इन गर्ने पेज खोलियो।</translation>
+<translation id="8418237809013783651">adrbrowsiel मा साइन इन गर्ने पेज खोलियो।</translation>
 <translation id="6820686453637990663">CVC</translation>
 <translation id="6824899148643461612"><ph name="TAB_TITLE"/>, ट्याब, चयन गरियो</translation>
-<translation id="4991384657077828949">Brave को सुरक्षामा सुधार गर्न मद्दत गर्नुहोस्</translation>
+<translation id="4991384657077828949">adrbrowsiel को सुरक्षामा सुधार गर्न मद्दत गर्नुहोस्</translation>
 <translation id="6846298663435243399">लोड हुँदै...</translation>
 <translation id="6850409657436465440">तपाईंको डाउनलोड हुने क्रम अझै जारी छ</translation>
 <translation id="6850830437481525139"><ph name="TAB_COUNT"/> ट्याबहरू बन्द भए</translation>
-<translation id="4046835482356054431">Brave को Discover - अफ छ</translation>
+<translation id="4046835482356054431">adrbrowsiel को Discover - अफ छ</translation>
 <translation id="686366188661646310">पासवर्ड मेट्ने हो?</translation>
 <translation id="6864459304226931083">छवि डाउनलोड गर्नुहोस्</translation>
 <translation id="6865313869410766144">स्वत: भर्ने फारम लगत</translation>
@@ -885,10 +885,10 @@
 <translation id="7071521146534760487">खाताको व्यवस्थापन गर्नुहोस्</translation>
 <translation id="707155805709242880">तल सिंक गरिनु पर्ने कुराहरू चयन गर्नुहोस्</translation>
 <translation id="7077143737582773186">SD कार्ड</translation>
-<translation id="2374582967527009647">यस सुविधाले URL हरूको जाँच गर्नका निम्ति तिनलाई सुरक्षित ब्राउजिङमा पठाउँछ। यस सुविधाले नयाँ जोखिमहरू पत्ता लगाउन पृष्ठ, डाउनलोड, एक्स्टेन्सनसम्बन्धी गतिविधि र प्रणालीसम्बन्धी जानकारीको सानो नमुना पनि सुरक्षित ब्राउजिङमा पठाउँछ। यस सुविधाले तपाईं साइन इन भएका बेला यो डेटा केही समयका लागि तपाईंको Brave खातामा लिंक गर्छ। यसो गर्नुको उद्देश्य Brave का एपहरूमा तपाईंको डेटा सुरक्षित राख्नु हो।</translation>
-<translation id="8208853227947884571">Brave अपडेट छ</translation>
+<translation id="2374582967527009647">यस सुविधाले URL हरूको जाँच गर्नका निम्ति तिनलाई सुरक्षित ब्राउजिङमा पठाउँछ। यस सुविधाले नयाँ जोखिमहरू पत्ता लगाउन पृष्ठ, डाउनलोड, एक्स्टेन्सनसम्बन्धी गतिविधि र प्रणालीसम्बन्धी जानकारीको सानो नमुना पनि सुरक्षित ब्राउजिङमा पठाउँछ। यस सुविधाले तपाईं साइन इन भएका बेला यो डेटा केही समयका लागि तपाईंको adrbrowsiel खातामा लिंक गर्छ। यसो गर्नुको उद्देश्य adrbrowsiel का एपहरूमा तपाईंको डेटा सुरक्षित राख्नु हो।</translation>
+<translation id="8208853227947884571">adrbrowsiel अपडेट छ</translation>
 <translation id="7106762743910369165">तपाईंको संगठनले तपाईंको ब्राउजर व्यवस्थापन गर्छ</translation>
-<translation id="1968157943459987269">ठेगाना पट्टीका इतिहास र स्वतः पूर्णताहरूलाई खाली गर्छ। तपाईंको Brave खाताको <ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/> मा अन्य किसिमका ब्राउजिङ इतिहास रहेका हुन सक्छन्।</translation>
+<translation id="1968157943459987269">ठेगाना पट्टीका इतिहास र स्वतः पूर्णताहरूलाई खाली गर्छ। तपाईंको adrbrowsiel खाताको <ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/> मा अन्य किसिमका ब्राउजिङ इतिहास रहेका हुन सक्छन्।</translation>
 <translation id="7138678301420049075">अन्य</translation>
 <translation id="7146622961999026732">यी साइट र एपहरू तपाईंका लागि महत्त्वपूर्ण हुन सक्छन्:</translation>
 <translation id="7149158118503947153"><ph name="DOMAIN_NAME"/> को <ph name="BEGIN_LINK"/>मूल पृष्ठ लोड गर्नुहोस्<ph name="END_LINK"/></translation>
@@ -896,23 +896,23 @@
 <translation id="7173114856073700355">सेटिङहरू खोल्नुहोस्</translation>
 <translation id="7177466738963138057">तपाईं सेटिङहरूमा पछि यो परिवर्तन गर्न सक्नुहुन्छ</translation>
 <translation id="7180611975245234373">ताजा गर्नुहोस्</translation>
-<translation id="8355565210555500987">यस सुविधाले तपाईं Brave मा साइन इन भएका बेला तपाईंको जानकारी सुरक्षित राख्छ। Brave का अन्य एपहरूको सुरक्षा स्तर सुधार गर्न पनि यसको प्रयोग गरिन सक्छ।</translation>
+<translation id="8355565210555500987">यस सुविधाले तपाईं adrbrowsiel मा साइन इन भएका बेला तपाईंको जानकारी सुरक्षित राख्छ। adrbrowsiel का अन्य एपहरूको सुरक्षा स्तर सुधार गर्न पनि यसको प्रयोग गरिन सक्छ।</translation>
 <translation id="718926126787620637">पुस्तक चिन्ह लगाइएका फोल्डरहरूको सूची स्क्रिनको पूरा भागमा खोलियो</translation>
 <translation id="7189372733857464326">Google Play Services ले अद्यावधिक गर्ने कार्य सम्पन्न गरोस् भनी कुर्दै</translation>
 <translation id="7191430249889272776">पृष्ठभूमिमा ट्याब खुला छ।</translation>
-<translation id="3512968675351418494">आफ्नो भाषामा वेब हेर्न Brave को नवीनतम संस्करण प्राप्त गर्नुहोस्</translation>
-<translation id="8287068819750208230"><ph name="TARGET_DEVICE_NAME"/> को Brave मा सिंक सुविधा सक्रिय गरिएको छ भन्ने कुरा सुनिश्चित गर्नुहोस्</translation>
+<translation id="3512968675351418494">आफ्नो भाषामा वेब हेर्न adrbrowsiel को नवीनतम संस्करण प्राप्त गर्नुहोस्</translation>
+<translation id="8287068819750208230"><ph name="TARGET_DEVICE_NAME"/> को adrbrowsiel मा सिंक सुविधा सक्रिय गरिएको छ भन्ने कुरा सुनिश्चित गर्नुहोस्</translation>
 <translation id="7274013316676448362">रोक लगाइएका साइटहरू</translation>
 <translation id="7286572596625053347"><ph name="LANGUAGE"/> परिवर्तन गर्ने हो?</translation>
 <translation id="7290209999329137901">नाम बदल्ने सुविधा उपलब्ध छैन</translation>
 <translation id="7291910923717764901">यो पेजमा फोटोसम्बन्धी विवरण हालिएको छ</translation>
-<translation id="2997266899014181325">सिंक गर्ने कार्य सुरु गर्न "Brave को आफ्नो डेटा सिंक गर्नुहोस्"।</translation>
+<translation id="2997266899014181325">सिंक गर्ने कार्य सुरु गर्न "adrbrowsiel को आफ्नो डेटा सिंक गर्नुहोस्"।</translation>
 <translation id="7293429513719260019">भाषा चयन गर्नुहोस्</translation>
 <translation id="729975465115245577">तपाईंको यन्त्रमा पासवर्डहरूको फाइल भण्डारण गर्ने कुनै एप छैन।</translation>
 <translation id="7302081693174882195">विवरणहरू: बचत गरिएको डेटाको मात्राअनुसार क्रमबद्ध गरिएको</translation>
-<translation id="1382596880054356475">अफलाइन छ। Brave ले तपाईंका पासवर्डहरू जाँच्न सकेन।</translation>
+<translation id="1382596880054356475">अफलाइन छ। adrbrowsiel ले तपाईंका पासवर्डहरू जाँच्न सकेन।</translation>
 <translation id="7313188324932846546">सिंक सुविधा सेटअप गर्न ट्याप गर्नुहोस्</translation>
-<translation id="3252158532344029638">लाइट मोडमा हुँदा Brave ले पृष्ठहरू अझ छिटो लोड गर्नुका साथै ६० प्रतिशतसम्म कम डेटा प्रयोग गर्छ।</translation>
+<translation id="3252158532344029638">लाइट मोडमा हुँदा adrbrowsiel ले पृष्ठहरू अझ छिटो लोड गर्नुका साथै ६० प्रतिशतसम्म कम डेटा प्रयोग गर्छ।</translation>
 <translation id="7332075081379534664">साइन इन गरियो</translation>
 <translation id="7333031090786104871">अघिल्लो साइट अझै थपिँदै</translation>
 <translation id="7340958967809483333">Discover का विकल्पहरू</translation>
@@ -923,14 +923,14 @@
 <translation id="7375125077091615385">प्रकार:</translation>
 <translation id="7396940094317457632"><ph name="FILE_NAME"/>।</translation>
 <translation id="7400418766976504921">URL</translation>
-<translation id="724102042129299115">पहिलोपटक Brave चलाउँदाको अनुभव</translation>
+<translation id="724102042129299115">पहिलोपटक adrbrowsiel चलाउँदाको अनुभव</translation>
 <translation id="741204030948306876">हुन्छ, म सहमत छु</translation>
 <translation id="7413229368719586778">सुरु हुने मिति: <ph name="DATE"/></translation>
 <translation id="7431991332293347422">खोज र थप कुराहरू वैयक्तीकृत गर्ने प्रयोजनका लागि तपाईंको ब्राउजिङ इतिहासको प्रयोग गरिने तरिका नियन्त्रण गर्नुहोस्</translation>
 <translation id="7435356471928173109">तपाईंका एड्मिनले अफ गर्नुभएको</translation>
-<translation id="6234515504547364178">Brave बाट साइन आउट गर्नुहोस्</translation>
+<translation id="6234515504547364178">adrbrowsiel बाट साइन आउट गर्नुहोस्</translation>
 <translation id="7444811645081526538">थप कोटिहरू</translation>
-<translation id="3699067418237091329">तपाईंलाई धेरैजसो साइटहरूबाट साइन आउट गर्छ। तपाईं आफ्नो Brave खाताबाट साइन आउट हुनु हुने छैन।</translation>
+<translation id="3699067418237091329">तपाईंलाई धेरैजसो साइटहरूबाट साइन आउट गर्छ। तपाईं आफ्नो adrbrowsiel खाताबाट साइन आउट हुनु हुने छैन।</translation>
 <translation id="7454641608352164238">पर्याप्त खाली ठाउँ छैन</translation>
 <translation id="7475192538862203634">तपाईँले यसलाई प्राय: देखिरहनु भएको छ भने, यी <ph name="BEGIN_LINK"/>सुझावहरू<ph name="END_LINK"/> प्रयास गर्नुहोस्।</translation>
 <translation id="7475688122056506577">SD कार्ड फेला परेन। तपाईंका केही फाइलहरू हराइरहेका हुन सक्छन्।</translation>
@@ -946,27 +946,27 @@
 <translation id="7514365320538308">डाउनलोड गर्नुहोस्</translation>
 <translation id="751961395872307827">साइटमा जडान गर्न सकिँदैन</translation>
 <translation id="752220631458524187">आफ्नो काम सकिएपछि डिस्कनेक्ट गर्नुहोस्</translation>
-<translation id="6503785562431782631">Brave Lens प्रयोग गरी आफ्नो क्यामेरामार्फत खोज्नुहोस्</translation>
+<translation id="6503785562431782631">adrbrowsiel Lens प्रयोग गरी आफ्नो क्यामेरामार्फत खोज्नुहोस्</translation>
 <translation id="753225086557513863">पछि डाउनलोड सुरु गर्ने गरी समयतालिका निर्धारण गरिएको</translation>
 <translation id="7559975015014302720">लाइट मोड निष्क्रिय छ</translation>
 <translation id="7562080006725997899">ब्राउजिङ डेटा मेटाउँदै</translation>
-<translation id="7814200940910057384">Brave को डेटालाई खाली गरियो</translation>
+<translation id="7814200940910057384">adrbrowsiel को डेटालाई खाली गरियो</translation>
 <translation id="7577900504646297215">रुचिहरू व्यवस्थापन गर्नुहोस्</translation>
 <translation id="757855969265046257">{FILES,plural, =1{<ph name="FILES_DOWNLOADED_ONE"/> फाइल डाउनलोड गरियो}other{<ph name="FILES_DOWNLOADED_MANY"/> फाइलहरू डाउनलोड गरिए}}</translation>
 <translation id="7583262514280211622">तपाईंको अध्ययन सूची यहाँ देखिने छ</translation>
 <translation id="7588219262685291874">तपाईंको यन्त्रमा ब्याट्री सेभर मोड सक्रिय हुँदा अँध्यारो थिम सक्रिय गर्नुहोस्</translation>
-<translation id="3235722914093408050">Brave सिंकलाई सुरु गर्न Android का सेटिङहरू खोल्नुहोस् र Android को प्रणालीसम्बन्धी सिंकलाई पुन:सक्षम पार्नुहोस्</translation>
+<translation id="3235722914093408050">adrbrowsiel सिंकलाई सुरु गर्न Android का सेटिङहरू खोल्नुहोस् र Android को प्रणालीसम्बन्धी सिंकलाई पुन:सक्षम पार्नुहोस्</translation>
 <translation id="7596558890252710462">अपरेटिङ सिस्टम</translation>
 <translation id="7605594153474022051">सिंकले काम गरिरहेको छैन</translation>
 <translation id="7606077192958116810">लाइट मोड सक्रिय छ। सेटिङहरूमा गई यसको व्यवस्थापन गर्नुहोस्।</translation>
-<translation id="649070405679044769">यस रूपमा Brave मा साइन इन गरियो</translation>
+<translation id="649070405679044769">यस रूपमा adrbrowsiel मा साइन इन गरियो</translation>
 <translation id="7619072057915878432"><ph name="FILE_NAME"/> डाउनलोड नेटवर्क असफलताका कारणले असफल भयो।</translation>
 <translation id="7624880197989616768"><ph name="BEGIN_LINK1"/>मद्दत प्राप्त गर्नुहोस्<ph name="END_LINK1"/> वा <ph name="BEGIN_LINK2"/>पुन:स्क्यान गर्नुहोस्<ph name="END_LINK2"/></translation>
-<translation id="7207456302801184289">Brave मा स्वागत छ</translation>
+<translation id="7207456302801184289">adrbrowsiel मा स्वागत छ</translation>
 <translation id="7630202231528827509">सेवा प्रदायकको URL</translation>
 <translation id="7638584964844754484">गलत पासफ्रेज</translation>
 <translation id="7641339528570811325">ब्राउजिङको डेटा खाली गर्नुहोस्…</translation>
-<translation id="3598578758776312506">Brave प्रमाणहरूले पासवर्डहरू इन्क्रिप्ट गर्नुहोस्</translation>
+<translation id="3598578758776312506">adrbrowsiel प्रमाणहरूले पासवर्डहरू इन्क्रिप्ट गर्नुहोस्</translation>
 <translation id="7658239707568436148">रद्द गर्नुहोस्</translation>
 <translation id="7665369617277396874">खाता थप्नुहोस्</translation>
 <translation id="766587987807204883">लेखहरू यहाँ देखिन्छन् र तपाईं ती लेखहरू अफलाइन भएका बेलामा पनि पढ्न सक्नुहुन्छ</translation>
@@ -975,7 +975,7 @@
 <translation id="7704317875155739195">खोज तथा URL हरू स्वतः पूर्ण गर्नुहोस्</translation>
 <translation id="7707922173985738739">मोबाइल डेटा प्रयोग गर्नुहोस्‌</translation>
 <translation id="7725024127233776428">तपाईंले पुस्तक चिन्ह लगाउनुभएका पृष्ठहरू यहाँ देखिन्छन्</translation>
-<translation id="1943176487615318915">Brave ले खतरनाक एप र साइटहरू पत्ता लगाउने प्रयोजनका लागि तपाईंले भ्रमण गर्ने केही पृष्ठका URL, प्रणालीसम्बन्धी सीमित जानकारी र केही पृष्ठका सामग्री Brave मा पठाउँछ</translation>
+<translation id="1943176487615318915">adrbrowsiel ले खतरनाक एप र साइटहरू पत्ता लगाउने प्रयोजनका लागि तपाईंले भ्रमण गर्ने केही पृष्ठका URL, प्रणालीसम्बन्धी सीमित जानकारी र केही पृष्ठका सामग्री adrbrowsiel मा पठाउँछ</translation>
 <translation id="7757787379047923882"><ph name="DEVICE_NAME"/> ले आदान प्रदान गरेको पाठ</translation>
 <translation id="7761849928583394409">मिति र समय रोज्नुहोस्</translation>
 <translation id="7762668264895820836">SD कार्ड <ph name="SD_CARD_NUMBER"/></translation>
@@ -984,7 +984,7 @@
 <translation id="7772375229873196092"><ph name="APP_NAME"/>बन्द गर्नुहोस्</translation>
 <translation id="7774809984919390718">{PAYMENT_METHOD,plural, =1{<ph name="PAYMENT_METHOD_PREVIEW"/>\u2026 र <ph name="NUMBER_OF_ADDITIONAL_PAYMENT_METHODS"/> थप}other{<ph name="PAYMENT_METHOD_PREVIEW"/>\u2026 र <ph name="NUMBER_OF_ADDITIONAL_PAYMENT_METHODS"/> थप}}</translation>
 <translation id="7778840695157240389">नयाँ समाचार हेर्न पछि फर्केर आउनुहोस्</translation>
-<translation id="4885054029571583374">Brave Assistant ले वेबमा खोज्दा तथा आफूले खोलेका साइटहरू चलाउँदा बोलेरै प्रयोग गर्न सकिने अझ राम्रा सुविधाहरू उपलब्ध गराउँछ। Brave सहायकले तपाईंले सहायक प्रयोग गर्ने साइटका URL र सामग्रीहरू प्राप्त गर्ने छ।</translation>
+<translation id="4885054029571583374">adrbrowsiel Assistant ले वेबमा खोज्दा तथा आफूले खोलेका साइटहरू चलाउँदा बोलेरै प्रयोग गर्न सकिने अझ राम्रा सुविधाहरू उपलब्ध गराउँछ। adrbrowsiel सहायकले तपाईंले सहायक प्रयोग गर्ने साइटका URL र सामग्रीहरू प्राप्त गर्ने छ।</translation>
 <translation id="7790349552933995572">होम स्क्रिन</translation>
 <translation id="7791543448312431591">थप्नुहोस्</translation>
 <translation id="7798392620021911922"><ph name="TAB_COUNT"/> वटा ट्याब रिस्टोर गरिए</translation>
@@ -993,7 +993,7 @@
 <translation id="7815484226266492798">लामो स्क्रिनसट</translation>
 <translation id="7821588508402923572">तपाईंले बचत गर्नुभएको डेटा यहाँ देखिने छ</translation>
 <translation id="7844171778363018843">सिंक गर्नका लागि कुनै पनि डेटा चयन गरिएको छैन</translation>
-<translation id="7068829570137757602">Brave का सेवाहरू</translation>
+<translation id="7068829570137757602">adrbrowsiel का सेवाहरू</translation>
 <translation id="784934925303690534">समयको दायरा</translation>
 <translation id="7851858861565204677">अन्य यन्त्रहरू</translation>
 <translation id="7857691613771368249">फाइलहरू कहिले सुरक्षित गर्ने भनी सोध्नुहोस्</translation>
@@ -1002,8 +1002,8 @@
 <translation id="7876243839304621966">सबै हटाउनुहोस्</translation>
 <translation id="7879130110979560610">{READING_LIST_REMINDER_NOTIFICATION_SUBTITLE,plural, =1{तपाईंले <ph name="READING_LIST_REMINDER_NOTIFICATION_SUBTITLE_ONE"/> पेज पढ्नुभएको छैन}other{तपाईंले <ph name="READING_LIST_REMINDER_NOTIFICATION_SUBTITLE_MANY"/> वटा पेज पढ्नुभएको छैन}}</translation>
 <translation id="7882131421121961860">कुनै इतिहास भेट्टिएन</translation>
-<translation id="6143689084714664628">Brave मा चलिरहेको छ</translation>
-<translation id="5570166585033664196">Brave प्रयोग गर्ने तरिका</translation>
+<translation id="6143689084714664628">adrbrowsiel मा चलिरहेको छ</translation>
+<translation id="5570166585033664196">adrbrowsiel प्रयोग गर्ने तरिका</translation>
 <translation id="7903184275147100332">यो कार्य पूरा हुन एक मिनेट लाग्न सक्छ</translation>
 <translation id="7919123827536834358">यी भाषाहरू स्वतः अनुवाद गर्नुहोस्</translation>
 <translation id="7925590027513907933">{FILE_COUNT,plural, =1{फाइल डाउनलोड गर्दै}other{ # फाइलहरू डाउनलोड गर्दै।}}</translation>
@@ -1014,7 +1014,7 @@
 <translation id="7947953824732555851">स्वीकार र साइन इन गर्नुहोस्</translation>
 <translation id="7961926449547174351">तपाईंले भण्डारण प्रयोग गर्ने अनुमति दिनुभएको छैन, कृपया सेटिङमा गई उक्त अनुमति दिनुहोस्।</translation>
 <translation id="7963646190083259054">विक्रेता:</translation>
-<translation id="5149323899804758325">QR कोड स्क्यान गर्न आफ्नो सेटिङ परिवर्तन गरी Brave लाई तपाईंको क्यामेरा प्रयोग गर्न दिनुहोस्</translation>
+<translation id="5149323899804758325">QR कोड स्क्यान गर्न आफ्नो सेटिङ परिवर्तन गरी adrbrowsiel लाई तपाईंको क्यामेरा प्रयोग गर्न दिनुहोस्</translation>
 <translation id="7968014550143838305">अध्ययन सूचीमा हालियो</translation>
 <translation id="7971136598759319605">१ दिनअघि सक्रिय</translation>
 <translation id="7975379999046275268"><ph name="BEGIN_NEW"/>नयाँ<ph name="END_NEW"/> पृष्ठको पूर्वावलोकन गर्नु…</translation>
@@ -1022,7 +1022,7 @@
 <translation id="7986497153528221272">पासवर्डहरू हेर्न सर्वप्रथम आफ्नो यन्त्रमा स्क्रिन लक सेट गर्नुहोस्</translation>
 <translation id="7998918019931843664">बन्द ट्याब पुन: खोल्नुहोस्</translation>
 <translation id="8004582292198964060">ब्राउजर</translation>
-<translation id="3325020657155065477">यो यन्त्रबाट आफ्नो Brave को डेटा पनि हटाउनुहोस्</translation>
+<translation id="3325020657155065477">यो यन्त्रबाट आफ्नो adrbrowsiel को डेटा पनि हटाउनुहोस्</translation>
 <translation id="8015452622527143194">पृष्ठमा रहेको सबै कुरालाई पूर्वनिर्धारित आकारमा ल्याउनुहोस्</translation>
 <translation id="8026334261755873520">ब्राउजिङ लगत खालि गर्नुहोस्</translation>
 <translation id="8027863900915310177">कहाँ डाउनलोड गर्ने भन्ने कुरा छनौट गर्नुहोस्</translation>
@@ -1033,7 +1033,7 @@
 <translation id="804335162455518893">SD कार्ड फेला परेन</translation>
 <translation id="805047784848435650">तपाईंको ब्राउजिङसम्बन्धी इतिहासमा आधारित</translation>
 <translation id="8051695050440594747"><ph name="MEGABYTES"/> एम.बि.उपलब्ध छ</translation>
-<translation id="2317945146070194624">Brave को नयाँ ट्याबमा खोल्नुहोस्</translation>
+<translation id="2317945146070194624">adrbrowsiel को नयाँ ट्याबमा खोल्नुहोस्</translation>
 <translation id="8063895661287329888">पुस्तक चिन्ह थप्न सकिएन।</translation>
 <translation id="806745655614357130">मेरो डेटा अलग राख्नुहोस्</translation>
 <translation id="8073388330009372546">छविलाई नयाँ ट्याबमा खोल्नुहोस्</translation>
@@ -1043,11 +1043,11 @@
 <translation id="808747664143081553">यन्त्रसँग कनेक्ट गरियो</translation>
 <translation id="8105893657415066307"><ph name="DESCRIPTION"/> <ph name="SEPARATOR"/> <ph name="FILE_SIZE"/></translation>
 <translation id="8109613176066109935">आफ्ना सबै यन्त्रमा पुस्तक चिन्हहरू प्राप्त गर्न सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
-<translation id="4565206163201411670">तपाईंले Brave मा गर्नुभएका क्रियाकलाप डिजिटल वेलबिइङमा देखाउने हो?</translation>
-<translation id="1506404221681151315">QR कोड स्क्यान गर्न Brave लाई तपाईंको क्यामेरा प्रयोग गर्ने अनुमति दिनुहोस्</translation>
+<translation id="4565206163201411670">तपाईंले adrbrowsiel मा गर्नुभएका क्रियाकलाप डिजिटल वेलबिइङमा देखाउने हो?</translation>
+<translation id="1506404221681151315">QR कोड स्क्यान गर्न adrbrowsiel लाई तपाईंको क्यामेरा प्रयोग गर्ने अनुमति दिनुहोस्</translation>
 <translation id="8127542551745560481">गृहपृष्ठ सम्पदान गर्नुहोस्</translation>
 <translation id="813082847718468539">साइट जानकारी हेर्नुहोस्</translation>
-<translation id="6209156474097347789">खोजी गर्न छुनुहोस् कार्यले चयन गरेको शब्द र सोही पृष्ठलाई सन्दर्भको रूपमा Brave खोजीमा पठाउँछ।  तपाईं यसलाई  <ph name="BEGIN_LINK"/> सेटिङ <ph name="END_LINK"/> मा बन्द गर्न सक्नुहुन्छ।</translation>
+<translation id="6209156474097347789">खोजी गर्न छुनुहोस् कार्यले चयन गरेको शब्द र सोही पृष्ठलाई सन्दर्भको रूपमा adrbrowsiel खोजीमा पठाउँछ।  तपाईं यसलाई  <ph name="BEGIN_LINK"/> सेटिङ <ph name="END_LINK"/> मा बन्द गर्न सक्नुहुन्छ।</translation>
 <translation id="8153351135626613369">सहायकले केही वेबसाइटहरूमा तपाईंको मद्दत गर्न सक्ने कुरा पहिचान गरेपछि उक्त वेबसाइटहरूमा सहायक देखा पर्ने छ</translation>
 <translation id="8156139159503939589">तपाईं कुन कुन भाषा पढ्नुहुन्छ?</translation>
 <translation id="8168435359814927499">सामग्री</translation>
@@ -1063,7 +1063,7 @@
 <translation id="8224471946457685718">Wi-Fi को प्रयोग गरी आफ्ना लागि लेखहरू डाउनलोड गर्नुहोस्</translation>
 <translation id="8233540874193135768">QR कोड स्क्यान गर्न क्यामेरा भएको कुनै यन्त्र प्रयोग गर्नुहोस्।</translation>
 <translation id="8250920743982581267">कागजातहरू</translation>
-<translation id="5138664332909611586">यस पृष्ठले अत्यधिक मेमोरी प्रयोग गर्छ, त्यसैले Brave ले केही सामग्री हटायो।</translation>
+<translation id="5138664332909611586">यस पृष्ठले अत्यधिक मेमोरी प्रयोग गर्छ, त्यसैले adrbrowsiel ले केही सामग्री हटायो।</translation>
 <translation id="8260126382462817229">फेरि साइन इन गरी हेर्नुहोस्</translation>
 <translation id="8261506727792406068">मेट्नुहोस्</translation>
 <translation id="8266862848225348053">स्थान डाउनलोड गर्नुहोस्</translation>
@@ -1073,7 +1073,7 @@
 <translation id="829672787777123339">तपाईंको यन्त्रसँग कनेक्ट गरिँदै छ…</translation>
 <translation id="8310344678080805313">मानक ट्याबहरू</translation>
 <translation id="8316092324682955408"><ph name="DOMAIN_NAME"/> र थप साइटहरू</translation>
-<translation id="6195417478702700398">सर्वोत्तम ब्राउजिङ अनुभव प्राप्त गर्न Brave खोलेर अपडेट गर्नुहोस्</translation>
+<translation id="6195417478702700398">सर्वोत्तम ब्राउजिङ अनुभव प्राप्त गर्न adrbrowsiel खोलेर अपडेट गर्नुहोस्</translation>
 <translation id="834313815369870491">निम्न साइटहरूको पाठ कहिल्यै अनुवाद नगरियोस्</translation>
 <translation id="8349013245300336738">प्रयोग गरिएको डेटाको मात्राद्वारा क्रमबद्ध गर्नुहोस्</translation>
 <translation id="835847953965672673"><ph name="NUMBER_OF_DOWNLOADS"/> वटा डाउनलोड रिस्टोर गरिए</translation>
@@ -1087,7 +1087,7 @@
 <translation id="8428213095426709021">सेटिङहरू</translation>
 <translation id="8438566539970814960">खोज तथा ब्राउजिङलाई अझ राम्रो बनाउनुहोस्</translation>
 <translation id="8442258441309440798">कुनै पनि समाचार उपलब्ध छैन</translation>
-<translation id="4058091506841967397">Brave अद्यावधिक गर्न सकिँदैन</translation>
+<translation id="4058091506841967397">adrbrowsiel अद्यावधिक गर्न सकिँदैन</translation>
 <translation id="8445448999790540984">पासवर्डहरू निर्यात गर्न सकिएन</translation>
 <translation id="8461694314515752532">सिंक गरिएको डेटालाई तपाईंको आफ्नै सिंक पासफ्रेजमार्फत इन्क्रिप्ट गर्नुहोस्</translation>
 <translation id="8466613982764129868"><ph name="TARGET_DEVICE_NAME"/> इन्टरनेटमा जोडिएको कुरा सुनिश्चित गर्नुहोस्</translation>
@@ -1096,9 +1096,9 @@
 <translation id="8489271220582375723">इतिहासको पृष्ठ खोल्नुहोस्</translation>
 <translation id="8493948351860045254">ठाउँ खाली गर्नुहोस्</translation>
 <translation id="8497726226069778601">अहिलेसम्म... यहाँ हेर्न केही पनि छैन</translation>
-<translation id="230699814587342492">Brave का पासवर्डहरू</translation>
+<translation id="230699814587342492">adrbrowsiel का पासवर्डहरू</translation>
 <translation id="8503813439785031346">एक-पटके पाठ सन्देश</translation>
-<translation id="133012818630824069">Brave मार्फत भण्डारण गरिएका पासवर्डहरू निर्यात गर्नुहोस्</translation>
+<translation id="133012818630824069">adrbrowsiel मार्फत भण्डारण गरिएका पासवर्डहरू निर्यात गर्नुहोस्</translation>
 <translation id="8516012719330875537">छवि सम्पादक</translation>
 <translation id="8523928698583292556">भण्डारण गरिएको पासवर्ड मेट्नुहोस्</translation>
 <translation id="8540136935098276800">सही ढाँचा भएको URL प्रविष्टि गर्नुहोस्</translation>
@@ -1112,15 +1112,15 @@
 <translation id="8572344201470131220">फोटो कपी गरियो</translation>
 <translation id="8583805026567836021">खाता लगत खालि गर्दै</translation>
 <translation id="860043288473659153">कार्डवालाको नाम</translation>
-<translation id="1673533133011266617">Brave मा साइन इन गर्ने पेज बन्द गरियो।</translation>
+<translation id="1673533133011266617">adrbrowsiel मा साइन इन गर्ने पेज बन्द गरियो।</translation>
 <translation id="860282621117673749">मूल्य घटेको कुरासम्बन्धी अलर्टहरू</translation>
-<translation id="5784514951651328424">तपाईंको Brave खाताको <ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/> मा अन्य प्रकारका ब्राउजिङ इतिहास रहेका हुन सक्छन्।</translation>
+<translation id="5784514951651328424">तपाईंको adrbrowsiel खाताको <ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/> मा अन्य प्रकारका ब्राउजिङ इतिहास रहेका हुन सक्छन्।</translation>
 <translation id="8617240290563765734">डाउनलोड गरिएको सामग्रीमा सुझाव गरिएको निर्दिष्ट URL खोल्ने हो?</translation>
 <translation id="8636825310635137004">आफ्ना अन्य यन्त्रहरूबाट आफ्ना ट्याबहरू प्राप्त गर्न सिंकलाई सक्रिय गर्नुहोस्।</translation>
 <translation id="8641930654639604085">वयस्क व्यक्तिहरूका लागि निर्मित साइटहरूमाथि रोक लगाउने प्रयास गर्नुहोस्</translation>
-<translation id="2734140769649165081">तपाईं Brave का सेटिङहरूमा गई डेटा खाली गर्न सक्नुहुन्छ</translation>
-<translation id="6482272021231898750">आफ्नो Brave खाता प्रयोग गरी यो साइट र Brave मा साइन इन गर्नुहोस्। तपाईं सिंक गर्ने सुविधा पछि अन गर्न सक्नुहुन्छ।</translation>
-<translation id="6464188276370426100">Brave मार्फत खोज्ने तरिका</translation>
+<translation id="2734140769649165081">तपाईं adrbrowsiel का सेटिङहरूमा गई डेटा खाली गर्न सक्नुहुन्छ</translation>
+<translation id="6482272021231898750">आफ्नो adrbrowsiel खाता प्रयोग गरी यो साइट र adrbrowsiel मा साइन इन गर्नुहोस्। तपाईं सिंक गर्ने सुविधा पछि अन गर्न सक्नुहुन्छ।</translation>
+<translation id="6464188276370426100">adrbrowsiel मार्फत खोज्ने तरिका</translation>
 <translation id="8662811608048051533">तपाईंलाई प्रायः जसो साइटहरूबाट साइन आउट गर्दछ।</translation>
 <translation id="8664979001105139458">यो नामको फाइल पहिलेदेखि नै विद्यमान छ</translation>
 <translation id="8683039184091909753">फोटो</translation>
@@ -1143,24 +1143,24 @@
 <translation id="8854223127042600341">आफ्ना अफलाइन फाइलहरू हेर्नुहोस्</translation>
 <translation id="8856607253650333758">विवरणहरू प्राप्त गर्नुहोस्</translation>
 <translation id="8873817150012960745">सुरु गर्न यहाँ ट्याप गर्नुहोस्</translation>
-<translation id="6084271560289605378">Brave को सेटिङमा जानुहोस्</translation>
-<translation id="1984646864943401749">नयाँ खतराहरू पत्ता लगाउन र वेब प्रयोग गर्ने सम्पूर्ण प्रयोगकर्ताहरूलाई सुरक्षित राख्न Brave लाई तपाईंले हेर्ने केही पृष्ठका URL, प्रणालीसम्बन्धी निश्चित जानकारी र पृष्ठका केही सामग्रीहरू पठाउँछ।</translation>
+<translation id="6084271560289605378">adrbrowsiel को सेटिङमा जानुहोस्</translation>
+<translation id="1984646864943401749">नयाँ खतराहरू पत्ता लगाउन र वेब प्रयोग गर्ने सम्पूर्ण प्रयोगकर्ताहरूलाई सुरक्षित राख्न adrbrowsiel लाई तपाईंले हेर्ने केही पृष्ठका URL, प्रणालीसम्बन्धी निश्चित जानकारी र पृष्ठका केही सामग्रीहरू पठाउँछ।</translation>
 <translation id="8909135823018751308">साझा गर्नुहोस्...</translation>
-<translation id="2684652081942622950">Brave खाता</translation>
+<translation id="2684652081942622950">adrbrowsiel खाता</translation>
 <translation id="8920114477895755567">अभिभावकहरूको विवरणको लागि प्रतीक्षा गर्दै।</translation>
 <translation id="8922289737868596582">पृष्ठहरूलाई अफलाइन हेर्न थप विकल्पहरू नामक बटनबाट तिनीहरूलाई डाउनलोड गर्नुहोस्</translation>
 <translation id="8928626432984354940">पुस्तक चिन्ह लगाइएका फोल्डरहरूको सूची स्क्रिनको आधा भागमा खोलियो</translation>
-<translation id="6894658278639191411">तपाईंलाई काम सम्पन्न गर्न मद्दत गर्न Brave ले तपाईंले सहायक प्रयोग गर्ने साइटका URL र सामग्रीहरूका साथै तपाईंले सहायकमार्फत पेस गर्न जानकारी प्राप्त गर्ने छ। यो जानकारी तपाईंको Brave खातामा भण्डारण गरिन सक्छ। तपाईं Brave का सेटिङमा गई सहायक अफ गर्न सक्नुहुन्छ।</translation>
-<translation id="1174893863889683998">तपाईंले Brave मा गर्नुभएका क्रियाकलाप डिजिटल वेलबिइङबाट हटाउने हो?</translation>
+<translation id="6894658278639191411">तपाईंलाई काम सम्पन्न गर्न मद्दत गर्न adrbrowsiel ले तपाईंले सहायक प्रयोग गर्ने साइटका URL र सामग्रीहरूका साथै तपाईंले सहायकमार्फत पेस गर्न जानकारी प्राप्त गर्ने छ। यो जानकारी तपाईंको adrbrowsiel खातामा भण्डारण गरिन सक्छ। तपाईं adrbrowsiel का सेटिङमा गई सहायक अफ गर्न सक्नुहुन्छ।</translation>
+<translation id="1174893863889683998">तपाईंले adrbrowsiel मा गर्नुभएका क्रियाकलाप डिजिटल वेलबिइङबाट हटाउने हो?</translation>
 <translation id="8942627711005830162">अर्को विन्डोमा खोल्नुहोस्</translation>
-<translation id="3257320067425202300">Brave ले तपाईंको <ph name="MEGABYTES"/> एम.बि. बचाएको छ</translation>
+<translation id="3257320067425202300">adrbrowsiel ले तपाईंको <ph name="MEGABYTES"/> एम.बि. बचाएको छ</translation>
 <translation id="8965591936373831584">विचाराधीन</translation>
 <translation id="8970887620466824814">केही चिज गडबड भयो।</translation>
 <translation id="8972098258593396643">पूर्वनिर्धारित फोल्डरमा डाउनलोड गर्ने हो?</translation>
 <translation id="8988028529677883095">फोनलाई सुरक्षा साँचोका रूपमा प्रयोग गर्नुहोस्</translation>
 <translation id="8990209962746788689">QR कोड सिर्जना गर्न सकिएन</translation>
 <translation id="8996847606757455498">अर्को सेवा प्रदायक छनौट गर्नुहोस्</translation>
-<translation id="3275122921244685452">तपाईं <ph name="MANAGED_DOMAIN"/> द्वारा व्यवस्थापन गरिएको खाता मार्फत साइन इन गर्दै हुनुहुन्छ र त्यसको प्रशासकलाई तपाईंको Brave को डेटालाई नियन्त्रण गर्न दिँदै हुनुहुन्छ। तपाईंको डेटा सदाका लागि यस खातामा बाँधिनेछ। Brave बाट साइन आउट गर्नाले तपाईंको डेटा यस यन्त्रबाट मेटिनेछ तर यो तपाईंको Brave खातामा भण्डारण गरिएको अवस्थामा रहनेछ।</translation>
+<translation id="3275122921244685452">तपाईं <ph name="MANAGED_DOMAIN"/> द्वारा व्यवस्थापन गरिएको खाता मार्फत साइन इन गर्दै हुनुहुन्छ र त्यसको प्रशासकलाई तपाईंको adrbrowsiel को डेटालाई नियन्त्रण गर्न दिँदै हुनुहुन्छ। तपाईंको डेटा सदाका लागि यस खातामा बाँधिनेछ। adrbrowsiel बाट साइन आउट गर्नाले तपाईंको डेटा यस यन्त्रबाट मेटिनेछ तर यो तपाईंको adrbrowsiel खातामा भण्डारण गरिएको अवस्थामा रहनेछ।</translation>
 <translation id="9022774213089566801">बारम्बार हेरिएका</translation>
 <translation id="9028914725102941583">यन्त्रहरूभरि आदान प्रदान गर्न सिंक गर्ने सुविधा सक्रिय गर्नुहोस्</translation>
 <translation id="9040142327097499898">सूचनाहरूलाई अनुमति दिइएको छ। यो यन्त्रमा स्थानसम्बन्धी सुविधा निष्क्रिय पारिएको छ।</translation>
@@ -1169,11 +1169,11 @@
 <translation id="9050666287014529139">पासफ्रेज</translation>
 <translation id="9063523880881406963">अनुरोध डेस्कटप साइट बन्द गर्नुहोस्</translation>
 <translation id="9065203028668620118">सम्पादन गर्नुहोस</translation>
-<translation id="5496925146144075335">Brave लाई महत्त्वपूर्ण छैन जस्तो लागेको भण्डारण गरिएका डेटा (जस्तै सेटिङ सुरक्षित नगरिएका साइट वा तपाईंले खासै नखोल्ने साइटका भण्डारण गरिएका डेटा)</translation>
+<translation id="5496925146144075335">adrbrowsiel लाई महत्त्वपूर्ण छैन जस्तो लागेको भण्डारण गरिएका डेटा (जस्तै सेटिङ सुरक्षित नगरिएका साइट वा तपाईंले खासै नखोल्ने साइटका भण्डारण गरिएका डेटा)</translation>
 <translation id="9069543557624799859"><ph name="TIME"/> मा डाउनलोड सुरु हुने छ।</translation>
 <translation id="9069999660519089861">सबै लेख पढिसकिएको छ</translation>
 <translation id="9070377983101773829">आवाज खोजी सुरु गर्नुहोस्</translation>
-<translation id="8494430740943879273">Brave ले सिफारिस गरेका वैयक्तीकृत सामग्री प्राप्त गर्न साइन इन गरी सिंक गर्ने सुविधा सक्रिय गर्नुहोस्।</translation>
+<translation id="8494430740943879273">adrbrowsiel ले सिफारिस गरेका वैयक्तीकृत सामग्री प्राप्त गर्न साइन इन गरी सिंक गर्ने सुविधा सक्रिय गर्नुहोस्।</translation>
 <translation id="9086302186042011942">समक्रमण गर्दै</translation>
 <translation id="9086455579313502267">सञ्जाल पहुँच गर्न सकेन</translation>
 <translation id="9100505651305367705">समर्थित भएको बेला लेखहरूलाई सरलीकृत दृश्यमा देखाउने प्रस्ताव गर्नुहोस्</translation>
@@ -1195,13 +1195,13 @@
 <translation id="9206873250291191720">क</translation>
 <translation id="9209888181064652401">कल गर्न सकिएन</translation>
 <translation id="9219103736887031265">छविहरू</translation>
-<translation id="4596514158372210596">आफूले Brave मा गरेका क्रियाकलाप डिजिटल वेलबिइङबाट हटाउनुहोस्</translation>
-<translation id="2830145431802238213">Brave को लाइट मोड प्रयोग गर्नुहोस्</translation>
+<translation id="4596514158372210596">आफूले adrbrowsiel मा गरेका क्रियाकलाप डिजिटल वेलबिइङबाट हटाउनुहोस्</translation>
+<translation id="2830145431802238213">adrbrowsiel को लाइट मोड प्रयोग गर्नुहोस्</translation>
 <translation id="932327136139879170">गृहपृष्ठ</translation>
 <translation id="938850635132480979">त्रुटि: <ph name="ERROR_CODE"/></translation>
 <translation id="939598580284253335">पासफ्रेज प्रविष्टि गर्नुहोस्</translation>
 <translation id="948039501338975565">पुस्तक चिन्ह लगाइएका फोल्डरहरूको सूची</translation>
-<translation id="5406914950576900927">Brave ले चीनमा खोज गर्नका लागि <ph name="BEGIN_BOLD"/>Sogou<ph name="END_BOLD"/> को प्रयोग गर्न सक्छ। तपाईं <ph name="BEGIN_LINK"/>सेटिङहरू<ph name="END_LINK"/>मा गई यसलाई बदल्न सक्नुहुन्छ।</translation>
+<translation id="5406914950576900927">adrbrowsiel ले चीनमा खोज गर्नका लागि <ph name="BEGIN_BOLD"/>Sogou<ph name="END_BOLD"/> को प्रयोग गर्न सक्छ। तपाईं <ph name="BEGIN_LINK"/>सेटिङहरू<ph name="END_LINK"/>मा गई यसलाई बदल्न सक्नुहुन्छ।</translation>
 <translation id="962979164594783469">यो एप इन्स्टल गर्नुहोस्</translation>
 <translation id="968900484120156207">तपाईंले हेर्नुभएका पृष्ठहरू यहाँ देखिन्छन्</translation>
 <translation id="970715775301869095"><ph name="MINUTES"/> मिनेट बाँकी छ</translation>
@@ -1211,8 +1211,8 @@
 <translation id="987264212798334818">सामान्य</translation>
 <translation id="996149300115483134">फिड कार्ड मेनु बन्द गरियो</translation>
 <translation id="5186185447130319458">इन्कोग्निटो</translation>
-<translation id="9063160602596686558">प्रयोगसम्बन्धी तथ्याङ्क र क्र्यास रिपोर्टहरू स्वतः Brave Software मा पठाउँछ</translation>
-<translation id="1438581767753657407">लाइट मोड सक्रिय हुँदा, Brave ले पृष्ठहरू अझ छिटो लोड गर्ने प्रयोजनका लागि Brave Software का सर्भरहरूको प्रयोग गर्छ। लाइट मोडले अत्यावश्यक सामग्री मात्र लोड गर्नका निम्ति धेरै सुस्त पृष्ठहरू पुनर्लेखन गर्छ। इन्कोग्निटो ट्याबहरूमा भने लाइट मोड लागू हुँदैन।</translation>
+<translation id="9063160602596686558">प्रयोगसम्बन्धी तथ्याङ्क र क्र्यास रिपोर्टहरू स्वतः adrbrowsiel Software मा पठाउँछ</translation>
+<translation id="1438581767753657407">लाइट मोड सक्रिय हुँदा, adrbrowsiel ले पृष्ठहरू अझ छिटो लोड गर्ने प्रयोजनका लागि adrbrowsiel Software का सर्भरहरूको प्रयोग गर्छ। लाइट मोडले अत्यावश्यक सामग्री मात्र लोड गर्नका निम्ति धेरै सुस्त पृष्ठहरू पुनर्लेखन गर्छ। इन्कोग्निटो ट्याबहरूमा भने लाइट मोड लागू हुँदैन।</translation>
 <translation id="2633278372998075009">इनकग्निटो ट्याबहरू</translation>
 <translation id="6099151465289169210">इन्कोग्निटो ट्याबहरूमा स्विच गरियो</translation>
 <translation id="4243710787042215766">इन्कोग्निटो ट्याबमा खोल्नुहोस्</translation>

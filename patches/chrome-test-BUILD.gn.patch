@@ -6,7 +6,7 @@ index b1e1b9c071491ea256c5334512a520da0d83a2d1..1597d2cc3584743613d0dad64abf5471
        "//v8",
      ]
  
-+    deps += [ "//brave/test:brave_browser_tests_deps", ]
++    deps += [ "//adrbrowsiel/test:adrbrowsiel_browser_tests_deps", ]
      # Runtime dependencies
      data_deps = [
        "//chrome:browser_tests_pak",

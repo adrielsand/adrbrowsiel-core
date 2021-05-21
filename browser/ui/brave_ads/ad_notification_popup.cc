@@ -1,21 +1,21 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_ads/ad_notification_popup.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification_popup.h"
 
 #include <map>
 #include <utility>
 
 #include "base/time/time.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/ui/brave_ads/ad_notification_view.h"
-#include "brave/browser/ui/brave_ads/ad_notification_view_factory.h"
-#include "brave/browser/ui/brave_ads/bounds_util.h"
-#include "brave/components/brave_ads/browser/features.h"
-#include "brave/components/brave_ads/common/pref_names.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification_view.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification_view_factory.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/bounds_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/common/pref_names.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "build/build_config.h"
 #include "components/prefs/pref_service.h"
 #include "ui/accessibility/ax_enums.mojom.h"
@@ -43,11 +43,11 @@
 #include "ui/views/widget/desktop_aura/desktop_native_widget_aura.h"
 #endif
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 namespace {
 
-// TODO(https://github.com/brave/brave-browser/issues/14957): Decouple
+// TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/14957): Decouple
 // AdNotificationPopup management to NotificationPopupCollection
 std::map<std::string, AdNotificationPopup*> g_ad_notification_popups;
 
@@ -180,7 +180,7 @@ void AdNotificationPopup::OnDisplayMetricsChanged(
 void AdNotificationPopup::GetAccessibleNodeData(ui::AXNodeData* node_data) {
   node_data->role = ax::mojom::Role::kAlertDialog;
   node_data->SetName(
-      l10n_util::GetStringUTF8(IDS_BRAVE_ADS_AD_NOTIFICATION_ACCESSIBLE_NAME));
+      l10n_util::GetStringUTF8(IDS_adrbrowsiel_ADS_AD_NOTIFICATION_ACCESSIBLE_NAME));
 }
 
 void AdNotificationPopup::OnDisplayChanged() {
@@ -502,4 +502,4 @@ bool AdNotificationPopup::IsWidgetValid() const {
 BEGIN_METADATA(AdNotificationPopup, views::WidgetDelegateView)
 END_METADATA
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

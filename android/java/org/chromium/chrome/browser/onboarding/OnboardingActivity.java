@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 The Brave Authors. All rights reserved.
+ * Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.chromium.base.ApplicationStatus;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.app.BraveActivity;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
 import org.chromium.chrome.browser.custom_layout.NonSwipeableViewPager;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.browser.onboarding.OnboardingViewPagerAdapter;
@@ -33,8 +33,8 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
             this, getSupportFragmentManager(), this);
         viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(onboardingViewPagerAdapter);
-        if (BraveActivity.getBraveActivity() != null ) {
-            BraveActivity.getBraveActivity().hideRewardsOnboardingIcon();
+        if (adrbrowsielActivity.getadrbrowsielActivity() != null ) {
+            adrbrowsielActivity.getadrbrowsielActivity().hideRewardsOnboardingIcon();
         }
     }
 
@@ -50,8 +50,8 @@ public class OnboardingActivity extends AppCompatActivity implements OnViewPager
 
     @Override
     public void onContinueToWallet() {
-        if (BraveActivity.getBraveActivity() != null ) {
-            BraveActivity.getBraveActivity().openRewardsPanel();
+        if (adrbrowsielActivity.getadrbrowsielActivity() != null ) {
+            adrbrowsielActivity.getadrbrowsielActivity().openRewardsPanel();
         }
         finish();
     }

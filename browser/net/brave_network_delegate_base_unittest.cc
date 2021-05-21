@@ -1,20 +1,20 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <string>
 
-#include "brave/browser/net/url_context.h"
-#include "brave/browser/net/brave_stp_util.h"
+#include "adrbrowsiel/browser/net/url_context.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_stp_util.h"
 #include "chrome/test/base/chrome_render_view_host_test_harness.h"
 #include "content/public/test/browser_task_environment.h"
 #include "net/traffic_annotation/network_traffic_annotation_test_helper.h"
 #include "net/url_request/url_request_test_util.h"
 #include "url/gurl.h"
 
-using brave::RemoveTrackableSecurityHeadersForThirdParty;
-using brave::TrackableSecurityHeaders;
+using adrbrowsiel::RemoveTrackableSecurityHeadersForThirdParty;
+using adrbrowsiel::TrackableSecurityHeaders;
 using net::HttpResponseHeaders;
 
 
@@ -40,12 +40,12 @@ const char kRawHeaders[] =
     "report-uri=\"https://www.pkp.org/hpkp-report\"\n"
     "X-XSS-Protection: 0";
 
-class BraveNetworkDelegateBaseTest : public testing::Test {
+class adrbrowsielNetworkDelegateBaseTest : public testing::Test {
  public:
-  BraveNetworkDelegateBaseTest()
+  adrbrowsielNetworkDelegateBaseTest()
       : task_environment_(content::BrowserTaskEnvironment::IO_MAINLOOP),
         context_(new net::TestURLRequestContext(true)) {}
-  ~BraveNetworkDelegateBaseTest() override {}
+  ~adrbrowsielNetworkDelegateBaseTest() override {}
   void SetUp() override { context_->Init(); }
 
  private:
@@ -53,7 +53,7 @@ class BraveNetworkDelegateBaseTest : public testing::Test {
   std::unique_ptr<net::TestURLRequestContext> context_;
 };
 
-TEST_F(BraveNetworkDelegateBaseTest, RemoveTrackableSecurityHeaders) {
+TEST_F(adrbrowsielNetworkDelegateBaseTest, RemoveTrackableSecurityHeaders) {
   net::TestDelegate test_delegate;
   GURL request_url(kThirdPartyDomain);
   GURL tab_url(kFirstPartyDomain);
@@ -71,7 +71,7 @@ TEST_F(BraveNetworkDelegateBaseTest, RemoveTrackableSecurityHeaders) {
   EXPECT_TRUE(headers->HasHeader(kXSSProtectionHeader));
 }
 
-TEST_F(BraveNetworkDelegateBaseTest, RemoveTrackableSecurityHeadersMixedCase) {
+TEST_F(adrbrowsielNetworkDelegateBaseTest, RemoveTrackableSecurityHeadersMixedCase) {
   net::TestDelegate test_delegate;
   GURL request_url(kThirdPartyDomain);
   GURL tab_url(kFirstPartyDomain);
@@ -89,7 +89,7 @@ TEST_F(BraveNetworkDelegateBaseTest, RemoveTrackableSecurityHeadersMixedCase) {
   EXPECT_TRUE(headers->HasHeader(kXSSProtectionHeader));
 }
 
-TEST_F(BraveNetworkDelegateBaseTest, RetainTrackableSecurityHeaders) {
+TEST_F(adrbrowsielNetworkDelegateBaseTest, RetainTrackableSecurityHeaders) {
   net::TestDelegate test_delegate;
   GURL request_url(kFirstPartyDomain);
   GURL tab_url(kFirstPartyDomain);

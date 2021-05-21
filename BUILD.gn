@@ -1,6 +1,6 @@
-import("//brave/build/cargo.gni")
-import("//brave/build/config.gni")
-import("//brave/components/brave_rewards/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/build/cargo.gni")
+import("//adrbrowsiel/build/config.gni")
+import("//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.gni")
 import("//build/config/locales.gni")
 import("//build/config/zip.gni")
 import("//build/util/process_version.gni")
@@ -12,16 +12,16 @@ import("//tools/v8_context_snapshot/v8_context_snapshot.gni")
 import("//ui/base/ui_features.gni")
 
 if (!is_ios) {
-  import("//brave/brave_paks.gni")
+  import("//adrbrowsiel/adrbrowsiel_paks.gni")
 }
 
 if (is_mac) {
-  import("//brave/build/mac/tweak_info_plist.gni")
+  import("//adrbrowsiel/build/mac/tweak_info_plist.gni")
   import("//build/config/mac/rules.gni")
 }
 
 if (is_linux) {
-  import("//brave/build/linux/channels.gni")
+  import("//adrbrowsiel/build/linux/channels.gni")
 }
 
 declare_args() {
@@ -32,8 +32,8 @@ if (!is_ios) {
   group("child_dependencies") {
     deps = [
       "common",
-      "//brave/renderer",
-      "//brave/utility",
+      "//adrbrowsiel/renderer",
+      "//adrbrowsiel/utility",
     ]
   }
 
@@ -71,7 +71,7 @@ if (is_win) {
   }
 
   group("mini_installer_dependencies") {
-    deps = [ ":brave" ]
+    deps = [ ":adrbrowsiel" ]
 
     if (build_delta_installer) {
       deps += [ ":copy_courgette_binary" ]
@@ -79,8 +79,8 @@ if (is_win) {
   }
 }
 
-group("brave") {
-  deps = [ "build/$target_os:brave" ]
+group("adrbrowsiel") {
+  deps = [ "build/$target_os:adrbrowsiel" ]
   if (!is_android && !is_ios) {
     deps += [
       ":generate_version",
@@ -92,29 +92,29 @@ group("brave") {
 group("resources") {
   public_deps = [
     # TODO(bridiver)
-    # "//brave/browser:resources",
-    # "//brave/common:resources",
-    # "//brave/renderer:resources",
-    "//brave/components/resources",
+    # "//adrbrowsiel/browser:resources",
+    # "//adrbrowsiel/common:resources",
+    # "//adrbrowsiel/renderer:resources",
+    "//adrbrowsiel/components/resources",
   ]
 
-  data_deps = [ "//brave/components/resources:about_credits" ]
+  data_deps = [ "//adrbrowsiel/components/resources:about_credits" ]
 }
 
 if (is_android) {
-  android_assets("brave_pak_assets") {
+  android_assets("adrbrowsiel_pak_assets") {
     sources = [
-      "$root_build_dir/brave_100_percent.pak",
-      "$root_build_dir/brave_resources.pak",
-      "//brave/LICENSE.html",
-      "//brave/android/java/org/chromium/chrome/browser/onboarding/animations/onboarding_ads.json",
-      "//brave/android/java/org/chromium/chrome/browser/onboarding/animations/onboarding_ads_notification.json",
-      "//brave/android/java/org/chromium/chrome/browser/onboarding/animations/onboarding_rewards.json",
-      "//brave/android/java/org/chromium/chrome/browser/onboarding/animations/privacy_protection.json",
-      "//brave/android/java/org/chromium/chrome/browser/onboarding/animations/save_data_and_battery.json",
-      "//brave/android/java/org/chromium/chrome/browser/onboarding/animations/website_loads_faster.json",
+      "$root_build_dir/adrbrowsiel_100_percent.pak",
+      "$root_build_dir/adrbrowsiel_resources.pak",
+      "//adrbrowsiel/LICENSE.html",
+      "//adrbrowsiel/android/java/org/chromium/chrome/browser/onboarding/animations/onboarding_ads.json",
+      "//adrbrowsiel/android/java/org/chromium/chrome/browser/onboarding/animations/onboarding_ads_notification.json",
+      "//adrbrowsiel/android/java/org/chromium/chrome/browser/onboarding/animations/onboarding_rewards.json",
+      "//adrbrowsiel/android/java/org/chromium/chrome/browser/onboarding/animations/privacy_protection.json",
+      "//adrbrowsiel/android/java/org/chromium/chrome/browser/onboarding/animations/save_data_and_battery.json",
+      "//adrbrowsiel/android/java/org/chromium/chrome/browser/onboarding/animations/website_loads_faster.json",
     ]
-    deps = [ "//brave:browser_dependencies" ]
+    deps = [ "//adrbrowsiel:browser_dependencies" ]
     disable_compression = true
   }
 }
@@ -131,10 +131,10 @@ if (is_mac) {
     # this only seems to work correctly when applied to
     # the chrome_framework target so we add it here
     public_configs = [ ":rust_link" ]
-    deps = [ "components/brave_extension/extension/brave_extension:brave_extension_framework_bundle_data" ]
-    if (brave_rewards_enabled) {
+    deps = [ "components/adrbrowsiel_extension/extension/adrbrowsiel_extension:adrbrowsiel_extension_framework_bundle_data" ]
+    if (adrbrowsiel_rewards_enabled) {
       deps += [
-        "components/brave_rewards/resources/extension:framework_bundle_data",
+        "components/adrbrowsiel_rewards/resources/extension:framework_bundle_data",
       ]
     }
   }
@@ -145,11 +145,11 @@ group("unpacked_resources") {
     deps = []
     if (enable_extensions) {
       deps = [
-        "//brave/components/brave_extension/extension/brave_extension:locales",
+        "//adrbrowsiel/components/adrbrowsiel_extension/extension/adrbrowsiel_extension:locales",
       ]
-      if (brave_rewards_enabled) {
+      if (adrbrowsiel_rewards_enabled) {
         deps +=
-            [ "//brave/components/brave_rewards/resources/extension:locales" ]
+            [ "//adrbrowsiel/components/adrbrowsiel_rewards/resources/extension:locales" ]
       }
     }
   }
@@ -157,19 +157,19 @@ group("unpacked_resources") {
 
 #TODO(bridiver) - what to do
 if (!is_ios) {
-  group("brave_tests") {
+  group("adrbrowsiel_tests") {
     testonly = true
 
-    deps = [ "test:brave_unit_tests" ]
+    deps = [ "test:adrbrowsiel_unit_tests" ]
 
     if (!is_android) {
-      deps += [ "test:brave_browser_tests" ]
+      deps += [ "test:adrbrowsiel_browser_tests" ]
     }
   }
 }
 
 if (!is_ios) {
-  brave_paks("packed_resources") {
+  adrbrowsiel_paks("packed_resources") {
     if (is_mac) {
       output_dir = "$root_gen_dir/repack"
       copy_data_to_bundle = true
@@ -205,7 +205,7 @@ group("create_dist") {
     deps += [ "build/win:create_signed_installer" ]
 
     if (build_omaha) {
-      deps += [ "//brave/vendor/omaha" ]
+      deps += [ "//adrbrowsiel/vendor/omaha" ]
     }
   }
   if (is_mac) {
@@ -218,101 +218,101 @@ group("create_dist") {
   if (is_linux) {
     deps += [
       ":theme_files",
-      "//brave/app/linux:dist_resources",
+      "//adrbrowsiel/app/linux:dist_resources",
       "//chrome/installer/linux:$linux_channel",
     ]
   }
 }
 
 if (!is_mac && !is_android && !is_ios) {
-  copy("brave_locale_dist_resources") {
+  copy("adrbrowsiel_locale_dist_resources") {
     deps = [ "//chrome:packed_resources" ]
 
     sources = []
     foreach(locale, locales) {
       sources += [ "$root_out_dir/locales/$locale.pak" ]
     }
-    outputs = [ "$brave_dist_dir/locales/{{source_file_part}}" ]
+    outputs = [ "$adrbrowsiel_dist_dir/locales/{{source_file_part}}" ]
   }
 
   if (enable_extensions) {
-    group("brave_extensions_locale_dist_resources") {
+    group("adrbrowsiel_extensions_locale_dist_resources") {
       deps = [
-        "//brave/components/brave_extension/extension/brave_extension:locales",
+        "//adrbrowsiel/components/adrbrowsiel_extension/extension/adrbrowsiel_extension:locales",
       ]
-      if (brave_rewards_enabled) {
+      if (adrbrowsiel_rewards_enabled) {
         deps +=
-            [ "//brave/components/brave_rewards/resources/extension:locales" ]
+            [ "//adrbrowsiel/components/adrbrowsiel_rewards/resources/extension:locales" ]
       }
 
       public_deps = []
       foreach(locale, locales) {
         # public_deps is used intentionaly because ":create_dist_zip" needs the all dependency
         # of all locale files.
-        public_deps += [ ":brave_shields_locales_${locale}" ]
-        if (brave_rewards_enabled) {
-          public_deps += [ ":brave_rewards_locales_${locale}" ]
+        public_deps += [ ":adrbrowsiel_shields_locales_${locale}" ]
+        if (adrbrowsiel_rewards_enabled) {
+          public_deps += [ ":adrbrowsiel_rewards_locales_${locale}" ]
         }
       }
     }
 
     foreach(locale, locales) {
-      if (brave_rewards_enabled) {
-        copy("brave_rewards_locales_${locale}") {
-          deps = [ "//brave/components/brave_rewards/resources/extension:locales_$locale" ]
+      if (adrbrowsiel_rewards_enabled) {
+        copy("adrbrowsiel_rewards_locales_${locale}") {
+          deps = [ "//adrbrowsiel/components/adrbrowsiel_rewards/resources/extension:locales_$locale" ]
 
           locale = string_replace(locale, "-", "_")
-          sources = [ "$root_out_dir/resources/brave_rewards/_locales/$locale/messages.json" ]
-          outputs = [ "$brave_dist_dir/resources/brave_rewards/_locales/$locale/{{source_file_part}}" ]
+          sources = [ "$root_out_dir/resources/adrbrowsiel_rewards/_locales/$locale/messages.json" ]
+          outputs = [ "$adrbrowsiel_dist_dir/resources/adrbrowsiel_rewards/_locales/$locale/{{source_file_part}}" ]
         }
       }
-      copy("brave_shields_locales_${locale}") {
-        deps = [ "//brave/components/brave_extension/extension/brave_extension:locales_$locale" ]
+      copy("adrbrowsiel_shields_locales_${locale}") {
+        deps = [ "//adrbrowsiel/components/adrbrowsiel_extension/extension/adrbrowsiel_extension:locales_$locale" ]
 
         locale = string_replace(locale, "-", "_")
-        sources = [ "$root_out_dir/resources/brave_extension/_locales/$locale/messages.json" ]
-        outputs = [ "$brave_dist_dir/resources/brave_extension/_locales/$locale/{{source_file_part}}" ]
+        sources = [ "$root_out_dir/resources/adrbrowsiel_extension/_locales/$locale/messages.json" ]
+        outputs = [ "$adrbrowsiel_dist_dir/resources/adrbrowsiel_extension/_locales/$locale/{{source_file_part}}" ]
       }
     }
   }
 }
 
-copy("brave_license_dist_resources") {
-  sources = [ "//brave/LICENSE" ]
+copy("adrbrowsiel_license_dist_resources") {
+  sources = [ "//adrbrowsiel/LICENSE" ]
 
-  outputs = [ "$brave_dist_dir/{{source_file_part}}" ]
+  outputs = [ "$adrbrowsiel_dist_dir/{{source_file_part}}" ]
 }
 
 process_version("generate_version") {
   template_file = "version.version"
   extra_args = [
     "-e",
-    "BRAVE_BROWSER_VERSION=\"$brave_version\"",
+    "adrbrowsiel_BROWSER_VERSION=\"$adrbrowsiel_version\"",
   ]
   output = "$root_out_dir/version"
   process_only = true
 }
 
 if (!is_android && !is_ios) {
-  copy("brave_dist_resources") {
+  copy("adrbrowsiel_dist_resources") {
     sources = [ "$root_out_dir/version" ]
 
     deps = [
-      ":brave",
-      ":brave_license_dist_resources",
+      ":adrbrowsiel",
+      ":adrbrowsiel_license_dist_resources",
       ":generate_version",
       ":packed_resources",
-      "build/$target_os:brave",
+      "build/$target_os:adrbrowsiel",
       "//chrome:packed_resources",
       "//third_party/icu:icudata",
     ]
 
     if (!is_mac) {
       sources += [
-        "$root_out_dir/$brave_exe",
-        "$root_out_dir/brave_100_percent.pak",
-        "$root_out_dir/brave_200_percent.pak",
-        "$root_out_dir/brave_resources.pak",
+        "$root_out_dir/$adrbrowsiel_exe",
+        "$root_out_dir/adrbrowsiel_100_percent.pak",
+        "$root_out_dir/adrbrowsiel_200_percent.pak",
+        "$root_out_dir/adrbrowsiel_resources.pak",
         "$root_out_dir/chrome_100_percent.pak",
         "$root_out_dir/chrome_200_percent.pak",
         "$root_out_dir/icudtl.dat",
@@ -331,7 +331,7 @@ if (!is_android && !is_ios) {
       }
     }
 
-    outputs = [ "$brave_dist_dir/{{source_file_part}}" ]
+    outputs = [ "$adrbrowsiel_dist_dir/{{source_file_part}}" ]
   }
 }
 
@@ -342,20 +342,20 @@ if (target_cpu == "x86") {
 }
 
 action("create_symbols_dist") {
-  output = "$brave_dist_dir/$brave_project_name-v$brave_version-$brave_platform-$target_arch-symbols.zip"
+  output = "$adrbrowsiel_dist_dir/$adrbrowsiel_project_name-v$adrbrowsiel_version-$adrbrowsiel_platform-$target_arch-symbols.zip"
 
-  script = "//brave/script/create-dist.py"
+  script = "//adrbrowsiel/script/create-dist.py"
 
-  inputs = get_target_outputs(":brave_license_dist_resources")
-  dir_inputs = [ "$brave_project_name.breakpad.syms" ]
+  inputs = get_target_outputs(":adrbrowsiel_license_dist_resources")
+  dir_inputs = [ "$adrbrowsiel_project_name.breakpad.syms" ]
 
   file_inputs = []
   foreach(input, inputs) {
-    file_inputs += [ rebase_path(input, brave_dist_dir) ]
+    file_inputs += [ rebase_path(input, adrbrowsiel_dist_dir) ]
   }
 
   rebase_output = rebase_path(output)
-  rebase_base_dir = rebase_path(brave_dist_dir)
+  rebase_base_dir = rebase_path(adrbrowsiel_dist_dir)
 
   args = [
     "--base-dir=$rebase_base_dir",
@@ -367,61 +367,61 @@ action("create_symbols_dist") {
   outputs = [ output ]
 
   deps = [
-    ":brave_license_dist_resources",
+    ":adrbrowsiel_license_dist_resources",
     "app/$current_os:symbol_dist_resources",
   ]
 }
 
 action("create_dist_zips") {
-  output = "$brave_dist_dir/$brave_project_name-v$brave_version-$brave_platform-$target_arch.zip"
+  output = "$adrbrowsiel_dist_dir/$adrbrowsiel_project_name-v$adrbrowsiel_version-$adrbrowsiel_platform-$target_arch.zip"
 
-  script = "//brave/script/create-dist.py"
+  script = "//adrbrowsiel/script/create-dist.py"
 
-  inputs = get_target_outputs(":brave_license_dist_resources")
+  inputs = get_target_outputs(":adrbrowsiel_license_dist_resources")
 
   if (!is_mac && !is_android && !is_ios) {
-    inputs += get_target_outputs(":brave_dist_resources")
-    inputs += get_target_outputs(":brave_locale_dist_resources")
+    inputs += get_target_outputs(":adrbrowsiel_dist_resources")
+    inputs += get_target_outputs(":adrbrowsiel_locale_dist_resources")
     if (enable_extensions) {
       foreach(locale, locales) {
-        inputs += get_target_outputs(":brave_shields_locales_${locale}")
-        if (brave_rewards_enabled) {
-          inputs += get_target_outputs(":brave_rewards_locales_${locale}")
+        inputs += get_target_outputs(":adrbrowsiel_shields_locales_${locale}")
+        if (adrbrowsiel_rewards_enabled) {
+          inputs += get_target_outputs(":adrbrowsiel_rewards_locales_${locale}")
         }
       }
     }
   }
 
   if (is_win) {
-    inputs += [ "$brave_dist_dir/chrome_elf.dll" ]
+    inputs += [ "$adrbrowsiel_dist_dir/chrome_elf.dll" ]
   }
 
   file_inputs = []
   foreach(input, inputs) {
-    file_inputs += [ rebase_path(input, brave_dist_dir) ]
+    file_inputs += [ rebase_path(input, adrbrowsiel_dist_dir) ]
   }
 
   dir_inputs = []
   if (is_mac) {
-    dir_inputs += [ "$brave_exe" ]
+    dir_inputs += [ "$adrbrowsiel_exe" ]
   }
 
   outputs = [ output ]
 
   deps = [
-    ":brave_license_dist_resources",
+    ":adrbrowsiel_license_dist_resources",
     ":create_symbols_dist",
     "app/$current_os:dist_resources",
   ]
 
   if (!is_mac && !is_android && !is_ios) {
     deps += [
-      ":brave_dist_resources",
-      ":brave_locale_dist_resources",
+      ":adrbrowsiel_dist_resources",
+      ":adrbrowsiel_locale_dist_resources",
     ]
 
     if (enable_extensions) {
-      deps += [ ":brave_extensions_locale_dist_resources" ]
+      deps += [ ":adrbrowsiel_extensions_locale_dist_resources" ]
     }
   }
 
@@ -429,7 +429,7 @@ action("create_dist_zips") {
   if (is_mac) {
     rebase_base_dir = rebase_path(root_out_dir)
   } else {
-    rebase_base_dir = rebase_path(brave_dist_dir, root_out_dir)
+    rebase_base_dir = rebase_path(adrbrowsiel_dist_dir, root_out_dir)
   }
   args = [
     "--base-dir=$rebase_base_dir",
@@ -440,19 +440,19 @@ action("create_dist_zips") {
 }
 
 if (is_mac) {
-  group("brave_app") {
-    deps = [ ":brave_app_plist" ]
+  group("adrbrowsiel_app") {
+    deps = [ ":adrbrowsiel_app_plist" ]
   }
 
-  brave_tweak_info_plist("brave_app_plist") {
+  adrbrowsiel_tweak_info_plist("adrbrowsiel_app_plist") {
     info_plist = "$root_gen_dir/chrome/chrome_app_plist_tweaked.plist"
 
     args = [
-      "--brave_channel=" + brave_channel,
-      "--brave_product_dir_name=" + brave_product_dir_name,
-      "--brave_feed_url=" + brave_feed_url,
-      "--brave_version=" + brave_version,
-      "--brave_eddsa_key=" + sparkle_eddsa_public_key,
+      "--adrbrowsiel_channel=" + adrbrowsiel_channel,
+      "--adrbrowsiel_product_dir_name=" + adrbrowsiel_product_dir_name,
+      "--adrbrowsiel_feed_url=" + adrbrowsiel_feed_url,
+      "--adrbrowsiel_version=" + adrbrowsiel_version,
+      "--adrbrowsiel_eddsa_key=" + sparkle_eddsa_public_key,
     ]
 
     if (skip_signing) {
@@ -462,13 +462,13 @@ if (is_mac) {
     deps = [ "//chrome:chrome_app_plist" ]
   }
 
-  brave_tweak_info_plist("brave_helper_plist") {
+  adrbrowsiel_tweak_info_plist("adrbrowsiel_helper_plist") {
     info_plist = "$root_gen_dir/chrome/chrome_helper_plist_tweaked.plist"
 
     args = [
-      "--brave_channel=" + brave_channel,
-      "--brave_product_dir_name=" + brave_product_dir_name,
-      "--brave_version=" + brave_version,
+      "--adrbrowsiel_channel=" + adrbrowsiel_channel,
+      "--adrbrowsiel_product_dir_name=" + adrbrowsiel_product_dir_name,
+      "--adrbrowsiel_version=" + adrbrowsiel_version,
     ]
 
     deps = [ "//chrome:chrome_helper_plist" ]
@@ -476,12 +476,12 @@ if (is_mac) {
 }
 
 action("audit_deps") {
-  script = "//brave/script/audit_deps.py"
+  script = "//adrbrowsiel/script/audit_deps.py"
 
   outputs = [ "$root_gen_dir/non-existent-audit_deps" ]
 
   args = [
-    "--source_root=" + rebase_path("//brave"),
+    "--source_root=" + rebase_path("//adrbrowsiel"),
     "--rustup_path=" + rustup_path,
     "--cargo_path=" + rustup_path,
   ]

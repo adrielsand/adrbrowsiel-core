@@ -1,31 +1,31 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_DEFAULT_EXTENSIONS_HANDLER_H_
-#define BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_DEFAULT_EXTENSIONS_HANDLER_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_DEFAULT_EXTENSIONS_HANDLER_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_DEFAULT_EXTENSIONS_HANDLER_H_
 
 #include <string>
 
 #include "base/memory/weak_ptr.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/ui/webui/settings/settings_page_ui_handler.h"
 #include "chrome/common/extensions/webstore_install_result.h"
 #include "components/prefs/pref_change_registrar.h"
 #include "third_party/widevine/cdm/buildflags.h"
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/ipfs_service_observer.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service_observer.h"
 #include "ui/shell_dialogs/select_file_dialog.h"
 #endif
 
 class Profile;
 
-class BraveDefaultExtensionsHandler : public settings::SettingsPageUIHandler
+class adrbrowsielDefaultExtensionsHandler : public settings::SettingsPageUIHandler
 #if BUILDFLAG(IPFS_ENABLED)
     ,
                                       ipfs::IpfsServiceObserver,
@@ -33,8 +33,8 @@ class BraveDefaultExtensionsHandler : public settings::SettingsPageUIHandler
 #endif
 {
  public:
-  BraveDefaultExtensionsHandler();
-  ~BraveDefaultExtensionsHandler() override;
+  adrbrowsielDefaultExtensionsHandler();
+  ~adrbrowsielDefaultExtensionsHandler() override;
 
  private:
   // SettingsPageUIHandler overrides:
@@ -51,8 +51,8 @@ class BraveDefaultExtensionsHandler : public settings::SettingsPageUIHandler
   void ImportIpnsKey(const base::ListValue* args);
   void LaunchIPFSService(const base::ListValue* args);
   void ShutdownIPFSService(const base::ListValue* args);
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-  void SetBraveWalletEnabled(const base::ListValue* args);
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+  void SetadrbrowsielWalletEnabled(const base::ListValue* args);
 #endif
   void SetTorEnabled(const base::ListValue* args);
   void IsTorEnabled(const base::ListValue* args);
@@ -109,9 +109,9 @@ class BraveDefaultExtensionsHandler : public settings::SettingsPageUIHandler
   base::ScopedObservation<ipfs::IpfsService, ipfs::IpfsServiceObserver>
       ipfs_service_observer_{this};
 #endif
-  base::WeakPtrFactory<BraveDefaultExtensionsHandler> weak_ptr_factory_;
+  base::WeakPtrFactory<adrbrowsielDefaultExtensionsHandler> weak_ptr_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveDefaultExtensionsHandler);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielDefaultExtensionsHandler);
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_SETTINGS_BRAVE_DEFAULT_EXTENSIONS_HANDLER_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_SETTINGS_adrbrowsiel_DEFAULT_EXTENSIONS_HANDLER_H_

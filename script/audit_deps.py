@@ -2,7 +2,7 @@
 
 """This script runs `npm audit' and `cargo audit' on relevant paths in the repo."""
 
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at https://mozilla.org/MPL/2.0/.
@@ -18,9 +18,9 @@ from rust_deps_config import RUST_DEPS_PACKAGE_VERSION
 # Use all (sub)paths except these for npm audit.
 NPM_EXCLUDE_PATHS = [
     'build',
-    os.path.join('components', 'brave_sync', 'extension', 'brave-sync', 'node_modules'),
+    os.path.join('components', 'adrbrowsiel_sync', 'extension', 'adrbrowsiel-sync', 'node_modules'),
     os.path.join('node_modules'),
-    os.path.join('vendor', 'brave-extension', 'node_modules'),
+    os.path.join('vendor', 'adrbrowsiel-extension', 'node_modules'),
 ]
 
 # Use only these (sub)paths for cargo audit.
@@ -162,10 +162,10 @@ def extract_resolutions(result):
 def parse_args():
     """Parse command line arguments."""
 
-    parser = argparse.ArgumentParser(description='Audit brave-core npm deps')
+    parser = argparse.ArgumentParser(description='Audit adrbrowsiel-core npm deps')
     parser.add_argument('input_dir', nargs='?', help='Directory to check')
     parser.add_argument('--source_root', required=True,
-                        help='Full path of the src/brave directory')
+                        help='Full path of the src/adrbrowsiel directory')
     parser.add_argument('--rustup_path', required=True)
     parser.add_argument('--cargo_path', required=True)
     parser.add_argument('--toolchain')

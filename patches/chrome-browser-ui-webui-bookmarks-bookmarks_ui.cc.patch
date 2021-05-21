@@ -6,7 +6,7 @@ index 629b2ad6acd573609fc85a93dc166f42fe43127a..52785737cb9f5683f5024dd828a99c88
    for (const auto& str : kStrings)
      AddLocalizedString(source, str.name, str.id);
  
-+  BRAVE_CREATE_BOOKMARKS_UI_HTML_SOURCE
++  adrbrowsiel_CREATE_BOOKMARKS_UI_HTML_SOURCE
    return source;
  }
  

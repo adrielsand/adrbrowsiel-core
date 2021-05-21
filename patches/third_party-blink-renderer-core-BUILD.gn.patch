@@ -6,7 +6,7 @@ index d889c81d335ede30203d1eed2c86ba9a5f3d2934..9b1200845ee392495739851cfff9d171
  
    visibility = []  # Allow re-assignment of list.
    visibility = [ "//third_party/blink/*" ]
-+  visibility += brave_blink_renderer_core_visibility
++  visibility += adrbrowsiel_blink_renderer_core_visibility
  
    sources = [
      "core_initializer.cc",
@@ -14,7 +14,7 @@ index d889c81d335ede30203d1eed2c86ba9a5f3d2934..9b1200845ee392495739851cfff9d171
      "//v8",
    ]
  
-+  public_deps += brave_blink_renderer_core_public_deps
++  public_deps += adrbrowsiel_blink_renderer_core_public_deps
    deps = [
      "//build:chromeos_buildflags",
      "//components/paint_preview/common",

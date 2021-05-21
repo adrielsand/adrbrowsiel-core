@@ -6,7 +6,7 @@ index 6dcede93907d5501b7945e85fb471c3a2f846eb7..58eb469ae9890573060bfb32e39df649
    if (!canvas()->GetDocument().GetFrame())
      return MakeGarbageCollected<TextMetrics>();
  
-+  BRAVE_CANVAS_RENDERING_CONTEXT_2D_MEASURE_TEXT
++  adrbrowsiel_CANVAS_RENDERING_CONTEXT_2D_MEASURE_TEXT
    canvas()->GetDocument().UpdateStyleAndLayoutTreeForNode(canvas());
  
    const Font& font = AccessFont();

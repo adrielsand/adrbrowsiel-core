@@ -1,4 +1,4 @@
-# Copyright (c) 2021 The Brave Authors. All rights reserved.
+# Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -9,7 +9,7 @@ source_set("page_handler") {
     "wallet_panel_page_handler.h",
   ]
   deps = [
-    "//brave/components/brave_wallet_ui:mojo_bindings",
+    "//adrbrowsiel/components/adrbrowsiel_wallet_ui:mojo_bindings",
     "//content/public/browser",
     "//mojo/public/cpp/bindings",
     "//ui/webui:webui",

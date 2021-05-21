@@ -1,26 +1,26 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/api/brave_shields_api.h"
+#include "adrbrowsiel/browser/extensions/api/adrbrowsiel_shields_api.h"
 
 #include <utility>
 
 #include "base/feature_list.h"
 #include "base/strings/string_number_conversions.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/brave_shields/brave_shields_web_contents_observer.h"
-#include "brave/browser/extensions/api/brave_action_api.h"
-#include "brave/browser/ui/brave_pages.h"
-#include "brave/browser/webcompat_reporter/webcompat_reporter_dialog.h"
-#include "brave/common/extensions/api/brave_shields.h"
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/browser/brave_shields_p3a.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
-#include "brave/components/brave_shields/common/features.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer.h"
+#include "adrbrowsiel/browser/extensions/api/adrbrowsiel_action_api.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_pages.h"
+#include "adrbrowsiel/browser/webcompat_reporter/webcompat_reporter_dialog.h"
+#include "adrbrowsiel/common/extensions/api/adrbrowsiel_shields.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_p3a.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/features.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/extensions/api/tabs/tabs_constants.h"
@@ -32,10 +32,10 @@
 #include "extensions/browser/extension_util.h"
 #include "extensions/common/constants.h"
 
-using brave_shields::BraveShieldsWebContentsObserver;
-using brave_shields::ControlType;
-using brave_shields::ControlTypeFromString;
-using brave_shields::ControlTypeToString;
+using adrbrowsiel_shields::adrbrowsielShieldsWebContentsObserver;
+using adrbrowsiel_shields::ControlType;
+using adrbrowsiel_shields::ControlTypeFromString;
+using adrbrowsiel_shields::ControlTypeToString;
 
 namespace extensions {
 namespace api {
@@ -48,28 +48,28 @@ const char kInvalidControlTypeError[] = "Invalid ControlType.";
 }  // namespace
 
 ExtensionFunction::ResponseAction
-BraveShieldsUrlCosmeticResourcesFunction::Run() {
-  std::unique_ptr<brave_shields::UrlCosmeticResources::Params> params(
-      brave_shields::UrlCosmeticResources::Params::Create(*args_));
+adrbrowsielShieldsUrlCosmeticResourcesFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::UrlCosmeticResources::Params> params(
+      adrbrowsiel_shields::UrlCosmeticResources::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
-  g_brave_browser_process->ad_block_service()
+  g_adrbrowsiel_browser_process->ad_block_service()
       ->GetTaskRunner()
       ->PostTaskAndReplyWithResult(
           FROM_HERE,
-          base::BindOnce(&BraveShieldsUrlCosmeticResourcesFunction::
+          base::BindOnce(&adrbrowsielShieldsUrlCosmeticResourcesFunction::
                              GetUrlCosmeticResourcesOnTaskRunner,
                          this, params->url),
-          base::BindOnce(&BraveShieldsUrlCosmeticResourcesFunction::
+          base::BindOnce(&adrbrowsielShieldsUrlCosmeticResourcesFunction::
                              GetUrlCosmeticResourcesOnUI,
                          this));
   return RespondLater();
 }
 
 std::unique_ptr<base::ListValue>
-BraveShieldsUrlCosmeticResourcesFunction::GetUrlCosmeticResourcesOnTaskRunner(
+adrbrowsielShieldsUrlCosmeticResourcesFunction::GetUrlCosmeticResourcesOnTaskRunner(
     const std::string& url) {
   base::Optional<base::Value> resources =
-      g_brave_browser_process->ad_block_service()->UrlCosmeticResources(url);
+      g_adrbrowsiel_browser_process->ad_block_service()->UrlCosmeticResources(url);
 
   if (!resources || !resources->is_dict()) {
     return std::unique_ptr<base::ListValue>();
@@ -80,7 +80,7 @@ BraveShieldsUrlCosmeticResourcesFunction::GetUrlCosmeticResourcesOnTaskRunner(
   return result_list;
 }
 
-void BraveShieldsUrlCosmeticResourcesFunction::GetUrlCosmeticResourcesOnUI(
+void adrbrowsielShieldsUrlCosmeticResourcesFunction::GetUrlCosmeticResourcesOnUI(
     std::unique_ptr<base::ListValue> resources) {
   if (!resources) {
     Respond(Error("Url-specific cosmetic resources could not be returned"));
@@ -90,31 +90,31 @@ void BraveShieldsUrlCosmeticResourcesFunction::GetUrlCosmeticResourcesOnUI(
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsHiddenClassIdSelectorsFunction::Run() {
-  std::unique_ptr<brave_shields::HiddenClassIdSelectors::Params> params(
-      brave_shields::HiddenClassIdSelectors::Params::Create(*args_));
+adrbrowsielShieldsHiddenClassIdSelectorsFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::HiddenClassIdSelectors::Params> params(
+      adrbrowsiel_shields::HiddenClassIdSelectors::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
-  g_brave_browser_process->ad_block_service()
+  g_adrbrowsiel_browser_process->ad_block_service()
       ->GetTaskRunner()
       ->PostTaskAndReplyWithResult(
           FROM_HERE,
-          base::BindOnce(&BraveShieldsHiddenClassIdSelectorsFunction::
+          base::BindOnce(&adrbrowsielShieldsHiddenClassIdSelectorsFunction::
                              GetHiddenClassIdSelectorsOnTaskRunner,
                          this, params->classes, params->ids,
                          params->exceptions),
-          base::BindOnce(&BraveShieldsHiddenClassIdSelectorsFunction::
+          base::BindOnce(&adrbrowsielShieldsHiddenClassIdSelectorsFunction::
                              GetHiddenClassIdSelectorsOnUI,
                          this));
   return RespondLater();
 }
 
-std::unique_ptr<base::ListValue> BraveShieldsHiddenClassIdSelectorsFunction::
+std::unique_ptr<base::ListValue> adrbrowsielShieldsHiddenClassIdSelectorsFunction::
     GetHiddenClassIdSelectorsOnTaskRunner(
         const std::vector<std::string>& classes,
         const std::vector<std::string>& ids,
         const std::vector<std::string>& exceptions) {
   base::Optional<base::Value> hide_selectors =
-      g_brave_browser_process->ad_block_service()->HiddenClassIdSelectors(
+      g_adrbrowsiel_browser_process->ad_block_service()->HiddenClassIdSelectors(
           classes, ids, exceptions);
 
   if (!hide_selectors || !hide_selectors->is_list())
@@ -126,19 +126,19 @@ std::unique_ptr<base::ListValue> BraveShieldsHiddenClassIdSelectorsFunction::
   return result_list;
 }
 
-void BraveShieldsHiddenClassIdSelectorsFunction::GetHiddenClassIdSelectorsOnUI(
+void adrbrowsielShieldsHiddenClassIdSelectorsFunction::GetHiddenClassIdSelectorsOnUI(
     std::unique_ptr<base::ListValue> selectors) {
   Respond(ArgumentList(std::move(selectors)));
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsMigrateLegacyCosmeticFiltersFunction::Run() {
-  std::unique_ptr<brave_shields::MigrateLegacyCosmeticFilters::Params> params(
-      brave_shields::MigrateLegacyCosmeticFilters::Params::Create(*args_));
+adrbrowsielShieldsMigrateLegacyCosmeticFiltersFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::MigrateLegacyCosmeticFilters::Params> params(
+      adrbrowsiel_shields::MigrateLegacyCosmeticFilters::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const bool success =
-      g_brave_browser_process->ad_block_custom_filters_service()
+      g_adrbrowsiel_browser_process->ad_block_custom_filters_service()
           ->MigrateLegacyCosmeticFilters(
               params->legacy_filters.additional_properties);
 
@@ -148,13 +148,13 @@ BraveShieldsMigrateLegacyCosmeticFiltersFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsAddSiteCosmeticFilterFunction::Run() {
-  std::unique_ptr<brave_shields::AddSiteCosmeticFilter::Params> params(
-      brave_shields::AddSiteCosmeticFilter::Params::Create(*args_));
+adrbrowsielShieldsAddSiteCosmeticFilterFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::AddSiteCosmeticFilter::Params> params(
+      adrbrowsiel_shields::AddSiteCosmeticFilter::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   auto* custom_filters_service =
-      g_brave_browser_process->ad_block_custom_filters_service();
+      g_adrbrowsiel_browser_process->ad_block_custom_filters_service();
   std::string custom_filters = custom_filters_service->GetCustomFilters();
   custom_filters_service->UpdateCustomFilters(custom_filters + '\n' +
                                               params->host + "##" +
@@ -164,18 +164,18 @@ BraveShieldsAddSiteCosmeticFilterFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsOpenFilterManagementPageFunction::Run() {
+adrbrowsielShieldsOpenFilterManagementPageFunction::Run() {
   Browser* browser = chrome::FindLastActive();
   if (browser) {
-    brave::ShowBraveAdblock(browser);
+    adrbrowsiel::ShowadrbrowsielAdblock(browser);
   }
 
   return RespondNow(NoArguments());
 }
 
-ExtensionFunction::ResponseAction BraveShieldsAllowScriptsOnceFunction::Run() {
-  std::unique_ptr<brave_shields::AllowScriptsOnce::Params> params(
-      brave_shields::AllowScriptsOnce::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielShieldsAllowScriptsOnceFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::AllowScriptsOnce::Params> params(
+      adrbrowsiel_shields::AllowScriptsOnce::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   // Get web contents for this tab
@@ -188,23 +188,23 @@ ExtensionFunction::ResponseAction BraveShieldsAllowScriptsOnceFunction::Run() {
                             base::NumberToString(params->tab_id)));
   }
 
-  BraveShieldsWebContentsObserver::FromWebContents(contents)->AllowScriptsOnce(
+  adrbrowsielShieldsWebContentsObserver::FromWebContents(contents)->AllowScriptsOnce(
       params->origins, contents);
   return RespondNow(NoArguments());
 }
 
-BraveShieldsOpenBrowserActionUIFunction::
-~BraveShieldsOpenBrowserActionUIFunction() {
+adrbrowsielShieldsOpenBrowserActionUIFunction::
+~adrbrowsielShieldsOpenBrowserActionUIFunction() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsOpenBrowserActionUIFunction::Run() {
-  std::unique_ptr<brave_shields::OpenBrowserActionUI::Params> params(
-      brave_shields::OpenBrowserActionUI::Params::Create(*args_));
+adrbrowsielShieldsOpenBrowserActionUIFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::OpenBrowserActionUI::Params> params(
+      adrbrowsiel_shields::OpenBrowserActionUI::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
   std::string error;
-  if (!BraveActionAPI::ShowActionUI(this,
-      brave_extension_id,
+  if (!adrbrowsielActionAPI::ShowActionUI(this,
+      adrbrowsiel_extension_id,
       std::move(params->window_id),
       std::move(params->relative_path), &error)) {
     return RespondNow(Error(error));
@@ -213,9 +213,9 @@ BraveShieldsOpenBrowserActionUIFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsSetBraveShieldsEnabledFunction::Run() {
-  std::unique_ptr<brave_shields::SetBraveShieldsEnabled::Params> params(
-      brave_shields::SetBraveShieldsEnabled::Params::Create(*args_));
+adrbrowsielShieldsSetadrbrowsielShieldsEnabledFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::SetadrbrowsielShieldsEnabled::Params> params(
+      adrbrowsiel_shields::SetadrbrowsielShieldsEnabled::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -225,7 +225,7 @@ BraveShieldsSetBraveShieldsEnabledFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  ::brave_shields::SetBraveShieldsEnabled(
+  ::adrbrowsiel_shields::SetadrbrowsielShieldsEnabled(
       HostContentSettingsMapFactory::GetForProfile(profile),
       params->enabled,
       url,
@@ -235,9 +235,9 @@ BraveShieldsSetBraveShieldsEnabledFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsGetBraveShieldsEnabledFunction::Run() {
-  std::unique_ptr<brave_shields::GetBraveShieldsEnabled::Params> params(
-      brave_shields::GetBraveShieldsEnabled::Params::Create(*args_));
+adrbrowsielShieldsGetadrbrowsielShieldsEnabledFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::GetadrbrowsielShieldsEnabled::Params> params(
+      adrbrowsiel_shields::GetadrbrowsielShieldsEnabled::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -247,7 +247,7 @@ BraveShieldsGetBraveShieldsEnabledFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  auto enabled = ::brave_shields::GetBraveShieldsEnabled(
+  auto enabled = ::adrbrowsiel_shields::GetadrbrowsielShieldsEnabled(
       HostContentSettingsMapFactory::GetForProfile(profile),
       url);
 
@@ -255,15 +255,15 @@ BraveShieldsGetBraveShieldsEnabledFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsShouldDoCosmeticFilteringFunction::Run() {
+adrbrowsielShieldsShouldDoCosmeticFilteringFunction::Run() {
 #if !defined(OS_ANDROID) && !defined(CHROME_OS)
   if (base::FeatureList::IsEnabled(
-          ::brave_shields::features::kBraveAdblockCosmeticFilteringNative))
+          ::adrbrowsiel_shields::features::kadrbrowsielAdblockCosmeticFilteringNative))
     return RespondNow(OneArgument(base::Value(false)));
 #endif
-  std::unique_ptr<brave_shields::ShouldDoCosmeticFiltering::Params>
+  std::unique_ptr<adrbrowsiel_shields::ShouldDoCosmeticFiltering::Params>
     params(
-      brave_shields::ShouldDoCosmeticFiltering::Params::Create(*args_));
+      adrbrowsiel_shields::ShouldDoCosmeticFiltering::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -273,7 +273,7 @@ BraveShieldsShouldDoCosmeticFilteringFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  const bool enabled = ::brave_shields::ShouldDoCosmeticFiltering(
+  const bool enabled = ::adrbrowsiel_shields::ShouldDoCosmeticFiltering(
       HostContentSettingsMapFactory::GetForProfile(profile),
       url);
 
@@ -281,10 +281,10 @@ BraveShieldsShouldDoCosmeticFilteringFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsSetCosmeticFilteringControlTypeFunction::Run() {
-  std::unique_ptr<brave_shields::SetCosmeticFilteringControlType::Params>
+adrbrowsielShieldsSetCosmeticFilteringControlTypeFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::SetCosmeticFilteringControlType::Params>
     params(
-      brave_shields::SetCosmeticFilteringControlType::Params::Create(*args_));
+      adrbrowsiel_shields::SetCosmeticFilteringControlType::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -299,7 +299,7 @@ BraveShieldsSetCosmeticFilteringControlTypeFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  ::brave_shields::SetCosmeticFilteringControlType(
+  ::adrbrowsiel_shields::SetCosmeticFilteringControlType(
       HostContentSettingsMapFactory::GetForProfile(profile),
       control_type,
       url,
@@ -309,10 +309,10 @@ BraveShieldsSetCosmeticFilteringControlTypeFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsIsFirstPartyCosmeticFilteringEnabledFunction::Run() {
-  std::unique_ptr<brave_shields::IsFirstPartyCosmeticFilteringEnabled::Params>
+adrbrowsielShieldsIsFirstPartyCosmeticFilteringEnabledFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::IsFirstPartyCosmeticFilteringEnabled::Params>
       params(
-          brave_shields::IsFirstPartyCosmeticFilteringEnabled::Params::Create(
+          adrbrowsiel_shields::IsFirstPartyCosmeticFilteringEnabled::Params::Create(
           *args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
@@ -323,15 +323,15 @@ BraveShieldsIsFirstPartyCosmeticFilteringEnabledFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  const bool enabled = ::brave_shields::IsFirstPartyCosmeticFilteringEnabled(
+  const bool enabled = ::adrbrowsiel_shields::IsFirstPartyCosmeticFilteringEnabled(
       HostContentSettingsMapFactory::GetForProfile(profile), url);
 
   return RespondNow(OneArgument(base::Value(enabled)));
 }
 
-ExtensionFunction::ResponseAction BraveShieldsSetAdControlTypeFunction::Run() {
-  std::unique_ptr<brave_shields::SetAdControlType::Params> params(
-      brave_shields::SetAdControlType::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielShieldsSetAdControlTypeFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::SetAdControlType::Params> params(
+      adrbrowsiel_shields::SetAdControlType::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -346,7 +346,7 @@ ExtensionFunction::ResponseAction BraveShieldsSetAdControlTypeFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  ::brave_shields::SetAdControlType(
+  ::adrbrowsiel_shields::SetAdControlType(
       HostContentSettingsMapFactory::GetForProfile(profile),
       control_type,
       url,
@@ -355,9 +355,9 @@ ExtensionFunction::ResponseAction BraveShieldsSetAdControlTypeFunction::Run() {
   return RespondNow(NoArguments());
 }
 
-ExtensionFunction::ResponseAction BraveShieldsGetAdControlTypeFunction::Run() {
-  std::unique_ptr<brave_shields::GetAdControlType::Params> params(
-      brave_shields::GetAdControlType::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielShieldsGetAdControlTypeFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::GetAdControlType::Params> params(
+      adrbrowsiel_shields::GetAdControlType::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -367,7 +367,7 @@ ExtensionFunction::ResponseAction BraveShieldsGetAdControlTypeFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  auto type = ::brave_shields::GetAdControlType(
+  auto type = ::adrbrowsiel_shields::GetAdControlType(
       HostContentSettingsMapFactory::GetForProfile(profile),
       url);
 
@@ -375,9 +375,9 @@ ExtensionFunction::ResponseAction BraveShieldsGetAdControlTypeFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsSetCookieControlTypeFunction::Run() {
-  std::unique_ptr<brave_shields::SetCookieControlType::Params> params(
-      brave_shields::SetCookieControlType::Params::Create(*args_));
+adrbrowsielShieldsSetCookieControlTypeFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::SetCookieControlType::Params> params(
+      adrbrowsiel_shields::SetCookieControlType::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -392,7 +392,7 @@ BraveShieldsSetCookieControlTypeFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  ::brave_shields::SetCookieControlType(
+  ::adrbrowsiel_shields::SetCookieControlType(
       HostContentSettingsMapFactory::GetForProfile(profile),
       control_type,
       url,
@@ -402,9 +402,9 @@ BraveShieldsSetCookieControlTypeFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsGetCookieControlTypeFunction::Run() {
-  std::unique_ptr<brave_shields::GetCookieControlType::Params> params(
-      brave_shields::GetCookieControlType::Params::Create(*args_));
+adrbrowsielShieldsGetCookieControlTypeFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::GetCookieControlType::Params> params(
+      adrbrowsiel_shields::GetCookieControlType::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -414,7 +414,7 @@ BraveShieldsGetCookieControlTypeFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  auto type = ::brave_shields::GetCookieControlType(
+  auto type = ::adrbrowsiel_shields::GetCookieControlType(
       HostContentSettingsMapFactory::GetForProfile(profile),
       url);
 
@@ -422,9 +422,9 @@ BraveShieldsGetCookieControlTypeFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsSetFingerprintingControlTypeFunction::Run() {
-  std::unique_ptr<brave_shields::SetFingerprintingControlType::Params> params(
-      brave_shields::SetFingerprintingControlType::Params::Create(*args_));
+adrbrowsielShieldsSetFingerprintingControlTypeFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::SetFingerprintingControlType::Params> params(
+      adrbrowsiel_shields::SetFingerprintingControlType::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -439,7 +439,7 @@ BraveShieldsSetFingerprintingControlTypeFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  ::brave_shields::SetFingerprintingControlType(
+  ::adrbrowsiel_shields::SetFingerprintingControlType(
       HostContentSettingsMapFactory::GetForProfile(profile),
       control_type,
       url,
@@ -449,9 +449,9 @@ BraveShieldsSetFingerprintingControlTypeFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsGetFingerprintingControlTypeFunction::Run() {
-  std::unique_ptr<brave_shields::GetFingerprintingControlType::Params> params(
-      brave_shields::GetFingerprintingControlType::Params::Create(*args_));
+adrbrowsielShieldsGetFingerprintingControlTypeFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::GetFingerprintingControlType::Params> params(
+      adrbrowsiel_shields::GetFingerprintingControlType::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -461,7 +461,7 @@ BraveShieldsGetFingerprintingControlTypeFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  auto type = ::brave_shields::GetFingerprintingControlType(
+  auto type = ::adrbrowsiel_shields::GetFingerprintingControlType(
       HostContentSettingsMapFactory::GetForProfile(profile),
       url);
 
@@ -469,9 +469,9 @@ BraveShieldsGetFingerprintingControlTypeFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsSetHTTPSEverywhereEnabledFunction::Run() {
-  std::unique_ptr<brave_shields::SetHTTPSEverywhereEnabled::Params> params(
-      brave_shields::SetHTTPSEverywhereEnabled::Params::Create(*args_));
+adrbrowsielShieldsSetHTTPSEverywhereEnabledFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::SetHTTPSEverywhereEnabled::Params> params(
+      adrbrowsiel_shields::SetHTTPSEverywhereEnabled::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -481,7 +481,7 @@ BraveShieldsSetHTTPSEverywhereEnabledFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  ::brave_shields::SetHTTPSEverywhereEnabled(
+  ::adrbrowsiel_shields::SetHTTPSEverywhereEnabled(
       HostContentSettingsMapFactory::GetForProfile(profile),
       params->enabled,
       url,
@@ -491,9 +491,9 @@ BraveShieldsSetHTTPSEverywhereEnabledFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsGetHTTPSEverywhereEnabledFunction::Run() {
-  std::unique_ptr<brave_shields::GetHTTPSEverywhereEnabled::Params> params(
-      brave_shields::GetHTTPSEverywhereEnabled::Params::Create(*args_));
+adrbrowsielShieldsGetHTTPSEverywhereEnabledFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::GetHTTPSEverywhereEnabled::Params> params(
+      adrbrowsiel_shields::GetHTTPSEverywhereEnabled::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -503,7 +503,7 @@ BraveShieldsGetHTTPSEverywhereEnabledFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  auto type = ::brave_shields::GetHTTPSEverywhereEnabled(
+  auto type = ::adrbrowsiel_shields::GetHTTPSEverywhereEnabled(
       HostContentSettingsMapFactory::GetForProfile(profile),
       url);
 
@@ -511,9 +511,9 @@ BraveShieldsGetHTTPSEverywhereEnabledFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsSetNoScriptControlTypeFunction::Run() {
-  std::unique_ptr<brave_shields::SetNoScriptControlType::Params> params(
-      brave_shields::SetNoScriptControlType::Params::Create(*args_));
+adrbrowsielShieldsSetNoScriptControlTypeFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::SetNoScriptControlType::Params> params(
+      adrbrowsiel_shields::SetNoScriptControlType::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -528,7 +528,7 @@ BraveShieldsSetNoScriptControlTypeFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  ::brave_shields::SetNoScriptControlType(
+  ::adrbrowsiel_shields::SetNoScriptControlType(
       HostContentSettingsMapFactory::GetForProfile(profile),
       control_type,
       url,
@@ -538,9 +538,9 @@ BraveShieldsSetNoScriptControlTypeFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsGetNoScriptControlTypeFunction::Run() {
-  std::unique_ptr<brave_shields::GetNoScriptControlType::Params> params(
-      brave_shields::GetNoScriptControlType::Params::Create(*args_));
+adrbrowsielShieldsGetNoScriptControlTypeFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::GetNoScriptControlType::Params> params(
+      adrbrowsiel_shields::GetNoScriptControlType::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   const GURL url(params->url);
@@ -550,7 +550,7 @@ BraveShieldsGetNoScriptControlTypeFunction::Run() {
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context());
-  auto type = ::brave_shields::GetNoScriptControlType(
+  auto type = ::adrbrowsiel_shields::GetNoScriptControlType(
       HostContentSettingsMapFactory::GetForProfile(profile),
       url);
 
@@ -558,15 +558,15 @@ BraveShieldsGetNoScriptControlTypeFunction::Run() {
 }
 
 ExtensionFunction::ResponseAction
-BraveShieldsOnShieldsPanelShownFunction::Run() {
-  ::brave_shields::MaybeRecordShieldsUsageP3A(::brave_shields::kClicked,
+adrbrowsielShieldsOnShieldsPanelShownFunction::Run() {
+  ::adrbrowsiel_shields::MaybeRecordShieldsUsageP3A(::adrbrowsiel_shields::kClicked,
                                               g_browser_process->local_state());
   return RespondNow(NoArguments());
 }
 
-ExtensionFunction::ResponseAction BraveShieldsReportBrokenSiteFunction::Run() {
-  std::unique_ptr<brave_shields::ReportBrokenSite::Params> params(
-      brave_shields::ReportBrokenSite::Params::Create(*args_));
+ExtensionFunction::ResponseAction adrbrowsielShieldsReportBrokenSiteFunction::Run() {
+  std::unique_ptr<adrbrowsiel_shields::ReportBrokenSite::Params> params(
+      adrbrowsiel_shields::ReportBrokenSite::Params::Create(*args_));
   EXTENSION_FUNCTION_VALIDATE(params.get());
 
   // Get web contents for this tab

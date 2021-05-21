@@ -6,7 +6,7 @@ index b4ef0d2aa9e393ace55f65f7aa92153e8dd6069d..7034645e46bf9a0f62173fd7db1b6019
   public:
    explicit BookmarkModelLoadedObserver(Profile* profile);
  
-+  BRAVE_BOOKMARK_MODEL_LOADED_OBSERVER_H_
++  adrbrowsiel_BOOKMARK_MODEL_LOADED_OBSERVER_H_
   private:
    void BookmarkModelChanged() override;
    void BookmarkModelLoaded(bookmarks::BookmarkModel* model,

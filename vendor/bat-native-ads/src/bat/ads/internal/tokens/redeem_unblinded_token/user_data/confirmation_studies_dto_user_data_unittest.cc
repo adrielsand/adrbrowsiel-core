@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,7 +13,7 @@
 #include "bat/ads/internal/unittest_base.h"
 #include "bat/ads/internal/unittest_util.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 
@@ -26,13 +26,13 @@ class BatAdsConfirmationStudiesDtoUserDataTest : public UnitTestBase {
 
 TEST_F(BatAdsConfirmationStudiesDtoUserDataTest, GetStudies) {
   // Arrange
-  std::string trial_name_1 = "BraveAdsFooStudy";
+  std::string trial_name_1 = "adrbrowsielAdsFooStudy";
   std::string group_name_1 = "GroupA";
   scoped_refptr<base::FieldTrial> trial_1 =
       base::FieldTrialList::CreateFieldTrial(trial_name_1, group_name_1);
   trial_1->group();
 
-  std::string trial_name_2 = "BarStudyForBraveAds";
+  std::string trial_name_2 = "BarStudyForadrbrowsielAds";
   std::string group_name_2 = "GroupB";
   scoped_refptr<base::FieldTrial> trial_2 =
       base::FieldTrialList::CreateFieldTrial(trial_name_2, group_name_2);
@@ -51,11 +51,11 @@ TEST_F(BatAdsConfirmationStudiesDtoUserDataTest, GetStudies) {
 
   // Assert
   base::Value study_1(base::Value::Type::DICTIONARY);
-  study_1.SetKey("name", base::Value("BraveAdsFooStudy"));
+  study_1.SetKey("name", base::Value("adrbrowsielAdsFooStudy"));
   study_1.SetKey("group", base::Value("GroupA"));
 
   base::Value study_2(base::Value::Type::DICTIONARY);
-  study_2.SetKey("name", base::Value("BarStudyForBraveAds"));
+  study_2.SetKey("name", base::Value("BarStudyForadrbrowsielAds"));
   study_2.SetKey("group", base::Value("GroupB"));
 
   base::Value study_list(base::Value::Type::LIST);

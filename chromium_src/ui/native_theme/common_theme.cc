@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,8 +10,8 @@
 #undef GetAuraColor
 
 namespace {
-  const SkColor kBraveColorBrand = SkColorSetRGB(0xfb, 0x54, 0x2b);
-  const SkColor kBraveColorOrange300 = SkColorSetRGB(0xFF, 0x97, 0x7D);
+  const SkColor kadrbrowsielColorBrand = SkColorSetRGB(0xfb, 0x54, 0x2b);
+  const SkColor kadrbrowsielColorOrange300 = SkColorSetRGB(0xFF, 0x97, 0x7D);
 }  // namespace
 
 
@@ -29,7 +29,7 @@ SkColor GetAuraColor(NativeTheme::ColorId color_id,
                     : SkColorSetRGB(0x3b, 0x3e, 0x4f);
     case NativeTheme::kColorId_ProminentButtonColor:
     case NativeTheme::kColorId_ProminentButtonFocusedColor:
-      return kBraveColorBrand;
+      return kadrbrowsielColorBrand;
     case NativeTheme::kColorId_ProminentButtonDisabledColor:
       return gfx::kGoogleGrey800;
     case NativeTheme::kColorId_TextOnProminentButtonColor:
@@ -43,7 +43,7 @@ SkColor GetAuraColor(NativeTheme::ColorId color_id,
     }
     case NativeTheme::kColorId_LinkEnabled:
     case NativeTheme::kColorId_LinkPressed:
-      return is_dark ? kBraveColorOrange300 : kBraveColorBrand;
+      return is_dark ? kadrbrowsielColorOrange300 : kadrbrowsielColorBrand;
     case NativeTheme::kColorId_TextfieldSelectionBackgroundFocused:
       return is_dark ? gfx::kGoogleBlue800 : gfx::kGoogleBlue200;
     default:

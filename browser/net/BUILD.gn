@@ -1,43 +1,43 @@
-import("//brave/browser/translate/buildflags/buildflags.gni")
-import("//brave/components/brave_referrals/buildflags/buildflags.gni")
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
-import("//brave/components/brave_webtorrent/browser/buildflags/buildflags.gni")
-import("//brave/components/decentralized_dns/buildflags/buildflags.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/browser/translate/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/decentralized_dns/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
 import("//build/config/features.gni")
 
-# Refer to the keyed API spec for more details about the Brave Services Key
-defines = brave_service_key_defines
+# Refer to the keyed API spec for more details about the adrbrowsiel Services Key
+defines = adrbrowsiel_service_key_defines
 
 source_set("net") {
-  # Remove when https://github.com/brave/brave-browser/issues/10659 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10659 is resolved
   check_includes = false
-  configs += [ "//brave/build/geolocation" ]
+  configs += [ "//adrbrowsiel/build/geolocation" ]
   sources = [
-    "brave_ad_block_csp_network_delegate_helper.cc",
-    "brave_ad_block_csp_network_delegate_helper.h",
-    "brave_ad_block_tp_network_delegate_helper.cc",
-    "brave_ad_block_tp_network_delegate_helper.h",
-    "brave_block_safebrowsing_urls.cc",
-    "brave_block_safebrowsing_urls.h",
-    "brave_common_static_redirect_network_delegate_helper.cc",
-    "brave_common_static_redirect_network_delegate_helper.h",
-    "brave_httpse_network_delegate_helper.cc",
-    "brave_httpse_network_delegate_helper.h",
-    "brave_proxying_url_loader_factory.cc",
-    "brave_proxying_url_loader_factory.h",
-    "brave_proxying_web_socket.cc",
-    "brave_proxying_web_socket.h",
-    "brave_request_handler.cc",
-    "brave_request_handler.h",
-    "brave_site_hacks_network_delegate_helper.cc",
-    "brave_site_hacks_network_delegate_helper.h",
-    "brave_static_redirect_network_delegate_helper.cc",
-    "brave_static_redirect_network_delegate_helper.h",
-    "brave_stp_util.cc",
-    "brave_stp_util.h",
-    "brave_system_request_handler.cc",
-    "brave_system_request_handler.h",
+    "adrbrowsiel_ad_block_csp_network_delegate_helper.cc",
+    "adrbrowsiel_ad_block_csp_network_delegate_helper.h",
+    "adrbrowsiel_ad_block_tp_network_delegate_helper.cc",
+    "adrbrowsiel_ad_block_tp_network_delegate_helper.h",
+    "adrbrowsiel_block_safebrowsing_urls.cc",
+    "adrbrowsiel_block_safebrowsing_urls.h",
+    "adrbrowsiel_common_static_redirect_network_delegate_helper.cc",
+    "adrbrowsiel_common_static_redirect_network_delegate_helper.h",
+    "adrbrowsiel_httpse_network_delegate_helper.cc",
+    "adrbrowsiel_httpse_network_delegate_helper.h",
+    "adrbrowsiel_proxying_url_loader_factory.cc",
+    "adrbrowsiel_proxying_url_loader_factory.h",
+    "adrbrowsiel_proxying_web_socket.cc",
+    "adrbrowsiel_proxying_web_socket.h",
+    "adrbrowsiel_request_handler.cc",
+    "adrbrowsiel_request_handler.h",
+    "adrbrowsiel_site_hacks_network_delegate_helper.cc",
+    "adrbrowsiel_site_hacks_network_delegate_helper.h",
+    "adrbrowsiel_static_redirect_network_delegate_helper.cc",
+    "adrbrowsiel_static_redirect_network_delegate_helper.h",
+    "adrbrowsiel_stp_util.cc",
+    "adrbrowsiel_stp_util.h",
+    "adrbrowsiel_system_request_handler.cc",
+    "adrbrowsiel_system_request_handler.h",
     "global_privacy_control_network_delegate_helper.cc",
     "global_privacy_control_network_delegate_helper.h",
     "resource_context_data.cc",
@@ -48,19 +48,19 @@ source_set("net") {
 
   deps = [
     "//base",
-    "//brave/app:brave_generated_resources_grit",
-    "//brave/browser/safebrowsing",
-    "//brave/browser/translate/buildflags",
-    "//brave/common",
-    "//brave/components/brave_component_updater/browser",
-    "//brave/components/brave_referrals/buildflags",
-    "//brave/components/brave_shields/browser",
-    "//brave/components/brave_shields/common",
-    "//brave/components/brave_wallet/common/buildflags",
-    "//brave/components/brave_webtorrent/browser/buildflags",
-    "//brave/components/decentralized_dns/buildflags",
-    "//brave/components/ipfs/buildflags",
-    "//brave/extensions:common",
+    "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+    "//adrbrowsiel/browser/safebrowsing",
+    "//adrbrowsiel/browser/translate/buildflags",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/components/adrbrowsiel_component_updater/browser",
+    "//adrbrowsiel/components/adrbrowsiel_referrals/buildflags",
+    "//adrbrowsiel/components/adrbrowsiel_shields/browser",
+    "//adrbrowsiel/components/adrbrowsiel_shields/common",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags",
+    "//adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags",
+    "//adrbrowsiel/components/decentralized_dns/buildflags",
+    "//adrbrowsiel/components/ipfs/buildflags",
+    "//adrbrowsiel/extensions:common",
     "//components/content_settings/core/browser",
     "//components/prefs",
     "//components/user_prefs",
@@ -85,48 +85,48 @@ source_set("net") {
       "ipfs_redirect_network_delegate_helper.h",
     ]
     deps += [
-      "//brave/components/ipfs",
+      "//adrbrowsiel/components/ipfs",
       "//chrome/common:channel_info",
     ]
   }
 
-  if (enable_brave_referrals) {
+  if (enable_adrbrowsiel_referrals) {
     sources += [
-      "brave_referrals_network_delegate_helper.cc",
-      "brave_referrals_network_delegate_helper.h",
+      "adrbrowsiel_referrals_network_delegate_helper.cc",
+      "adrbrowsiel_referrals_network_delegate_helper.h",
     ]
 
-    deps += [ "//brave/components/brave_referrals/browser" ]
+    deps += [ "//adrbrowsiel/components/adrbrowsiel_referrals/browser" ]
   }
 
-  if (enable_brave_webtorrent) {
+  if (enable_adrbrowsiel_webtorrent) {
     sources += [
-      "brave_torrent_redirect_network_delegate_helper.cc",
-      "brave_torrent_redirect_network_delegate_helper.h",
+      "adrbrowsiel_torrent_redirect_network_delegate_helper.cc",
+      "adrbrowsiel_torrent_redirect_network_delegate_helper.h",
     ]
 
     deps += [
-      "//brave/components/brave_webtorrent/browser/",
+      "//adrbrowsiel/components/adrbrowsiel_webtorrent/browser/",
       "//extensions/browser",
     ]
   }
 
-  if (enable_brave_translate_go) {
+  if (enable_adrbrowsiel_translate_go) {
     sources += [
-      "brave_translate_redirect_network_delegate_helper.cc",
-      "brave_translate_redirect_network_delegate_helper.h",
+      "adrbrowsiel_translate_redirect_network_delegate_helper.cc",
+      "adrbrowsiel_translate_redirect_network_delegate_helper.h",
     ]
   }
 
-  if (decentralized_dns_enabled && brave_wallet_enabled) {
+  if (decentralized_dns_enabled && adrbrowsiel_wallet_enabled) {
     sources += [
       "decentralized_dns_network_delegate_helper.cc",
       "decentralized_dns_network_delegate_helper.h",
     ]
 
     deps += [
-      "//brave/components/brave_wallet/browser",
-      "//brave/components/decentralized_dns",
+      "//adrbrowsiel/components/adrbrowsiel_wallet/browser",
+      "//adrbrowsiel/components/decentralized_dns",
     ]
   }
 }

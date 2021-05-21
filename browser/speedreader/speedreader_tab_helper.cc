@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/speedreader/speedreader_tab_helper.h"
+#include "adrbrowsiel/browser/speedreader/speedreader_tab_helper.h"
 
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/speedreader/speedreader_service_factory.h"
-#include "brave/components/speedreader/speedreader_rewriter_service.h"
-#include "brave/components/speedreader/speedreader_service.h"
-#include "brave/components/speedreader/speedreader_test_whitelist.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/speedreader/speedreader_service_factory.h"
+#include "adrbrowsiel/components/speedreader/speedreader_rewriter_service.h"
+#include "adrbrowsiel/components/speedreader/speedreader_service.h"
+#include "adrbrowsiel/components/speedreader/speedreader_test_whitelist.h"
 #include "chrome/browser/profiles/profile.h"
 #include "content/public/browser/navigation_handle.h"
 
@@ -39,7 +39,7 @@ void SpeedreaderTabHelper::UpdateActiveState(
   // Work only with casual main frame navigations.
   if (handle->GetURL().SchemeIsHTTPOrHTTPS()) {
     auto* rewriter_service =
-        g_brave_browser_process->speedreader_rewriter_service();
+        g_adrbrowsiel_browser_process->speedreader_rewriter_service();
     if (speedreader::IsWhitelistedForTest(handle->GetURL()) ||
         rewriter_service->IsWhitelisted(handle->GetURL())) {
       VLOG(2) << __func__ << " SpeedReader active for " << handle->GetURL();

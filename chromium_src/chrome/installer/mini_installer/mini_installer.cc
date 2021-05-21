@@ -1,23 +1,23 @@
-// Copyright (c) 2020 The Brave Authors
+// Copyright (c) 2020 The adrbrowsiel Authors
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 #include "build/branding_buildflags.h"
 
-#define BRAVE_RUN_SETUP                                                      \
+#define adrbrowsiel_RUN_SETUP                                                      \
   PathString installer_filename;                                             \
   wchar_t value[MAX_PATH] = {0, };                                           \
   const bool result =                                                        \
       RegKey::ReadSZValue(HKEY_CURRENT_USER,                                 \
-                          L"Software\\BraveSoftware\\Promo",                 \
+                          L"Software\\adrbrowsielSoftware\\Promo",                 \
                           L"StubInstallerPath", value, _countof(value)) ;    \
   if (result &&                                                              \
        installer_filename.assign(value) &&                                   \
        installer_filename.length() != 0) {                                   \
     ReferralCodeString referral_code;                                        \
     if (ParseReferralCode(installer_filename.get(), &referral_code)) {       \
-      cmd_line.append(L" --brave-referral-code");                            \
+      cmd_line.append(L" --adrbrowsiel-referral-code");                            \
       cmd_line.append(L"=\"");                                               \
       cmd_line.append(referral_code.get());                                  \
       cmd_line.append(L"\"");                                                \
@@ -31,7 +31,7 @@
 
 #include "../../../../../chrome/installer/mini_installer/mini_installer.cc"
 
-#undef BRAVE_RUN_SETUP
+#undef adrbrowsiel_RUN_SETUP
 
 namespace mini_installer {
 

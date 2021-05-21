@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,7 +10,7 @@
 #undef BuildIdentityManagerInitParameters
 #undef BuildIdentityManager
 
-#include "brave/components/signin/internal/identity_manager/brave_primary_account_mutator_impl.h"
+#include "adrbrowsiel/components/signin/internal/identity_manager/adrbrowsiel_primary_account_mutator_impl.h"
 #include "components/signin/public/identity_manager/identity_manager.h"
 
 namespace signin {
@@ -23,7 +23,7 @@ IdentityManager::InitParameters BuildIdentityManagerInitParameters(
       BuildIdentityManagerInitParameters_ChromiumImpl(params);
 
   init_params.primary_account_mutator =
-      std::make_unique<BravePrimaryAccountMutatorImpl>(
+      std::make_unique<adrbrowsielPrimaryAccountMutatorImpl>(
           init_params.account_tracker_service.get(),
           init_params.token_service.get(),
           init_params.primary_account_manager.get(), params->pref_service,

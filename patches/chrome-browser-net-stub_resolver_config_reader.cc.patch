@@ -6,7 +6,7 @@ index 677f6c50fc602a1c5ba6ca52f4ea6496d7d60e7f..d736b6e06fcbee8fb17e3397cee86f3d
  
    std::string doh_templates =
        local_state_->GetString(prefs::kDnsOverHttpsTemplates);
-+  BRAVE_GET_AND_UPDATE_CONFIGURATION
++  adrbrowsiel_GET_AND_UPDATE_CONFIGURATION
    std::string server_method;
    std::vector<net::DnsOverHttpsServerConfig> dns_over_https_servers;
    base::Optional<std::vector<network::mojom::DnsOverHttpsServerPtr>>

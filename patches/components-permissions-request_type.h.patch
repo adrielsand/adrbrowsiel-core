@@ -6,7 +6,7 @@ index a2519ae4340ff4be1dbc4b07f01efeab15142e92..6bff4e33c135009d9dece2ab51f4db49
  #if !defined(OS_ANDROID)
    kWindowPlacement,
  #endif
-+  BRAVE_REQUEST_TYPES
++  adrbrowsiel_REQUEST_TYPES
  };
  
  #if defined(OS_ANDROID)

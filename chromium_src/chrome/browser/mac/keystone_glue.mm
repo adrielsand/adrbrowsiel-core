@@ -1,7 +1,7 @@
-#include "brave/browser/sparkle_buildflags.h"
+#include "adrbrowsiel/browser/sparkle_buildflags.h"
 
 #if BUILDFLAG(ENABLE_SPARKLE)
-#include "brave/browser/mac/sparkle_glue.h"
+#include "adrbrowsiel/browser/mac/sparkle_glue.h"
 #endif
 
 #define KeystoneEnabled KeystoneEnabled_ChromiumImpl

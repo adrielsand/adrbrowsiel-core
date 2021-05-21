@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,9 +10,9 @@
 #include "bat/ledger/ledger.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=MediaRedditTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=MediaRedditTest.*
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 class MediaRedditTest : public testing::Test {
 };
@@ -20,20 +20,20 @@ class MediaRedditTest : public testing::Test {
 TEST(MediaRedditTest, GetProfileUrl) {
   // empty
   std::string result =
-      braveledger_media::Reddit::GetProfileUrl(std::string());
+      adrbrowsielledger_media::Reddit::GetProfileUrl(std::string());
   ASSERT_TRUE(result.empty());
 
-  result = braveledger_media::Reddit::GetProfileUrl("jsadler-brave");
-  ASSERT_EQ(result, "https://reddit.com/user/jsadler-brave/");
+  result = adrbrowsielledger_media::Reddit::GetProfileUrl("jsadler-adrbrowsiel");
+  ASSERT_EQ(result, "https://reddit.com/user/jsadler-adrbrowsiel/");
 }
 
 TEST(MediaRedditTest, GetProfileImageUrl) {
   // empty
   std::string result =
-      braveledger_media::Reddit::GetProfileImageUrl(std::string());
+      adrbrowsielledger_media::Reddit::GetProfileImageUrl(std::string());
   ASSERT_TRUE(result.empty());
 
-  result = braveledger_media::Reddit::GetProfileImageUrl(
+  result = adrbrowsielledger_media::Reddit::GetProfileImageUrl(
       "\"accountIcon\":\"https://www.someredditmediacdn.com/somephoto.png?"
       "somequerystringparams");
   ASSERT_EQ(result, "https://www.someredditmediacdn.com/somephoto.png");
@@ -42,34 +42,34 @@ TEST(MediaRedditTest, GetProfileImageUrl) {
 TEST(MediaRedditTest, GetPublisherKey) {
   // empty
   std::string result =
-      braveledger_media::Reddit::GetPublisherKey(std::string());
+      adrbrowsielledger_media::Reddit::GetPublisherKey(std::string());
   ASSERT_TRUE(result.empty());
 
   result =
-      braveledger_media::Reddit::GetPublisherKey("test_publisher_key");
+      adrbrowsielledger_media::Reddit::GetPublisherKey("test_publisher_key");
   ASSERT_EQ(result, "reddit#channel:test_publisher_key");
 }
 
 TEST(MediaRedditTest, GetUserNameFromUrl) {
   // empty
   std::string result =
-      braveledger_media::Reddit::GetUserNameFromUrl(std::string());
+      adrbrowsielledger_media::Reddit::GetUserNameFromUrl(std::string());
   ASSERT_TRUE(result.empty());
 
   // empty path
-  result = braveledger_media::Reddit::
+  result = adrbrowsielledger_media::Reddit::
       GetUserNameFromUrl("/");
   ASSERT_TRUE(result.empty());
 
   // simple path
-  result = braveledger_media::Reddit::
-      GetUserNameFromUrl("/jsadler-brave");
+  result = adrbrowsielledger_media::Reddit::
+      GetUserNameFromUrl("/jsadler-adrbrowsiel");
   ASSERT_TRUE(result.empty());
 
   // long path
-  result = braveledger_media::Reddit::
-      GetUserNameFromUrl("/user/jsadler-brave");
-  ASSERT_EQ(result, "jsadler-brave");
+  result = adrbrowsielledger_media::Reddit::
+      GetUserNameFromUrl("/user/jsadler-adrbrowsiel");
+  ASSERT_EQ(result, "jsadler-adrbrowsiel");
 }
 
 TEST(MediaRedditTest, GetUserId) {
@@ -80,47 +80,47 @@ TEST(MediaRedditTest, GetUserId) {
 
   // empty
   std::string result =
-      braveledger_media::Reddit::GetUserId(std::string());
+      adrbrowsielledger_media::Reddit::GetUserId(std::string());
   ASSERT_TRUE(result.empty());
 
   // incorrect scrape
   result =
-      braveledger_media::Reddit::GetUserId("Some random text");
+      adrbrowsielledger_media::Reddit::GetUserId("Some random text");
   ASSERT_TRUE(result.empty());
 
   // support for current Reddit
   result =
-      braveledger_media::Reddit::GetUserId(reddit_old);
+      adrbrowsielledger_media::Reddit::GetUserId(reddit_old);
   ASSERT_EQ(result, "123456");
 
   // support for new Reddit
   result =
-      braveledger_media::Reddit::GetUserId(reddit_new);
+      adrbrowsielledger_media::Reddit::GetUserId(reddit_new);
   ASSERT_EQ(result, "78910");
 }
 
 TEST(MediaRedditTest, GetPublisherName) {
-  const char reddit_new[] = "\"username\":\"jsadler-brave\"";
-  const char reddit_old[] = "\"target_name\": \"jsadler-brave\"";
+  const char reddit_new[] = "\"username\":\"jsadler-adrbrowsiel\"";
+  const char reddit_old[] = "\"target_name\": \"jsadler-adrbrowsiel\"";
   // empty
   std::string result =
-      braveledger_media::Reddit::GetPublisherName(std::string());
+      adrbrowsielledger_media::Reddit::GetPublisherName(std::string());
   ASSERT_TRUE(result.empty());
 
   // incorrect scrape
-  result = braveledger_media::Reddit::
+  result = adrbrowsielledger_media::Reddit::
       GetPublisherName("some random text");
   ASSERT_TRUE(result.empty());
 
   // current reddit
-  result = braveledger_media::Reddit::
+  result = adrbrowsielledger_media::Reddit::
       GetPublisherName(reddit_new);
-  ASSERT_EQ(result, "jsadler-brave");
+  ASSERT_EQ(result, "jsadler-adrbrowsiel");
 
   // old reddit
-  result = braveledger_media::Reddit::
+  result = adrbrowsielledger_media::Reddit::
       GetPublisherName(reddit_old);
-  ASSERT_EQ(result, "jsadler-brave");
+  ASSERT_EQ(result, "jsadler-adrbrowsiel");
 }
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

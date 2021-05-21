@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -7,13 +7,13 @@
   'use strict';
 
   /**
-   * 'settings-brave-new-tab-page' is the settings page containing
-   * brave's new tab features.
+   * 'settings-adrbrowsiel-new-tab-page' is the settings page containing
+   * adrbrowsiel's new tab features.
    */
   Polymer({
-    is: 'settings-brave-new-tab-page',
+    is: 'settings-adrbrowsiel-new-tab-page',
 
-    /** @private {?settings.BraveNewTabBrowserProxy} */
+    /** @private {?settings.adrbrowsielNewTabBrowserProxy} */
     browserProxy_: null,
 
     behaviors: [
@@ -27,7 +27,7 @@
 
     /** @override */
     created: function() {
-      this.browserProxy_ = settings.BraveNewTabBrowserProxyImpl.getInstance();
+      this.browserProxy_ = settings.adrbrowsielNewTabBrowserProxyImpl.getInstance();
       this.showNewTabDashboardSettings_ = false;
     },
 

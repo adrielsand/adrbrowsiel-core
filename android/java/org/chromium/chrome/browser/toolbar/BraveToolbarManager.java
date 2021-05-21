@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -52,13 +52,13 @@ import org.chromium.chrome.browser.toolbar.bottom.BottomControlsCoordinator;
 import org.chromium.chrome.browser.toolbar.bottom.BottomTabSwitcherActionMenuCoordinator;
 import org.chromium.chrome.browser.toolbar.bottom.BottomToolbarConfiguration;
 import org.chromium.chrome.browser.toolbar.bottom.BottomToolbarVariationManager;
-import org.chromium.chrome.browser.toolbar.bottom.BraveBottomControlsCoordinator;
-import org.chromium.chrome.browser.toolbar.bottom.BraveScrollingBottomViewResourceFrameLayout;
+import org.chromium.chrome.browser.toolbar.bottom.adrbrowsielBottomControlsCoordinator;
+import org.chromium.chrome.browser.toolbar.bottom.adrbrowsielScrollingBottomViewResourceFrameLayout;
 import org.chromium.chrome.browser.toolbar.bottom.ScrollingBottomViewResourceFrameLayout;
-import org.chromium.chrome.browser.toolbar.menu_button.BraveMenuButtonCoordinator;
+import org.chromium.chrome.browser.toolbar.menu_button.adrbrowsielMenuButtonCoordinator;
 import org.chromium.chrome.browser.toolbar.menu_button.MenuButtonCoordinator;
 import org.chromium.chrome.browser.toolbar.top.ActionModeController;
-import org.chromium.chrome.browser.toolbar.top.BraveTopToolbarCoordinator;
+import org.chromium.chrome.browser.toolbar.top.adrbrowsielTopToolbarCoordinator;
 import org.chromium.chrome.browser.toolbar.top.ToolbarActionModeCallback;
 import org.chromium.chrome.browser.toolbar.top.ToolbarControlContainer;
 import org.chromium.chrome.browser.toolbar.top.TopToolbarCoordinator;
@@ -73,7 +73,7 @@ import org.chromium.ui.modaldialog.ModalDialogManager;
 
 import java.util.List;
 
-public class BraveToolbarManager extends ToolbarManager {
+public class adrbrowsielToolbarManager extends ToolbarManager {
     // To delete in bytecode, members from parent class will be used instead.
     private ObservableSupplierImpl<BottomControlsCoordinator> mBottomControlsCoordinatorSupplier;
     private CallbackController mCallbackController;
@@ -102,15 +102,15 @@ public class BraveToolbarManager extends ToolbarManager {
     private boolean mIsBottomToolbarVisible;
     private ObservableSupplier<Boolean> mOmniboxFocusStateSupplier;
     private OneshotSupplier<LayoutStateProvider> mLayoutStateProviderSupplier;
-    private HomepageManager.HomepageStateListener mBraveHomepageStateListener;
+    private HomepageManager.HomepageStateListener madrbrowsielHomepageStateListener;
     private AppCompatActivity mActivity;
     private WindowAndroid mWindowAndroid;
     private CompositorViewHolder mCompositorViewHolder;
     private final Object mLock = new Object();
     private boolean mBottomControlsEnabled;
-    private BraveScrollingBottomViewResourceFrameLayout mBottomControls;
+    private adrbrowsielScrollingBottomViewResourceFrameLayout mBottomControls;
 
-    public BraveToolbarManager(AppCompatActivity activity, BrowserControlsSizer controlsSizer,
+    public adrbrowsielToolbarManager(AppCompatActivity activity, BrowserControlsSizer controlsSizer,
             FullscreenManager fullscreenManager, ToolbarControlContainer controlContainer,
             CompositorViewHolder compositorViewHolder, Callback<Boolean> urlFocusChangedCallback,
             TopUiThemeColorProvider topUiThemeColorProvider,
@@ -155,15 +155,15 @@ public class BraveToolbarManager extends ToolbarManager {
             updateBottomToolbarVisibility();
         }
 
-        mBraveHomepageStateListener = () -> {
+        madrbrowsielHomepageStateListener = () -> {
             if (mBottomControlsCoordinatorSupplier != null
                     && mBottomControlsCoordinatorSupplier.get()
-                                    instanceof BraveBottomControlsCoordinator) {
-                ((BraveBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
+                                    instanceof adrbrowsielBottomControlsCoordinator) {
+                ((adrbrowsielBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
                         .updateHomeButtonState();
             }
         };
-        HomepageManager.getInstance().addListener(mBraveHomepageStateListener);
+        HomepageManager.getInstance().addListener(madrbrowsielHomepageStateListener);
     }
 
     @Override
@@ -181,14 +181,14 @@ public class BraveToolbarManager extends ToolbarManager {
             ViewStub bottomControlsStub =
                     (ViewStub) mActivity.findViewById(R.id.bottom_controls_stub);
             mBottomControls =
-                    (BraveScrollingBottomViewResourceFrameLayout) bottomControlsStub.inflate();
+                    (adrbrowsielScrollingBottomViewResourceFrameLayout) bottomControlsStub.inflate();
             if (TabUiFeatureUtilities.isTabGroupsAndroidEnabled()
                     || TabUiFeatureUtilities.isConditionalTabStripEnabled()) {
                 mTabGroupUi = TabManagementModuleProvider.getDelegate().createTabGroupUi(
                         mBottomControls.findViewById(R.id.bottom_container_slot),
                         mAppThemeColorProvider, mScrimCoordinator, mOmniboxFocusStateSupplier);
             }
-            mBottomControlsCoordinatorSupplier.set(new BraveBottomControlsCoordinator(
+            mBottomControlsCoordinatorSupplier.set(new adrbrowsielBottomControlsCoordinator(
                     mLayoutStateProviderSupplier,
                     BottomTabSwitcherActionMenuCoordinator.createOnLongClickListener(
                             id -> ((ChromeActivity) mActivity).onOptionsItemSelected(id, null)),
@@ -224,8 +224,8 @@ public class BraveToolbarManager extends ToolbarManager {
                         .closeAllTabs();
             };
             assert (mBottomControlsCoordinatorSupplier.get()
-                            instanceof BraveBottomControlsCoordinator);
-            ((BraveBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
+                            instanceof adrbrowsielBottomControlsCoordinator);
+            ((adrbrowsielBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
                     .initializeWithNative(mActivity, mCompositorViewHolder.getResourceManager(),
                             mCompositorViewHolder.getLayoutManager(), tabSwitcherClickHandler,
                             newTabClickHandler, mWindowAndroid, mTabCountProvider,
@@ -250,7 +250,7 @@ public class BraveToolbarManager extends ToolbarManager {
     public void destroy() {
         super.destroy();
 
-        HomepageManager.getInstance().removeListener(mBraveHomepageStateListener);
+        HomepageManager.getInstance().removeListener(madrbrowsielHomepageStateListener);
     }
 
     protected void onOrientationChange(int newOrientation) {
@@ -287,8 +287,8 @@ public class BraveToolbarManager extends ToolbarManager {
                 currentTab == null || bridge == null || bridge.isEditBookmarksEnabled();
         mToolbar.updateBookmarkButton(isBookmarked, editingAllowed);
 
-        if (mBottomControlsCoordinatorSupplier.get() instanceof BraveBottomControlsCoordinator) {
-            ((BraveBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
+        if (mBottomControlsCoordinatorSupplier.get() instanceof adrbrowsielBottomControlsCoordinator) {
+            ((adrbrowsielBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
                     .updateBookmarkButton(isBookmarked, editingAllowed);
         }
     }
@@ -301,12 +301,12 @@ public class BraveToolbarManager extends ToolbarManager {
         mIsBottomToolbarVisible = visible;
         boolean isMenuFromBottom =
                 mIsBottomToolbarVisible && BottomToolbarConfiguration.isBottomToolbarEnabled();
-        BraveMenuButtonCoordinator.setMenuFromBottom(isMenuFromBottom);
-        if (mToolbar instanceof BraveTopToolbarCoordinator) {
-            ((BraveTopToolbarCoordinator) mToolbar).onBottomToolbarVisibilityChanged(visible);
+        adrbrowsielMenuButtonCoordinator.setMenuFromBottom(isMenuFromBottom);
+        if (mToolbar instanceof adrbrowsielTopToolbarCoordinator) {
+            ((adrbrowsielTopToolbarCoordinator) mToolbar).onBottomToolbarVisibilityChanged(visible);
         }
-        if (mBottomControlsCoordinatorSupplier.get() instanceof BraveBottomControlsCoordinator) {
-            ((BraveBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
+        if (mBottomControlsCoordinatorSupplier.get() instanceof adrbrowsielBottomControlsCoordinator) {
+            ((adrbrowsielBottomControlsCoordinator) mBottomControlsCoordinatorSupplier.get())
                     .setBottomToolbarVisible(visible);
         }
     }
@@ -323,8 +323,8 @@ public class BraveToolbarManager extends ToolbarManager {
     }
 
     private boolean isToolbarPhone() {
-        assert (mToolbar instanceof BraveTopToolbarCoordinator);
-        return mToolbar instanceof BraveTopToolbarCoordinator
-                && ((BraveTopToolbarCoordinator) mToolbar).isToolbarPhone();
+        assert (mToolbar instanceof adrbrowsielTopToolbarCoordinator);
+        return mToolbar instanceof adrbrowsielTopToolbarCoordinator
+                && ((adrbrowsielTopToolbarCoordinator) mToolbar).isToolbarPhone();
     }
 }

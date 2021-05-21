@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 The Brave Authors. All rights reserved.
+ * Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -22,11 +22,11 @@ import android.widget.TextView;
 import com.airbnb.lottie.LottieAnimationView;
 
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
+import org.chromium.chrome.browser.notifications.adrbrowsielOnboardingNotification;
 import org.chromium.chrome.browser.onboarding.OnViewPagerAction;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
-public class BraveAdsOnboardingFragment extends Fragment {
+public class adrbrowsielAdsOnboardingFragment extends Fragment {
     private OnViewPagerAction onViewPagerAction;
 
     private int progress;
@@ -46,7 +46,7 @@ public class BraveAdsOnboardingFragment extends Fragment {
     private Button btnStartBrowsing;
     private Button btnDidntSeeAd;
 
-    public BraveAdsOnboardingFragment() {
+    public adrbrowsielAdsOnboardingFragment() {
         // Required empty public constructor
     }
 
@@ -54,7 +54,7 @@ public class BraveAdsOnboardingFragment extends Fragment {
     public View onCreateView(
         LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_brave_ads_onboarding, container, false);
+        View root = inflater.inflate(R.layout.fragment_adrbrowsiel_ads_onboarding, container, false);
 
         initializeViews(root);
 
@@ -118,7 +118,7 @@ public class BraveAdsOnboardingFragment extends Fragment {
     }
 
     private void startCountdown() {
-        BraveOnboardingNotification.cancelOnboardingNotification(getActivity());
+        adrbrowsielOnboardingNotification.cancelOnboardingNotification(getActivity());
 
         if (countDownTimer != null) countDownTimer.cancel();
 

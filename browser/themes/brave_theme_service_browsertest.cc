@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/themes/brave_dark_mode_utils.h"
-#include "brave/browser/themes/theme_properties.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_dark_mode_utils.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/themes/theme_properties.h"
@@ -26,7 +26,7 @@
 #include "base/win/registry.h"
 #endif
 
-using BraveThemeServiceTest = InProcessBrowserTest;
+using adrbrowsielThemeServiceTest = InProcessBrowserTest;
 
 namespace {
 
@@ -52,15 +52,15 @@ void RunLoopRunWithTimeout(base::TimeDelta timeout) {
 
 }  // namespace
 
-class BraveThemeServiceTestWithoutSystemTheme : public InProcessBrowserTest {
+class adrbrowsielThemeServiceTestWithoutSystemTheme : public InProcessBrowserTest {
  public:
-  BraveThemeServiceTestWithoutSystemTheme() {
+  adrbrowsielThemeServiceTestWithoutSystemTheme() {
     dark_mode::SetUseSystemDarkModeEnabledForTest(false);
   }
 };
 
-IN_PROC_BROWSER_TEST_F(BraveThemeServiceTestWithoutSystemTheme,
-                       BraveThemeChangeTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielThemeServiceTestWithoutSystemTheme,
+                       adrbrowsielThemeChangeTest) {
   Profile* profile = browser()->profile();
   Profile* profile_private = profile->GetPrimaryOTRProfile();
 
@@ -69,36 +69,36 @@ IN_PROC_BROWSER_TEST_F(BraveThemeServiceTestWithoutSystemTheme,
   const ui::ThemeProvider& tp_private =
       ThemeService::GetThemeProviderForProfile(profile_private);
 
-  auto test_theme_property = BraveThemeProperties::COLOR_FOR_TEST;
+  auto test_theme_property = adrbrowsielThemeProperties::COLOR_FOR_TEST;
 
   // Test light theme
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT);
-  EXPECT_EQ(dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT,
-            dark_mode::GetActiveBraveDarkModeType());
-  EXPECT_EQ(BraveThemeProperties::kLightColorForTest,
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT);
+  EXPECT_EQ(dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT,
+            dark_mode::GetActiveadrbrowsielDarkModeType());
+  EXPECT_EQ(adrbrowsielThemeProperties::kLightColorForTest,
             tp.GetColor(test_theme_property));
 
   // Test dark theme
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK);
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK);
   EXPECT_EQ(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK,
-      dark_mode::GetActiveBraveDarkModeType());
-  EXPECT_EQ(BraveThemeProperties::kDarkColorForTest,
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK,
+      dark_mode::GetActiveadrbrowsielDarkModeType());
+  EXPECT_EQ(adrbrowsielThemeProperties::kDarkColorForTest,
             tp.GetColor(test_theme_property));
 
   // Test dark theme private
-  EXPECT_EQ(BraveThemeProperties::kPrivateColorForTest,
+  EXPECT_EQ(adrbrowsielThemeProperties::kPrivateColorForTest,
             tp_private.GetColor(test_theme_property));
 }
 
-// Test whether appropriate native/web theme observer is called when brave theme
+// Test whether appropriate native/web theme observer is called when adrbrowsiel theme
 // is changed.
-IN_PROC_BROWSER_TEST_F(BraveThemeServiceTest, ThemeObserverTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielThemeServiceTest, ThemeObserverTest) {
   // Initially set to light.
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT);
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT);
 
   // Check theme oberver is called twice by changing theme.
   // One for changing to dark and the other for changing to light.
@@ -117,34 +117,34 @@ IN_PROC_BROWSER_TEST_F(BraveThemeServiceTest, ThemeObserverTest) {
   ui::NativeTheme::GetInstanceForWeb()->AddObserver(
       &web_theme_observer);
 
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK);
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT);
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK);
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveThemeServiceTest, SystemThemeChangeTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielThemeServiceTest, SystemThemeChangeTest) {
   const bool initial_mode =
       ui::NativeTheme::GetInstanceForNativeUi()->ShouldUseDarkColors();
 
   // Change to light.
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT);
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT);
   EXPECT_FALSE(
       ui::NativeTheme::GetInstanceForNativeUi()->ShouldUseDarkColors());
 
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK);
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK);
   EXPECT_TRUE(ui::NativeTheme::GetInstanceForNativeUi()->ShouldUseDarkColors());
 
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT);
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT);
   EXPECT_FALSE(
       ui::NativeTheme::GetInstanceForNativeUi()->ShouldUseDarkColors());
 
   if (dark_mode::SystemDarkModeEnabled()) {
-    dark_mode::SetBraveDarkModeType(
-        dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT);
+    dark_mode::SetadrbrowsielDarkModeType(
+        dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT);
     EXPECT_EQ(initial_mode,
               ui::NativeTheme::GetInstanceForNativeUi()->ShouldUseDarkColors());
   }
@@ -156,7 +156,7 @@ IN_PROC_BROWSER_TEST_F(BraveThemeServiceTest, SystemThemeChangeTest) {
 // And Toggle it twice from initial value to go back to initial value  because
 // reg value changes system value. Otherwise, dark mode config could be changed
 // after running this test.
-IN_PROC_BROWSER_TEST_F(BraveThemeServiceTest, DarkModeChangeByRegTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielThemeServiceTest, DarkModeChangeByRegTest) {
   if (!ui::NativeTheme::GetInstanceForNativeUi()->SystemDarkModeSupported())
     return;
 
@@ -174,8 +174,8 @@ IN_PROC_BROWSER_TEST_F(BraveThemeServiceTest, DarkModeChangeByRegTest) {
   const bool initial_dark_mode = apps_use_light_theme == 0;
 
   // Toggle dark mode and check get notification for default type (same as...).
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT);
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT);
 
   apps_use_light_theme = !initial_dark_mode ? 0 : 1;
   hkcu_themes_regkey.WriteValue(L"AppsUseLightTheme", apps_use_light_theme);
@@ -189,8 +189,8 @@ IN_PROC_BROWSER_TEST_F(BraveThemeServiceTest, DarkModeChangeByRegTest) {
 
   // Toggle dark mode and |native_theme_observer_for_light| will not get
   // notification for light type.
-  dark_mode::SetBraveDarkModeType(
-      dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT);
+  dark_mode::SetadrbrowsielDarkModeType(
+      dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT);
 
   TestNativeThemeObserver native_theme_observer_for_light;
   EXPECT_CALL(

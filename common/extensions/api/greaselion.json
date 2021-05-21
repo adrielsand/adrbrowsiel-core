@@ -7,7 +7,7 @@
     "namespace": "greaselion",
     "description": "Use the <code>chrome.greaselion</code> API to interact with Greaselion",
     "compiler_options": {
-      "implemented_in": "brave/browser/extensions/api/greaselion_api.h"
+      "implemented_in": "adrbrowsiel/browser/extensions/api/greaselion_api.h"
     },
     "functions": [
       {

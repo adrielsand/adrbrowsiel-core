@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_RENDERER_CONTEXT_MENU_BRAVE_MOCK_RENDER_VIEW_CONTEXT_MENU_H_
-#define BRAVE_BROWSER_RENDERER_CONTEXT_MENU_BRAVE_MOCK_RENDER_VIEW_CONTEXT_MENU_H_
+#ifndef adrbrowsiel_BROWSER_RENDERER_CONTEXT_MENU_adrbrowsiel_MOCK_RENDER_VIEW_CONTEXT_MENU_H_
+#define adrbrowsiel_BROWSER_RENDERER_CONTEXT_MENU_adrbrowsiel_MOCK_RENDER_VIEW_CONTEXT_MENU_H_
 
 #include <cstddef>
 #include <memory>
@@ -16,7 +16,7 @@
 #include "ui/base/models/image_model.h"
 #include "ui/base/models/simple_menu_model.h"
 
-class BraveMockRenderViewContextMenu;
+class adrbrowsielMockRenderViewContextMenu;
 class PrefService;
 class Profile;
 class RenderViewContextMenuObserver;
@@ -24,7 +24,7 @@ class RenderViewContextMenuObserver;
 // A mock context menu proxy used in tests. This class overrides virtual methods
 // derived from the RenderViewContextMenuProxy class to monitor calls from a
 // MenuObserver class.
-class BraveMockRenderViewContextMenu : public ui::SimpleMenuModel::Delegate,
+class adrbrowsielMockRenderViewContextMenu : public ui::SimpleMenuModel::Delegate,
                                        public RenderViewContextMenuProxy {
  public:
   // A menu item used in this test.
@@ -46,8 +46,8 @@ class BraveMockRenderViewContextMenu : public ui::SimpleMenuModel::Delegate,
     bool has_submenu;  // This item is a submenu.
   };
 
-  explicit BraveMockRenderViewContextMenu(Profile* profile);
-  ~BraveMockRenderViewContextMenu() override;
+  explicit adrbrowsielMockRenderViewContextMenu(Profile* profile);
+  ~adrbrowsielMockRenderViewContextMenu() override;
 
   // SimpleMenuModel::Delegate implementation.
   bool IsCommandIdChecked(int command_id) const override;
@@ -113,7 +113,7 @@ class BraveMockRenderViewContextMenu : public ui::SimpleMenuModel::Delegate,
   // Is menu printing enabled.
   bool enable_print_menu_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveMockRenderViewContextMenu);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielMockRenderViewContextMenu);
 };
 
-#endif  // BRAVE_BROWSER_RENDERER_CONTEXT_MENU_BRAVE_MOCK_RENDER_VIEW_CONTEXT_MENU_H_
+#endif  // adrbrowsiel_BROWSER_RENDERER_CONTEXT_MENU_adrbrowsiel_MOCK_RENDER_VIEW_CONTEXT_MENU_H_

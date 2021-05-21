@@ -1,30 +1,30 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
 
-brave_chrome_renderer_sources = [
-  "//brave/renderer/brave_content_renderer_client.cc",
-  "//brave/renderer/brave_content_renderer_client.h",
-  "//brave/renderer/brave_render_thread_observer.cc",
-  "//brave/renderer/brave_render_thread_observer.h",
+adrbrowsiel_chrome_renderer_sources = [
+  "//adrbrowsiel/renderer/adrbrowsiel_content_renderer_client.cc",
+  "//adrbrowsiel/renderer/adrbrowsiel_content_renderer_client.h",
+  "//adrbrowsiel/renderer/adrbrowsiel_render_thread_observer.cc",
+  "//adrbrowsiel/renderer/adrbrowsiel_render_thread_observer.h",
 ]
 
-brave_chrome_renderer_public_deps = [
-  "//brave/components/brave_search/renderer",
-  "//brave/components/brave_wallet/common/buildflags",
-  "//brave/components/content_settings/renderer",
-  "//brave/components/cosmetic_filters/renderer",
+adrbrowsiel_chrome_renderer_public_deps = [
+  "//adrbrowsiel/components/adrbrowsiel_search/renderer",
+  "//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags",
+  "//adrbrowsiel/components/content_settings/renderer",
+  "//adrbrowsiel/components/cosmetic_filters/renderer",
   "//mojo/public/cpp/bindings",
   "//third_party/blink/public:blink",
   "//third_party/blink/public/common",
 ]
 
-if (brave_wallet_enabled) {
-  brave_chrome_renderer_public_deps += [
-    "//brave/components/brave_wallet/renderer",
-    "//brave/renderer/brave_wallet",
+if (adrbrowsiel_wallet_enabled) {
+  adrbrowsiel_chrome_renderer_public_deps += [
+    "//adrbrowsiel/components/adrbrowsiel_wallet/renderer",
+    "//adrbrowsiel/renderer/adrbrowsiel_wallet",
   ]
 }

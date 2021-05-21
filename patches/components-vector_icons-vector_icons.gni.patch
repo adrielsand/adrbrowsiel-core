@@ -6,7 +6,7 @@ index ec13569abe485f8c0c44d86fb76e05a8383388ca..29576e3b39348bfea7c1c0f0daf534b7
        "vector_icons.cc.template",
        "vector_icons.h.template",
      ]
-+    alt_icons_dir = "//brave/vector_icons/" + rebase_path(invoker.icon_directory, "//") alt_icons_dir_rel = rebase_path(alt_icons_dir, root_build_dir)
++    alt_icons_dir = "//adrbrowsiel/vector_icons/" + rebase_path(invoker.icon_directory, "//") alt_icons_dir_rel = rebase_path(alt_icons_dir, root_build_dir)
      inputs =
          rebase_path(templates + invoker.sources, ".", invoker.icon_directory) +
          [ "//components/vector_icons/aggregate_vector_icons.py" ]

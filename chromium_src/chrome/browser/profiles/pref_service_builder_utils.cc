@@ -1,17 +1,17 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "chrome/browser/profiles/pref_service_builder_utils.h"
 
-#include "brave/browser/brave_profile_prefs.h"
-#include "brave/browser/profiles/brave_profile_impl.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_ads/browser/ads_service.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/adrbrowsiel_profile_prefs.h"
+#include "adrbrowsiel/browser/profiles/adrbrowsiel_profile_impl.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/prefs/pref_service_syncable_util.h"
 #include "chrome/browser/profiles/profile.h"
@@ -36,8 +36,8 @@ void RegisterProfilePrefs(bool is_signin_profile,
                           user_prefs::PrefRegistrySyncable* registry) {
   RegisterProfilePrefs_ChromiumImpl(is_signin_profile, locale, registry);
 
-  brave_ads::AdsService::RegisterProfilePrefs(registry);
-  brave_rewards::RewardsService::RegisterProfilePrefs(registry);
+  adrbrowsiel_ads::AdsService::RegisterProfilePrefs(registry);
+  adrbrowsiel_rewards::RewardsService::RegisterProfilePrefs(registry);
 
   // Disable spell check service
   registry->SetDefaultPrefValue(
@@ -46,7 +46,7 @@ void RegisterProfilePrefs(bool is_signin_profile,
   registry->SetDefaultPrefValue(prefs::kSigninAllowedOnNextStartup,
                                 base::Value(false));
 #if defined(OS_LINUX)
-  // Use brave theme by default instead of gtk theme.
+  // Use adrbrowsiel theme by default instead of gtk theme.
   registry->SetDefaultPrefValue(prefs::kUsesSystemTheme, base::Value(false));
 #endif
 }
@@ -64,8 +64,8 @@ std::unique_ptr<sync_preferences::PrefServiceSyncable> CreatePrefService(
     bool async_prefs) {
   // Create prefs using the same approach that chromium used when creating an
   // off-the-record profile from its original profile.
-  if (brave::IsSessionProfilePath(path)) {
-    base::FilePath original_path = brave::GetParentProfilePath(path);
+  if (adrbrowsiel::IsSessionProfilePath(path)) {
+    base::FilePath original_path = adrbrowsiel::GetParentProfilePath(path);
     Profile* original_profile =
         g_browser_process->profile_manager()->GetProfileByPath(original_path);
     DCHECK(original_profile);

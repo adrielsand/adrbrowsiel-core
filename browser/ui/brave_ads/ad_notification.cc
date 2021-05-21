@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_ads/ad_notification.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification.h"
 
 #include <vector>
 
 #include "base/strings/string_util.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 AdNotification::AdNotification(const std::string& id,
                                const std::u16string& title,
@@ -50,4 +50,4 @@ std::u16string AdNotification::accessible_name() const {
   return base::JoinString(accessible_lines, u"\n");
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

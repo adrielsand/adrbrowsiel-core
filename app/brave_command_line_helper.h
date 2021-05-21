@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_APP_BRAVE_COMMAND_LINE_HELPER_H_
-#define BRAVE_APP_BRAVE_COMMAND_LINE_HELPER_H_
+#ifndef adrbrowsiel_APP_adrbrowsiel_COMMAND_LINE_HELPER_H_
+#define adrbrowsiel_APP_adrbrowsiel_COMMAND_LINE_HELPER_H_
 
 #include <string>
 #include <unordered_set>
@@ -15,10 +15,10 @@ namespace base {
 class CommandLine;
 }
 
-class BraveCommandLineHelper {
+class adrbrowsielCommandLineHelper {
  public:
-  explicit BraveCommandLineHelper(base::CommandLine* command_line);
-  inline ~BraveCommandLineHelper() = default;
+  explicit adrbrowsielCommandLineHelper(base::CommandLine* command_line);
+  inline ~adrbrowsielCommandLineHelper() = default;
 
   void AppendSwitch(const char* switch_key);
   void AppendSwitchASCII(const char* switch_key, const char* value);
@@ -39,7 +39,7 @@ class BraveCommandLineHelper {
   std::unordered_set<std::string> enabled_features_;
   std::unordered_set<std::string> disabled_features_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveCommandLineHelper);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielCommandLineHelper);
 };
 
-#endif  // BRAVE_APP_BRAVE_COMMAND_LINE_HELPER_H_
+#endif  // adrbrowsiel_APP_adrbrowsiel_COMMAND_LINE_HELPER_H_

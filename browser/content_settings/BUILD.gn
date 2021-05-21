@@ -1,17 +1,17 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 source_set("content_settings") {
   sources = [
-    "brave_global_value_map.cc",
-    "brave_global_value_map.h",
+    "adrbrowsiel_global_value_map.cc",
+    "adrbrowsiel_global_value_map.h",
   ]
 
   deps = [
     "//base",
-    "//brave/components/content_settings/core/browser",
+    "//adrbrowsiel/components/content_settings/core/browser",
     "//components/content_settings/core/browser",
     "//components/content_settings/core/common",
   ]
@@ -20,11 +20,11 @@ source_set("content_settings") {
 source_set("unit_tests") {
   testonly = true
 
-  sources = [ "brave_content_settings_default_provider_unittest.cc" ]
+  sources = [ "adrbrowsiel_content_settings_default_provider_unittest.cc" ]
 
   deps = [
     "//base/test:test_support",
-    "//brave/components/content_settings/core/browser",
+    "//adrbrowsiel/components/content_settings/core/browser",
     "//chrome/test:test_support",
     "//components/content_settings/core/browser",
     "//components/prefs",

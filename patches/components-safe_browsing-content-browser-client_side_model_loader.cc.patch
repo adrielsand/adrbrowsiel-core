@@ -7,7 +7,7 @@ index 202dec71661d020dde852f4ffd70a824a79d5e1a..43c117374f6a92a033cef380fa6b2139
  const int ModelLoader::kClientModelFetchIntervalMs = 3600 * 1000;
  const char ModelLoader::kClientModelUrlPrefix[] =
 -    "https://ssl.gstatic.com/safebrowsing/csd/";
-+    "https://static.brave.com/safebrowsing/csd/";
++    "https://static.adrbrowsiel.com/safebrowsing/csd/";
  const char ModelLoader::kClientModelNamePattern[] =
      "client_model_v5%s_variation_%d.pb";
  #if !BUILDFLAG(FULL_SAFE_BROWSING)

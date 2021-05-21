@@ -1,23 +1,23 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEM_ADD_BUTTON_H_
-#define BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEM_ADD_BUTTON_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEM_ADD_BUTTON_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEM_ADD_BUTTON_H_
 
 #include "base/scoped_observation.h"
 #include "base/timer/timer.h"
-#include "brave/browser/ui/views/sidebar/sidebar_button_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_button_view.h"
 #include "ui/views/widget/widget.h"
 #include "ui/views/widget/widget_observer.h"
 
-class BraveBrowser;
+class adrbrowsielBrowser;
 
 class SidebarItemAddButton : public SidebarButtonView,
                              public views::WidgetObserver {
  public:
-  explicit SidebarItemAddButton(BraveBrowser* browser);
+  explicit SidebarItemAddButton(adrbrowsielBrowser* browser);
   ~SidebarItemAddButton() override;
 
   SidebarItemAddButton(const SidebarItemAddButton&) = delete;
@@ -37,10 +37,10 @@ class SidebarItemAddButton : public SidebarButtonView,
   void ShowBubbleWithDelay();
   void DoShowBubble();
 
-  BraveBrowser* browser_;
+  adrbrowsielBrowser* browser_;
   base::OneShotTimer timer_;
   base::ScopedObservation<views::Widget, views::WidgetObserver> observation_{
       this};
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEM_ADD_BUTTON_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEM_ADD_BUTTON_H_

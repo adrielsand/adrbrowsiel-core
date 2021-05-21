@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -28,7 +28,7 @@
 #include "bat/ads/internal/unittest_util.h"
 #include "bat/ads/pref_names.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 namespace ad_targeting {
@@ -142,9 +142,9 @@ class BatAdsAdTargetingTest
 
   void ProcessPurchaseIntent() {
     const std::vector<GURL> urls = {
-        GURL("https://www.brave.com/test?foo=bar"),
+        GURL("https://www.adrbrowsiel.com/test?foo=bar"),
         GURL("https://www.basicattentiontoken.org/test?bar=foo"),
-        GURL("https://www.brave.com/test?foo=bar")};
+        GURL("https://www.adrbrowsiel.com/test?foo=bar")};
 
     for (const auto& url : urls) {
       purchase_intent_processor_->Process(url);

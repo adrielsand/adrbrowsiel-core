@@ -1,14 +1,14 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/common/brave_content_client.h"
+#include "adrbrowsiel/common/adrbrowsiel_content_client.h"
 
 #include <string>
 
 #include "base/memory/ref_counted_memory.h"
-#include "components/grit/brave_components_resources.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
 #include "components/grit/components_resources.h"
 #include "content/public/common/url_constants.h"
 #include "ui/base/resource/resource_bundle.h"
@@ -59,11 +59,11 @@ void CreateDefaultWidevineCdmHintFile() {
 
 }  // namespace
 
-BraveContentClient::BraveContentClient() {}
+adrbrowsielContentClient::adrbrowsielContentClient() {}
 
-BraveContentClient::~BraveContentClient() {}
+adrbrowsielContentClient::~adrbrowsielContentClient() {}
 
-base::RefCountedMemory* BraveContentClient::GetDataResourceBytes(
+base::RefCountedMemory* adrbrowsielContentClient::GetDataResourceBytes(
     int resource_id) {
   if (resource_id == IDR_FLAGS_UI_FLAGS_JS) {
     const ui::ResourceBundle& resource_bundle =
@@ -71,7 +71,7 @@ base::RefCountedMemory* BraveContentClient::GetDataResourceBytes(
     const std::string flags_js =
         resource_bundle.LoadDataResourceString(resource_id) +
         resource_bundle.LoadDataResourceString(
-            IDR_FLAGS_UI_BRAVE_FLAGS_OVERRIDES_JS);
+            IDR_FLAGS_UI_adrbrowsiel_FLAGS_OVERRIDES_JS);
     base::RefCountedString* bytes = new base::RefCountedString();
     bytes->data().assign(flags_js.data(), flags_js.length());
     return bytes;
@@ -79,15 +79,15 @@ base::RefCountedMemory* BraveContentClient::GetDataResourceBytes(
   return ChromeContentClient::GetDataResourceBytes(resource_id);
 }
 
-void BraveContentClient::AddAdditionalSchemes(Schemes* schemes) {
+void adrbrowsielContentClient::AddAdditionalSchemes(Schemes* schemes) {
   ChromeContentClient::AddAdditionalSchemes(schemes);
-  schemes->standard_schemes.push_back(content::kBraveUIScheme);
-  schemes->secure_schemes.push_back(content::kBraveUIScheme);
-  schemes->cors_enabled_schemes.push_back(content::kBraveUIScheme);
-  schemes->savable_schemes.push_back(content::kBraveUIScheme);
+  schemes->standard_schemes.push_back(content::kadrbrowsielUIScheme);
+  schemes->secure_schemes.push_back(content::kadrbrowsielUIScheme);
+  schemes->cors_enabled_schemes.push_back(content::kadrbrowsielUIScheme);
+  schemes->savable_schemes.push_back(content::kadrbrowsielUIScheme);
 }
 
-void BraveContentClient::AddContentDecryptionModules(
+void adrbrowsielContentClient::AddContentDecryptionModules(
     std::vector<content::CdmInfo>* cdms,
     std::vector<media::CdmHostFilePath>* cdm_host_file_paths) {
 #if BUILDFLAG(ENABLE_WIDEVINE) && defined(OS_LINUX)

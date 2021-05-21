@@ -63,7 +63,7 @@ function check_exit() {
 
 trap check_exit EXIT
 
-# brave/scripts/signing_helper.py will retrieve this value when called from
+# adrbrowsiel/scripts/signing_helper.py will retrieve this value when called from
 # sign_chrome.py
 export MAC_PROVISIONING_PROFILE
 

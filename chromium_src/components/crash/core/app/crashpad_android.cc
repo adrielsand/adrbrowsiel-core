@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,10 +12,10 @@
 namespace crashpad {
 
 namespace {
-const char brave_crash_url[] = "https://cr.brave.com";
+const char adrbrowsiel_crash_url[] = "https://cr.adrbrowsiel.com";
 }
 
-class BraveCrashpadClient {
+class adrbrowsielCrashpadClient {
  public:
 #if defined(OS_ANDROID)
 
@@ -86,16 +86,16 @@ class BraveCrashpadClient {
 
 namespace crash_reporter {
 
-crashpad::BraveCrashpadClient& GetBraveCrashpadClient() {
-  static crashpad::BraveCrashpadClient* const client =
-      new crashpad::BraveCrashpadClient();
+crashpad::adrbrowsielCrashpadClient& GetadrbrowsielCrashpadClient() {
+  static crashpad::adrbrowsielCrashpadClient* const client =
+      new crashpad::adrbrowsielCrashpadClient();
   return *client;
 }
 
 }  // namespace crash_reporter
 
 #define COMPONENTS_CRASH_CONTENT_APP_CRASHPAD_H_
-#define GetCrashpadClient GetBraveCrashpadClient
+#define GetCrashpadClient GetadrbrowsielCrashpadClient
 #include "../../../../../../components/crash/core/app/crashpad_android.cc"
 #undef GetCrashpadClient
 
@@ -107,7 +107,7 @@ namespace crashpad {
 
 #if defined(OS_ANDROID)
 
-bool BraveCrashpadClient::StartJavaHandlerAtCrash(
+bool adrbrowsielCrashpadClient::StartJavaHandlerAtCrash(
     const std::string& class_name,
     const std::vector<std::string>* env,
     const base::FilePath& database,
@@ -117,11 +117,11 @@ bool BraveCrashpadClient::StartJavaHandlerAtCrash(
     const std::vector<std::string>& arguments) {
   return crash_reporter::GetCrashpadClient().StartJavaHandlerAtCrash(
       class_name, env, database, metrics_dir,
-      brave_crash_url, annotations, arguments);
+      adrbrowsiel_crash_url, annotations, arguments);
 }
 
 // static
-bool BraveCrashpadClient::StartJavaHandlerForClient(
+bool adrbrowsielCrashpadClient::StartJavaHandlerForClient(
     const std::string& class_name,
     const std::vector<std::string>* env,
     const base::FilePath& database,
@@ -131,11 +131,11 @@ bool BraveCrashpadClient::StartJavaHandlerForClient(
     const std::vector<std::string>& arguments,
     int socket) {
   return CrashpadClient::StartJavaHandlerForClient(
-      class_name, env, database, metrics_dir, brave_crash_url,
+      class_name, env, database, metrics_dir, adrbrowsiel_crash_url,
       annotations, arguments, socket);
 }
 
-bool BraveCrashpadClient::StartHandlerWithLinkerAtCrash(
+bool adrbrowsielCrashpadClient::StartHandlerWithLinkerAtCrash(
     const std::string& handler_trampoline,
     const std::string& handler_library,
     bool is_64_bit,
@@ -147,17 +147,17 @@ bool BraveCrashpadClient::StartHandlerWithLinkerAtCrash(
     const std::vector<std::string>& arguments) {
   return crash_reporter::GetCrashpadClient().StartHandlerWithLinkerAtCrash(
       handler_trampoline, handler_library, is_64_bit, env, database,
-      metrics_dir, brave_crash_url, annotations, arguments);
+      metrics_dir, adrbrowsiel_crash_url, annotations, arguments);
 }
 
-void BraveCrashpadClient::SetUnhandledSignals(
+void adrbrowsielCrashpadClient::SetUnhandledSignals(
     const std::set<int>& unhandled_signals) {
   return crash_reporter::GetCrashpadClient().SetUnhandledSignals(
       unhandled_signals);
 }
 
 // static
-bool BraveCrashpadClient::StartHandlerWithLinkerForClient(
+bool adrbrowsielCrashpadClient::StartHandlerWithLinkerForClient(
     const std::string& handler_trampoline,
     const std::string& handler_library,
     bool is_64_bit,
@@ -170,12 +170,12 @@ bool BraveCrashpadClient::StartHandlerWithLinkerForClient(
     int socket) {
   return CrashpadClient::StartHandlerWithLinkerForClient(
       handler_trampoline, handler_library, is_64_bit, env, database,
-      metrics_dir, brave_crash_url, annotations, arguments, socket);
+      metrics_dir, adrbrowsiel_crash_url, annotations, arguments, socket);
 }
 
 #endif  // defined(OS_ANDROID)
 
-bool BraveCrashpadClient::StartHandlerAtCrash(
+bool adrbrowsielCrashpadClient::StartHandlerAtCrash(
     const base::FilePath& handler,
     const base::FilePath& database,
     const base::FilePath& metrics_dir,
@@ -184,11 +184,11 @@ bool BraveCrashpadClient::StartHandlerAtCrash(
     const std::vector<std::string>& arguments) {
   return crash_reporter::GetCrashpadClient().StartHandlerAtCrash(
       handler, database, metrics_dir,
-      brave_crash_url, annotations, arguments);
+      adrbrowsiel_crash_url, annotations, arguments);
 }
 
 // static
-bool BraveCrashpadClient::StartHandlerForClient(
+bool adrbrowsielCrashpadClient::StartHandlerForClient(
     const base::FilePath& handler,
     const base::FilePath& database,
     const base::FilePath& metrics_dir,
@@ -197,7 +197,7 @@ bool BraveCrashpadClient::StartHandlerForClient(
     const std::vector<std::string>& arguments,
     int socket) {
   return crash_reporter::GetCrashpadClient().StartHandlerForClient(
-    handler, database, metrics_dir, brave_crash_url,
+    handler, database, metrics_dir, adrbrowsiel_crash_url,
     annotations, arguments, socket);
 }
 

@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/renderer_context_menu/brave_mock_render_view_context_menu.h"
+#include "adrbrowsiel/browser/renderer_context_menu/adrbrowsiel_mock_render_view_context_menu.h"
 
 #include <string>
 
@@ -18,7 +18,7 @@
 #include "testing/gtest/include/gtest/gtest.h"
 #include "ui/base/l10n/l10n_util.h"
 
-BraveMockRenderViewContextMenu::MockMenuItem::MockMenuItem()
+adrbrowsielMockRenderViewContextMenu::MockMenuItem::MockMenuItem()
     : command_id(0),
       enabled(false),
       checked(false),
@@ -26,16 +26,16 @@ BraveMockRenderViewContextMenu::MockMenuItem::MockMenuItem()
       is_submenu(false),
       has_submenu(false) {}
 
-BraveMockRenderViewContextMenu::MockMenuItem::MockMenuItem(
+adrbrowsielMockRenderViewContextMenu::MockMenuItem::MockMenuItem(
     const MockMenuItem& other) = default;
 
-BraveMockRenderViewContextMenu::MockMenuItem::~MockMenuItem() {}
+adrbrowsielMockRenderViewContextMenu::MockMenuItem::~MockMenuItem() {}
 
-BraveMockRenderViewContextMenu::MockMenuItem&
-BraveMockRenderViewContextMenu::MockMenuItem::operator=(
+adrbrowsielMockRenderViewContextMenu::MockMenuItem&
+adrbrowsielMockRenderViewContextMenu::MockMenuItem::operator=(
     const MockMenuItem& other) = default;
 
-void BraveMockRenderViewContextMenu::MockMenuItem::PrintMockMenuItem(
+void adrbrowsielMockRenderViewContextMenu::MockMenuItem::PrintMockMenuItem(
     unsigned int offset) const {
   std::cout << std::setfill(' ');
   if (offset)
@@ -61,29 +61,29 @@ void BraveMockRenderViewContextMenu::MockMenuItem::PrintMockMenuItem(
   std::cout << std::endl;
 }
 
-BraveMockRenderViewContextMenu::BraveMockRenderViewContextMenu(Profile* profile)
+adrbrowsielMockRenderViewContextMenu::adrbrowsielMockRenderViewContextMenu(Profile* profile)
     : observer_(nullptr), profile_(profile), enable_print_menu_(false) {}
 
-BraveMockRenderViewContextMenu::~BraveMockRenderViewContextMenu() {}
+adrbrowsielMockRenderViewContextMenu::~adrbrowsielMockRenderViewContextMenu() {}
 
 // SimpleMenuModel::Delegate implementation.
 
-bool BraveMockRenderViewContextMenu::IsCommandIdChecked(int command_id) const {
+bool adrbrowsielMockRenderViewContextMenu::IsCommandIdChecked(int command_id) const {
   return observer_->IsCommandIdChecked(command_id);
 }
 
-bool BraveMockRenderViewContextMenu::IsCommandIdEnabled(int command_id) const {
+bool adrbrowsielMockRenderViewContextMenu::IsCommandIdEnabled(int command_id) const {
   return observer_->IsCommandIdEnabled(command_id);
 }
 
-void BraveMockRenderViewContextMenu::ExecuteCommand(int command_id,
+void adrbrowsielMockRenderViewContextMenu::ExecuteCommand(int command_id,
                                                     int event_flags) {
   observer_->ExecuteCommand(command_id);
 }
 
 // RenderViewContextMenuProxy implementation.
 
-void BraveMockRenderViewContextMenu::AddMenuItem(int command_id,
+void adrbrowsielMockRenderViewContextMenu::AddMenuItem(int command_id,
                                                  const std::u16string& title) {
   MockMenuItem item;
   item.command_id = command_id;
@@ -94,14 +94,14 @@ void BraveMockRenderViewContextMenu::AddMenuItem(int command_id,
   items_.push_back(item);
 }
 
-void BraveMockRenderViewContextMenu::AddMenuItemWithIcon(
+void adrbrowsielMockRenderViewContextMenu::AddMenuItemWithIcon(
     int command_id,
     const std::u16string& title,
     const ui::ImageModel& icon) {
   AddMenuItem(command_id, title);
 }
 
-void BraveMockRenderViewContextMenu::AddCheckItem(int command_id,
+void adrbrowsielMockRenderViewContextMenu::AddCheckItem(int command_id,
                                                   const std::u16string& title) {
   MockMenuItem item;
   item.command_id = command_id;
@@ -112,7 +112,7 @@ void BraveMockRenderViewContextMenu::AddCheckItem(int command_id,
   items_.push_back(item);
 }
 
-void BraveMockRenderViewContextMenu::AddSeparator() {
+void adrbrowsielMockRenderViewContextMenu::AddSeparator() {
   MockMenuItem item;
   item.command_id = -1;
   item.enabled = false;
@@ -121,7 +121,7 @@ void BraveMockRenderViewContextMenu::AddSeparator() {
   items_.push_back(item);
 }
 
-void BraveMockRenderViewContextMenu::AddSubMenu(int command_id,
+void adrbrowsielMockRenderViewContextMenu::AddSubMenu(int command_id,
                                                 const std::u16string& label,
                                                 ui::MenuModel* model) {
   MockMenuItem item;
@@ -153,7 +153,7 @@ void BraveMockRenderViewContextMenu::AddSubMenu(int command_id,
   }
 }
 
-void BraveMockRenderViewContextMenu::AddSubMenuWithStringIdAndIcon(
+void adrbrowsielMockRenderViewContextMenu::AddSubMenuWithStringIdAndIcon(
     int command_id,
     int message_id,
     ui::MenuModel* model,
@@ -161,7 +161,7 @@ void BraveMockRenderViewContextMenu::AddSubMenuWithStringIdAndIcon(
   AddSubMenu(command_id, base::NumberToString16(message_id), model);
 }
 
-void BraveMockRenderViewContextMenu::UpdateMenuItem(
+void adrbrowsielMockRenderViewContextMenu::UpdateMenuItem(
     int command_id,
     bool enabled,
     bool hidden,
@@ -179,7 +179,7 @@ void BraveMockRenderViewContextMenu::UpdateMenuItem(
          << " command_id: " << command_id;
 }
 
-void BraveMockRenderViewContextMenu::UpdateMenuIcon(
+void adrbrowsielMockRenderViewContextMenu::UpdateMenuIcon(
     int command_id,
     const ui::ImageModel& image) {
   for (auto& item : items_) {
@@ -192,7 +192,7 @@ void BraveMockRenderViewContextMenu::UpdateMenuIcon(
          << " command_id: " << command_id;
 }
 
-void BraveMockRenderViewContextMenu::RemoveMenuItem(int command_id) {
+void adrbrowsielMockRenderViewContextMenu::RemoveMenuItem(int command_id) {
   auto it = items_.begin();
   while (it != items_.end()) {
     if (it->command_id == command_id) {
@@ -209,46 +209,46 @@ void BraveMockRenderViewContextMenu::RemoveMenuItem(int command_id) {
   }
 }
 
-void BraveMockRenderViewContextMenu::RemoveAdjacentSeparators() {}
+void adrbrowsielMockRenderViewContextMenu::RemoveAdjacentSeparators() {}
 
-void BraveMockRenderViewContextMenu::RemoveSeparatorBeforeMenuItem(
+void adrbrowsielMockRenderViewContextMenu::RemoveSeparatorBeforeMenuItem(
     int command_id) {}
 
-void BraveMockRenderViewContextMenu::AddSpellCheckServiceItem(bool is_checked) {
+void adrbrowsielMockRenderViewContextMenu::AddSpellCheckServiceItem(bool is_checked) {
   // Call the static method of RenderViewContextMenu which should our override
   // that doesn't add the item.
   RenderViewContextMenu::AddSpellCheckServiceItem(nullptr, is_checked);
 }
 
-void BraveMockRenderViewContextMenu::AddAccessibilityLabelsServiceItem(
+void adrbrowsielMockRenderViewContextMenu::AddAccessibilityLabelsServiceItem(
     bool is_checked) {}
 
-content::RenderViewHost* BraveMockRenderViewContextMenu::GetRenderViewHost()
+content::RenderViewHost* adrbrowsielMockRenderViewContextMenu::GetRenderViewHost()
     const {
   return nullptr;
 }
 
-content::BrowserContext* BraveMockRenderViewContextMenu::GetBrowserContext()
+content::BrowserContext* adrbrowsielMockRenderViewContextMenu::GetBrowserContext()
     const {
   return profile_;
 }
 
-content::WebContents* BraveMockRenderViewContextMenu::GetWebContents() const {
+content::WebContents* adrbrowsielMockRenderViewContextMenu::GetWebContents() const {
   return nullptr;
 }
 
 // Methods that don't implement inherited interfaces.
 
-void BraveMockRenderViewContextMenu::SetObserver(
+void adrbrowsielMockRenderViewContextMenu::SetObserver(
     RenderViewContextMenuObserver* observer) {
   observer_ = observer;
 }
 
-size_t BraveMockRenderViewContextMenu::GetMenuSize() const {
+size_t adrbrowsielMockRenderViewContextMenu::GetMenuSize() const {
   return items_.size();
 }
 
-bool BraveMockRenderViewContextMenu::GetMenuItem(size_t index,
+bool adrbrowsielMockRenderViewContextMenu::GetMenuItem(size_t index,
                                                  MockMenuItem* item) const {
   if (index >= items_.size())
     return false;
@@ -256,11 +256,11 @@ bool BraveMockRenderViewContextMenu::GetMenuItem(size_t index,
   return true;
 }
 
-PrefService* BraveMockRenderViewContextMenu::GetPrefs() {
+PrefService* adrbrowsielMockRenderViewContextMenu::GetPrefs() {
   return profile_->GetPrefs();
 }
 
-void BraveMockRenderViewContextMenu::PrintMenu(const std::string& title) const {
+void adrbrowsielMockRenderViewContextMenu::PrintMenu(const std::string& title) const {
   if (!enable_print_menu_)
     return;
 
@@ -271,6 +271,6 @@ void BraveMockRenderViewContextMenu::PrintMenu(const std::string& title) const {
   std::cout << std::setfill('-') << std::setw(40) << '-' << std::endl;
 }
 
-void BraveMockRenderViewContextMenu::EnablePrintMenu(bool enable) {
+void adrbrowsielMockRenderViewContextMenu::EnablePrintMenu(bool enable) {
   enable_print_menu_ = enable;
 }

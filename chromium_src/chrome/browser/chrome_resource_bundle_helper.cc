@@ -5,12 +5,12 @@
 #define LoadLocalState LoadLocalState_ChromiumImpl
 #include "../../../../chrome/browser/chrome_resource_bundle_helper.cc"
 #undef LoadLocalState
-#include "brave/common/resource_bundle_helper.h"
+#include "adrbrowsiel/common/resource_bundle_helper.h"
 
 std::string LoadLocalState(
     ChromeFeatureListCreator* chrome_feature_list_creator,
     bool is_running_tests) {
   std::string ret = LoadLocalState_ChromiumImpl(chrome_feature_list_creator, is_running_tests);
-  brave::InitializeResourceBundle();
+  adrbrowsiel::InitializeResourceBundle();
   return ret;
 }

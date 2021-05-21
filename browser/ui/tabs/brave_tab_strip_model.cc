@@ -1,14 +1,14 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/tabs/brave_tab_strip_model.h"
+#include "adrbrowsiel/browser/ui/tabs/adrbrowsiel_tab_strip_model.h"
 
 #include <algorithm>
 
-#include "brave/browser/ui/brave_browser_window.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser_window.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_finder.h"
@@ -17,12 +17,12 @@
 #include "components/prefs/pref_service.h"
 #include "content/public/browser/web_contents.h"
 
-BraveTabStripModel::BraveTabStripModel(TabStripModelDelegate* delegate,
+adrbrowsielTabStripModel::adrbrowsielTabStripModel(TabStripModelDelegate* delegate,
                                        Profile* profile)
     : TabStripModel(delegate, profile) {}
-BraveTabStripModel::~BraveTabStripModel() {}
+adrbrowsielTabStripModel::~adrbrowsielTabStripModel() {}
 
-void BraveTabStripModel::SelectRelativeTab(bool forward,
+void adrbrowsielTabStripModel::SelectRelativeTab(bool forward,
                                            UserGestureDetails detail) {
   if (contents_data_.empty())
     return;
@@ -36,7 +36,7 @@ void BraveTabStripModel::SelectRelativeTab(bool forward,
   }
 }
 
-void BraveTabStripModel::SelectMRUTab(bool forward, UserGestureDetails detail) {
+void adrbrowsielTabStripModel::SelectMRUTab(bool forward, UserGestureDetails detail) {
   if (mru_cycle_list_.empty()) {
     // Start cycling
 
@@ -56,7 +56,7 @@ void BraveTabStripModel::SelectMRUTab(bool forward, UserGestureDetails detail) {
               });
 
     // Tell the cycling controller that we start cycling to handle tabs keys
-    static_cast<BraveBrowserWindow*>(browser->window())->StartTabCycling();
+    static_cast<adrbrowsielBrowserWindow*>(browser->window())->StartTabCycling();
   }
 
   if (forward) {
@@ -72,6 +72,6 @@ void BraveTabStripModel::SelectMRUTab(bool forward, UserGestureDetails detail) {
   ActivateTabAt(mru_cycle_list_[0], detail);
 }
 
-void BraveTabStripModel::StopMRUCycling() {
+void adrbrowsielTabStripModel::StopMRUCycling() {
   mru_cycle_list_.clear();
 }

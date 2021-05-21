@@ -6,7 +6,7 @@ index 6978fd7d3730986faabf7059df184c9a7152a4e1..d504f07c5268e7c7002e4125d45e2dc5
  
    ThemeHelperWin(const ThemeHelperWin&) = delete;
    ThemeHelperWin& operator=(const ThemeHelperWin&) = delete;
-+  BRAVE_THEME_HELPER_WIN_H_
++  adrbrowsiel_THEME_HELPER_WIN_H_
  
   private:
    // ThemeService:

@@ -7,7 +7,7 @@ index 48e77ff09f6c968159a94415c2b0889e285c7a8c..73da65abccfa6c008d560b8746299d65
  
  [
 -    ImplementedAs=DOMWindowStorage
-+    ImplementedAs=BraveDOMWindowStorage
++    ImplementedAs=adrbrowsielDOMWindowStorage
  ] partial interface Window {
      // https://html.spec.whatwg.org/C/#the-sessionstorage-attribute
      [LogActivity=GetterOnly, RaisesException=Getter] readonly attribute Storage sessionStorage;

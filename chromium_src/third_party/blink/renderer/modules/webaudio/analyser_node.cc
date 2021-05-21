@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,16 +12,16 @@
 #include "third_party/blink/renderer/core/frame/local_frame.h"
 #include "third_party/blink/renderer/core/workers/worker_global_scope.h"
 
-#define BRAVE_ANALYSERHANDLER_CONSTRUCTOR                                    \
+#define adrbrowsiel_ANALYSERHANDLER_CONSTRUCTOR                                    \
   if (ExecutionContext* context = node.GetExecutionContext()) {              \
     if (WebContentSettingsClient* settings =                                 \
-            brave::GetContentSettingsClientFor(context)) {                   \
+            adrbrowsiel::GetContentSettingsClientFor(context)) {                   \
       analyser_.audio_farbling_callback_ =                                   \
-          brave::BraveSessionCache::From(*context).GetAudioFarblingCallback( \
+          adrbrowsiel::adrbrowsielSessionCache::From(*context).GetAudioFarblingCallback( \
               settings);                                                     \
     }                                                                        \
   }
 
 #include "../../../../../../../third_party/blink/renderer/modules/webaudio/analyser_node.cc"
 
-#undef BRAVE_ANALYSERNODE_CONSTRUCTOR
+#undef adrbrowsiel_ANALYSERNODE_CONSTRUCTOR

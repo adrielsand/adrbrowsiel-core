@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/brave_tip_ui.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_tip_ui.h"
 
 #include <memory>
 #include <string>
@@ -15,26 +15,26 @@
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/utf_string_conversions.h"
 #include "bat/ledger/mojom_structs.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/ui/webui/brave_webui_source.h"
-#include "brave/components/brave_ads/browser/ads_service.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/components/brave_rewards/browser/rewards_service_observer.h"
-#include "brave/components/brave_rewards/resources/grit/brave_rewards_resources.h"
-#include "brave/components/brave_rewards/resources/grit/brave_rewards_tip_generated_map.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_webui_source.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/resources/grit/adrbrowsiel_rewards_resources.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/resources/grit/adrbrowsiel_rewards_tip_generated_map.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/scoped_tabbed_browser_displayer.h"
-#include "components/grit/brave_components_strings.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "content/public/browser/web_ui_data_source.h"
 #include "content/public/browser/web_ui_message_handler.h"
 #include "ui/base/l10n/l10n_util.h"
 
-using brave_rewards::RewardsService;
-using brave_rewards::RewardsServiceFactory;
-using brave_rewards::RewardsServiceObserver;
+using adrbrowsiel_rewards::RewardsService;
+using adrbrowsiel_rewards::RewardsServiceFactory;
+using adrbrowsiel_rewards::RewardsServiceObserver;
 using content::WebUIMessageHandler;
 
 namespace {
@@ -111,7 +111,7 @@ class TipMessageHandler : public WebUIMessageHandler,
     ledger::type::RewardsParametersPtr parameters);
 
   RewardsService* rewards_service_ = nullptr;  // NOT OWNED
-  brave_ads::AdsService* ads_service_ = nullptr;  // NOT OWNED
+  adrbrowsiel_ads::AdsService* ads_service_ = nullptr;  // NOT OWNED
   base::WeakPtrFactory<TipMessageHandler> weak_factory_{this};
 };
 
@@ -273,7 +273,7 @@ void TipMessageHandler::DialogReady(const base::ListValue* args) {
   }
 
   if (!ads_service_) {
-    ads_service_ = brave_ads::AdsServiceFactory::GetForProfile(profile);
+    ads_service_ = adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile);
   }
 
   AllowJavascript();
@@ -410,11 +410,11 @@ void TipMessageHandler::TweetTip(const base::ListValue* args) {
   }
 
   const std::string comment = l10n_util::GetStringFUTF8(
-      IDS_BRAVE_REWARDS_LOCAL_COMPLIMENT_TWEET,
+      IDS_adrbrowsiel_REWARDS_LOCAL_COMPLIMENT_TWEET,
       base::UTF8ToUTF16(name));
 
   const std::string hashtag = l10n_util::GetStringUTF8(
-      IDS_BRAVE_REWARDS_LOCAL_COMPLIMENT_TWEET_HASHTAG);
+      IDS_adrbrowsiel_REWARDS_LOCAL_COMPLIMENT_TWEET_HASHTAG);
 
   base::flat_map<std::string, std::string> share_url_args;
   share_url_args["comment"] = comment;
@@ -615,18 +615,18 @@ void TipMessageHandler::GetExternalWalletCallback(
 
 }  // namespace
 
-BraveTipUI::BraveTipUI(content::WebUI* web_ui, const std::string& name)
+adrbrowsielTipUI::adrbrowsielTipUI(content::WebUI* web_ui, const std::string& name)
     : ConstrainedWebDialogUI(web_ui) {
   Profile* profile = Profile::FromWebUI(web_ui);
-  if (!brave::IsRegularProfile(profile)) {
+  if (!adrbrowsiel::IsRegularProfile(profile)) {
     return;
   }
 
-  CreateAndAddWebUIDataSource(web_ui, name, kBraveRewardsTipGenerated,
-                              kBraveRewardsTipGeneratedSize,
-                              IDR_BRAVE_REWARDS_TIP_HTML);
+  CreateAndAddWebUIDataSource(web_ui, name, kadrbrowsielRewardsTipGenerated,
+                              kadrbrowsielRewardsTipGeneratedSize,
+                              IDR_adrbrowsiel_REWARDS_TIP_HTML);
 
   web_ui->AddMessageHandler(std::make_unique<TipMessageHandler>());
 }
 
-BraveTipUI::~BraveTipUI() = default;
+adrbrowsielTipUI::~adrbrowsielTipUI() = default;

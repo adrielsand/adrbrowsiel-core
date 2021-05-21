@@ -6,7 +6,7 @@ index cdc55e70364bbf299c7c3e2f2bb2f9b630888888..c83d3f17ece56533e2f1484a007649f7
  class Profile;
  class ExtensionsContainer;
  class ToolbarActionViewController;
-+class BraveToolbarActionsModel;
++class adrbrowsielToolbarActionsModel;
  
  namespace extensions {
  class ExtensionActionManager;
@@ -14,7 +14,7 @@ index cdc55e70364bbf299c7c3e2f2bb2f9b630888888..c83d3f17ece56533e2f1484a007649f7
                              public extensions::ExtensionManagement::Observer,
                              public KeyedService {
   public:
-+  friend class BraveToolbarActionsModel;
++  friend class adrbrowsielToolbarActionsModel;
    using ActionId = std::string;
  
    // The different options for highlighting.

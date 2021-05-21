@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2020 The Brave Authors. All rights reserved.
+<!-- Copyright 2020 The adrbrowsiel Authors. All rights reserved.
      Use of this source code is governed by a BSD-style license that can be
      found in the LICENSE file. -->
 <androidx.cardview.widget.CardView
 	xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/brave_rewards_onboarding_modal_layout"
+    android:id="@+id/adrbrowsiel_rewards_onboarding_modal_layout"
     android:layout_width="320dp"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
@@ -51,9 +51,9 @@
 	            android:layout_marginBottom="16dp"
 	            android:layout_gravity="center"
 	            android:gravity="center"
-	            android:text="@string/brave_rewards_modal_text"
+	            android:text="@string/adrbrowsiel_rewards_modal_text"
 	            android:textSize="14sp"
-	            android:textColor="@color/brave_rewards_modal_text_color"/>
+	            android:textColor="@color/adrbrowsiel_rewards_modal_text_color"/>
 
 	        <TextView
 	        	android:id="@+id/take_quick_tour_button"
@@ -64,16 +64,16 @@
 	            android:text="@string/take_quick_tour"
 	            android:textSize="14sp"
 	            android:textStyle="bold"
-	            android:textColor="@color/brave_rewards_modal_theme_color"/>
+	            android:textColor="@color/adrbrowsiel_rewards_modal_theme_color"/>
 
 	        <Button
-	            android:id="@+id/btn_brave_rewards"
+	            android:id="@+id/btn_adrbrowsiel_rewards"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
 	            android:layout_gravity="center_horizontal"
 	            android:gravity="center"
 	            android:background="@drawable/blue_rounded_button"
-	            android:text="@string/start_using_brave_rewards"
+	            android:text="@string/start_using_adrbrowsiel_rewards"
 	            android:textAllCaps="false"
 	            android:textSize="16sp"
 	            android:padding="8dp"
@@ -88,35 +88,35 @@
 	            android:layout_gravity="center_horizontal"
 	            android:gravity="center"
 	            app:drawableStartCompat="@drawable/ic_wallet_add"
-	            android:text="@string/brave_rewards_local_panel_add_funds"
+	            android:text="@string/adrbrowsiel_rewards_local_panel_add_funds"
 	            android:textSize="14sp"
 	            android:textStyle="bold"
 	            android:visibility="gone"
-	            android:textColor="@color/brave_rewards_modal_theme_color"/>
+	            android:textColor="@color/adrbrowsiel_rewards_modal_theme_color"/>
 
 	        <TextView
-	        	android:id="@+id/brave_rewards_onboarding_modal_tos_pp_text"
+	        	android:id="@+id/adrbrowsiel_rewards_onboarding_modal_tos_pp_text"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:layout_gravity="center_horizontal"
 	            android:gravity="center"
 	            android:lineSpacingMultiplier="1.5"
-	            android:text="@string/brave_rewards_tos_text"
+	            android:text="@string/adrbrowsiel_rewards_tos_text"
 	            android:textSize="12sp"
 	            android:textStyle="bold"
-	            android:textColor="@color/brave_rewards_tos_color"/>
+	            android:textColor="@color/adrbrowsiel_rewards_tos_color"/>
 
 	    </LinearLayout>
 
 	    </androidx.core.widget.NestedScrollView>
 
 	    <androidx.appcompat.widget.AppCompatImageView
-	        android:id="@+id/brave_rewards_onboarding_modal_close"
+	        android:id="@+id/adrbrowsiel_rewards_onboarding_modal_close"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:contentDescription="@null"
 	        android:layout_gravity="end|top"
-	        android:tint="@color/brave_rewards_modal_close_button_color"
+	        android:tint="@color/adrbrowsiel_rewards_modal_close_button_color"
 	        android:padding="16dp"
 	        android:src="@drawable/btn_close"/>
 

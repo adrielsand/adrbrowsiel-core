@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_webtorrent/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags/buildflags.h"
 #include "chrome/browser/ui/browser_tabrestore.h"
 
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
-#include "brave/browser/extensions/brave_component_loader.h"
-#include "brave/browser/extensions/brave_webtorrent_navigation_throttle.h"
-#include "brave/components/brave_webtorrent/browser/webtorrent_util.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_component_loader.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_webtorrent_navigation_throttle.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/webtorrent_util.h"
 #include "chrome/browser/extensions/extension_service.h"
 #include "extensions/browser/extension_system.h"
 #endif
@@ -20,14 +20,14 @@
 
 namespace {
 
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
 void MaybeLoadWebtorrent(Browser* browser,
                          bool from_session_restore,
                          const GURL& restore_url) {
   if (!from_session_restore || !webtorrent::IsWebtorrentURL(restore_url))
     return;
 
-  extensions::BraveWebTorrentNavigationThrottle::MaybeLoadWebtorrent(
+  extensions::adrbrowsielWebTorrentNavigationThrottle::MaybeLoadWebtorrent(
       browser->profile(), restore_url);
 }
 #endif
@@ -49,7 +49,7 @@ WebContents* AddRestoredTab(
     content::SessionStorageNamespace* session_storage_namespace,
     const sessions::SerializedUserAgentOverride& user_agent_override,
     bool from_session_restore) {
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
   MaybeLoadWebtorrent(
       browser,
       from_session_restore,

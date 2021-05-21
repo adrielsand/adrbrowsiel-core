@@ -3,7 +3,7 @@ index 2cd069ff2f489f8662cc9ca30008e6bbd3fab539..e284948ec7aff079f266579b7c6d5c88
 --- a/ui/webui/resources/cr_elements/cr_toolbar/cr_toolbar_selection_overlay.html
 +++ b/ui/webui/resources/cr_elements/cr_toolbar/cr_toolbar_selection_overlay.html
 @@ -1,3 +1,4 @@
-+<link rel="import" type="css" href="chrome://brave-resources/br_elements/br_toolbar/br_toolbar_selection_overlay_overrides.css">
++<link rel="import" type="css" href="chrome://adrbrowsiel-resources/br_elements/br_toolbar/br_toolbar_selection_overlay_overrides.css">
      <style>
        :host {
          background-color: white;

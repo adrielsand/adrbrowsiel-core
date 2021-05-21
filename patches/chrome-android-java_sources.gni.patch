@@ -6,7 +6,7 @@ index e1790a280c43501d8785eda46ceef57633bde28c..c7d313ae0587cfa15d112f07e66f148d
  import("//device/vr/buildflags/buildflags.gni")
  
  chrome_java_sources += public_autofill_assistant_java_sources
-+chrome_java_sources += brave_java_sources
++chrome_java_sources += adrbrowsiel_java_sources
  
  if (enable_vr) {
    chrome_java_sources += [ "java/src/org/chromium/chrome/browser/component_updater/VrAssetsComponentInstaller.java" ]

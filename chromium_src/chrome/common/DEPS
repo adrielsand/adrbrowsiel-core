@@ -3,7 +3,7 @@ include_rules = [
   "+../../../../../chrome/common/importer",
   "+../../../../../chrome/common/media",
   "+../../../../../../chrome/common/extensions/permissions",
-  "+brave/common",
+  "+adrbrowsiel/common",
   "+chrome/common",
   "+components/version_info",
 ]

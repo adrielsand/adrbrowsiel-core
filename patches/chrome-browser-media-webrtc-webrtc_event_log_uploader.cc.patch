@@ -6,7 +6,7 @@ index b8f2ec41141f146c4d1cbe95de698cd0c7b7896e..7a5edd34598d8d381580f5175607e8b3
  }
  
  void WebRtcEventLogUploaderImpl::StartUpload(const std::string& upload_data) {
-+  return; // feature disabled in Brave
++  return; // feature disabled in adrbrowsiel
    DCHECK(task_runner_->RunsTasksInCurrentSequence());
  
    auto resource_request = std::make_unique<network::ResourceRequest>();

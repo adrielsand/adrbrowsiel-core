@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -30,7 +30,7 @@ import org.chromium.content_public.browser.test.util.TestThreadUtils;
 
 // Checks if changes have been made to the Chromium privacy settings
 @RunWith(ChromeJUnit4ClassRunner.class)
-public class BravePrivacySettingsTest {
+public class adrbrowsielPrivacySettingsTest {
     // Chromium Prefs that are being checked
     private static final String PREF_CAN_MAKE_PAYMENT = "can_make_payment";
     private static final String PREF_NETWORK_PREDICTIONS = "preload_pages";

@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/omnibox/browser/brave_omnibox_client.h"
+#include "adrbrowsiel/components/omnibox/browser/adrbrowsiel_omnibox_client.h"
 #include "components/omnibox/browser/omnibox_client.h"
 #include "components/omnibox/browser/omnibox_controller.h"
 #include "url/gurl.h"
@@ -12,13 +12,13 @@
 #include "content/public/common/url_constants.h"
 #endif
 
-class BraveOmniboxController : public OmniboxController {
+class adrbrowsielOmniboxController : public OmniboxController {
  public:
-  BraveOmniboxController(OmniboxEditModel* omnibox_edit_model,
+  adrbrowsielOmniboxController(OmniboxEditModel* omnibox_edit_model,
                          OmniboxClient* client)
       : OmniboxController(omnibox_edit_model, client),
-        client_(static_cast<BraveOmniboxClient*>(client)) {}
-  ~BraveOmniboxController() override = default;
+        client_(static_cast<adrbrowsielOmniboxClient*>(client)) {}
+  ~adrbrowsielOmniboxController() override = default;
 
   // OmniboxController overrides:
   void StartAutocomplete(const AutocompleteInput& input) const override {
@@ -29,17 +29,17 @@ class BraveOmniboxController : public OmniboxController {
   }
 
  private:
-  BraveOmniboxClient* client_ = nullptr;
+  adrbrowsielOmniboxClient* client_ = nullptr;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveOmniboxController);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielOmniboxController);
 };
 
 namespace {
-void BraveAdjustTextForCopy(GURL* url) {
+void adrbrowsielAdjustTextForCopy(GURL* url) {
 #if !defined(OS_IOS)
   if (url->scheme() == content::kChromeUIScheme) {
     GURL::Replacements replacements;
-    replacements.SetSchemeStr(content::kBraveUIScheme);
+    replacements.SetSchemeStr(content::kadrbrowsielUIScheme);
     *url = url->ReplaceComponents(replacements);
   }
 #endif
@@ -47,10 +47,10 @@ void BraveAdjustTextForCopy(GURL* url) {
 
 }  // namespace
 
-#define BRAVE_ADJUST_TEXT_FOR_COPY \
-  BraveAdjustTextForCopy(url_from_text);
+#define adrbrowsiel_ADJUST_TEXT_FOR_COPY \
+  adrbrowsielAdjustTextForCopy(url_from_text);
 
-#define OmniboxController BraveOmniboxController
+#define OmniboxController adrbrowsielOmniboxController
 #include "../../../../../components/omnibox/browser/omnibox_edit_model.cc"  // NOLINT
 #undef OmniboxController
-#undef BRAVE_ADJUST_TEXT_FOR_COPY
+#undef adrbrowsiel_ADJUST_TEXT_FOR_COPY

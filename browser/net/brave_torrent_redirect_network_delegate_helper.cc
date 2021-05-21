@@ -1,17 +1,17 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_torrent_redirect_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_torrent_redirect_network_delegate_helper.h"
 
 #include <memory>
 #include <string>
 
 #include "base/strings/strcat.h"
 #include "base/strings/string_util.h"
-#include "brave/common/network_constants.h"
-#include "brave/components/brave_webtorrent/browser/webtorrent_util.h"
+#include "adrbrowsiel/common/network_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/webtorrent_util.h"
 #include "extensions/common/constants.h"
 #include "net/http/http_content_disposition.h"
 #include "net/http/http_response_headers.h"
@@ -28,15 +28,15 @@ bool IsViewerURL(const GURL& url) {
 }
 
 
-bool IsWebtorrentInitiated(std::shared_ptr<brave::BraveRequestInfo> ctx) {
+bool IsWebtorrentInitiated(std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx) {
   return ctx->initiator_url.scheme() == extensions::kExtensionScheme &&
-      ctx->initiator_url.host() == brave_webtorrent_extension_id;
+      ctx->initiator_url.host() == adrbrowsiel_webtorrent_extension_id;
 }
 
 // Returns true if the resource type is a frame (i.e. a top level page) or a
 // subframe (i.e. a frame or iframe). For all other resource types (stylesheet,
 // script, XHR request, etc.), returns false.
-bool IsMainFrameResource(std::shared_ptr<brave::BraveRequestInfo> ctx) {
+bool IsMainFrameResource(std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx) {
   return ctx->resource_type == blink::mojom::ResourceType::kMainFrame;
 }
 
@@ -48,8 +48,8 @@ int OnHeadersReceived_TorrentRedirectWork(
     const net::HttpResponseHeaders* original_response_headers,
     scoped_refptr<net::HttpResponseHeaders>* override_response_headers,
     GURL* allowed_unsafe_redirect_url,
-    const brave::ResponseCallback& next_callback,
-    std::shared_ptr<brave::BraveRequestInfo> ctx) {
+    const adrbrowsiel::ResponseCallback& next_callback,
+    std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx) {
 
   if (!original_response_headers ||
       !IsMainFrameResource(ctx) ||
@@ -67,8 +67,8 @@ int OnHeadersReceived_TorrentRedirectWork(
   (*override_response_headers)->RemoveHeader("Location");
   GURL url(
       base::StrCat({extensions::kExtensionScheme, "://",
-      brave_webtorrent_extension_id,
-      "/extension/brave_webtorrent2.html?",
+      adrbrowsiel_webtorrent_extension_id,
+      "/extension/adrbrowsiel_webtorrent2.html?",
       ctx->request_url.spec()}));
   (*override_response_headers)->AddHeader("Location", url.spec());
   *allowed_unsafe_redirect_url = url;

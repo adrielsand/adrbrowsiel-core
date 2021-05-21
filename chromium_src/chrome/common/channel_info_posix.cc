@@ -6,7 +6,7 @@
 
 #include "base/environment.h"
 #include "base/strings/string_util.h"
-#include "brave/common/brave_channel_info_posix.h"
+#include "adrbrowsiel/common/adrbrowsiel_channel_info_posix.h"
 #include "build/build_config.h"
 #include "components/version_info/version_info.h"
 
@@ -14,7 +14,7 @@ namespace chrome {
 
 std::string GetChannelName(WithExtendedStable with_extended_stable) {
   std::string modifier;
-  brave::GetChannelImpl(&modifier, nullptr);
+  adrbrowsiel::GetChannelImpl(&modifier, nullptr);
   return modifier;
 }
 
@@ -28,13 +28,13 @@ std::string GetDesktopName(base::Environment* env) {
   version_info::Channel product_channel(chrome::GetChannel());
   switch (product_channel) {
     case version_info::Channel::DEV:
-      return "brave-browser-dev.desktop";
+      return "adrbrowsiel-browser-dev.desktop";
     case version_info::Channel::BETA:
-      return "brave-browser-beta.desktop";
+      return "adrbrowsiel-browser-beta.desktop";
     case version_info::Channel::CANARY:
-      return "brave-browser-nightly.desktop";
+      return "adrbrowsiel-browser-nightly.desktop";
     default:
-      return "brave-browser.desktop";
+      return "adrbrowsiel-browser.desktop";
   }
 #endif  // defined(OFFICIAL_BUILD)
   // Allow $CHROME_DESKTOP to override the built-in value, so that development
@@ -43,16 +43,16 @@ std::string GetDesktopName(base::Environment* env) {
   std::string name;
   if (env->GetVar("CHROME_DESKTOP", &name) && !name.empty())
     return name;
-  return "brave-browser.desktop";
+  return "adrbrowsiel-browser.desktop";
 }
 #endif  // defined(OS_LINUX)
 
 version_info::Channel GetChannel() {
-  return brave::GetChannelImpl(nullptr, nullptr);
+  return adrbrowsiel::GetChannelImpl(nullptr, nullptr);
 }
 
 bool IsExtendedStableChannel() {
-  // No extended stable channel for Brave.
+  // No extended stable channel for adrbrowsiel.
   return false;
 }
 

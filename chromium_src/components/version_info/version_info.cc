@@ -11,7 +11,7 @@
 namespace version_info {
 
 std::string GetProductNameAndVersionForUserAgent() {
-  return std::string("Chrome/") + BRAVE_CHROMIUM_VERSION;
+  return std::string("Chrome/") + adrbrowsiel_CHROMIUM_VERSION;
 }
 
 // We use |nightly| instead of |canary|.

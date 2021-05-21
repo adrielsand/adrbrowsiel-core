@@ -6,7 +6,7 @@ index 1d579395e49ce3d2570447f86a92311d1f9003d2..719f3b8f3a567c882dd9227e5845e8a4
          remove_mask |= chrome_browsing_data_remover::DATA_TYPE_CONTENT_SETTINGS;
          break;
        case browsing_data::BrowsingDataType::DOWNLOADS:
-+      BRAVE_CLEAR_BROWSING_DATA
++      adrbrowsiel_CLEAR_BROWSING_DATA
        case browsing_data::BrowsingDataType::HOSTED_APPS_DATA:
          // Only implemented on Desktop.
          NOTREACHED();

@@ -6,7 +6,7 @@ index 3aa5c713503cdab793fff44c2d9a924cda3c168a..1d4b693b323fd68233decb43a5d6be5e
        width: 100%;
      }
    </style>
-+  <link rel="stylesheet" href="chrome://brave-resources/page_specific/extensions/extensions_loading_shim.css">
++  <link rel="stylesheet" href="chrome://adrbrowsiel-resources/page_specific/extensions/extensions_loading_shim.css">
    <script type="module" src="extensions.js"></script>
  </head>
  <body>

@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/ui/webui/new_tab_page/instant_service_message_handler.h"
+#include "adrbrowsiel/browser/ui/webui/new_tab_page/instant_service_message_handler.h"
 
 #include <string>
 #include <memory>
@@ -11,13 +11,13 @@
 
 #include "base/i18n/rtl.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/ntp_background_images/view_counter_service_factory.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/ui/webui/new_tab_page/brave_new_tab_ui.h"
-#include "brave/browser/ui/webui/new_tab_page/brave_new_tab_ui_utils.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_data.h"
-#include "brave/components/ntp_background_images/browser/view_counter_service.h"
+#include "adrbrowsiel/browser/ntp_background_images/view_counter_service_factory.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/ui/webui/new_tab_page/adrbrowsiel_new_tab_ui.h"
+#include "adrbrowsiel/browser/ui/webui/new_tab_page/adrbrowsiel_new_tab_ui_utils.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/view_counter_service.h"
 #include "chrome/browser/ntp_tiles/chrome_most_visited_sites_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/search/instant_service.h"

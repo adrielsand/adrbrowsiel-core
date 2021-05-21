@@ -6,7 +6,7 @@ index 059a80ed7ab5c4851a7cc5f5f943e752dcfaff90..beb190bec044b030683bbd1d133e8887
        float linear_value = source[i];
        double db_mag = audio_utilities::LinearToDecibels(linear_value);
        destination[i] = float(db_mag);
-+      BRAVE_REALTIMEANALYSER_CONVERTFLOATTODB
++      adrbrowsiel_REALTIMEANALYSER_CONVERTFLOATTODB
      }
    }
  }
@@ -14,7 +14,7 @@ index 059a80ed7ab5c4851a7cc5f5f943e752dcfaff90..beb190bec044b030683bbd1d133e8887
        // from 0 to UCHAR_MAX.
        double scaled_value =
            UCHAR_MAX * (db_mag - min_decibels) * range_scale_factor;
-+      BRAVE_REALTIMEANALYSER_CONVERTTOBYTEDATA
++      adrbrowsiel_REALTIMEANALYSER_CONVERTTOBYTEDATA
  
        // Clip to valid range.
        if (scaled_value < 0)
@@ -22,7 +22,7 @@ index 059a80ed7ab5c4851a7cc5f5f943e752dcfaff90..beb190bec044b030683bbd1d133e8887
                         kInputBufferSize];
  
        destination[i] = value;
-+      BRAVE_REALTIMEANALYSER_GETFLOATTIMEDOMAINDATA
++      adrbrowsiel_REALTIMEANALYSER_GETFLOATTIMEDOMAINDATA
      }
    }
  }
@@ -30,7 +30,7 @@ index 059a80ed7ab5c4851a7cc5f5f943e752dcfaff90..beb190bec044b030683bbd1d133e8887
        float value =
            input_buffer[(i + write_index - fft_size + kInputBufferSize) %
                         kInputBufferSize];
-+      BRAVE_REALTIMEANALYSER_GETBYTETIMEDOMAINDATA
++      adrbrowsiel_REALTIMEANALYSER_GETBYTETIMEDOMAINDATA
  
        // Scale from nominal -1 -> +1 to unsigned byte.
        double scaled_value = 128 * (value + 1);

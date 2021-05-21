@@ -6,7 +6,7 @@ index 16216595d5a8a7e064365301f2b560274007ca9e..0aa5862ef40e6b73fb4447c260a32f67
        if (origin) {
          origin = normalizeSlashes(origin);
        }
-+      if (source.startsWith('//brave-resources/')) { source = 'chrome:' + source; } if (source.startsWith('chrome://brave-resources/')) { origin = undefined; }
++      if (source.startsWith('//adrbrowsiel-resources/')) { source = 'chrome:' + source; } if (source.startsWith('chrome://adrbrowsiel-resources/')) { origin = undefined; }
  
        for (const [url, path] of urlsToPaths) {
          const resultPath = getPathForUrl(source, origin, url, path, excludes);

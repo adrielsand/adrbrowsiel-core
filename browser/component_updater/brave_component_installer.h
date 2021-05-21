@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_COMPONENT_UPDATER_BRAVE_COMPONENT_INSTALLER_H_
-#define BRAVE_BROWSER_COMPONENT_UPDATER_BRAVE_COMPONENT_INSTALLER_H_
+#ifndef adrbrowsiel_BROWSER_COMPONENT_UPDATER_adrbrowsiel_COMPONENT_INSTALLER_H_
+#define adrbrowsiel_BROWSER_COMPONENT_UPDATER_adrbrowsiel_COMPONENT_INSTALLER_H_
 
 #include <stdint.h>
 
@@ -16,22 +16,22 @@
 #include "base/callback.h"
 #include "base/files/file_path.h"
 #include "base/macros.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
 #include "components/component_updater/component_installer.h"
 #include "components/update_client/update_client.h"
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
-namespace brave {
+namespace adrbrowsiel {
 
-class BraveComponentInstallerPolicy :
+class adrbrowsielComponentInstallerPolicy :
     public component_updater::ComponentInstallerPolicy {
  public:
-  explicit BraveComponentInstallerPolicy(const std::string& name,
+  explicit adrbrowsielComponentInstallerPolicy(const std::string& name,
       const std::string& base64_public_key,
-      BraveComponent::ReadyCallback ready_callback);
+      adrbrowsielComponent::ReadyCallback ready_callback);
 
-  ~BraveComponentInstallerPolicy() override;
+  ~adrbrowsielComponentInstallerPolicy() override;
 
  private:
   // The following methods override ComponentInstallerPolicy
@@ -55,17 +55,17 @@ class BraveComponentInstallerPolicy :
   std::string name_;
   std::string base64_public_key_;
   std::string public_key_;
-  BraveComponent::ReadyCallback ready_callback_;
+  adrbrowsielComponent::ReadyCallback ready_callback_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveComponentInstallerPolicy);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielComponentInstallerPolicy);
 };
 
 void RegisterComponent(component_updater::ComponentUpdateService* cus,
     const std::string& name,
     const std::string& base64_public_key,
     base::OnceClosure registered_callback,
-    BraveComponent::ReadyCallback ready_callback);
+    adrbrowsielComponent::ReadyCallback ready_callback);
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_BROWSER_COMPONENT_UPDATER_BRAVE_COMPONENT_INSTALLER_H_
+#endif  // adrbrowsiel_BROWSER_COMPONENT_UPDATER_adrbrowsiel_COMPONENT_INSTALLER_H_

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_TOOLBAR_BRAVE_TOOLBAR_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_TOOLBAR_BRAVE_TOOLBAR_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_TOOLBAR_adrbrowsiel_TOOLBAR_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_TOOLBAR_adrbrowsiel_TOOLBAR_VIEW_H_
 
 #include "base/scoped_observer.h"
 #include "chrome/browser/profiles/profile_attributes_storage.h"
@@ -15,11 +15,11 @@ class BookmarkButton;
 class SpeedreaderButton;
 class WalletButton;
 
-class BraveToolbarView : public ToolbarView,
+class adrbrowsielToolbarView : public ToolbarView,
                          public ProfileAttributesStorage::Observer {
  public:
-  explicit BraveToolbarView(Browser* browser, BrowserView* browser_view);
-  ~BraveToolbarView() override;
+  explicit adrbrowsielToolbarView(Browser* browser, BrowserView* browser_view);
+  ~adrbrowsielToolbarView() override;
 
   BookmarkButton* bookmark_button() const { return bookmark_; }
   SpeedreaderButton* speedreader_button() const { return speedreader_; }
@@ -53,10 +53,10 @@ class BraveToolbarView : public ToolbarView,
 
   BooleanPrefMember location_bar_is_wide_;
   // Whether this toolbar has been initialized.
-  bool brave_initialized_ = false;
+  bool adrbrowsiel_initialized_ = false;
   // Tracks profile count to determine whether profile switcher should be shown.
   ScopedObserver<ProfileAttributesStorage, ProfileAttributesStorage::Observer>
       profile_observer_;
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_TOOLBAR_BRAVE_TOOLBAR_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_TOOLBAR_adrbrowsiel_TOOLBAR_VIEW_H_

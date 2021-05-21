@@ -6,7 +6,7 @@ index c6e18f19c1492a339ece492cbd90855147743137..1c3baabc78f76de00d150c8e4e296d62
      "java/src/org/chromium/chrome/browser/ui/appmenu/AppMenuHandlerImpl.java",
      "java/src/org/chromium/chrome/browser/ui/appmenu/AppMenuItemIcon.java",
    ]
-+  sources += brave_browser_ui_android_appmenu_internal_sources
++  sources += adrbrowsiel_browser_ui_android_appmenu_internal_sources
  
    deps = [
      ":java_resources",

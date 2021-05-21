@@ -7,7 +7,7 @@ index 3c06d1607ea9596860a4a700c75c38849b864a24..c55867b306314329e1d31c1057b4434e
          // Now that the browser process is initialized, we pass forward the call to the
          // NotificationPlatformBridge which will take care of delivering the appropriate events.
 -        if (!NotificationPlatformBridge.dispatchNotificationEvent(intent)) {
-+        if (!BraveNotificationPlatformBridge.dispatchNotificationEvent(intent)) {
++        if (!adrbrowsielNotificationPlatformBridge.dispatchNotificationEvent(intent)) {
              Log.w(TAG, "Unable to dispatch the notification event to Chrome.");
          }
  

@@ -6,7 +6,7 @@ index b9c40f6d5f1da8f3939fd954616625122b87558f..7762593ddd57110aec27896331e7f2d0
          mPopup.setOutsideTouchable(true);
  
          if (!isByPermanentButton) mPopup.setAnimationStyle(R.style.OverflowMenuAnim);
-+        if (!isByPermanentButton) mPopup.setAnimationStyle(BraveAppMenu.getAnimationStyle());
++        if (!isByPermanentButton) mPopup.setAnimationStyle(adrbrowsielAppMenu.getAnimationStyle());
  
          // Turn off window animations for low end devices.
          if (SysUtils.isLowEndDevice()) mPopup.setAnimationStyle(0);

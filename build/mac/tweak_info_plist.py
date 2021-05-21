@@ -43,16 +43,16 @@ def _RemoveKeys(plist, *keys):
       pass
 
 
-def _OverrideVersionKey(plist, brave_version):
+def _OverrideVersionKey(plist, adrbrowsiel_version):
   """ `minor.build` version string is used for update.
-  When we begin to use the Major version component, Brave version string will
+  When we begin to use the Major version component, adrbrowsiel version string will
   be `1.0.0` for example and `Minor.Build` (`0.0`) would be used for update
   check. Without modifying these numbers, update will fail as `0.0` is lower
   than `70.121` for example.
 
   To ensure minor version is higher than existing minor versions, we can
   multiply the major version by 100 and set it to `CFBundleVersion`."""
-  version_values = brave_version.split('.')
+  version_values = adrbrowsiel_version.split('.')
   if int(version_values[0]) >= 1:
     adjusted_minor = int(version_values[1]) + (100 * int(version_values[0]))
     plist['CFBundleVersion'] = str(adjusted_minor) + '.' + version_values[2]
@@ -65,17 +65,17 @@ def Main(argv):
   parser.add_option('--output', dest='plist_output', action='store',
       type='string', default=None, help='If specified, the path to output ' + \
       'the tweaked plist, rather than overwriting the input.')
-  parser.add_option('--brave_channel', dest='brave_channel', action='store',
+  parser.add_option('--adrbrowsiel_channel', dest='adrbrowsiel_channel', action='store',
       type='string', default=None, help='Channel (beta, dev, nightly)')
-  parser.add_option('--brave_product_dir_name', dest='brave_product_dir_name',
+  parser.add_option('--adrbrowsiel_product_dir_name', dest='adrbrowsiel_product_dir_name',
       action='store', type='string', default=None,
       help='Product directory name')
-  parser.add_option('--brave_feed_url', dest='brave_feed_url', action='store',
+  parser.add_option('--adrbrowsiel_feed_url', dest='adrbrowsiel_feed_url', action='store',
       type='string', default=None, help='Target url for update feed')
-  parser.add_option('--brave_eddsa_key', dest='brave_eddsa_key', action='store',
+  parser.add_option('--adrbrowsiel_eddsa_key', dest='adrbrowsiel_eddsa_key', action='store',
       type='string', default=None, help='Public EdDSA key for update')
-  parser.add_option('--brave_version', dest='brave_version', action='store',
-      type='string', default=None, help='brave version string')
+  parser.add_option('--adrbrowsiel_version', dest='adrbrowsiel_version', action='store',
+      type='string', default=None, help='adrbrowsiel version string')
   parser.add_option('--format', choices=('binary1', 'xml1', 'json'),
       default='xml1', help='Format to use when writing property list '
           '(default: %(default)s)')
@@ -103,20 +103,20 @@ def Main(argv):
     output_path = options.plist_output
 
   if options.skip_signing:
-    plist['KSChannelID'] = options.brave_channel
+    plist['KSChannelID'] = options.adrbrowsiel_channel
   elif 'KSChannelID' in plist:
     # 'KSChannelID' is set at _modify_plists() of modification.py.
     del plist['KSChannelID']
 
-  plist['CrProductDirName'] = options.brave_product_dir_name
+  plist['CrProductDirName'] = options.adrbrowsiel_product_dir_name
 
-  if options.brave_feed_url:
-    plist['SUFeedURL'] = options.brave_feed_url
+  if options.adrbrowsiel_feed_url:
+    plist['SUFeedURL'] = options.adrbrowsiel_feed_url
 
-  if options.brave_eddsa_key:
-    plist['SUPublicEDKey'] = options.brave_eddsa_key
+  if options.adrbrowsiel_eddsa_key:
+    plist['SUPublicEDKey'] = options.adrbrowsiel_eddsa_key
 
-  _OverrideVersionKey(plist, options.brave_version)
+  _OverrideVersionKey(plist, options.adrbrowsiel_version)
 
   # Explicitly disable profiling
   plist['SUEnableSystemProfiling'] = False

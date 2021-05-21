@@ -2,18 +2,18 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/settings/brave_relaunch_handler_mac.h"
+#include "adrbrowsiel/browser/ui/webui/settings/adrbrowsiel_relaunch_handler_mac.h"
 
 #include "base/bind.h"
-#import "brave/browser/mac/sparkle_glue.h"
+#import "adrbrowsiel/browser/mac/sparkle_glue.h"
 
-void BraveRelaunchHandler::RegisterMessages() {
+void adrbrowsielRelaunchHandler::RegisterMessages() {
   web_ui()->RegisterMessageCallback(
       "relaunchOnMac",
-      base::BindRepeating(&BraveRelaunchHandler::Relaunch,
+      base::BindRepeating(&adrbrowsielRelaunchHandler::Relaunch,
                           base::Unretained(this)));
 }
 
-void BraveRelaunchHandler::Relaunch(const base::ListValue* args) {
+void adrbrowsielRelaunchHandler::Relaunch(const base::ListValue* args) {
   [[SparkleGlue sharedSparkleGlue] relaunch];
 }

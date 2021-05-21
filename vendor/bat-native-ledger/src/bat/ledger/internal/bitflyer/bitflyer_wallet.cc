@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -54,7 +54,7 @@ void BitflyerWallet::Generate(ledger::ResultCallback callback) {
     //
     // For Uphold, this is accomplished by calling ledger->wallet()->ClaimFunds
     // as the last step of the GenerateWallet flow. ClaimFunds performs both
-    // Uphold wallet linking and attempts to drain legacy Brave user funds to
+    // Uphold wallet linking and attempts to drain legacy adrbrowsiel user funds to
     // that linked wallet. For bitFlyer, wallet linking is performed during
     // authorization, so bypass ClaimFunds and call promotion()->TransferTokens
     // directly.

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -30,8 +30,8 @@ import org.chromium.components.browser_ui.bottomsheet.BottomSheetController;
 /**
  * A class holding static util functions for bookmark.
  */
-public class BraveBookmarkUtils extends BookmarkUtils {
-    private static final String TAG = "BraveBookmarkUtils";
+public class adrbrowsielBookmarkUtils extends BookmarkUtils {
+    private static final String TAG = "adrbrowsielBookmarkUtils";
     /**
      * If the tab has already been bookmarked, start {@link BookmarkEditActivity} for the
      * normal bookmark or show the reading list page for reading list bookmark.

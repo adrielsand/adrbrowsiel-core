@@ -7,7 +7,7 @@ index 0626baa25d07770e6643b1078bf53889f7f67947..5deba756a23909912f4c20987803b31f
    const DWORD kBufferSize = 2;
    StackString<kBufferSize> value;
 +#if defined(OFFICIAL_BUILD)
-+  DWORD length = ::GetEnvironmentVariableW(L"BraveSoftwareUpdateIsMachine",
++  DWORD length = ::GetEnvironmentVariableW(L"adrbrowsielSoftwareUpdateIsMachine",
 +#else
    DWORD length = ::GetEnvironmentVariableW(L"GoogleUpdateIsMachine",
 +#endif
@@ -21,7 +21,7 @@ index 0626baa25d07770e6643b1078bf53889f7f67947..5deba756a23909912f4c20987803b31f
 -#if BUILDFLAG(GOOGLE_CHROME_BRANDING)
 +#if BUILDFLAG(GOOGLE_CHROME_BRANDING) || defined(OFFICIAL_BUILD)
 +    // Use original install switch because it isn't visible to user.
-+    // Sync this switch with brave/.../chromium_install_modes.cc
++    // Sync this switch with adrbrowsiel/.../chromium_install_modes.cc
      else if (0 == ::lstrcmpi(args_[i], L"--chrome-beta"))
        chrome_app_guid_ = google_update::kBetaAppGuid;
      else if (0 == ::lstrcmpi(args_[i], L"--chrome-dev"))

@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,7 +9,7 @@
 
 namespace shell_integration {
 
-bool IsAnyBraveBrowserDefaultBrowser() {
+bool IsAnyadrbrowsielBrowserDefaultBrowser() {
   base::ScopedBlockingCall scoped_blocking_call(FROM_HERE,
                                                 base::BlockingType::MAY_BLOCK);
 
@@ -21,7 +21,7 @@ bool IsAnyBraveBrowserDefaultBrowser() {
   std::string browser;
   // We don't care about the return value here.
   base::GetAppOutput(base::CommandLine(argv), &browser);
-  return browser.find("brave-browser") != std::string::npos;
+  return browser.find("adrbrowsiel-browser") != std::string::npos;
 }
 
 DefaultWebClientState GetDefaultBrowser() {
@@ -31,7 +31,7 @@ DefaultWebClientState GetDefaultBrowser() {
     return state;
 
   // Check Other channel installs are default.
-  return IsAnyBraveBrowserDefaultBrowser() ? OTHER_MODE_IS_DEFAULT
+  return IsAnyadrbrowsielBrowserDefaultBrowser() ? OTHER_MODE_IS_DEFAULT
                                            : NOT_DEFAULT;
 }
 

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_API_BRAVE_WALLET_API_H_
-#define BRAVE_BROWSER_EXTENSIONS_API_BRAVE_WALLET_API_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_WALLET_API_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_WALLET_API_H_
 
 #include <string>
 
@@ -15,127 +15,127 @@ class Profile;
 namespace extensions {
 namespace api {
 
-class BraveWalletPromptToEnableWalletFunction :
+class adrbrowsielWalletPromptToEnableWalletFunction :
     public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.promptToEnableWallet", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.promptToEnableWallet", UNKNOWN)
 
  protected:
-  ~BraveWalletPromptToEnableWalletFunction() override {}
+  ~adrbrowsielWalletPromptToEnableWalletFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletReadyFunction :
+class adrbrowsielWalletReadyFunction :
     public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.ready", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.ready", UNKNOWN)
 
  protected:
-  ~BraveWalletReadyFunction() override {}
+  ~adrbrowsielWalletReadyFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletShouldCheckForDappsFunction : public ExtensionFunction {
+class adrbrowsielWalletShouldCheckForDappsFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.shouldCheckForDapps", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.shouldCheckForDapps", UNKNOWN)
 
  protected:
-  ~BraveWalletShouldCheckForDappsFunction() override {}
+  ~adrbrowsielWalletShouldCheckForDappsFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletLoadUIFunction : public ExtensionFunction {
+class adrbrowsielWalletLoadUIFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.loadUI", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.loadUI", UNKNOWN)
   void OnLoaded();
 
  protected:
-  ~BraveWalletLoadUIFunction() override {}
+  ~adrbrowsielWalletLoadUIFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletShouldPromptForSetupFunction : public ExtensionFunction {
+class adrbrowsielWalletShouldPromptForSetupFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.shouldPromptForSetup", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.shouldPromptForSetup", UNKNOWN)
 
  protected:
-  ~BraveWalletShouldPromptForSetupFunction() override {}
+  ~adrbrowsielWalletShouldPromptForSetupFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletGetWalletSeedFunction : public ExtensionFunction {
+class adrbrowsielWalletGetWalletSeedFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.getWalletSeed", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.getWalletSeed", UNKNOWN)
 
  protected:
-  ~BraveWalletGetWalletSeedFunction() override {}
+  ~adrbrowsielWalletGetWalletSeedFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletGetBitGoSeedFunction : public ExtensionFunction {
+class adrbrowsielWalletGetBitGoSeedFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.getBitGoSeed", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.getBitGoSeed", UNKNOWN)
 
  protected:
-  ~BraveWalletGetBitGoSeedFunction() override {}
+  ~adrbrowsielWalletGetBitGoSeedFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletGetProjectIDFunction : public ExtensionFunction {
+class adrbrowsielWalletGetProjectIDFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.getProjectID", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.getProjectID", UNKNOWN)
 
  protected:
-  ~BraveWalletGetProjectIDFunction() override {}
+  ~adrbrowsielWalletGetProjectIDFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletGetBraveKeyFunction : public ExtensionFunction {
+class adrbrowsielWalletGetadrbrowsielKeyFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.getBraveKey", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.getadrbrowsielKey", UNKNOWN)
 
  protected:
-  ~BraveWalletGetBraveKeyFunction() override {}
+  ~adrbrowsielWalletGetadrbrowsielKeyFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletResetWalletFunction : public ExtensionFunction {
+class adrbrowsielWalletResetWalletFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.resetWallet", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.resetWallet", UNKNOWN)
 
  protected:
-  ~BraveWalletResetWalletFunction() override {}
+  ~adrbrowsielWalletResetWalletFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletGetWeb3ProviderFunction : public ExtensionFunction {
+class adrbrowsielWalletGetWeb3ProviderFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.getWeb3Provider", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.getWeb3Provider", UNKNOWN)
 
  protected:
-  ~BraveWalletGetWeb3ProviderFunction() override {}
+  ~adrbrowsielWalletGetWeb3ProviderFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletGetWeb3ProviderListFunction : public ExtensionFunction {
+class adrbrowsielWalletGetWeb3ProviderListFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.getWeb3ProviderList", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.getWeb3ProviderList", UNKNOWN)
 
  protected:
-  ~BraveWalletGetWeb3ProviderListFunction() override {}
+  ~adrbrowsielWalletGetWeb3ProviderListFunction() override {}
   ResponseAction Run() override;
 };
 
-class BraveWalletIsNativeWalletEnabledFunction : public ExtensionFunction {
+class adrbrowsielWalletIsNativeWalletEnabledFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveWallet.isNativeWalletEnabled", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielWallet.isNativeWalletEnabled", UNKNOWN)
 
  protected:
-  ~BraveWalletIsNativeWalletEnabledFunction() override {}
+  ~adrbrowsielWalletIsNativeWalletEnabledFunction() override {}
   ResponseAction Run() override;
 };
 
 }  // namespace api
 }  // namespace extensions
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_API_BRAVE_WALLET_API_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_WALLET_API_H_

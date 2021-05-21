@@ -7,7 +7,7 @@ index 11e79acf9c00396e969a2172974cc517729f37b1..d43a0cb763973c65118301f6864e388a
          break;
        case Command.HELP_CENTER:
 -        window.open('https://support.google.com/chrome/?p=bookmarks');
-+        window.open('https://community.brave.com');
++        window.open('https://community.adrbrowsiel.com');
          break;
        default:
          assert(false);

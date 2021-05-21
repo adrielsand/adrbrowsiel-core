@@ -6,7 +6,7 @@ index 8252c18a6b0603a16862b94b361eb0536da08cb9..3b187b2780c7002ed2c9003d3b70288d
    // ProfileMenuViewBase:
    void BuildMenu() override;
  
-+  BRAVE_INCOGNITO_MENU_VIEW_H_
++  adrbrowsiel_INCOGNITO_MENU_VIEW_H_
   private:
    // views::BubbleDialogDelegateView:
    std::u16string GetAccessibleWindowTitle() const override;

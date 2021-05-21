@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
 
 #include <map>
 #include <memory>
@@ -13,11 +13,11 @@
 #include "base/memory/ptr_util.h"
 #include "base/metrics/histogram_macros.h"
 #include "base/no_destructor.h"
-#include "brave/common/brave_constants.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/ntp_background_images/common/pref_names.h"
-#include "brave/components/search_engines/brave_prepopulated_engines.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/common/adrbrowsiel_constants.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/ntp_background_images/common/pref_names.h"
+#include "adrbrowsiel/components/search_engines/adrbrowsiel_prepopulated_engines.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/profiles/profile_key.h"
@@ -28,10 +28,10 @@ using ntp_background_images::prefs::kNewTabPageShowBackgroundImage;
 using ntp_background_images::prefs::kNewTabPageShowSponsoredImagesBackgroundImage; // NOLINT
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
 #endif
 
-namespace brave {
+namespace adrbrowsiel {
 
 namespace {
 
@@ -208,7 +208,7 @@ void RecordSponsoredImagesEnabledP3A(Profile* profile) {
       profile->GetPrefs()->GetBoolean(kNewTabPageShowBackgroundImage) &&
       profile->GetPrefs()->GetBoolean(
           kNewTabPageShowSponsoredImagesBackgroundImage);
-  UMA_HISTOGRAM_BOOLEAN("Brave.NTP.SponsoredImagesEnabled",
+  UMA_HISTOGRAM_BOOLEAN("adrbrowsiel.NTP.SponsoredImagesEnabled",
                         is_sponsored_image_enabled);
 }
 
@@ -225,15 +225,15 @@ void RecordInitialP3AValues(Profile* profile) {
 
 void SetDefaultSearchVersion(Profile* profile, bool is_new_profile) {
   const PrefService::Preference* pref_default_search_version =
-        profile->GetPrefs()->FindPreference(kBraveDefaultSearchVersion);
+        profile->GetPrefs()->FindPreference(kadrbrowsielDefaultSearchVersion);
   if (!pref_default_search_version->HasUserSetting()) {
-    profile->GetPrefs()->SetInteger(kBraveDefaultSearchVersion, is_new_profile
-        ? TemplateURLPrepopulateData::kBraveCurrentDataVersion
-        : TemplateURLPrepopulateData::kBraveFirstTrackedDataVersion);
+    profile->GetPrefs()->SetInteger(kadrbrowsielDefaultSearchVersion, is_new_profile
+        ? TemplateURLPrepopulateData::kadrbrowsielCurrentDataVersion
+        : TemplateURLPrepopulateData::kadrbrowsielFirstTrackedDataVersion);
   }
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
 namespace chrome {
 
@@ -241,8 +241,8 @@ namespace chrome {
 // GetBrowserContextRedirectedInIncognito or equivalent
 content::BrowserContext* GetBrowserContextRedirectedInIncognitoOverride(
     content::BrowserContext* context) {
-  if (brave::IsSessionProfile(context))
-    context = brave::GetParentProfile(context);
+  if (adrbrowsiel::IsSessionProfile(context))
+    context = adrbrowsiel::GetParentProfile(context);
   return chrome::GetBrowserContextRedirectedInIncognito(context);
 }
 

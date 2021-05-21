@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,7 +8,7 @@
 #include "bat/ads/internal/unittest_util.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 
@@ -20,7 +20,7 @@ TEST(BatAdsRewardsServerUtilTest, Production) {
   const std::string host = rewards::server::GetHost();
 
   // Assert
-  const std::string expected_host = "https://grant.rewards.brave.com";
+  const std::string expected_host = "https://grant.rewards.adrbrowsiel.com";
   EXPECT_EQ(expected_host, host);
 }
 
@@ -32,7 +32,7 @@ TEST(BatAdsRewardsServerUtilTest, Staging) {
   const std::string host = rewards::server::GetHost();
 
   // Assert
-  const std::string expected_host = "https://grant.rewards.bravesoftware.com";
+  const std::string expected_host = "https://grant.rewards.adrbrowsielsoftware.com";
   EXPECT_EQ(expected_host, host);
 }
 
@@ -44,7 +44,7 @@ TEST(BatAdsRewardsServerUtilTest, Development) {
   const std::string host = rewards::server::GetHost();
 
   // Assert
-  const std::string expected_host = "https://grant.rewards.brave.software";
+  const std::string expected_host = "https://grant.rewards.adrbrowsiel.software";
   EXPECT_EQ(expected_host, host);
 }
 

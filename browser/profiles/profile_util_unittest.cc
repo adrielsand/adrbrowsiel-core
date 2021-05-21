@@ -1,14 +1,14 @@
-// Copyright 2019 The Brave Authors. All rights reserved.
+// Copyright 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
 
 #include "base/files/file_path.h"
 #include "base/files/scoped_temp_dir.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/search_engines/brave_prepopulated_engines.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/search_engines/adrbrowsiel_prepopulated_engines.h"
 #include "chrome/browser/profiles/profile_manager.h"
 #include "chrome/test/base/testing_browser_process.h"
 #include "chrome/test/base/testing_profile.h"
@@ -17,11 +17,11 @@
 #include "content/public/test/browser_task_environment.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-class BraveProfileUtilTest : public testing::Test {
+class adrbrowsielProfileUtilTest : public testing::Test {
  public:
-  BraveProfileUtilTest()
+  adrbrowsielProfileUtilTest()
       : testing_profile_manager_(TestingBrowserProcess::GetGlobal()) {}
-  ~BraveProfileUtilTest() override {}
+  ~adrbrowsielProfileUtilTest() override {}
 
  protected:
   void SetUp() override {
@@ -41,42 +41,42 @@ class BraveProfileUtilTest : public testing::Test {
 };
 
 // No entry yet. Check initialized value
-TEST_F(BraveProfileUtilTest, SetDefaultSearchVersionExistingProfileNoEntryYet) {
+TEST_F(adrbrowsielProfileUtilTest, SetDefaultSearchVersionExistingProfileNoEntryYet) {
   const PrefService::Preference* pref =
-      GetPrefs()->FindPreference(kBraveDefaultSearchVersion);
+      GetPrefs()->FindPreference(kadrbrowsielDefaultSearchVersion);
   EXPECT_TRUE(pref->IsDefaultValue());
-  brave::SetDefaultSearchVersion(GetProfile(), false);
-  ASSERT_EQ(GetPrefs()->GetInteger(kBraveDefaultSearchVersion),
-            TemplateURLPrepopulateData::kBraveFirstTrackedDataVersion);
+  adrbrowsiel::SetDefaultSearchVersion(GetProfile(), false);
+  ASSERT_EQ(GetPrefs()->GetInteger(kadrbrowsielDefaultSearchVersion),
+            TemplateURLPrepopulateData::kadrbrowsielFirstTrackedDataVersion);
 }
 
-TEST_F(BraveProfileUtilTest, SetDefaultSearchVersionNewProfileNoEntryYet) {
+TEST_F(adrbrowsielProfileUtilTest, SetDefaultSearchVersionNewProfileNoEntryYet) {
   const PrefService::Preference* pref =
-      GetPrefs()->FindPreference(kBraveDefaultSearchVersion);
+      GetPrefs()->FindPreference(kadrbrowsielDefaultSearchVersion);
   EXPECT_TRUE(pref->IsDefaultValue());
-  brave::SetDefaultSearchVersion(GetProfile(), true);
-  ASSERT_EQ(GetPrefs()->GetInteger(kBraveDefaultSearchVersion),
-            TemplateURLPrepopulateData::kBraveCurrentDataVersion);
+  adrbrowsiel::SetDefaultSearchVersion(GetProfile(), true);
+  ASSERT_EQ(GetPrefs()->GetInteger(kadrbrowsielDefaultSearchVersion),
+            TemplateURLPrepopulateData::kadrbrowsielCurrentDataVersion);
 }
 
 // Entry there; ensure value is kept
-TEST_F(BraveProfileUtilTest,
+TEST_F(adrbrowsielProfileUtilTest,
        SetDefaultSearchVersionExistingProfileHasEntryKeepsValue) {
-  GetPrefs()->SetInteger(kBraveDefaultSearchVersion, 1);
+  GetPrefs()->SetInteger(kadrbrowsielDefaultSearchVersion, 1);
   const PrefService::Preference* pref =
-      GetPrefs()->FindPreference(kBraveDefaultSearchVersion);
+      GetPrefs()->FindPreference(kadrbrowsielDefaultSearchVersion);
   EXPECT_FALSE(pref->IsDefaultValue());
-  brave::SetDefaultSearchVersion(GetProfile(), false);
-  ASSERT_EQ(GetPrefs()->GetInteger(kBraveDefaultSearchVersion), 1);
+  adrbrowsiel::SetDefaultSearchVersion(GetProfile(), false);
+  ASSERT_EQ(GetPrefs()->GetInteger(kadrbrowsielDefaultSearchVersion), 1);
 }
 
-TEST_F(BraveProfileUtilTest,
+TEST_F(adrbrowsielProfileUtilTest,
        SetDefaultSearchVersionNewProfileHasEntryKeepsValue) {
   // This is an anomaly case; new profile won't ever have a hard set value
-  GetPrefs()->SetInteger(kBraveDefaultSearchVersion, 1);
+  GetPrefs()->SetInteger(kadrbrowsielDefaultSearchVersion, 1);
   const PrefService::Preference* pref =
-      GetPrefs()->FindPreference(kBraveDefaultSearchVersion);
+      GetPrefs()->FindPreference(kadrbrowsielDefaultSearchVersion);
   EXPECT_FALSE(pref->IsDefaultValue());
-  brave::SetDefaultSearchVersion(GetProfile(), true);
-  ASSERT_EQ(GetPrefs()->GetInteger(kBraveDefaultSearchVersion), 1);
+  adrbrowsiel::SetDefaultSearchVersion(GetProfile(), true);
+  ASSERT_EQ(GetPrefs()->GetInteger(kadrbrowsielDefaultSearchVersion), 1);
 }

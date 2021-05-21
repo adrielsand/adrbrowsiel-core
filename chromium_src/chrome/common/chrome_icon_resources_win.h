@@ -7,7 +7,7 @@
 
 namespace icon_resources {
 
-// This file contains the indices of icon resources in brave_exe.rc.
+// This file contains the indices of icon resources in adrbrowsiel_exe.rc.
 
 enum {
   // The main application icon is always index 0.
@@ -19,28 +19,28 @@ enum {
   kApplication3Index = 2,
   kApplication4Index = 3,
 
-  // The Brave Canary application icon.
+  // The adrbrowsiel Canary application icon.
   kSxSApplicationIndex = 4,
 
-  // The Brave App Launcher icon.
+  // The adrbrowsiel App Launcher icon.
   kAppLauncherIndex = 5,
 
-  // The Brave App Launcher Canary icon.
+  // The adrbrowsiel App Launcher Canary icon.
   kSxSAppLauncherIndex = 6,
 
-  // The Brave incognito icon.
+  // The adrbrowsiel incognito icon.
   kIncognitoIndex = 7,
 
-  // The Brave Dev application icon.
+  // The adrbrowsiel Dev application icon.
   kDevApplicationIndex = 8,
 
-  // The Brave Beta application icon.
+  // The adrbrowsiel Beta application icon.
   kBetaApplicationIndex = 9,
 #else
-  // The Brave Developer App Launcher icon.
+  // The adrbrowsiel Developer App Launcher icon.
   kAppLauncherIndex = 1,
 
-  // The Brave Developer incognito icon.
+  // The adrbrowsiel Developer incognito icon.
   kIncognitoIndex = 2,
 #endif
 };

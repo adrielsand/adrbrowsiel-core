@@ -1,16 +1,16 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/resource_context_data.h"
+#include "adrbrowsiel/browser/net/resource_context_data.h"
 
 #include <string>
 #include <utility>
 
-#include "brave/browser/net/brave_proxying_url_loader_factory.h"
-#include "brave/browser/net/brave_proxying_web_socket.h"
-#include "brave/browser/net/brave_request_handler.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_proxying_url_loader_factory.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_proxying_web_socket.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_request_handler.h"
 #include "content/public/browser/browser_context.h"
 #include "net/cookies/site_for_cookies.h"
 
@@ -43,10 +43,10 @@ void ResourceContextData::StartProxying(
   }
 
   if (!self->request_handler_) {
-    self->request_handler_.reset(new BraveRequestHandler);
+    self->request_handler_.reset(new adrbrowsielRequestHandler);
   }
 
-  auto proxy = std::make_unique<BraveProxyingURLLoaderFactory>(
+  auto proxy = std::make_unique<adrbrowsielProxyingURLLoaderFactory>(
       self->request_handler_.get(), browser_context, render_process_id,
       frame_tree_node_id, std::move(request), std::move(target_factory),
       self->request_id_generator_,
@@ -57,7 +57,7 @@ void ResourceContextData::StartProxying(
 }
 
 // static
-BraveProxyingWebSocket* ResourceContextData::StartProxyingWebSocket(
+adrbrowsielProxyingWebSocket* ResourceContextData::StartProxyingWebSocket(
     content::ContentBrowserClient::WebSocketFactory factory,
     const GURL& url,
     const net::SiteForCookies& site_for_cookies,
@@ -80,7 +80,7 @@ BraveProxyingWebSocket* ResourceContextData::StartProxyingWebSocket(
   }
 
   if (!self->request_handler_) {
-    self->request_handler_.reset(new BraveRequestHandler);
+    self->request_handler_.reset(new adrbrowsielRequestHandler);
   }
 
   network::ResourceRequest request;
@@ -93,7 +93,7 @@ BraveProxyingWebSocket* ResourceContextData::StartProxyingWebSocket(
   }
   request.request_initiator = origin;
 
-  auto proxy = std::make_unique<BraveProxyingWebSocket>(
+  auto proxy = std::make_unique<adrbrowsielProxyingWebSocket>(
       std::move(factory), request, std::move(handshake_client),
       render_process_id, frame_tree_node_id, browser_context,
       self->request_id_generator_, self->request_handler_.get(),
@@ -106,13 +106,13 @@ BraveProxyingWebSocket* ResourceContextData::StartProxyingWebSocket(
 }
 
 
-void ResourceContextData::RemoveProxy(BraveProxyingURLLoaderFactory* proxy) {
+void ResourceContextData::RemoveProxy(adrbrowsielProxyingURLLoaderFactory* proxy) {
   auto it = proxies_.find(proxy);
   DCHECK(it != proxies_.end());
   proxies_.erase(it);
 }
 
-void ResourceContextData::RemoveProxyWebSocket(BraveProxyingWebSocket* proxy) {
+void ResourceContextData::RemoveProxyWebSocket(adrbrowsielProxyingWebSocket* proxy) {
   auto it = websocket_proxies_.find(proxy);
   DCHECK(it != websocket_proxies_.end());
   websocket_proxies_.erase(it);

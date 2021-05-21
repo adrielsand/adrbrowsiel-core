@@ -1,17 +1,17 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMMON_BRAVE_PATHS_H_
-#define BRAVE_COMMON_BRAVE_PATHS_H_
+#ifndef adrbrowsiel_COMMON_adrbrowsiel_PATHS_H_
+#define adrbrowsiel_COMMON_adrbrowsiel_PATHS_H_
 
 #include "build/build_config.h"
 
-// This file declares path keys for the brave module.  These can be used
+// This file declares path keys for the adrbrowsiel module.  These can be used
 // with the PathService to access various special directories and files.
 
-namespace brave {
+namespace adrbrowsiel {
 
 enum {
   PATH_START = 12000,
@@ -23,6 +23,6 @@ enum {
 // Call once to register the provider for the path keys defined above.
 void RegisterPathProvider();
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_COMMON_BRAVE_PATHS_H_
+#endif  // adrbrowsiel_COMMON_adrbrowsiel_PATHS_H_

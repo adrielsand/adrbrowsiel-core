@@ -7,8 +7,8 @@ import sys
 from lxml import etree
 from lib.config import get_env_var
 from lib.grd_string_replacements import (write_xml_file_from_tree,
-                                         write_braveified_grd_override,
-                                         update_braveified_grd_tree_override,
+                                         write_adrbrowsielified_grd_override,
+                                         update_adrbrowsielified_grd_tree_override,
                                          get_override_file_path)
 from lib.transifex import (fix_links_with_target_blank,
                            pull_source_files_from_transifex,
@@ -26,8 +26,8 @@ def parse_args():
 def generate_overrides_and_replace_strings(source_string_path):
     fix_links_with_target_blank(source_string_path)
     original_xml_tree_with_branding_fixes = etree.parse(source_string_path)
-    update_braveified_grd_tree_override(original_xml_tree_with_branding_fixes, True)
-    write_braveified_grd_override(source_string_path)
+    update_adrbrowsielified_grd_tree_override(original_xml_tree_with_branding_fixes, True)
+    write_adrbrowsielified_grd_override(source_string_path)
     modified_xml_tree = etree.parse(source_string_path)
 
     original_messages = original_xml_tree_with_branding_fixes.xpath('//message')
@@ -50,10 +50,10 @@ def generate_overrides_and_replace_strings(source_string_path):
     parts = modified_xml_tree.xpath('//part')
     for part in parts:
         override_file = get_override_file_path(part.attrib['file'])
-        # Check for the special case of brave_stings.grd:
-        if (os.path.basename(source_string_path) == 'brave_strings.grd'
+        # Check for the special case of adrbrowsiel_stings.grd:
+        if (os.path.basename(source_string_path) == 'adrbrowsiel_strings.grd'
                 and override_file == 'settings_chromium_strings_override.grdp'):
-            override_file = 'settings_brave_strings_override.grdp'
+            override_file = 'settings_adrbrowsiel_strings_override.grdp'
 
         if os.path.exists(os.path.join(os.path.dirname(source_string_path), override_file)):
             part.attrib['file'] = override_file
@@ -77,7 +77,7 @@ def generate_overrides_and_replace_strings(source_string_path):
 
 def main():
     args = parse_args()
-    # This file path is a string path inside brave/ but just recently copied
+    # This file path is a string path inside adrbrowsiel/ but just recently copied
     # in from chromium files which need replacements.
     source_string_path = os.path.join(SOURCE_ROOT, args.source_string_path[0])
     filename = os.path.basename(source_string_path)
@@ -92,45 +92,45 @@ def main():
     generate_overrides_and_replace_strings(source_string_path)
 
     # If you modify the translateable attribute then also update
-    # is_translateable_string function in brave/script/lib/transifex.py.
+    # is_translateable_string function in adrbrowsiel/script/lib/transifex.py.
     xml_tree = etree.parse(source_string_path)
     (basename, ext) = filename.split('.')
-    if basename == 'brave_strings':
+    if basename == 'adrbrowsiel_strings':
         elem1 = xml_tree.xpath('//message[@name="IDS_SXS_SHORTCUT_NAME"]')[0]
-        elem1.text = 'Brave Nightly'
+        elem1.text = 'adrbrowsiel Nightly'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath('//message[@name="IDS_SHORTCUT_NAME_BETA"]')[0]
-        elem1.text = 'Brave Beta'
+        elem1.text = 'adrbrowsiel Beta'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath('//message[@name="IDS_SHORTCUT_NAME_DEV"]')[0]
-        elem1.text = 'Brave Dev'
+        elem1.text = 'adrbrowsiel Dev'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath(
             '//message[@name="IDS_APP_SHORTCUTS_SUBDIR_NAME_BETA"]')[0]
-        elem1.text = 'Brave Apps'
+        elem1.text = 'adrbrowsiel Apps'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath(
             '//message[@name="IDS_APP_SHORTCUTS_SUBDIR_NAME_DEV"]')[0]
-        elem1.text = 'Brave Apps'
+        elem1.text = 'adrbrowsiel Apps'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath(
             '//message[@name="IDS_INBOUND_MDNS_RULE_NAME_BETA"]')[0]
-        elem1.text = 'Brave Beta (mDNS-In)'
+        elem1.text = 'adrbrowsiel Beta (mDNS-In)'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath(
             '//message[@name="IDS_INBOUND_MDNS_RULE_NAME_CANARY"]')[0]
-        elem1.text = 'Brave Nightly (mDNS-In)'
+        elem1.text = 'adrbrowsiel Nightly (mDNS-In)'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath(
             '//message[@name="IDS_INBOUND_MDNS_RULE_NAME_DEV"]')[0]
-        elem1.text = 'Brave Dev (mDNS-In)'
+        elem1.text = 'adrbrowsiel Dev (mDNS-In)'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath(
@@ -138,22 +138,22 @@ def main():
         elem1.attrib.pop('desc')
         elem1 = xml_tree.xpath(
             '//message[@name="IDS_INBOUND_MDNS_RULE_DESCRIPTION_BETA"]')[0]
-        elem1.text = 'Inbound rule for Brave Beta to allow mDNS traffic.'
+        elem1.text = 'Inbound rule for adrbrowsiel Beta to allow mDNS traffic.'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath(
             '//message[@name="IDS_INBOUND_MDNS_RULE_DESCRIPTION_CANARY"]')[0]
-        elem1.text = 'Inbound rule for Brave Nightly to allow mDNS traffic.'
+        elem1.text = 'Inbound rule for adrbrowsiel Nightly to allow mDNS traffic.'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath(
             '//message[@name="IDS_INBOUND_MDNS_RULE_DESCRIPTION_DEV"]')[0]
-        elem1.text = 'Inbound rule for Brave Dev to allow mDNS traffic.'
+        elem1.text = 'Inbound rule for adrbrowsiel Dev to allow mDNS traffic.'
         elem1.attrib.pop('desc')
         elem1.attrib.pop('translateable')
         elem1 = xml_tree.xpath(
             '//part[@file="settings_chromium_strings.grdp"]')[0]
-        elem1.set('file', 'settings_brave_strings.grdp')
+        elem1.set('file', 'settings_adrbrowsiel_strings.grdp')
 
     grit_root = xml_tree.xpath(
         '//grit' if extension == '.grd' else '//grit-part')[0]

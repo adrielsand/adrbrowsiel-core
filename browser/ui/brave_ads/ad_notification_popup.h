@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_BRAVE_ADS_AD_NOTIFICATION_POPUP_H_
-#define BRAVE_BROWSER_UI_BRAVE_ADS_AD_NOTIFICATION_POPUP_H_
+#ifndef adrbrowsiel_BROWSER_UI_adrbrowsiel_ADS_AD_NOTIFICATION_POPUP_H_
+#define adrbrowsiel_BROWSER_UI_adrbrowsiel_ADS_AD_NOTIFICATION_POPUP_H_
 
 #include <cstdint>
 #include <memory>
 #include <string>
 
 #include "base/scoped_observation.h"
-#include "brave/browser/ui/brave_ads/ad_notification.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification.h"
 #include "ui/display/display_observer.h"
 #include "ui/gfx/animation/animation_delegate.h"
 #include "ui/views/metadata/metadata_header_macros.h"
@@ -33,7 +33,7 @@ namespace views {
 class Widget;
 }  // namespace views
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 class AdNotificationView;
 
@@ -140,6 +140,6 @@ class AdNotificationPopup : public views::WidgetDelegateView,
   AdNotificationPopup& operator=(const AdNotificationPopup&) = delete;
 };
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_BROWSER_UI_BRAVE_ADS_AD_NOTIFICATION_POPUP_H_
+#endif  // adrbrowsiel_BROWSER_UI_adrbrowsiel_ADS_AD_NOTIFICATION_POPUP_H_

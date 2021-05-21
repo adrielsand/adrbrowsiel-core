@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_VENDOR_BAT_NATIVE_LEDGER_INCLUDE_BAT_LEDGER_LEDGER_H_
-#define BRAVE_VENDOR_BAT_NATIVE_LEDGER_INCLUDE_BAT_LEDGER_LEDGER_H_
+#ifndef adrbrowsiel_VENDOR_BAT_NATIVE_LEDGER_INCLUDE_BAT_LEDGER_LEDGER_H_
+#define adrbrowsiel_VENDOR_BAT_NATIVE_LEDGER_INCLUDE_BAT_LEDGER_LEDGER_H_
 
 #include <stdint.h>
 
@@ -98,7 +98,7 @@ using PublisherInfoCallback =
 using GetPublisherInfoCallback =
     std::function<void(const type::Result, type::PublisherInfoPtr)>;
 
-using GetBraveWalletCallback = std::function<void(type::BraveWalletPtr)>;
+using GetadrbrowsielWalletCallback = std::function<void(type::adrbrowsielWalletPtr)>;
 
 using GetTransferableAmountCallback = std::function<void(double)>;
 
@@ -392,11 +392,11 @@ class LEDGER_EXPORT Ledger {
 
   virtual void GetEventLogs(GetEventLogsCallback callback) = 0;
 
-  virtual void GetBraveWallet(GetBraveWalletCallback callback) = 0;
+  virtual void GetadrbrowsielWallet(GetadrbrowsielWalletCallback callback) = 0;
 
   virtual std::string GetWalletPassphrase() const = 0;
 
-  virtual void LinkBraveWallet(const std::string& destination_payment_id,
+  virtual void LinkadrbrowsielWallet(const std::string& destination_payment_id,
                                PostSuggestionsClaimCallback callback) = 0;
 
   virtual void GetDrainStatus(const std::string& drain_id,
@@ -408,4 +408,4 @@ class LEDGER_EXPORT Ledger {
 
 }  // namespace ledger
 
-#endif  // BRAVE_VENDOR_BAT_NATIVE_LEDGER_INCLUDE_BAT_LEDGER_LEDGER_H_
+#endif  // adrbrowsiel_VENDOR_BAT_NATIVE_LEDGER_INCLUDE_BAT_LEDGER_LEDGER_H_

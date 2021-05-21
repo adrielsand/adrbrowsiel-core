@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_STATS_BRAVE_STATS_TAB_HELPER_H_
-#define BRAVE_BROWSER_BRAVE_STATS_BRAVE_STATS_TAB_HELPER_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_STATS_adrbrowsiel_STATS_TAB_HELPER_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_STATS_adrbrowsiel_STATS_TAB_HELPER_H_
 
 #include "content/public/browser/web_contents_observer.h"
 #include "content/public/browser/web_contents_user_data.h"
@@ -14,27 +14,27 @@ class NavigationHandle;
 class WebContents;
 }  // namespace content
 
-namespace brave_stats {
+namespace adrbrowsiel_stats {
 
-class BraveStatsUpdater;
+class adrbrowsielStatsUpdater;
 
-class BraveStatsTabHelper
+class adrbrowsielStatsTabHelper
     : public content::WebContentsObserver,
-      public content::WebContentsUserData<BraveStatsTabHelper> {
+      public content::WebContentsUserData<adrbrowsielStatsTabHelper> {
  public:
-  explicit BraveStatsTabHelper(content::WebContents*);
-  ~BraveStatsTabHelper() override;
-  BraveStatsTabHelper(const BraveStatsTabHelper&) = delete;
-  BraveStatsTabHelper& operator=(const BraveStatsTabHelper&) = delete;
+  explicit adrbrowsielStatsTabHelper(content::WebContents*);
+  ~adrbrowsielStatsTabHelper() override;
+  adrbrowsielStatsTabHelper(const adrbrowsielStatsTabHelper&) = delete;
+  adrbrowsielStatsTabHelper& operator=(const adrbrowsielStatsTabHelper&) = delete;
 
   void NotifyStatsUpdater();
 
  private:
   void DidStartNavigation(content::NavigationHandle*) override;
 
-  friend class content::WebContentsUserData<BraveStatsTabHelper>;
+  friend class content::WebContentsUserData<adrbrowsielStatsTabHelper>;
   WEB_CONTENTS_USER_DATA_KEY_DECL();
 };
 
-}  // namespace brave_stats
-#endif  // BRAVE_BROWSER_BRAVE_STATS_BRAVE_STATS_TAB_HELPER_H_
+}  // namespace adrbrowsiel_stats
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_STATS_adrbrowsiel_STATS_TAB_HELPER_H_

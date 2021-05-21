@@ -1,23 +1,23 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_THEMES_BRAVE_THEME_HELPER_H_
-#define BRAVE_BROWSER_THEMES_BRAVE_THEME_HELPER_H_
+#ifndef adrbrowsiel_BROWSER_THEMES_adrbrowsiel_THEME_HELPER_H_
+#define adrbrowsiel_BROWSER_THEMES_adrbrowsiel_THEME_HELPER_H_
 
 #include "base/optional.h"
 #include "chrome/browser/themes/theme_helper.h"
 
 class Profile;
 
-class BraveThemeHelper : public ThemeHelper {
+class adrbrowsielThemeHelper : public ThemeHelper {
  public:
-  BraveThemeHelper() = default;
-  ~BraveThemeHelper() override;
+  adrbrowsielThemeHelper() = default;
+  ~adrbrowsielThemeHelper() override;
 
-  BraveThemeHelper(const BraveThemeHelper&) = delete;
-  BraveThemeHelper& operator=(const BraveThemeHelper&) = delete;
+  adrbrowsielThemeHelper(const adrbrowsielThemeHelper&) = delete;
+  adrbrowsielThemeHelper& operator=(const adrbrowsielThemeHelper&) = delete;
 
   void set_is_tor() { is_tor_ = true; }
   void set_is_guest() { is_guest_ = true; }
@@ -40,4 +40,4 @@ class BraveThemeHelper : public ThemeHelper {
   bool is_guest_ = false;
 };
 
-#endif  // BRAVE_BROWSER_THEMES_BRAVE_THEME_HELPER_H_
+#endif  // adrbrowsiel_BROWSER_THEMES_adrbrowsiel_THEME_HELPER_H_

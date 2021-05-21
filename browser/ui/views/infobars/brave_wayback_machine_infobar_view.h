@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_INFOBARS_BRAVE_WAYBACK_MACHINE_INFOBAR_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_INFOBARS_BRAVE_WAYBACK_MACHINE_INFOBAR_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_INFOBARS_adrbrowsiel_WAYBACK_MACHINE_INFOBAR_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_INFOBARS_adrbrowsiel_WAYBACK_MACHINE_INFOBAR_VIEW_H_
 
 #include <memory>
 
@@ -14,19 +14,19 @@ namespace content {
 class WebContents;
 }
 
-class BraveWaybackMachineInfoBarDelegate;
+class adrbrowsielWaybackMachineInfoBarDelegate;
 
-class BraveWaybackMachineInfoBarView : public InfoBarView {
+class adrbrowsielWaybackMachineInfoBarView : public InfoBarView {
  public:
-  BraveWaybackMachineInfoBarView(
-      std::unique_ptr<BraveWaybackMachineInfoBarDelegate> delegate,
+  adrbrowsielWaybackMachineInfoBarView(
+      std::unique_ptr<adrbrowsielWaybackMachineInfoBarDelegate> delegate,
       content::WebContents* contents);
-  ~BraveWaybackMachineInfoBarView() override;
+  ~adrbrowsielWaybackMachineInfoBarView() override;
 
-  BraveWaybackMachineInfoBarView(
-      const BraveWaybackMachineInfoBarView&) = delete;
-  BraveWaybackMachineInfoBarView& operator=(
-      const BraveWaybackMachineInfoBarView&) = delete;
+  adrbrowsielWaybackMachineInfoBarView(
+      const adrbrowsielWaybackMachineInfoBarView&) = delete;
+  adrbrowsielWaybackMachineInfoBarView& operator=(
+      const adrbrowsielWaybackMachineInfoBarView&) = delete;
 
  private:
   // InfoBarView overrides:
@@ -35,4 +35,4 @@ class BraveWaybackMachineInfoBarView : public InfoBarView {
   views::View* sub_views_ = nullptr;
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_INFOBARS_BRAVE_WAYBACK_MACHINE_INFOBAR_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_INFOBARS_adrbrowsiel_WAYBACK_MACHINE_INFOBAR_VIEW_H_

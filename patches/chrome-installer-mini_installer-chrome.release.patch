@@ -7,7 +7,7 @@ index 76c93f844b5e43e91e744e7b24ddf7b5d1cc3b15..7ca0f9c030bd7a061d7f28e053c954c8
  # Chrome Application dir entries, sorted alphabetically.
  #
 -chrome.exe: %(ChromeDir)s\
-+brave.exe: %(ChromeDir)s\
++adrbrowsiel.exe: %(ChromeDir)s\
  chrome_proxy.exe: %(ChromeDir)s\
  #
  # Chrome version dir assembly manifest.
@@ -15,11 +15,11 @@ index 76c93f844b5e43e91e744e7b24ddf7b5d1cc3b15..7ca0f9c030bd7a061d7f28e053c954c8
  #
  # Chrome version dir entries, sorted alphabetically.
  #
-+brave.exe.sig: %(VersionDir)s\
++adrbrowsiel.exe.sig: %(VersionDir)s\
  chrome.dll: %(VersionDir)s\
 +chrome.dll.sig: %(VersionDir)s\
-+brave_resources.pak: %(VersionDir)s\
-+brave_100_percent.pak: %(VersionDir)s\
++adrbrowsiel_resources.pak: %(VersionDir)s\
++adrbrowsiel_100_percent.pak: %(VersionDir)s\
  chrome_100_percent.pak: %(VersionDir)s\
  chrome_child.dll: %(VersionDir)s\
 +chrome_child.dll.sig: %(VersionDir)s\
@@ -30,7 +30,7 @@ index 76c93f844b5e43e91e744e7b24ddf7b5d1cc3b15..7ca0f9c030bd7a061d7f28e053c954c8
  
  [HIDPI]
  chrome_200_percent.pak: %(VersionDir)s\
-+brave_200_percent.pak: %(VersionDir)s\
++adrbrowsiel_200_percent.pak: %(VersionDir)s\
  
  [FFMPEG]
  ffmpeg.dll: %(VersionDir)s\

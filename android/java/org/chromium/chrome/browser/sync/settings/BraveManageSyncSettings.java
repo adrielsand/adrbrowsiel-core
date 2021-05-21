@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -11,10 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 
 import org.chromium.chrome.browser.sync.settings.ManageSyncSettings;
-import org.chromium.chrome.browser.ui.brave_tricks.checkbox_to_switch.CheckBoxPreference;
+import org.chromium.chrome.browser.ui.adrbrowsiel_tricks.checkbox_to_switch.CheckBoxPreference;
 
-// See org.brave.bytecode.BraveManageSyncSettingsClassAdapter
-public class BraveManageSyncSettings extends ManageSyncSettings {
+// See org.adrbrowsiel.bytecode.adrbrowsielManageSyncSettingsClassAdapter
+public class adrbrowsielManageSyncSettings extends ManageSyncSettings {
     private Preference mGoogleActivityControls;
 
     private Preference mSyncEncryption;

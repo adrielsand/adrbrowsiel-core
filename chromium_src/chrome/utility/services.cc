@@ -1,44 +1,44 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "build/build_config.h"
-#include "brave/components/brave_ads/browser/buildflags/buildflags.h"
-#include "brave/components/brave_rewards/browser/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 
 #if !defined(OS_ANDROID)
-#include "brave/utility/importer/brave_profile_import_impl.h"
+#include "adrbrowsiel/utility/importer/adrbrowsiel_profile_import_impl.h"
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/services/ipfs/ipfs_service_impl.h"
-#include "brave/components/services/ipfs/public/mojom/ipfs_service.mojom.h"
+#include "adrbrowsiel/components/services/ipfs/ipfs_service_impl.h"
+#include "adrbrowsiel/components/services/ipfs/public/mojom/ipfs_service.mojom.h"
 #endif
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/components/services/tor/public/interfaces/tor.mojom.h"
-#include "brave/components/services/tor/tor_launcher_impl.h"
+#include "adrbrowsiel/components/services/tor/public/interfaces/tor.mojom.h"
+#include "adrbrowsiel/components/services/tor/tor_launcher_impl.h"
 #endif
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-#include "brave/components/services/bat_ledger/bat_ledger_service_impl.h"
-#include "brave/components/services/bat_ledger/public/interfaces/bat_ledger.mojom.h"
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+#include "adrbrowsiel/components/services/bat_ledger/bat_ledger_service_impl.h"
+#include "adrbrowsiel/components/services/bat_ledger/public/interfaces/bat_ledger.mojom.h"
 #endif
 
-#if BUILDFLAG(BRAVE_ADS_ENABLED)
-#include "brave/components/services/bat_ads/bat_ads_service_impl.h"
-#include "brave/components/services/bat_ads/public/interfaces/bat_ads.mojom.h"
+#if BUILDFLAG(adrbrowsiel_ADS_ENABLED)
+#include "adrbrowsiel/components/services/bat_ads/bat_ads_service_impl.h"
+#include "adrbrowsiel/components/services/bat_ads/public/interfaces/bat_ads.mojom.h"
 #endif
 
 namespace {
 
 #if !defined(OS_ANDROID)
-auto RunBraveProfileImporter(
-    mojo::PendingReceiver<brave::mojom::ProfileImport> receiver) {
-  return std::make_unique<BraveProfileImportImpl>(std::move(receiver));
+auto RunadrbrowsielProfileImporter(
+    mojo::PendingReceiver<adrbrowsiel::mojom::ProfileImport> receiver) {
+  return std::make_unique<adrbrowsielProfileImportImpl>(std::move(receiver));
 }
 #endif
 
@@ -54,7 +54,7 @@ auto RunTorLauncher(mojo::PendingReceiver<tor::mojom::TorLauncher> receiver) {
 }
 #endif
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
 auto RunBatLedgerService(
     mojo::PendingReceiver<bat_ledger::mojom::BatLedgerService> receiver) {
   return std::make_unique<bat_ledger::BatLedgerServiceImpl>(
@@ -62,7 +62,7 @@ auto RunBatLedgerService(
 }
 #endif
 
-#if BUILDFLAG(BRAVE_ADS_ENABLED)
+#if BUILDFLAG(adrbrowsiel_ADS_ENABLED)
 auto RunBatAdsService(
     mojo::PendingReceiver<bat_ads::mojom::BatAdsService> receiver) {
   return std::make_unique<bat_ads::BatAdsServiceImpl>(
@@ -73,47 +73,47 @@ auto RunBatAdsService(
 }  // namespace
 
 #if defined(OS_ANDROID)
-#define BRAVE_PROFILE_IMPORTER
+#define adrbrowsiel_PROFILE_IMPORTER
 #else
-#define BRAVE_PROFILE_IMPORTER services.Add(RunBraveProfileImporter);
+#define adrbrowsiel_PROFILE_IMPORTER services.Add(RunadrbrowsielProfileImporter);
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#define BRAVE_IPFS_SERVICE services.Add(RunIpfsService);
+#define adrbrowsiel_IPFS_SERVICE services.Add(RunIpfsService);
 #else
-#define BRAVE_IPFS_SERVICE
+#define adrbrowsiel_IPFS_SERVICE
 #endif
 
 #if BUILDFLAG(ENABLE_TOR)
-#define BRAVE_TOR_LAUNCHER services.Add(RunTorLauncher);
+#define adrbrowsiel_TOR_LAUNCHER services.Add(RunTorLauncher);
 #else
-#define BRAVE_TOR_LAUNCHER
+#define adrbrowsiel_TOR_LAUNCHER
 #endif
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-#define BRAVE_BAT_LEDGER_SERVICE services.Add(RunBatLedgerService);
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+#define adrbrowsiel_BAT_LEDGER_SERVICE services.Add(RunBatLedgerService);
 #else
-#define BRAVE_BAT_LEDGER_SERVICE
+#define adrbrowsiel_BAT_LEDGER_SERVICE
 #endif
 
-#if BUILDFLAG(BRAVE_ADS_ENABLED)
-#define BRAVE_BAT_ADS_SERVICE services.Add(RunBatAdsService);
+#if BUILDFLAG(adrbrowsiel_ADS_ENABLED)
+#define adrbrowsiel_BAT_ADS_SERVICE services.Add(RunBatAdsService);
 #else
-#define BRAVE_BAT_ADS_SERVICE
+#define adrbrowsiel_BAT_ADS_SERVICE
 #endif
 
-#define BRAVE_GET_MAIN_THREAD_SERVICE_FACTORY \
-    BRAVE_PROFILE_IMPORTER \
-    BRAVE_IPFS_SERVICE \
-    BRAVE_TOR_LAUNCHER \
-    BRAVE_BAT_LEDGER_SERVICE \
-    BRAVE_BAT_ADS_SERVICE
+#define adrbrowsiel_GET_MAIN_THREAD_SERVICE_FACTORY \
+    adrbrowsiel_PROFILE_IMPORTER \
+    adrbrowsiel_IPFS_SERVICE \
+    adrbrowsiel_TOR_LAUNCHER \
+    adrbrowsiel_BAT_LEDGER_SERVICE \
+    adrbrowsiel_BAT_ADS_SERVICE
 
 #include "../../../../chrome/utility/services.cc"
 
-#undef BRAVE_GET_MAIN_THREAD_SERVICE_FACTORY
-#undef BRAVE_PROFILE_IMPORTER
-#undef BRAVE_IPFS_SERVICE
-#undef BRAVE_TOR_LAUNCHER
-#undef BRAVE_BAT_LEDGER_SERVICE
-#undef BRAVE_BAT_ADS_SERVICE
+#undef adrbrowsiel_GET_MAIN_THREAD_SERVICE_FACTORY
+#undef adrbrowsiel_PROFILE_IMPORTER
+#undef adrbrowsiel_IPFS_SERVICE
+#undef adrbrowsiel_TOR_LAUNCHER
+#undef adrbrowsiel_BAT_LEDGER_SERVICE
+#undef adrbrowsiel_BAT_ADS_SERVICE

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -18,72 +18,72 @@ bool AllowFingerprintingForHost(blink::CanvasRenderingContextHost* host) {
     return true;
   blink::ExecutionContext* context = host->GetTopExecutionContext();
   blink::WebContentSettingsClient* settings =
-      brave::GetContentSettingsClientFor(context);
+      adrbrowsiel::GetContentSettingsClientFor(context);
   return !settings || settings->AllowFingerprinting(true);
 }
 
 }  // namespace
 
-#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_RETURN \
+#define adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_RETURN \
   if (!AllowFingerprintingForHost(Host()))        \
     return;
 
-#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_NULLPTR \
+#define adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_NULLPTR \
   if (!AllowFingerprintingForHost(Host()))         \
     return nullptr;
 
-#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_NULLOPT \
+#define adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_NULLOPT \
   if (!AllowFingerprintingForHost(Host()))         \
     return base::nullopt;
 
-#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_ZERO \
+#define adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_ZERO \
   if (!AllowFingerprintingForHost(Host()))      \
     return 0;
 
-#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_MINUS_ONE \
+#define adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_MINUS_ONE \
   if (!AllowFingerprintingForHost(Host()))           \
     return -1;
 
-#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_SCRIPT_VALUE \
+#define adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_SCRIPT_VALUE \
   if (!AllowFingerprintingForHost(Host()))              \
     return ScriptValue::CreateNull(script_state->GetIsolate());
 
-#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_STRING \
+#define adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_STRING \
   if (!AllowFingerprintingForHost(Host()))        \
     return String();
 
-#define BRAVE_WEBGL_RENDERING_CONTEXT_BASE_GETSHADERINFOLOG \
+#define adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_GETSHADERINFOLOG \
   if (!AllowFingerprintingForHost(Host())) {                \
     range[0] = 0;                                           \
     range[1] = 0;                                           \
     precision = 0;                                          \
   }
 
-#define BRAVE_WEBGL_GET_PARAMETER_UNMASKED_RENDERER     \
+#define adrbrowsiel_WEBGL_GET_PARAMETER_UNMASKED_RENDERER     \
   if (ExtensionEnabled(kWebGLDebugRendererInfoName) &&  \
       !AllowFingerprintingForHost(Host()))              \
     return WebGLAny(                                    \
         script_state,                                   \
-        String(brave::BraveSessionCache::From(          \
+        String(adrbrowsiel::adrbrowsielSessionCache::From(          \
                    *(Host()->GetTopExecutionContext())) \
                    .GenerateRandomString("UNMASKED_RENDERER_WEBGL", 8)));
 
-#define BRAVE_WEBGL_GET_PARAMETER_UNMASKED_VENDOR       \
+#define adrbrowsiel_WEBGL_GET_PARAMETER_UNMASKED_VENDOR       \
   if (ExtensionEnabled(kWebGLDebugRendererInfoName) &&  \
       !AllowFingerprintingForHost(Host()))              \
     return WebGLAny(                                    \
         script_state,                                   \
-        String(brave::BraveSessionCache::From(          \
+        String(adrbrowsiel::adrbrowsielSessionCache::From(          \
                    *(Host()->GetTopExecutionContext())) \
                    .GenerateRandomString("UNMASKED_VENDOR_WEBGL", 8)));
 
 #include "../../../../../../../third_party/blink/renderer/modules/webgl/webgl_rendering_context_base.cc"
-#undef BRAVE_WEBGL_GET_PARAMETER_UNMASKED_RENDERER
-#undef BRAVE_WEBGL_GET_PARAMETER_UNMASKED_VENDOR
-#undef BRAVE_WEBGL_RENDERING_CONTEXT_BASE_STRING
-#undef BRAVE_WEBGL_RENDERING_CONTEXT_BASE_SCRIPT_VALUE
-#undef BRAVE_WEBGL_RENDERING_CONTEXT_BASE_MINUS_ONE
-#undef BRAVE_WEBGL_RENDERING_CONTEXT_BASE_ZERO
-#undef BRAVE_WEBGL_RENDERING_CONTEXT_BASE_NULLOPT
-#undef BRAVE_WEBGL_RENDERING_CONTEXT_BASE_NULLPTR
-#undef BRAVE_WEBGL_RENDERING_CONTEXT_BASE_RETURN
+#undef adrbrowsiel_WEBGL_GET_PARAMETER_UNMASKED_RENDERER
+#undef adrbrowsiel_WEBGL_GET_PARAMETER_UNMASKED_VENDOR
+#undef adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_STRING
+#undef adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_SCRIPT_VALUE
+#undef adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_MINUS_ONE
+#undef adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_ZERO
+#undef adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_NULLOPT
+#undef adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_NULLPTR
+#undef adrbrowsiel_WEBGL_RENDERING_CONTEXT_BASE_RETURN

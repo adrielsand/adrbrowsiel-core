@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -30,12 +30,12 @@ import org.chromium.ui.resources.ResourceManager;
 
 import java.util.List;
 
-public class BraveTopToolbarCoordinator extends TopToolbarCoordinator {
+public class adrbrowsielTopToolbarCoordinator extends TopToolbarCoordinator {
     private TabSwitcherModeTTCoordinatorPhone mTabSwitcherModeCoordinatorPhone;
     private OptionalBrowsingModeButtonController mOptionalButtonController;
-    private ToolbarLayout mBraveToolbarLayout;
+    private ToolbarLayout madrbrowsielToolbarLayout;
 
-    public BraveTopToolbarCoordinator(ToolbarControlContainer controlContainer,
+    public adrbrowsielTopToolbarCoordinator(ToolbarControlContainer controlContainer,
             ToolbarLayout toolbarLayout, ToolbarDataProvider toolbarDataProvider,
             ToolbarTabController tabController, UserEducationHelper userEducationHelper,
             List<ButtonDataProvider> buttonDataProviders,
@@ -66,11 +66,11 @@ public class BraveTopToolbarCoordinator extends TopToolbarCoordinator {
                 isGridTabSwitcherEnabled, isTabToGtsAnimationEnabled, isStartSurfaceEnabled,
                 isTabGroupsAndroidContinuationEnabled);
 
-        mBraveToolbarLayout = toolbarLayout;
+        madrbrowsielToolbarLayout = toolbarLayout;
 
         if (isToolbarPhone()) {
             if (!StartSurfaceConfiguration.isStartSurfaceEnabled()) {
-                mTabSwitcherModeCoordinatorPhone = new BraveTabSwitcherModeTTCoordinatorPhone(
+                mTabSwitcherModeCoordinatorPhone = new adrbrowsielTabSwitcherModeTTCoordinatorPhone(
                         controlContainer.getRootView().findViewById(R.id.tab_switcher_toolbar_stub),
                         overviewModeMenuButtonCoordinator, isGridTabSwitcherEnabled,
                         isTabToGtsAnimationEnabled, isStartSurfaceEnabled);
@@ -79,17 +79,17 @@ public class BraveTopToolbarCoordinator extends TopToolbarCoordinator {
     }
 
     public void onBottomToolbarVisibilityChanged(boolean isVisible) {
-        if (mBraveToolbarLayout instanceof BraveToolbarLayout) {
-            ((BraveToolbarLayout) mBraveToolbarLayout).onBottomToolbarVisibilityChanged(isVisible);
+        if (madrbrowsielToolbarLayout instanceof adrbrowsielToolbarLayout) {
+            ((adrbrowsielToolbarLayout) madrbrowsielToolbarLayout).onBottomToolbarVisibilityChanged(isVisible);
         }
-        if (mTabSwitcherModeCoordinatorPhone instanceof BraveTabSwitcherModeTTCoordinatorPhone) {
-            ((BraveTabSwitcherModeTTCoordinatorPhone) mTabSwitcherModeCoordinatorPhone)
+        if (mTabSwitcherModeCoordinatorPhone instanceof adrbrowsielTabSwitcherModeTTCoordinatorPhone) {
+            ((adrbrowsielTabSwitcherModeTTCoordinatorPhone) mTabSwitcherModeCoordinatorPhone)
                     .onBottomToolbarVisibilityChanged(isVisible);
         }
         mOptionalButtonController.updateButtonVisibility();
     }
 
     public boolean isToolbarPhone() {
-        return mBraveToolbarLayout instanceof ToolbarPhone;
+        return madrbrowsielToolbarLayout instanceof ToolbarPhone;
     }
 }

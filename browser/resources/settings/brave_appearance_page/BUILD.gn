@@ -1,4 +1,4 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -12,15 +12,15 @@ import("../settings.gni")
 js_type_check("closure_compile_module") {
   is_polymer3 = true
   deps = [
-    ":brave_appearance_browser_proxy",
-    ":brave_theme",
+    ":adrbrowsiel_appearance_browser_proxy",
+    ":adrbrowsiel_theme",
     ":sidebar",
     ":super_referral",
     ":toolbar",
   ]
 }
 
-js_library("brave_appearance_browser_proxy") {
+js_library("adrbrowsiel_appearance_browser_proxy") {
   deps = [ "//ui/webui/resources/js:cr.m" ]
   externs_list = [
     "$externs_path/chrome_send.js",
@@ -29,9 +29,9 @@ js_library("brave_appearance_browser_proxy") {
   extra_deps = [ ":templatize" ]
 }
 
-js_library("brave_theme") {
+js_library("adrbrowsiel_theme") {
   deps = [
-    ":brave_appearance_browser_proxy",
+    ":adrbrowsiel_appearance_browser_proxy",
     "//chrome/browser/resources/settings:route",
     "//chrome/browser/resources/settings:router",
     "//ui/webui/resources/js:cr.m",
@@ -71,7 +71,7 @@ group("web_modules") {
 
 html_to_js("templatize") {
   js_files = [
-    "brave_theme.js",
+    "adrbrowsiel_theme.js",
     "sidebar.js",
     "super_referral.js",
     "toolbar.js",

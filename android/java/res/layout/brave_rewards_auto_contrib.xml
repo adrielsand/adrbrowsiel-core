@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_toStartOf="@+id/publisher_attention"
             android:layout_marginStart="10dp"
-            android:text="@string/brave_ui_rewards_contribute_attention"
+            android:text="@string/adrbrowsiel_ui_rewards_contribute_attention"
             android:textColor="@color/modern_grey_700"
             android:fontFamily="sans-serif"
             android:textSize="14sp"
@@ -38,7 +38,7 @@
     </RelativeLayout>
 
     <View
-        android:id="@+id/brave_ui_auto_contribute_separator_top"
+        android:id="@+id/adrbrowsiel_ui_auto_contribute_separator_top"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
@@ -57,24 +57,24 @@
         android:visibility="gone">
 
         <TextView
-            android:id="@+id/brave_ui_auto_contribute_text"
+            android:id="@+id/adrbrowsiel_ui_auto_contribute_text"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_toStartOf="@+id/brave_ui_auto_contribute"
+            android:layout_toStartOf="@+id/adrbrowsiel_ui_auto_contribute"
             android:layout_marginStart="10dp"
-            android:text="@string/brave_ui_include_in_auto"
+            android:text="@string/adrbrowsiel_ui_include_in_auto"
             android:fontFamily="sans-serif"
             android:textColor="@color/modern_grey_700"
             android:textSize="14sp"
-            android:layout_alignBaseline="@+id/brave_ui_auto_contribute"/>
+            android:layout_alignBaseline="@+id/adrbrowsiel_ui_auto_contribute"/>
 
         <Switch
-            android:id="@+id/brave_ui_auto_contribute"
+            android:id="@+id/adrbrowsiel_ui_auto_contribute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:switchMinWidth="56dp"
             android:layout_marginEnd="10dp"
-            android:theme="@style/BraveRewardsSwitchTheme"
+            android:theme="@style/adrbrowsielRewardsSwitchTheme"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 
@@ -104,13 +104,13 @@
             android:layout_toStartOf="@+id/auto_tip_amount"
             android:layout_alignParentStart="true"
             android:layout_alignBaseline="@+id/auto_tip_amount"
-            android:text="@string/brave_ui_donate_monthly"
+            android:text="@string/adrbrowsiel_ui_donate_monthly"
             android:fontFamily="sans-serif"
             android:textSize="14sp"/>
     </RelativeLayout>
 
     <View
-        android:id="@+id/brave_ui_auto_contribute_separator_bottom"
+        android:id="@+id/adrbrowsiel_ui_auto_contribute_separator_bottom"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"

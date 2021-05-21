@@ -1,12 +1,12 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/sidebar/sidebar_item_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_item_view.h"
 
-#include "brave/browser/themes/theme_properties.h"
-#include "brave/grit/brave_theme_resources.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
+#include "adrbrowsiel/grit/adrbrowsiel_theme_resources.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "ui/base/theme_provider.h"
 #include "ui/gfx/canvas.h"
@@ -55,7 +55,7 @@ void SidebarItemView::OnPaintBorder(gfx::Canvas* canvas) {
     canvas->FillRect(
         border_rect,
         theme_provider->GetColor(
-            BraveThemeProperties::COLOR_SIDEBAR_ITEM_DRAG_INDICATOR_COLOR));
+            adrbrowsielThemeProperties::COLOR_SIDEBAR_ITEM_DRAG_INDICATOR_COLOR));
   }
 }
 
@@ -67,7 +67,7 @@ void SidebarItemView::OnPaintBackground(gfx::Canvas* canvas) {
       canvas->FillRect(
           GetLocalBounds(),
           theme_provider->GetColor(
-              BraveThemeProperties::COLOR_SIDEBAR_ITEM_BACKGROUND));
+              adrbrowsielThemeProperties::COLOR_SIDEBAR_ITEM_BACKGROUND));
     }
   }
 }

@@ -6,7 +6,7 @@ index cd080aee2da3ecdb86738a457d31c70305c83150..f3139fe1f223fdffa0f8a1183f861789
  
  executable("infoplist_strings_util") {
    configs += [ "//build/config/compiler:wexit_time_destructors" ]
-+  configs += [ "//brave/common:constants_configs" ]
++  configs += [ "//adrbrowsiel/common:constants_configs" ]
  
    sources = [ "infoplist_strings_util.cc" ]
  

@@ -1,14 +1,14 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_BRAVE_BROWSER_H_
-#define BRAVE_BROWSER_UI_BRAVE_BROWSER_H_
+#ifndef adrbrowsiel_BROWSER_UI_adrbrowsiel_BROWSER_H_
+#define adrbrowsiel_BROWSER_UI_adrbrowsiel_BROWSER_H_
 
 #include <memory>
 
-#include "brave/components/sidebar/buildflags/buildflags.h"
+#include "adrbrowsiel/components/sidebar/buildflags/buildflags.h"
 #include "chrome/browser/ui/browser.h"
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
@@ -16,16 +16,16 @@ namespace sidebar {
 class SidebarController;
 }  // namespace sidebar
 
-class BraveBrowserWindow;
+class adrbrowsielBrowserWindow;
 #endif
 
-class BraveBrowser : public Browser {
+class adrbrowsielBrowser : public Browser {
  public:
-  explicit BraveBrowser(const CreateParams& params);
-  ~BraveBrowser() override;
+  explicit adrbrowsielBrowser(const CreateParams& params);
+  ~adrbrowsielBrowser() override;
 
-  BraveBrowser(const BraveBrowser&) = delete;
-  BraveBrowser& operator=(const BraveBrowser&) = delete;
+  adrbrowsielBrowser(const adrbrowsielBrowser&) = delete;
+  adrbrowsielBrowser& operator=(const adrbrowsielBrowser&) = delete;
 
   // Browser overrides:
   void ScheduleUIUpdate(content::WebContents* source,
@@ -41,7 +41,7 @@ class BraveBrowser : public Browser {
   }
 #endif
 
-  BraveBrowserWindow* brave_window();
+  adrbrowsielBrowserWindow* adrbrowsiel_window();
 
  private:
 #if BUILDFLAG(ENABLE_SIDEBAR)
@@ -49,4 +49,4 @@ class BraveBrowser : public Browser {
 #endif
 };
 
-#endif  // BRAVE_BROWSER_UI_BRAVE_BROWSER_H_
+#endif  // adrbrowsiel_BROWSER_UI_adrbrowsiel_BROWSER_H_

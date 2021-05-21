@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,7 +8,7 @@
 #include "bat/ads/internal/unittest_base.h"
 #include "bat/ads/internal/unittest_util.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 
@@ -32,7 +32,7 @@ TEST_F(BatAdsMediaFrequencyCapTest, AllowAdIfMediaIsNotPlaying) {
 
 TEST_F(BatAdsMediaFrequencyCapTest, AllowAdIfMediaIsStoppedForSingleTab) {
   // Arrange
-  TabManager::Get()->OnUpdated(1, "https://brave.com", true, false);
+  TabManager::Get()->OnUpdated(1, "https://adrbrowsiel.com", true, false);
 
   TabManager::Get()->OnMediaPlaying(1);
   TabManager::Get()->OnMediaStopped(1);
@@ -47,7 +47,7 @@ TEST_F(BatAdsMediaFrequencyCapTest, AllowAdIfMediaIsStoppedForSingleTab) {
 
 TEST_F(BatAdsMediaFrequencyCapTest, AllowAdIfMediaIsStoppedOnMultipleTabs) {
   // Arrange
-  TabManager::Get()->OnUpdated(1, "https://brave.com", true, false);
+  TabManager::Get()->OnUpdated(1, "https://adrbrowsiel.com", true, false);
 
   TabManager::Get()->OnMediaPlaying(1);
   TabManager::Get()->OnMediaPlaying(2);
@@ -65,7 +65,7 @@ TEST_F(BatAdsMediaFrequencyCapTest, AllowAdIfMediaIsStoppedOnMultipleTabs) {
 TEST_F(BatAdsMediaFrequencyCapTest,
        AllowAdIfMediaIsPlayingOnMultipleTabsButStoppedForVisibleTab) {
   // Arrange
-  TabManager::Get()->OnUpdated(1, "https://brave.com", true, false);
+  TabManager::Get()->OnUpdated(1, "https://adrbrowsiel.com", true, false);
 
   TabManager::Get()->OnMediaPlaying(1);
   TabManager::Get()->OnMediaPlaying(2);
@@ -81,7 +81,7 @@ TEST_F(BatAdsMediaFrequencyCapTest,
 
 TEST_F(BatAdsMediaFrequencyCapTest, DoNotAllowAdIfMediaIsPlayingOnVisibleTab) {
   // Arrange
-  TabManager::Get()->OnUpdated(1, "https://brave.com", true, false);
+  TabManager::Get()->OnUpdated(1, "https://adrbrowsiel.com", true, false);
 
   TabManager::Get()->OnMediaPlaying(1);
 
@@ -96,7 +96,7 @@ TEST_F(BatAdsMediaFrequencyCapTest, DoNotAllowAdIfMediaIsPlayingOnVisibleTab) {
 TEST_F(BatAdsMediaFrequencyCapTest,
        DoNotAllowAdIfMediaIsPlayingOnMultipleTabs) {
   // Arrange
-  TabManager::Get()->OnUpdated(1, "https://brave.com", true, false);
+  TabManager::Get()->OnUpdated(1, "https://adrbrowsiel.com", true, false);
 
   TabManager::Get()->OnMediaPlaying(1);
   TabManager::Get()->OnMediaPlaying(2);
@@ -112,7 +112,7 @@ TEST_F(BatAdsMediaFrequencyCapTest,
 TEST_F(BatAdsMediaFrequencyCapTest,
        DoNotAllowAdIfMediaIsPlayingOnMultipleTabsButStoppedForOccludedTab) {
   // Arrange
-  TabManager::Get()->OnUpdated(1, "https://brave.com", true, false);
+  TabManager::Get()->OnUpdated(1, "https://adrbrowsiel.com", true, false);
 
   TabManager::Get()->OnMediaPlaying(1);
   TabManager::Get()->OnMediaPlaying(2);

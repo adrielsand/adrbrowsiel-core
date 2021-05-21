@@ -6,7 +6,7 @@ index 5178db60ba64498f887c65042d4d84bfd67cd29e..586239518b7b4a8f7d3514ecd9a12c8e
    // Returns true if keyboard lock is active and requires the user to press and
    // hold escape to exit exclusive access mode.
    bool IsPressAndHoldEscRequiredToExitFullscreen() const;
-+  BRAVE_RENDER_VIEW_CONTEXT_MENU_H_
++  adrbrowsiel_RENDER_VIEW_CONTEXT_MENU_H_
  
   private:
    friend class RenderViewContextMenuTest;

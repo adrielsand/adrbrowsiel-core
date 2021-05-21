@@ -1,11 +1,11 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # you can obtain one at http://mozilla.org/MPL/2.0/.
 
-import("//brave/build/config.gni")
-import("//brave/components/brave_wayback_machine/buildflags/buildflags.gni")
-import("//brave/components/tor/buildflags/buildflags.gni")
+import("//adrbrowsiel/build/config.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wayback_machine/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/tor/buildflags/buildflags.gni")
 import("//chrome/browser/resources/tools/optimize_webui.gni")
 import("//chrome/common/features.gni")
 import("//third_party/closure_compiler/compile_js.gni")
@@ -17,8 +17,8 @@ import("//ui/webui/resources/tools/generate_grd.gni")
 import("//ui/webui/resources/tools/js_modulizer.gni")
 
 preprocess_folder = "preprocessed"
-preprocess_manifest = "brave_preprocessed_manifest.json"
-preprocess_gen_manifest = "brave_preprocessed_gen_manifest.json"
+preprocess_manifest = "adrbrowsiel_preprocessed_manifest.json"
+preprocess_gen_manifest = "adrbrowsiel_preprocessed_gen_manifest.json"
 
 grit("resources") {
   grit_flags = [
@@ -32,35 +32,35 @@ grit("resources") {
   defines += [
     "is_release_channel=$is_release_channel",
     "enable_tor=$enable_tor",
-    "enable_brave_wayback_machine=$enable_brave_wayback_machine",
+    "enable_adrbrowsiel_wayback_machine=$enable_adrbrowsiel_wayback_machine",
   ]
 
   enable_input_discovery_for_gn_analyze = false
   defines +=
       [ "SHARED_INTERMEDIATE_DIR=" + rebase_path(root_gen_dir, root_build_dir) ]
-  settings_gen_dir = "$root_gen_dir/brave/browser/resources/settings"
-  source = "$settings_gen_dir/brave_settings_resources.grd"
+  settings_gen_dir = "$root_gen_dir/adrbrowsiel/browser/resources/settings"
+  source = "$settings_gen_dir/adrbrowsiel_settings_resources.grd"
   deps = [ ":build_grd" ]
 
   outputs = [
-    "grit/brave_settings_resources.h",
-    "grit/brave_settings_resources_map.cc",
-    "grit/brave_settings_resources_map.h",
-    "brave_settings_resources.pak",
+    "grit/adrbrowsiel_settings_resources.h",
+    "grit/adrbrowsiel_settings_resources_map.cc",
+    "grit/adrbrowsiel_settings_resources_map.h",
+    "adrbrowsiel_settings_resources.pak",
   ]
 
-  output_dir = "$root_gen_dir/brave/browser/resources/settings"
-  resource_ids = "//brave/browser/resources/resource_ids"
+  output_dir = "$root_gen_dir/adrbrowsiel/browser/resources/settings"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 }
 
 generate_grd("build_grd") {
-  grd_prefix = "brave_settings"
+  grd_prefix = "adrbrowsiel_settings"
   out_grd = "$target_gen_dir/${grd_prefix}_resources.grd"
   input_files = [
-    "brave_sync_page/device_computer.svg",
-    "brave_sync_page/device_mobile.svg",
-    "brave_sync_page/qr_scanning.svg",
-    "brave_sync_page/start_icon.svg",
+    "adrbrowsiel_sync_page/device_computer.svg",
+    "adrbrowsiel_sync_page/device_mobile.svg",
+    "adrbrowsiel_sync_page/qr_scanning.svg",
+    "adrbrowsiel_sync_page/start_icon.svg",
     "images/cookies_banner.svg",
     "images/cookies_banner_dark.svg",
     "images/permissions_banner.svg",
@@ -87,33 +87,33 @@ preprocess_if_expr("preprocess") {
   out_manifest =
       "$root_gen_dir/chrome/browser/resources/settings/$preprocess_manifest"
   in_files = [
-    "brave_appearance_page/brave_appearance_browser_proxy.js",
-    "brave_clear_browsing_data_dialog/brave_clear_browsing_data_dialog_behavior.js",
-    "brave_overrides/about_page.js",
-    "brave_overrides/appearance_page.js",
-    "brave_overrides/basic_page.js",
-    "brave_overrides/clear_browsing_data_dialog.js",
-    "brave_overrides/cookies_page.js",
-    "brave_overrides/default_browser_page.js",
-    "brave_overrides/icons.js",
-    "brave_overrides/import_data_dialog.js",
-    "brave_overrides/index.js",
-    "brave_overrides/page_visibility.js",
-    "brave_overrides/passwords_section.js",
-    "brave_overrides/payments_section.js",
-    "brave_overrides/people_page.js",
-    "brave_overrides/personalization_options.js",
-    "brave_overrides/printing_page.js",
-    "brave_overrides/reset_profile_dialog.js",
-    "brave_overrides/safety_check_passwords_child.js",
-    "brave_overrides/security_page.js",
-    "brave_overrides/settings_menu.js",
-    "brave_overrides/settings_section.js",
-    "brave_overrides/settings_ui.js",
-    "brave_overrides/site_settings_page.js",
-    "brave_overrides/sync_account_control.js",
-    "brave_overrides/sync_controls.js",
-    "brave_sync_page/brave_sync_browser_proxy.js",
+    "adrbrowsiel_appearance_page/adrbrowsiel_appearance_browser_proxy.js",
+    "adrbrowsiel_clear_browsing_data_dialog/adrbrowsiel_clear_browsing_data_dialog_behavior.js",
+    "adrbrowsiel_overrides/about_page.js",
+    "adrbrowsiel_overrides/appearance_page.js",
+    "adrbrowsiel_overrides/basic_page.js",
+    "adrbrowsiel_overrides/clear_browsing_data_dialog.js",
+    "adrbrowsiel_overrides/cookies_page.js",
+    "adrbrowsiel_overrides/default_browser_page.js",
+    "adrbrowsiel_overrides/icons.js",
+    "adrbrowsiel_overrides/import_data_dialog.js",
+    "adrbrowsiel_overrides/index.js",
+    "adrbrowsiel_overrides/page_visibility.js",
+    "adrbrowsiel_overrides/passwords_section.js",
+    "adrbrowsiel_overrides/payments_section.js",
+    "adrbrowsiel_overrides/people_page.js",
+    "adrbrowsiel_overrides/personalization_options.js",
+    "adrbrowsiel_overrides/printing_page.js",
+    "adrbrowsiel_overrides/reset_profile_dialog.js",
+    "adrbrowsiel_overrides/safety_check_passwords_child.js",
+    "adrbrowsiel_overrides/security_page.js",
+    "adrbrowsiel_overrides/settings_menu.js",
+    "adrbrowsiel_overrides/settings_section.js",
+    "adrbrowsiel_overrides/settings_ui.js",
+    "adrbrowsiel_overrides/site_settings_page.js",
+    "adrbrowsiel_overrides/sync_account_control.js",
+    "adrbrowsiel_overrides/sync_controls.js",
+    "adrbrowsiel_sync_page/adrbrowsiel_sync_browser_proxy.js",
   ]
 }
 
@@ -121,7 +121,7 @@ preprocess_if_expr("preprocess_generated") {
   deps = [ ":web_modules" ]
   defines = [
     "enable_tor=$enable_tor",
-    "enable_brave_wayback_machine=$enable_brave_wayback_machine",
+    "enable_adrbrowsiel_wayback_machine=$enable_adrbrowsiel_wayback_machine",
   ]
   in_folder = target_gen_dir
   out_folder =
@@ -129,33 +129,33 @@ preprocess_if_expr("preprocess_generated") {
   out_manifest =
       "$root_gen_dir/chrome/browser/resources/settings/$preprocess_gen_manifest"
   in_files = [
-    "brave_appearance_page/brave_theme.js",
-    "brave_appearance_page/sidebar.js",
-    "brave_appearance_page/super_referral.js",
-    "brave_appearance_page/toolbar.js",
-    "brave_clear_browsing_data_dialog/brave_clear_browsing_data_on_exit_page.js",
-    "brave_ipfs_page/brave_ipfs_browser_proxy.m.js",
-    "brave_ipfs_page/brave_ipfs_page.m.js",
-    "brave_ipfs_page/change_ipfs_gateway_dialog.js",
-    "brave_ipfs_page/add_p2p_key_dialog.js",
-    "brave_ipfs_page/p2p_keys_subpage.m.js",
-    "brave_default_extensions_page/brave_default_extensions_browser_proxy.m.js",
-    "brave_default_extensions_page/brave_default_extensions_page.m.js",
-    "brave_help_tips_page/brave_help_tips_page.m.js",
-    "brave_icons.m.js",
-    "brave_new_tab_page/brave_new_tab_browser_proxy.m.js",
-    "brave_new_tab_page/brave_new_tab_page.m.js",
-    "brave_privacy_page/brave_personalization_options.m.js",
-    "brave_privacy_page/brave_privacy_page_browser_proxy.m.js",
-    "brave_sync_page/brave_sync_code_dialog.js",
-    "brave_sync_page/brave_sync_configure.js",
-    "brave_sync_page/brave_sync_page.js",
-    "brave_sync_page/brave_sync_setup.js",
-    "brave_sync_page/brave_sync_subpage.js",
-    "brave_wallet_page/brave_wallet_browser_proxy.m.js",
-    "brave_wallet_page/brave_wallet_page.m.js",
-    "default_brave_shields_page/default_brave_shields_browser_proxy.m.js",
-    "default_brave_shields_page/default_brave_shields_page.m.js",
+    "adrbrowsiel_appearance_page/adrbrowsiel_theme.js",
+    "adrbrowsiel_appearance_page/sidebar.js",
+    "adrbrowsiel_appearance_page/super_referral.js",
+    "adrbrowsiel_appearance_page/toolbar.js",
+    "adrbrowsiel_clear_browsing_data_dialog/adrbrowsiel_clear_browsing_data_on_exit_page.js",
+    "adrbrowsiel_ipfs_page/adrbrowsiel_ipfs_browser_proxy.m.js",
+    "adrbrowsiel_ipfs_page/adrbrowsiel_ipfs_page.m.js",
+    "adrbrowsiel_ipfs_page/change_ipfs_gateway_dialog.js",
+    "adrbrowsiel_ipfs_page/add_p2p_key_dialog.js",
+    "adrbrowsiel_ipfs_page/p2p_keys_subpage.m.js",
+    "adrbrowsiel_default_extensions_page/adrbrowsiel_default_extensions_browser_proxy.m.js",
+    "adrbrowsiel_default_extensions_page/adrbrowsiel_default_extensions_page.m.js",
+    "adrbrowsiel_help_tips_page/adrbrowsiel_help_tips_page.m.js",
+    "adrbrowsiel_icons.m.js",
+    "adrbrowsiel_new_tab_page/adrbrowsiel_new_tab_browser_proxy.m.js",
+    "adrbrowsiel_new_tab_page/adrbrowsiel_new_tab_page.m.js",
+    "adrbrowsiel_privacy_page/adrbrowsiel_personalization_options.m.js",
+    "adrbrowsiel_privacy_page/adrbrowsiel_privacy_page_browser_proxy.m.js",
+    "adrbrowsiel_sync_page/adrbrowsiel_sync_code_dialog.js",
+    "adrbrowsiel_sync_page/adrbrowsiel_sync_configure.js",
+    "adrbrowsiel_sync_page/adrbrowsiel_sync_page.js",
+    "adrbrowsiel_sync_page/adrbrowsiel_sync_setup.js",
+    "adrbrowsiel_sync_page/adrbrowsiel_sync_subpage.js",
+    "adrbrowsiel_wallet_page/adrbrowsiel_wallet_browser_proxy.m.js",
+    "adrbrowsiel_wallet_page/adrbrowsiel_wallet_page.m.js",
+    "default_adrbrowsiel_shields_page/default_adrbrowsiel_shields_browser_proxy.m.js",
+    "default_adrbrowsiel_shields_page/default_adrbrowsiel_shields_page.m.js",
     "getting_started_page/getting_started.js",
     "social_blocking_page/social_blocking_page.m.js",
   ]
@@ -167,23 +167,23 @@ group("web_modules") {
     ":icons_module",
 
     # Sub-folder targets
-    "brave_appearance_page:web_modules",
-    "brave_clear_browsing_data_dialog:web_modules",
-    "brave_default_extensions_page:web_modules",
-    "brave_help_tips_page:web_modules",
-    "brave_ipfs_page:web_modules",
-    "brave_new_tab_page:web_modules",
-    "brave_privacy_page:web_modules",
-    "brave_sync_page:web_modules",
-    "brave_wallet_page:web_modules",
-    "default_brave_shields_page:web_modules",
+    "adrbrowsiel_appearance_page:web_modules",
+    "adrbrowsiel_clear_browsing_data_dialog:web_modules",
+    "adrbrowsiel_default_extensions_page:web_modules",
+    "adrbrowsiel_help_tips_page:web_modules",
+    "adrbrowsiel_ipfs_page:web_modules",
+    "adrbrowsiel_new_tab_page:web_modules",
+    "adrbrowsiel_privacy_page:web_modules",
+    "adrbrowsiel_sync_page:web_modules",
+    "adrbrowsiel_wallet_page:web_modules",
+    "default_adrbrowsiel_shields_page:web_modules",
     "getting_started_page:web_modules",
     "social_blocking_page:web_modules",
   ]
 }
 
 polymer_modulizer("icons") {
-  js_file = "brave_icons.m.js"
-  html_file = "brave_icons.html"
+  js_file = "adrbrowsiel_icons.m.js"
+  html_file = "adrbrowsiel_icons.html"
   html_type = "iron-iconset"
 }

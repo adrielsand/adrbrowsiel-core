@@ -1,11 +1,11 @@
-import("//brave/build/cargo.gni")
+import("//adrbrowsiel/build/cargo.gni")
 
-lib_build_path = "$root_build_dir/brave_rust/out/$current_cpu"
+lib_build_path = "$root_build_dir/adrbrowsiel_rust/out/$current_cpu"
 lib_output_path =
-    "$lib_build_path/${cargo_lib_prefix}brave_rust${cargo_lib_suffix}"
+    "$lib_build_path/${cargo_lib_prefix}adrbrowsiel_rust${cargo_lib_suffix}"
 
 # TODO(bridiver) - selectively include these libraries based on buildflags, but
-# in order to do that we have to dynamically create the brave rust lib
+# in order to do that we have to dynamically create the adrbrowsiel rust lib
 cargo_build("rust_lib") {
   visibility = [ ":*" ]
   inputs = [
@@ -18,26 +18,26 @@ cargo_build("rust_lib") {
   manifest_path = "Cargo.toml"
 
   deps = [
-    "//brave/components/adblock_rust_ffi:rust_lib",
-    "//brave/components/challenge_bypass_ristretto:rust_lib",
-    "//brave/components/speedreader/rust/lib",
+    "//adrbrowsiel/components/adblock_rust_ffi:rust_lib",
+    "//adrbrowsiel/components/challenge_bypass_ristretto:rust_lib",
+    "//adrbrowsiel/components/speedreader/rust/lib",
   ]
 }
 
-brave_ffi_deps = [
-  "//brave/components/adblock_rust_ffi:rust_ffi",
-  "//brave/components/challenge_bypass_ristretto:rust_ffi",
-  "//brave/components/speedreader/rust/ffi:rust_ffi",
+adrbrowsiel_ffi_deps = [
+  "//adrbrowsiel/components/adblock_rust_ffi:rust_ffi",
+  "//adrbrowsiel/components/challenge_bypass_ristretto:rust_ffi",
+  "//adrbrowsiel/components/speedreader/rust/ffi:rust_ffi",
 ]
 
-brave_rust_deps = brave_ffi_deps + [ ":rust_lib" ]
+adrbrowsiel_rust_deps = adrbrowsiel_ffi_deps + [ ":rust_lib" ]
 
 if (is_mac) {
-  shared_library("brave_rust") {
+  shared_library("adrbrowsiel_rust") {
     visibility = [ ":*" ]
-    deps = brave_rust_deps
+    deps = adrbrowsiel_rust_deps
 
-    public_deps = brave_ffi_deps
+    public_deps = adrbrowsiel_ffi_deps
 
     ldflags =
         [ "-Wl,-install_name,@loader_path/Libraries/lib$target_name.dylib" ]
@@ -47,15 +47,15 @@ if (is_mac) {
   # works for the test executables
   copy("copy_rust_lib") {
     visibility = [ ":*" ]
-    sources = [ "$root_out_dir/libbrave_rust.dylib" ]
+    sources = [ "$root_out_dir/libadrbrowsiel_rust.dylib" ]
     outputs = [ "$root_out_dir/Libraries/{{source_file_part}}" ]
 
-    public_deps = [ ":brave_rust" ]
+    public_deps = [ ":adrbrowsiel_rust" ]
   }
 
   bundle_data("bundle_rust_lib") {
     visibility = [ ":*" ]
-    sources = [ "$root_out_dir/Libraries/libbrave_rust.dylib" ]
+    sources = [ "$root_out_dir/Libraries/libadrbrowsiel_rust.dylib" ]
     outputs = [ "{{bundle_contents_dir}}/Libraries/{{source_file_part}}" ]
 
     public_deps = [ ":copy_rust_lib" ]
@@ -65,16 +65,16 @@ if (is_mac) {
     libs = [ lib_output_path ]
   }
 
-  group("brave_rust") {
+  group("adrbrowsiel_rust") {
     public_configs = [ ":external_config" ]
     visibility = [ ":*" ]
-    deps = brave_rust_deps
-    public_deps = brave_ffi_deps
+    deps = adrbrowsiel_rust_deps
+    public_deps = adrbrowsiel_ffi_deps
   }
 }
 
 group("rust") {
-  public_deps = [ ":brave_rust" ]
+  public_deps = [ ":adrbrowsiel_rust" ]
   if (is_mac) {
     deps = [ ":bundle_rust_lib" ]
   }

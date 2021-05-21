@@ -1,20 +1,20 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/profiles/brave_profile_shortcut_manager_win.h"
+#include "adrbrowsiel/browser/profiles/adrbrowsiel_profile_shortcut_manager_win.h"
 
-#include "brave/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
 #include "chrome/browser/profiles/profile_attributes_storage.h"
 #include "chrome/browser/profiles/profile_manager.h"
 
-BraveProfileShortcutManagerWin::BraveProfileShortcutManagerWin(
+adrbrowsielProfileShortcutManagerWin::adrbrowsielProfileShortcutManagerWin(
     ProfileManager* manager)
     : ProfileShortcutManagerWin(manager),
       profile_manager_(manager) {}
 
-void BraveProfileShortcutManagerWin::GetShortcutProperties(
+void adrbrowsielProfileShortcutManagerWin::GetShortcutProperties(
     const base::FilePath& profile_path,
     base::CommandLine* command_line,
     std::wstring* name,
@@ -27,7 +27,7 @@ void BraveProfileShortcutManagerWin::GetShortcutProperties(
   //
   // TODO(jocelyn): Properly add session profiles into the storage and remove
   // this override.
-  if (brave::IsSessionProfilePath(profile_path)) {
+  if (adrbrowsiel::IsSessionProfilePath(profile_path)) {
     ProfileAttributesStorage& storage =
         profile_manager_->GetProfileAttributesStorage();
     if (!storage.GetProfileAttributesWithPath(profile_path))

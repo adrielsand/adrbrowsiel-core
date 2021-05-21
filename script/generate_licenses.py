@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at https://mozilla.org/MPL/2.0/. */
@@ -177,37 +177,37 @@ def main():
     components_dir = os.path.join(SOURCE_ROOT, 'components')
     third_party_dir = os.path.join(components_dir, 'third_party')
 
-    # Brave Ad Block component
+    # adrbrowsiel Ad Block component
     adblock_dir = os.path.join(third_party_dir, 'adblock')
     adblock_lists_dir = os.path.join(adblock_dir, 'lists')
-    adblock_preamble = 'These licenses do not apply to any of the code shipped with the Brave Browser, but may ' \
-                       'apply to lists downloaded after installation for use with the Brave Shields feature. ' \
-                       'The Brave Browser and such lists are separate and independent works.'
+    adblock_preamble = 'These licenses do not apply to any of the code shipped with the adrbrowsiel Browser, but may ' \
+                       'apply to lists downloaded after installation for use with the adrbrowsiel Shields feature. ' \
+                       'The adrbrowsiel Browser and such lists are separate and independent works.'
 
     adblock_components = list_sub_components(adblock_lists_dir)
     write_license_file(adblock_dir, external_component_license_file(adblock_preamble, adblock_components))
     print('  - %s sub-components added in adblock/LICENSE' % len(adblock_components))
 
-    # Brave Local Data component
+    # adrbrowsiel Local Data component
     local_data_dir = os.path.join(third_party_dir, 'local_data')
     local_data_lists_dir = os.path.join(local_data_dir, 'lists')
-    local_data_preamble = 'These licenses do not apply to any of the code shipped with the Brave Browser, but may ' \
-                          'apply to data files downloaded after installation for use with various Brave features. ' \
-                          'The Brave Browser and such data files are separate and independent works.'
+    local_data_preamble = 'These licenses do not apply to any of the code shipped with the adrbrowsiel Browser, but may ' \
+                          'apply to data files downloaded after installation for use with various adrbrowsiel features. ' \
+                          'The adrbrowsiel Browser and such data files are separate and independent works.'
 
     local_data_components = list_sub_components(local_data_lists_dir)
     write_license_file(local_data_dir, external_component_license_file(local_data_preamble, local_data_components))
     print('  - %s sub-components added in local_data/LICENSE' % len(local_data_components))
 
-    # Brave New Tab UI component
-    ntp_data_dir = os.path.join(components_dir, 'brave_new_tab_ui', 'data')
-    ntp_backgrounds_preamble = 'These licenses do not apply to any of the code shipped with the Brave Browser and ' \
-                               'instead apply to background images used on the new tab page. The Brave Browser and ' \
+    # adrbrowsiel New Tab UI component
+    ntp_data_dir = os.path.join(components_dir, 'adrbrowsiel_new_tab_ui', 'data')
+    ntp_backgrounds_preamble = 'These licenses do not apply to any of the code shipped with the adrbrowsiel Browser and ' \
+                               'instead apply to background images used on the new tab page. The adrbrowsiel Browser and ' \
                                'such data files are separate and independent works.'
 
     ntp_backgrounds = list_ntp_backgrounds(os.path.join(ntp_data_dir, 'backgrounds.ts'))
     write_license_file(ntp_data_dir, generate_backgrounds_license(ntp_backgrounds_preamble, ntp_backgrounds))
-    print('  - %s sub-components added in brave_new_tab_ui/data/LICENSE' %
+    print('  - %s sub-components added in adrbrowsiel_new_tab_ui/data/LICENSE' %
           len(ntp_backgrounds))
 
 

@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_TOOLBAR_BRAVE_APP_MENU_MODEL_H_
-#define BRAVE_BROWSER_UI_TOOLBAR_BRAVE_APP_MENU_MODEL_H_
+#ifndef adrbrowsiel_BROWSER_UI_TOOLBAR_adrbrowsiel_APP_MENU_MODEL_H_
+#define adrbrowsiel_BROWSER_UI_TOOLBAR_adrbrowsiel_APP_MENU_MODEL_H_
 
 #include <memory>
 #include <string>
 #include <unordered_map>
 #include <vector>
 
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/sidebar/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/sidebar/buildflags/buildflags.h"
 #include "chrome/browser/ui/toolbar/app_menu_model.h"
 #include "ui/base/models/simple_menu_model.h"
 
@@ -22,15 +22,15 @@ class IpnsKeysManager;
 }  // namespace ipfs
 #endif
 
-class BraveAppMenuModel : public AppMenuModel {
+class adrbrowsielAppMenuModel : public AppMenuModel {
  public:
-  BraveAppMenuModel(ui::AcceleratorProvider* provider,
+  adrbrowsielAppMenuModel(ui::AcceleratorProvider* provider,
                     Browser* browser,
                     AppMenuIconController* app_menu_icon_controller = nullptr);
-  ~BraveAppMenuModel() override;
+  ~adrbrowsielAppMenuModel() override;
 
-  BraveAppMenuModel(const BraveAppMenuModel&) = delete;
-  BraveAppMenuModel& operator=(const BraveAppMenuModel&) = delete;
+  adrbrowsielAppMenuModel(const adrbrowsielAppMenuModel&) = delete;
+  adrbrowsielAppMenuModel& operator=(const adrbrowsielAppMenuModel&) = delete;
 
  private:
   // AppMenuModel overrides:
@@ -38,13 +38,13 @@ class BraveAppMenuModel : public AppMenuModel {
   void ExecuteCommand(int id, int event_flags) override;
   bool IsCommandIdEnabled(int id) const override;
 
-  void InsertBraveMenuItems();
+  void InsertadrbrowsielMenuItems();
   void InsertAlternateProfileItems();
-  int GetIndexOfBraveRewardsItem() const;
-  int GetIndexOfBraveAdBlockItem() const;
-  int GetIndexOfBraveSyncItem() const;
+  int GetIndexOfadrbrowsielRewardsItem() const;
+  int GetIndexOfadrbrowsielAdBlockItem() const;
+  int GetIndexOfadrbrowsielSyncItem() const;
 #if BUILDFLAG(ENABLE_SIDEBAR)
-  int GetIndexOfBraveSidebarItem() const;
+  int GetIndexOfadrbrowsielSidebarItem() const;
 #endif
 #if BUILDFLAG(IPFS_ENABLED)
   int FindCommandIndex(int command_id) const;
@@ -64,4 +64,4 @@ class BraveAppMenuModel : public AppMenuModel {
   std::vector<std::unique_ptr<ui::SimpleMenuModel>> sub_menus_;
 };
 
-#endif  // BRAVE_BROWSER_UI_TOOLBAR_BRAVE_APP_MENU_MODEL_H_
+#endif  // adrbrowsiel_BROWSER_UI_TOOLBAR_adrbrowsiel_APP_MENU_MODEL_H_

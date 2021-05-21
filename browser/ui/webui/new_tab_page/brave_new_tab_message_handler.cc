@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/ui/webui/new_tab_page/brave_new_tab_message_handler.h"
+#include "adrbrowsiel/browser/ui/webui/new_tab_page/adrbrowsiel_new_tab_message_handler.h"
 
 #include <memory>
 #include <utility>
@@ -12,22 +12,22 @@
 #include "base/json/json_writer.h"
 #include "base/metrics/histogram_macros.h"
 #include "base/values.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/ntp_background_images/view_counter_service_factory.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/search_engines/search_engine_provider_util.h"
-#include "brave/browser/ui/webui/new_tab_page/brave_new_tab_ui.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_ads/browser/ads_service.h"
-#include "brave/components/brave_perf_predictor/browser/buildflags.h"
-#include "brave/components/crypto_dot_com/browser/buildflags/buildflags.h"
-#include "brave/components/ftx/browser/buildflags/buildflags.h"
-#include "brave/components/ntp_background_images/browser/features.h"
-#include "brave/components/ntp_background_images/browser/url_constants.h"
-#include "brave/components/ntp_background_images/browser/view_counter_service.h"
-#include "brave/components/ntp_background_images/common/pref_names.h"
-#include "brave/components/p3a/brave_p3a_utils.h"
-#include "brave/components/weekly_storage/weekly_storage.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/ntp_background_images/view_counter_service_factory.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_provider_util.h"
+#include "adrbrowsiel/browser/ui/webui/new_tab_page/adrbrowsiel_new_tab_ui.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/buildflags.h"
+#include "adrbrowsiel/components/crypto_dot_com/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ftx/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/features.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/url_constants.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/view_counter_service.h"
+#include "adrbrowsiel/components/ntp_background_images/common/pref_names.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_p3a_utils.h"
+#include "adrbrowsiel/components/weekly_storage/weekly_storage.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/common/chrome_features.h"
@@ -36,26 +36,26 @@
 #include "components/prefs/pref_service.h"
 #include "content/public/browser/web_ui_data_source.h"
 
-using ntp_background_images::features::kBraveNTPBrandedWallpaper;
+using ntp_background_images::features::kadrbrowsielNTPBrandedWallpaper;
 using ntp_background_images::prefs::kNewTabPageShowBackgroundImage;
 using ntp_background_images::prefs::kNewTabPageShowSponsoredImagesBackgroundImage;  // NOLINT
 using ntp_background_images::prefs::kBrandedWallpaperNotificationDismissed;
 using ntp_background_images::ViewCounterServiceFactory;
 
-#if BUILDFLAG(ENABLE_BRAVE_PERF_PREDICTOR)
-#include "brave/components/brave_perf_predictor/common/pref_names.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_PERF_PREDICTOR)
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/common/pref_names.h"
 #endif
 
 #if BUILDFLAG(CRYPTO_DOT_COM_ENABLED)
-#include "brave/components/crypto_dot_com/common/pref_names.h"
+#include "adrbrowsiel/components/crypto_dot_com/common/pref_names.h"
 #endif
 
 #if BUILDFLAG(ENABLE_FTX)
-#include "brave/components/ftx/common/pref_names.h"
+#include "adrbrowsiel/components/ftx/common/pref_names.h"
 #endif
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/components/tor/tor_launcher_factory.h"
+#include "adrbrowsiel/components/tor/tor_launcher_factory.h"
 #endif
 
 namespace {
@@ -75,10 +75,10 @@ base::DictionaryValue GetStatsDictionary(PrefService* prefs) {
   stats_data.SetInteger(
     "fingerprintingBlockedStat",
     prefs->GetUint64(kFingerprintingBlocked));
-#if BUILDFLAG(ENABLE_BRAVE_PERF_PREDICTOR)
+#if BUILDFLAG(ENABLE_adrbrowsiel_PERF_PREDICTOR)
   stats_data.SetDouble(
       "bandwidthSavedStat",
-      prefs->GetUint64(brave_perf_predictor::prefs::kBandwidthSavedBytes));
+      prefs->GetUint64(adrbrowsiel_perf_predictor::prefs::kBandwidthSavedBytes));
 #endif
   return stats_data;
 }
@@ -109,8 +109,8 @@ base::DictionaryValue GetPreferencesDictionary(PrefService* prefs) {
   pref_data.SetBoolean(
       "isBrandedWallpaperNotificationDismissed",
       prefs->GetBoolean(kBrandedWallpaperNotificationDismissed));
-  pref_data.SetBoolean("isBraveTodayOptedIn",
-                       prefs->GetBoolean(kBraveTodayOptedIn));
+  pref_data.SetBoolean("isadrbrowsielTodayOptedIn",
+                       prefs->GetBoolean(kadrbrowsielTodayOptedIn));
   pref_data.SetBoolean(
       "showBinance",
       prefs->GetBoolean(kNewTabPageShowBinance));
@@ -158,30 +158,30 @@ enum class NTPCustomizeUsage {
 };
 
 const char kNTPCustomizeUsageStatus[] =
-    "brave.new_tab_page.customize_p3a_usage";
+    "adrbrowsiel.new_tab_page.customize_p3a_usage";
 
 }  // namespace
 
 // static
-void BraveNewTabMessageHandler::RegisterLocalStatePrefs(
+void adrbrowsielNewTabMessageHandler::RegisterLocalStatePrefs(
     PrefRegistrySimple* local_state) {
   local_state->RegisterIntegerPref(kNTPCustomizeUsageStatus, -1);
 }
 
-void BraveNewTabMessageHandler::RecordInitialP3AValues(
+void adrbrowsielNewTabMessageHandler::RecordInitialP3AValues(
     PrefService* local_state) {
-  brave::RecordValueIfGreater<NTPCustomizeUsage>(
-      NTPCustomizeUsage::kNeverOpened, "Brave.NTP.CustomizeUsageStatus",
+  adrbrowsiel::RecordValueIfGreater<NTPCustomizeUsage>(
+      NTPCustomizeUsage::kNeverOpened, "adrbrowsiel.NTP.CustomizeUsageStatus",
       kNTPCustomizeUsageStatus, local_state);
 }
 
-BraveNewTabMessageHandler* BraveNewTabMessageHandler::Create(
+adrbrowsielNewTabMessageHandler* adrbrowsielNewTabMessageHandler::Create(
       content::WebUIDataSource* source, Profile* profile) {
   //
   // Initial Values
   // Should only contain data that is static
   //
-  auto* ads_service_ = brave_ads::AdsServiceFactory::GetForProfile(profile);
+  auto* ads_service_ = adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile);
   // For safety, default |is_ads_supported_locale_| to true. Better to have
   // false positive than falsen egative,
   // in which case we would not show "opt out" toggle.
@@ -193,34 +193,34 @@ BraveNewTabMessageHandler* BraveNewTabMessageHandler::Create(
   }
 
   source->AddBoolean(
-      "featureFlagBraveNTPSponsoredImagesWallpaper",
-      base::FeatureList::IsEnabled(kBraveNTPBrandedWallpaper) &&
+      "featureFlagadrbrowsielNTPSponsoredImagesWallpaper",
+      base::FeatureList::IsEnabled(kadrbrowsielNTPBrandedWallpaper) &&
       is_ads_supported_locale_);
   // Private Tab info
   if (IsPrivateNewTab(profile)) {
     source->AddBoolean(
       "isTor", profile->IsTor());
     source->AddBoolean(
-      "isQwant", brave::IsRegionForQwant(profile));
+      "isQwant", adrbrowsiel::IsRegionForQwant(profile));
   }
-  return new BraveNewTabMessageHandler(profile);
+  return new adrbrowsielNewTabMessageHandler(profile);
 }
 
-BraveNewTabMessageHandler::BraveNewTabMessageHandler(Profile* profile)
+adrbrowsielNewTabMessageHandler::adrbrowsielNewTabMessageHandler(Profile* profile)
     : profile_(profile) {
 #if BUILDFLAG(ENABLE_TOR)
   tor_launcher_factory_ = TorLauncherFactory::GetInstance();
 #endif
 }
 
-BraveNewTabMessageHandler::~BraveNewTabMessageHandler() {
+adrbrowsielNewTabMessageHandler::~adrbrowsielNewTabMessageHandler() {
 #if BUILDFLAG(ENABLE_TOR)
   if (tor_launcher_factory_)
     tor_launcher_factory_->RemoveObserver(this);
 #endif
 }
 
-void BraveNewTabMessageHandler::RegisterMessages() {
+void adrbrowsielNewTabMessageHandler::RegisterMessages() {
   // TODO(petemill): This MessageHandler can be split up to
   // individual MessageHandlers for each individual topic area,
   // should other WebUI pages wish to consume the APIs:
@@ -229,147 +229,147 @@ void BraveNewTabMessageHandler::RegisterMessages() {
   // - PrivatePage properties
   web_ui()->RegisterMessageCallback(
       "getNewTabPagePreferences",
-      base::BindRepeating(&BraveNewTabMessageHandler::HandleGetPreferences,
+      base::BindRepeating(&adrbrowsielNewTabMessageHandler::HandleGetPreferences,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "getNewTabPageStats",
-      base::BindRepeating(&BraveNewTabMessageHandler::HandleGetStats,
+      base::BindRepeating(&adrbrowsielNewTabMessageHandler::HandleGetStats,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "getNewTabPagePrivateProperties",
       base::BindRepeating(
-          &BraveNewTabMessageHandler::HandleGetPrivateProperties,
+          &adrbrowsielNewTabMessageHandler::HandleGetPrivateProperties,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "getNewTabPageTorProperties",
-      base::BindRepeating(&BraveNewTabMessageHandler::HandleGetTorProperties,
+      base::BindRepeating(&adrbrowsielNewTabMessageHandler::HandleGetTorProperties,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "toggleAlternativePrivateSearchEngine",
-      base::BindRepeating(&BraveNewTabMessageHandler::
+      base::BindRepeating(&adrbrowsielNewTabMessageHandler::
                               HandleToggleAlternativeSearchEngineProvider,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "saveNewTabPagePref",
-      base::BindRepeating(&BraveNewTabMessageHandler::HandleSaveNewTabPagePref,
+      base::BindRepeating(&adrbrowsielNewTabMessageHandler::HandleSaveNewTabPagePref,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "registerNewTabPageView",
       base::BindRepeating(
-          &BraveNewTabMessageHandler::HandleRegisterNewTabPageView,
+          &adrbrowsielNewTabMessageHandler::HandleRegisterNewTabPageView,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "brandedWallpaperLogoClicked",
       base::BindRepeating(
-          &BraveNewTabMessageHandler::HandleBrandedWallpaperLogoClicked,
+          &adrbrowsielNewTabMessageHandler::HandleBrandedWallpaperLogoClicked,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "getBrandedWallpaperData",
       base::BindRepeating(
-          &BraveNewTabMessageHandler::HandleGetBrandedWallpaperData,
+          &adrbrowsielNewTabMessageHandler::HandleGetBrandedWallpaperData,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "customizeClicked",
-      base::BindRepeating(&BraveNewTabMessageHandler::HandleCustomizeClicked,
+      base::BindRepeating(&adrbrowsielNewTabMessageHandler::HandleCustomizeClicked,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "todayInteractionBegin",
       base::BindRepeating(
-          &BraveNewTabMessageHandler::HandleTodayInteractionBegin,
+          &adrbrowsielNewTabMessageHandler::HandleTodayInteractionBegin,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "todayOnCardVisit",
-      base::BindRepeating(&BraveNewTabMessageHandler::HandleTodayOnCardVisit,
+      base::BindRepeating(&adrbrowsielNewTabMessageHandler::HandleTodayOnCardVisit,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "todayOnCardViews",
-      base::BindRepeating(&BraveNewTabMessageHandler::HandleTodayOnCardViews,
+      base::BindRepeating(&adrbrowsielNewTabMessageHandler::HandleTodayOnCardViews,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "todayOnPromotedCardView",
       base::BindRepeating(
-          &BraveNewTabMessageHandler::HandleTodayOnPromotedCardView,
+          &adrbrowsielNewTabMessageHandler::HandleTodayOnPromotedCardView,
           base::Unretained(this)));
 }
 
-void BraveNewTabMessageHandler::OnJavascriptAllowed() {
+void adrbrowsielNewTabMessageHandler::OnJavascriptAllowed() {
   // Observe relevant preferences
   PrefService* prefs = profile_->GetPrefs();
   pref_change_registrar_.Init(prefs);
   // Stats
   pref_change_registrar_.Add(kAdsBlocked,
-    base::Bind(&BraveNewTabMessageHandler::OnStatsChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnStatsChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kTrackersBlocked,
-    base::Bind(&BraveNewTabMessageHandler::OnStatsChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnStatsChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kJavascriptBlocked,
-    base::Bind(&BraveNewTabMessageHandler::OnStatsChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnStatsChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kHttpsUpgrades,
-    base::Bind(&BraveNewTabMessageHandler::OnStatsChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnStatsChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kFingerprintingBlocked,
-    base::Bind(&BraveNewTabMessageHandler::OnStatsChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnStatsChanged,
     base::Unretained(this)));
 
   if (IsPrivateNewTab(profile_)) {
     // Private New Tab Page preferences
     pref_change_registrar_.Add(kUseAlternativeSearchEngineProvider,
-      base::Bind(&BraveNewTabMessageHandler::OnPrivatePropertiesChanged,
+      base::Bind(&adrbrowsielNewTabMessageHandler::OnPrivatePropertiesChanged,
       base::Unretained(this)));
     pref_change_registrar_.Add(kAlternativeSearchEngineProviderInTor,
-      base::Bind(&BraveNewTabMessageHandler::OnPrivatePropertiesChanged,
+      base::Bind(&adrbrowsielNewTabMessageHandler::OnPrivatePropertiesChanged,
       base::Unretained(this)));
   }
   // News
   pref_change_registrar_.Add(
-      kBraveTodayOptedIn,
-      base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+      kadrbrowsielTodayOptedIn,
+      base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
                  base::Unretained(this)));
   // New Tab Page preferences
   pref_change_registrar_.Add(kNewTabPageShowBackgroundImage,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kNewTabPageShowSponsoredImagesBackgroundImage,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kNewTabPageShowClock,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kNewTabPageClockFormat,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kNewTabPageShowStats,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kNewTabPageShowToday,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kNewTabPageShowRewards,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kBrandedWallpaperNotificationDismissed,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kNewTabPageShowBinance,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kNewTabPageShowTogether,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
   pref_change_registrar_.Add(kNewTabPageShowGemini,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
 #if BUILDFLAG(CRYPTO_DOT_COM_ENABLED)
   pref_change_registrar_.Add(kCryptoDotComNewTabPageShowCryptoDotCom,
-    base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+    base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
     base::Unretained(this)));
 #endif
 #if BUILDFLAG(ENABLE_FTX)
   pref_change_registrar_.Add(
       kFTXNewTabPageShowFTX,
-      base::Bind(&BraveNewTabMessageHandler::OnPreferencesChanged,
+      base::Bind(&adrbrowsielNewTabMessageHandler::OnPreferencesChanged,
                  base::Unretained(this)));
 #endif
 
@@ -379,7 +379,7 @@ void BraveNewTabMessageHandler::OnJavascriptAllowed() {
 #endif
 }
 
-void BraveNewTabMessageHandler::OnJavascriptDisallowed() {
+void adrbrowsielNewTabMessageHandler::OnJavascriptDisallowed() {
   pref_change_registrar_.RemoveAll();
 #if BUILDFLAG(ENABLE_TOR)
   if (tor_launcher_factory_)
@@ -387,7 +387,7 @@ void BraveNewTabMessageHandler::OnJavascriptDisallowed() {
 #endif
 }
 
-void BraveNewTabMessageHandler::HandleGetPreferences(
+void adrbrowsielNewTabMessageHandler::HandleGetPreferences(
         const base::ListValue* args) {
   AllowJavascript();
   PrefService* prefs = profile_->GetPrefs();
@@ -395,14 +395,14 @@ void BraveNewTabMessageHandler::HandleGetPreferences(
   ResolveJavascriptCallback(args->GetList()[0], data);
 }
 
-void BraveNewTabMessageHandler::HandleGetStats(const base::ListValue* args) {
+void adrbrowsielNewTabMessageHandler::HandleGetStats(const base::ListValue* args) {
   AllowJavascript();
   PrefService* prefs = profile_->GetPrefs();
   auto data = GetStatsDictionary(prefs);
   ResolveJavascriptCallback(args->GetList()[0], data);
 }
 
-void BraveNewTabMessageHandler::HandleGetPrivateProperties(
+void adrbrowsielNewTabMessageHandler::HandleGetPrivateProperties(
         const base::ListValue* args) {
   AllowJavascript();
   PrefService* prefs = profile_->GetPrefs();
@@ -410,7 +410,7 @@ void BraveNewTabMessageHandler::HandleGetPrivateProperties(
   ResolveJavascriptCallback(args->GetList()[0], data);
 }
 
-void BraveNewTabMessageHandler::HandleGetTorProperties(
+void adrbrowsielNewTabMessageHandler::HandleGetTorProperties(
         const base::ListValue* args) {
   AllowJavascript();
 #if BUILDFLAG(ENABLE_TOR)
@@ -423,19 +423,19 @@ void BraveNewTabMessageHandler::HandleGetTorProperties(
   ResolveJavascriptCallback(args->GetList()[0], data);
 }
 
-void BraveNewTabMessageHandler::HandleToggleAlternativeSearchEngineProvider(
+void adrbrowsielNewTabMessageHandler::HandleToggleAlternativeSearchEngineProvider(
     const base::ListValue* args) {
-  brave::ToggleUseAlternativeSearchEngineProvider(profile_);
+  adrbrowsiel::ToggleUseAlternativeSearchEngineProvider(profile_);
 }
 
-void BraveNewTabMessageHandler::HandleSaveNewTabPagePref(
+void adrbrowsielNewTabMessageHandler::HandleSaveNewTabPagePref(
     const base::ListValue* args) {
   if (args->GetSize() != 2) {
     LOG(ERROR) << "Invalid input";
     return;
   }
-  brave::RecordValueIfGreater<NTPCustomizeUsage>(
-      NTPCustomizeUsage::kOpenedAndEdited, "Brave.NTP.CustomizeUsageStatus",
+  adrbrowsiel::RecordValueIfGreater<NTPCustomizeUsage>(
+      NTPCustomizeUsage::kOpenedAndEdited, "adrbrowsiel.NTP.CustomizeUsageStatus",
       kNTPCustomizeUsageStatus, g_browser_process->local_state());
   PrefService* prefs = profile_->GetPrefs();
   // Collect args
@@ -474,8 +474,8 @@ void BraveNewTabMessageHandler::HandleSaveNewTabPagePref(
     settingsKey = kNewTabPageShowStats;
   } else if (settingsKeyInput == "showToday") {
     settingsKey = kNewTabPageShowToday;
-  } else if (settingsKeyInput == "isBraveTodayOptedIn") {
-    settingsKey = kBraveTodayOptedIn;
+  } else if (settingsKeyInput == "isadrbrowsielTodayOptedIn") {
+    settingsKey = kadrbrowsielTodayOptedIn;
   } else if (settingsKeyInput == "showRewards") {
     settingsKey = kNewTabPageShowRewards;
   } else if (settingsKeyInput == "isBrandedWallpaperNotificationDismissed") {
@@ -503,11 +503,11 @@ void BraveNewTabMessageHandler::HandleSaveNewTabPagePref(
   // P3A can only be recorded after profile is updated
   if (settingsKeyInput == "showBackgroundImage" ||
       settingsKeyInput == "brandedWallpaperOptIn") {
-    brave::RecordSponsoredImagesEnabledP3A(profile_);
+    adrbrowsiel::RecordSponsoredImagesEnabledP3A(profile_);
   }
 }
 
-void BraveNewTabMessageHandler::HandleRegisterNewTabPageView(
+void adrbrowsielNewTabMessageHandler::HandleRegisterNewTabPageView(
     const base::ListValue* args) {
   AllowJavascript();
 
@@ -516,7 +516,7 @@ void BraveNewTabMessageHandler::HandleRegisterNewTabPageView(
     service->RegisterPageView();
 }
 
-void BraveNewTabMessageHandler::HandleBrandedWallpaperLogoClicked(
+void adrbrowsielNewTabMessageHandler::HandleBrandedWallpaperLogoClicked(
     const base::ListValue* args) {
   AllowJavascript();
   if (args->GetSize() != 1) {
@@ -543,7 +543,7 @@ void BraveNewTabMessageHandler::HandleBrandedWallpaperLogoClicked(
   }
 }
 
-void BraveNewTabMessageHandler::HandleGetBrandedWallpaperData(
+void adrbrowsielNewTabMessageHandler::HandleGetBrandedWallpaperData(
     const base::ListValue* args) {
   AllowJavascript();
 
@@ -561,23 +561,23 @@ void BraveNewTabMessageHandler::HandleGetBrandedWallpaperData(
   ResolveJavascriptCallback(args->GetList()[0], std::move(data));
 }
 
-void BraveNewTabMessageHandler::HandleCustomizeClicked(
+void adrbrowsielNewTabMessageHandler::HandleCustomizeClicked(
     const base::ListValue* args) {
   AllowJavascript();
-  brave::RecordValueIfGreater<NTPCustomizeUsage>(
-      NTPCustomizeUsage::kOpened, "Brave.NTP.CustomizeUsageStatus",
+  adrbrowsiel::RecordValueIfGreater<NTPCustomizeUsage>(
+      NTPCustomizeUsage::kOpened, "adrbrowsiel.NTP.CustomizeUsageStatus",
       kNTPCustomizeUsageStatus, g_browser_process->local_state());
 }
 
-void BraveNewTabMessageHandler::HandleTodayInteractionBegin(
+void adrbrowsielNewTabMessageHandler::HandleTodayInteractionBegin(
     const base::ListValue* args) {
   AllowJavascript();
-  // Track if user has ever scrolled to Brave Today.
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Today.HasEverInteracted", 1, 1);
+  // Track if user has ever scrolled to adrbrowsiel Today.
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Today.HasEverInteracted", 1, 1);
   // Track how many times in the past week
-  // user has scrolled to Brave Today.
+  // user has scrolled to adrbrowsiel Today.
   WeeklyStorage session_count_storage(
-      profile_->GetPrefs(), kBraveTodayWeeklySessionCount);
+      profile_->GetPrefs(), kadrbrowsielTodayWeeklySessionCount);
   session_count_storage.AddDelta(1);
   uint64_t total_session_count = session_count_storage.GetWeeklySum();
   constexpr int kSessionCountBuckets[] = {0, 1, 3, 7, 12, 18, 25, 1000};
@@ -585,11 +585,11 @@ void BraveNewTabMessageHandler::HandleTodayInteractionBegin(
       std::lower_bound(kSessionCountBuckets, std::end(kSessionCountBuckets),
                       total_session_count);
   int answer = it_count - kSessionCountBuckets;
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Today.WeeklySessionCount", answer,
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Today.WeeklySessionCount", answer,
                              base::size(kSessionCountBuckets) + 1);
 }
 
-void BraveNewTabMessageHandler::HandleTodayOnCardVisit(
+void adrbrowsielNewTabMessageHandler::HandleTodayOnCardVisit(
     const base::ListValue* args) {
   // Argument should be how many cards visited in this session.
   // We need the front-end to give us this since this class
@@ -597,10 +597,10 @@ void BraveNewTabMessageHandler::HandleTodayOnCardVisit(
   // but the front-end will have access to history state in order to
   // keep a count for the session.
   int cards_visited_total = args->GetList()[0].GetInt();
-  // Track how many Brave Today cards have been viewed per session
+  // Track how many adrbrowsiel Today cards have been viewed per session
   // (each NTP / NTP Message Handler is treated as 1 session).
   WeeklyStorage storage(
-      profile_->GetPrefs(), kBraveTodayWeeklyCardVisitsCount);
+      profile_->GetPrefs(), kadrbrowsielTodayWeeklyCardVisitsCount);
   storage.ReplaceTodaysValueIfGreater(cards_visited_total);
   // Send the session with the highest count of cards viewed.
   uint64_t total = storage.GetHighestValueInWeek();
@@ -609,7 +609,7 @@ void BraveNewTabMessageHandler::HandleTodayOnCardVisit(
       std::lower_bound(kBuckets, std::end(kBuckets),
                       total);
   int answer = it_count - kBuckets;
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Today.WeeklyMaxCardVisitsCount", answer,
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Today.WeeklyMaxCardVisitsCount", answer,
                              base::size(kBuckets) + 1);
   // Record ad click if a promoted card was read.
   if (args->GetSize() < 4) {
@@ -619,21 +619,21 @@ void BraveNewTabMessageHandler::HandleTodayOnCardVisit(
   std::string creative_instance_id = args->GetList()[2].GetString();
   bool is_promoted = args->GetList()[3].GetBool();
   if (is_promoted && !item_id.empty() && !creative_instance_id.empty()) {
-    auto* ads_service_ = brave_ads::AdsServiceFactory::GetForProfile(profile_);
+    auto* ads_service_ = adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile_);
     ads_service_->OnPromotedContentAdEvent(
         item_id, creative_instance_id,
-        ads::mojom::BraveAdsPromotedContentAdEventType::kClicked);
+        ads::mojom::adrbrowsielAdsPromotedContentAdEventType::kClicked);
   }
 }
 
-void BraveNewTabMessageHandler::HandleTodayOnCardViews(
+void adrbrowsielNewTabMessageHandler::HandleTodayOnCardViews(
     const base::ListValue* args) {
   // Argument should be how many cards viewed in this session.
   int cards_viewed_total = args->GetList()[0].GetInt();
-  // Track how many Brave Today cards have been viewed per session
+  // Track how many adrbrowsiel Today cards have been viewed per session
   // (each NTP / NTP Message Handler is treated as 1 session).
   WeeklyStorage storage(
-      profile_->GetPrefs(), kBraveTodayWeeklyCardViewsCount);
+      profile_->GetPrefs(), kadrbrowsielTodayWeeklyCardViewsCount);
   storage.ReplaceTodaysValueIfGreater(cards_viewed_total);
   // Send the session with the highest count of cards viewed.
   uint64_t total = storage.GetHighestValueInWeek();
@@ -642,47 +642,47 @@ void BraveNewTabMessageHandler::HandleTodayOnCardViews(
       std::lower_bound(kBuckets, std::end(kBuckets),
                       total);
   int answer = it_count - kBuckets;
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Today.WeeklyMaxCardViewsCount", answer,
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Today.WeeklyMaxCardViewsCount", answer,
                              base::size(kBuckets) + 1);
 }
 
-void BraveNewTabMessageHandler::HandleTodayOnPromotedCardView(
+void adrbrowsielNewTabMessageHandler::HandleTodayOnPromotedCardView(
     const base::ListValue* args) {
   // Argument should be how many cards viewed in this session.
   std::string creative_instance_id = args->GetList()[0].GetString();
   std::string item_id = args->GetList()[1].GetString();
   if (!item_id.empty() && !creative_instance_id.empty()) {
-    auto* ads_service_ = brave_ads::AdsServiceFactory::GetForProfile(profile_);
+    auto* ads_service_ = adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile_);
     ads_service_->OnPromotedContentAdEvent(
         item_id, creative_instance_id,
-        ads::mojom::BraveAdsPromotedContentAdEventType::kViewed);
+        ads::mojom::adrbrowsielAdsPromotedContentAdEventType::kViewed);
   }
 }
 
-void BraveNewTabMessageHandler::OnPrivatePropertiesChanged() {
+void adrbrowsielNewTabMessageHandler::OnPrivatePropertiesChanged() {
   PrefService* prefs = profile_->GetPrefs();
   auto data = GetPrivatePropertiesDictionary(prefs);
   FireWebUIListener("private-tab-data-updated", data);
 }
 
-void BraveNewTabMessageHandler::OnStatsChanged() {
+void adrbrowsielNewTabMessageHandler::OnStatsChanged() {
   PrefService* prefs = profile_->GetPrefs();
   auto data = GetStatsDictionary(prefs);
   FireWebUIListener("stats-updated", data);
 }
 
-void BraveNewTabMessageHandler::OnPreferencesChanged() {
+void adrbrowsielNewTabMessageHandler::OnPreferencesChanged() {
   PrefService* prefs = profile_->GetPrefs();
   auto data = GetPreferencesDictionary(prefs);
   FireWebUIListener("preferences-changed", data);
 }
 
-void BraveNewTabMessageHandler::OnTorCircuitEstablished(bool result) {
+void adrbrowsielNewTabMessageHandler::OnTorCircuitEstablished(bool result) {
   auto data = GetTorPropertiesDictionary(result, "");
   FireWebUIListener("tor-tab-data-updated", data);
 }
 
-void BraveNewTabMessageHandler::OnTorInitializing(
+void adrbrowsielNewTabMessageHandler::OnTorInitializing(
     const std::string& percentage) {
   auto data = GetTorPropertiesDictionary(false, percentage);
   FireWebUIListener("tor-tab-data-updated", data);

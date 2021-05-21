@@ -1,22 +1,22 @@
-import("//brave/components/brave_sync/buildflags/buildflags.gni")
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
-import("//brave/components/brave_wayback_machine/buildflags/buildflags.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_sync/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wayback_machine/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
 import("//build/config/features.gni")
 
 source_set("infobars") {
-  # Remove when https://github.com/brave/brave-browser/issues/10649 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10649 is resolved
   check_includes = false
   sources = [
-    "brave_confirm_p3a_infobar_delegate.cc",
-    "brave_confirm_p3a_infobar_delegate.h",
+    "adrbrowsiel_confirm_p3a_infobar_delegate.cc",
+    "adrbrowsiel_confirm_p3a_infobar_delegate.h",
   ]
 
   deps = [
     "//base",
-    "//brave/app:brave_generated_resources_grit",
-    "//brave/browser/ui",
-    "//brave/components/p3a",
+    "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+    "//adrbrowsiel/browser/ui",
+    "//adrbrowsiel/components/p3a",
     "//chrome/app:chromium_strings",
     "//chrome/browser/ui",
     "//components/infobars/core",
@@ -27,17 +27,17 @@ source_set("infobars") {
     "//url",
   ]
 
-  if (brave_wallet_enabled) {
+  if (adrbrowsiel_wallet_enabled) {
     sources += [
       "crypto_wallets_infobar_delegate.cc",
       "crypto_wallets_infobar_delegate.h",
     ]
 
     deps += [
-      "//brave/browser/brave_wallet",
-      "//brave/common:pref_names",
-      "//brave/components/brave_wallet/browser",
-      "//brave/components/brave_wallet/common",
+      "//adrbrowsiel/browser/adrbrowsiel_wallet",
+      "//adrbrowsiel/common:pref_names",
+      "//adrbrowsiel/components/adrbrowsiel_wallet/browser",
+      "//adrbrowsiel/components/adrbrowsiel_wallet/common",
       "//components/user_prefs:user_prefs",
       "//extensions/common:common_constants",
     ]
@@ -45,33 +45,33 @@ source_set("infobars") {
 
   if (ipfs_enabled) {
     deps += [
-      "//brave/components/ipfs",
+      "//adrbrowsiel/components/ipfs",
       "//components/user_prefs",
     ]
   }
 
-  if (enable_brave_wayback_machine) {
+  if (enable_adrbrowsiel_wayback_machine) {
     sources += [
-      "brave_wayback_machine_delegate_impl.cc",
-      "brave_wayback_machine_delegate_impl.h",
+      "adrbrowsiel_wayback_machine_delegate_impl.cc",
+      "adrbrowsiel_wayback_machine_delegate_impl.h",
     ]
 
     deps += [
-      "//brave/common:switches",
-      "//brave/components/brave_wayback_machine",
+      "//adrbrowsiel/common:switches",
+      "//adrbrowsiel/components/adrbrowsiel_wayback_machine",
     ]
   }
 
-  if (enable_brave_sync) {
+  if (enable_adrbrowsiel_sync) {
     sources += [
       "sync_v2_migrate_infobar_delegate.cc",
       "sync_v2_migrate_infobar_delegate.h",
     ]
 
     deps += [
-      "//brave/common:common",
-      "//brave/components/brave_sync:features",
-      "//brave/components/brave_sync:prefs",
+      "//adrbrowsiel/common:common",
+      "//adrbrowsiel/components/adrbrowsiel_sync:features",
+      "//adrbrowsiel/components/adrbrowsiel_sync:prefs",
     ]
   }
 }

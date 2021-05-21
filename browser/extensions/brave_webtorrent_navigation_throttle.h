@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_BRAVE_WEBTORRENT_NAVIGATION_THROTTLE_H_
-#define BRAVE_BROWSER_EXTENSIONS_BRAVE_WEBTORRENT_NAVIGATION_THROTTLE_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_adrbrowsiel_WEBTORRENT_NAVIGATION_THROTTLE_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_adrbrowsiel_WEBTORRENT_NAVIGATION_THROTTLE_H_
 
 #include "base/macros.h"
 #include "base/scoped_observation.h"
@@ -20,12 +20,12 @@ namespace extensions {
 
 // This class enables the WebTorrent component when a .torrent
 // or magnet file is loaded.
-class BraveWebTorrentNavigationThrottle : public content::NavigationThrottle,
+class adrbrowsielWebTorrentNavigationThrottle : public content::NavigationThrottle,
                                           public ExtensionRegistryObserver {
  public:
-  explicit BraveWebTorrentNavigationThrottle(
+  explicit adrbrowsielWebTorrentNavigationThrottle(
       content::NavigationHandle* navigation_handle);
-  ~BraveWebTorrentNavigationThrottle() override;
+  ~adrbrowsielWebTorrentNavigationThrottle() override;
 
   // content::NavigationThrottle implementation:
   ThrottleCheckResult WillStartRequest() override;
@@ -46,9 +46,9 @@ class BraveWebTorrentNavigationThrottle : public content::NavigationThrottle,
       extension_registry_observer_{this};
   bool resume_pending_;
   base::OneShotTimer timer_;
-  DISALLOW_COPY_AND_ASSIGN(BraveWebTorrentNavigationThrottle);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielWebTorrentNavigationThrottle);
 };
 
 }  // namespace extensions
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_BRAVE_WEBTORRENT_NAVIGATION_THROTTLE_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_adrbrowsiel_WEBTORRENT_NAVIGATION_THROTTLE_H_

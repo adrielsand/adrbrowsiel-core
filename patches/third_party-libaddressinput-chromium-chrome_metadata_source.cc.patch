@@ -7,7 +7,7 @@ index 6bc02079f3330cb8c3af670c208348cd7bc7b5f6..f2a8613236f2f19ba913b0c647305040
                                      const Callback& downloaded) {
    GURL resource(validation_data_url_ + key);
 -  if (!resource.SchemeIsCryptographic()) {
-+  if (1) { // feature disabled in Brave
++  if (1) { // feature disabled in adrbrowsiel
      downloaded(false, key, NULL);
      return;
    }

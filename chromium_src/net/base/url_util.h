@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#ifndef BRAVE_CHROMIUM_SRC_NET_BASE_URL_UTIL_H_
-#define BRAVE_CHROMIUM_SRC_NET_BASE_URL_UTIL_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_NET_BASE_URL_UTIL_H_
+#define adrbrowsiel_CHROMIUM_SRC_NET_BASE_URL_UTIL_H_
 
 #include "../../../../net/base/url_util.h"
 
@@ -25,4 +25,4 @@ NET_EXPORT std::string URLToEphemeralStorageDomain(const GURL& url);
 
 }  // namespace net
 
-#endif  // BRAVE_CHROMIUM_SRC_NET_BASE_URL_UTIL_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_NET_BASE_URL_UTIL_H_

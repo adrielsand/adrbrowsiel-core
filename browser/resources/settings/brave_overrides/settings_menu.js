@@ -1,12 +1,12 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 import {html} from 'chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js'
-import {RegisterStyleOverride, RegisterPolymerTemplateModifications} from 'chrome://brave-resources/polymer_overriding.js'
+import {RegisterStyleOverride, RegisterPolymerTemplateModifications} from 'chrome://adrbrowsiel-resources/polymer_overriding.js'
 import {loadTimeData} from '../i18n_setup.js'
-import '../brave_icons.m.js'
+import '../adrbrowsiel_icons.m.js'
 
 function createMenuElement (title, href, iconName, pageVisibilitySection) {
   const menuEl = document.createElement('a')
@@ -25,7 +25,7 @@ function createMenuElement (title, href, iconName, pageVisibilitySection) {
 function getMenuElement (templateContent, href) {
   const menuEl = templateContent.querySelector(`a[href="${href}"]`)
   if (!menuEl) {
-    console.error(`[Brave Settings Overrides] Could not find menu item '${href}'`)
+    console.error(`[adrbrowsiel Settings Overrides] Could not find menu item '${href}'`)
   }
   return menuEl
 }
@@ -35,13 +35,13 @@ RegisterStyleOverride(
   html`
     <style>
       :host {
-        --brave-settings-menu-margin-v: 30px;
-        --brave-settings-menu-padding: 30px;
+        --adrbrowsiel-settings-menu-margin-v: 30px;
+        --adrbrowsiel-settings-menu-padding: 30px;
         --settings-nav-item-color: #424242 !important;
         position: sticky;
-        top: var(--brave-settings-menu-margin-v);
-        margin: 0 var(--brave-settings-menu-margin) !important;
-        max-height: calc(100vh - 56px - (var(--brave-settings-menu-margin-v) * 2) - (var(--brave-settings-menu-padding) * 2));
+        top: var(--adrbrowsiel-settings-menu-margin-v);
+        margin: 0 var(--adrbrowsiel-settings-menu-margin) !important;
+        max-height: calc(100vh - 56px - (var(--adrbrowsiel-settings-menu-margin-v) * 2) - (var(--adrbrowsiel-settings-menu-padding) * 2));
         min-width: 172px;
         border-radius: 6px;
         background-color: #fff;
@@ -87,7 +87,7 @@ RegisterStyleOverride(
 
       a[href],
       #advancedButton {
-        --cr-selectable-focus_-_outline: var(--brave-focus-outline) !important;
+        --cr-selectable-focus_-_outline: var(--adrbrowsiel-focus-outline) !important;
       }
 
       #advancedButton {
@@ -118,7 +118,7 @@ RegisterStyleOverride(
         color: #c5c5d3 !important;
         margin: 16px 0 0 0 !important;
       }
-      .brave-about-graphic {
+      .adrbrowsiel-about-graphic {
         flex: 0;
         flex-basis: 30%;
         display: flex;
@@ -126,10 +126,10 @@ RegisterStyleOverride(
         justify-content: flex-start;
         align-self: stretch;
       }
-      .brave-about-meta {
+      .adrbrowsiel-about-meta {
         flex: 1;
       }
-      .brave-about-item {
+      .adrbrowsiel-about-item {
         display: block;
       }
     </style>
@@ -144,22 +144,22 @@ RegisterPolymerTemplateModifications({
     titleEl.textContent = loadTimeData.getString('settings')
     const topMenuEl = templateContent.querySelector('#topMenu')
     if (!topMenuEl) {
-      console.error('[Brave Settings Overrides] Could not find topMenu element to add title after')
+      console.error('[adrbrowsiel Settings Overrides] Could not find topMenu element to add title after')
     } else {
       topMenuEl.insertAdjacentElement('afterbegin', titleEl)
     }
     // Advanced text
     const advancedToggle = templateContent.querySelector('#advancedButton span')
     if (!advancedToggle) {
-      console.error('[Brave Settings Overrides] Could not find advancedButton to modify text')
+      console.error('[adrbrowsiel Settings Overrides] Could not find advancedButton to modify text')
     }
-    advancedToggle.textContent = loadTimeData.getString('braveAdditionalSettingsTitle')
+    advancedToggle.textContent = loadTimeData.getString('adrbrowsielAdditionalSettingsTitle')
     // Add 'Get Started' item
     const peopleEl = getMenuElement(templateContent, '/people')
     const getStartedEl = createMenuElement(
-      loadTimeData.getString('braveGetStartedTitle'),
+      loadTimeData.getString('adrbrowsielGetStartedTitle'),
       '/getStarted',
-      'brave_settings:get-started',
+      'adrbrowsiel_settings:get-started',
       'getStarted'
     )
     peopleEl.insertAdjacentElement('afterend', getStartedEl)
@@ -169,32 +169,32 @@ RegisterPolymerTemplateModifications({
 
     // Add New Tab item
     const newTabEl = createMenuElement(
-      loadTimeData.getString('braveNewTab'),
+      loadTimeData.getString('adrbrowsielNewTab'),
       '/newTab',
-      'brave_settings:new-tab',
+      'adrbrowsiel_settings:new-tab',
       'newTab'
     )
     appearanceBrowserEl.insertAdjacentElement('afterend', newTabEl)
     // Add Sync and Help Tips item
     const helpTipsEl = createMenuElement(
-      loadTimeData.getString('braveHelpTips'),
-      '/braveHelpTips',
-      'brave_settings:help',
-      'braveHelpTips',
+      loadTimeData.getString('adrbrowsielHelpTips'),
+      '/adrbrowsielHelpTips',
+      'adrbrowsiel_settings:help',
+      'adrbrowsielHelpTips',
     )
     const syncEl = createMenuElement(
-      loadTimeData.getString('braveSync'),
-      '/braveSync',
-      'brave_settings:sync',
-      'braveSync',
+      loadTimeData.getString('adrbrowsielSync'),
+      '/adrbrowsielSync',
+      'adrbrowsiel_settings:sync',
+      'adrbrowsielSync',
     )
     newTabEl.insertAdjacentElement('afterend', syncEl)
     syncEl.insertAdjacentElement('afterend', helpTipsEl)
     // Add Shields item
     const shieldsEl = createMenuElement(
-      loadTimeData.getString('braveShieldsTitle'),
+      loadTimeData.getString('adrbrowsielShieldsTitle'),
       '/shields',
-      'brave_settings:shields',
+      'adrbrowsiel_settings:shields',
       'shields',
     )
     helpTipsEl.insertAdjacentElement('afterend', shieldsEl)
@@ -202,7 +202,7 @@ RegisterPolymerTemplateModifications({
     const embedEl = createMenuElement(
       loadTimeData.getString('socialBlocking'),
       '/socialBlocking',
-      'brave_settings:social-permissions',
+      'adrbrowsiel_settings:social-permissions',
       'socialBlocking',
     )
     shieldsEl.insertAdjacentElement('afterend', embedEl)
@@ -211,25 +211,25 @@ RegisterPolymerTemplateModifications({
     embedEl.insertAdjacentElement('afterend', searchEl)
     // Add Extensions item
     const extensionEl = createMenuElement(
-      loadTimeData.getString('braveDefaultExtensions'),
+      loadTimeData.getString('adrbrowsielDefaultExtensions'),
       '/extensions',
-      'brave_settings:extensions',
+      'adrbrowsiel_settings:extensions',
       'extensions',
     )
     searchEl.insertAdjacentElement('afterend', extensionEl)
 
     const walletEl = createMenuElement(
-      loadTimeData.getString('braveWallet'),
+      loadTimeData.getString('adrbrowsielWallet'),
       '/wallet',
-      'brave_settings:wallet',
+      'adrbrowsiel_settings:wallet',
       'wallet',
     )
     extensionEl.insertAdjacentElement('afterend', walletEl)
 
     const ipfsEl = createMenuElement(
-      loadTimeData.getString('braveIPFS'),
+      loadTimeData.getString('adrbrowsielIPFS'),
       '/ipfs',
-      'brave_settings:ipfs',
+      'adrbrowsiel_settings:ipfs',
       'ipfs',
     )
     walletEl.insertAdjacentElement('afterend', ipfsEl)
@@ -250,13 +250,13 @@ RegisterPolymerTemplateModifications({
     // Remove extensions link
     const extensionsLinkEl = templateContent.querySelector('#extensionsLink')
     if (!extensionsLinkEl) {
-      console.error('[Brave Settings Overrides] Could not find extensionsLinkEl to remove')
+      console.error('[adrbrowsiel Settings Overrides] Could not find extensionsLinkEl to remove')
     }
     extensionsLinkEl.remove()
     // Add version number to 'about' link
     const aboutEl = templateContent.querySelector('#about-menu')
     if (!aboutEl) {
-      console.error('[Brave Settings Overrides] Could not find about-menu element')
+      console.error('[adrbrowsiel Settings Overrides] Could not find about-menu element')
       return
     }
     const parent = aboutEl.parentNode
@@ -267,21 +267,21 @@ RegisterPolymerTemplateModifications({
     newAboutEl.setAttribute('id', aboutEl.id)
 
     const graphicsEl = document.createElement('div')
-    graphicsEl.setAttribute('class', 'brave-about-graphic')
+    graphicsEl.setAttribute('class', 'adrbrowsiel-about-graphic')
 
     const icon = document.createElement('iron-icon')
-    icon.setAttribute('icon', 'brave_settings:full-color-brave-lion')
+    icon.setAttribute('icon', 'adrbrowsiel_settings:full-color-adrbrowsiel-lion')
 
     const metaEl = document.createElement('div')
-    metaEl.setAttribute('class', 'brave-about-meta')
+    metaEl.setAttribute('class', 'adrbrowsiel-about-meta')
 
     const menuLink = document.createElement('span')
-    menuLink.setAttribute('class', 'brave-about-item brave-about-menu-link-text')
+    menuLink.setAttribute('class', 'adrbrowsiel-about-item adrbrowsiel-about-menu-link-text')
     menuLink.textContent = aboutEl.textContent
 
     const versionEl = document.createElement('span')
-    versionEl.setAttribute('class', 'brave-about-item brave-about-menu-version')
-    versionEl.textContent = `v ${loadTimeData.getString('braveProductVersion')}`
+    versionEl.setAttribute('class', 'adrbrowsiel-about-item adrbrowsiel-about-menu-version')
+    versionEl.textContent = `v ${loadTimeData.getString('adrbrowsielProductVersion')}`
 
     parent.appendChild(newAboutEl)
     newAboutEl.appendChild(graphicsEl)

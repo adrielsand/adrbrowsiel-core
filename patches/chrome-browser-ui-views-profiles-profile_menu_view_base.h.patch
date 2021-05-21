@@ -6,7 +6,7 @@ index 0bb069903345d6ad26ed21f2a04124fcde0fa811..d56f952dc77825de783899437c327250
    void set_perform_menu_actions_for_testing(bool perform_menu_actions) {
      perform_menu_actions_ = perform_menu_actions;
    }
-+  BRAVE_PROFILE_MENU_VIEW_BASE_H_
++  adrbrowsiel_PROFILE_MENU_VIEW_BASE_H_
  
   private:
    class AXMenuWidgetObserver;

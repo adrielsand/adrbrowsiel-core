@@ -1,24 +1,24 @@
-import("//brave/components/binance/browser/buildflags/buildflags.gni")
-import("//brave/components/brave_together/buildflags/buildflags.gni")
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
-import("//brave/components/crypto_dot_com/browser/buildflags/buildflags.gni")
-import("//brave/components/gemini/browser/buildflags/buildflags.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
-import("//brave/components/ftx/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/binance/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_together/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/crypto_dot_com/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/gemini/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ftx/browser/buildflags/buildflags.gni")
 import("//tools/grit/grit_rule.gni")
 import("//tools/json_schema_compiler/json_features.gni")
 import("//tools/json_schema_compiler/json_schema_api.gni")
 json_features("api_features") {
   feature_type = "APIFeature"
-  method_name = "AddBraveAPIFeatures"
+  method_name = "AddadrbrowsielAPIFeatures"
   sources = [
     "//chrome/common/extensions/api/_api_features.json",
     "//extensions/common/api/_api_features.json",
     "_api_features.json",
   ]
 
-  if (brave_wallet_enabled) {
-    sources += [ "_brave_wallet_api_features.json" ]
+  if (adrbrowsiel_wallet_enabled) {
+    sources += [ "_adrbrowsiel_wallet_api_features.json" ]
   }
 
   if (ipfs_enabled) {
@@ -41,14 +41,14 @@ json_features("api_features") {
     sources += [ "_crypto_dot_com_features.json" ]
   }
 
-  if (brave_together_enabled) {
-    sources += [ "_brave_together_api_features.json" ]
+  if (adrbrowsiel_together_enabled) {
+    sources += [ "_adrbrowsiel_together_api_features.json" ]
   }
 }
 
 json_features("permission_features") {
   feature_type = "PermissionFeature"
-  method_name = "AddBravePermissionFeatures"
+  method_name = "AddadrbrowsielPermissionFeatures"
   sources = [
     "//chrome/common/extensions/api/_permission_features.json",
     "//extensions/common/api/_permission_features.json",
@@ -58,7 +58,7 @@ json_features("permission_features") {
 
 json_features("manifest_features") {
   feature_type = "ManifestFeature"
-  method_name = "AddBraveManifestFeatures"
+  method_name = "AddadrbrowsielManifestFeatures"
   sources = [
     "//chrome/common/extensions/api/_manifest_features.json",
     "//extensions/common/api/_manifest_features.json",
@@ -68,53 +68,53 @@ json_features("manifest_features") {
 
 json_features("behavior_features") {
   feature_type = "BehaviorFeature"
-  method_name = "AddBraveBehaviorFeatures"
+  method_name = "AddadrbrowsielBehaviorFeatures"
   sources = [ "//extensions/common/api/_behavior_features.json" ]
 }
 
-brave_extensions_api_schema_sources = [
-  "brave_rewards.json",
-  "brave_shields.json",
-  "brave_theme.json",
-  "brave_today.json",
+adrbrowsiel_extensions_api_schema_sources = [
+  "adrbrowsiel_rewards.json",
+  "adrbrowsiel_shields.json",
+  "adrbrowsiel_theme.json",
+  "adrbrowsiel_today.json",
   "greaselion.json",
   "rewards_notifications.json",
 ]
 
 if (ipfs_enabled) {
-  brave_extensions_api_schema_sources += [ "ipfs.json" ]
+  adrbrowsiel_extensions_api_schema_sources += [ "ipfs.json" ]
 }
 
-if (brave_wallet_enabled) {
-  brave_extensions_api_schema_sources += [ "brave_wallet.json" ]
+if (adrbrowsiel_wallet_enabled) {
+  adrbrowsiel_extensions_api_schema_sources += [ "adrbrowsiel_wallet.json" ]
 }
 
 if (binance_enabled) {
-  brave_extensions_api_schema_sources += [ "binance.json" ]
+  adrbrowsiel_extensions_api_schema_sources += [ "binance.json" ]
 }
 
 if (gemini_enabled) {
-  brave_extensions_api_schema_sources += [ "gemini.json" ]
+  adrbrowsiel_extensions_api_schema_sources += [ "gemini.json" ]
 }
 
 if (enable_ftx) {
-  brave_extensions_api_schema_sources += [ "ftx.json" ]
+  adrbrowsiel_extensions_api_schema_sources += [ "ftx.json" ]
 }
 
 if (crypto_dot_com_enabled) {
-  brave_extensions_api_schema_sources += [ "crypto_dot_com.json" ]
+  adrbrowsiel_extensions_api_schema_sources += [ "crypto_dot_com.json" ]
 }
 
-if (brave_together_enabled) {
-  brave_extensions_api_schema_sources += [ "brave_together.json" ]
+if (adrbrowsiel_together_enabled) {
+  adrbrowsiel_extensions_api_schema_sources += [ "adrbrowsiel_together.json" ]
 }
 
-brave_extensions_api_uncompiled_sources = []
-brave_extensions_api_root_namespace = "extensions::api::%(namespace)s"
-brave_extensions_api_schema_include_rules =
-    "//brave/common/extensions/api:extensions::api::%(namespace)s"
+adrbrowsiel_extensions_api_uncompiled_sources = []
+adrbrowsiel_extensions_api_root_namespace = "extensions::api::%(namespace)s"
+adrbrowsiel_extensions_api_schema_include_rules =
+    "//adrbrowsiel/common/extensions/api:extensions::api::%(namespace)s"
 
-brave_extensions_api_deps = [
+adrbrowsiel_extensions_api_deps = [
   ":api_features",
   ":behavior_features",
   ":manifest_features",
@@ -126,19 +126,19 @@ brave_extensions_api_deps = [
 ]
 
 grit("resources") {
-  source = "brave_api_resources.grd"
+  source = "adrbrowsiel_api_resources.grd"
   outputs = [
-    "grit/brave_api_resources.h",
-    "brave_api_resources.pak",
+    "grit/adrbrowsiel_api_resources.h",
+    "adrbrowsiel_api_resources.pak",
   ]
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 }
 
 function_registration("generated_api_registration") {
-  sources = brave_extensions_api_schema_sources
-  impl_dir = "//brave/common/extensions/api/"
-  bundle_name = "Brave"
-  root_namespace = brave_extensions_api_root_namespace
+  sources = adrbrowsiel_extensions_api_schema_sources
+  impl_dir = "//adrbrowsiel/common/extensions/api/"
+  bundle_name = "adrbrowsiel"
+  root_namespace = adrbrowsiel_extensions_api_root_namespace
 
   deps = [ "//extensions/common" ]
 
@@ -146,26 +146,26 @@ function_registration("generated_api_registration") {
 }
 
 generated_json_strings("generated_api_json_strings") {
-  sources = brave_extensions_api_schema_sources +
-            brave_extensions_api_uncompiled_sources
+  sources = adrbrowsiel_extensions_api_schema_sources +
+            adrbrowsiel_extensions_api_uncompiled_sources
 
   configs = [ "//build/config:precompiled_headers" ]
-  bundle_name = "Brave"
-  schema_include_rules = brave_extensions_api_schema_include_rules
+  bundle_name = "adrbrowsiel"
+  schema_include_rules = adrbrowsiel_extensions_api_schema_include_rules
 
-  root_namespace = brave_extensions_api_root_namespace
-  deps = brave_extensions_api_deps
+  root_namespace = adrbrowsiel_extensions_api_root_namespace
+  deps = adrbrowsiel_extensions_api_deps
 
   visibility = [ ":api" ]
 }
 
 generated_types("generated_api_types") {
-  sources = brave_extensions_api_schema_sources
+  sources = adrbrowsiel_extensions_api_schema_sources
   configs = [ "//build/config:precompiled_headers" ]
-  schema_include_rules = brave_extensions_api_schema_include_rules
+  schema_include_rules = adrbrowsiel_extensions_api_schema_include_rules
 
-  root_namespace = brave_extensions_api_root_namespace
-  deps = brave_extensions_api_deps
+  root_namespace = adrbrowsiel_extensions_api_root_namespace
+  deps = adrbrowsiel_extensions_api_deps
   visibility = [ ":api" ]
 }
 

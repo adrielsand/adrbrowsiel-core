@@ -1,4 +1,4 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,13 +10,13 @@ import("../settings.gni")
 
 group("web_modules") {
   public_deps = [
-    ":brave_help_tips_page_module",
+    ":adrbrowsiel_help_tips_page_module",
   ]
 }
 
-polymer_modulizer("brave_help_tips_page") {
-  js_file = "brave_help_tips_page.js"
-  html_file = "brave_help_tips_page.html"
+polymer_modulizer("adrbrowsiel_help_tips_page") {
+  js_file = "adrbrowsiel_help_tips_page.js"
+  html_file = "adrbrowsiel_help_tips_page.html"
   html_type = "dom-module"
   auto_imports = settings_auto_imports
   namespace_rewrites = settings_namespace_rewrites

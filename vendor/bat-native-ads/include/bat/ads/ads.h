@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_VENDOR_BAT_NATIVE_ADS_INCLUDE_BAT_ADS_ADS_H_
-#define BRAVE_VENDOR_BAT_NATIVE_ADS_INCLUDE_BAT_ADS_ADS_H_
+#ifndef adrbrowsiel_VENDOR_BAT_NATIVE_ADS_INCLUDE_BAT_ADS_ADS_H_
+#define adrbrowsiel_VENDOR_BAT_NATIVE_ADS_INCLUDE_BAT_ADS_ADS_H_
 
 #include <cstdint>
 #include <memory>
@@ -146,7 +146,7 @@ class ADS_EXPORT Ads {
                                const std::string& seed) = 0;
 
   // Should be called when a resource component has been updated by
-  // |brave_ads::ResourceComponent|
+  // |adrbrowsiel_ads::ResourceComponent|
   virtual void OnResourceComponentUpdated(const std::string& id) = 0;
 
   // Should be called to get the ad notification specified by |uuid|. Returns
@@ -245,4 +245,4 @@ class ADS_EXPORT Ads {
 
 }  // namespace ads
 
-#endif  // BRAVE_VENDOR_BAT_NATIVE_ADS_INCLUDE_BAT_ADS_ADS_H_
+#endif  // adrbrowsiel_VENDOR_BAT_NATIVE_ADS_INCLUDE_BAT_ADS_ADS_H_

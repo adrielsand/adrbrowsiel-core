@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BROWSING_DATA_BRAVE_CLEAR_BROWSING_DATA_H_
-#define BRAVE_BROWSER_BROWSING_DATA_BRAVE_CLEAR_BROWSING_DATA_H_
+#ifndef adrbrowsiel_BROWSER_BROWSING_DATA_adrbrowsiel_CLEAR_BROWSING_DATA_H_
+#define adrbrowsiel_BROWSER_BROWSING_DATA_adrbrowsiel_CLEAR_BROWSING_DATA_H_
 
 #include "base/macros.h"
 
@@ -12,11 +12,11 @@ namespace content {
 class BrowsingDataRemover;
 }
 class Profile;
-class BraveClearDataOnExitTest;
+class adrbrowsielClearDataOnExitTest;
 
 namespace content {
 
-class BraveClearBrowsingData {
+class adrbrowsielClearBrowsingData {
  public:
   // Clears browsing data for all loaded non-off-the-record profiles.
   // Profile's *OnExit preferences determine what gets cleared.
@@ -34,7 +34,7 @@ class BraveClearBrowsingData {
   };
 
  protected:
-  friend class ::BraveClearDataOnExitTest;
+  friend class ::adrbrowsielClearDataOnExitTest;
 
   // Used for testing only.
   static void SetOnExitTestingCallback(OnExitTestingCallback* callback);
@@ -42,9 +42,9 @@ class BraveClearBrowsingData {
  private:
   static OnExitTestingCallback* on_exit_testing_callback_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveClearBrowsingData);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielClearBrowsingData);
 };
 
 }  // namespace content
 
-#endif  // BRAVE_BROWSER_BROWSING_DATA_BRAVE_CLEAR_BROWSING_DATA_H_
+#endif  // adrbrowsiel_BROWSER_BROWSING_DATA_adrbrowsiel_CLEAR_BROWSING_DATA_H_

@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,13 +8,13 @@
 #include "base/files/file_util.h"
 #include "base/path_service.h"
 #include "base/time/time.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/brave_stats/brave_stats_updater.h"
-#include "brave/browser/brave_stats/brave_stats_updater_params.h"
-#include "brave/browser/brave_stats/switches.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_referrals/browser/brave_referrals_service.h"
-#include "brave/components/brave_referrals/common/pref_names.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/adrbrowsiel_stats_updater.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/adrbrowsiel_stats_updater_params.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/switches.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/common/pref_names.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -51,20 +51,20 @@ std::unique_ptr<net::test_server::HttpResponse> HandleRequestForStats(
 
 }  // anonymous namespace
 
-class BraveStatsUpdaterBrowserTest : public InProcessBrowserTest {
+class adrbrowsielStatsUpdaterBrowserTest : public InProcessBrowserTest {
  public:
   void SetUp() override {
-    brave::BraveReferralsService::SetReferralInitializedCallbackForTesting(
+    adrbrowsiel::adrbrowsielReferralsService::SetReferralInitializedCallbackForTesting(
         base::BindRepeating(
-            &BraveStatsUpdaterBrowserTest::OnReferralInitialized,
+            &adrbrowsielStatsUpdaterBrowserTest::OnReferralInitialized,
             base::Unretained(this)));
-    brave_stats::BraveStatsUpdater::SetStatsUpdatedCallbackForTesting(
+    adrbrowsiel_stats::adrbrowsielStatsUpdater::SetStatsUpdatedCallbackForTesting(
         base::BindRepeating(
-            &BraveStatsUpdaterBrowserTest::OnStandardStatsUpdated,
+            &adrbrowsielStatsUpdaterBrowserTest::OnStandardStatsUpdated,
             base::Unretained(this)));
-    brave_stats::BraveStatsUpdater::SetStatsThresholdCallbackForTesting(
+    adrbrowsiel_stats::adrbrowsielStatsUpdater::SetStatsThresholdCallbackForTesting(
         base::BindRepeating(
-            &BraveStatsUpdaterBrowserTest::OnThresholdStatsUpdated,
+            &adrbrowsielStatsUpdaterBrowserTest::OnThresholdStatsUpdated,
             base::Unretained(this)));
     InProcessBrowserTest::SetUp();
   }
@@ -74,16 +74,16 @@ class BraveStatsUpdaterBrowserTest : public InProcessBrowserTest {
         base::Bind(&HandleRequestForStats));
     ASSERT_TRUE(embedded_test_server()->Start());
     command_line->AppendSwitchASCII(
-        brave_stats::switches::kBraveStatsUpdaterServer,
+        adrbrowsiel_stats::switches::kadrbrowsielStatsUpdaterServer,
         embedded_test_server()->base_url().spec());
     SetBaseUpdateURLForTest();
   }
 
   void SetBaseUpdateURLForTest() {
     std::unique_ptr<base::Environment> env(base::Environment::Create());
-    env->SetVar("BRAVE_REFERRALS_SERVER",
+    env->SetVar("adrbrowsiel_REFERRALS_SERVER",
                 embedded_test_server()->host_port_pair().ToString());
-    env->SetVar("BRAVE_REFERRALS_LOCAL", "1");  // use http for local testing
+    env->SetVar("adrbrowsiel_REFERRALS_LOCAL", "1");  // use http for local testing
   }
 
   std::string GetUpdateURL() const { return update_url_; }
@@ -113,8 +113,8 @@ class BraveStatsUpdaterBrowserTest : public InProcessBrowserTest {
 
     on_standard_stats_updated_ = true;
 
-    // We get //1/usage/brave-core here, so ignore the first slash.
-    EXPECT_STREQ(update_url.path().c_str() + 1, "/1/usage/brave-core");
+    // We get //1/usage/adrbrowsiel-core here, so ignore the first slash.
+    EXPECT_STREQ(update_url.path().c_str() + 1, "/1/usage/adrbrowsiel-core");
     update_url_ = update_url.spec();
   }
 
@@ -134,9 +134,9 @@ class BraveStatsUpdaterBrowserTest : public InProcessBrowserTest {
 
     on_threshold_stats_updated_ = true;
 
-    // We get //1/usage/brave-core-threshold here, so ignore the first slash.
+    // We get //1/usage/adrbrowsiel-core-threshold here, so ignore the first slash.
     EXPECT_STREQ(update_url.path().c_str() + 1,
-                 "/1/usage/brave-core-threshold");
+                 "/1/usage/adrbrowsiel-core-threshold");
     update_url_ = update_url.spec();
   }
 
@@ -163,7 +163,7 @@ class BraveStatsUpdaterBrowserTest : public InProcessBrowserTest {
 };
 
 // Run the stats updater and verify that it sets the first check preference
-IN_PROC_BROWSER_TEST_F(BraveStatsUpdaterBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielStatsUpdaterBrowserTest,
                        StatsUpdaterSetsFirstCheckPreference) {
   WaitForReferralInitializeCallback();
   WaitForStandardStatsUpdatedCallback();
@@ -173,10 +173,10 @@ IN_PROC_BROWSER_TEST_F(BraveStatsUpdaterBrowserTest,
 }
 
 // Run the stats updater and verify the threshold endpoint is reached
-IN_PROC_BROWSER_TEST_F(BraveStatsUpdaterBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielStatsUpdaterBrowserTest,
                        StatsUpdaterThresholdSetsFirstCheckPreference) {
   EXPECT_TRUE(
-      g_brave_browser_process->brave_stats_updater()->MaybeDoThresholdPing(3));
+      g_adrbrowsiel_browser_process->adrbrowsiel_stats_updater()->MaybeDoThresholdPing(3));
 
   WaitForReferralInitializeCallback();
   WaitForThresholdStatsUpdatedCallback();
@@ -189,7 +189,7 @@ IN_PROC_BROWSER_TEST_F(BraveStatsUpdaterBrowserTest,
 
 // Run the stats updater with no active referral and verify that the
 // update url specifies the default referral code
-IN_PROC_BROWSER_TEST_F(BraveStatsUpdaterBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielStatsUpdaterBrowserTest,
                        StatsUpdaterStartupPingWithDefaultReferralCode) {
   WaitForReferralInitializeCallback();
   WaitForStandardStatsUpdatedCallback();
@@ -213,7 +213,7 @@ IN_PROC_BROWSER_TEST_F(BraveStatsUpdaterBrowserTest,
 }
 
 // TODO(bridiver) - convert to a unit test
-IN_PROC_BROWSER_TEST_F(BraveStatsUpdaterBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielStatsUpdaterBrowserTest,
                        DISABLED_StatsUpdaterMigration) {
   // Create a pre 1.19 user.
   // Has a download_id, kReferralCheckedForPromoCodeFile is set, has promo code.
@@ -239,16 +239,16 @@ IN_PROC_BROWSER_TEST_F(BraveStatsUpdaterBrowserTest,
   EXPECT_STREQ(query_value.c_str(), "BRV001");
 }
 
-class BraveStatsUpdaterReferralCodeBrowserTest
-    : public BraveStatsUpdaterBrowserTest {
+class adrbrowsielStatsUpdaterReferralCodeBrowserTest
+    : public adrbrowsielStatsUpdaterBrowserTest {
  public:
   void SetUp() override {
     ASSERT_TRUE(dir.CreateUniqueTempDir());
     const base::FilePath promo_code_file =
         dir.GetPath().AppendASCII("promoCode");
     WritePromoCodeFile(promo_code_file, referral_code());
-    brave::BraveReferralsService::SetPromoFilePathForTesting(promo_code_file);
-    BraveStatsUpdaterBrowserTest::SetUp();
+    adrbrowsiel::adrbrowsielReferralsService::SetPromoFilePathForTesting(promo_code_file);
+    adrbrowsielStatsUpdaterBrowserTest::SetUp();
   }
 
   int WritePromoCodeFile(const base::FilePath& promo_code_file,
@@ -266,7 +266,7 @@ class BraveStatsUpdaterReferralCodeBrowserTest
 
 // Run the stats updater with an active referral and verify that the
 // update url includes the referral code
-IN_PROC_BROWSER_TEST_F(BraveStatsUpdaterReferralCodeBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielStatsUpdaterReferralCodeBrowserTest,
                        StatsUpdaterStartupPingWithReferralCode) {
   WaitForReferralInitializeCallback();
   WaitForStandardStatsUpdatedCallback();

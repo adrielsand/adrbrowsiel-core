@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -14,14 +14,14 @@
 // clang-format on
 
 // Determines verbosity of output based on the value of the environmental
-// variable BRAVE_BUILD_SHOW_REDIRECT_CC_CMD (set to 1 for verbose).
+// variable adrbrowsiel_BUILD_SHOW_REDIRECT_CC_CMD (set to 1 for verbose).
 BOOL IsVerbose() {
   wchar_t buffer[2];
   DWORD dwRet =
-      GetEnvironmentVariableW(L"BRAVE_BUILD_SHOW_REDIRECT_CC_CMD", buffer, 2);
+      GetEnvironmentVariableW(L"adrbrowsiel_BUILD_SHOW_REDIRECT_CC_CMD", buffer, 2);
   if (dwRet > 2) {
     wprintf(
-        L"REDIRECT-CC: BRAVE_BUILD_SHOW_REDIRECT_CC_CMD env. var. is expected "
+        L"REDIRECT-CC: adrbrowsiel_BUILD_SHOW_REDIRECT_CC_CMD env. var. is expected "
         L"to be either 0 or 1.\n");
     return FALSE;
   } else if (dwRet == 0) {
@@ -29,7 +29,7 @@ BOOL IsVerbose() {
     if (dwRet != ERROR_ENVVAR_NOT_FOUND) {
       wprintf(
           L"REDIRECT-CC: Error getting env. var. "
-          L"BRAVE_BUILD_SHOW_REDIRECT_CC_CMD (%d).\n",
+          L"adrbrowsiel_BUILD_SHOW_REDIRECT_CC_CMD (%d).\n",
           dwRet);
     }
     return FALSE;
@@ -62,7 +62,7 @@ int wmain(int argc, wchar_t* argv[]) {
 
   // Build the new command line that calls python with our script.
   std::wstring cmd_line_builder =
-      L"python ..\\..\\brave\\script\\redirect-cc.py";
+      L"python ..\\..\\adrbrowsiel\\script\\redirect-cc.py";
   for (int i = 1; i < argc; i++) {
     cmd_line_builder.append(_T(" "));
     // Double-quote escape args as they may have spaces.

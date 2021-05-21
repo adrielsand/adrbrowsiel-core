@@ -6,7 +6,7 @@ index ee0ea0e192723fc176f231836c0062cfd444ddea..509dab2a06ddadb0441c6d31c71f2876
      "traffic_logger.h",
      "update_handler.h",
    ]
-+  import("//brave/components/sync/sources.gni") sources += brave_components_sync_sources
++  import("//adrbrowsiel/components/sync/sources.gni") sources += adrbrowsiel_components_sync_sources
  
    configs += [
      # The target has >50 .cc files, so speed up the build with

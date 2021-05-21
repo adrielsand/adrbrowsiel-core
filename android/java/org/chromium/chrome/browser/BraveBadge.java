@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,11 +13,11 @@ import android.widget.TextView;
 
 import org.chromium.chrome.R;
 
-public class BraveBadge extends TextView {
+public class adrbrowsielBadge extends TextView {
   /**
    * Update by using the following
-   * BraveBadge.update(this, BraveBadge.BadgeType.REWARDS, 77);
-   * BraveBadge.update(this, BraveBadge.BadgeType.SHIELDS, 88);
+   * adrbrowsielBadge.update(this, adrbrowsielBadge.BadgeType.REWARDS, 77);
+   * adrbrowsielBadge.update(this, adrbrowsielBadge.BadgeType.SHIELDS, 88);
    */
 
     public enum BadgeType {
@@ -42,7 +42,7 @@ public class BraveBadge extends TextView {
         }
     }
 
-    public BraveBadge(Context context, AttributeSet attrs) {
+    public adrbrowsielBadge(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -62,25 +62,25 @@ public class BraveBadge extends TextView {
      * update the given menu item with badgeCount
      */
     public static void update(final Activity activity, BadgeType badgeType, int counter) {
-        BraveBadge toShow;
-        BraveBadge toHide;
+        adrbrowsielBadge toShow;
+        adrbrowsielBadge toHide;
 
         // Set Color
         //if (badgeType == BadgeType.SHIELDS) {
             if (counter < 10) {
-              toShow = (BraveBadge) activity.findViewById(R.id.brave_shields_badge_small);
-              toHide = (BraveBadge) activity.findViewById(R.id.brave_shields_badge_large);
+              toShow = (adrbrowsielBadge) activity.findViewById(R.id.adrbrowsiel_shields_badge_small);
+              toHide = (adrbrowsielBadge) activity.findViewById(R.id.adrbrowsiel_shields_badge_large);
             } else {
-              toShow = (BraveBadge) activity.findViewById(R.id.brave_shields_badge_large);
-              toHide = (BraveBadge) activity.findViewById(R.id.brave_shields_badge_small);
+              toShow = (adrbrowsielBadge) activity.findViewById(R.id.adrbrowsiel_shields_badge_large);
+              toHide = (adrbrowsielBadge) activity.findViewById(R.id.adrbrowsiel_shields_badge_small);
             }
         // } else {
         //     if (counter < 10) {
-        //       toShow = (BraveBadge) activity.findViewById(R.id.brave_rewards_badge_small);
-        //       toHide = (BraveBadge) activity.findViewById(R.id.brave_rewards_badge_large);
+        //       toShow = (adrbrowsielBadge) activity.findViewById(R.id.adrbrowsiel_rewards_badge_small);
+        //       toHide = (adrbrowsielBadge) activity.findViewById(R.id.adrbrowsiel_rewards_badge_large);
         //     } else {
-        //       toShow = (BraveBadge) activity.findViewById(R.id.brave_rewards_badge_large);
-        //       toHide = (BraveBadge) activity.findViewById(R.id.brave_rewards_badge_small);
+        //       toShow = (adrbrowsielBadge) activity.findViewById(R.id.adrbrowsiel_rewards_badge_large);
+        //       toHide = (adrbrowsielBadge) activity.findViewById(R.id.adrbrowsiel_rewards_badge_small);
         //     }
         // }
 

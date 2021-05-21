@@ -6,7 +6,7 @@ index 3fabf9995c87458d15da377c47304d4f680a1358..f1a31f7945a838df6fad1cbf221b0590
    if (!_node)
      return nil;
  
-+  BRAVE_ACCESSIBILITY_ATTRIBUTED_STRING_FOR_RANGE
++  adrbrowsiel_ACCESSIBILITY_ATTRIBUTED_STRING_FOR_RANGE
    // TODO(https://crbug.com/958811): Implement this for real.
    base::scoped_nsobject<NSAttributedString> attributedString(
        [[NSAttributedString alloc]

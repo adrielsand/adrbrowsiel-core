@@ -6,7 +6,7 @@ index 5f85a90f2f2800c00bf0367c1de83ff36d8b8fe7..9ab88b8a25b36afdbe3016fd20cc2934
  
  SimpleFactoryKey* SupervisedUserSettingsServiceFactory::GetKeyToUse(
      SimpleFactoryKey* key) const {
-+  BRAVE_GET_KEY_TO_USE
++  adrbrowsiel_GET_KEY_TO_USE
    ProfileKey* profile_key = ProfileKey::FromSimpleFactoryKey(key);
    return profile_key->GetOriginalKey();
  }

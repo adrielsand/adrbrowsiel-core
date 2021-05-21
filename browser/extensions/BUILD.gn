@@ -1,75 +1,75 @@
-import("//brave/components/binance/browser/buildflags/buildflags.gni")
-import("//brave/components/brave_rewards/browser/buildflags/buildflags.gni")
-import("//brave/components/brave_together/buildflags/buildflags.gni")
-import("//brave/components/brave_wallet/browser/config.gni")
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
-import("//brave/components/brave_wayback_machine/buildflags/buildflags.gni")
-import("//brave/components/brave_webtorrent/browser/buildflags/buildflags.gni")
-import("//brave/components/crypto_dot_com/browser/buildflags/buildflags.gni")
-import("//brave/components/decentralized_dns/buildflags/buildflags.gni")
-import("//brave/components/ftx/browser/buildflags/buildflags.gni")
-import("//brave/components/gemini/browser/buildflags/buildflags.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
-import("//brave/components/sidebar/buildflags/buildflags.gni")
-import("//brave/components/tor/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/binance/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_together/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/browser/config.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wayback_machine/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/crypto_dot_com/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/decentralized_dns/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ftx/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/gemini/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/sidebar/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/tor/buildflags/buildflags.gni")
 import("//build/config/features.gni")
 import("//components/gcm_driver/config.gni")
 
 source_set("extensions") {
-  # Remove when https://github.com/brave/brave-browser/issues/10661 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10661 is resolved
   check_includes = false
   sources = [
-    "api/brave_action_api.cc",
-    "api/brave_action_api.h",
-    "api/brave_extensions_api_client.cc",
-    "api/brave_extensions_api_client.h",
-    "api/brave_shields_api.cc",
-    "api/brave_shields_api.h",
-    "api/brave_theme_api.cc",
-    "api/brave_theme_api.h",
-    "api/brave_today_api.cc",
-    "api/brave_today_api.h",
+    "api/adrbrowsiel_action_api.cc",
+    "api/adrbrowsiel_action_api.h",
+    "api/adrbrowsiel_extensions_api_client.cc",
+    "api/adrbrowsiel_extensions_api_client.h",
+    "api/adrbrowsiel_shields_api.cc",
+    "api/adrbrowsiel_shields_api.h",
+    "api/adrbrowsiel_theme_api.cc",
+    "api/adrbrowsiel_theme_api.h",
+    "api/adrbrowsiel_today_api.cc",
+    "api/adrbrowsiel_today_api.h",
     "api/greaselion_api.cc",
     "api/greaselion_api.h",
-    "api/settings_private/brave_prefs_util.cc",
-    "api/settings_private/brave_prefs_util.h",
-    "brave_component_loader.cc",
-    "brave_component_loader.h",
-    "brave_extension_management.cc",
-    "brave_extension_management.h",
-    "brave_extension_provider.cc",
-    "brave_extension_provider.h",
-    "brave_extension_service.cc",
-    "brave_extension_service.h",
-    "brave_extensions_browser_api_provider.cc",
-    "brave_extensions_browser_api_provider.h",
-    "brave_extensions_browser_client_impl.cc",
-    "brave_extensions_browser_client_impl.h",
-    "brave_theme_event_router.cc",
-    "brave_theme_event_router.h",
-    "updater/brave_update_client_config.cc",
-    "updater/brave_update_client_config.h",
+    "api/settings_private/adrbrowsiel_prefs_util.cc",
+    "api/settings_private/adrbrowsiel_prefs_util.h",
+    "adrbrowsiel_component_loader.cc",
+    "adrbrowsiel_component_loader.h",
+    "adrbrowsiel_extension_management.cc",
+    "adrbrowsiel_extension_management.h",
+    "adrbrowsiel_extension_provider.cc",
+    "adrbrowsiel_extension_provider.h",
+    "adrbrowsiel_extension_service.cc",
+    "adrbrowsiel_extension_service.h",
+    "adrbrowsiel_extensions_browser_api_provider.cc",
+    "adrbrowsiel_extensions_browser_api_provider.h",
+    "adrbrowsiel_extensions_browser_client_impl.cc",
+    "adrbrowsiel_extensions_browser_client_impl.h",
+    "adrbrowsiel_theme_event_router.cc",
+    "adrbrowsiel_theme_event_router.h",
+    "updater/adrbrowsiel_update_client_config.cc",
+    "updater/adrbrowsiel_update_client_config.h",
   ]
 
   deps = [
     ":resources",
     "//base",
-    "//brave/app:brave_generated_resources_grit",
-    "//brave/browser/profiles",
-    "//brave/browser/webcompat_reporter",
-    "//brave/common",
-    "//brave/common:pref_names",
-    "//brave/common/extensions/api",
-    "//brave/components/brave_component_updater/browser",
-    "//brave/components/brave_rewards/browser/buildflags",
-    "//brave/components/brave_shields/browser",
-    "//brave/components/brave_shields/common",
-    "//brave/components/brave_today/browser",
-    "//brave/components/brave_wayback_machine:buildflags",
-    "//brave/components/decentralized_dns/buildflags",
-    "//brave/components/ipfs/buildflags",
-    "//brave/components/sidebar/buildflags",
-    "//brave/components/tor/buildflags",
+    "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+    "//adrbrowsiel/browser/profiles",
+    "//adrbrowsiel/browser/webcompat_reporter",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/common:pref_names",
+    "//adrbrowsiel/common/extensions/api",
+    "//adrbrowsiel/components/adrbrowsiel_component_updater/browser",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags",
+    "//adrbrowsiel/components/adrbrowsiel_shields/browser",
+    "//adrbrowsiel/components/adrbrowsiel_shields/common",
+    "//adrbrowsiel/components/adrbrowsiel_today/browser",
+    "//adrbrowsiel/components/adrbrowsiel_wayback_machine:buildflags",
+    "//adrbrowsiel/components/decentralized_dns/buildflags",
+    "//adrbrowsiel/components/ipfs/buildflags",
+    "//adrbrowsiel/components/sidebar/buildflags",
+    "//adrbrowsiel/components/tor/buildflags",
     "//chrome/browser/extensions",
     "//chrome/common",
     "//components/gcm_driver:gcm_buildflags",
@@ -89,23 +89,23 @@ source_set("extensions") {
   ]
 
   if (enable_sidebar) {
-    deps += [ "//brave/components/sidebar" ]
+    deps += [ "//adrbrowsiel/components/sidebar" ]
   }
 
-  if (brave_wallet_enabled) {
+  if (adrbrowsiel_wallet_enabled) {
     sources += [
-      "api/brave_wallet_api.cc",
-      "api/brave_wallet_api.h",
-      "brave_wallet_util.cc",
-      "brave_wallet_util.h",
+      "api/adrbrowsiel_wallet_api.cc",
+      "api/adrbrowsiel_wallet_api.h",
+      "adrbrowsiel_wallet_util.cc",
+      "adrbrowsiel_wallet_util.h",
     ]
     configs += [
       ":infura_config",
-      ":brave_services_config",
+      ":adrbrowsiel_services_config",
     ]
     deps += [
-      "//brave/components/brave_wallet/browser",
-      "//brave/components/brave_wallet/common",
+      "//adrbrowsiel/components/adrbrowsiel_wallet/browser",
+      "//adrbrowsiel/components/adrbrowsiel_wallet/common",
     ]
   }
 
@@ -114,38 +114,38 @@ source_set("extensions") {
       "api/ipfs_api.cc",
       "api/ipfs_api.h",
     ]
-    deps += [ "//brave/components/ipfs" ]
+    deps += [ "//adrbrowsiel/components/ipfs" ]
   }
 
   if (decentralized_dns_enabled) {
-    deps += [ "//brave/components/decentralized_dns" ]
+    deps += [ "//adrbrowsiel/components/decentralized_dns" ]
   }
 
-  if (brave_rewards_enabled) {
+  if (adrbrowsiel_rewards_enabled) {
     sources += [
-      "api/brave_rewards_api.cc",
-      "api/brave_rewards_api.h",
+      "api/adrbrowsiel_rewards_api.cc",
+      "api/adrbrowsiel_rewards_api.h",
       "api/rewards_notifications_api.cc",
       "api/rewards_notifications_api.h",
     ]
 
     deps += [
-      "//brave/browser/brave_ads",
-      "//brave/components/brave_ads/browser",
-      "//brave/components/brave_rewards/browser",
-      "//brave/vendor/bat-native-ads:headers",
-      "//brave/vendor/bat-native-ledger:headers",
+      "//adrbrowsiel/browser/adrbrowsiel_ads",
+      "//adrbrowsiel/components/adrbrowsiel_ads/browser",
+      "//adrbrowsiel/components/adrbrowsiel_rewards/browser",
+      "//adrbrowsiel/vendor/bat-native-ads:headers",
+      "//adrbrowsiel/vendor/bat-native-ledger:headers",
     ]
   }
-  if (enable_brave_webtorrent) {
-    deps += [ "//brave/components/brave_webtorrent/browser" ]
+  if (enable_adrbrowsiel_webtorrent) {
+    deps += [ "//adrbrowsiel/components/adrbrowsiel_webtorrent/browser" ]
     sources += [
-      "brave_webtorrent_navigation_throttle.cc",
-      "brave_webtorrent_navigation_throttle.h",
+      "adrbrowsiel_webtorrent_navigation_throttle.cc",
+      "adrbrowsiel_webtorrent_navigation_throttle.h",
     ]
   }
-  if (enable_brave_wayback_machine) {
-    deps += [ "//brave/components/brave_wayback_machine" ]
+  if (enable_adrbrowsiel_wayback_machine) {
+    deps += [ "//adrbrowsiel/components/adrbrowsiel_wayback_machine" ]
   }
   if (gemini_enabled) {
     sources += [
@@ -153,8 +153,8 @@ source_set("extensions") {
       "api/gemini_api.h",
     ]
     deps += [
-      "//brave/components/gemini/browser",
-      "//brave/components/ntp_widget_utils/browser",
+      "//adrbrowsiel/components/gemini/browser",
+      "//adrbrowsiel/components/ntp_widget_utils/browser",
     ]
   }
 
@@ -164,9 +164,9 @@ source_set("extensions") {
       "api/ftx_api.h",
     ]
     deps += [
-      "//brave/components/ftx/browser",
-      "//brave/components/ftx/common",
-      "//brave/components/ntp_widget_utils/browser",
+      "//adrbrowsiel/components/ftx/browser",
+      "//adrbrowsiel/components/ftx/common",
+      "//adrbrowsiel/components/ntp_widget_utils/browser",
     ]
   }
 
@@ -177,20 +177,20 @@ source_set("extensions") {
     ]
 
     deps += [
-      "//brave/components/binance/browser",
-      "//brave/components/ntp_widget_utils/browser",
+      "//adrbrowsiel/components/binance/browser",
+      "//adrbrowsiel/components/ntp_widget_utils/browser",
     ]
   }
 
-  if (brave_together_enabled) {
+  if (adrbrowsiel_together_enabled) {
     sources += [
-      "api/brave_together_api.cc",
-      "api/brave_together_api.h",
+      "api/adrbrowsiel_together_api.cc",
+      "api/adrbrowsiel_together_api.h",
     ]
 
     deps += [
-      "//brave/components/brave_together/browser",
-      "//brave/components/ntp_widget_utils/browser",
+      "//adrbrowsiel/components/adrbrowsiel_together/browser",
+      "//adrbrowsiel/components/ntp_widget_utils/browser",
     ]
   }
   if (crypto_dot_com_enabled) {
@@ -199,11 +199,11 @@ source_set("extensions") {
       "api/crypto_dot_com_api.h",
     ]
     deps += [
-      "//brave/browser/profiles",
-      "//brave/common",
-      "//brave/components/crypto_dot_com/browser",
-      "//brave/components/crypto_dot_com/common/",
-      "//brave/components/ntp_widget_utils/browser",
+      "//adrbrowsiel/browser/profiles",
+      "//adrbrowsiel/common",
+      "//adrbrowsiel/components/crypto_dot_com/browser",
+      "//adrbrowsiel/components/crypto_dot_com/common/",
+      "//adrbrowsiel/components/ntp_widget_utils/browser",
       "//chrome/browser/extensions",
       "//components/prefs",
       "//extensions/browser",
@@ -214,27 +214,27 @@ source_set("extensions") {
 
 group("resources") {
   deps = [
-    "//brave/components/brave_extension:generated_resources",
-    "//brave/components/brave_extension:static_resources",
+    "//adrbrowsiel/components/adrbrowsiel_extension:generated_resources",
+    "//adrbrowsiel/components/adrbrowsiel_extension:static_resources",
   ]
-  if (brave_rewards_enabled) {
+  if (adrbrowsiel_rewards_enabled) {
     deps += [
-      "//brave/components/brave_rewards/resources/extension:extension_generated_resources",
-      "//brave/components/brave_rewards/resources/extension:static_resources",
+      "//adrbrowsiel/components/adrbrowsiel_rewards/resources/extension:extension_generated_resources",
+      "//adrbrowsiel/components/adrbrowsiel_rewards/resources/extension:static_resources",
     ]
   }
-  if (enable_brave_webtorrent) {
+  if (enable_adrbrowsiel_webtorrent) {
     deps += [
-      "//brave/components/brave_webtorrent:generated_resources",
-      "//brave/components/brave_webtorrent:static_resources",
+      "//adrbrowsiel/components/adrbrowsiel_webtorrent:generated_resources",
+      "//adrbrowsiel/components/adrbrowsiel_webtorrent:static_resources",
     ]
   }
 }
 
-config("brave_services_config") {
-  defines = [ "BRAVE_SERVICES_KEY=\"$brave_services_key\"" ]
+config("adrbrowsiel_services_config") {
+  defines = [ "adrbrowsiel_SERVICES_KEY=\"$adrbrowsiel_services_key\"" ]
 }
 
 config("infura_config") {
-  defines = [ "BRAVE_INFURA_PROJECT_ID=\"$brave_infura_project_id\"" ]
+  defines = [ "adrbrowsiel_INFURA_PROJECT_ID=\"$adrbrowsiel_infura_project_id\"" ]
 }

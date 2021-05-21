@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/android/brave_sync_worker.h"
+#include "adrbrowsiel/browser/android/adrbrowsiel_sync_worker.h"
 
 #include <string>
 #include <vector>
@@ -14,11 +14,11 @@
 #include "base/path_service.h"
 #include "base/strings/string_number_conversions.h"
 
-#include "brave/build/android/jni_headers/BraveSyncWorker_jni.h"
-#include "brave/components/brave_sync/brave_sync_prefs.h"
-#include "brave/components/brave_sync/crypto/crypto.h"
-#include "brave/components/brave_sync/profile_sync_service_helper.h"
-#include "brave/components/sync/driver/brave_sync_profile_sync_service.h"
+#include "adrbrowsiel/build/android/jni_headers/adrbrowsielSyncWorker_jni.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/adrbrowsiel_sync_prefs.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/crypto/crypto.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/profile_sync_service_helper.h"
+#include "adrbrowsiel/components/sync/driver/adrbrowsiel_sync_profile_sync_service.h"
 
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/profiles/profile_manager.h"
@@ -49,45 +49,45 @@ namespace chrome {
 namespace android {
 
 // Keep this to clear V1 stuff on migrating
-#define DB_FILE_NAME      "brave_sync_db"
+#define DB_FILE_NAME      "adrbrowsiel_sync_db"
 
-BraveSyncWorker::BraveSyncWorker(JNIEnv* env,
+adrbrowsielSyncWorker::adrbrowsielSyncWorker(JNIEnv* env,
                                  const base::android::JavaRef<jobject>& obj)
-    : weak_java_brave_sync_worker_(env, obj) {
-  Java_BraveSyncWorker_setNativePtr(env, obj, reinterpret_cast<intptr_t>(this));
+    : weak_java_adrbrowsiel_sync_worker_(env, obj) {
+  Java_adrbrowsielSyncWorker_setNativePtr(env, obj, reinterpret_cast<intptr_t>(this));
 
   profile_ = ProfileManager::GetActiveUserProfile()->GetOriginalProfile();
   DCHECK_NE(profile_, nullptr);
 }
 
-BraveSyncWorker::~BraveSyncWorker() {}
+adrbrowsielSyncWorker::~adrbrowsielSyncWorker() {}
 
-void BraveSyncWorker::Destroy(JNIEnv* env) {
+void adrbrowsielSyncWorker::Destroy(JNIEnv* env) {
   delete this;
 }
 
-static void JNI_BraveSyncWorker_DestroyV1LevelDb(JNIEnv* env) {
+static void JNI_adrbrowsielSyncWorker_DestroyV1LevelDb(JNIEnv* env) {
   base::FilePath app_data_path;
   base::PathService::Get(base::DIR_ANDROID_APP_DATA, &app_data_path);
   base::FilePath dbFilePath = app_data_path.Append(DB_FILE_NAME);
 
   leveldb::Status status =
       leveldb::DestroyDB(dbFilePath.value().c_str(), leveldb::Options());
-  VLOG(3) << "[BraveSync] " << __func__ << " destroy DB status is "
+  VLOG(3) << "[adrbrowsielSync] " << __func__ << " destroy DB status is "
           << status.ToString();
 }
 
-static void JNI_BraveSyncWorker_MarkSyncV1WasEnabledAndMigrated(JNIEnv* env) {
+static void JNI_adrbrowsielSyncWorker_MarkSyncV1WasEnabledAndMigrated(JNIEnv* env) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   Profile* profile =
       ProfileManager::GetActiveUserProfile()->GetOriginalProfile();
-  brave_sync::Prefs brave_sync_prefs(profile->GetPrefs());
-  brave_sync_prefs.SetSyncV1WasEnabled();
-  brave_sync_prefs.SetSyncV1Migrated(true);
-  VLOG(3) << "[BraveSync] " << __func__ << " done";
+  adrbrowsiel_sync::Prefs adrbrowsiel_sync_prefs(profile->GetPrefs());
+  adrbrowsiel_sync_prefs.SetSyncV1WasEnabled();
+  adrbrowsiel_sync_prefs.SetSyncV1Migrated(true);
+  VLOG(3) << "[adrbrowsielSync] " << __func__ << " done";
 }
 
-base::android::ScopedJavaLocalRef<jstring> BraveSyncWorker::GetSyncCodeWords(
+base::android::ScopedJavaLocalRef<jstring> adrbrowsielSyncWorker::GetSyncCodeWords(
     JNIEnv* env) {
   auto* sync_service = GetSyncService();
   std::string sync_code;
@@ -97,7 +97,7 @@ base::android::ScopedJavaLocalRef<jstring> BraveSyncWorker::GetSyncCodeWords(
   return base::android::ConvertUTF8ToJavaString(env, sync_code);
 }
 
-void BraveSyncWorker::SaveCodeWords(
+void adrbrowsielSyncWorker::SaveCodeWords(
     JNIEnv* env,
     const base::android::JavaParamRef<jstring>& passphrase) {
   std::string str_passphrase =
@@ -116,9 +116,9 @@ void BraveSyncWorker::SaveCodeWords(
   passphrase_ = str_passphrase;
 }
 
-syncer::BraveProfileSyncService* BraveSyncWorker::GetSyncService() const {
+syncer::adrbrowsielProfileSyncService* adrbrowsielSyncWorker::GetSyncService() const {
   return ProfileSyncServiceFactory::IsSyncAllowed(profile_)
-             ? static_cast<syncer::BraveProfileSyncService*>(
+             ? static_cast<syncer::adrbrowsielProfileSyncService*>(
                  ProfileSyncServiceFactory::GetForProfile(profile_))
              : nullptr;
 }
@@ -126,7 +126,7 @@ syncer::BraveProfileSyncService* BraveSyncWorker::GetSyncService() const {
 // Most of methods below were taken from by PeopleHandler class to
 // bring the logic of enabling / disabling sync from deskop to Android
 
-void BraveSyncWorker::RequestSync(JNIEnv* env) {
+void adrbrowsielSyncWorker::RequestSync(JNIEnv* env) {
   syncer::SyncService* service =
       ProfileSyncServiceFactory::GetForProfile(profile_);
 
@@ -143,7 +143,7 @@ void BraveSyncWorker::RequestSync(JNIEnv* env) {
   }
 }
 
-void BraveSyncWorker::MarkFirstSetupComplete() {
+void adrbrowsielSyncWorker::MarkFirstSetupComplete() {
   syncer::SyncService* service = GetSyncService();
 
   // The sync service may be nullptr if it has been just disabled by policy.
@@ -165,17 +165,17 @@ void BraveSyncWorker::MarkFirstSetupComplete() {
       syncer::SyncFirstSetupCompleteSource::ADVANCED_FLOW_CONFIRM);
 }
 
-void BraveSyncWorker::FinalizeSyncSetup(JNIEnv* env) {
+void adrbrowsielSyncWorker::FinalizeSyncSetup(JNIEnv* env) {
   MarkFirstSetupComplete();
 }
 
-bool BraveSyncWorker::IsFirstSetupComplete(JNIEnv* env) {
+bool adrbrowsielSyncWorker::IsFirstSetupComplete(JNIEnv* env) {
   syncer::SyncService* sync_service = GetSyncService();
   return sync_service &&
          sync_service->GetUserSettings()->IsFirstSetupComplete();
 }
 
-void BraveSyncWorker::ResetSync(JNIEnv* env) {
+void adrbrowsielSyncWorker::ResetSync(JNIEnv* env) {
   auto* sync_service = GetSyncService();
 
   if (!sync_service)
@@ -183,33 +183,33 @@ void BraveSyncWorker::ResetSync(JNIEnv* env) {
 
   auto* device_info_sync_service =
       DeviceInfoSyncServiceFactory::GetForProfile(profile_);
-  brave_sync::ResetSync(sync_service, device_info_sync_service,
-                        base::BindOnce(&BraveSyncWorker::OnResetDone,
+  adrbrowsiel_sync::ResetSync(sync_service, device_info_sync_service,
+                        base::BindOnce(&adrbrowsielSyncWorker::OnResetDone,
                                        weak_ptr_factory_.GetWeakPtr()));
 }
 
-bool BraveSyncWorker::GetSyncV1WasEnabled(JNIEnv* env) {
-  brave_sync::Prefs brave_sync_prefs(profile_->GetPrefs());
-  bool sync_v1_was_enabled = brave_sync_prefs.IsSyncV1Enabled();
+bool adrbrowsielSyncWorker::GetSyncV1WasEnabled(JNIEnv* env) {
+  adrbrowsiel_sync::Prefs adrbrowsiel_sync_prefs(profile_->GetPrefs());
+  bool sync_v1_was_enabled = adrbrowsiel_sync_prefs.IsSyncV1Enabled();
   return sync_v1_was_enabled;
 }
 
-bool BraveSyncWorker::GetSyncV2MigrateNoticeDismissed(JNIEnv* env) {
-  brave_sync::Prefs brave_sync_prefs(profile_->GetPrefs());
+bool adrbrowsielSyncWorker::GetSyncV2MigrateNoticeDismissed(JNIEnv* env) {
+  adrbrowsiel_sync::Prefs adrbrowsiel_sync_prefs(profile_->GetPrefs());
   bool sync_v2_migration_notice_dismissed =
-      brave_sync_prefs.IsSyncMigrateNoticeDismissed();
+      adrbrowsiel_sync_prefs.IsSyncMigrateNoticeDismissed();
   return sync_v2_migration_notice_dismissed;
 }
 
-void BraveSyncWorker::SetSyncV2MigrateNoticeDismissed(
+void adrbrowsielSyncWorker::SetSyncV2MigrateNoticeDismissed(
     JNIEnv* env,
     bool sync_v2_migration_notice_dismissed) {
-  brave_sync::Prefs brave_sync_prefs(profile_->GetPrefs());
-  brave_sync_prefs.SetDismissSyncMigrateNotice(
+  adrbrowsiel_sync::Prefs adrbrowsiel_sync_prefs(profile_->GetPrefs());
+  adrbrowsiel_sync_prefs.SetDismissSyncMigrateNotice(
       sync_v2_migration_notice_dismissed);
 }
 
-void BraveSyncWorker::OnResetDone() {
+void adrbrowsielSyncWorker::OnResetDone() {
   syncer::SyncService* sync_service = GetSyncService();
   if (sync_service) {
     if (sync_service_observer_.IsObserving(sync_service)) {
@@ -218,7 +218,7 @@ void BraveSyncWorker::OnResetDone() {
   }
 }
 
-void BraveSyncWorker::SetEncryptionPassphrase(syncer::SyncService* service) {
+void adrbrowsielSyncWorker::SetEncryptionPassphrase(syncer::SyncService* service) {
   DCHECK(service);
   DCHECK(service->IsEngineInitialized());
   DCHECK(!this->passphrase_.empty());
@@ -235,7 +235,7 @@ void BraveSyncWorker::SetEncryptionPassphrase(syncer::SyncService* service) {
   }
 }
 
-void BraveSyncWorker::SetDecryptionPassphrase(syncer::SyncService* service) {
+void adrbrowsielSyncWorker::SetDecryptionPassphrase(syncer::SyncService* service) {
   DCHECK(service);
   DCHECK(service->IsEngineInitialized());
   DCHECK(!this->passphrase_.empty());
@@ -248,15 +248,15 @@ void BraveSyncWorker::SetDecryptionPassphrase(syncer::SyncService* service) {
   }
 }
 
-void BraveSyncWorker::OnStateChanged(syncer::SyncService* service) {
+void adrbrowsielSyncWorker::OnStateChanged(syncer::SyncService* service) {
   // If the sync engine has shutdown for some reason, just give up
   if (!service || !service->IsEngineInitialized()) {
-    VLOG(3) << "[BraveSync] " << __func__ << " sync engine is not initialized";
+    VLOG(3) << "[adrbrowsielSync] " << __func__ << " sync engine is not initialized";
     return;
   }
 
   if (this->passphrase_.empty()) {
-    VLOG(3) << "[BraveSync] " << __func__ << " empty passphrase";
+    VLOG(3) << "[adrbrowsielSync] " << __func__ << " empty passphrase";
     return;
   }
 
@@ -267,14 +267,14 @@ void BraveSyncWorker::OnStateChanged(syncer::SyncService* service) {
   }
 }
 
-static void JNI_BraveSyncWorker_Init(
+static void JNI_adrbrowsielSyncWorker_Init(
     JNIEnv* env,
     const base::android::JavaParamRef<jobject>& jcaller) {
-  new BraveSyncWorker(env, jcaller);
+  new adrbrowsielSyncWorker(env, jcaller);
 }
 
 static base::android::ScopedJavaLocalRef<jstring>
-JNI_BraveSyncWorker_GetSeedHexFromWords(
+JNI_adrbrowsielSyncWorker_GetSeedHexFromWords(
     JNIEnv* env,
     const base::android::JavaParamRef<jstring>& seed_words) {
   std::string str_seed_words =
@@ -283,7 +283,7 @@ JNI_BraveSyncWorker_GetSeedHexFromWords(
 
   std::string sync_code_hex;
   std::vector<uint8_t> bytes;
-  if (brave_sync::crypto::PassphraseToBytes32(str_seed_words, &bytes)) {
+  if (adrbrowsiel_sync::crypto::PassphraseToBytes32(str_seed_words, &bytes)) {
     DCHECK_EQ(bytes.size(), SEED_BYTES_COUNT);
     sync_code_hex = base::HexEncode(&bytes.at(0), bytes.size());
   } else {
@@ -294,7 +294,7 @@ JNI_BraveSyncWorker_GetSeedHexFromWords(
 }
 
 static base::android::ScopedJavaLocalRef<jstring>
-JNI_BraveSyncWorker_GetWordsFromSeedHex(
+JNI_adrbrowsielSyncWorker_GetWordsFromSeedHex(
     JNIEnv* env,
     const base::android::JavaParamRef<jstring>& seed_hex) {
   std::string str_seed_hex = base::android::ConvertJavaStringToUTF8(seed_hex);
@@ -305,7 +305,7 @@ JNI_BraveSyncWorker_GetWordsFromSeedHex(
   if (base::HexStringToBytes(str_seed_hex, &bytes)) {
     DCHECK_EQ(bytes.size(), SEED_BYTES_COUNT);
     if (bytes.size(), SEED_BYTES_COUNT) {
-      sync_code_words = brave_sync::crypto::PassphraseFromBytes32(bytes);
+      sync_code_words = adrbrowsiel_sync::crypto::PassphraseFromBytes32(bytes);
       if (sync_code_words.empty()) {
         VLOG(1) << __func__ << " PassphraseFromBytes32 failed for " << seed_hex;
       }

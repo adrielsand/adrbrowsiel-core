@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -249,7 +249,7 @@ Result CatalogState::FromJson(const std::string& json,
           creative_set_info.creative_promoted_content_ads.push_back(
               creative_info);
         } else if (code == "in_page_all_v1") {
-          // TODO(tmancey): https://github.com/brave/brave-browser/issues/7298
+          // TODO(tmancey): https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7298
           continue;
         } else {
           // Unknown type

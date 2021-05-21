@@ -31,7 +31,7 @@
               "payload": {
                 "body": "Test Ad Notification Campaign 1 Body",
                 "title": "Test Ad Notification Campaign 1 Title",
-                "targetUrl": "https://brave.com/1/ad_notification"
+                "targetUrl": "https://adrbrowsiel.com/1/ad_notification"
               }
             },
             {
@@ -45,9 +45,9 @@
               "payload": {
                 "logo": {
                   "alt": "Test New Tab Page Ad Campaign 1",
-                  "imageUrl": "https://brave.com/1/test.jpg",
+                  "imageUrl": "https://adrbrowsiel.com/1/test.jpg",
                   "companyName": "New Tab Page 1",
-                  "destinationUrl": "https://brave.com/1/new_tab_page_ad"
+                  "destinationUrl": "https://adrbrowsiel.com/1/new_tab_page_ad"
                 },
                 "wallpapers": [
                   {
@@ -55,14 +55,14 @@
                       "x": 1200,
                       "y": 1400
                     },
-                    "imageUrl": "https://brave.com/1/test2.jpg"
+                    "imageUrl": "https://adrbrowsiel.com/1/test2.jpg"
                   },
                   {
                     "focalPoint": {
                       "x": 1200,
                       "y": 1400
                     },
-                    "imageUrl": "https://brave.com/1/test3.jpg"
+                    "imageUrl": "https://adrbrowsiel.com/1/test3.jpg"
                   }
                 ]
               }
@@ -76,7 +76,7 @@
                 "version": 1
               },
               "payload": {
-                "feed": "https://brave.com/3",
+                "feed": "https://adrbrowsiel.com/3",
                 "title": "Promoted Content 1",
                 "domain": "Domain 1",
                 "category": "Category 1",
@@ -109,7 +109,7 @@
           "conversions": [
             {
               "observationWindow": 30,
-              "urlPattern": "https://www.brave.com/1/*",
+              "urlPattern": "https://www.adrbrowsiel.com/1/*",
               "type": "postview"
             }
           ],

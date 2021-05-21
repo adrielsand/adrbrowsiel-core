@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -44,7 +44,7 @@ std::string PostSuggestions::GeneratePayload(
 
   const bool is_sku =
       redeem.processor == type::ContributionProcessor::UPHOLD ||
-      redeem.processor == type::ContributionProcessor::BRAVE_USER_FUNDS;
+      redeem.processor == type::ContributionProcessor::adrbrowsiel_USER_FUNDS;
 
   std::string data_json;
   base::JSONWriter::Write(data, &data_json);

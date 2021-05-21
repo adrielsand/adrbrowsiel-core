@@ -1,10 +1,10 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_UPDATER_BRAVE_UPDATE_CLIENT_CONFIG_H_
-#define BRAVE_BROWSER_EXTENSIONS_UPDATER_BRAVE_UPDATE_CLIENT_CONFIG_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_UPDATER_adrbrowsiel_UPDATE_CLIENT_CONFIG_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_UPDATER_adrbrowsiel_UPDATE_CLIENT_CONFIG_H_
 
 #include <string>
 
@@ -28,7 +28,7 @@ namespace extensions {
 
 class ExtensionUpdateClientBaseTest;
 
-class BraveUpdateClientConfig : public ChromeUpdateClientConfig {
+class adrbrowsielUpdateClientConfig : public ChromeUpdateClientConfig {
  public:
   static scoped_refptr<ChromeUpdateClientConfig> Create(
       content::BrowserContext* context,
@@ -42,15 +42,15 @@ class BraveUpdateClientConfig : public ChromeUpdateClientConfig {
   bool EnabledCupSigning() const override;
 
  protected:
-  friend class base::RefCountedThreadSafe<BraveUpdateClientConfig>;
+  friend class base::RefCountedThreadSafe<adrbrowsielUpdateClientConfig>;
   friend class ExtensionUpdateClientBaseTest;
 
-  ~BraveUpdateClientConfig() override;
+  ~adrbrowsielUpdateClientConfig() override;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveUpdateClientConfig);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielUpdateClientConfig);
 };
 
 }  // namespace extensions
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_UPDATER_BRAVE_UPDATE_CLIENT_CONFIG_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_UPDATER_adrbrowsiel_UPDATE_CLIENT_CONFIG_H_

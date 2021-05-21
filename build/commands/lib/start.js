@@ -9,7 +9,7 @@ const whitelistedUrlPatterns = require('./whitelistedUrlPatterns')
 const whitelistedUrlProtocols = [
   'chrome-extension:',
   'chrome:',
-  'brave:',
+  'adrbrowsiel:',
   'file:',
   'data:',
   'blob:'
@@ -19,76 +19,76 @@ const start = (passthroughArgs, buildConfig = config.defaultBuildConfig, options
   config.buildConfig = buildConfig
   config.update(options)
 
-  let braveArgs = [
+  let adrbrowsielArgs = [
     '--enable-logging',
     '--v=' + options.v,
   ]
   if (options.vmodule) {
-    braveArgs.push('--vmodule=' + options.vmodule);
+    adrbrowsielArgs.push('--vmodule=' + options.vmodule);
   }
   if (options.no_sandbox) {
-    braveArgs.push('--no-sandbox')
+    adrbrowsielArgs.push('--no-sandbox')
   }
-  if (options.disable_brave_extension) {
-    braveArgs.push('--disable-brave-extension')
+  if (options.disable_adrbrowsiel_extension) {
+    adrbrowsielArgs.push('--disable-adrbrowsiel-extension')
   }
-  if (options.disable_brave_rewards_extension) {
-    braveArgs.push('--disable-brave-rewards-extension')
+  if (options.disable_adrbrowsiel_rewards_extension) {
+    adrbrowsielArgs.push('--disable-adrbrowsiel-rewards-extension')
   }
   if (options.disable_pdfjs_extension) {
-    braveArgs.push('--disable-pdfjs-extension')
+    adrbrowsielArgs.push('--disable-pdfjs-extension')
   }
   if (options.disable_webtorrent_extension) {
-    braveArgs.push('--disable-webtorrent-extension')
+    adrbrowsielArgs.push('--disable-webtorrent-extension')
   }
   if (options.ui_mode) {
-    braveArgs.push(`--ui-mode=${options.ui_mode}`)
+    adrbrowsielArgs.push(`--ui-mode=${options.ui_mode}`)
   }
-  if (!options.enable_brave_update) {
+  if (!options.enable_adrbrowsiel_update) {
     // This only has meaning with MacOS and official build.
-    braveArgs.push('--disable-brave-update')
+    adrbrowsielArgs.push('--disable-adrbrowsiel-update')
   }
   if (options.disable_doh) {
-    braveArgs.push('--disable-doh')
+    adrbrowsielArgs.push('--disable-doh')
   }
   if (options.single_process) {
-    braveArgs.push('--single-process')
+    adrbrowsielArgs.push('--single-process')
   }
   if (options.show_component_extensions) {
-    braveArgs.push('--show-component-extension-options')
+    adrbrowsielArgs.push('--show-component-extension-options')
   }
   if (options.rewards) {
-    braveArgs.push(`--rewards=${options.rewards}`)
+    adrbrowsielArgs.push(`--rewards=${options.rewards}`)
   }
-  if (options.brave_ads_testing) {
-    braveArgs.push('--brave-ads-testing')
+  if (options.adrbrowsiel_ads_testing) {
+    adrbrowsielArgs.push('--adrbrowsiel-ads-testing')
   }
-  if (options.brave_ads_debug) {
-    braveArgs.push('--brave-ads-debug')
+  if (options.adrbrowsiel_ads_debug) {
+    adrbrowsielArgs.push('--adrbrowsiel-ads-debug')
   }
-  if (options.brave_ads_production) {
-    braveArgs.push('--brave-ads-production')
+  if (options.adrbrowsiel_ads_production) {
+    adrbrowsielArgs.push('--adrbrowsiel-ads-production')
   }
-  if (options.brave_ads_staging) {
-    braveArgs.push('--brave-ads-staging')
+  if (options.adrbrowsiel_ads_staging) {
+    adrbrowsielArgs.push('--adrbrowsiel-ads-staging')
   }
-  braveArgs = braveArgs.concat(passthroughArgs)
+  adrbrowsielArgs = adrbrowsielArgs.concat(passthroughArgs)
 
   let user_data_dir
   if (options.user_data_dir_name) {
     if (process.platform === 'darwin') {
-      user_data_dir = path.join(process.env.HOME, 'Library', 'Application\\ Support', 'BraveSoftware', options.user_data_dir_name)
+      user_data_dir = path.join(process.env.HOME, 'Library', 'Application\\ Support', 'adrbrowsielSoftware', options.user_data_dir_name)
     } else if (process.platform === 'win32') {
-      user_data_dir = path.join(process.env.LocalAppData, 'BraveSoftware', options.user_data_dir_name)
+      user_data_dir = path.join(process.env.LocalAppData, 'adrbrowsielSoftware', options.user_data_dir_name)
     } else {
-      user_data_dir = path.join(process.env.HOME, '.config', 'BraveSoftware', options.user_data_dir_name)
+      user_data_dir = path.join(process.env.HOME, '.config', 'adrbrowsielSoftware', options.user_data_dir_name)
     }
-    braveArgs.push('--user-data-dir=' + user_data_dir);
+    adrbrowsielArgs.push('--user-data-dir=' + user_data_dir);
   }
   const networkLogFile = path.resolve(path.join(config.rootDir, 'network_log.json'))
   if (options.network_log) {
-    braveArgs.push(`--log-net-log=${networkLogFile}`)
-    braveArgs.push(`--net-log-capture-mode=Everything`)
+    adrbrowsielArgs.push(`--log-net-log=${networkLogFile}`)
+    adrbrowsielArgs.push(`--net-log-capture-mode=Everything`)
     if (user_data_dir) {
       // clear the data directory before doing a network test
       fs.removeSync(user_data_dir.replace('\\', ''))
@@ -110,19 +110,19 @@ const start = (passthroughArgs, buildConfig = config.defaultBuildConfig, options
   }
 
   if (options.network_log) {
-    console.log('Network audit started. Logging requests for the next 2min or until you quit Brave...')
+    console.log('Network audit started. Logging requests for the next 2min or until you quit adrbrowsiel...')
   }
 
   let outputPath = options.output_path
   if (!outputPath) {
-    outputPath = path.join(config.outputDir, 'brave')
+    outputPath = path.join(config.outputDir, 'adrbrowsiel')
     if (process.platform === 'win32') {
       outputPath = outputPath + '.exe'
     } else if (process.platform === 'darwin') {
       outputPath = fs.readFileSync(outputPath + '_helper').toString().trim()
     }
   }
-  util.run(outputPath, braveArgs, cmdOptions)
+  util.run(outputPath, adrbrowsielArgs, cmdOptions)
 
   if (options.network_log) {
     let exitCode = 0

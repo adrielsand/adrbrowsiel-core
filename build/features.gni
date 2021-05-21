@@ -1,10 +1,10 @@
 declare_args() {
-  brave_services_key = ""
+  adrbrowsiel_services_key = ""
 }
 
-brave_service_key_defines = []
-if (brave_services_key != "") {
-  brave_service_key_defines += [ "BRAVE_SERVICES_KEY=\"$brave_services_key\"" ]
+adrbrowsiel_service_key_defines = []
+if (adrbrowsiel_services_key != "") {
+  adrbrowsiel_service_key_defines += [ "adrbrowsiel_SERVICES_KEY=\"$adrbrowsiel_services_key\"" ]
 } else {
-  brave_service_key_defines += [ "BRAVE_SERVICES_KEY=\"dummytoken\"" ]
+  adrbrowsiel_service_key_defines += [ "adrbrowsiel_SERVICES_KEY=\"dummytoken\"" ]
 }

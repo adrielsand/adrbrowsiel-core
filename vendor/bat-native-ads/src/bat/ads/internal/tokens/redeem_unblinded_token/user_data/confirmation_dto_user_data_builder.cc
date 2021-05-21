@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -44,7 +44,7 @@ void Build(const std::string& creative_instance_id,
     return;
   }
 
-  // TODO(https://github.com/brave/brave-browser/issues/14429): Remove
+  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/14429): Remove
   // serialization/deserialization from DTO
   std::string user_data_as_string;
   base::JSONWriter::Write(user_data, &user_data_as_string);

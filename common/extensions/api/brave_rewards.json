@@ -4,10 +4,10 @@
 
 [
   {
-    "namespace": "braveRewards",
-    "description": "Use the <code>chrome.braveRewards</code> API for rewards panel.",
+    "namespace": "adrbrowsielRewards",
+    "description": "Use the <code>chrome.adrbrowsielRewards</code> API for rewards panel.",
     "compiler_options": {
-      "implemented_in": "brave/browser/extensions/api/brave_rewards_api.h"
+      "implemented_in": "adrbrowsiel/browser/extensions/api/adrbrowsiel_rewards_api.h"
     },
     "events": [
       {

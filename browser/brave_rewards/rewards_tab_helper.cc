@@ -1,13 +1,13 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_rewards/rewards_tab_helper.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_tab_helper.h"
 
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
 #include "chrome/browser/profiles/profile.h"
 #if !defined(OS_ANDROID)
 #include "chrome/browser/ui/browser.h"
@@ -23,14 +23,14 @@
 #include "third_party/blink/public/mojom/loader/resource_load_info.mojom.h"
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
 #endif
 
 using blink::mojom::ResourceType;
 
-// DEFINE_WEB_CONTENTS_USER_DATA_KEY(brave_rewards::RewardsTabHelper);
+// DEFINE_WEB_CONTENTS_USER_DATA_KEY(adrbrowsiel_rewards::RewardsTabHelper);
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 RewardsTabHelper::RewardsTabHelper(content::WebContents* web_contents)
     : WebContentsObserver(web_contents),
@@ -151,4 +151,4 @@ void RewardsTabHelper::OnBrowserNoLongerActive(Browser* browser) {
 
 WEB_CONTENTS_USER_DATA_KEY_IMPL(RewardsTabHelper)
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

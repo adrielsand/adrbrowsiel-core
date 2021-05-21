@@ -2,7 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import("//brave/build/rust/config.gni")
+import("//adrbrowsiel/build/rust/config.gni")
 import("//build/config/clang/clang.gni")
 import("//build/config/sysroot.gni")
 
@@ -11,7 +11,7 @@ if (is_mac) {
 }
 
 declare_args() {
-  rustup_path = rebase_path("//brave/build/rustup/", root_build_dir)
+  rustup_path = rebase_path("//adrbrowsiel/build/rustup/", root_build_dir)
 }
 
 template("rust_ffi") {
@@ -42,11 +42,11 @@ template("rust_ffi") {
 
   group(target_name) {
     public_configs = [ ":$config_target_name" ]
-    public_deps = [ "//brave/build/rust" ]
+    public_deps = [ "//adrbrowsiel/build/rust" ]
   }
 
   source_set(cpp_target_name) {
-    visibility = [ "//brave/build/rust:*" ]
+    visibility = [ "//adrbrowsiel/build/rust:*" ]
 
     public_configs = [ ":$config_target_name" ]
 
@@ -76,8 +76,8 @@ template("rust_ffi") {
 
 template("rust_crate") {
   action(target_name) {
-    script = "//brave/script/stamp.py"
-    visibility = [ "//brave/build/rust:*" ]
+    script = "//adrbrowsiel/script/stamp.py"
+    visibility = [ "//adrbrowsiel/build/rust:*" ]
 
     forward_variables_from(invoker, [ "deps" ])
 
@@ -102,7 +102,7 @@ template("cargo_build") {
   cargo_build_target = target_name + "_cargo_build"
 
   action(cargo_build_target) {
-    script = "//brave/script/cargo.py"
+    script = "//adrbrowsiel/script/cargo.py"
 
     # make sure rebuilds when files change
     forward_variables_from(invoker, "*")
@@ -110,7 +110,7 @@ template("cargo_build") {
     outputs = [ output ]
 
     if (!defined(target)) {
-      target = rustc_target  # defined by //brave/build/rust/config.gni,
+      target = rustc_target  # defined by //adrbrowsiel/build/rust/config.gni,
     }
 
     args = [
@@ -120,7 +120,7 @@ template("cargo_build") {
       "--build_path=" + rebase_path(build_path, root_build_dir),
       "--target=" + target,
       "--toolchain=" +
-          rustc_toolchain,  # defined by //brave/build/rust/config.gni,
+          rustc_toolchain,  # defined by //adrbrowsiel/build/rust/config.gni,
       "--is_debug=$is_debug",
     ]
 
@@ -149,7 +149,7 @@ template("cargo_build") {
 # Runs a script to generate C bindings for rust library
 template("cargo_cbindgen") {
   action(target_name) {
-    script = "//brave/script/cargo_cbindgen.py"
+    script = "//adrbrowsiel/script/cargo_cbindgen.py"
 
     forward_variables_from(invoker,
                            [

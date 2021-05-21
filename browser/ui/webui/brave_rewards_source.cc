@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/brave_rewards_source.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_rewards_source.h"
 
 #include <utility>
 
@@ -25,22 +25,22 @@ scoped_refptr<base::RefCountedMemory> BitmapToMemory(const SkBitmap* image) {
 
 }  // namespace
 
-BraveRewardsSource::BraveRewardsSource(Profile* profile)
+adrbrowsielRewardsSource::adrbrowsielRewardsSource(Profile* profile)
     : profile_(profile->GetOriginalProfile()) {}
 
-BraveRewardsSource::~BraveRewardsSource() {
+adrbrowsielRewardsSource::~adrbrowsielRewardsSource() {
 }
 
-std::string BraveRewardsSource::GetSource() {
+std::string adrbrowsielRewardsSource::GetSource() {
   return "rewards-image";
 }
 
-void BraveRewardsSource::StartDataRequest(
+void adrbrowsielRewardsSource::StartDataRequest(
     const GURL& url,
     const content::WebContents::Getter& wc_getter,
     content::URLDataSource::GotDataCallback got_data_callback) {
   // URL here comes in the form of
-  // chrome://rewards-image/https://rewards.brave.com/...
+  // chrome://rewards-image/https://rewards.adrbrowsiel.com/...
   // We need to take the path and make it into a URL.
   GURL actual_url(URLDataSource::URLToRequestPath(url));
   if (!actual_url.is_valid()) {
@@ -51,7 +51,7 @@ void BraveRewardsSource::StartDataRequest(
   auto it =
       find(resource_fetchers_.begin(), resource_fetchers_.end(), actual_url);
   if (it != resource_fetchers_.end()) {
-    LOG(WARNING) << "Already fetching specified Brave Rewards resource, url: "
+    LOG(WARNING) << "Already fetching specified adrbrowsiel Rewards resource, url: "
                  << actual_url;
     return;
   }
@@ -60,15 +60,15 @@ void BraveRewardsSource::StartDataRequest(
       BitmapFetcherServiceFactory::GetForBrowserContext(profile_);
   if (image_service) {
     net::NetworkTrafficAnnotationTag traffic_annotation =
-        net::DefineNetworkTrafficAnnotation("brave_rewards_resource_fetcher", R"(
+        net::DefineNetworkTrafficAnnotation("adrbrowsiel_rewards_resource_fetcher", R"(
         semantics {
           sender:
-            "Brave Rewards resource fetcher"
+            "adrbrowsiel Rewards resource fetcher"
           description:
-            "Fetches resources related to Brave Rewards."
+            "Fetches resources related to adrbrowsiel Rewards."
           trigger:
             "User visits a media publisher's site."
-          data: "Brave Rewards related resources."
+          data: "adrbrowsiel Rewards related resources."
           destination: WEBSITE
         }
         policy {
@@ -81,30 +81,30 @@ void BraveRewardsSource::StartDataRequest(
     resource_fetchers_.emplace_back(actual_url);
     image_service->RequestImage(
         actual_url,
-        base::BindOnce(&BraveRewardsSource::OnBitmapFetched,
+        base::BindOnce(&adrbrowsielRewardsSource::OnBitmapFetched,
                        weak_factory_.GetWeakPtr(), std::move(got_data_callback),
                        actual_url),
         traffic_annotation);
   }
 }
 
-std::string BraveRewardsSource::GetMimeType(const std::string&) {
+std::string adrbrowsielRewardsSource::GetMimeType(const std::string&) {
   // We need to explicitly return a mime type, otherwise if the user tries to
   // drag the image they get no extension.
   return "image/png";
 }
 
-bool BraveRewardsSource::AllowCaching() {
+bool adrbrowsielRewardsSource::AllowCaching() {
   return false;
 }
 
-bool BraveRewardsSource::ShouldReplaceExistingSource() {
+bool adrbrowsielRewardsSource::ShouldReplaceExistingSource() {
   // Leave the existing DataSource in place, otherwise we'll drop any pending
   // requests on the floor.
   return false;
 }
 
-bool BraveRewardsSource::ShouldServiceRequest(
+bool adrbrowsielRewardsSource::ShouldServiceRequest(
     const GURL& url,
     content::BrowserContext* browser_context,
     int render_process_id) {
@@ -112,12 +112,12 @@ bool BraveRewardsSource::ShouldServiceRequest(
                                              render_process_id);
 }
 
-void BraveRewardsSource::OnBitmapFetched(
+void adrbrowsielRewardsSource::OnBitmapFetched(
     content::URLDataSource::GotDataCallback got_data_callback,
     const GURL& url,
     const SkBitmap& bitmap) {
   if (bitmap.isNull()) {
-    LOG(ERROR) << "Failed to retrieve Brave Rewards resource, url: " << url;
+    LOG(ERROR) << "Failed to retrieve adrbrowsiel Rewards resource, url: " << url;
     std::move(got_data_callback).Run(nullptr);
     return;
   }

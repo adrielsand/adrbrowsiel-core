@@ -6,7 +6,7 @@ index f53b71206a0efb7fd3683d802c35ae1fb7bc2ef1..5bd1f55a24b1d288bb4eca4c9e2d775b
    // camera and microphone, and for testing.
    bool IsPermissionKillSwitchOn() const;
  
-+  BRAVE_PERMISSION_CONTEXT_BASE_H_
++  adrbrowsiel_PERMISSION_CONTEXT_BASE_H_
   protected:
    virtual ContentSetting GetPermissionStatusInternal(
        content::RenderFrameHost* render_frame_host,

@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -26,7 +26,7 @@ program
   .option('--create', 'create a new branch if needed for [ref]')
 
 const installDepotTools = (options = config.defaultOptions) => {
-  options.cwd = config.braveCoreDir
+  options.cwd = config.adrbrowsielCoreDir
 
   if (!fs.existsSync(config.depotToolsDir)) {
     Log.progress('Install Depot Tools...')
@@ -70,38 +70,38 @@ async function RunCommand () {
     util.buildGClientConfig()
   }
 
-  let braveCoreRef = program.args[0]
-  if (!braveCoreRef) {
-    braveCoreRef = program.init ? config.getProjectVersion('brave-core') : null
+  let adrbrowsielCoreRef = program.args[0]
+  if (!adrbrowsielCoreRef) {
+    adrbrowsielCoreRef = program.init ? config.getProjectVersion('adrbrowsiel-core') : null
   }
 
-  if (braveCoreRef || program.init || program.force) {
-    // we're doing a reset of brave-core so try to stash any changes
+  if (adrbrowsielCoreRef || program.init || program.force) {
+    // we're doing a reset of adrbrowsiel-core so try to stash any changes
     Log.progress('Stashing any local changes')
-    util.runGit(config.braveCoreDir, ['stash'], true)
+    util.runGit(config.adrbrowsielCoreDir, ['stash'], true)
   }
 
-  if (braveCoreRef) {
-    Log.progress(`Resetting brave core to "${braveCoreRef}"...`)
+  if (adrbrowsielCoreRef) {
+    Log.progress(`Resetting adrbrowsiel core to "${adrbrowsielCoreRef}"...`)
     // try to checkout to the right ref if possible
-    util.runGit(config.braveCoreDir, ['reset', '--hard', 'HEAD'], true)
-    let checkoutResult = util.runGit(config.braveCoreDir, ['checkout', braveCoreRef], true)
+    util.runGit(config.adrbrowsielCoreDir, ['reset', '--hard', 'HEAD'], true)
+    let checkoutResult = util.runGit(config.adrbrowsielCoreDir, ['checkout', adrbrowsielCoreRef], true)
     if (checkoutResult === null && program.create) {
-      checkoutResult = util.runGit(config.braveCoreDir, ['checkout', '-b', braveCoreRef], true)
+      checkoutResult = util.runGit(config.adrbrowsielCoreDir, ['checkout', '-b', adrbrowsielCoreRef], true)
     }
     // Handle checkout failure
     if (checkoutResult === null) {
-      Log.error('Could not checkout: ' + braveCoreRef)
+      Log.error('Could not checkout: ' + adrbrowsielCoreRef)
     }
     // Checkout was successful
-    const braveCoreSha = util.runGit(config.braveCoreDir, ['rev-parse', 'HEAD'])
-    Log.progress(`...brave core is now at commit ID ${braveCoreSha}`)
+    const adrbrowsielCoreSha = util.runGit(config.adrbrowsielCoreDir, ['rev-parse', 'HEAD'])
+    Log.progress(`...adrbrowsiel core is now at commit ID ${adrbrowsielCoreSha}`)
   }
 
   Log.progress('Running gclient sync...')
-  const result = util.gclientSync(program.init || program.force, program.init, braveCoreRef)
-  const postSyncBraveCoreRef = util.getGitReadableLocalRef(config.braveCoreDir)
-  Log.status(`Brave Core is now at ${postSyncBraveCoreRef || '[unknown]'}`)
+  const result = util.gclientSync(program.init || program.force, program.init, adrbrowsielCoreRef)
+  const postSyncadrbrowsielCoreRef = util.getGitReadableLocalRef(config.adrbrowsielCoreDir)
+  Log.status(`adrbrowsiel Core is now at ${postSyncadrbrowsielCoreRef || '[unknown]'}`)
   if (result.didUpdateChromium) {
     const postSyncChromiumRef = util.getGitReadableLocalRef(config.srcDir)
     Log.status(`Chromium is now at ${postSyncChromiumRef || '[unknown]'}`)
@@ -113,13 +113,13 @@ async function RunCommand () {
   util.gclientRunhooks()
 }
 
-Log.progress('Brave Browser Sync starting')
+Log.progress('adrbrowsiel Browser Sync starting')
 RunCommand()
 .then(() => {
-  Log.progress('Brave Browser Sync complete')
+  Log.progress('adrbrowsiel Browser Sync complete')
 })
 .catch((err) => {
-  Log.error('Brave Browser Sync ERROR:')
+  Log.error('adrbrowsiel Browser Sync ERROR:')
   console.error(err)
   process.exit(1)
 })

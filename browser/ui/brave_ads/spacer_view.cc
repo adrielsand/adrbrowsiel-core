@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_ads/spacer_view.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/spacer_view.h"
 
 #include "ui/gfx/geometry/size.h"
 #include "ui/views/layout/flex_layout_types.h"
 #include "ui/views/view.h"
 #include "ui/views/view_class_properties.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 views::View* CreateFlexibleSpacerView(const int spacing) {
   views::View* view = new views::View;
@@ -40,4 +40,4 @@ views::View* CreateFixedSizeSpacerView(const int spacing) {
   return view;
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

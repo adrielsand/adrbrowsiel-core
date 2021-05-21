@@ -6,5 +6,5 @@ index c6c44106495dd3221164ff9621d285b94b9ac31f..2b91b7d11706262ff039946bc634743c
      <!-- Discussed in crbug.com/1069204, ignoring this class of errors since these are Q+ constants. -->
      <ignore regexp="Must be one of: LineBreaker.BREAK_STRATEGY_SIMPLE, LineBreaker.BREAK_STRATEGY_HIGH_QUALITY, LineBreaker.BREAK_STRATEGY_BALANCED"/>
    </issue>
-+  <issue id="DuplicateDefinition"><ignore regexp="chrome/android/java/res/values/brave_colors.xml"/></issue>
++  <issue id="DuplicateDefinition"><ignore regexp="chrome/android/java/res/values/adrbrowsiel_colors.xml"/></issue>
  </lint>

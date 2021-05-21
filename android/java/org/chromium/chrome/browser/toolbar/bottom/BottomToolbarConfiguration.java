@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,7 +13,7 @@ import android.view.Display;
 import org.chromium.base.ApplicationStatus;
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.browser.app.ChromeActivity;
-import org.chromium.chrome.browser.preferences.BravePreferenceKeys;
+import org.chromium.chrome.browser.preferences.adrbrowsielPreferenceKeys;
 import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 import org.chromium.chrome.browser.tasks.tab_management.TabUiFeatureUtilities;
 import org.chromium.ui.base.DeviceFormFactor;
@@ -29,18 +29,18 @@ public class BottomToolbarConfiguration {
         }
         SharedPreferences sharedPreferences = ContextUtils.getAppSharedPreferences();
         if (sharedPreferences.getBoolean(
-                    BravePreferenceKeys.BRAVE_BOTTOM_TOOLBAR_SET_KEY, false)) {
+                    adrbrowsielPreferenceKeys.adrbrowsiel_BOTTOM_TOOLBAR_SET_KEY, false)) {
             return sharedPreferences.getBoolean(
-                    BravePreferenceKeys.BRAVE_BOTTOM_TOOLBAR_ENABLED_KEY, true);
+                    adrbrowsielPreferenceKeys.adrbrowsiel_BOTTOM_TOOLBAR_ENABLED_KEY, true);
         } else {
             SharedPreferencesManager.getInstance().writeBoolean(
-                    BravePreferenceKeys.BRAVE_BOTTOM_TOOLBAR_SET_KEY, true);
+                    adrbrowsielPreferenceKeys.adrbrowsiel_BOTTOM_TOOLBAR_SET_KEY, true);
             boolean enable = true;
             if (isSmallScreen()) {
                 enable = false;
             }
             SharedPreferencesManager.getInstance().writeBoolean(
-                    BravePreferenceKeys.BRAVE_BOTTOM_TOOLBAR_ENABLED_KEY, enable);
+                    adrbrowsielPreferenceKeys.adrbrowsiel_BOTTOM_TOOLBAR_ENABLED_KEY, enable);
 
             return enable;
         }

@@ -6,7 +6,7 @@ index 5d2109d96d9ec6daf2a1dcd30c94d9431ee02254..febcb4fd9af7764254e94082e91a8448
    ContentSettingsForOneType script_rules;
    ContentSettingsForOneType popup_redirect_rules;
    ContentSettingsForOneType mixed_content_rules;
-+  BRAVE_CONTENT_SETTINGS_H
++  adrbrowsiel_CONTENT_SETTINGS_H
  };
  
  namespace content_settings {

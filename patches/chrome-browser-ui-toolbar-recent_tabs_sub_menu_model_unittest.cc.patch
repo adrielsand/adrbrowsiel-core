@@ -6,7 +6,7 @@ index 1a306e3915bc1af56734e4f70aceff58ad9099e6..f4bed6f86a74f8b229cf040d45bca84d
  
    TestRecentTabsSubMenuModel model(nullptr, browser());
    int num_items = model.GetItemCount();
-+  BRAVE_MAX_TABS_PER_SESSION_AND_RECENCY
++  adrbrowsiel_MAX_TABS_PER_SESSION_AND_RECENCY
    EXPECT_EQ(9, num_items);
  
    std::vector<std::u16string> tab_titles =

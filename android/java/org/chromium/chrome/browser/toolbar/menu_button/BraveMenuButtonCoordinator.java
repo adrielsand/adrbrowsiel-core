@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -18,16 +18,16 @@ import org.chromium.base.supplier.Supplier;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.browser_controls.BrowserStateBrowserControlsVisibilityDelegate;
 import org.chromium.chrome.browser.theme.ThemeColorProvider;
-import org.chromium.chrome.browser.toolbar.top.BraveToolbarLayout;
+import org.chromium.chrome.browser.toolbar.top.adrbrowsielToolbarLayout;
 import org.chromium.chrome.browser.ui.appmenu.AppMenuCoordinator;
 import org.chromium.ui.base.WindowAndroid;
 
-public class BraveMenuButtonCoordinator extends MenuButtonCoordinator {
-    private static final String BRAVE_IS_MENU_FROM_BOTTOM = "brave_is_menu_from_bottom";
+public class adrbrowsielMenuButtonCoordinator extends MenuButtonCoordinator {
+    private static final String adrbrowsiel_IS_MENU_FROM_BOTTOM = "adrbrowsiel_is_menu_from_bottom";
 
     private Activity mActivity;
 
-    public BraveMenuButtonCoordinator(
+    public adrbrowsielMenuButtonCoordinator(
             OneshotSupplier<AppMenuCoordinator> appMenuCoordinatorSupplier,
             BrowserStateBrowserControlsVisibilityDelegate controlsVisibilityDelegate,
             WindowAndroid windowAndroid, SetFocusFunction setUrlBarFocusFunction,
@@ -60,7 +60,7 @@ public class BraveMenuButtonCoordinator extends MenuButtonCoordinator {
     }
 
     private void updateMenuButtonState() {
-        BraveToolbarLayout layout = (BraveToolbarLayout) mActivity.findViewById(R.id.toolbar);
+        adrbrowsielToolbarLayout layout = (adrbrowsielToolbarLayout) mActivity.findViewById(R.id.toolbar);
         assert layout != null;
         if (layout != null) {
             layout.updateMenuButtonState();
@@ -69,11 +69,11 @@ public class BraveMenuButtonCoordinator extends MenuButtonCoordinator {
 
     public static void setMenuFromBottom(boolean isMenuFromBottom) {
         SharedPreferences prefs = ContextUtils.getAppSharedPreferences();
-        prefs.edit().putBoolean(BRAVE_IS_MENU_FROM_BOTTOM, isMenuFromBottom).apply();
+        prefs.edit().putBoolean(adrbrowsiel_IS_MENU_FROM_BOTTOM, isMenuFromBottom).apply();
     }
 
     public static boolean isMenuFromBottom() {
         SharedPreferences sharedPreferences = ContextUtils.getAppSharedPreferences();
-        return sharedPreferences.getBoolean(BRAVE_IS_MENU_FROM_BOTTOM, true);
+        return sharedPreferences.getBoolean(adrbrowsiel_IS_MENU_FROM_BOTTOM, true);
     }
 }

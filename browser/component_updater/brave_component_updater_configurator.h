@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_COMPONENT_UPDATER_BRAVE_COMPONENT_UPDATER_CONFIGURATOR_H_
-#define BRAVE_BROWSER_COMPONENT_UPDATER_BRAVE_COMPONENT_UPDATER_CONFIGURATOR_H_
+#ifndef adrbrowsiel_BROWSER_COMPONENT_UPDATER_adrbrowsiel_COMPONENT_UPDATER_CONFIGURATOR_H_
+#define adrbrowsiel_BROWSER_COMPONENT_UPDATER_adrbrowsiel_COMPONENT_UPDATER_CONFIGURATOR_H_
 
 #include <memory>
 #include <string>
@@ -27,9 +27,9 @@ class URLRequestContextGetter;
 
 namespace component_updater {
 
-class BraveConfigurator : public update_client::Configurator {
+class adrbrowsielConfigurator : public update_client::Configurator {
  public:
-  BraveConfigurator(const base::CommandLine* cmdline,
+  adrbrowsielConfigurator(const base::CommandLine* cmdline,
                     PrefService* pref_service);
 
   // update_client::Configurator overrides.
@@ -64,7 +64,7 @@ class BraveConfigurator : public update_client::Configurator {
   GetProtocolHandlerFactory() const override;
 
  private:
-  friend class base::RefCountedThreadSafe<BraveConfigurator>;
+  friend class base::RefCountedThreadSafe<adrbrowsielConfigurator>;
 
   ConfiguratorImpl configurator_impl_;
   PrefService* pref_service_;  // This member is not owned by this class.
@@ -73,9 +73,9 @@ class BraveConfigurator : public update_client::Configurator {
   scoped_refptr<update_client::UnzipperFactory> unzip_factory_;
   scoped_refptr<update_client::PatcherFactory> patch_factory_;
 
-  ~BraveConfigurator() override;
+  ~adrbrowsielConfigurator() override;
 };
 
 }  // namespace component_updater
 
-#endif  // BRAVE_BROWSER_COMPONENT_UPDATER_BRAVE_COMPONENT_UPDATER_CONFIGURATOR_H_
+#endif  // adrbrowsiel_BROWSER_COMPONENT_UPDATER_adrbrowsiel_COMPONENT_UPDATER_CONFIGURATOR_H_

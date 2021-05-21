@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_DOWNLOAD_BRAVE_DOWNLOAD_ITEM_MODEL_H_
-#define BRAVE_BROWSER_DOWNLOAD_BRAVE_DOWNLOAD_ITEM_MODEL_H_
+#ifndef adrbrowsiel_BROWSER_DOWNLOAD_adrbrowsiel_DOWNLOAD_ITEM_MODEL_H_
+#define adrbrowsiel_BROWSER_DOWNLOAD_adrbrowsiel_DOWNLOAD_ITEM_MODEL_H_
 
 #include <string>
 
@@ -15,15 +15,15 @@
 // a method that returns tool tip text that includes origin URL.
 // This class, however, doesn't inherit from DownloadItemModel because
 // DownloadItemView has a member of DownloadItemModel type. To use this
-// extended functionality, BraveDownloadItemView will have this model as
+// extended functionality, adrbrowsielDownloadItemView will have this model as
 // a member.
 class DownloadUIModel;
 
-class BraveDownloadItemModel {
+class adrbrowsielDownloadItemModel {
  public:
-  // Constructs a BraveDownloadItemModel that encapsulates DownloadItemModel.
-  explicit BraveDownloadItemModel(DownloadUIModel* model);
-  ~BraveDownloadItemModel();
+  // Constructs a adrbrowsielDownloadItemModel that encapsulates DownloadItemModel.
+  explicit adrbrowsielDownloadItemModel(DownloadUIModel* model);
+  ~adrbrowsielDownloadItemModel();
 
   // Method that returns a string suitable for use as a tooltip. For
   // a regular download, the tooltip is the filename and the origin URL with an
@@ -38,7 +38,7 @@ class BraveDownloadItemModel {
   // Encapsulated model.
   DownloadUIModel* model_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveDownloadItemModel);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielDownloadItemModel);
 };
 
-#endif  // BRAVE_BROWSER_DOWNLOAD_BRAVE_DOWNLOAD_ITEM_MODEL_H_
+#endif  // adrbrowsiel_BROWSER_DOWNLOAD_adrbrowsiel_DOWNLOAD_ITEM_MODEL_H_

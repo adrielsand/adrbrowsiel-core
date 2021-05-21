@@ -1,12 +1,12 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_SEARCH_ENGINES_GUEST_WINDOW_SEARCH_ENGINE_PROVIDER_SERVICE_H_
-#define BRAVE_BROWSER_SEARCH_ENGINES_GUEST_WINDOW_SEARCH_ENGINE_PROVIDER_SERVICE_H_
+#ifndef adrbrowsiel_BROWSER_SEARCH_ENGINES_GUEST_WINDOW_SEARCH_ENGINE_PROVIDER_SERVICE_H_
+#define adrbrowsiel_BROWSER_SEARCH_ENGINES_GUEST_WINDOW_SEARCH_ENGINE_PROVIDER_SERVICE_H_
 
-#include "brave/browser/search_engines/search_engine_provider_service.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_provider_service.h"
 #include "components/search_engines/template_url_service_observer.h"
 
 // This controller is only used by non Qwant region.
@@ -36,4 +36,4 @@ class GuestWindowSearchEngineProviderService
 };
 
 
-#endif  // BRAVE_BROWSER_SEARCH_ENGINES_GUEST_WINDOW_SEARCH_ENGINE_PROVIDER_SERVICE_H_
+#endif  // adrbrowsiel_BROWSER_SEARCH_ENGINES_GUEST_WINDOW_SEARCH_ENGINE_PROVIDER_SERVICE_H_

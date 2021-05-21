@@ -1,23 +1,23 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BraveNewTabPageClassAdapter extends BraveClassVisitor {
+public class adrbrowsielNewTabPageClassAdapter extends adrbrowsielClassVisitor {
     static String sNewTabPageClassName = "org/chromium/chrome/browser/ntp/NewTabPage";
-    static String sBraveNewTabPageClassName = "org/chromium/chrome/browser/ntp/BraveNewTabPage";
+    static String sadrbrowsielNewTabPageClassName = "org/chromium/chrome/browser/ntp/adrbrowsielNewTabPage";
 
-    public BraveNewTabPageClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielNewTabPageClassAdapter(ClassVisitor visitor) {
         super(visitor);
 
-        deleteField(sBraveNewTabPageClassName, "mNewTabPageLayout");
+        deleteField(sadrbrowsielNewTabPageClassName, "mNewTabPageLayout");
         makeProtectedField(sNewTabPageClassName, "mNewTabPageLayout");
 
-        deleteField(sBraveNewTabPageClassName, "mFeedSurfaceProvider");
+        deleteField(sadrbrowsielNewTabPageClassName, "mFeedSurfaceProvider");
         makeProtectedField(sNewTabPageClassName, "mFeedSurfaceProvider");
     }
 }

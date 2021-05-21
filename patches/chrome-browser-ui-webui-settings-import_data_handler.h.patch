@@ -6,7 +6,7 @@ index 173e710d6e8c7ab463e32ed6c55c9131e29b2bbc..1b2a77ea5f22d63eebf7b95f2f1887c2
    void OnJavascriptAllowed() override {}
    void OnJavascriptDisallowed() override;
  
-+  BRAVE_IMPORT_DATA_HANDLER_H
++  adrbrowsiel_IMPORT_DATA_HANDLER_H
   private:
    void StartImport(const importer::SourceProfile& source_profile,
                     uint16_t imported_items);

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Copyright (c) 2021 The Brave Authors. All rights reserved.
+# Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -28,9 +28,9 @@ import sys
 Look for potential problems in chromium_src overrides.
 """
 
-BRAVE_SRC = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-BRAVE_CHROMIUM_SRC = os.path.join(BRAVE_SRC, 'chromium_src')
-CHROMIUM_SRC = os.path.abspath(os.path.dirname(BRAVE_SRC))
+adrbrowsiel_SRC = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+adrbrowsiel_CHROMIUM_SRC = os.path.join(adrbrowsiel_SRC, 'chromium_src')
+CHROMIUM_SRC = os.path.abspath(os.path.dirname(adrbrowsiel_SRC))
 
 
 EXCLUDES = [
@@ -42,9 +42,9 @@ EXCLUDES = [
     'third_party/blink/renderer/modules/battery/navigator_batterytest.cc',
     'third_party/blink/renderer/modules/bluetooth/navigator_bluetoothtest.cc',
     'third_party/blink/renderer/modules/quota/navigator_storagetest.cc',
-    'third_party/blink/renderer/modules/storage/brave_dom_window_storage.h',
-    'chrome/installer/linux/common/brave-browser/chromium-browser.appdata.xml',
-    'chrome/installer/linux/common/brave-browser/chromium-browser.info',
+    'third_party/blink/renderer/modules/storage/adrbrowsiel_dom_window_storage.h',
+    'chrome/installer/linux/common/adrbrowsiel-browser/chromium-browser.appdata.xml',
+    'chrome/installer/linux/common/adrbrowsiel-browser/chromium-browser.info',
     'content/browser/tld_ephemeral_lifetime.cc',
     'content/public/browser/tld_ephemeral_lifetime.h'
 ]
@@ -69,7 +69,7 @@ def do_check_includes(override_filepath):
 
         # Calculate the expected number of parent dirs.
         # -1 for the dir where the file is.
-        # +3 to get to chromium_src->brave->src.
+        # +3 to get to chromium_src->adrbrowsiel->src.
         expected_count = len(override_dirpath.split(os.path.sep)) - 1 + 3
 
         # Check relative includes go up the expected amount of steps.
@@ -163,7 +163,7 @@ def get_generated_builddir(build, target_os=None, target_arch=None):
 
 def filter_chromium_src_filepaths(include_regexp=None, exclude_regexp=None):
     """
-    Return a list of paths pointing to the files in |BRAVE_CHROMIUM_SRC|
+    Return a list of paths pointing to the files in |adrbrowsiel_CHROMIUM_SRC|
     after filtering the results according to the |include_regexp| and the
     |exclude_regexp| regexp rules, where |include_regexp| takes precedence
     over |exclude_regexp|.
@@ -173,13 +173,13 @@ def filter_chromium_src_filepaths(include_regexp=None, exclude_regexp=None):
     if not include_regexp and not exclude_regexp:
         return result
 
-    for dir_path, _dirnames, filenames in os.walk(BRAVE_CHROMIUM_SRC):
+    for dir_path, _dirnames, filenames in os.walk(adrbrowsiel_CHROMIUM_SRC):
         for filename in filenames:
             full_path = os.path.join(dir_path, filename)
 
-            # Strip the BRAVE_CHROMIUM_SRC prefix to match against the
+            # Strip the adrbrowsiel_CHROMIUM_SRC prefix to match against the
             # list of relative paths to be included and/or excluded
-            relative_path = full_path.replace(BRAVE_CHROMIUM_SRC, '')[1:]
+            relative_path = full_path.replace(adrbrowsiel_CHROMIUM_SRC, '')[1:]
 
             # Normalize back slashes to forward slashes just in case we're in
             # Windows before trying to match them against a regular expression.
@@ -215,13 +215,13 @@ def main(args):
                                          options.arch)
 
     # Check that the required directories exist.
-    for dir in [BRAVE_SRC, gen_buildir]:
+    for dir in [adrbrowsiel_SRC, gen_buildir]:
         if not os.path.isdir(dir):
             print("ERROR: {} is not a valid directory.".format(dir))
             return 1
 
     # Change into the chromium_src directory for convenience.
-    os.chdir(BRAVE_CHROMIUM_SRC)
+    os.chdir(adrbrowsiel_CHROMIUM_SRC)
 
     # Check non-GRIT overrides.
     src_overrides = filter_chromium_src_filepaths(

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_BRAVE_WEB_UI_CONTROLLER_FACTORY_H_
-#define BRAVE_BROWSER_UI_WEBUI_BRAVE_WEB_UI_CONTROLLER_FACTORY_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_WEB_UI_CONTROLLER_FACTORY_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_WEB_UI_CONTROLLER_FACTORY_H_
 
 #include <memory>
 
@@ -14,7 +14,7 @@ namespace base {
 class RefCountedMemory;
 }
 
-class BraveWebUIControllerFactory : public ChromeWebUIControllerFactory {
+class adrbrowsielWebUIControllerFactory : public ChromeWebUIControllerFactory {
  public:
   content::WebUI::TypeID GetWebUIType(content::BrowserContext* browser_context,
                                       const GURL& url) override;
@@ -22,16 +22,16 @@ class BraveWebUIControllerFactory : public ChromeWebUIControllerFactory {
       content::WebUI* web_ui,
       const GURL& url) override;
 
-  static BraveWebUIControllerFactory* GetInstance();
+  static adrbrowsielWebUIControllerFactory* GetInstance();
 
  protected:
-  friend struct base::DefaultSingletonTraits<BraveWebUIControllerFactory>;
+  friend struct base::DefaultSingletonTraits<adrbrowsielWebUIControllerFactory>;
 
-  BraveWebUIControllerFactory();
-  ~BraveWebUIControllerFactory() override;
+  adrbrowsielWebUIControllerFactory();
+  ~adrbrowsielWebUIControllerFactory() override;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveWebUIControllerFactory);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielWebUIControllerFactory);
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_BRAVE_WEB_UI_CONTROLLER_FACTORY_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_WEB_UI_CONTROLLER_FACTORY_H_

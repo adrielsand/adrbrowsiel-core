@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,22 +12,22 @@ import android.widget.RadioGroup;
 
 import androidx.preference.PreferenceViewHolder;
 
-import org.chromium.chrome.browser.BraveRelaunchUtils;
+import org.chromium.chrome.browser.adrbrowsielRelaunchUtils;
 import org.chromium.chrome.browser.night_mode.R;
 import org.chromium.chrome.browser.night_mode.settings.RadioButtonGroupThemePreference;
 import org.chromium.chrome.browser.ntp_background_images.NTPBackgroundImagesBridge;
-import org.chromium.chrome.browser.preferences.BravePref;
+import org.chromium.chrome.browser.preferences.adrbrowsielPref;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.components.browser_ui.widget.RadioButtonWithDescription;
 import org.chromium.components.user_prefs.UserPrefs;
 
-public class BraveRadioButtonGroupCustomHomepageThemePreference extends RadioButtonGroupThemePreference {
+public class adrbrowsielRadioButtonGroupCustomHomepageThemePreference extends RadioButtonGroupThemePreference {
 
-    private RadioButtonWithDescription braveDefaultView;
+    private RadioButtonWithDescription adrbrowsielDefaultView;
     private RadioButtonWithDescription refView;
     private NTPBackgroundImagesBridge mNTPBackgroundImagesBridge;
 
-    public BraveRadioButtonGroupCustomHomepageThemePreference(Context context, AttributeSet attrs) {
+    public adrbrowsielRadioButtonGroupCustomHomepageThemePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         Profile mProfile = Profile.getLastUsedRegularProfile();
         mNTPBackgroundImagesBridge = NTPBackgroundImagesBridge.getInstance(mProfile);
@@ -39,26 +39,26 @@ public class BraveRadioButtonGroupCustomHomepageThemePreference extends RadioBut
 
         holder.findViewById(R.id.system_default).setVisibility(View.GONE);
 
-        RadioButtonWithDescription braveDefaultView = (RadioButtonWithDescription)holder.findViewById(R.id.light);
+        RadioButtonWithDescription adrbrowsielDefaultView = (RadioButtonWithDescription)holder.findViewById(R.id.light);
         RadioButtonWithDescription refView = (RadioButtonWithDescription)holder.findViewById(R.id.dark);
         if (mNTPBackgroundImagesBridge != null && mNTPBackgroundImagesBridge.isSuperReferral()) {
             refView.setPrimaryText(mNTPBackgroundImagesBridge.getSuperReferralThemeName());
-            if(UserPrefs.get(Profile.getLastUsedRegularProfile()).getInteger(BravePref.NEW_TAB_PAGE_SUPER_REFERRAL_THEMES_OPTION) == 1 ? true : false) {
+            if(UserPrefs.get(Profile.getLastUsedRegularProfile()).getInteger(adrbrowsielPref.NEW_TAB_PAGE_SUPER_REFERRAL_THEMES_OPTION) == 1 ? true : false) {
                 refView.setChecked(true);
-                braveDefaultView.setChecked(false);
+                adrbrowsielDefaultView.setChecked(false);
             } else {
                 refView.setChecked(false);
-                braveDefaultView.setChecked(true);
+                adrbrowsielDefaultView.setChecked(true);
             }
         }
-        braveDefaultView.setPrimaryText(
-                getContext().getResources().getString(org.chromium.chrome.R.string.brave_default));
+        adrbrowsielDefaultView.setPrimaryText(
+                getContext().getResources().getString(org.chromium.chrome.R.string.adrbrowsiel_default));
     }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         super.onCheckedChanged(group, checkedId);
-        UserPrefs.get(Profile.getLastUsedRegularProfile()).setInteger(BravePref.NEW_TAB_PAGE_SUPER_REFERRAL_THEMES_OPTION, checkedId == R.id.light ? 0 : 1 );
-        BraveRelaunchUtils.askForRelaunch(getContext());
+        UserPrefs.get(Profile.getLastUsedRegularProfile()).setInteger(adrbrowsielPref.NEW_TAB_PAGE_SUPER_REFERRAL_THEMES_OPTION, checkedId == R.id.light ? 0 : 1 );
+        adrbrowsielRelaunchUtils.askForRelaunch(getContext());
     }
 }

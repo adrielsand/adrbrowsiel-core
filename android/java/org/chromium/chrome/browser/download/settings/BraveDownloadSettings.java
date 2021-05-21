@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,11 +12,11 @@ import androidx.preference.Preference;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.preferences.BravePreferenceKeys;
+import org.chromium.chrome.browser.preferences.adrbrowsielPreferenceKeys;
 import org.chromium.components.browser_ui.settings.ChromeSwitchPreference;
 import org.chromium.components.browser_ui.settings.SettingsUtils;
 
-public class BraveDownloadSettings
+public class adrbrowsielDownloadSettings
         extends DownloadSettings implements Preference.OnPreferenceChangeListener {
     private static final String PREF_AUTOMATICALLY_OPEN_WHEN_POSSIBLE =
             "automatically_open_when_possible";
@@ -27,7 +27,7 @@ public class BraveDownloadSettings
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SettingsUtils.addPreferencesFromResource(this, R.xml.brave_download_preferences);
+        SettingsUtils.addPreferencesFromResource(this, R.xml.adrbrowsiel_download_preferences);
 
         mAutomaticallyOpenWhenPossiblePref =
                 (ChromeSwitchPreference) findPreference(PREF_AUTOMATICALLY_OPEN_WHEN_POSSIBLE);
@@ -42,7 +42,7 @@ public class BraveDownloadSettings
 
     private void updateDownloadSettings() {
         boolean automaticallyOpenWhenPossible = ContextUtils.getAppSharedPreferences().getBoolean(
-                BravePreferenceKeys.BRAVE_DOWNLOADS_AUTOMATICALLY_OPEN_WHEN_POSSIBLE, true);
+                adrbrowsielPreferenceKeys.adrbrowsiel_DOWNLOADS_AUTOMATICALLY_OPEN_WHEN_POSSIBLE, true);
         mAutomaticallyOpenWhenPossiblePref.setChecked(automaticallyOpenWhenPossible);
     }
 
@@ -53,7 +53,7 @@ public class BraveDownloadSettings
             ContextUtils.getAppSharedPreferences()
                     .edit()
                     .putBoolean(
-                            BravePreferenceKeys.BRAVE_DOWNLOADS_AUTOMATICALLY_OPEN_WHEN_POSSIBLE,
+                            adrbrowsielPreferenceKeys.adrbrowsiel_DOWNLOADS_AUTOMATICALLY_OPEN_WHEN_POSSIBLE,
                             (boolean) newValue)
                     .apply();
         }

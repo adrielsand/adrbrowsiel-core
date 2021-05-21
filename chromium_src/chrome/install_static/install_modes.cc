@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -21,7 +21,7 @@ std::wstring GetUnregisteredKeyPathForProduct() {
 
 std::wstring GetClientsKeyPath(const wchar_t* app_guid) {
 #if defined(OFFICIAL_BUILD)
-  return std::wstring(L"Software\\BraveSoftware\\Update\\Clients\\")
+  return std::wstring(L"Software\\adrbrowsielSoftware\\Update\\Clients\\")
       .append(app_guid);
 #else
   return GetUnregisteredKeyPathForProduct();
@@ -30,7 +30,7 @@ std::wstring GetClientsKeyPath(const wchar_t* app_guid) {
 
 std::wstring GetClientStateKeyPath(const wchar_t* app_guid) {
 #if defined(OFFICIAL_BUILD)
-  return std::wstring(L"Software\\BraveSoftware\\Update\\ClientState\\")
+  return std::wstring(L"Software\\adrbrowsielSoftware\\Update\\ClientState\\")
       .append(app_guid);
 #else
   return GetUnregisteredKeyPathForProduct();
@@ -39,7 +39,7 @@ std::wstring GetClientStateKeyPath(const wchar_t* app_guid) {
 
 std::wstring GetClientStateMediumKeyPath(const wchar_t* app_guid) {
 #if defined(OFFICIAL_BUILD)
-  return std::wstring(L"Software\\BraveSoftware\\Update\\ClientStateMedium\\")
+  return std::wstring(L"Software\\adrbrowsielSoftware\\Update\\ClientStateMedium\\")
       .append(app_guid);
 #else
   return GetUnregisteredKeyPathForProduct();

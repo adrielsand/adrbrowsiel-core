@@ -1,26 +1,26 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_IMPORTER_BRAVE_IN_PROCESS_IMPORTER_BRIDGE_H_
-#define BRAVE_BROWSER_IMPORTER_BRAVE_IN_PROCESS_IMPORTER_BRIDGE_H_
+#ifndef adrbrowsiel_BROWSER_IMPORTER_adrbrowsiel_IN_PROCESS_IMPORTER_BRIDGE_H_
+#define adrbrowsiel_BROWSER_IMPORTER_adrbrowsiel_IN_PROCESS_IMPORTER_BRIDGE_H_
 
 #include <string>
 
-#include "brave/common/importer/brave_importer_bridge.h"
+#include "adrbrowsiel/common/importer/adrbrowsiel_importer_bridge.h"
 #include "chrome/browser/importer/in_process_importer_bridge.h"
 
-class BraveInProcessImporterBridge : public InProcessImporterBridge,
-                                     public BraveImporterBridge {
+class adrbrowsielInProcessImporterBridge : public InProcessImporterBridge,
+                                     public adrbrowsielImporterBridge {
  public:
   using InProcessImporterBridge::InProcessImporterBridge;
 
-  BraveInProcessImporterBridge(const BraveInProcessImporterBridge&) = delete;
-  BraveInProcessImporterBridge operator=(
-      const BraveInProcessImporterBridge&) = delete;
+  adrbrowsielInProcessImporterBridge(const adrbrowsielInProcessImporterBridge&) = delete;
+  adrbrowsielInProcessImporterBridge operator=(
+      const adrbrowsielInProcessImporterBridge&) = delete;
 
-  // BraveImporterBridge overrides:
+  // adrbrowsielImporterBridge overrides:
   void SetCreditCard(const std::u16string& name_on_card,
                      const std::u16string& expiration_month,
                      const std::u16string& expiration_year,
@@ -28,7 +28,7 @@ class BraveInProcessImporterBridge : public InProcessImporterBridge,
                      const std::string& origin) override;
 
  private:
-  ~BraveInProcessImporterBridge() override;
+  ~adrbrowsielInProcessImporterBridge() override;
 };
 
-#endif  // BRAVE_BROWSER_IMPORTER_BRAVE_IN_PROCESS_IMPORTER_BRIDGE_H_
+#endif  // adrbrowsiel_BROWSER_IMPORTER_adrbrowsiel_IN_PROCESS_IMPORTER_BRIDGE_H_

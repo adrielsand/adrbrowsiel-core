@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,11 +12,11 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import org.chromium.chrome.browser.safe_browsing.settings.BraveStandardProtectionSettingsFragment;
+import org.chromium.chrome.browser.safe_browsing.settings.adrbrowsielStandardProtectionSettingsFragment;
 import org.chromium.chrome.browser.safe_browsing.settings.StandardProtectionSettingsFragment;
 
-public class BraveSettingsLauncherImpl extends SettingsLauncherImpl {
-    public BraveSettingsLauncherImpl() {
+public class adrbrowsielSettingsLauncherImpl extends SettingsLauncherImpl {
+    public adrbrowsielSettingsLauncherImpl() {
         super();
     }
 
@@ -26,7 +26,7 @@ public class BraveSettingsLauncherImpl extends SettingsLauncherImpl {
         if (fragment != null) {
             // Substitute with our version of class
             if (fragment.equals(StandardProtectionSettingsFragment.class)) {
-                fragment = BraveStandardProtectionSettingsFragment.class;
+                fragment = adrbrowsielStandardProtectionSettingsFragment.class;
             }
         }
         super.launchSettingsActivity(context, fragment, fragmentArgs);
@@ -36,7 +36,7 @@ public class BraveSettingsLauncherImpl extends SettingsLauncherImpl {
     public Intent createSettingsActivityIntent(
             Context context, @Nullable String fragmentName, @Nullable Bundle fragmentArgs) {
         Intent intent = super.createSettingsActivityIntent(context, fragmentName, fragmentArgs);
-        intent.setClass(context, BraveSettingsActivity.class);
+        intent.setClass(context, adrbrowsielSettingsActivity.class);
         return intent;
     }
 }

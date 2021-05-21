@@ -2,19 +2,19 @@ import("//build/buildflag_header.gni")
 import("//components/gcm_driver/config.gni")
 
 source_set("gcm_driver") {
-  # Remove when https://github.com/brave/brave-browser/issues/10663 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10663 is resolved
   check_includes = false
   if (!use_gcm_from_platform) {
     sources = [
-      "brave_gcm_channel_status.cc",
-      "brave_gcm_channel_status.h",
-      "brave_gcm_utils.cc",
-      "brave_gcm_utils.h",
+      "adrbrowsiel_gcm_channel_status.cc",
+      "adrbrowsiel_gcm_channel_status.h",
+      "adrbrowsiel_gcm_utils.cc",
+      "adrbrowsiel_gcm_utils.h",
     ]
 
     deps = [
       "//base",
-      "//brave/common:pref_names",
+      "//adrbrowsiel/common:pref_names",
       "//components/prefs",
       "//components/pref_registry",
       # For profile.h

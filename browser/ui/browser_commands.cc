@@ -1,14 +1,14 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/browser_commands.h"
+#include "adrbrowsiel/browser/ui/browser_commands.h"
 
 #include "base/files/file_path.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/speedreader/buildflags.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/speedreader/buildflags.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/profiles/profile_manager.h"
@@ -23,18 +23,18 @@
 #include "content/public/browser/web_contents.h"
 
 #if defined(TOOLKIT_VIEWS)
-#include "brave/browser/ui/views/frame/brave_browser_view.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_browser_view.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SPEEDREADER)
-#include "brave/browser/speedreader/speedreader_service_factory.h"
-#include "brave/components/speedreader/speedreader_service.h"
+#include "adrbrowsiel/browser/speedreader/speedreader_service_factory.h"
+#include "adrbrowsiel/components/speedreader/speedreader_service.h"
 #endif
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/browser/tor/tor_profile_manager.h"
-#include "brave/browser/tor/tor_profile_service_factory.h"
-#include "brave/components/tor/tor_profile_service.h"
+#include "adrbrowsiel/browser/tor/tor_profile_manager.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/components/tor/tor_profile_service.h"
 #endif
 
 using content::WebContents;
@@ -42,7 +42,7 @@ using content::WebContents;
 namespace {
 }  // namespace
 
-namespace brave {
+namespace adrbrowsiel {
 
 void NewOffTheRecordWindowTor(Browser* browser) {
   if (browser->profile()->IsTor()) {
@@ -97,15 +97,15 @@ void ToggleSpeedreader(Browser* browser) {
 }
 
 void ShowWalletBubble(Browser* browser) {
-#if BUILDFLAG(BRAVE_WALLET_ENABLED) && defined(TOOLKIT_VIEWS)
-  static_cast<BraveBrowserView*>(browser->window())->CreateWalletBubble();
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED) && defined(TOOLKIT_VIEWS)
+  static_cast<adrbrowsielBrowserView*>(browser->window())->CreateWalletBubble();
 #endif
 }
 
 void CloseWalletBubble(Browser* browser) {
-#if BUILDFLAG(BRAVE_WALLET_ENABLED) && defined(TOOLKIT_VIEWS)
-  static_cast<BraveBrowserView*>(browser->window())->CloseWalletBubble();
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED) && defined(TOOLKIT_VIEWS)
+  static_cast<adrbrowsielBrowserView*>(browser->window())->CloseWalletBubble();
 #endif
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

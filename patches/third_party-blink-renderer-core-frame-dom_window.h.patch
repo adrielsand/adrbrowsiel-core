@@ -6,7 +6,7 @@ index 0a3d30b0e1bfa97f9e6503164df5e2f760c8fd21..07bcb2bdb72e4dd745dd2a80cfd0df77
    // marked as "CrossOrigin" in the window.idl.
    void ReportCoopAccess(const char* property_name);
  
-+  BRAVE_DOM_WINDOW_H
++  adrbrowsiel_DOM_WINDOW_H
   protected:
    explicit DOMWindow(Frame&);
  

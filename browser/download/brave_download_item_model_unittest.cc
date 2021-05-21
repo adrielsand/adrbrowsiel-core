@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/download/brave_download_item_model.h"
+#include "adrbrowsiel/browser/download/adrbrowsiel_download_item_model.h"
 
 #include <stddef.h>
 #include <stdint.h>
@@ -44,10 +44,10 @@ const base::FilePath::CharType kDefaultTargetFilePath[] =
 const base::FilePath::CharType kDefaultDisplayFileName[] =
     FILE_PATH_LITERAL("foo.bar");
 
-class BraveDownloadItemModelTest : public testing::Test {
+class adrbrowsielDownloadItemModelTest : public testing::Test {
  public:
-  BraveDownloadItemModelTest() : model_(&item_), brave_model_(&model_) {}
-  ~BraveDownloadItemModelTest() override {}
+  adrbrowsielDownloadItemModelTest() : model_(&item_), adrbrowsiel_model_(&model_) {}
+  ~adrbrowsielDownloadItemModelTest() override {}
 
  protected:
   void SetupDownloadItemDefaults() {
@@ -70,17 +70,17 @@ class BraveDownloadItemModelTest : public testing::Test {
   }
 
   download::MockDownloadItem& item() { return item_; }
-  BraveDownloadItemModel& model() { return brave_model_; }
+  adrbrowsielDownloadItemModel& model() { return adrbrowsiel_model_; }
 
  private:
   NiceMock<download::MockDownloadItem> item_;
   DownloadItemModel model_;
-  BraveDownloadItemModel brave_model_;
+  adrbrowsielDownloadItemModel adrbrowsiel_model_;
 };
 
 }  // namespace
 
-TEST_F(BraveDownloadItemModelTest, GetOriginUrlText) {
+TEST_F(adrbrowsielDownloadItemModelTest, GetOriginUrlText) {
   // Test that we have the correct origin URL text.
   const struct TestCase {
     // The url.
@@ -122,7 +122,7 @@ TEST_F(BraveDownloadItemModelTest, GetOriginUrlText) {
   }
 }
 
-TEST_F(BraveDownloadItemModelTest, GetTooltipText) {
+TEST_F(adrbrowsielDownloadItemModelTest, GetTooltipText) {
   // Test that we have the correct tooltip text that includes origin URL.
   const struct TestCase {
     // The url.

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -26,7 +26,7 @@ import org.chromium.base.supplier.OneshotSupplier;
 import org.chromium.base.supplier.Supplier;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.ActivityTabProvider;
-import org.chromium.chrome.browser.app.BraveActivity;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
 import org.chromium.chrome.browser.app.ChromeActivity;
 import org.chromium.chrome.browser.feature_engagement.TrackerFactory;
 import org.chromium.chrome.browser.homepage.HomepageManager;
@@ -79,7 +79,7 @@ class BottomToolbarCoordinator implements View.OnLongClickListener {
     ObservableSupplier<AppMenuButtonHelper> mMenuButtonHelperSupplier;
     private BottomControlsMediator mBottomControlsMediator;
     private Runnable mOriginalHomeButtonRunnable;
-    private final BraveScrollingBottomViewResourceFrameLayout mScrollingBottomView;
+    private final adrbrowsielScrollingBottomViewResourceFrameLayout mScrollingBottomView;
     private HomeButton mHomeButton;
     private BookmarksButton mBookmarksButton;
     private SearchAccelerator mSearchAccelerator;
@@ -117,7 +117,7 @@ class BottomToolbarCoordinator implements View.OnLongClickListener {
         mMenuButtonHelperSupplier = menuButtonHelperSupplier;
         mBottomControlsMediator = bottomControlsMediator;
         mOriginalHomeButtonRunnable = openHomepageAction;
-        mScrollingBottomView = (BraveScrollingBottomViewResourceFrameLayout) scrollingBottomView;
+        mScrollingBottomView = (adrbrowsielScrollingBottomViewResourceFrameLayout) scrollingBottomView;
     }
 
     /**
@@ -252,7 +252,7 @@ class BottomToolbarCoordinator implements View.OnLongClickListener {
             mNewTabButton.setOnLongClickListener(this);
         }
 
-        ChromeActivity activity = BraveActivity.getBraveActivity();
+        ChromeActivity activity = adrbrowsielActivity.getadrbrowsielActivity();
         if (mScrollingBottomView != null && activity != null) {
             mScrollingBottomView.setSwipeDetector(
                     activity.getCompositorViewHolder().getLayoutManager().getToolbarSwipeHandler());

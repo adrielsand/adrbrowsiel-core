@@ -1,39 +1,39 @@
-import("//brave/build/config.gni")
-import("//brave/build/mac/config.gni")
+import("//adrbrowsiel/build/config.gni")
+import("//adrbrowsiel/build/mac/config.gni")
 import("//build/util/branding.gni")
 import("//build/util/version.gni")
 import("//chrome/common/features.gni")
 import("//third_party/widevine/cdm/widevine.gni")
 
-packaging_dir = "$brave_packaging_base_dir/" +
+packaging_dir = "$adrbrowsiel_packaging_base_dir/" +
                 string_replace("$chrome_product_full_name Packaging", " ", "_")
 
-unsigned_app_path = "$root_out_dir/$brave_exe"
+unsigned_app_path = "$root_out_dir/$adrbrowsiel_exe"
 if (is_universal_binary) {
   arm64_arch_app_path = unsigned_app_path
-  x64_arch_app_path = "$root_out_dir/x64/$brave_exe"
-  unsigned_app_path = "$brave_packaging_base_dir/$brave_exe"
+  x64_arch_app_path = "$root_out_dir/x64/$adrbrowsiel_exe"
+  unsigned_app_path = "$adrbrowsiel_packaging_base_dir/$adrbrowsiel_exe"
 }
 
-unsigned_dmg_path = "$root_out_dir/$mac_unsigned_output_prefix/$brave_dmg"
-unsigned_pkg_path = "$root_out_dir/$mac_unsigned_output_prefix/$brave_pkg"
+unsigned_dmg_path = "$root_out_dir/$mac_unsigned_output_prefix/$adrbrowsiel_dmg"
+unsigned_pkg_path = "$root_out_dir/$mac_unsigned_output_prefix/$adrbrowsiel_pkg"
 
 signed_app_path =
-    "$root_out_dir/$mac_signing_output_prefix/$brave_channel/$brave_exe"
+    "$root_out_dir/$mac_signing_output_prefix/$adrbrowsiel_channel/$adrbrowsiel_exe"
 if (is_release_channel) {
-  signed_app_path = "$root_out_dir/$mac_signing_output_prefix/stable/$brave_exe"
+  signed_app_path = "$root_out_dir/$mac_signing_output_prefix/stable/$adrbrowsiel_exe"
 }
 
-signed_dmg_path = "$root_out_dir/$mac_signed_output_prefix/$brave_dmg"
-signed_pkg_path = "$root_out_dir/$mac_signed_output_prefix/$brave_pkg"
+signed_dmg_path = "$root_out_dir/$mac_signed_output_prefix/$adrbrowsiel_dmg"
+signed_pkg_path = "$root_out_dir/$mac_signed_output_prefix/$adrbrowsiel_pkg"
 
 app_path = signed_app_path
 if (skip_signing) {
   app_path = unsigned_app_path
 }
 
-notarized_dmg_path = "$root_out_dir/$mac_notarized_output_prefix/$brave_dmg"
-notarized_pkg_path = "$root_out_dir/$mac_notarized_output_prefix/$brave_pkg"
+notarized_dmg_path = "$root_out_dir/$mac_notarized_output_prefix/$adrbrowsiel_dmg"
+notarized_pkg_path = "$root_out_dir/$mac_notarized_output_prefix/$adrbrowsiel_pkg"
 
 if (is_universal_binary) {
   action("universalize") {
@@ -61,10 +61,10 @@ if (is_universal_binary) {
 
   # placeholder script to allow manual copying of binary into output dir
   action("copy_x64") {
-    script = "//brave/installer/mac/copy_x64_binary.py"
+    script = "//adrbrowsiel/installer/mac/copy_x64_binary.py"
 
     x64_root_out_dir = string_replace(root_out_dir, "_arm64", "")
-    x64_arch_src_path = "$x64_root_out_dir/$brave_exe"
+    x64_arch_src_path = "$x64_root_out_dir/$adrbrowsiel_exe"
 
     args = [
       rebase_path(x64_arch_src_path),
@@ -84,9 +84,9 @@ if (is_universal_binary) {
   }
 }
 
-group("brave") {
+group("adrbrowsiel") {
   exe_path = "$app_path/Contents/MacOS/$chrome_product_full_name"
-  write_file("$root_out_dir/brave_helper",
+  write_file("$root_out_dir/adrbrowsiel_helper",
              [ string_replace(rebase_path(exe_path), " ", "\\ ") ])
 }
 
@@ -94,20 +94,20 @@ ds_store_file_name = "DS_Store"
 dmg_icon_file_name = "dmg"
 
 if (!is_release_channel) {
-  ds_store_file_name = "DS_Store.$brave_channel"
-  dmg_icon_file_name = "dmg-$brave_channel"
+  ds_store_file_name = "DS_Store.$adrbrowsiel_channel"
+  dmg_icon_file_name = "dmg-$adrbrowsiel_channel"
 }
 
-dmg_background_image = rebase_path("//brave/build/mac/dmg-background.png")
-ds_store = rebase_path("//brave/build/mac/$ds_store_file_name")
-dmg_icon = rebase_path("//brave/build/mac/$dmg_icon_file_name.icns")
+dmg_background_image = rebase_path("//adrbrowsiel/build/mac/dmg-background.png")
+ds_store = rebase_path("//adrbrowsiel/build/mac/$ds_store_file_name")
+dmg_icon = rebase_path("//adrbrowsiel/build/mac/$dmg_icon_file_name.icns")
 
 action("generate_dsa_sig_for_dmg") {
   script = "generate_dsa_sig.py"
 
   sign_update_path = "$root_out_dir/old_dsa_scripts/sign_update"
-  target_dmg_path = "$root_out_dir/$brave_dmg"
-  output_dmg_dsa_path = "$root_out_dir/$brave_dmg.dsa"
+  target_dmg_path = "$root_out_dir/$adrbrowsiel_dmg"
+  output_dmg_dsa_path = "$root_out_dir/$adrbrowsiel_dmg.dsa"
 
   args = [
     "--sign-update",
@@ -130,7 +130,7 @@ action("generate_dsa_sig_for_dmg") {
 
   deps = [
     ":copy_dmg_pkg",
-    "//brave/vendor/sparkle:copy_old_sign_update",
+    "//adrbrowsiel/vendor/sparkle:copy_old_sign_update",
   ]
 }
 
@@ -138,8 +138,8 @@ action("generate_eddsa_sig_for_dmg") {
   script = "generate_eddsa_sig.py"
 
   sign_update_path = "$root_out_dir/sign_update"
-  target_dmg_path = "$root_out_dir/$brave_dmg"
-  output_dmg_eddsa_path = "$root_out_dir/$brave_dmg.eddsa"
+  target_dmg_path = "$root_out_dir/$adrbrowsiel_dmg"
+  output_dmg_eddsa_path = "$root_out_dir/$adrbrowsiel_dmg.eddsa"
 
   args = [
     "--sign-update",
@@ -162,7 +162,7 @@ action("generate_eddsa_sig_for_dmg") {
 
   deps = [
     ":copy_dmg_pkg",
-    "//brave/vendor/sparkle:build_sparkle_framework",
+    "//adrbrowsiel/vendor/sparkle:build_sparkle_framework",
   ]
 }
 
@@ -170,8 +170,8 @@ action("build_delta_installer") {
   script = "build_delta_installer.py"
 
   binary_delta_path = "$root_out_dir/BinaryDelta"
-  target_dmg_path = "$root_out_dir/$brave_dmg"
-  output_delta_path = "$root_out_dir/$brave_delta"
+  target_dmg_path = "$root_out_dir/$adrbrowsiel_dmg"
+  output_delta_path = "$root_out_dir/$adrbrowsiel_delta"
 
   args = [
     "--binary-delta",
@@ -196,7 +196,7 @@ action("build_delta_installer") {
 
   deps = [
     ":copy_dmg_pkg",
-    "//brave/vendor/sparkle:build_sparkle_framework",
+    "//adrbrowsiel/vendor/sparkle:build_sparkle_framework",
   ]
 }
 
@@ -204,8 +204,8 @@ action("generate_eddsa_sig_for_delta") {
   script = "generate_eddsa_sig.py"
 
   sign_update_path = "$root_out_dir/sign_update"
-  target_delta_path = "$root_out_dir/$brave_delta"
-  output_delta_eddsa_path = "$root_out_dir/$brave_delta.eddsa"
+  target_delta_path = "$root_out_dir/$adrbrowsiel_delta"
+  output_delta_eddsa_path = "$root_out_dir/$adrbrowsiel_delta.eddsa"
 
   args = [
     "--sign-update",
@@ -228,7 +228,7 @@ action("generate_eddsa_sig_for_delta") {
 
   deps = [
     ":build_delta_installer",
-    "//brave/vendor/sparkle:build_sparkle_framework",
+    "//adrbrowsiel/vendor/sparkle:build_sparkle_framework",
   ]
 }
 
@@ -244,19 +244,19 @@ group("finalize_app") {
 
 action("sign_app") {
   script = "//build/gn_run_binary.py"
-  shell_script = "//brave/build/mac/sign_app.sh"
+  shell_script = "//adrbrowsiel/build/mac/sign_app.sh"
 
   if (is_official_build) {
     if (is_release_channel) {
-      provisioning_profile = "//brave/build/mac/release.provisionprofile"
+      provisioning_profile = "//adrbrowsiel/build/mac/release.provisionprofile"
     } else {
       provisioning_profile =
-          "//brave/build/mac/${brave_channel}.provisionprofile"
+          "//adrbrowsiel/build/mac/${adrbrowsiel_channel}.provisionprofile"
     }
     is_development = "False"
   } else {
     # an empty dummy file just to simplify things
-    provisioning_profile = "//brave/build/mac/dummy.provisionprofile"
+    provisioning_profile = "//adrbrowsiel/build/mac/dummy.provisionprofile"
     is_development = "True"
   }
 
@@ -300,7 +300,7 @@ action("sign_app") {
 copy("copies") {
   visibility = [ ":sign_app" ]
 
-  sources = [ "//brave/app/helper-entitlements.plist" ]
+  sources = [ "//adrbrowsiel/app/helper-entitlements.plist" ]
 
   public_deps = [ "//chrome/installer/mac" ]
 
@@ -309,14 +309,14 @@ copy("copies") {
 
 action("create_pkg") {
   script = "//build/gn_run_binary.py"
-  shell_script = "//brave/build/mac/create_pkg.sh"
+  shell_script = "//adrbrowsiel/build/mac/create_pkg.sh"
 
   args = [
     rebase_path(shell_script, root_build_dir),
     rebase_path(app_path, root_build_dir),
-    rebase_path("//brave/build/mac/pkg-scripts"),
-    rebase_path("$root_out_dir/Brave Browser Component.plist"),
-    "$mac_unsigned_output_prefix/$brave_pkg",
+    rebase_path("//adrbrowsiel/build/mac/pkg-scripts"),
+    rebase_path("$root_out_dir/adrbrowsiel Browser Component.plist"),
+    "$mac_unsigned_output_prefix/$adrbrowsiel_pkg",
   ]
 
   inputs = [
@@ -348,7 +348,7 @@ action("sign_pkg") {
     unsigned_pkg_path,
   ]
 
-  outputs = [ "${root_out_dir}/$mac_signed_output_prefix/$brave_pkg" ]
+  outputs = [ "${root_out_dir}/$mac_signed_output_prefix/$adrbrowsiel_pkg" ]
 
   deps = [ ":create_pkg" ]
 }
@@ -362,7 +362,7 @@ action("create_dmg") {
     "--source",
     "/var/empty",
     "--target",
-    "$mac_unsigned_output_prefix/$brave_dmg",
+    "$mac_unsigned_output_prefix/$adrbrowsiel_dmg",
     "--format",
     "UDBZ",
     "--verbosity",
@@ -415,7 +415,7 @@ action("sign_dmg") {
     unsigned_dmg_path,
   ]
 
-  outputs = [ "${root_out_dir}/$mac_signed_output_prefix/$brave_dmg" ]
+  outputs = [ "${root_out_dir}/$mac_signed_output_prefix/$adrbrowsiel_dmg" ]
 
   deps = [ ":create_dmg" ]
 }
@@ -459,14 +459,14 @@ action("notarize_dmg_pkg") {
   if (is_official_build) {
     development_arg = ""
     if (is_release_channel) {
-      provisioning_profile = "//brave/build/mac/release.provisionprofile"
+      provisioning_profile = "//adrbrowsiel/build/mac/release.provisionprofile"
     } else {
       provisioning_profile =
-          "//brave/build/mac/${brave_channel}.provisionprofile"
+          "//adrbrowsiel/build/mac/${adrbrowsiel_channel}.provisionprofile"
     }
   } else {
     development_arg = "--development"
-    provisioning_profile = "//brave/build/mac/dummy.provisionprofile"
+    provisioning_profile = "//adrbrowsiel/build/mac/dummy.provisionprofile"
   }
 
   args = [

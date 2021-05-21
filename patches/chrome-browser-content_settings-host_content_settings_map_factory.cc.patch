@@ -6,7 +6,7 @@ index c1e6c77a57267f9540c8bd984db570026719f03f..34460c7dc6cf2a51009d4e32b7dc8147
  
    scoped_refptr<HostContentSettingsMap> settings_map(new HostContentSettingsMap(
        profile->GetPrefs(),
-+      BRAVE_BUILD_SERVICE_INSTANCE_FOR
++      adrbrowsiel_BUILD_SERVICE_INSTANCE_FOR
        profile->IsOffTheRecord() || profile->IsGuestSession(),
        /*store_last_modified=*/true,
        profile->ShouldRestoreOldSessionCookies()));

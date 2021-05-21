@@ -6,7 +6,7 @@ index a5723dc9ce4bbba5ba00f9611e6bde854aa9cc94..1674b6d9a7f815ff06c52bdbf83ebe27
    std::u16string GetLocalizedString(int message_id) override;
    // End ImporterBridge implementation.
  
-+  BRAVE_EXTERNAL_PROCESS_IMPORTER_BRIDGE_H_
++  adrbrowsiel_EXTERNAL_PROCESS_IMPORTER_BRIDGE_H_
   private:
    ~ExternalProcessImporterBridge() override;
  

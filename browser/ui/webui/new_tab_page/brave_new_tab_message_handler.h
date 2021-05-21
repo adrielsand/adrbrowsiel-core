@@ -1,15 +1,15 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_NEW_TAB_PAGE_BRAVE_NEW_TAB_MESSAGE_HANDLER_H_
-#define BRAVE_BROWSER_UI_WEBUI_NEW_TAB_PAGE_BRAVE_NEW_TAB_MESSAGE_HANDLER_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_NEW_TAB_PAGE_adrbrowsiel_NEW_TAB_MESSAGE_HANDLER_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_NEW_TAB_PAGE_adrbrowsiel_NEW_TAB_MESSAGE_HANDLER_H_
 
 #include <string>
 
-#include "brave/components/tor/buildflags/buildflags.h"
-#include "brave/components/tor/tor_launcher_observer.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/tor_launcher_observer.h"
 #include "components/prefs/pref_change_registrar.h"
 #include "content/public/browser/web_ui_message_handler.h"
 
@@ -26,15 +26,15 @@ class PrefRegistrySimple;
 class PrefService;
 
 // Handles messages to and from the New Tab Page javascript
-class BraveNewTabMessageHandler : public content::WebUIMessageHandler,
+class adrbrowsielNewTabMessageHandler : public content::WebUIMessageHandler,
                                   public TorLauncherObserver {
  public:
-  explicit BraveNewTabMessageHandler(Profile* profile);
-  ~BraveNewTabMessageHandler() override;
+  explicit adrbrowsielNewTabMessageHandler(Profile* profile);
+  ~adrbrowsielNewTabMessageHandler() override;
 
   static void RegisterLocalStatePrefs(PrefRegistrySimple* local_state);
   static void RecordInitialP3AValues(PrefService* local_state);
-  static BraveNewTabMessageHandler* Create(
+  static adrbrowsielNewTabMessageHandler* Create(
       content::WebUIDataSource* html_source,
       Profile* profile);
 
@@ -77,7 +77,7 @@ class BraveNewTabMessageHandler : public content::WebUIMessageHandler,
   TorLauncherFactory* tor_launcher_factory_ = nullptr;
 #endif
 
-  DISALLOW_COPY_AND_ASSIGN(BraveNewTabMessageHandler);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielNewTabMessageHandler);
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_NEW_TAB_PAGE_BRAVE_NEW_TAB_MESSAGE_HANDLER_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_NEW_TAB_PAGE_adrbrowsiel_NEW_TAB_MESSAGE_HANDLER_H_

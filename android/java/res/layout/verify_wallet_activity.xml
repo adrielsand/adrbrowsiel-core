@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--* Copyright (c) 2020 The Brave Authors. All rights reserved.
+<!--* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -132,7 +132,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginTop="@dimen/verify_wallet_margin3"
-        android:text="@string/verify_wallet_brave_note1"
+        android:text="@string/verify_wallet_adrbrowsiel_note1"
         android:textAlignment="textStart"
         android:textColor="@color/user_wallet_dimmed_note"
         android:textSize="@dimen/verify_wallet_header4_font_size"/>

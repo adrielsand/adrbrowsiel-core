@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright (c) 2019 The Brave Authors. All rights reserved.
+# Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -16,29 +16,29 @@ def SignAndCopyPreSignedBinaries(skip_signing, output_dir, staging_dir, current_
         from sign_binaries import sign_binaries, sign_binary
         sign_binaries(staging_dir)
         sign_binary(os.path.join(output_dir, 'setup.exe'))
-        """Copies already signed three binaries - brave.exe and chrome.dll
+        """Copies already signed three binaries - adrbrowsiel.exe and chrome.dll
         These files are signed during the build phase to create widevine sig files.
         """
         src_dir = os.path.join(output_dir, 'signed_binaries')
         chrome_dir = os.path.join(staging_dir, CHROME_DIR)
         version_dir = os.path.join(chrome_dir, current_version)
-        shutil.copy(os.path.join(src_dir, 'brave.exe'), chrome_dir)
+        shutil.copy(os.path.join(src_dir, 'adrbrowsiel.exe'), chrome_dir)
         shutil.copy(os.path.join(src_dir, 'chrome.dll'), version_dir)
 
 
-def BraveCopyAllFilesToStagingDir(config, staging_dir, g_archive_inputs):
+def adrbrowsielCopyAllFilesToStagingDir(config, staging_dir, g_archive_inputs):
     current_dir = os.path.realpath(os.path.dirname(os.path.realpath(__file__)))
 
-    brave_extension_locales_src_dir_path = os.path.realpath(
+    adrbrowsiel_extension_locales_src_dir_path = os.path.realpath(
         os.path.join(current_dir, os.pardir, 'components',
-                     'brave_extension', 'extension', 'brave_extension', '_locales'))
-    CopyExtensionLocalization('brave_extension', brave_extension_locales_src_dir_path,
+                     'adrbrowsiel_extension', 'extension', 'adrbrowsiel_extension', '_locales'))
+    CopyExtensionLocalization('adrbrowsiel_extension', adrbrowsiel_extension_locales_src_dir_path,
                               config, staging_dir, g_archive_inputs)
 
-    brave_rewards_locales_src_dir_path = os.path.realpath(
+    adrbrowsiel_rewards_locales_src_dir_path = os.path.realpath(
         os.path.join(current_dir, os.pardir, 'components',
-                     'brave_rewards', 'resources', 'extension', 'brave_rewards', '_locales'))
-    CopyExtensionLocalization('brave_rewards', brave_rewards_locales_src_dir_path,
+                     'adrbrowsiel_rewards', 'resources', 'extension', 'adrbrowsiel_rewards', '_locales'))
+    CopyExtensionLocalization('adrbrowsiel_rewards', adrbrowsiel_rewards_locales_src_dir_path,
                               config, staging_dir, g_archive_inputs)
 
 
@@ -48,7 +48,7 @@ def CopyExtensionLocalization(extension_name, locales_src_dir_path, config, stag
         \\Chrome-bin\\<version>\\resources\\extension_name\\_locales
     """
     locales_dest_path = staging_dir
-    locales_dest_path = os.path.join(locales_dest_path, config.get('GENERAL', 'brave_resources.pak'),
+    locales_dest_path = os.path.join(locales_dest_path, config.get('GENERAL', 'adrbrowsiel_resources.pak'),
                                      'resources', extension_name, '_locales')
     locales_dest_path = os.path.realpath(locales_dest_path)
     try:

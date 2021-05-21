@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -15,7 +15,7 @@
 #include "net/http/http_status_code.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=PatchCardTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=PatchCardTest.*
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -59,7 +59,7 @@ TEST_F(PatchCardTest, ServerOK) {
              "balance": "0.00",
              "currency": "BAT",
              "id": "bd91a720-f3f9-42f8-b2f5-19548004f6a7",
-             "label": "Brave Browser",
+             "label": "adrbrowsiel Browser",
              "lastTransactionAt": null,
              "settings": {
                "position": 8,
@@ -104,7 +104,7 @@ TEST_F(PatchCardTest, ServerOK) {
           }));
 
   ::ledger::uphold::UpdateCard card;
-  card.label = "Brave Browser";
+  card.label = "adrbrowsiel Browser";
   card.position = -1;
   card.starred = true;
   card_->Request(
@@ -130,7 +130,7 @@ TEST_F(PatchCardTest, ServerError401) {
           }));
 
   ::ledger::uphold::UpdateCard card;
-  card.label = "Brave Browser";
+  card.label = "adrbrowsiel Browser";
   card.position = -1;
   card.starred = true;
   card_->Request(
@@ -156,7 +156,7 @@ TEST_F(PatchCardTest, ServerErrorRandom) {
           }));
 
   ::ledger::uphold::UpdateCard card;
-  card.label = "Brave Browser";
+  card.label = "adrbrowsiel Browser";
   card.position = -1;
   card.starred = true;
   card_->Request(

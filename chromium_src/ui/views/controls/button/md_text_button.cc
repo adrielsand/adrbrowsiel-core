@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -9,7 +9,7 @@
 #include "ui/views/view_class_properties.h"
 
 // To be called from MdTextButtonBase::UpdateColors().
-#define BRAVE_MD_TEXT_BUTTON_UPDATE_COLORS UpdateColorsForBrave();
+#define adrbrowsiel_MD_TEXT_BUTTON_UPDATE_COLORS UpdateColorsForadrbrowsiel();
 
 #define MdTextButton MdTextButtonBase
 #include "../../../../../../ui/views/controls/button/md_text_button.cc"
@@ -17,18 +17,18 @@
 
 namespace {
 
-constexpr SkColor kBraveBrandColor = SkColorSetRGB(0xff, 0x76, 0x54);
+constexpr SkColor kadrbrowsielBrandColor = SkColorSetRGB(0xff, 0x76, 0x54);
 
-class BraveTextButtonHighlightPathGenerator
+class adrbrowsielTextButtonHighlightPathGenerator
     : public views::HighlightPathGenerator {
  public:
-  BraveTextButtonHighlightPathGenerator() = default;
+  adrbrowsielTextButtonHighlightPathGenerator() = default;
 
   // HighlightPathGenerator
   SkPath GetHighlightPath(const views::View* view) override;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveTextButtonHighlightPathGenerator);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielTextButtonHighlightPathGenerator);
 };
 
 }  // namespace
@@ -36,7 +36,7 @@ class BraveTextButtonHighlightPathGenerator
 namespace views {
 
 // To be called from MdTextButtonBase::UpdateColors().
-void MdTextButtonBase::UpdateColorsForBrave() {
+void MdTextButtonBase::UpdateColorsForadrbrowsiel() {
   if (GetProminent()) {
     return;
   }
@@ -44,8 +44,8 @@ void MdTextButtonBase::UpdateColorsForBrave() {
   // Override different text hover color
   if (theme->GetPlatformHighContrastColorScheme() !=
       ui::NativeTheme::PlatformHighContrastColorScheme::kDark) {
-    SetTextColor(ButtonState::STATE_HOVERED, kBraveBrandColor);
-    SetTextColor(ButtonState::STATE_PRESSED, kBraveBrandColor);
+    SetTextColor(ButtonState::STATE_HOVERED, kadrbrowsielBrandColor);
+    SetTextColor(ButtonState::STATE_PRESSED, kadrbrowsielBrandColor);
   }
   // Override border color for hover on non-prominent
   if (GetState() == ButtonState::STATE_PRESSED ||
@@ -61,8 +61,8 @@ void MdTextButtonBase::UpdateColorsForBrave() {
     if (GetState() == STATE_PRESSED) {
       bg_color = GetNativeTheme()->GetSystemButtonPressedColor(bg_color);
     }
-    // The only thing that differs for Brave is the stroke color
-    SkColor stroke_color = kBraveBrandColor;
+    // The only thing that differs for adrbrowsiel is the stroke color
+    SkColor stroke_color = kadrbrowsielBrandColor;
     SetBackground(CreateBackgroundFromPainter(
         Painter::CreateRoundRectWith1PxBorderPainter(bg_color, stroke_color,
                                                      GetCornerRadius())));
@@ -75,7 +75,7 @@ MdTextButton::MdTextButton(PressedCallback callback,
     : MdTextButtonBase(std::move(callback), text, button_context) {
   SetCornerRadius(100);
   views::HighlightPathGenerator::Install(
-      this, std::make_unique<BraveTextButtonHighlightPathGenerator>());
+      this, std::make_unique<adrbrowsielTextButtonHighlightPathGenerator>());
 }
 
 MdTextButton::~MdTextButton() = default;
@@ -89,11 +89,11 @@ SkPath MdTextButton::GetHighlightPath() const {
 }
 
 void MdTextButton::OnPaintBackground(gfx::Canvas* canvas) {
-  // Set brave-style hover colors
+  // Set adrbrowsiel-style hover colors
   MdTextButtonBase::OnPaintBackground(canvas);
   if (GetProminent() &&
       (hover_animation().is_animating() || GetState() == STATE_HOVERED)) {
-    constexpr SkColor normal_color = kBraveBrandColor;
+    constexpr SkColor normal_color = kadrbrowsielBrandColor;
     constexpr SkColor hover_color = SkColorSetRGB(0xff, 0x97, 0x7d);
     const SkAlpha alpha = hover_animation().CurrentValueBetween(0x00, 0xff);
     const SkColor current_color =
@@ -109,7 +109,7 @@ void MdTextButton::OnPaintBackground(gfx::Canvas* canvas) {
 
 std::unique_ptr<InkDrop> MdTextButton::CreateInkDrop() {
   // We don't need a highlight on hover, the hover color
-  // is handled by the OnPaintBackground and brave-style doesn't
+  // is handled by the OnPaintBackground and adrbrowsiel-style doesn't
   // have a shadow. Plus, it's very difficult (impossible?) to create
   // a drop-shadow when clipping the ink drop to the rounded button.
   std::unique_ptr<InkDrop> ink_drop = InkDropHostView::CreateInkDrop();
@@ -131,7 +131,7 @@ std::unique_ptr<views::InkDropHighlight> MdTextButton::CreateInkDropHighlight()
 
 namespace {
 
-SkPath BraveTextButtonHighlightPathGenerator::GetHighlightPath(
+SkPath adrbrowsielTextButtonHighlightPathGenerator::GetHighlightPath(
     const views::View* view) {
   return static_cast<const views::MdTextButton*>(view)->GetHighlightPath();
 }

@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -16,22 +16,22 @@ import androidx.preference.Preference;
 
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveConfig;
-import org.chromium.chrome.browser.BraveFeatureList;
-import org.chromium.chrome.browser.BraveRelaunchUtils;
-import org.chromium.chrome.browser.app.BraveActivity;
+import org.chromium.chrome.browser.adrbrowsielConfig;
+import org.chromium.chrome.browser.adrbrowsielFeatureList;
+import org.chromium.chrome.browser.adrbrowsielRelaunchUtils;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
 import org.chromium.chrome.browser.flags.ChromeFeatureList;
-import org.chromium.chrome.browser.homepage.settings.BraveHomepageSettings;
+import org.chromium.chrome.browser.homepage.settings.adrbrowsielHomepageSettings;
 import org.chromium.chrome.browser.ntp_background_images.NTPBackgroundImagesBridge;
 import org.chromium.chrome.browser.ntp_background_images.util.NTPUtil;
-import org.chromium.chrome.browser.partnercustomizations.CloseBraveManager;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
-import org.chromium.chrome.browser.privacy.settings.BravePrivacySettings;
+import org.chromium.chrome.browser.partnercustomizations.CloseadrbrowsielManager;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
+import org.chromium.chrome.browser.privacy.settings.adrbrowsielPrivacySettings;
 import org.chromium.chrome.browser.rate.RateDialogFragment;
 import org.chromium.chrome.browser.rate.RateUtils;
 import org.chromium.chrome.browser.search_engines.TemplateUrlServiceFactory;
-import org.chromium.chrome.browser.settings.BravePreferenceFragment;
-import org.chromium.chrome.browser.settings.BraveStatsPreferences;
+import org.chromium.chrome.browser.settings.adrbrowsielPreferenceFragment;
+import org.chromium.chrome.browser.settings.adrbrowsielStatsPreferences;
 import org.chromium.chrome.browser.toolbar.bottom.BottomToolbarConfiguration;
 import org.chromium.components.browser_ui.settings.ChromeBasePreference;
 import org.chromium.components.browser_ui.settings.ChromeSwitchPreference;
@@ -41,8 +41,8 @@ import org.chromium.ui.base.DeviceFormFactor;
 import java.util.HashMap;
 
 // This exculdes some settings in main settings screen.
-public class BraveMainPreferencesBase
-        extends BravePreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class adrbrowsielMainPreferencesBase
+        extends adrbrowsielPreferenceFragment implements Preference.OnPreferenceChangeListener {
     // sections
     private static final String PREF_FEATURES_SECTION = "features_section";
     private static final String PREF_DISPLAY_SECTION = "display_section";
@@ -58,11 +58,11 @@ public class BraveMainPreferencesBase
     private static final String PREF_STANDARD_SEARCH_ENGINE = "standard_search_engine";
     private static final String PREF_PRIVATE_SEARCH_ENGINE = "private_search_engine";
     private static final String PREF_BACKGROUND_VIDEO_PLAYBACK = "background_video_playback";
-    private static final String PREF_CLOSING_ALL_TABS_CLOSES_BRAVE = "closing_all_tabs_closes_brave";
+    private static final String PREF_CLOSING_ALL_TABS_CLOSES_adrbrowsiel = "closing_all_tabs_closes_adrbrowsiel";
     private static final String PREF_PRIVACY = "privacy";
-    private static final String PREF_SHIELDS_AND_PRIVACY = "brave_shields_and_privacy";
-    private static final String PREF_BRAVE_SEARCH_ENGINES = "brave_search_engines";
-    private static final String PREF_SYNC = "brave_sync_layout";
+    private static final String PREF_SHIELDS_AND_PRIVACY = "adrbrowsiel_shields_and_privacy";
+    private static final String PREF_adrbrowsiel_SEARCH_ENGINES = "adrbrowsiel_search_engines";
+    private static final String PREF_SYNC = "adrbrowsiel_sync_layout";
     private static final String PREF_PASSWORDS = "passwords";
     private static final String PREF_NOTIFICATIONS = "notifications";
     private static final String PREF_PAYMENT_METHODS = "autofill_payment_methods";
@@ -73,14 +73,14 @@ public class BraveMainPreferencesBase
     private static final String PREF_CONTENT_SETTINGS = "content_settings";
     private static final String PREF_ABOUT_CHROME = "about_chrome";
     private static final String PREF_BACKGROUND_IMAGES = "backgroud_images";
-    private static final String PREF_BRAVE_REWARDS = "brave_rewards";
+    private static final String PREF_adrbrowsiel_REWARDS = "adrbrowsiel_rewards";
     private static final String PREF_HOMEPAGE = "homepage";
     private static final String PREF_USE_CUSTOM_TABS = "use_custom_tabs";
     private static final String PREF_LANGUAGES = "languages";
-    private static final String PREF_BRAVE_LANGUAGES = "brave_languages";
-    private static final String PREF_RATE_BRAVE = "rate_brave";
-    private static final String PREF_BRAVE_STATS = "brave_stats";
-    private static final String PREF_DOWNLOADS = "brave_downloads";
+    private static final String PREF_adrbrowsiel_LANGUAGES = "adrbrowsiel_languages";
+    private static final String PREF_RATE_adrbrowsiel = "rate_adrbrowsiel";
+    private static final String PREF_adrbrowsiel_STATS = "adrbrowsiel_stats";
+    private static final String PREF_DOWNLOADS = "adrbrowsiel_downloads";
 
     private final HashMap<String, Preference> mRemovedPreferences = new HashMap<>();
 
@@ -88,13 +88,13 @@ public class BraveMainPreferencesBase
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Add brave's additional preferences here because |onCreatePreference| is not called
+        // Add adrbrowsiel's additional preferences here because |onCreatePreference| is not called
         // by subclass (MainPreference::onCreatePreferences()).
         // But, calling here has same effect because |onCreatePreferences()| is called by onCreate().
-        SettingsUtils.addPreferencesFromResource(this, R.xml.brave_main_preferences);
+        SettingsUtils.addPreferencesFromResource(this, R.xml.adrbrowsiel_main_preferences);
 
         overrideChromiumPreferences();
-        initRateBrave();
+        initRateadrbrowsiel();
         setPreferenceListeners();
     }
 
@@ -104,12 +104,12 @@ public class BraveMainPreferencesBase
     @Override
     public void onResume() {
         super.onResume();
-        // Run updateBravePreferences() after fininshing MainPreferences::updatePreferences().
-        // Otherwise, some prefs could be added after finishing updateBravePreferences().
-        new Handler().post(() -> updateBravePreferences());
+        // Run updateadrbrowsielPreferences() after fininshing MainPreferences::updatePreferences().
+        // Otherwise, some prefs could be added after finishing updateadrbrowsielPreferences().
+        new Handler().post(() -> updateadrbrowsielPreferences());
     }
 
-    private void updateBravePreferences() {
+    private void updateadrbrowsielPreferences() {
         // Below prefs are removed from main settings.
         removePreferenceIfPresent(MainSettings.PREF_SYNC_PROMO);
         removePreferenceIfPresent(MainSettings.PREF_SIGN_IN);
@@ -134,12 +134,12 @@ public class BraveMainPreferencesBase
 
         // updates the icons - normally the ones from Chromium
         updatePreferenceIcons();
-        // rearanges programmatically the order for the prefs from Brave and Chromium
+        // rearanges programmatically the order for the prefs from adrbrowsiel and Chromium
         rearrangePreferenceOrders();
 
-        if (!ChromeFeatureList.isEnabled(BraveFeatureList.BRAVE_REWARDS) ||
-                BravePrefServiceBridge.getInstance().getSafetynetCheckFailed()) {
-            removePreferenceIfPresent(PREF_BRAVE_REWARDS);
+        if (!ChromeFeatureList.isEnabled(adrbrowsielFeatureList.adrbrowsiel_REWARDS) ||
+                adrbrowsielPrefServiceBridge.getInstance().getSafetynetCheckFailed()) {
+            removePreferenceIfPresent(PREF_adrbrowsiel_REWARDS);
         }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M 
@@ -170,23 +170,23 @@ public class BraveMainPreferencesBase
         findPreference(PREF_FEATURES_SECTION).setOrder(firstSectionOrder);
 
         findPreference(PREF_SHIELDS_AND_PRIVACY).setOrder(++firstSectionOrder);
-        findPreference(PREF_BRAVE_REWARDS).setOrder(++firstSectionOrder);
+        findPreference(PREF_adrbrowsiel_REWARDS).setOrder(++firstSectionOrder);
 
         int generalOrder = firstSectionOrder;
         findPreference(PREF_GENERAL_SECTION).setOrder(++generalOrder);
 
-        findPreference(PREF_BRAVE_SEARCH_ENGINES).setOrder(++generalOrder);
+        findPreference(PREF_adrbrowsiel_SEARCH_ENGINES).setOrder(++generalOrder);
         findPreference(PREF_HOMEPAGE).setOrder(++generalOrder);
         findPreference(PREF_PASSWORDS).setOrder(++generalOrder);
         findPreference(PREF_SYNC).setOrder(++generalOrder);
-        findPreference(PREF_BRAVE_STATS).setOrder(++generalOrder);
+        findPreference(PREF_adrbrowsiel_STATS).setOrder(++generalOrder);
         // if notification is not available (eg. for emulators)
         if (findPreference(PREF_NOTIFICATIONS) != null) {
             findPreference(PREF_NOTIFICATIONS).setOrder(++generalOrder);
         }
         findPreference(PREF_CONTENT_SETTINGS).setOrder(++generalOrder);
         findPreference(PREF_DOWNLOADS).setOrder(++generalOrder);
-        findPreference(PREF_CLOSING_ALL_TABS_CLOSES_BRAVE).setOrder(++generalOrder);
+        findPreference(PREF_CLOSING_ALL_TABS_CLOSES_adrbrowsiel).setOrder(++generalOrder);
         if (DeviceFormFactor.isTablet()) {
             removePreferenceIfPresent(PREF_USE_CUSTOM_TABS);
         } else {
@@ -200,7 +200,7 @@ public class BraveMainPreferencesBase
         findPreference(PREF_APPEARANCE).setOrder(++displaySectionOrder);
         findPreference(PREF_NEW_TAB_PAGE).setOrder(++displaySectionOrder);
         findPreference(PREF_ACCESSIBILITY).setOrder(++displaySectionOrder);
-        findPreference(PREF_BRAVE_LANGUAGES).setOrder(++displaySectionOrder);
+        findPreference(PREF_adrbrowsiel_LANGUAGES).setOrder(++displaySectionOrder);
 
         int onlineCheckoutSectionOrder = displaySectionOrder;
         findPreference(PREF_ONLINE_CHECKOUT_SECTION).setOrder(++onlineCheckoutSectionOrder);
@@ -211,7 +211,7 @@ public class BraveMainPreferencesBase
         int supportSectionOrder = onlineCheckoutSectionOrder;
         findPreference(PREF_SUPPORT_SECTION).setOrder(++supportSectionOrder);
 
-        findPreference(PREF_RATE_BRAVE).setOrder(++supportSectionOrder);
+        findPreference(PREF_RATE_adrbrowsiel).setOrder(++supportSectionOrder);
 
         int aboutSectionOrder = supportSectionOrder;
         // This preference doesn't exist by default in Release mode
@@ -226,10 +226,10 @@ public class BraveMainPreferencesBase
         }
         findPreference(PREF_ABOUT_CHROME).setOrder(++aboutSectionOrder);
 
-        int order = findPreference(PREF_CLOSING_ALL_TABS_CLOSES_BRAVE).getOrder();
+        int order = findPreference(PREF_CLOSING_ALL_TABS_CLOSES_adrbrowsiel).getOrder();
 
-        // If gn flag enable_brave_sync is false, hide Sync pref
-        if (BraveConfig.SYNC_ENABLED == false) {
+        // If gn flag enable_adrbrowsiel_sync is false, hide Sync pref
+        if (adrbrowsielConfig.SYNC_ENABLED == false) {
             removePreferenceIfPresent(PREF_SYNC);
         }
 
@@ -260,7 +260,7 @@ public class BraveMainPreferencesBase
         updatePreferenceIcon(PREF_PAYMENT_METHODS, R.drawable.ic_payment_methods);
         updatePreferenceIcon(PREF_DOWNLOADS, R.drawable.ic_downloads);
         updatePreferenceIcon(PREF_LANGUAGES, R.drawable.ic_languages);
-        updatePreferenceIcon(PREF_BRAVE_LANGUAGES, R.drawable.ic_languages);
+        updatePreferenceIcon(PREF_adrbrowsiel_LANGUAGES, R.drawable.ic_languages);
         updatePreferenceIcon(PREF_ABOUT_CHROME, R.drawable.ic_info);
         updatePreferenceIcon(PREF_ACCESSIBILITY, R.drawable.ic_accessibility);
         updatePreferenceIcon(PREF_PRIVACY, R.drawable.ic_privacy_reports);
@@ -273,7 +273,7 @@ public class BraveMainPreferencesBase
     private void updateSearchEnginePreference() {
         if (!TemplateUrlServiceFactory.get().isLoaded()) {
             ChromeBasePreference searchEnginePref =
-                    (ChromeBasePreference) findPreference(PREF_BRAVE_SEARCH_ENGINES);
+                    (ChromeBasePreference) findPreference(PREF_adrbrowsiel_SEARCH_ENGINES);
             searchEnginePref.setEnabled(false);
             return;
         }
@@ -285,9 +285,9 @@ public class BraveMainPreferencesBase
     }
 
     private void updateSummaries() {
-        updateSummary(PREF_USE_CUSTOM_TABS, BraveCustomTabsPreference.getPreferenceSummary());
-        updateSummary(PREF_BRAVE_STATS, BraveStatsPreferences.getPreferenceSummary());
-        if (BravePrefServiceBridge.getInstance().getBackgroundVideoPlaybackEnabled()) {
+        updateSummary(PREF_USE_CUSTOM_TABS, adrbrowsielCustomTabsPreference.getPreferenceSummary());
+        updateSummary(PREF_adrbrowsiel_STATS, adrbrowsielStatsPreferences.getPreferenceSummary());
+        if (adrbrowsielPrefServiceBridge.getInstance().getBackgroundVideoPlaybackEnabled()) {
             updateSummary(
                     PREF_BACKGROUND_VIDEO_PLAYBACK, R.string.prefs_background_video_playback_on);
         }
@@ -295,17 +295,17 @@ public class BraveMainPreferencesBase
 
     private void overrideChromiumPreferences() {
         // Replace fragment.
-        findPreference(PREF_SHIELDS_AND_PRIVACY).setFragment(BravePrivacySettings.class.getName());
-        findPreference(PREF_HOMEPAGE).setFragment(BraveHomepageSettings.class.getName());
+        findPreference(PREF_SHIELDS_AND_PRIVACY).setFragment(adrbrowsielPrivacySettings.class.getName());
+        findPreference(PREF_HOMEPAGE).setFragment(adrbrowsielHomepageSettings.class.getName());
     }
 
     private void setPreferenceListeners() {
-        findPreference(PREF_CLOSING_ALL_TABS_CLOSES_BRAVE).setOnPreferenceChangeListener(this);
+        findPreference(PREF_CLOSING_ALL_TABS_CLOSES_adrbrowsiel).setOnPreferenceChangeListener(this);
         findPreference(PREF_BACKGROUND_VIDEO_PLAYBACK).setOnPreferenceChangeListener(this);
     }
 
-    private void initRateBrave() {
-        findPreference(PREF_RATE_BRAVE).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+    private void initRateadrbrowsiel() {
+        findPreference(PREF_RATE_adrbrowsiel).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 Bundle bundle = new Bundle();
@@ -331,12 +331,12 @@ public class BraveMainPreferencesBase
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String key = preference.getKey();
-        if (PREF_CLOSING_ALL_TABS_CLOSES_BRAVE.equals(key)) {
-            CloseBraveManager.setClosingAllTabsClosesBraveEnabled((boolean) newValue);
+        if (PREF_CLOSING_ALL_TABS_CLOSES_adrbrowsiel.equals(key)) {
+            CloseadrbrowsielManager.setClosingAllTabsClosesadrbrowsielEnabled((boolean) newValue);
         }
 
         if (PREF_BACKGROUND_VIDEO_PLAYBACK.equals(key)) {
-            BravePrefServiceBridge.getInstance().setBackgroundVideoPlaybackEnabled(
+            adrbrowsielPrefServiceBridge.getInstance().setBackgroundVideoPlaybackEnabled(
                     (boolean) newValue);
             if ((boolean) newValue) {
                 updateSummary(PREF_BACKGROUND_VIDEO_PLAYBACK,
@@ -344,7 +344,7 @@ public class BraveMainPreferencesBase
             } else {
                 findPreference(PREF_BACKGROUND_VIDEO_PLAYBACK).setSummary("");
             }
-            BraveRelaunchUtils.askForRelaunch(this.getActivity());
+            adrbrowsielRelaunchUtils.askForRelaunch(this.getActivity());
         }
 
         return true;

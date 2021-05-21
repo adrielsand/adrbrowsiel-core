@@ -1,14 +1,14 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_ads/ads_tab_helper.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_tab_helper.h"
 
 #include <memory>
 #include <utility>
 
-#include "brave/browser/brave_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "components/dom_distiller/content/browser/distiller_javascript_utils.h"
 #include "components/dom_distiller/content/browser/distiller_page_web_contents.h"
@@ -25,7 +25,7 @@
 #include "chrome/browser/ui/tabs/tab_strip_model.h"
 #endif
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 AdsTabHelper::AdsTabHelper(content::WebContents* web_contents)
     : WebContentsObserver(web_contents),
@@ -215,7 +215,7 @@ void AdsTabHelper::WebContentsDestroyed() {
 }
 
 #if !defined(OS_ANDROID)
-// components/brave_ads/browser/background_helper_android.cc handles Android
+// components/adrbrowsiel_ads/browser/background_helper_android.cc handles Android
 void AdsTabHelper::OnBrowserSetLastActive(Browser* browser) {
   if (!browser) {
     return;
@@ -255,4 +255,4 @@ void AdsTabHelper::OnBrowserNoLongerActive(Browser* browser) {
 
 WEB_CONTENTS_USER_DATA_KEY_IMPL(AdsTabHelper)
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

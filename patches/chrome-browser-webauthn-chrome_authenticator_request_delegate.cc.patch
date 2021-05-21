@@ -6,7 +6,7 @@ index 0da0e9208b4174929b70736955234280a7794713..9a6a110767f8ce9654b9a320b063c2df
          kWebAuthnTouchIdMetadataSecretPrefName,
          base::Base64Encode(base::as_bytes(base::make_span(metadata_secret))));
    }
-+  BRAVE_WEBAUTHN_KEYCHAIN_ACCESS_GROUP
++  adrbrowsiel_WEBAUTHN_KEYCHAIN_ACCESS_GROUP
    return TouchIdAuthenticatorConfig{kTouchIdKeychainAccessGroup,
                                      std::move(metadata_secret)};
  }

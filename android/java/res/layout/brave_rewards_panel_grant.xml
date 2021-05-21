@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@drawable/rewards_button_orange"
-            android:text="@string/brave_ui_claim"
+            android:text="@string/adrbrowsiel_ui_claim"
             android:gravity="center"
             android:layout_gravity="center"
             android:fontFamily="sans-serif"

@@ -1,32 +1,32 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <random>
 
-#include "brave/third_party/blink/renderer/brave_farbling_constants.h"
+#include "adrbrowsiel/third_party/blink/renderer/adrbrowsiel_farbling_constants.h"
 #include "third_party/blink/public/common/device_memory/approximated_device_memory.h"
 #include "third_party/blink/public/platform/web_content_settings_client.h"
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
 #include "third_party/blink/renderer/core/frame/navigator_device_memory.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 float FarbleDeviceMemory(blink::ExecutionContext* context) {
   float true_value =
       blink::ApproximatedDeviceMemory::GetApproximatedDeviceMemory();
   blink::WebContentSettingsClient* settings =
       GetContentSettingsClientFor(context);
-  // If Brave Shields are down or anti-fingerprinting is off for this site,
+  // If adrbrowsiel Shields are down or anti-fingerprinting is off for this site,
   // return the true value.
-  if (!settings || settings->GetBraveFarblingLevel() == BraveFarblingLevel::OFF)
+  if (!settings || settings->GetadrbrowsielFarblingLevel() == adrbrowsielFarblingLevel::OFF)
     return true_value;
 
   std::vector<float> valid_values = {0.25, 0.5, 1.0, 2.0, 4.0, 8.0};
   int min_farbled_index;
   int max_farbled_index;
-  if (settings->GetBraveFarblingLevel() == BraveFarblingLevel::MAXIMUM) {
+  if (settings->GetadrbrowsielFarblingLevel() == adrbrowsielFarblingLevel::MAXIMUM) {
     // If anti-fingerprinting is at maximum, select a pseudo-random valid value
     // based on domain + sesson key.
     min_farbled_index = 0;
@@ -51,18 +51,18 @@ float FarbleDeviceMemory(blink::ExecutionContext* context) {
       return valid_values[min_farbled_index];
   }
   std::mt19937_64 prng =
-      BraveSessionCache::From(*context).MakePseudoRandomGenerator();
+      adrbrowsielSessionCache::From(*context).MakePseudoRandomGenerator();
   return valid_values[min_farbled_index +
                       (prng() % (max_farbled_index + 1 - min_farbled_index))];
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
 namespace blink {
 
 float NavigatorDeviceMemory::deviceMemory(ScriptState* script_state) const {
   ExecutionContext* context = ExecutionContext::From(script_state);
-  return brave::FarbleDeviceMemory(context);
+  return adrbrowsiel::FarbleDeviceMemory(context);
 }
 
 }  // namespace blink

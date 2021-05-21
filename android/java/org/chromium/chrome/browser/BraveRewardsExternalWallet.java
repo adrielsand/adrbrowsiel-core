@@ -1,4 +1,4 @@
-/** Copyright (c) 2020 The Brave Authors. All rights reserved.
+/** Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
   * This Source Code Form is subject to the terms of the Mozilla Public
   * License, v. 2.0. If a copy of the MPL was not distributed with this file,
   * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -17,7 +17,7 @@ import org.chromium.chrome.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-class BraveRewardsExternalWallet {
+class adrbrowsielRewardsExternalWallet {
     //fields
     public static final String ACCOUNT_URL = "account_url";
     public static final String ADD_URL = "add_url";
@@ -95,7 +95,7 @@ class BraveRewardsExternalWallet {
         return mLoginUrl;
     }
 
-    BraveRewardsExternalWallet (String json_external_wallet) throws JSONException {
+    adrbrowsielRewardsExternalWallet (String json_external_wallet) throws JSONException {
         fromJson (json_external_wallet);
     }
 
@@ -116,7 +116,7 @@ class BraveRewardsExternalWallet {
     @VisibleForTesting
     @Override
     public String toString() {
-        return "BraveRewardsExternalWallet{"
+        return "adrbrowsielRewardsExternalWallet{"
                 + "mAccountUrl='" + mAccountUrl + '\'' + ", mAddUrl='" + mAddUrl + '\''
                 + ", mAddress='" + mAddress + '\'' + ", mStatus=" + mStatus + ", mToken='" + mToken
                 + '\'' + ", mUserName='" + mUserName + '\'' + ", mVerifyUrl='" + mVerifyUrl + '\''

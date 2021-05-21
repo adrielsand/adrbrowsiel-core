@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -34,9 +34,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveAdsNativeHelper;
-import org.chromium.chrome.browser.BraveRewardsHelper;
-import org.chromium.chrome.browser.BraveRewardsNativeWorker;
+import org.chromium.chrome.browser.adrbrowsielAdsNativeHelper;
+import org.chromium.chrome.browser.adrbrowsielRewardsHelper;
+import org.chromium.chrome.browser.adrbrowsielRewardsNativeWorker;
 import org.chromium.chrome.browser.ChromeTabbedActivity;
 import org.chromium.chrome.browser.customtabs.CustomTabActivity;
 import org.chromium.chrome.browser.ntp_background_images.model.SponsoredTab;
@@ -53,8 +53,8 @@ import org.chromium.chrome.browser.util.TabUtils;
 import org.chromium.ui.base.DeviceFormFactor;
 
 public class RewardsBottomSheetDialogFragment extends BottomSheetDialogFragment {
-    private static final String BRAVE_TERMS_PAGE = "https://basicattentiontoken.org/user-terms-of-service/";
-    private static final String BRAVE_REWARDS_LEARN_MORE = "https://brave.com/faq-rewards";
+    private static final String adrbrowsiel_TERMS_PAGE = "https://basicattentiontoken.org/user-terms-of-service/";
+    private static final String adrbrowsiel_REWARDS_LEARN_MORE = "https://adrbrowsiel.com/faq-rewards";
 
     private int ntpType;
     private NewTabPageListener newTabPageListener;
@@ -145,7 +145,7 @@ public class RewardsBottomSheetDialogFragment extends BottomSheetDialogFragment 
             learnMoreText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    TabUtils.openUrlInSameTab(BRAVE_REWARDS_LEARN_MORE);
+                    TabUtils.openUrlInSameTab(adrbrowsiel_REWARDS_LEARN_MORE);
                     dismiss();
                 }
             });
@@ -169,13 +169,13 @@ public class RewardsBottomSheetDialogFragment extends BottomSheetDialogFragment 
             bottomSheetTosText.setVisibility(View.VISIBLE);
             String tosText = String.format(getResources().getString(R.string.ntp_tos_text), getResources().getString(R.string.terms_of_service));
             int termsOfServiceIndex = tosText.indexOf(getResources().getString(R.string.terms_of_service));
-            Spanned tosTextSpanned = BraveRewardsHelper.spannedFromHtmlString(tosText);
+            Spanned tosTextSpanned = adrbrowsielRewardsHelper.spannedFromHtmlString(tosText);
             SpannableString tosTextSS = new SpannableString(tosTextSpanned.toString());
 
             ClickableSpan tosClickableSpan = new ClickableSpan() {
                 @Override
                 public void onClick(@NonNull View textView) {
-                    CustomTabActivity.showInfoPage(getActivity(), BRAVE_TERMS_PAGE);
+                    CustomTabActivity.showInfoPage(getActivity(), adrbrowsiel_TERMS_PAGE);
                 }
                 @Override
                 public void updateDrawState(@NonNull TextPaint ds) {
@@ -185,7 +185,7 @@ public class RewardsBottomSheetDialogFragment extends BottomSheetDialogFragment 
             };
 
             tosTextSS.setSpan(tosClickableSpan, termsOfServiceIndex, termsOfServiceIndex + getResources().getString(R.string.terms_of_service).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            ForegroundColorSpan brOffForegroundSpan = new ForegroundColorSpan(getResources().getColor(R.color.brave_theme_color));
+            ForegroundColorSpan brOffForegroundSpan = new ForegroundColorSpan(getResources().getColor(R.color.adrbrowsiel_theme_color));
             tosTextSS.setSpan(brOffForegroundSpan, termsOfServiceIndex, termsOfServiceIndex + getResources().getString(R.string.terms_of_service).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             bottomSheetTosText.setMovementMethod(LinkMovementMethod.getInstance());
             bottomSheetTosText.setText(tosTextSS);
@@ -202,12 +202,12 @@ public class RewardsBottomSheetDialogFragment extends BottomSheetDialogFragment 
     }
 
     private void turnOnAds() {
-        BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
-        BraveRewardsNativeWorker.getInstance().SetAutoContributeEnabled(true);
+        adrbrowsielAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
+        adrbrowsielRewardsNativeWorker.getInstance().SetAutoContributeEnabled(true);
     }
 
     private void reloadTab() {
-        ChromeTabbedActivity chromeTabbedActivity = BraveRewardsHelper.getChromeTabbedActivity();
+        ChromeTabbedActivity chromeTabbedActivity = adrbrowsielRewardsHelper.getChromeTabbedActivity();
         if (chromeTabbedActivity != null) {
             Tab currentTab = chromeTabbedActivity.getActivityTab();
             SponsoredTab sponsoredTab = TabAttributes.from(currentTab).get(String.valueOf(((TabImpl)currentTab).getId()));

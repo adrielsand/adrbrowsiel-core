@@ -6,7 +6,7 @@ index c897a2e35d920af8de6c002ded19833c5cda80b7..00ed3b3154883fa2fc2293f7a471e5b4
      "//services/device/public/cpp:device_features",
      "//services/metrics/public/cpp:ukm_builders",
    ]
-+  deps += [ "//brave/components/page_info" ]
++  deps += [ "//adrbrowsiel/components/page_info" ]
  
    if (is_android) {
      deps += [

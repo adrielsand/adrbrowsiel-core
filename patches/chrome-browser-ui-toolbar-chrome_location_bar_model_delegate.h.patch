@@ -6,7 +6,7 @@ index 3071cb2cf4bb88f0f2ec1ef62dff9134d2d5eaba..25012166f5c42a31226d213c766cfaee
  
    // Helper method to get the navigation entry from the navigation controller.
    content::NavigationEntry* GetNavigationEntry() const;
-+  BRAVE_CHROME_LOCATION_BAR_MODEL_DELEGATE_H_
++  adrbrowsiel_CHROME_LOCATION_BAR_MODEL_DELEGATE_H_
  
   private:
    // The state of URL elision in the omnibox.

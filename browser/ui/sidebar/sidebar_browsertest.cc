@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/test/scoped_feature_list.h"
-#include "brave/browser/ui/brave_browser.h"
-#include "brave/browser/ui/sidebar/sidebar_controller.h"
-#include "brave/browser/ui/sidebar/sidebar_model.h"
-#include "brave/browser/ui/sidebar/sidebar_service_factory.h"
-#include "brave/browser/ui/sidebar/sidebar_utils.h"
-#include "brave/browser/ui/views/frame/brave_browser_view.h"
-#include "brave/components/sidebar/features.h"
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_controller.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_service_factory.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_utils.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_browser_view.h"
+#include "adrbrowsiel/components/sidebar/features.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 #include "chrome/browser/ui/tabs/tab_strip_model.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "chrome/test/base/ui_test_utils.h"
@@ -27,15 +27,15 @@ class SidebarBrowserTest : public InProcessBrowserTest,
   }
   ~SidebarBrowserTest() override = default;
 
-  BraveBrowser* brave_browser() {
-    return static_cast<BraveBrowser*>(browser());
+  adrbrowsielBrowser* adrbrowsiel_browser() {
+    return static_cast<adrbrowsielBrowser*>(browser());
   }
 
   SidebarModel* model() { return controller()->model(); }
   TabStripModel* tab_model() { return browser()->tab_strip_model(); }
 
   SidebarController* controller() {
-    return brave_browser()->sidebar_controller();
+    return adrbrowsiel_browser()->sidebar_controller();
   }
 
   base::test::ScopedFeatureList scoped_feature_list_;
@@ -52,7 +52,7 @@ IN_PROC_BROWSER_TEST_F(SidebarBrowserTest, BasicTest) {
   EXPECT_TRUE(CanAddCurrentActiveTabToSidebar(browser()));
 
   // If current active tab is NTP, we can't add current url to sidebar.
-  ui_test_utils::NavigateToURL(browser(), GURL("brave://newtab/"));
+  ui_test_utils::NavigateToURL(browser(), GURL("adrbrowsiel://newtab/"));
   EXPECT_FALSE(CanAddCurrentActiveTabToSidebar(browser()));
 
   // Currently we have 4 default items.
@@ -95,7 +95,7 @@ IN_PROC_BROWSER_TEST_F(SidebarBrowserTest, BasicTest) {
 IN_PROC_BROWSER_TEST_F(SidebarBrowserTest, WebTypePanelTest) {
   // By default, sidebar has 4 items.
   EXPECT_EQ(4UL, model()->GetAllSidebarItems().size());
-  ui_test_utils::NavigateToURL(browser(), GURL("brave://settings/"));
+  ui_test_utils::NavigateToURL(browser(), GURL("adrbrowsiel://settings/"));
 
   EXPECT_TRUE(CanAddCurrentActiveTabToSidebar(browser()));
   controller()->AddItemWithCurrentTab();
@@ -107,13 +107,13 @@ IN_PROC_BROWSER_TEST_F(SidebarBrowserTest, WebTypePanelTest) {
 
   // Load NTP in newtab and activate it. (tab index 1)
   ui_test_utils::NavigateToURLWithDisposition(
-      browser(), GURL("brave://newtab/"),
+      browser(), GURL("adrbrowsiel://newtab/"),
       WindowOpenDisposition::NEW_FOREGROUND_TAB,
       ui_test_utils::BROWSER_TEST_WAIT_FOR_LOAD_STOP);
   current_tab_index = tab_model()->active_index();
   EXPECT_EQ(1, tab_model()->active_index());
 
-  // Activate sidebar item(brave://settings) and check existing first tab is
+  // Activate sidebar item(adrbrowsiel://settings) and check existing first tab is
   // activated.
   auto item = model()->GetAllSidebarItems()[4];
   controller()->ActivateItemAt(4);

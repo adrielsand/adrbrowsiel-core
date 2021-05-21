@@ -1,11 +1,11 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
-#include "brave/browser/extensions/brave_extension_functional_test.h"
-#include "brave/common/brave_paths.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_extension_functional_test.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/tabs/tab_strip_model.h"
 #include "chrome/common/webui_url_constants.h"
@@ -41,7 +41,7 @@ class ObserverLogger : public RenderProcessHostObserver {
 
 }  // namespace
 
-class BraveNewTabUIBrowserTest : public extensions::ExtensionFunctionalTest {
+class adrbrowsielNewTabUIBrowserTest : public extensions::ExtensionFunctionalTest {
  public:
   void GoBack(WebContents* web_contents) {
     WindowedNotificationObserver load_stop_observer(
@@ -53,7 +53,7 @@ class BraveNewTabUIBrowserTest : public extensions::ExtensionFunctionalTest {
 };
 
 // Test that properties are set on the correct RenderViewHost.
-IN_PROC_BROWSER_TEST_F(BraveNewTabUIBrowserTest, StartupURLTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielNewTabUIBrowserTest, StartupURLTest) {
   auto* contents = browser()->tab_strip_model()->GetActiveWebContents();
   RenderProcessHost* host = contents->GetMainFrame()->GetProcess();
   ObserverLogger observer_logger(host);
@@ -70,25 +70,25 @@ IN_PROC_BROWSER_TEST_F(BraveNewTabUIBrowserTest, StartupURLTest) {
   WaitForLoadStop(contents);
 }
 
-// This test simply checks that by default the Brave new tab page is used.
+// This test simply checks that by default the adrbrowsiel new tab page is used.
 // It does this by loading the newtab page and then checking if
-// window.brave_new_tab exists.
-IN_PROC_BROWSER_TEST_F(BraveNewTabUIBrowserTest, BraveNewTabIsDefault) {
+// window.adrbrowsiel_new_tab exists.
+IN_PROC_BROWSER_TEST_F(adrbrowsielNewTabUIBrowserTest, adrbrowsielNewTabIsDefault) {
   auto* contents = browser()->tab_strip_model()->GetActiveWebContents();
   GURL new_tab_url(chrome::kChromeUINewTabURL);
   ui_test_utils::NavigateToURL(browser(), new_tab_url);
   WaitForLoadStop(contents);
-  bool is_brave_new_tab = false;
+  bool is_adrbrowsiel_new_tab = false;
   ASSERT_TRUE(content::ExecuteScriptAndExtractBool(
       contents,
-      "window.domAutomationController.send(!!document.querySelector(`html[data-test-id='brave-new-tab-page']`))",  // NOLINT
-      &is_brave_new_tab));
-  ASSERT_TRUE(is_brave_new_tab);
+      "window.domAutomationController.send(!!document.querySelector(`html[data-test-id='adrbrowsiel-new-tab-page']`))",  // NOLINT
+      &is_adrbrowsiel_new_tab));
+  ASSERT_TRUE(is_adrbrowsiel_new_tab);
 }
 
 // This test simply loads an extension that sets a newtab override.
 // It checks to make sure the newtab override is used as the newtab page.
-IN_PROC_BROWSER_TEST_F(BraveNewTabUIBrowserTest, NewTabPageLocationOverride) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielNewTabUIBrowserTest, NewTabPageLocationOverride) {
   base::FilePath test_data_dir;
   GetTestDataDir(&test_data_dir);
   InstallExtensionSilently(extension_service(),

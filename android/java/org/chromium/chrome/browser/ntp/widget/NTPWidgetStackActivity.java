@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -23,8 +23,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.app.BraveActivity;
-import org.chromium.chrome.browser.ntp.BraveNewTabPageLayout;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
+import org.chromium.chrome.browser.ntp.adrbrowsielNewTabPageLayout;
 import org.chromium.chrome.browser.ntp.widget.NTPWidgetAdapter;
 import org.chromium.chrome.browser.ntp.widget.NTPWidgetManager;
 import org.chromium.chrome.browser.ntp.widget.NTPWidgetStackAdapter;
@@ -159,12 +159,12 @@ public class NTPWidgetStackActivity extends AppCompatActivity {
             }
         }
         if (isFromSettings) {
-            if (BraveActivity.getBraveActivity() != null && BraveActivity.getBraveActivity().getActivityTab() != null) {
-                BraveActivity.getBraveActivity().getActivityTab().reloadIgnoringCache();
+            if (adrbrowsielActivity.getadrbrowsielActivity() != null && adrbrowsielActivity.getadrbrowsielActivity().getActivityTab() != null) {
+                adrbrowsielActivity.getadrbrowsielActivity().getActivityTab().reloadIgnoringCache();
             }
         } else {
             Intent intent = new Intent();
-            setResult(BraveNewTabPageLayout.NTP_WIDGET_STACK_CODE, intent);
+            setResult(adrbrowsielNewTabPageLayout.NTP_WIDGET_STACK_CODE, intent);
         }
         finish();
     }

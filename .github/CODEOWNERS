@@ -1,79 +1,79 @@
-patches/ @brave/patch-reviewers
-chromium_src/ @brave/patch-reviewers
+patches/ @adrbrowsiel/patch-reviewers
+chromium_src/ @adrbrowsiel/patch-reviewers
 script/build-bisect.py @bsclifton
 script/uplift.py @bsclifton
-vendor/brave-ios/ @kylehickinson
+vendor/adrbrowsiel-ios/ @kylehickinson
 /README.md @bsclifton
 Jenkinsfile @mihaiplesa
 DEPS @bridiver
 
 # Rewards
-browser/brave_rewards/ @brave/rewards-client
-browser/extensions/api/brave_rewards_api.cc @brave/rewards-client
-browser/extensions/api/brave_rewards_api.h @brave/rewards-client
-browser/ui/webui/brave_rewards_page_ui.cc @brave/rewards-client
-browser/ui/webui/brave_rewards_page_ui.h @brave/rewards-client
-browser/ui/webui/brave_rewards_ui.cc @brave/rewards-client
-browser/ui/webui/brave_rewards_ui.h @brave/rewards-client
-components/brave_rewards/ @brave/rewards-client
-components/services/bat_ledger/ @brave/rewards-client
-vendor/bat-native-ledger/ @brave/rewards-client
+browser/adrbrowsiel_rewards/ @adrbrowsiel/rewards-client
+browser/extensions/api/adrbrowsiel_rewards_api.cc @adrbrowsiel/rewards-client
+browser/extensions/api/adrbrowsiel_rewards_api.h @adrbrowsiel/rewards-client
+browser/ui/webui/adrbrowsiel_rewards_page_ui.cc @adrbrowsiel/rewards-client
+browser/ui/webui/adrbrowsiel_rewards_page_ui.h @adrbrowsiel/rewards-client
+browser/ui/webui/adrbrowsiel_rewards_ui.cc @adrbrowsiel/rewards-client
+browser/ui/webui/adrbrowsiel_rewards_ui.h @adrbrowsiel/rewards-client
+components/adrbrowsiel_rewards/ @adrbrowsiel/rewards-client
+components/services/bat_ledger/ @adrbrowsiel/rewards-client
+vendor/bat-native-ledger/ @adrbrowsiel/rewards-client
 
 # Ads
-browser/brave_ads/**/*.cc @brave/ads-client
-browser/brave_ads/**/*.h @brave/ads-client
-browser/brave_ads/**/*.java @brave/ads-client
-browser/brave_ads/**/*.mm @brave/ads-client
-browser/ui/brave_ads/**/*.cc @brave/ads-client
-browser/ui/brave_ads/**/*.h @brave/ads-client
-browser/ui/brave_ads/**/*.mm @brave/ads-client
-components/brave_ads/**/*.cc @brave/ads-client
-components/brave_ads/**/*.h @brave/ads-client
-components/brave_ads/**/*.mm @brave/ads-client
-components/services/bat_ads/**/*.cc @brave/ads-client
-components/services/bat_ads/**/*.h @brave/ads-client
-components/services/bat_ads/**/*.mm @brave/ads-client
-vendor/bat-native-ads/**/*.cc @brave/ads-client
-vendor/bat-native-ads/**/*.h @brave/ads-client
-vendor/bat-native-ads/**/*.mm @brave/ads-client
-vendor/bat-native-ads/src/bat/ads/internal/privacy/**/*.cc @brave/ads-client @fmarier
-vendor/bat-native-ads/src/bat/ads/internal/privacy/**/*.h @brave/ads-client @fmarier
-vendor/bat-native-ads/src/bat/ads/internal/privacy/**/*.mm @brave/ads-client @fmarier
-vendor/bat-native-ads/src/bat/ads/internal/security/**/*.cc @brave/ads-client @orspetol
-vendor/bat-native-ads/src/bat/ads/internal/security/**/*.h @brave/ads-client @orspetol
-vendor/bat-native-ads/src/bat/ads/internal/security/**/*.mm @brave/ads-client @orspetol
+browser/adrbrowsiel_ads/**/*.cc @adrbrowsiel/ads-client
+browser/adrbrowsiel_ads/**/*.h @adrbrowsiel/ads-client
+browser/adrbrowsiel_ads/**/*.java @adrbrowsiel/ads-client
+browser/adrbrowsiel_ads/**/*.mm @adrbrowsiel/ads-client
+browser/ui/adrbrowsiel_ads/**/*.cc @adrbrowsiel/ads-client
+browser/ui/adrbrowsiel_ads/**/*.h @adrbrowsiel/ads-client
+browser/ui/adrbrowsiel_ads/**/*.mm @adrbrowsiel/ads-client
+components/adrbrowsiel_ads/**/*.cc @adrbrowsiel/ads-client
+components/adrbrowsiel_ads/**/*.h @adrbrowsiel/ads-client
+components/adrbrowsiel_ads/**/*.mm @adrbrowsiel/ads-client
+components/services/bat_ads/**/*.cc @adrbrowsiel/ads-client
+components/services/bat_ads/**/*.h @adrbrowsiel/ads-client
+components/services/bat_ads/**/*.mm @adrbrowsiel/ads-client
+vendor/bat-native-ads/**/*.cc @adrbrowsiel/ads-client
+vendor/bat-native-ads/**/*.h @adrbrowsiel/ads-client
+vendor/bat-native-ads/**/*.mm @adrbrowsiel/ads-client
+vendor/bat-native-ads/src/bat/ads/internal/privacy/**/*.cc @adrbrowsiel/ads-client @fmarier
+vendor/bat-native-ads/src/bat/ads/internal/privacy/**/*.h @adrbrowsiel/ads-client @fmarier
+vendor/bat-native-ads/src/bat/ads/internal/privacy/**/*.mm @adrbrowsiel/ads-client @fmarier
+vendor/bat-native-ads/src/bat/ads/internal/security/**/*.cc @adrbrowsiel/ads-client @orspetol
+vendor/bat-native-ads/src/bat/ads/internal/security/**/*.h @adrbrowsiel/ads-client @orspetol
+vendor/bat-native-ads/src/bat/ads/internal/security/**/*.mm @adrbrowsiel/ads-client @orspetol
 
 # Network
 browser/net/ @iefremov
 
-# Brave theme
+# adrbrowsiel theme
 browser/themes @simonhong
 
 # Widevine
 browser/widevine @simonhong
 
 # Wayback machine
-browser/ui/views/infobars/brave_wayback_machine_* @simonhong
-components/brave_wayback_machine @simonhong
+browser/ui/views/infobars/adrbrowsiel_wayback_machine_* @simonhong
+components/adrbrowsiel_wayback_machine @simonhong
 
 # Licensing of third-party components
 common/licenses/ @fmarier
-script/brave_license_helper.py @fmarier
+script/adrbrowsiel_license_helper.py @fmarier
 script/check_npm_licenses.py @fmarier
 script/generate_licenses.py @fmarier
 
 # Crypto Wallets
-browser/brave_wallet/ @brave/crypto-wallets
-components/brave_wallet/ @brave/crypto-wallets
+browser/adrbrowsiel_wallet/ @adrbrowsiel/crypto-wallets
+components/adrbrowsiel_wallet/ @adrbrowsiel/crypto-wallets
 
-# Brave Referrals Service
-components/brave_referrals/browser/brave_referrals_service* @simonhong
+# adrbrowsiel Referrals Service
+components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service* @simonhong
 
-# Brave Sync
-components/brave_sync/ @brave/sync-reviewers
-components/sync/driver/ @brave/sync-reviewers
-chromium_src/components/sync/ @brave/sync-reviewers
-chromium_src/components/sync_device_info/device_info_sync_bridge.cc @brave/sync-reviewers
+# adrbrowsiel Sync
+components/adrbrowsiel_sync/ @adrbrowsiel/sync-reviewers
+components/sync/driver/ @adrbrowsiel/sync-reviewers
+chromium_src/components/sync/ @adrbrowsiel/sync-reviewers
+chromium_src/components/sync_device_info/device_info_sync_bridge.cc @adrbrowsiel/sync-reviewers
 
 # Speedreader
 browser/speedreader/ @iefremov
@@ -81,12 +81,12 @@ components/speedreader/* @iefremov
 
 # P3A
 browser/p3a/ @iefremov
-components/brave_prochlo/ @iefremov
+components/adrbrowsiel_prochlo/ @iefremov
 components/p3a/ @iefremov
 components/weekly_storage/ @iefremov
 
 # Perf predictor
-components/brave_perf_predictor/ @iefremov
+components/adrbrowsiel_perf_predictor/ @iefremov
 
 # Permissions
 browser/permissions/**/*expiration* @goodov
@@ -102,5 +102,5 @@ patches/*.java.patch @samartnik
 third_party/bitcoin-core/BUILD.gn @orspetol
 
 # Network auditor
-build/commands/lib/whitelistedUrlPatterns.js @brave/sec-team
-build/commands/lib/whitelistedUrlPrefixes.js @brave/sec-team
+build/commands/lib/whitelistedUrlPatterns.js @adrbrowsiel/sec-team
+build/commands/lib/whitelistedUrlPrefixes.js @adrbrowsiel/sec-team

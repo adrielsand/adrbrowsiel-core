@@ -7,7 +7,7 @@ index f2c086c04e771c0ac61a0f1e1491a11b1cfe56ec..745aa1adf2414d38d757da339c4ca7c9
        bridge()->CreateMetadataChangeList(), std::move(entity_change_list));
    EXPECT_FALSE(error_on_delete);
 -  EXPECT_EQ(1, change_count());
-+  EXPECT_EQ(2, change_count());  // Brave can delete other device in chain, delete record should be also processed
++  EXPECT_EQ(2, change_count());  // adrbrowsiel can delete other device in chain, delete record should be also processed
  }
  
  TEST_F(DeviceInfoSyncBridgeTest, ApplyDeleteNonexistent) {

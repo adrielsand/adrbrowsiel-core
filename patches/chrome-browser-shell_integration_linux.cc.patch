@@ -7,7 +7,7 @@ index c067dec52ae08e6e74f08e9ee05277300b24da29..b3385f33c2ab4d7a519fe8f2cb3ca42d
    return "google-chrome";
  #else  // BUILDFLAG(CHROMIUM_BRANDING)
 -  return "chromium-browser";
-+  return "brave-browser";
++  return "adrbrowsiel-browser";
  #endif
  }
  

@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/component_updater/brave_component_installer.h"
+#include "adrbrowsiel/browser/component_updater/adrbrowsiel_component_installer.h"
 
 #include <utility>
 
@@ -23,7 +23,7 @@
 #include "components/update_client/utils.h"
 #include "crypto/sha2.h"
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
 namespace {
 using Result = update_client::CrxInstaller::Result;
@@ -74,21 +74,21 @@ std::string GetManifestString(std::unique_ptr<base::DictionaryValue> manifest,
 
 }  // namespace
 
-namespace brave {
+namespace adrbrowsiel {
 
-BraveComponentInstallerPolicy::BraveComponentInstallerPolicy(
+adrbrowsielComponentInstallerPolicy::adrbrowsielComponentInstallerPolicy(
     const std::string& name,
     const std::string& base64_public_key,
-    BraveComponent::ReadyCallback ready_callback)
+    adrbrowsielComponent::ReadyCallback ready_callback)
     : name_(name),
       base64_public_key_(base64_public_key),
       ready_callback_(std::move(ready_callback)) {
   base::Base64Decode(base64_public_key, &public_key_);
 }
 
-BraveComponentInstallerPolicy::~BraveComponentInstallerPolicy() {}
+adrbrowsielComponentInstallerPolicy::~adrbrowsielComponentInstallerPolicy() {}
 
-bool BraveComponentInstallerPolicy::VerifyInstallation(
+bool adrbrowsielComponentInstallerPolicy::VerifyInstallation(
     const base::DictionaryValue& manifest,
     const base::FilePath& install_dir) const {
   // The manifest file will generate a random ID if we don't provide one.
@@ -101,26 +101,26 @@ bool BraveComponentInstallerPolicy::VerifyInstallation(
       install_dir.Append(FILE_PATH_LITERAL("manifest.json")));
 }
 
-bool BraveComponentInstallerPolicy::
+bool adrbrowsielComponentInstallerPolicy::
 SupportsGroupPolicyEnabledComponentUpdates() const {
   return false;
 }
 
-bool BraveComponentInstallerPolicy::RequiresNetworkEncryption() const {
+bool adrbrowsielComponentInstallerPolicy::RequiresNetworkEncryption() const {
   return false;
 }
 
 update_client::CrxInstaller::Result
-BraveComponentInstallerPolicy::OnCustomInstall(
+adrbrowsielComponentInstallerPolicy::OnCustomInstall(
   const base::DictionaryValue& manifest,
   const base::FilePath& install_dir) {
   return Result(InstallError::NONE);
 }
 
-void BraveComponentInstallerPolicy::OnCustomUninstall() {
+void adrbrowsielComponentInstallerPolicy::OnCustomUninstall() {
 }
 
-void BraveComponentInstallerPolicy::ComponentReady(
+void adrbrowsielComponentInstallerPolicy::ComponentReady(
     const base::Version& version,
     const base::FilePath& install_dir,
     std::unique_ptr<base::DictionaryValue> manifest) {
@@ -129,7 +129,7 @@ void BraveComponentInstallerPolicy::ComponentReady(
       GetManifestString(std::move(manifest), base64_public_key_));
 }
 
-base::FilePath BraveComponentInstallerPolicy::GetRelativeInstallDir() const {
+base::FilePath adrbrowsielComponentInstallerPolicy::GetRelativeInstallDir() const {
   // Get the extension ID from the public key
   std::string extension_id = crx_file::id_util::GenerateId(public_key_);
   return base::FilePath(
@@ -137,17 +137,17 @@ base::FilePath BraveComponentInstallerPolicy::GetRelativeInstallDir() const {
       base::FilePath::StringType(extension_id.begin(), extension_id.end()));
 }
 
-void BraveComponentInstallerPolicy::GetHash(std::vector<uint8_t>* hash) const {
+void adrbrowsielComponentInstallerPolicy::GetHash(std::vector<uint8_t>* hash) const {
   const std::string public_key_sha256 = crypto::SHA256HashString(public_key_);
   hash->assign(public_key_sha256.begin(), public_key_sha256.end());
 }
 
-std::string BraveComponentInstallerPolicy::GetName() const {
+std::string adrbrowsielComponentInstallerPolicy::GetName() const {
   return name_;
 }
 
 update_client::InstallerAttributes
-BraveComponentInstallerPolicy::GetInstallerAttributes() const {
+adrbrowsielComponentInstallerPolicy::GetInstallerAttributes() const {
   return update_client::InstallerAttributes();
 }
 
@@ -156,11 +156,11 @@ void RegisterComponent(
     const std::string& name,
     const std::string& base64_public_key,
     base::OnceClosure registered_callback,
-    BraveComponent::ReadyCallback ready_callback) {
+    adrbrowsielComponent::ReadyCallback ready_callback) {
   auto installer = base::MakeRefCounted<component_updater::ComponentInstaller>(
-      std::make_unique<BraveComponentInstallerPolicy>(
+      std::make_unique<adrbrowsielComponentInstallerPolicy>(
           name, base64_public_key, std::move(ready_callback)));
   installer->Register(cus, std::move(registered_callback));
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

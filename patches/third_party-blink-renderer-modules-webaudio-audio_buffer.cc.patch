@@ -14,7 +14,7 @@ index 111fad79c9d38d52230b8a240b4e1337763ebce7..bba5a339028bf892f79a5814d61f249d
      return NotShared<DOMFloat32Array>(nullptr);
    }
  
-+  BRAVE_AUDIOBUFFER_GETCHANNELDATA
++  adrbrowsiel_AUDIOBUFFER_GETCHANNELDATA
    return getChannelData(channel_index);
  }
  
@@ -41,7 +41,7 @@ index 111fad79c9d38d52230b8a240b4e1337763ebce7..bba5a339028bf892f79a5814d61f249d
    DCHECK_LE(buffer_offset + count, data_length);
  
    memmove(dst, src + buffer_offset, count * sizeof(*src));
-+  BRAVE_AUDIOBUFFER_COPYFROMCHANNEL
++  adrbrowsiel_AUDIOBUFFER_COPYFROMCHANNEL
  }
  
  void AudioBuffer::copyToChannel(NotShared<DOMFloat32Array> source,

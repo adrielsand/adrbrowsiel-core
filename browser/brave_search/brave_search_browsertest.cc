@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,9 +6,9 @@
 #include "base/path_service.h"
 #include "base/task/post_task.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_search/browser/brave_search_host.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_search/browser/adrbrowsiel_search_host.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -25,10 +25,10 @@ using extensions::ExtensionBrowserTest;
 
 namespace {
 
-const char kEmbeddedTestServerDirectory[] = "brave-search";
-const char kAllowedDomain[] = "search.brave.com";
-const char kAllowedDomainDev[] = "search-dev.brave.com";
-const char kNotAllowedDomain[] = "brave.com";
+const char kEmbeddedTestServerDirectory[] = "adrbrowsiel-search";
+const char kAllowedDomain[] = "search.adrbrowsiel.com";
+const char kAllowedDomainDev[] = "search-dev.adrbrowsiel.com";
+const char kNotAllowedDomain[] = "adrbrowsiel.com";
 const char kBackupSearchContent[] = "<html><body>results</body></html>";
 
 std::string GetChromeFetchBackupResultsAvailScript() {
@@ -47,9 +47,9 @@ std::string GetChromeFetchBackupResultsAvailScript() {
 
 }  // namespace
 
-class BraveSearchTest : public InProcessBrowserTest {
+class adrbrowsielSearchTest : public InProcessBrowserTest {
  public:
-  BraveSearchTest() {}
+  adrbrowsielSearchTest() {}
 
   void SetUpOnMainThread() override {
     InProcessBrowserTest::SetUpOnMainThread();
@@ -59,17 +59,17 @@ class BraveSearchTest : public InProcessBrowserTest {
         net::test_server::EmbeddedTestServer::TYPE_HTTPS));
     https_server_->SetSSLConfig(net::EmbeddedTestServer::CERT_OK);
     https_server_->RegisterRequestHandler(base::BindRepeating(
-        &BraveSearchTest::HandleRequest, base::Unretained(this)));
+        &adrbrowsielSearchTest::HandleRequest, base::Unretained(this)));
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     test_data_dir = test_data_dir.AppendASCII(kEmbeddedTestServerDirectory);
     https_server_->ServeFilesFromDirectory(test_data_dir);
 
     ASSERT_TRUE(https_server_->Start());
     GURL url = https_server()->GetURL("a.com", "/search");
-    brave_search::BraveSearchHost::SetBackupProviderForTest(url);
+    adrbrowsiel_search::adrbrowsielSearchHost::SetBackupProviderForTest(url);
   }
 
   void SetUpCommandLine(base::CommandLine* command_line) override {
@@ -81,7 +81,7 @@ class BraveSearchTest : public InProcessBrowserTest {
   std::unique_ptr<net::test_server::HttpResponse> HandleRequest(
       const net::test_server::HttpRequest& request) {
     if (request.GetURL().path_piece() == "/sw.js" ||
-        request.GetURL().path_piece() == "/bravesearch.html")
+        request.GetURL().path_piece() == "/adrbrowsielsearch.html")
       return nullptr;
 
     GURL url = request.GetURL();
@@ -104,8 +104,8 @@ class BraveSearchTest : public InProcessBrowserTest {
   std::unique_ptr<net::EmbeddedTestServer> https_server_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveSearchTest, CheckForAFunction) {
-  GURL url = https_server()->GetURL(kAllowedDomain, "/bravesearch.html");
+IN_PROC_BROWSER_TEST_F(adrbrowsielSearchTest, CheckForAFunction) {
+  GURL url = https_server()->GetURL(kAllowedDomain, "/adrbrowsielsearch.html");
   ui_test_utils::NavigateToURL(browser(), url);
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
@@ -116,8 +116,8 @@ IN_PROC_BROWSER_TEST_F(BraveSearchTest, CheckForAFunction) {
   EXPECT_EQ(base::Value(true), result_first.value);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveSearchTest, CheckForAFunctionDev) {
-  GURL url = https_server()->GetURL(kAllowedDomainDev, "/bravesearch.html");
+IN_PROC_BROWSER_TEST_F(adrbrowsielSearchTest, CheckForAFunctionDev) {
+  GURL url = https_server()->GetURL(kAllowedDomainDev, "/adrbrowsielsearch.html");
   ui_test_utils::NavigateToURL(browser(), url);
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
@@ -128,8 +128,8 @@ IN_PROC_BROWSER_TEST_F(BraveSearchTest, CheckForAFunctionDev) {
   EXPECT_EQ(base::Value(true), result_first.value);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveSearchTest, CheckForAnUndefinedFunction) {
-  GURL url = https_server()->GetURL(kNotAllowedDomain, "/bravesearch.html");
+IN_PROC_BROWSER_TEST_F(adrbrowsielSearchTest, CheckForAnUndefinedFunction) {
+  GURL url = https_server()->GetURL(kNotAllowedDomain, "/adrbrowsielsearch.html");
   ui_test_utils::NavigateToURL(browser(), url);
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();

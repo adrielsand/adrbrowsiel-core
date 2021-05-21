@@ -1,33 +1,33 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_IMPORTER_BRAVE_EXTERNAL_PROCESS_IMPORTER_CLIENT_H_
-#define BRAVE_BROWSER_IMPORTER_BRAVE_EXTERNAL_PROCESS_IMPORTER_CLIENT_H_
+#ifndef adrbrowsiel_BROWSER_IMPORTER_adrbrowsiel_EXTERNAL_PROCESS_IMPORTER_CLIENT_H_
+#define adrbrowsiel_BROWSER_IMPORTER_adrbrowsiel_EXTERNAL_PROCESS_IMPORTER_CLIENT_H_
 
 #include <string>
 
 #include "base/memory/weak_ptr.h"
-#include "brave/common/importer/profile_import.mojom.h"
+#include "adrbrowsiel/common/importer/profile_import.mojom.h"
 #include "chrome/browser/importer/external_process_importer_client.h"
 #include "mojo/public/cpp/bindings/receiver.h"
 #include "mojo/public/cpp/bindings/remote.h"
 
-class BraveExternalProcessImporterClient
+class adrbrowsielExternalProcessImporterClient
     : public ExternalProcessImporterClient,
-      public brave::mojom::ProfileImportObserver {
+      public adrbrowsiel::mojom::ProfileImportObserver {
  public:
-  BraveExternalProcessImporterClient(
+  adrbrowsielExternalProcessImporterClient(
       base::WeakPtr<ExternalProcessImporterHost> importer_host,
       const importer::SourceProfile& source_profile,
       uint16_t items,
       InProcessImporterBridge* bridge);
 
-  BraveExternalProcessImporterClient(
-      const BraveExternalProcessImporterClient&) = delete;
-  BraveExternalProcessImporterClient& operator=(
-      const BraveExternalProcessImporterClient&) = delete;
+  adrbrowsielExternalProcessImporterClient(
+      const adrbrowsielExternalProcessImporterClient&) = delete;
+  adrbrowsielExternalProcessImporterClient& operator=(
+      const adrbrowsielExternalProcessImporterClient&) = delete;
 
   // ExternalProcessImportClient overrides:
   void Start() override;
@@ -35,7 +35,7 @@ class BraveExternalProcessImporterClient
   void CloseMojoHandles() override;
   void OnImportItemFinished(importer::ImportItem import_item) override;
 
-  // brave::mojom::ProfileImportObserver overrides:
+  // adrbrowsiel::mojom::ProfileImportObserver overrides:
   void OnCreditCardImportReady(const std::u16string& name_on_card,
                                const std::u16string& expiration_month,
                                const std::u16string& expiration_year,
@@ -43,15 +43,15 @@ class BraveExternalProcessImporterClient
                                const std::string& origin) override;
 
  protected:
-  ~BraveExternalProcessImporterClient() override;
+  ~adrbrowsielExternalProcessImporterClient() override;
 
  private:
-  // Used to start and stop the actual brave importer running in a different
+  // Used to start and stop the actual adrbrowsiel importer running in a different
   // process.
-  mojo::Remote<brave::mojom::ProfileImport> brave_profile_import_;
+  mojo::Remote<adrbrowsiel::mojom::ProfileImport> adrbrowsiel_profile_import_;
 
-  // Used to receive progress updates from the brave importer.
-  mojo::Receiver<brave::mojom::ProfileImportObserver> brave_receiver_{this};
+  // Used to receive progress updates from the adrbrowsiel importer.
+  mojo::Receiver<adrbrowsiel::mojom::ProfileImportObserver> adrbrowsiel_receiver_{this};
 };
 
-#endif  // BRAVE_BROWSER_IMPORTER_BRAVE_EXTERNAL_PROCESS_IMPORTER_CLIENT_H_
+#endif  // adrbrowsiel_BROWSER_IMPORTER_adrbrowsiel_EXTERNAL_PROCESS_IMPORTER_CLIENT_H_

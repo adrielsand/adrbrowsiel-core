@@ -7,7 +7,7 @@ index 4d92d80ebc1167794aeda43b2cfc94bcde41bfff..e390477f90c865f27d8a5f9bcaa15163
  
      protected ChromeActivity() {
 -        mIntentHandler = new IntentHandler(this, createIntentHandlerDelegate());
-+        mIntentHandler = new org.chromium.chrome.browser.BraveIntentHandler(this, createIntentHandlerDelegate());
++        mIntentHandler = new org.chromium.chrome.browser.adrbrowsielIntentHandler(this, createIntentHandlerDelegate());
          mManualFillingComponentSupplier.set(ManualFillingComponentFactory.createComponent());
      }
  

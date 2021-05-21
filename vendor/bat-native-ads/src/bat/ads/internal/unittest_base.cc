@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -22,10 +22,10 @@ UnitTestBase::UnitTestBase()
     : task_environment_(base::test::TaskEnvironment::TimeSource::MOCK_TIME),
       ads_client_mock_(std::make_unique<NiceMock<AdsClientMock>>()),
       locale_helper_mock_(
-          std::make_unique<NiceMock<brave_l10n::LocaleHelperMock>>()),
+          std::make_unique<NiceMock<adrbrowsiel_l10n::LocaleHelperMock>>()),
       platform_helper_mock_(std::make_unique<NiceMock<PlatformHelperMock>>()) {
   // You can do set-up work for each test here
-  brave_l10n::LocaleHelper::GetInstance()->set_for_testing(
+  adrbrowsiel_l10n::LocaleHelper::GetInstance()->set_for_testing(
       locale_helper_mock_.get());
 
   PlatformHelper::GetInstance()->set_for_testing(platform_helper_mock_.get());

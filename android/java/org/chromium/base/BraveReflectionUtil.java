@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -11,11 +11,11 @@ import java.lang.Class;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class BraveReflectionUtil {
-    private static String TAG = "BraveReflectionUtil";
+public class adrbrowsielReflectionUtil {
+    private static String TAG = "adrbrowsielReflectionUtil";
 
     // NOTE: For each method for invocation add appropriate test to `testMethodsForInvocationExist`
-    // method in 'brave/android/javatests/org/chromium/chrome/browser/BytecodeTest.java' file with
+    // method in 'adrbrowsiel/android/javatests/org/chromium/chrome/browser/BytecodeTest.java' file with
     // checking parameter types.
     public static Object InvokeMethod(
             Class methodOwner, Object obj, String method, Object... typesAndArgs) {

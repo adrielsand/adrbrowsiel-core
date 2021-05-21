@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/renderer/brave_render_thread_observer.h"
+#include "adrbrowsiel/renderer/adrbrowsiel_render_thread_observer.h"
 
 #include <utility>
 
@@ -13,43 +13,43 @@
 
 namespace {
 
-brave::mojom::DynamicParams* GetDynamicConfigParams() {
-  static base::NoDestructor<brave::mojom::DynamicParams> dynamic_params;
+adrbrowsiel::mojom::DynamicParams* GetDynamicConfigParams() {
+  static base::NoDestructor<adrbrowsiel::mojom::DynamicParams> dynamic_params;
   return dynamic_params.get();
 }
 
 }  // namespace
 
-BraveRenderThreadObserver::BraveRenderThreadObserver() {}
+adrbrowsielRenderThreadObserver::adrbrowsielRenderThreadObserver() {}
 
-BraveRenderThreadObserver::~BraveRenderThreadObserver() {}
+adrbrowsielRenderThreadObserver::~adrbrowsielRenderThreadObserver() {}
 
 // static
-const brave::mojom::DynamicParams&
-BraveRenderThreadObserver::GetDynamicParams() {
+const adrbrowsiel::mojom::DynamicParams&
+adrbrowsielRenderThreadObserver::GetDynamicParams() {
   return *GetDynamicConfigParams();
 }
 
-void BraveRenderThreadObserver::RegisterMojoInterfaces(
+void adrbrowsielRenderThreadObserver::RegisterMojoInterfaces(
     blink::AssociatedInterfaceRegistry* associated_interfaces) {
   associated_interfaces->AddInterface(base::BindRepeating(
-      &BraveRenderThreadObserver::OnRendererConfigurationAssociatedRequest,
+      &adrbrowsielRenderThreadObserver::OnRendererConfigurationAssociatedRequest,
       base::Unretained(this)));
 }
 
-void BraveRenderThreadObserver::UnregisterMojoInterfaces(
+void adrbrowsielRenderThreadObserver::UnregisterMojoInterfaces(
     blink::AssociatedInterfaceRegistry* associated_interfaces) {
   associated_interfaces->RemoveInterface(
-      brave::mojom::BraveRendererConfiguration::Name_);
+      adrbrowsiel::mojom::adrbrowsielRendererConfiguration::Name_);
 }
 
-void BraveRenderThreadObserver::OnRendererConfigurationAssociatedRequest(
-    mojo::PendingAssociatedReceiver<brave::mojom::BraveRendererConfiguration>
+void adrbrowsielRenderThreadObserver::OnRendererConfigurationAssociatedRequest(
+    mojo::PendingAssociatedReceiver<adrbrowsiel::mojom::adrbrowsielRendererConfiguration>
         receiver) {
   renderer_configuration_receivers_.Add(this, std::move(receiver));
 }
 
-void BraveRenderThreadObserver::SetConfiguration(
-    brave::mojom::DynamicParamsPtr params) {
+void adrbrowsielRenderThreadObserver::SetConfiguration(
+    adrbrowsiel::mojom::DynamicParamsPtr params) {
   *GetDynamicConfigParams() = std::move(*params);
 }

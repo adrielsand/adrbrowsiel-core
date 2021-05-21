@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_BAT_CLIENT_STATE_H_
-#define BRAVELEDGER_BAT_CLIENT_STATE_H_
+#ifndef adrbrowsielLEDGER_BAT_CLIENT_STATE_H_
+#define adrbrowsielLEDGER_BAT_CLIENT_STATE_H_
 
 #include <map>
 #include <memory>
@@ -19,7 +19,7 @@ namespace ledger {
 class LedgerImpl;
 }
 
-namespace braveledger_bat_state {
+namespace adrbrowsielledger_bat_state {
 
 class LegacyBatState {
  public:
@@ -58,6 +58,6 @@ class LegacyBatState {
   std::unique_ptr<ledger::ClientProperties> state_;
 };
 
-}  // namespace braveledger_bat_state
+}  // namespace adrbrowsielledger_bat_state
 
-#endif  // BRAVELEDGER_BAT_CLIENT_STATE_H_
+#endif  // adrbrowsielLEDGER_BAT_CLIENT_STATE_H_

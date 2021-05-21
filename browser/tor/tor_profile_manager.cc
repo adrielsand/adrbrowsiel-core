@@ -1,18 +1,18 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/tor/tor_profile_manager.h"
+#include "adrbrowsiel/browser/tor/tor_profile_manager.h"
 
 #include <algorithm>
 
-#include "brave/browser/tor/tor_profile_service_factory.h"
-#include "brave/browser/translate/buildflags/buildflags.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_webtorrent/browser/buildflags/buildflags.h"
-#include "brave/components/tor/tor_constants.h"
-#include "brave/components/tor/tor_profile_service.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/browser/translate/buildflags/buildflags.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/tor_constants.h"
+#include "adrbrowsiel/components/tor/tor_profile_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/profiles/profile_window.h"
 #include "chrome/browser/ui/browser_list.h"
@@ -21,7 +21,7 @@
 #include "components/safe_browsing/core/common/safe_browsing_prefs.h"
 #include "third_party/blink/public/common/peerconnection/webrtc_ip_handling_policy.h"
 
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_EXTENSION)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_EXTENSION)
 #include "components/translate/core/browser/translate_pref_names.h"
 #endif
 
@@ -113,13 +113,13 @@ void TorProfileManager::InitTorProfileUserPrefs(Profile* profile) {
                           blink::kWebRTCIPHandlingDisableNonProxiedUdp);
   pref_service->SetBoolean(prefs::kSafeBrowsingEnabled, false);
   // https://blog.torproject.org/bittorrent-over-tor-isnt-good-idea
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
   pref_service->SetBoolean(kWebTorrentEnabled, false);
 #endif
   // Disable the automatic translate bubble in Tor because we currently don't
   // support extensions in Tor mode and users cannot disable this through
   // settings page for Tor windows.
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_EXTENSION)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_EXTENSION)
   pref_service->SetBoolean(prefs::kOfferTranslateEnabled, false);
 #endif
 }

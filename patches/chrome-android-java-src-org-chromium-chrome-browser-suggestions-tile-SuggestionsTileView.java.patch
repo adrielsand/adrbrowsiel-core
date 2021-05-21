@@ -6,7 +6,7 @@ index 8851486e8bd107f05cb1026ba268cb0256530c76..796277b07d3a21b17039e6cd6e7d835d
              params.height = resources.getDimensionPixelSize(R.dimen.tile_view_icon_size_modern);
              params.topMargin =
                      resources.getDimensionPixelSize(R.dimen.tile_view_icon_margin_top_modern);
-+            params.width = resources.getDimensionPixelSize(R.dimen.brave_tile_view_icon_size_modern);params.height=resources.getDimensionPixelSize(R.dimen.brave_tile_view_icon_size_modern);params.topMargin=resources.getDimensionPixelSize(R.dimen.brave_tile_view_icon_margin_top_modern);
++            params.width = resources.getDimensionPixelSize(R.dimen.adrbrowsiel_tile_view_icon_size_modern);params.height=resources.getDimensionPixelSize(R.dimen.adrbrowsiel_tile_view_icon_size_modern);params.topMargin=resources.getDimensionPixelSize(R.dimen.adrbrowsiel_tile_view_icon_margin_top_modern);
          }
          getIconView().setLayoutParams(params);
      }

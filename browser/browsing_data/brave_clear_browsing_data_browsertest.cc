@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -11,7 +11,7 @@
 #include "base/single_thread_task_runner.h"
 #include "base/task/post_task.h"
 #include "base/test/scoped_feature_list.h"
-#include "brave/browser/browsing_data/brave_clear_browsing_data.h"
+#include "adrbrowsiel/browser/browsing_data/adrbrowsiel_clear_browsing_data.h"
 #include "chrome/app/chrome_command_ids.h"
 #include "chrome/browser/browsing_data/chrome_browsing_data_remover_constants.h"
 #include "chrome/browser/profiles/profile.h"
@@ -38,7 +38,7 @@
 #include "content/public/test/browser_test_utils.h"
 #include "content/public/test/test_navigation_observer.h"
 
-using content::BraveClearBrowsingData;
+using content::adrbrowsielClearBrowsingData;
 using content::WebContents;
 
 namespace {
@@ -90,13 +90,13 @@ class BrowserChangeObserver : public BrowserListObserver {
 
 }  // namespace
 
-class BraveClearDataOnExitTest
+class adrbrowsielClearDataOnExitTest
     : public InProcessBrowserTest,
-      public BraveClearBrowsingData::OnExitTestingCallback {
+      public adrbrowsielClearBrowsingData::OnExitTestingCallback {
  public:
-  BraveClearDataOnExitTest() = default;
+  adrbrowsielClearDataOnExitTest() = default;
   void SetUpOnMainThread() override {
-    BraveClearBrowsingData::SetOnExitTestingCallback(this);
+    adrbrowsielClearBrowsingData::SetOnExitTestingCallback(this);
   }
 
   void TearDownOnMainThread() override {
@@ -123,7 +123,7 @@ class BraveClearDataOnExitTest
     // At this point, quit should be for real now.
     ASSERT_EQ(0u, chrome::GetTotalBrowserCount());
 
-    BraveClearBrowsingData::SetOnExitTestingCallback(nullptr);
+    adrbrowsielClearBrowsingData::SetOnExitTestingCallback(nullptr);
   }
 
   int remove_data_call_count() { return remove_data_call_count_; }
@@ -167,7 +167,7 @@ class BraveClearDataOnExitTest
            content::BrowsingDataRemover::ORIGIN_TYPE_UNPROTECTED_WEB;
   }
 
-  // BraveClearBrowsingData::OnExitTestingCallback implementation.
+  // adrbrowsielClearBrowsingData::OnExitTestingCallback implementation.
   void BeforeClearOnExitRemoveData(content::BrowsingDataRemover* remover,
                                    int remove_mask,
                                    int origin_mask) override {
@@ -186,17 +186,17 @@ class BraveClearDataOnExitTest
   int expected_remove_mask_ = -1;
   int expected_origin_mask_ = -1;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveClearDataOnExitTest);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielClearDataOnExitTest);
 };
 
-IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTest, NoPrefsSet) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielClearDataOnExitTest, NoPrefsSet) {
   // No set preferences to clear data.
   SetExepectedRemoveDataCallCount(0);
   // Tell the application to quit.
   chrome::ExecuteCommand(browser(), IDC_EXIT);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTest, VerifyRemovalMasks) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielClearDataOnExitTest, VerifyRemovalMasks) {
   // Set all clear data on exit preferences and corresponding expected remove
   // mask and origin flags.
   SetClearAll(browser()->profile()->GetPrefs());
@@ -211,9 +211,9 @@ IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTest, VerifyRemovalMasks) {
   chrome::ExecuteCommand(browser(), IDC_EXIT);
 }
 
-class BraveClearDataOnExitTwoBrowsersTest : public BraveClearDataOnExitTest {
+class adrbrowsielClearDataOnExitTwoBrowsersTest : public adrbrowsielClearDataOnExitTest {
  public:
-  BraveClearDataOnExitTwoBrowsersTest() : BraveClearDataOnExitTest() {
+  adrbrowsielClearDataOnExitTwoBrowsersTest() : adrbrowsielClearDataOnExitTest() {
     browsers_count_ = 2u;
   }
 
@@ -292,10 +292,10 @@ class BraveClearDataOnExitTwoBrowsersTest : public BraveClearDataOnExitTest {
  private:
   base::ScopedTempDir profile2_dir_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveClearDataOnExitTwoBrowsersTest);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielClearDataOnExitTwoBrowsersTest);
 };
 
-IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, SameProfile) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielClearDataOnExitTwoBrowsersTest, SameProfile) {
   // Delete browsing history on exit.
   SetDeleteBrowsingHistoryOnExit();
   // Same profile, so expect a single call.
@@ -311,7 +311,7 @@ IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, SameProfile) {
   chrome::ExecuteCommand(browser(), IDC_EXIT);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, OneOTR) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielClearDataOnExitTwoBrowsersTest, OneOTR) {
   // Delete browsing history on exit.
   SetDeleteBrowsingHistoryOnExit();
   // OTR sessions don't count, so expect a single call.
@@ -328,7 +328,7 @@ IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, OneOTR) {
   chrome::ExecuteCommand(browser(), IDC_EXIT);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, OneOTRExitsLast) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielClearDataOnExitTwoBrowsersTest, OneOTRExitsLast) {
   // Delete browsing history on exit.
   SetDeleteBrowsingHistoryOnExit();
   // OTR sessions don't count, so expect a single call.
@@ -346,7 +346,7 @@ IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, OneOTRExitsLast) {
   chrome::ExecuteCommand(second_window, IDC_EXIT);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, OneGuest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielClearDataOnExitTwoBrowsersTest, OneGuest) {
   // Delete browsing history on exit.
   SetDeleteBrowsingHistoryOnExit();
   // Guest sessions don't count, so expect a single call.
@@ -363,7 +363,7 @@ IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, OneGuest) {
   chrome::ExecuteCommand(browser(), IDC_EXIT);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, OneGuestExitsLast) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielClearDataOnExitTwoBrowsersTest, OneGuestExitsLast) {
   // Delete browsing history on exit.
   SetDeleteBrowsingHistoryOnExit();
   // Guest sessions don't count, so expect a single call.
@@ -380,7 +380,7 @@ IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, OneGuestExitsLast) {
   chrome::ExecuteCommand(guest_window, IDC_EXIT);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveClearDataOnExitTwoBrowsersTest, TwoProfiles) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielClearDataOnExitTwoBrowsersTest, TwoProfiles) {
   // Delete browsing history on exit.
   SetDeleteBrowsingHistoryOnExit();
 

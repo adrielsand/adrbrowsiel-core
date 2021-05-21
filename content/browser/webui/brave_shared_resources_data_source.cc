@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#include "brave/content/browser/webui/brave_shared_resources_data_source.h"
+#include "adrbrowsiel/content/browser/webui/adrbrowsiel_shared_resources_data_source.h"
 
 #include <stddef.h>
 
@@ -25,14 +25,14 @@
 #include "ui/base/layout.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "ui/base/webui/web_ui_util.h"
-#include "brave/ui/webui/resources/grit/brave_webui_resources.h"
-#include "brave/ui/webui/resources/grit/brave_webui_resources_map.h"
+#include "adrbrowsiel/ui/webui/resources/grit/adrbrowsiel_webui_resources.h"
+#include "adrbrowsiel/ui/webui/resources/grit/adrbrowsiel_webui_resources_map.h"
 
 #if defined(OS_WIN)
 #include "base/strings/utf_string_conversions.h"
 #endif
 
-namespace brave_content {
+namespace adrbrowsiel_content {
 
 namespace {
 
@@ -46,8 +46,8 @@ void AddResource(const std::string& path,
 }
 
 void AddResourcesToMap(ResourcesMap* resources_map) {
-  for (size_t i = 0; i < kBraveWebuiResourcesSize; ++i) {
-    const auto& resource = kBraveWebuiResources[i];
+  for (size_t i = 0; i < kadrbrowsielWebuiResourcesSize; ++i) {
+    const auto& resource = kadrbrowsielWebuiResources[i];
     AddResource(resource.path, resource.id, resources_map);
   }
 }
@@ -72,17 +72,17 @@ int GetIdrForPath(const std::string& path) {
 
 }  // namespace
 
-BraveSharedResourcesDataSource::BraveSharedResourcesDataSource() {
+adrbrowsielSharedResourcesDataSource::adrbrowsielSharedResourcesDataSource() {
 }
 
-BraveSharedResourcesDataSource::~BraveSharedResourcesDataSource() {
+adrbrowsielSharedResourcesDataSource::~adrbrowsielSharedResourcesDataSource() {
 }
 
-std::string BraveSharedResourcesDataSource::GetSource() {
-  return "brave-resources";
+std::string adrbrowsielSharedResourcesDataSource::GetSource() {
+  return "adrbrowsiel-resources";
 }
 
-void BraveSharedResourcesDataSource::StartDataRequest(
+void adrbrowsielSharedResourcesDataSource::StartDataRequest(
     const GURL& url,
     const content::WebContents::Getter& wc_getter,
     content::URLDataSource::GotDataCallback callback) {
@@ -99,13 +99,13 @@ void BraveSharedResourcesDataSource::StartDataRequest(
   std::move(callback).Run(bytes.get());
 }
 
-bool BraveSharedResourcesDataSource::AllowCaching() {
+bool adrbrowsielSharedResourcesDataSource::AllowCaching() {
   // Should not be cached to reflect dynamically-generated contents that may
   // depend on the current locale.
   return true;
 }
 
-std::string BraveSharedResourcesDataSource::GetMimeType(
+std::string adrbrowsielSharedResourcesDataSource::GetMimeType(
     const std::string& path) {
   if (path.empty())
     return "text/html";
@@ -149,12 +149,12 @@ std::string BraveSharedResourcesDataSource::GetMimeType(
   return "text/plain";
 }
 
-bool BraveSharedResourcesDataSource::ShouldServeMimeTypeAsContentTypeHeader() {
+bool adrbrowsielSharedResourcesDataSource::ShouldServeMimeTypeAsContentTypeHeader() {
   return true;
 }
 
 std::string
-BraveSharedResourcesDataSource::GetAccessControlAllowOriginForOrigin(
+adrbrowsielSharedResourcesDataSource::GetAccessControlAllowOriginForOrigin(
     const std::string& origin) {
   // For now we give access only for "chrome://*" origins.
   // According to CORS spec, Access-Control-Allow-Origin header doesn't support
@@ -169,4 +169,4 @@ BraveSharedResourcesDataSource::GetAccessControlAllowOriginForOrigin(
   return origin;
 }
 
-}  // namespace brave_content
+}  // namespace adrbrowsiel_content

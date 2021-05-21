@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * you can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -18,7 +18,7 @@
 namespace federated_learning {
 
 // We don't want FLoC:
-// https://github.com/brave/brave-browser/issues/14942
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/14942
 KeyedService* FlocIdProviderFactory::BuildServiceInstanceFor(
     content::BrowserContext* context) const {
   return nullptr;

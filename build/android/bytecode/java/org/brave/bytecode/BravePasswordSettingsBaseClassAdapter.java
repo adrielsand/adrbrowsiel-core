@@ -1,25 +1,25 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BravePasswordSettingsBaseClassAdapter extends BraveClassVisitor {
+public class adrbrowsielPasswordSettingsBaseClassAdapter extends adrbrowsielClassVisitor {
     static String sPasswordSettingsClassName =
             "org/chromium/chrome/browser/password_manager/settings/PasswordSettings";
-    static String sBravePasswordSettingsBaseClassName =
-            "org/chromium/chrome/browser/password_manager/settings/BravePasswordSettingsBase";
+    static String sadrbrowsielPasswordSettingsBaseClassName =
+            "org/chromium/chrome/browser/password_manager/settings/adrbrowsielPasswordSettingsBase";
 
-    public BravePasswordSettingsBaseClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielPasswordSettingsBaseClassAdapter(ClassVisitor visitor) {
         super(visitor);
 
-        changeSuperName(sPasswordSettingsClassName, sBravePasswordSettingsBaseClassName);
+        changeSuperName(sPasswordSettingsClassName, sadrbrowsielPasswordSettingsBaseClassName);
 
         changeMethodOwner(sPasswordSettingsClassName, "createCheckPasswords",
-                sBravePasswordSettingsBaseClassName);
+                sadrbrowsielPasswordSettingsBaseClassName);
         deleteMethod(sPasswordSettingsClassName, "createCheckPasswords");
     }
 }

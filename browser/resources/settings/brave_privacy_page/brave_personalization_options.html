@@ -3,11 +3,11 @@
 <link rel="import" href="chrome://resources/html/i18n_behavior.html">
 <link rel="import" href="chrome://resources/html/web_ui_listener_behavior.html">
 <link rel="import" href="chrome://resources/cr_elements/md_select_css.html">
-<link rel="import" href="brave_privacy_page_browser_proxy.html">
+<link rel="import" href="adrbrowsiel_privacy_page_browser_proxy.html">
 <script type="module" src="../settings_shared_css.js"></script>
 <script type="module" src="../settings_vars_css.js"></script>
 
-<dom-module id="settings-brave-personalization-options">
+<dom-module id="settings-adrbrowsiel-personalization-options">
   <template>
     <style include="settings-shared md-select iron-flex">
       .settings-box {
@@ -37,15 +37,15 @@
     </settings-toggle-button>
     <settings-toggle-button id="pushMessagingEnabled"
         class="cr-row"
-        pref="{{prefs.brave.gcm.channel_status}}"
+        pref="{{prefs.adrbrowsiel.gcm.channel_status}}"
         label="$i18n{pushMessagingLabel}">
         <template is="dom-if" if="[[shouldShowRestart_(
-          prefs.brave.gcm.channel_status.value)]]">
+          prefs.adrbrowsiel.gcm.channel_status.value)]]">
         <cr-button on-click="restartBrowser_" slot="more-actions">
           $i18n{restart}
         </cr-button>
       </template>
     </settings-toggle-button>
   </template>
-  <script src="brave_personalization_options.js"></script>
+  <script src="adrbrowsiel_personalization_options.js"></script>
 </dom-module>

@@ -6,7 +6,7 @@ module.exports = async ({ config, mode }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
     loader: require.resolve('ts-loader'),
-    exclude: /node_modules\/(?!brave-ui)/,
+    exclude: /node_modules\/(?!adrbrowsiel-ui)/,
     options: {
       configFile: path.resolve(__dirname, '..', 'tsconfig-storybook.json'),
       allowTsInNodeModules: true,
@@ -19,8 +19,8 @@ module.exports = async ({ config, mode }) => {
   })
   config.resolve.alias = {
     ...config.resolve.alias,
-    'brave-ui': path.resolve(__dirname, '../node_modules/brave-ui/src'),
-    // Force same styled-components module for brave-core and brave-ui
+    'adrbrowsiel-ui': path.resolve(__dirname, '../node_modules/adrbrowsiel-ui/src'),
+    // Force same styled-components module for adrbrowsiel-core and adrbrowsiel-ui
     // which ensure both repos code use the same singletons, e.g. ThemeContext.
     'styled-components': path.resolve(__dirname, '../node_modules/styled-components'),
   }

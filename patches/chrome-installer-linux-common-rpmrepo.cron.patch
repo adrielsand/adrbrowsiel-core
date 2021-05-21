@@ -6,7 +6,7 @@ index 1a9344fe24bcde442c824b539085b872f738e0cf..a1ff0216a280be4f9f35b827e8200bf6
  # setting "repo_add_once" to "true" or "false" as desired. An empty
  # $DEFAULTS_FILE is the same as setting the value to "false".
  
-+# Don't add the Chrome repo (brave/brave-browser#1967)
++# Don't add the Chrome repo (adrbrowsiel/adrbrowsiel-browser#1967)
 +exit 0
 +
  @@include@@rpm.include

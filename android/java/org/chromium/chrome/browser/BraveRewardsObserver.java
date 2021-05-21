@@ -4,7 +4,7 @@
 
 package org.chromium.chrome.browser;
 
-public interface BraveRewardsObserver {
+public interface adrbrowsielRewardsObserver {
   default public void OnRewardsParameters(int errorCode) {};
   default public void OnPublisherInfo(int tabId) {};
   default public void OnGetCurrentBalanceReport(double[] report) {};

@@ -6,7 +6,7 @@ index 2350d783af164cbf7c6bb0e119e13385169a29fa..cc0e0434204a54830c113e638442605d
        web_contents_(contents),
        web_contents_observer_(new WebUIMainFrameObserver(this, contents)) {
    DCHECK(contents);
-+  BRAVE_WEB_UI_IMPL
++  adrbrowsiel_WEB_UI_IMPL
  }
  
  WebUIImpl::~WebUIImpl() {

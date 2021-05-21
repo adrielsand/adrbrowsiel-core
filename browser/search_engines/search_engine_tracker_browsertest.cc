@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/search_engines/search_engine_tracker.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_tracker.h"
 
 #include "base/test/metrics/histogram_tester.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/ui/browser_commands.h"
-#include "brave/components/search_engines/brave_prepopulated_engines.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/ui/browser_commands.h"
+#include "adrbrowsiel/components/search_engines/adrbrowsiel_prepopulated_engines.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/search_engines/template_url_service_factory.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -48,7 +48,7 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderP3ATest,
   // Check that incognito or TOR profiles do not emit the metric.
   CreateIncognitoBrowser();
 #if BUILDFLAG(ENABLE_TOR)
-  brave::NewOffTheRecordWindowTor(browser());
+  adrbrowsiel::NewOffTheRecordWindowTor(browser());
 #endif
 
   histogram_tester_->ExpectTotalCount(kDefaultSearchEngineMetric, 2);

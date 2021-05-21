@@ -1,22 +1,22 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_BRAVE_TIP_UI_H_
-#define BRAVE_BROWSER_UI_WEBUI_BRAVE_TIP_UI_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_TIP_UI_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_TIP_UI_H_
 
 #include <string>
 
 #include "chrome/browser/ui/webui/constrained_web_dialog_ui.h"
 
-class BraveTipUI : public ConstrainedWebDialogUI {
+class adrbrowsielTipUI : public ConstrainedWebDialogUI {
  public:
-  BraveTipUI(content::WebUI* web_ui, const std::string& host);
-  ~BraveTipUI() override;
+  adrbrowsielTipUI(content::WebUI* web_ui, const std::string& host);
+  ~adrbrowsielTipUI() override;
 
-  BraveTipUI(const BraveTipUI&) = delete;
-  BraveTipUI& operator=(const BraveTipUI&) = delete;
+  adrbrowsielTipUI(const adrbrowsielTipUI&) = delete;
+  adrbrowsielTipUI& operator=(const adrbrowsielTipUI&) = delete;
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_BRAVE_TIP_UI_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_TIP_UI_H_

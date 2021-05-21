@@ -1,19 +1,19 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_TAB_STRIP_H_
-#define BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_TAB_STRIP_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_TAB_STRIP_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_TAB_STRIP_H_
 
 #include "chrome/browser/ui/views/tabs/tab_strip.h"
 
-class BraveTabStrip : public TabStrip {
+class adrbrowsielTabStrip : public TabStrip {
  public:
   using TabStrip::TabStrip;
-  ~BraveTabStrip() override;
-  BraveTabStrip(const BraveTabStrip&) = delete;
-  BraveTabStrip& operator=(const BraveTabStrip&) = delete;
+  ~adrbrowsielTabStrip() override;
+  adrbrowsielTabStrip(const adrbrowsielTabStrip&) = delete;
+  adrbrowsielTabStrip& operator=(const adrbrowsielTabStrip&) = delete;
 
  private:
   // TabStrip overrides:
@@ -21,4 +21,4 @@ class BraveTabStrip : public TabStrip {
   SkColor GetTabSeparatorColor() const override;
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_TAB_STRIP_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_TAB_STRIP_H_

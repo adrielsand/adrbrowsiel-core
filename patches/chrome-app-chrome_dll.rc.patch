@@ -7,12 +7,12 @@ index d299571ac031f4b3ff964fbf2dd865ba31bdd0bf..06eef7187c1c288d1db668b94ed742d5
  // future to get the icon from the .exe, which would save a copy.
  
 +#if defined(OFFICIAL_BUILD)
-+IDR_MAINFRAME       ICON                        "theme\brave\win\brave.ico"
-+IDR_SXS             ICON                        "theme\brave\win\brave_canary.ico"
-+IDR_X004_DEV        ICON                        "theme\brave\win\brave_dev.ico"
-+IDR_X005_BETA       ICON                        "theme\brave\win\brave_beta.ico"
++IDR_MAINFRAME       ICON                        "theme\adrbrowsiel\win\adrbrowsiel.ico"
++IDR_SXS             ICON                        "theme\adrbrowsiel\win\adrbrowsiel_canary.ico"
++IDR_X004_DEV        ICON                        "theme\adrbrowsiel\win\adrbrowsiel_dev.ico"
++IDR_X005_BETA       ICON                        "theme\adrbrowsiel\win\adrbrowsiel_beta.ico"
 +#else
-+IDR_MAINFRAME       ICON                        "theme\brave\win\brave_development.ico"
++IDR_MAINFRAME       ICON                        "theme\adrbrowsiel\win\adrbrowsiel_development.ico"
 +#endif
 +#if 0
  #if BUILDFLAG(GOOGLE_CHROME_BRANDING)

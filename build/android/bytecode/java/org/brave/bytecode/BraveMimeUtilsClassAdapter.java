@@ -1,19 +1,19 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BraveMimeUtilsClassAdapter extends BraveClassVisitor {
+public class adrbrowsielMimeUtilsClassAdapter extends adrbrowsielClassVisitor {
     static String sMimeUtilsClassName = "org/chromium/chrome/browser/download/MimeUtils";
 
-    static String sBraveMimeUtilsClassName = "org/chromium/chrome/browser/download/BraveMimeUtils";
+    static String sadrbrowsielMimeUtilsClassName = "org/chromium/chrome/browser/download/adrbrowsielMimeUtils";
 
-    public BraveMimeUtilsClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielMimeUtilsClassAdapter(ClassVisitor visitor) {
         super(visitor);
-        changeMethodOwner(sMimeUtilsClassName, "canAutoOpenMimeType", sBraveMimeUtilsClassName);
+        changeMethodOwner(sMimeUtilsClassName, "canAutoOpenMimeType", sadrbrowsielMimeUtilsClassName);
     }
 }

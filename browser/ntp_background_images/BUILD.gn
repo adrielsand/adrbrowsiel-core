@@ -6,14 +6,14 @@ source_set("ntp_background_images") {
 
   deps = [
     "//base",
-    "//brave/browser:browser_process",
-    "//brave/browser/brave_ads",
-    "//brave/browser/profiles:util",
-    "//brave/common:pref_names",
-    "//brave/components/brave_ads/browser",
-    "//brave/components/brave_stats/browser",
-    "//brave/components/ntp_background_images/browser",
-    "//brave/components/ntp_background_images/common",
+    "//adrbrowsiel/browser:browser_process",
+    "//adrbrowsiel/browser/adrbrowsiel_ads",
+    "//adrbrowsiel/browser/profiles:util",
+    "//adrbrowsiel/common:pref_names",
+    "//adrbrowsiel/components/adrbrowsiel_ads/browser",
+    "//adrbrowsiel/components/adrbrowsiel_stats/browser",
+    "//adrbrowsiel/components/ntp_background_images/browser",
+    "//adrbrowsiel/components/ntp_background_images/common",
     "//chrome/browser:browser_process",
     "//chrome/browser/profiles:profile",
     "//chrome/common",
@@ -24,7 +24,7 @@ source_set("ntp_background_images") {
   ]
 
   if (is_android) {
-    # Remove when https://github.com/brave/brave-browser/issues/10658 is resolved
+    # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10658 is resolved
     check_includes = false
 
     sources += [
@@ -33,7 +33,7 @@ source_set("ntp_background_images") {
     ]
 
     deps += [
-      "//brave/build/android:jni_headers",
+      "//adrbrowsiel/build/android:jni_headers",
       "//components/keyed_service/content",
       "//components/keyed_service/core",
     ]

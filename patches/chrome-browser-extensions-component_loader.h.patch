@@ -15,7 +15,7 @@ index 88782f2e6ca707abfcde174c7f4b44ed187f8b01..3b69b385e34e25e7dc1bbf0eb99c5e05
    }
  
   private:
-+  friend class BraveComponentLoader;
++  friend class adrbrowsielComponentLoader;
    FRIEND_TEST_ALL_PREFIXES(ComponentLoaderTest, ParseManifest);
  
    // Information about a registered component extension.

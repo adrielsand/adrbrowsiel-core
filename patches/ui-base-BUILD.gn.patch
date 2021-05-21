@@ -6,7 +6,7 @@ index d26e454c8ed7db2ec7d9c17cc296ab7febea2fb0..723d2a93aacd8324bd98777fb0684a10
      "//ui/strings",
      "//url",
    ]
-+  deps += [ "//brave/ui/base:chromium_deps" ]
++  deps += [ "//adrbrowsiel/ui/base:chromium_deps" ]
  
    if (is_debug || dcheck_always_on) {
      deps += [ "//third_party/re2" ]

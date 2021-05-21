@@ -2,11 +2,11 @@
 
 <link rel="import" href="chrome://resources/html/web_ui_listener_behavior.html">
 <link rel="import" href="chrome://resources/cr_elements/md_select_css.html">
-<link rel="import" href="brave_new_tab_browser_proxy.html">
+<link rel="import" href="adrbrowsiel_new_tab_browser_proxy.html">
 <script type="module" src="../settings_shared_css.js"></script>
 <script type="module" src="../settings_vars_css.js"></script>
 
-<dom-module id="settings-brave-new-tab-page">
+<dom-module id="settings-adrbrowsiel-new-tab-page">
   <template>
     <style include="settings-shared md-select iron-flex">
       .primary-title {
@@ -27,21 +27,21 @@
     </style>
     <div class="settings-box first">
       <div class="flex cr-padded-text" aria-hidden="true">
-        $i18n{braveNewTabNewTabPageShows}
+        $i18n{adrbrowsielNewTabNewTabPageShows}
       </div>
-      <settings-dropdown-menu label="$i18n{braveNewTabNewTabPageShows}"
-          pref="{{prefs.brave.new_tab_page.shows_options}}"
+      <settings-dropdown-menu label="$i18n{adrbrowsielNewTabNewTabPageShows}"
+          pref="{{prefs.adrbrowsiel.new_tab_page.shows_options}}"
           menu-options="[[newTabShowOptions_]]">
       </settings-dropdown-menu>
     </div>
     <template is="dom-if" if="[[showNewTabDashboardSettings_]]">
       <div class="settings-row">
         <cr-link-row
-          label="$i18n{braveNewTabNewTabCustomizeWidgets}"
+          label="$i18n{adrbrowsielNewTabNewTabCustomizeWidgets}"
           on-click="openNewTabPage_" external>
         </cr-link-row>
       </div>
     </template>
   </template>
-  <script src="brave_new_tab_page.js"></script>
+  <script src="adrbrowsiel_new_tab_page.js"></script>
 </dom-module>

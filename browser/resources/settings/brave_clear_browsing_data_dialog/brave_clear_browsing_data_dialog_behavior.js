@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import "./brave_clear_browsing_data_on_exit_page.js"
+import "./adrbrowsiel_clear_browsing_data_on_exit_page.js"
 
 import {Polymer, html} from 'chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js';
 
 import {loadTimeData} from "../i18n_setup.js"
 import {I18nBehavior} from "chrome://resources/js/i18n_behavior.m.js"
 
-const BraveClearBrowsingDataOnExitBehaviorImpl = {
+const adrbrowsielClearBrowsingDataOnExitBehaviorImpl = {
 
   ready: function() {
     this.addOnExitElements_();
@@ -45,7 +45,7 @@ const BraveClearBrowsingDataOnExitBehaviorImpl = {
     this.tabsNames_.push(loadTimeData.getString('onExitPageTitle'));
     // Append On exit tab page.
     let onExitPage = document.createElement(
-        'settings-brave-clear-browsing-data-on-exit-page');
+        'settings-adrbrowsiel-clear-browsing-data-on-exit-page');
     onExitPage.id = 'on-exit-tab';
     onExitPage.prefs = this.prefs;
     this.$.tabs.appendChild(onExitPage);
@@ -114,6 +114,6 @@ const BraveClearBrowsingDataOnExitBehaviorImpl = {
 };
 
 // Extend I18nBehavior so that we can use i18n.
-export const BraveClearBrowsingDataOnExitBehavior = [
-  I18nBehavior, BraveClearBrowsingDataOnExitBehaviorImpl
+export const adrbrowsielClearBrowsingDataOnExitBehavior = [
+  I18nBehavior, adrbrowsielClearBrowsingDataOnExitBehaviorImpl
 ]

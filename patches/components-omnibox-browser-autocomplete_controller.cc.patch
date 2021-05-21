@@ -6,7 +6,7 @@ index 1bb240fe3f052253dec45e0b739c74ea8cb0f3b3..f25e8342f43e637202886aa309b75a3f
    if (provider_types & AutocompleteProvider::TYPE_SEARCH) {
      search_provider_ = new SearchProvider(provider_client_.get(), this);
      providers_.push_back(search_provider_);
-+    BRAVE_AUTOCOMPLETE_CONTROLLER_AUTOCOMPLETE_CONTROLLER
++    adrbrowsiel_AUTOCOMPLETE_CONTROLLER_AUTOCOMPLETE_CONTROLLER
    }
    // It's important that the HistoryURLProvider gets added after SearchProvider:
    // AutocompleteController::Start() calls each providers' Start() function

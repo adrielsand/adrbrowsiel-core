@@ -6,7 +6,7 @@ index b4ceefbccd083c608dcc5543c186cd884c44a75f..a9e94670547bc8fbc5ac24be312b14e4
    static void RegisterPrefs(PrefRegistrySimple* registry);
  
   private:
-+  friend class BraveBrowserProcessImpl;
++  friend class adrbrowsielBrowserProcessImpl;
    using WebRtcEventLogManager = webrtc_event_logging::WebRtcEventLogManager;
  
    // KeepAliveStateObserver implementation

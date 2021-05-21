@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -15,7 +15,7 @@
 #include "net/http/http_status_code.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=GetCardsTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=GetCardsTest.*
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -60,7 +60,7 @@ TEST_F(GetCardsTest, ServerOK) {
                "balance": "12.35",
                "currency": "BAT",
                "id": "3ed3b2c4-a715-4c01-b302-fa2681a971ea",
-               "label": "Brave Browser",
+               "label": "adrbrowsiel Browser",
                "lastTransactionAt": "2020-03-31T19:27:57.552Z",
                "settings": {
                  "position": 7,
@@ -131,7 +131,7 @@ TEST_F(GetCardsTest, CardNotFound) {
                "balance": "12.35",
                "currency": "BAT",
                "id": "3ed3b2c4-a715-4c01-b302-fa2681a971ea",
-               "label": "Test Brave Browser",
+               "label": "Test adrbrowsiel Browser",
                "lastTransactionAt": "2020-03-31T19:27:57.552Z",
                "settings": {
                  "position": 7,

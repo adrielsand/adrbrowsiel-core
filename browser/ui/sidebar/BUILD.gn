@@ -1,9 +1,9 @@
-# Copyright (c) 2021 The Brave Authors. All rights reserved.
+# Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import("//brave/components/sidebar/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/sidebar/buildflags/buildflags.gni")
 
 source_set("sidebar") {
   # Set due to //chrome/browser and //chrome/browser/ui circular dependencies.
@@ -27,7 +27,7 @@ source_set("sidebar") {
 
   deps = [
     "//base",
-    "//brave/components/sidebar",
+    "//adrbrowsiel/components/sidebar",
     "//components/keyed_service/content",
     "//components/keyed_service/core",
     "//content/public/browser",
@@ -52,9 +52,9 @@ source_set("browser_tests") {
 
     deps = [
       "//base",
-      "//brave/browser/ui",
-      "//brave/browser/ui/sidebar",
-      "//brave/components/sidebar",
+      "//adrbrowsiel/browser/ui",
+      "//adrbrowsiel/browser/ui/sidebar",
+      "//adrbrowsiel/components/sidebar",
       "//chrome/browser",
       "//chrome/browser/ui",
       "//chrome/test:test_support_ui",
@@ -71,9 +71,9 @@ source_set("unit_tests") {
 
     deps = [
       "//base",
-      "//brave/browser/ui",
-      "//brave/browser/ui/sidebar",
-      "//brave/components/sidebar",
+      "//adrbrowsiel/browser/ui",
+      "//adrbrowsiel/browser/ui/sidebar",
+      "//adrbrowsiel/components/sidebar",
       "//chrome/test:test_support",
       "//components/prefs",
       "//components/sync_preferences:test_support",

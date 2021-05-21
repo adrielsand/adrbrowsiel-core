@@ -1,35 +1,35 @@
-// Copyright 2018 The Brave Authors. All rights reserved.
+// Copyright 2018 The adrbrowsiel Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#ifndef BRAVE_CHROMIUM_SRC_CHROME_BROWSER_RENDERER_CONTEXT_MENU_RENDER_VIEW_CONTEXT_MENU_H_
-#define BRAVE_CHROMIUM_SRC_CHROME_BROWSER_RENDERER_CONTEXT_MENU_RENDER_VIEW_CONTEXT_MENU_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_CHROME_BROWSER_RENDERER_CONTEXT_MENU_RENDER_VIEW_CONTEXT_MENU_H_
+#define adrbrowsiel_CHROMIUM_SRC_CHROME_BROWSER_RENDERER_CONTEXT_MENU_RENDER_VIEW_CONTEXT_MENU_H_
 
-#include "brave/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
 
-#define BRAVE_RENDER_VIEW_CONTEXT_MENU_H_ \
+#define adrbrowsiel_RENDER_VIEW_CONTEXT_MENU_H_ \
   private: \
-    friend class BraveRenderViewContextMenu; \
+    friend class adrbrowsielRenderViewContextMenu; \
   public:
-// define BRAVE_RENDER_VIEW_CONTEXT_MENU_H_
+// define adrbrowsiel_RENDER_VIEW_CONTEXT_MENU_H_
 
 // Get the Chromium declaration.
 #define RenderViewContextMenu RenderViewContextMenu_Chromium
 
-class BraveRenderViewContextMenu;
+class adrbrowsielRenderViewContextMenu;
 
 #define RegisterMenuShownCallbackForTesting                      \
   RegisterMenuShownCallbackForTesting(                           \
-      base::OnceCallback<void(BraveRenderViewContextMenu*)> cb); \
+      base::OnceCallback<void(adrbrowsielRenderViewContextMenu*)> cb); \
   static void RegisterMenuShownCallbackForTesting_unused
 #include "../../../../../chrome/browser/renderer_context_menu/render_view_context_menu.h"
 #undef RegisterMenuShownCallbackForTesting
 #undef RenderViewContextMenu
 
 // Declare our own subclass with overridden methods.
-class BraveRenderViewContextMenu : public RenderViewContextMenu_Chromium {
+class adrbrowsielRenderViewContextMenu : public RenderViewContextMenu_Chromium {
  public:
-  BraveRenderViewContextMenu(content::RenderFrameHost* render_frame_host,
+  adrbrowsielRenderViewContextMenu(content::RenderFrameHost* render_frame_host,
                              const content::ContextMenuParams& params);
   // RenderViewContextMenuBase:
   bool IsCommandIdEnabled(int command_id) const override;
@@ -53,6 +53,6 @@ class BraveRenderViewContextMenu : public RenderViewContextMenu_Chromium {
 };
 
 // Use our own subclass as the real RenderViewContextMenu.
-#define RenderViewContextMenu BraveRenderViewContextMenu
+#define RenderViewContextMenu adrbrowsielRenderViewContextMenu
 
-#endif  // BRAVE_CHROMIUM_SRC_CHROME_BROWSER_RENDERER_CONTEXT_MENU_RENDER_VIEW_CONTEXT_MENU_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_CHROME_BROWSER_RENDERER_CONTEXT_MENU_RENDER_VIEW_CONTEXT_MENU_H_

@@ -6,7 +6,7 @@ index 13ad2a7529bb1cc4eaa45188699953d5ccaab202..d39d77a41683d2dc6fdde9d4d71655ea
    selection_navigation_url_ = match.destination_url;
    if (!selection_navigation_url_.is_valid())
      return;
-+  BRAVE_APPEND_SEARCH_PROVIDER
++  adrbrowsiel_APPEND_SEARCH_PROVIDER
  
    std::u16string printable_selection_text = PrintableSelectionText();
    EscapeAmpersands(&printable_selection_text);

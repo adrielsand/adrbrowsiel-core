@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,11 +13,11 @@ import androidx.preference.PreferenceViewHolder;
 
 import org.chromium.components.browser_ui.widget.RadioButtonWithDescriptionAndAuxButton;
 
-public class BraveRadioButtonGroupSafeBrowsingPreference
+public class adrbrowsielRadioButtonGroupSafeBrowsingPreference
         extends RadioButtonGroupSafeBrowsingPreference {
     private RadioButtonWithDescriptionAndAuxButton mEnhancedProtection;
 
-    public BraveRadioButtonGroupSafeBrowsingPreference(Context context, AttributeSet attrs) {
+    public adrbrowsielRadioButtonGroupSafeBrowsingPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

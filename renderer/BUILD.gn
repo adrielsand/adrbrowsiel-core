@@ -1,28 +1,28 @@
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
 import("//build/config/features.gni")
 
 source_set("renderer") {
   visibility = [
-    "//brave:child_dependencies",
-    "//brave/renderer/*",
-    "//brave/test:*",
+    "//adrbrowsiel:child_dependencies",
+    "//adrbrowsiel/renderer/*",
+    "//adrbrowsiel/test:*",
     "//chrome/renderer/*",
   ]
 
   public_deps = [ "//chrome/renderer" ]
 
   deps = [
-    "//brave/components/brave_search/renderer",
-    "//brave/components/brave_shields/common",
-    "//brave/components/brave_wallet/common/buildflags",
-    "//brave/components/cosmetic_filters/renderer",
+    "//adrbrowsiel/components/adrbrowsiel_search/renderer",
+    "//adrbrowsiel/components/adrbrowsiel_shields/common",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags",
+    "//adrbrowsiel/components/cosmetic_filters/renderer",
     "//v8",
   ]
 
-  if (brave_wallet_enabled) {
+  if (adrbrowsiel_wallet_enabled) {
     deps += [
-      "//brave/components/brave_wallet/renderer",
-      "//brave/renderer/brave_wallet/",
+      "//adrbrowsiel/components/adrbrowsiel_wallet/renderer",
+      "//adrbrowsiel/renderer/adrbrowsiel_wallet/",
     ]
   }
 }

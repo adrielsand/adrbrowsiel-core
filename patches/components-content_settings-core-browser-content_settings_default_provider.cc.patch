@@ -6,7 +6,7 @@ index 4b4c23346ec51e15ea949442d1ba82b6dc36624c..4e631dc8d86433150c80d4ed5a86fe8a
    prefs_->ClearPref(kObsoletePluginsDataDefaultPref);
  #endif  // !defined(OS_ANDROID)
  #endif  // !defined(OS_IOS)
-+BRAVE_DISCARD_OR_MIGRATE_OBSOLETE_PREFERENCES
++adrbrowsiel_DISCARD_OR_MIGRATE_OBSOLETE_PREFERENCES
  }
  
  }  // namespace content_settings

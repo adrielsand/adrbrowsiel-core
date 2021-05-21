@@ -6,7 +6,7 @@ index 87a0c431e214a81bbf545353afb39d80767e6ee6..2f8e2ab0758218f4d055e0d62ac188c7
      use_suid_sandbox_for_adj_oom_score_ = use_suid_sandbox_;
    } else {
      LOG(FATAL)
-+    BRAVE_ZYGOTE_HOST_IMPL_LINUX_ZYGOTE_HOST_IMPL_INIT
++    adrbrowsiel_ZYGOTE_HOST_IMPL_LINUX_ZYGOTE_HOST_IMPL_INIT
          << "No usable sandbox! Update your kernel or see "
             "https://chromium.googlesource.com/chromium/src/+/master/"
             "docs/linux/suid_sandbox_development.md for more information on "

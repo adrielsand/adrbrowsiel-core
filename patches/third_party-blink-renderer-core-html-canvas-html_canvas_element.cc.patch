@@ -6,7 +6,7 @@ index 95402a4dbae0e6ed2f2af51c00768971f1041ceb..bf1de5744508ae162da8c64096ddd499
      if (!data_buffer)
        return String("data:,");
  
-+    BRAVE_TO_DATA_URL_INTERNAL
++    adrbrowsiel_TO_DATA_URL_INTERNAL
      String data_url = data_buffer->ToDataURL(encoding_mime_type, quality);
      base::TimeDelta elapsed_time = base::TimeTicks::Now() - start_time;
      float sqrt_pixels =

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -15,7 +15,7 @@
 #include "net/http/http_status_code.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=GetPublisherTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=GetPublisherTest.*
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -55,11 +55,11 @@ TEST_F(GetPublisherTest, ServerError404) {
           }));
 
   publisher_->Request(
-      "brave.com",
+      "adrbrowsiel.com",
       "ce55",
       [](const type::Result result, type::ServerPublisherInfoPtr info) {
     EXPECT_EQ(result, type::Result::LEDGER_OK);
-    EXPECT_EQ(info->publisher_key, "brave.com");
+    EXPECT_EQ(info->publisher_key, "adrbrowsiel.com");
     EXPECT_EQ(info->status, type::PublisherStatus::NOT_VERIFIED);
   });
 }

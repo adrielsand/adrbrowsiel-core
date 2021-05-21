@@ -1,42 +1,42 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <cmath>
 
-#include "brave/browser/brave_stats/brave_stats_updater_params.h"
-#include "brave/components/brave_referrals/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/adrbrowsiel_stats_updater_params.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.h"
 
 #include "base/strings/string_util.h"
 #include "base/system/sys_info.h"
 #include "base/threading/thread_restrictions.h"
 #include "base/time/time.h"
 #include "bat/ads/pref_names.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_referrals/common/pref_names.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/common/pref_names.h"
 #include "chrome/browser/first_run/first_run.h"
 #include "components/prefs/pref_service.h"
 
-namespace brave_stats {
+namespace adrbrowsiel_stats {
 
-base::Time BraveStatsUpdaterParams::g_current_time;
-bool BraveStatsUpdaterParams::g_force_first_run = false;
+base::Time adrbrowsielStatsUpdaterParams::g_current_time;
+bool adrbrowsielStatsUpdaterParams::g_force_first_run = false;
 static constexpr base::TimeDelta g_dtoi_delete_delta =
     base::TimeDelta::FromSeconds(14 * 24 * 60 * 60);
 
-BraveStatsUpdaterParams::BraveStatsUpdaterParams(
+adrbrowsielStatsUpdaterParams::adrbrowsielStatsUpdaterParams(
     PrefService* stats_pref_service,
     PrefService* profile_pref_service,
     const ProcessArch arch)
-    : BraveStatsUpdaterParams(stats_pref_service,
+    : adrbrowsielStatsUpdaterParams(stats_pref_service,
                               profile_pref_service,
                               arch,
                               GetCurrentDateAsYMD(),
                               GetCurrentISOWeekNumber(),
                               GetCurrentMonth()) {}
 
-BraveStatsUpdaterParams::BraveStatsUpdaterParams(
+adrbrowsielStatsUpdaterParams::adrbrowsielStatsUpdaterParams(
     PrefService* stats_pref_service,
     PrefService* profile_pref_service,
     const ProcessArch arch,
@@ -52,45 +52,45 @@ BraveStatsUpdaterParams::BraveStatsUpdaterParams(
   LoadPrefs();
 }
 
-BraveStatsUpdaterParams::~BraveStatsUpdaterParams() {}
+adrbrowsielStatsUpdaterParams::~adrbrowsielStatsUpdaterParams() {}
 
-std::string BraveStatsUpdaterParams::GetDailyParam() const {
+std::string adrbrowsielStatsUpdaterParams::GetDailyParam() const {
   return BooleanToString(
       base::CompareCaseInsensitiveASCII(ymd_, last_check_ymd_) == 1);
 }
 
-std::string BraveStatsUpdaterParams::GetWeeklyParam() const {
+std::string adrbrowsielStatsUpdaterParams::GetWeeklyParam() const {
   return BooleanToString(last_check_woy_ == 0 || woy_ != last_check_woy_);
 }
 
-std::string BraveStatsUpdaterParams::GetMonthlyParam() const {
+std::string adrbrowsielStatsUpdaterParams::GetMonthlyParam() const {
   return BooleanToString(last_check_month_ == 0 || month_ != last_check_month_);
 }
 
-std::string BraveStatsUpdaterParams::GetFirstCheckMadeParam() const {
+std::string adrbrowsielStatsUpdaterParams::GetFirstCheckMadeParam() const {
   return BooleanToString(!first_check_made_);
 }
 
-std::string BraveStatsUpdaterParams::GetWeekOfInstallationParam() const {
+std::string adrbrowsielStatsUpdaterParams::GetWeekOfInstallationParam() const {
   return week_of_installation_;
 }
 
-std::string BraveStatsUpdaterParams::GetDateOfInstallationParam() const {
+std::string adrbrowsielStatsUpdaterParams::GetDateOfInstallationParam() const {
   return (GetCurrentTimeNow() - date_of_installation_ >= g_dtoi_delete_delta)
              ? "null"
-             : brave_stats::GetDateAsYMD(date_of_installation_);
+             : adrbrowsiel_stats::GetDateAsYMD(date_of_installation_);
 }
 
-std::string BraveStatsUpdaterParams::GetReferralCodeParam() const {
+std::string adrbrowsielStatsUpdaterParams::GetReferralCodeParam() const {
   return referral_promo_code_.empty() ? "none" : referral_promo_code_;
 }
 
-std::string BraveStatsUpdaterParams::GetAdsEnabledParam() const {
+std::string adrbrowsielStatsUpdaterParams::GetAdsEnabledParam() const {
   return BooleanToString(
       profile_pref_service_->GetBoolean(ads::prefs::kEnabled));
 }
 
-std::string BraveStatsUpdaterParams::GetProcessArchParam() const {
+std::string adrbrowsielStatsUpdaterParams::GetProcessArchParam() const {
   if (arch_ == ProcessArch::kArchSkip) {
     return "";
   } else if (arch_ == ProcessArch::kArchMetal) {
@@ -100,7 +100,7 @@ std::string BraveStatsUpdaterParams::GetProcessArchParam() const {
   }
 }
 
-void BraveStatsUpdaterParams::LoadPrefs() {
+void adrbrowsielStatsUpdaterParams::LoadPrefs() {
   last_check_ymd_ = stats_pref_service_->GetString(kLastCheckYMD);
   last_check_woy_ = stats_pref_service_->GetInteger(kLastCheckWOY);
   last_check_month_ = stats_pref_service_->GetInteger(kLastCheckMonth);
@@ -120,12 +120,12 @@ void BraveStatsUpdaterParams::LoadPrefs() {
     }
   }
 
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
   referral_promo_code_ = stats_pref_service_->GetString(kReferralPromoCode);
 #endif
 }
 
-void BraveStatsUpdaterParams::SavePrefs() {
+void adrbrowsielStatsUpdaterParams::SavePrefs() {
   stats_pref_service_->SetString(kLastCheckYMD, ymd_);
   stats_pref_service_->SetInteger(kLastCheckWOY, woy_);
   stats_pref_service_->SetInteger(kLastCheckMonth, month_);
@@ -133,15 +133,15 @@ void BraveStatsUpdaterParams::SavePrefs() {
   stats_pref_service_->SetString(kWeekOfInstallation, week_of_installation_);
 }
 
-std::string BraveStatsUpdaterParams::BooleanToString(bool bool_value) const {
+std::string adrbrowsielStatsUpdaterParams::BooleanToString(bool bool_value) const {
   return bool_value ? "true" : "false";
 }
 
-std::string BraveStatsUpdaterParams::GetCurrentDateAsYMD() const {
-  return brave_stats::GetDateAsYMD(GetCurrentTimeNow());
+std::string adrbrowsielStatsUpdaterParams::GetCurrentDateAsYMD() const {
+  return adrbrowsiel_stats::GetDateAsYMD(GetCurrentTimeNow());
 }
 
-std::string BraveStatsUpdaterParams::GetLastMondayAsYMD() const {
+std::string adrbrowsielStatsUpdaterParams::GetLastMondayAsYMD() const {
   base::Time now = GetCurrentTimeNow();
   base::Time::Exploded exploded;
   now.LocalExplode(&exploded);
@@ -151,42 +151,42 @@ std::string BraveStatsUpdaterParams::GetLastMondayAsYMD() const {
   base::Time last_monday = base::Time::FromJsTime(
       now.ToJsTime() - (days_adjusted * base::Time::kMillisecondsPerDay));
 
-  return brave_stats::GetDateAsYMD(last_monday);
+  return adrbrowsiel_stats::GetDateAsYMD(last_monday);
 }
 
-int BraveStatsUpdaterParams::GetCurrentMonth() const {
+int adrbrowsielStatsUpdaterParams::GetCurrentMonth() const {
   base::Time now = GetCurrentTimeNow();
   base::Time::Exploded exploded;
   now.LocalExplode(&exploded);
   return exploded.month;
 }
 
-int BraveStatsUpdaterParams::GetCurrentISOWeekNumber() const {
+int adrbrowsielStatsUpdaterParams::GetCurrentISOWeekNumber() const {
   return GetIsoWeekNumber(GetCurrentTimeNow());
 }
 
-base::Time BraveStatsUpdaterParams::GetCurrentTimeNow() const {
+base::Time adrbrowsielStatsUpdaterParams::GetCurrentTimeNow() const {
   return g_current_time.is_null() ? base::Time::Now() : g_current_time;
 }
 
 // static
-bool BraveStatsUpdaterParams::ShouldForceFirstRun() const {
+bool adrbrowsielStatsUpdaterParams::ShouldForceFirstRun() const {
   return g_force_first_run;
 }
 
 // static
-void BraveStatsUpdaterParams::SetCurrentTimeForTest(
+void adrbrowsielStatsUpdaterParams::SetCurrentTimeForTest(
     const base::Time& current_time) {
   g_current_time = current_time;
 }
 
 // static
-void BraveStatsUpdaterParams::SetFirstRunForTest(bool first_run) {
+void adrbrowsielStatsUpdaterParams::SetFirstRunForTest(bool first_run) {
   g_force_first_run = first_run;
 }
 
 // static
-base::Time BraveStatsUpdaterParams::GetFirstRunTime(PrefService* pref_service) {
+base::Time adrbrowsielStatsUpdaterParams::GetFirstRunTime(PrefService* pref_service) {
 #if defined(OS_ANDROID)
   // Android doesn't use a sentinel to track first run, so we use a
   // preference instead. kReferralAndroidFirstRunTimestamp is used because
@@ -211,4 +211,4 @@ base::Time BraveStatsUpdaterParams::GetFirstRunTime(PrefService* pref_service) {
 #endif  // #defined(OS_ANDROID)
 }
 
-}  // namespace brave_stats
+}  // namespace adrbrowsiel_stats

@@ -1,12 +1,12 @@
 source_set("browser") {
   sources = [
-    "browser/webui/brave_shared_resources_data_source.cc",
-    "browser/webui/brave_shared_resources_data_source.h",
+    "browser/webui/adrbrowsiel_shared_resources_data_source.cc",
+    "browser/webui/adrbrowsiel_shared_resources_data_source.h",
   ]
 
   deps = [
     "//base",
-    "//brave/ui/webui/resources",
+    "//adrbrowsiel/ui/webui/resources",
     "//content/public/browser",
     "//ui/base",
   ]

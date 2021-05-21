@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -30,19 +30,19 @@ void StateMigrationV6::Migrate(ledger::ResultCallback callback) {
       uphold_wallet);
   ledger_->ledger_client()->ClearState("external_wallets");
 
-  base::Value brave(base::Value::Type::DICTIONARY);
-  brave.SetKey(
+  base::Value adrbrowsiel(base::Value::Type::DICTIONARY);
+  adrbrowsiel.SetKey(
       "payment_id",
       base::Value(ledger_->ledger_client()->GetStringState(kPaymentId)));
-  brave.SetKey(
+  adrbrowsiel.SetKey(
       "recovery_seed",
       base::Value(ledger_->ledger_client()->GetStringState(kRecoverySeed)));
 
-  std::string brave_json;
-  base::JSONWriter::Write(brave, &brave_json);
+  std::string adrbrowsiel_json;
+  base::JSONWriter::Write(adrbrowsiel, &adrbrowsiel_json);
   ledger_->ledger_client()->SetStringState(
-      kWalletBrave,
-      brave_json);
+      kWalletadrbrowsiel,
+      adrbrowsiel_json);
 
 
   callback(type::Result::LEDGER_OK);

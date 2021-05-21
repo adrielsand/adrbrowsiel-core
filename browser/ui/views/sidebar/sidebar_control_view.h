@@ -1,20 +1,20 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTROL_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTROL_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTROL_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTROL_VIEW_H_
 
 #include <memory>
 
 #include "base/scoped_observer.h"
-#include "brave/browser/ui/sidebar/sidebar_model.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model.h"
 #include "ui/base/models/simple_menu_model.h"
 #include "ui/views/context_menu_controller.h"
 #include "ui/views/view.h"
 
-class BraveBrowser;
+class adrbrowsielBrowser;
 class SidebarButtonView;
 class SidebarItemAddButton;
 class SidebarItemsScrollView;
@@ -35,7 +35,7 @@ class SidebarControlView : public views::View,
                            public ui::SimpleMenuModel::Delegate,
                            public sidebar::SidebarModel::Observer {
  public:
-  explicit SidebarControlView(BraveBrowser* browser);
+  explicit SidebarControlView(adrbrowsielBrowser* browser);
   ~SidebarControlView() override;
 
   SidebarControlView(const SidebarControlView&) = delete;
@@ -76,7 +76,7 @@ class SidebarControlView : public views::View,
   void UpdateSettingsButtonState();
   void UpdateBackgroundAndBorder();
 
-  BraveBrowser* browser_ = nullptr;
+  adrbrowsielBrowser* browser_ = nullptr;
   SidebarItemsScrollView* sidebar_items_view_ = nullptr;
   SidebarItemAddButton* sidebar_item_add_view_ = nullptr;
   SidebarButtonView* sidebar_settings_view_ = nullptr;
@@ -86,4 +86,4 @@ class SidebarControlView : public views::View,
       sidebar_model_observed_{this};
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTROL_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_CONTROL_VIEW_H_

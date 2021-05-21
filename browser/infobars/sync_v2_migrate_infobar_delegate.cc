@@ -1,20 +1,20 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/infobars/sync_v2_migrate_infobar_delegate.h"
+#include "adrbrowsiel/browser/infobars/sync_v2_migrate_infobar_delegate.h"
 
 #include <memory>
 #include <utility>
 
 #include "base/feature_list.h"
-#include "brave/browser/ui/brave_pages.h"
-#include "brave/common/pref_names.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/brave_sync/brave_sync_prefs.h"
-#include "brave/components/brave_sync/features.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_pages.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/adrbrowsiel_sync_prefs.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/features.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/infobars/infobar_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -38,17 +38,17 @@ void SyncV2MigrateInfoBarDelegate::Create(
   // - user has setup sync v2
   // - dismissed notification (don't auto-dismiss)
   const bool is_flag_enabled =
-      base::FeatureList::IsEnabled(brave_sync::features::kBraveSync);
+      base::FeatureList::IsEnabled(adrbrowsiel_sync::features::kadrbrowsielSync);
   if (!is_flag_enabled) {
     return;
   }
-  brave_sync::Prefs brave_sync_prefs(profile->GetPrefs());
-  const bool was_v1_user = brave_sync_prefs.IsSyncV1Enabled();
+  adrbrowsiel_sync::Prefs adrbrowsiel_sync_prefs(profile->GetPrefs());
+  const bool was_v1_user = adrbrowsiel_sync_prefs.IsSyncV1Enabled();
   if (!was_v1_user) {
     // Not v1 user
     return;
   }
-  const bool has_dismissed = brave_sync_prefs.IsSyncMigrateNoticeDismissed();
+  const bool has_dismissed = adrbrowsiel_sync_prefs.IsSyncMigrateNoticeDismissed();
   if (has_dismissed) {
     return;
   }
@@ -56,7 +56,7 @@ void SyncV2MigrateInfoBarDelegate::Create(
     // Make sure this doesn't automatically show again if sync is turned off.
     // TODO(petemill): Might be better to change a pref in an event handler
     // rather than here.
-    brave_sync_prefs.SetDismissSyncMigrateNotice(true);
+    adrbrowsiel_sync_prefs.SetDismissSyncMigrateNotice(true);
     return;
   }
   // Show infobar
@@ -91,12 +91,12 @@ bool SyncV2MigrateInfoBarDelegate::ShouldExpire(
 }
 
 void SyncV2MigrateInfoBarDelegate::InfoBarDismissed() {
-  brave_sync::Prefs brave_sync_prefs(profile_->GetPrefs());
-  brave_sync_prefs.SetDismissSyncMigrateNotice(true);
+  adrbrowsiel_sync::Prefs adrbrowsiel_sync_prefs(profile_->GetPrefs());
+  adrbrowsiel_sync_prefs.SetDismissSyncMigrateNotice(true);
 }
 
 std::u16string SyncV2MigrateInfoBarDelegate::GetMessageText() const {
-  return l10n_util::GetStringUTF16(IDS_BRAVE_SYNC_V2_MIGRATE_INFOBAR_MESSAGE);
+  return l10n_util::GetStringUTF16(IDS_adrbrowsiel_SYNC_V2_MIGRATE_INFOBAR_MESSAGE);
 }
 
 int SyncV2MigrateInfoBarDelegate::GetButtons() const {
@@ -105,10 +105,10 @@ int SyncV2MigrateInfoBarDelegate::GetButtons() const {
 
 std::u16string SyncV2MigrateInfoBarDelegate::GetButtonLabel(
     InfoBarButton button) const {
-  return l10n_util::GetStringUTF16(IDS_BRAVE_SYNC_V2_MIGRATE_INFOBAR_COMMAND);
+  return l10n_util::GetStringUTF16(IDS_adrbrowsiel_SYNC_V2_MIGRATE_INFOBAR_COMMAND);
 }
 
 bool SyncV2MigrateInfoBarDelegate::Accept() {
-  brave::ShowSync(browser_);
+  adrbrowsiel::ShowSync(browser_);
   return true;
 }

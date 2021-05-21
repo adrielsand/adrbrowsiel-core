@@ -1,13 +1,13 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_pages.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_pages.h"
 
-#include "brave/browser/webcompat_reporter/webcompat_reporter_dialog.h"
-#include "brave/common/webui_url_constants.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/webcompat_reporter/webcompat_reporter_dialog.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/chrome_pages.h"
 #include "chrome/browser/ui/singleton_tabs.h"
@@ -15,20 +15,20 @@
 #include "url/gurl.h"
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/browser/ipfs/ipfs_tab_helper.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_tab_helper.h"
 #endif
 
-namespace brave {
+namespace adrbrowsiel {
 
-void ShowBraveRewards(Browser* browser) {
+void ShowadrbrowsielRewards(Browser* browser) {
   NavigateParams params(
-      GetSingletonTabNavigateParams(browser, GURL(kBraveUIRewardsURL)));
+      GetSingletonTabNavigateParams(browser, GURL(kadrbrowsielUIRewardsURL)));
   ShowSingletonTabOverwritingNTP(browser, &params);
 }
 
-void ShowBraveAdblock(Browser* browser) {
+void ShowadrbrowsielAdblock(Browser* browser) {
   NavigateParams params(
-      GetSingletonTabNavigateParams(browser, GURL(kBraveUIAdblockURL)));
+      GetSingletonTabNavigateParams(browser, GURL(kadrbrowsielUIAdblockURL)));
   ShowSingletonTabOverwritingNTP(browser, &params);
 }
 
@@ -47,9 +47,9 @@ void ShowWebcompatReporter(Browser* browser) {
   OpenWebcompatReporterDialog(web_contents);
 }
 
-void ShowBraveWallet(Browser* browser) {
+void ShowadrbrowsielWallet(Browser* browser) {
   NavigateParams params(
-      GetSingletonTabNavigateParams(browser, GURL(kBraveUIWalletURL)));
+      GetSingletonTabNavigateParams(browser, GURL(kadrbrowsielUIWalletURL)));
   ShowSingletonTabOverwritingNTP(browser, &params);
 }
 
@@ -71,4 +71,4 @@ void ShowIPFS(Browser* browser) {
   ShowSingletonTabOverwritingNTP(browser, &params);
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

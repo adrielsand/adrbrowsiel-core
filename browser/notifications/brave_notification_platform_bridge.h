@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_NOTIFICATIONS_BRAVE_NOTIFICATION_PLATFORM_BRIDGE_H_
-#define BRAVE_BROWSER_NOTIFICATIONS_BRAVE_NOTIFICATION_PLATFORM_BRIDGE_H_
+#ifndef adrbrowsiel_BROWSER_NOTIFICATIONS_adrbrowsiel_NOTIFICATION_PLATFORM_BRIDGE_H_
+#define adrbrowsiel_BROWSER_NOTIFICATIONS_adrbrowsiel_NOTIFICATION_PLATFORM_BRIDGE_H_
 
 #include <memory>
 
@@ -12,15 +12,15 @@
 
 class NotificationPlatformBridge;
 
-class BraveNotificationPlatformBridge {
+class adrbrowsielNotificationPlatformBridge {
  public:
   static std::unique_ptr<NotificationPlatformBridge> Create();
 
  private:
-  BraveNotificationPlatformBridge() = default;
-  ~BraveNotificationPlatformBridge() = default;
+  adrbrowsielNotificationPlatformBridge() = default;
+  ~adrbrowsielNotificationPlatformBridge() = default;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveNotificationPlatformBridge);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielNotificationPlatformBridge);
 };
 
-#endif  // BRAVE_BROWSER_NOTIFICATIONS_BRAVE_NOTIFICATION_PLATFORM_BRIDGE_H_
+#endif  // adrbrowsiel_BROWSER_NOTIFICATIONS_adrbrowsiel_NOTIFICATION_PLATFORM_BRIDGE_H_

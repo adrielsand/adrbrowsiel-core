@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_content_browser_client.h"
+#include "adrbrowsiel/browser/adrbrowsiel_content_browser_client.h"
 
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
 #include "extensions/buildflags/buildflags.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
@@ -16,17 +16,17 @@
 #include "extensions/common/extension_builder.h"
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED) && BUILDFLAG(ENABLE_EXTENSIONS)
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED) && BUILDFLAG(ENABLE_EXTENSIONS)
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
 #include "chrome/test/base/chrome_render_view_host_test_harness.h"
 #include "content/public/common/content_client.h"
 
 namespace extensions {
 
-class BraveWalleBrowserClientUnitTest
+class adrbrowsielWalleBrowserClientUnitTest
     : public ChromeRenderViewHostTestHarness {
  public:
-  BraveWalleBrowserClientUnitTest() {}
+  adrbrowsielWalleBrowserClientUnitTest() {}
 
   void SetUp() override {
     ChromeRenderViewHostTestHarness::SetUp();
@@ -55,21 +55,21 @@ class BraveWalleBrowserClientUnitTest
   scoped_refptr<const Extension> extension_;
   content::ContentBrowserClient client_;
   content::ContentBrowserClient* original_client_;
-  DISALLOW_COPY_AND_ASSIGN(BraveWalleBrowserClientUnitTest);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielWalleBrowserClientUnitTest);
 };
 
-TEST_F(BraveWalleBrowserClientUnitTest,
+TEST_F(adrbrowsielWalleBrowserClientUnitTest,
     DoesNotResolveEthereumRemoteClientIfNotInstalled) {
   GURL url("chrome://wallet/");
-  ASSERT_FALSE(BraveContentBrowserClient::HandleURLOverrideRewrite(
+  ASSERT_FALSE(adrbrowsielContentBrowserClient::HandleURLOverrideRewrite(
         &url, browser_context()));
 }
 
-TEST_F(BraveWalleBrowserClientUnitTest,
+TEST_F(adrbrowsielWalleBrowserClientUnitTest,
     ResolvesEthereumRemoteClientIfInstalled) {
   AddExtension();
   GURL url("chrome://wallet/");
-  ASSERT_TRUE(BraveContentBrowserClient::HandleURLOverrideRewrite(
+  ASSERT_TRUE(adrbrowsielContentBrowserClient::HandleURLOverrideRewrite(
         &url, browser_context()));
   ASSERT_STREQ(url.spec().c_str(), ethereum_remote_client_base_url);
 }
@@ -77,21 +77,21 @@ TEST_F(BraveWalleBrowserClientUnitTest,
 }  // namespace extensions
 #endif
 
-using BraveContentBrowserClientTest = testing::Test;
+using adrbrowsielContentBrowserClientTest = testing::Test;
 
-TEST_F(BraveContentBrowserClientTest, ResolvesSync) {
+TEST_F(adrbrowsielContentBrowserClientTest, ResolvesSync) {
   GURL url("chrome://sync/");
   ASSERT_TRUE(
-    BraveContentBrowserClient::HandleURLOverrideRewrite(&url, nullptr));
-  ASSERT_STREQ(url.spec().c_str(), "chrome://settings/braveSync");
+    adrbrowsielContentBrowserClient::HandleURLOverrideRewrite(&url, nullptr));
+  ASSERT_STREQ(url.spec().c_str(), "chrome://settings/adrbrowsielSync");
 
   GURL url2("chrome://sync/");
   ASSERT_TRUE(
-    BraveContentBrowserClient::HandleURLOverrideRewrite(&url2, nullptr));
+    adrbrowsielContentBrowserClient::HandleURLOverrideRewrite(&url2, nullptr));
 }
 
-TEST_F(BraveContentBrowserClientTest, ResolvesWelcomePage) {
+TEST_F(adrbrowsielContentBrowserClientTest, ResolvesWelcomePage) {
   GURL url("chrome://welcome/");
   ASSERT_TRUE(
-      BraveContentBrowserClient::HandleURLOverrideRewrite(&url, nullptr));
+      adrbrowsielContentBrowserClient::HandleURLOverrideRewrite(&url, nullptr));
 }

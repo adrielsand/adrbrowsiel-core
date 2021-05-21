@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/browsing_data/brave_browsing_data_remover_delegate.h"
+#include "adrbrowsiel/browser/browsing_data/adrbrowsiel_browsing_data_remover_delegate.h"
 
 #include <memory>
 #include <utility>
 
-#include "brave/components/content_settings/core/browser/brave_content_settings_pref_provider.h"
-#include "brave/components/content_settings/core/browser/brave_content_settings_utils.h"
+#include "adrbrowsiel/components/content_settings/core/browser/adrbrowsiel_content_settings_pref_provider.h"
+#include "adrbrowsiel/components/content_settings/core/browser/adrbrowsiel_content_settings_utils.h"
 #include "chrome/browser/browsing_data/chrome_browsing_data_remover_constants.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
@@ -17,7 +17,7 @@
 #include "components/content_settings/core/browser/host_content_settings_map.h"
 
 #if BUILDFLAG(ENABLE_EXTENSIONS)
-#include "brave/common/extensions/api/brave_today.h"
+#include "adrbrowsiel/common/extensions/api/adrbrowsiel_today.h"
 #include "extensions/browser/event_router.h"
 #endif
 
@@ -30,18 +30,18 @@
 #include "base/task/thread_pool.h"
 #include "base/threading/thread_restrictions.h"
 #include "base/time/time.h"
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
 #endif
 
-BraveBrowsingDataRemoverDelegate::BraveBrowsingDataRemoverDelegate(
+adrbrowsielBrowsingDataRemoverDelegate::adrbrowsielBrowsingDataRemoverDelegate(
     content::BrowserContext* browser_context)
     : ChromeBrowsingDataRemoverDelegate(browser_context),
       profile_(Profile::FromBrowserContext(browser_context)) {}
 
-BraveBrowsingDataRemoverDelegate::~BraveBrowsingDataRemoverDelegate() = default;
+adrbrowsielBrowsingDataRemoverDelegate::~adrbrowsielBrowsingDataRemoverDelegate() = default;
 
-void BraveBrowsingDataRemoverDelegate::RemoveEmbedderData(
+void adrbrowsielBrowsingDataRemoverDelegate::RemoveEmbedderData(
     const base::Time& delete_begin,
     const base::Time& delete_end,
     uint64_t remove_mask,
@@ -73,10 +73,10 @@ void BraveBrowsingDataRemoverDelegate::RemoveEmbedderData(
     auto* event_router = extensions::EventRouter::Get(profile_);
     if (event_router) {
       std::unique_ptr<base::ListValue> args(
-          extensions::api::brave_today::OnClearHistory::Create().release());
+          extensions::api::adrbrowsiel_today::OnClearHistory::Create().release());
       std::unique_ptr<extensions::Event> event(new extensions::Event(
-          extensions::events::BRAVE_START,
-          extensions::api::brave_today::OnClearHistory::kEventName,
+          extensions::events::adrbrowsiel_START,
+          extensions::api::adrbrowsiel_today::OnClearHistory::kEventName,
           std::move(args)));
       event_router->BroadcastEvent(std::move(event));
     }
@@ -84,7 +84,7 @@ void BraveBrowsingDataRemoverDelegate::RemoveEmbedderData(
 #endif
 }
 
-void BraveBrowsingDataRemoverDelegate::ClearShieldsSettings(
+void adrbrowsielBrowsingDataRemoverDelegate::ClearShieldsSettings(
     base::Time begin_time,
     base::Time end_time) {
   if (begin_time.is_null() && (end_time.is_null() || end_time.is_max())) {
@@ -96,7 +96,7 @@ void BraveBrowsingDataRemoverDelegate::ClearShieldsSettings(
 
   auto* map = HostContentSettingsMapFactory::GetForProfile(profile_);
   auto* provider =
-      static_cast<content_settings::BravePrefProvider*>(map->GetPrefProvider());
+      static_cast<content_settings::adrbrowsielPrefProvider*>(map->GetPrefProvider());
   for (const auto& content_type :
        content_settings::GetShieldsContentSettingsTypes()) {
     ContentSettingsForOneType settings;
@@ -115,14 +115,14 @@ void BraveBrowsingDataRemoverDelegate::ClearShieldsSettings(
 }
 
 #if BUILDFLAG(IPFS_ENABLED)
-void BraveBrowsingDataRemoverDelegate::WaitForIPFSRepoGC(
+void adrbrowsielBrowsingDataRemoverDelegate::WaitForIPFSRepoGC(
     base::Process process) {
   bool exited = false;
 
   {
     base::ScopedAllowBaseSyncPrimitives scoped_allow_base_sync_primitives;
 
-    // Because we set maximum IPFS storage size as 1GB in Brave, ipfs repo gc
+    // Because we set maximum IPFS storage size as 1GB in adrbrowsiel, ipfs repo gc
     // command should be finished in just a few seconds and we do not expect
     // this child process would hang forever. To be safe, we will wait for 30
     // seconds max here.
@@ -138,7 +138,7 @@ void BraveBrowsingDataRemoverDelegate::WaitForIPFSRepoGC(
 // available. Because the command does not support time ranged cleanup, we will
 // always clear the whole cache expect for pinned files when clearing browsing
 // data.
-void BraveBrowsingDataRemoverDelegate::ClearIPFSCache() {
+void adrbrowsielBrowsingDataRemoverDelegate::ClearIPFSCache() {
   auto* service =
       ipfs::IpfsServiceFactory::GetInstance()->GetForContext(profile_);
   if (!service)
@@ -175,7 +175,7 @@ void BraveBrowsingDataRemoverDelegate::ClearIPFSCache() {
       FROM_HERE,
       {base::TaskPriority::USER_VISIBLE, base::MayBlock(),
        base::TaskShutdownBehavior::CONTINUE_ON_SHUTDOWN},
-      base::BindOnce(&BraveBrowsingDataRemoverDelegate::WaitForIPFSRepoGC,
+      base::BindOnce(&adrbrowsielBrowsingDataRemoverDelegate::WaitForIPFSRepoGC,
                      weak_ptr_factory_.GetWeakPtr(), std::move(process)),
       CreateTaskCompletionClosure(TracingDataType::kIPFSCache));
 }

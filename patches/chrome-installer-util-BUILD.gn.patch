@@ -8,11 +8,11 @@ index 2ea95551d977717045804377090c4e57bb4e0518..c3af7ec8bad26ee56ee5b2a786c1c8ec
  
 -  branding = branding_path_component
 +  brand = "$branding_path_component"
-+  # When brave_strings.grd is modified, outputs should be re-generated.
-+  # This is workaround. Need to change the way of using |brave_strings.grd|
++  # When adrbrowsiel_strings.grd is modified, outputs should be re-generated.
++  # This is workaround. Need to change the way of using |adrbrowsiel_strings.grd|
 +  # in |create_string_rc.py|.
 +  sources = [
-+    "//chrome/app/brave_strings.grd"
++    "//chrome/app/adrbrowsiel_strings.grd"
 +  ]
 +  if (!is_official_build) {
 +    # TODO(shong): Remove this.

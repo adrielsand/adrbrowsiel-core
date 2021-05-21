@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,8 +12,8 @@
 namespace webui {
 
 namespace {
-constexpr char kBraveCSP[] =
-    "script-src chrome://resources chrome://brave-resources chrome://test "
+constexpr char kadrbrowsielCSP[] =
+    "script-src chrome://resources chrome://adrbrowsiel-resources chrome://test "
     "'self';";
 }  // namespace
 
@@ -22,7 +22,7 @@ void SetupWebUIDataSource(content::WebUIDataSource* source,
                           int default_resource) {
   SetupWebUIDataSource_ChromiumImpl(source, resources, default_resource);
   source->OverrideContentSecurityPolicy(
-      network::mojom::CSPDirectiveName::ScriptSrc, kBraveCSP);
+      network::mojom::CSPDirectiveName::ScriptSrc, kadrbrowsielCSP);
 }
 
 }  // namespace webui

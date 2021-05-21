@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,22 +9,22 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import org.chromium.chrome.browser.preferences.BravePreferenceKeys;
+import org.chromium.chrome.browser.preferences.adrbrowsielPreferenceKeys;
 import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 
 /**
- * Triggered when Brave's package is replaced (e.g. when it is
+ * Triggered when adrbrowsiel's package is replaced (e.g. when it is
  * upgraded).
  *
  * See important lifecycle notes in PackageReplacedBroadcastReceiver.
  */
-public final class BravePackageReplacedBroadcastReceiver extends BroadcastReceiver {
+public final class adrbrowsielPackageReplacedBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         if (!Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) return;
-        BraveUpgradeJobIntentServiceImpl.maybePerformUpgradeTasks(context);
+        adrbrowsielUpgradeJobIntentServiceImpl.maybePerformUpgradeTasks(context);
         try {
-            SharedPreferencesManager.getInstance().writeInt(BravePreferenceKeys.BRAVE_APP_OPEN_COUNT, 0);
+            SharedPreferencesManager.getInstance().writeInt(adrbrowsielPreferenceKeys.adrbrowsiel_APP_OPEN_COUNT, 0);
         } catch (Exception exc) {
             // Sometimes the pref is not registered yet in the app
         }

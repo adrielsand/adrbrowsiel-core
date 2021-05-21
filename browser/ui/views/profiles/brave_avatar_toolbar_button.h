@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_PROFILES_BRAVE_AVATAR_TOOLBAR_BUTTON_H_
-#define BRAVE_BROWSER_UI_VIEWS_PROFILES_BRAVE_AVATAR_TOOLBAR_BUTTON_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_PROFILES_adrbrowsiel_AVATAR_TOOLBAR_BUTTON_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_PROFILES_adrbrowsiel_AVATAR_TOOLBAR_BUTTON_H_
 
 #include "chrome/browser/ui/views/profiles/avatar_toolbar_button.h"
 
 class BrowserView;
 
-class BraveAvatarToolbarButton : public AvatarToolbarButton {
+class adrbrowsielAvatarToolbarButton : public AvatarToolbarButton {
  public:
-  explicit BraveAvatarToolbarButton(BrowserView* browser_view);
+  explicit adrbrowsielAvatarToolbarButton(BrowserView* browser_view);
 
   // ToolbarButton:
   void SetHighlight(const std::u16string& highlight_text,
@@ -26,7 +26,7 @@ class BraveAvatarToolbarButton : public AvatarToolbarButton {
       const gfx::Image& profile_identity_image) const override;
   std::u16string GetAvatarTooltipText() const override;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveAvatarToolbarButton);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielAvatarToolbarButton);
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_PROFILES_BRAVE_AVATAR_TOOLBAR_BUTTON_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_PROFILES_adrbrowsiel_AVATAR_TOOLBAR_BUTTON_H_

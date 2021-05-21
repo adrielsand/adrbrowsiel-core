@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,13 +7,13 @@
 
 namespace gcm {
 
-BraveGCMDriverDesktop::~BraveGCMDriverDesktop() = default;
+adrbrowsielGCMDriverDesktop::~adrbrowsielGCMDriverDesktop() = default;
 
-void BraveGCMDriverDesktop::SetEnabled(bool enabled) {
+void adrbrowsielGCMDriverDesktop::SetEnabled(bool enabled) {
   enabled_ = enabled;
 }
 
-GCMClient::Result BraveGCMDriverDesktop::EnsureStarted(
+GCMClient::Result adrbrowsielGCMDriverDesktop::EnsureStarted(
   GCMClient::StartMode start_mode) {
   if (!enabled_) {
     return GCMClient::GCM_DISABLED;

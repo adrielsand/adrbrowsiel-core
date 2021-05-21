@@ -6,8 +6,8 @@ index a6213ab97923a44c1ee9aaa1025e2e40cad6b1e1..7dd84f058abef355341e820a353784b4
    bool IsAttachedTo(content::DevToolsAgentHost* agent_host);
  
   private:
-+  friend class BraveDevToolsUIBindings;
-+  FRIEND_TEST_ALL_PREFIXES(BraveDevToolsUIBindingsBrowserTest, ThemeTest);
++  friend class adrbrowsielDevToolsUIBindings;
++  FRIEND_TEST_ALL_PREFIXES(adrbrowsielDevToolsUIBindingsBrowserTest, ThemeTest);
 +
    void HandleMessageFromDevToolsFrontend(const std::string& message);
  

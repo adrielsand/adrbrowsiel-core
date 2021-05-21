@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--* Copyright (c) 2020 The Brave Authors. All rights reserved.
+<!--* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -10,7 +10,7 @@
     android:id="@+id/ntp_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brave_stats_bg_color"
+    android:background="@color/adrbrowsiel_stats_bg_color"
     android:maxWidth="400dp">
 
     <LinearLayout
@@ -24,10 +24,10 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:layout_gravity="center"
-            android:text="@string/brave_stats"
+            android:text="@string/adrbrowsiel_stats"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/brave_stats_text_color"/>
+            android:textColor="@color/adrbrowsiel_stats_text_color"/>
 
         <RadioGroup
             android:id="@+id/duration_radio_group"
@@ -36,7 +36,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/brave_stats_radio_group_bg"
+            android:background="@drawable/adrbrowsiel_stats_radio_group_bg"
             android:padding="2dp"
             android:orientation="horizontal">
 
@@ -45,9 +45,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="@drawable/brave_stats_radio_button_selector"
+                android:background="@drawable/adrbrowsiel_stats_radio_button_selector"
                 android:gravity="center"
-                android:textColor="@color/brave_stats_text_color"
+                android:textColor="@color/adrbrowsiel_stats_text_color"
                 android:button="@null"
                 android:checked="true"
                 android:textSize="16sp"
@@ -62,13 +62,13 @@
                 android:layout_weight="1"
                 android:button="@null"
                 android:layout_height="wrap_content"
-                android:background="@drawable/brave_stats_radio_button_selector"
+                android:background="@drawable/adrbrowsiel_stats_radio_button_selector"
                 android:gravity="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:textColor="@color/brave_stats_text_color"
+                android:textColor="@color/adrbrowsiel_stats_text_color"
                 android:text="@string/month" />
 
             <RadioButton
@@ -77,19 +77,19 @@
                 android:layout_weight="1"
                 android:button="@null"
                 android:layout_height="wrap_content"
-                android:background="@drawable/brave_stats_radio_button_selector"
+                android:background="@drawable/adrbrowsiel_stats_radio_button_selector"
                 android:gravity="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:textColor="@color/brave_stats_text_color"
+                android:textColor="@color/adrbrowsiel_stats_text_color"
                 android:text="@string/months_3" />
 
             </RadioGroup>
 
             <LinearLayout
-                android:id="@+id/brave_stats_empty_layout"
+                android:id="@+id/adrbrowsiel_stats_empty_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -99,7 +99,7 @@
                 android:layout_marginBottom="8dp"
                 android:padding="24dp"
                 android:visibility="gone"
-                android:background="@drawable/brave_stats_ui_empty_bg"
+                android:background="@drawable/adrbrowsiel_stats_ui_empty_bg"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -115,16 +115,16 @@
                     android:textSize="16sp"
                     android:fontFamily="sans-serif" 
                     android:text="@string/start_browsing_to_see"
-                    android:textColor="@color/brave_stats_empty_text_color"/>
+                    android:textColor="@color/adrbrowsiel_stats_empty_text_color"/>
 
             </LinearLayout>
 
-            <include layout="@layout/brave_stats_pager_layout"/>
+            <include layout="@layout/adrbrowsiel_stats_pager_layout"/>
 
     </LinearLayout>
 
     <ImageView
-            android:id="@+id/brave_stats_bottom_sheet_close"
+            android:id="@+id/adrbrowsiel_stats_bottom_sheet_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@null"

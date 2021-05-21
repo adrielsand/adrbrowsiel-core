@@ -37,10 +37,10 @@ fi
 
 case "$GPG_KEY_ID" in 
     "D8BAD4DE7EE17AF52A834B2D0BB75829C2D4E821"|"9BD198A2D848C482E3550697A8580BDC82D3DC6C"|"E85FFA8E2E90B40B33ED39274FE13824E3FFC656")  # Release keys
-        KEY_NAME=brave-core.asc
+        KEY_NAME=adrbrowsiel-core.asc
         ;;
     "9228DBCE20DDE5EC46488DE90B31DBA06A8A26F9") # Nightly key
-        KEY_NAME=brave-core-nightly.asc
+        KEY_NAME=adrbrowsiel-core-nightly.asc
         ;;
     *)
         echo "Error! Unknown key passed in. Bailing out."
@@ -65,44 +65,44 @@ cat <<EOF > "$HOME/.aptly.conf"
   "ppaDistributorID": "ubuntu",
   "ppaCodename": "",
   "S3PublishEndpoints": {
-    "brave-browser-apt-staging-nightly": {
+    "adrbrowsiel-browser-apt-staging-nightly": {
       "region": "us-west-2",
-      "bucket": "brave-browser-apt-staging-nightly",
+      "bucket": "adrbrowsiel-browser-apt-staging-nightly",
       "acl": "public-read"
     },
-    "brave-browser-apt-staging-dev": {
+    "adrbrowsiel-browser-apt-staging-dev": {
       "region": "us-west-2",
-      "bucket": "brave-browser-apt-staging-dev",
+      "bucket": "adrbrowsiel-browser-apt-staging-dev",
       "acl": "public-read"
     },
-    "brave-browser-apt-staging-beta": {
+    "adrbrowsiel-browser-apt-staging-beta": {
       "region": "us-west-2",
-      "bucket": "brave-browser-apt-staging-beta",
+      "bucket": "adrbrowsiel-browser-apt-staging-beta",
       "acl": "public-read"
     },
-    "brave-browser-apt-staging-release": {
+    "adrbrowsiel-browser-apt-staging-release": {
       "region": "us-west-2",
-      "bucket": "brave-browser-apt-staging-release",
+      "bucket": "adrbrowsiel-browser-apt-staging-release",
       "acl": "public-read"
     },
-    "brave-browser-apt-staging-nightly-test": {
+    "adrbrowsiel-browser-apt-staging-nightly-test": {
       "region": "us-west-2",
-      "bucket": "brave-browser-apt-staging-nightly-test",
+      "bucket": "adrbrowsiel-browser-apt-staging-nightly-test",
       "acl": "public-read"
     },
-    "brave-browser-apt-staging-dev-test": {
+    "adrbrowsiel-browser-apt-staging-dev-test": {
       "region": "us-west-2",
-      "bucket": "brave-browser-apt-staging-dev-test",
+      "bucket": "adrbrowsiel-browser-apt-staging-dev-test",
       "acl": "public-read"
     },
-    "brave-browser-apt-staging-beta-test": {
+    "adrbrowsiel-browser-apt-staging-beta-test": {
       "region": "us-west-2",
-      "bucket": "brave-browser-apt-staging-beta-test",
+      "bucket": "adrbrowsiel-browser-apt-staging-beta-test",
       "acl": "public-read"
     },
-    "brave-browser-apt-staging-release-test": {
+    "adrbrowsiel-browser-apt-staging-release-test": {
       "region": "us-west-2",
-      "bucket": "brave-browser-apt-staging-release-test",
+      "bucket": "adrbrowsiel-browser-apt-staging-release-test",
       "acl": "public-read"
     }
   },
@@ -130,8 +130,8 @@ done
 for i in ${DIST}; do
     echo Publishing distro ${i}
     if [ "${i}" = "stable" ]; then
-        echo Running command: aptly publish snapshot -batch -origin="Brave Software" -label="Brave Browser" -force-overwrite=true -gpg-key="${GPG_KEY_ID}!" "${i}-snapshot" "s3:${S3_BUCKET}:"
-        aptly publish snapshot -batch -origin="Brave Software" -label="Brave Browser" -force-overwrite=true -gpg-key="${GPG_KEY_ID}!" "${i}-snapshot" "s3:${S3_BUCKET}:"
+        echo Running command: aptly publish snapshot -batch -origin="adrbrowsiel Software" -label="adrbrowsiel Browser" -force-overwrite=true -gpg-key="${GPG_KEY_ID}!" "${i}-snapshot" "s3:${S3_BUCKET}:"
+        aptly publish snapshot -batch -origin="adrbrowsiel Software" -label="adrbrowsiel Browser" -force-overwrite=true -gpg-key="${GPG_KEY_ID}!" "${i}-snapshot" "s3:${S3_BUCKET}:"
     else
         echo Running command: aptly publish snapshot -batch -force-overwrite=true -gpg-key="${GPG_KEY_ID}!" "${i}-snapshot" "s3:${S3_BUCKET}:"
         aptly publish snapshot -batch -force-overwrite=true -gpg-key="${GPG_KEY_ID}!" "${i}-snapshot" "s3:${S3_BUCKET}:"

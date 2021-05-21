@@ -1,13 +1,13 @@
-import("//brave/build/config.gni")
+import("//adrbrowsiel/build/config.gni")
 
 # Changing these will cause a full rebuild
-brave_include_dirs_ = [ "//brave/chromium_src" ]
+adrbrowsiel_include_dirs_ = [ "//adrbrowsiel/chromium_src" ]
 
 config("compiler") {
-  include_dirs = brave_include_dirs_
+  include_dirs = adrbrowsiel_include_dirs_
 }
 
 # do not expose this as a public config anywhere
 config("version") {
-  defines = [ "BRAVE_CHROMIUM_VERSION=\"$chrome_version_string\"" ]
+  defines = [ "adrbrowsiel_CHROMIUM_VERSION=\"$chrome_version_string\"" ]
 }

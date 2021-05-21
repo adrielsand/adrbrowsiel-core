@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -92,7 +92,7 @@ void Publisher::CalcScoreConsts(const int min_duration_seconds) {
 }
 
 // courtesy of @dimitry-xyz:
-// https://github.com/brave/ledger/issues/2#issuecomment-221752002
+// https://github.com/adrbrowsiel/ledger/issues/2#issuecomment-221752002
 double Publisher::concaveScore(const uint64_t& duration_seconds) {
   uint64_t duration_big = duration_seconds * 100;
   double a, b;

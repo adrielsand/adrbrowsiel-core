@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -406,7 +406,7 @@ void MockDefaultPrefs(const std::unique_ptr<AdsClientMock>& mock) {
 base::FilePath GetDataPath() {
   base::FilePath path;
   base::PathService::Get(base::DIR_SOURCE_ROOT, &path);
-  path = path.AppendASCII("brave");
+  path = path.AppendASCII("adrbrowsiel");
   path = path.AppendASCII("vendor");
   path = path.AppendASCII("bat-native-ads");
   path = path.AppendASCII("data");
@@ -466,7 +466,7 @@ void SetBuildChannel(const bool is_release, const std::string& name) {
   g_build_channel.name = name;
 }
 
-void MockLocaleHelper(const std::unique_ptr<brave_l10n::LocaleHelperMock>& mock,
+void MockLocaleHelper(const std::unique_ptr<adrbrowsiel_l10n::LocaleHelperMock>& mock,
                       const std::string& locale) {
   ON_CALL(*mock, GetLocale()).WillByDefault(Return(locale));
 }

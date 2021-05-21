@@ -1,19 +1,19 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMMON_BRAVE_CONTENT_CLIENT_H_
-#define BRAVE_COMMON_BRAVE_CONTENT_CLIENT_H_
+#ifndef adrbrowsiel_COMMON_adrbrowsiel_CONTENT_CLIENT_H_
+#define adrbrowsiel_COMMON_adrbrowsiel_CONTENT_CLIENT_H_
 
 #include <vector>
 
 #include "chrome/common/chrome_content_client.h"
 
-class BraveContentClient : public ChromeContentClient {
+class adrbrowsielContentClient : public ChromeContentClient {
  public:
-  BraveContentClient();
-  ~BraveContentClient() override;
+  adrbrowsielContentClient();
+  ~adrbrowsielContentClient() override;
 
  private:
   // ChromeContentClinet overrides:
@@ -24,4 +24,4 @@ class BraveContentClient : public ChromeContentClient {
       std::vector<media::CdmHostFilePath>* cdm_host_file_paths) override;
 };
 
-#endif  // BRAVE_COMMON_BRAVE_CONTENT_CLIENT_H_
+#endif  // adrbrowsiel_COMMON_adrbrowsiel_CONTENT_CLIENT_H_

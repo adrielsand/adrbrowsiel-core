@@ -57,58 +57,58 @@ struct TestData {
 #if defined(OFFICIAL_BUILD)
 constexpr TestData kTestData[] = {
     {
-        L"C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser\\Application"
-        L"\\brave.exe",
+        L"C:\\Program Files (x86)\\adrbrowsielSoftware\\adrbrowsiel-Browser\\Application"
+        L"\\adrbrowsiel.exe",
         STABLE_INDEX, true, L"",
     },
     {
-        L"C:\\Users\\user\\AppData\\Local\\BraveSoftware\\Brave-Browser"
-        L"\\Application\\brave.exe",
+        L"C:\\Users\\user\\AppData\\Local\\adrbrowsielSoftware\\adrbrowsiel-Browser"
+        L"\\Application\\adrbrowsiel.exe",
         STABLE_INDEX, false, L"",
     },
     {
-        L"C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser-Beta"
-        L"\\Application\\brave.exe",
+        L"C:\\Program Files (x86)\\adrbrowsielSoftware\\adrbrowsiel-Browser-Beta"
+        L"\\Application\\adrbrowsiel.exe",
         BETA_INDEX, true, L"beta",
     },
     {
-        L"C:\\Users\\user\\AppData\\Local\\BraveSoftware\\Brave-Browser-Beta"
-        L"\\Application\\brave.exe",
+        L"C:\\Users\\user\\AppData\\Local\\adrbrowsielSoftware\\adrbrowsiel-Browser-Beta"
+        L"\\Application\\adrbrowsiel.exe",
         BETA_INDEX, false, L"beta",
     },
     {
-        L"C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser-Dev"
-        L"\\Application\\brave.exe",
+        L"C:\\Program Files (x86)\\adrbrowsielSoftware\\adrbrowsiel-Browser-Dev"
+        L"\\Application\\adrbrowsiel.exe",
         DEV_INDEX, true, L"dev",
     },
     {
-        L"C:\\Users\\user\\AppData\\Local\\BraveSoftware\\Brave-Browser-Dev"
-        L"\\Application\\brave.exe",
+        L"C:\\Users\\user\\AppData\\Local\\adrbrowsielSoftware\\adrbrowsiel-Browser-Dev"
+        L"\\Application\\adrbrowsiel.exe",
         DEV_INDEX, false, L"dev",
     },
     {
-        L"C:\\Users\\user\\AppData\\Local\\BraveSoftware\\Brave-Browser-Nightly"
-        L"\\Application\\brave.exe",
+        L"C:\\Users\\user\\AppData\\Local\\adrbrowsielSoftware\\adrbrowsiel-Browser-Nightly"
+        L"\\Application\\adrbrowsiel.exe",
         NIGHTLY_INDEX, false, L"nightly",
     },
     {
-        L"C:\\Users\\user\\AppData\\Local\\BraveSoftware\\Brave-Browser-Nightly"
-        L"\\Application\\brave.exe",
+        L"C:\\Users\\user\\AppData\\Local\\adrbrowsielSoftware\\adrbrowsiel-Browser-Nightly"
+        L"\\Application\\adrbrowsiel.exe",
         NIGHTLY_INDEX, false, L"nightly",
     },
 };
 #else   // OFFICIAL_BUILD
 constexpr TestData kTestData[] = {
     {
-        L"C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser-Development"
-        L"\\Application\\brave.exe",
+        L"C:\\Program Files (x86)\\adrbrowsielSoftware\\adrbrowsiel-Browser-Development"
+        L"\\Application\\adrbrowsiel.exe",
         DEVELOPER_INDEX,
         true,
         L"",
     },
     {
-        L"C:\\Users\\user\\AppData\\Local\\BraveSoftware\\Brave-Browser-"
-        L"Development\\Application\\brave.exe",
+        L"C:\\Users\\user\\AppData\\Local\\adrbrowsielSoftware\\adrbrowsiel-Browser-"
+        L"Development\\Application\\adrbrowsiel.exe",
         DEVELOPER_INDEX,
         false,
         L"",
@@ -162,7 +162,7 @@ class MakeProductDetailsTest : public testing::TestWithParam<TestData> {
   std::wstring GetClientStateKeyPath() {
     std::wstring result(L"Software\\");
 #if defined(OFFICIAL_BUILD)
-      result.append(L"BraveSoftware\\Update\\ClientState\\");
+      result.append(L"adrbrowsielSoftware\\Update\\ClientState\\");
       result.append(kInstallModes[test_data().index].app_guid);
 #else
       result.append(kProductPathName);

@@ -1,7 +1,7 @@
 import("//build/config/python.gni")
 
-brave_bytecode_jars = [
-  "obj/brave/android/java/org/chromium/chrome/browser/search_engines/settings/java.javac.jar",
+adrbrowsiel_bytecode_jars = [
+  "obj/adrbrowsiel/android/java/org/chromium/chrome/browser/search_engines/settings/java.javac.jar",
   "obj/chrome/android/base_module_java.javac.jar",
   "obj/chrome/android/chrome_java.javac.jar",
   "obj/chrome/android/features/tab_ui/java.javac.jar",
@@ -16,15 +16,15 @@ brave_bytecode_jars = [
   "obj/components/sync/android/sync_java.javac.jar",
 ]
 
-template("brave_bytecode_rewriter") {
+template("adrbrowsiel_bytecode_rewriter") {
   _rebased_build_config = invoker._rebased_build_config
   _java_bytecode_rewriter_input_jar = invoker._previous_output_jar
 
   action_with_pydeps(target_name) {
-    script = "//brave/build/android/gyp/bytecode_processor.py"
+    script = "//adrbrowsiel/build/android/gyp/bytecode_processor.py"
     _bytecode_rewriter_script =
         "$root_build_dir/bin/helper/java_bytecode_rewriter"
-    deps = invoker._deps + [ "//brave/build/android/bytecode:java_bytecode_rewriter($default_toolchain)" ]
+    deps = invoker._deps + [ "//adrbrowsiel/build/android/bytecode:java_bytecode_rewriter($default_toolchain)" ]
     if (defined(invoker.deps)) {
       deps += invoker.deps
     }

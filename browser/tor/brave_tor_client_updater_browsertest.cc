@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,9 +9,9 @@
 #include "base/path_service.h"
 #include "base/process/launch.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/tor/brave_tor_client_updater.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/tor/adrbrowsiel_tor_client_updater.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "content/public/test/browser_test.h"
 #include "content/public/test/test_utils.h"
@@ -29,9 +29,9 @@ const char kTorClientUpdaterComponentTestBase64PublicKey[] =
     "+NJdHcu+jj2LIEcxmZ8TjtbK9kfWORHhA/ELjTx4ScvKfVKJgdLpxy5QOBFFnTLR"
     "QQIDAQAB";
 
-class BraveTorClientUpdaterTest : public ExtensionBrowserTest {
+class adrbrowsielTorClientUpdaterTest : public ExtensionBrowserTest {
  public:
-  BraveTorClientUpdaterTest() {}
+  adrbrowsielTorClientUpdaterTest() {}
 
   void SetUp() override {
     InitEmbeddedTestServer();
@@ -44,16 +44,16 @@ class BraveTorClientUpdaterTest : public ExtensionBrowserTest {
   }
 
   void InitEmbeddedTestServer() {
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
     ASSERT_TRUE(embedded_test_server()->Start());
   }
 
   void GetTestDataDir(base::FilePath* test_data_dir) {
     base::ScopedAllowBlockingForTesting allow_blocking;
-    base::PathService::Get(brave::DIR_TEST_DATA, test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, test_data_dir);
   }
 
   bool PathExists(const base::FilePath& file_path) {
@@ -64,7 +64,7 @@ class BraveTorClientUpdaterTest : public ExtensionBrowserTest {
   void SetComponentIdAndBase64PublicKeyForTest(
       const std::string& component_id,
       const std::string& component_base64_public_key) {
-    tor::BraveTorClientUpdater::SetComponentIdAndBase64PublicKeyForTest(
+    tor::adrbrowsielTorClientUpdater::SetComponentIdAndBase64PublicKeyForTest(
         component_id, component_base64_public_key);
   }
 
@@ -90,7 +90,7 @@ class BraveTorClientUpdaterTest : public ExtensionBrowserTest {
     if (!tor_client_updater)
       return false;
 
-    g_brave_browser_process->tor_client_updater()->OnComponentReady(
+    g_adrbrowsiel_browser_process->tor_client_updater()->OnComponentReady(
         tor_client_updater->id(), tor_client_updater->path(), "");
     WaitForTorClientUpdaterThread();
 
@@ -100,14 +100,14 @@ class BraveTorClientUpdaterTest : public ExtensionBrowserTest {
   void WaitForTorClientUpdaterThread() {
     scoped_refptr<base::ThreadTestHelper> io_helper(
         new base::ThreadTestHelper(
-            g_brave_browser_process->tor_client_updater()->GetTaskRunner()));
+            g_adrbrowsiel_browser_process->tor_client_updater()->GetTaskRunner()));
     ASSERT_TRUE(io_helper->Run());
   }
 };
 
 // Load the Tor client updater extension and verify that it correctly
 // installs the client.
-IN_PROC_BROWSER_TEST_F(BraveTorClientUpdaterTest, TorClientInstalls) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielTorClientUpdaterTest, TorClientInstalls) {
   SetComponentIdAndBase64PublicKeyForTest(
       kTorClientUpdaterComponentTestId,
       kTorClientUpdaterComponentTestBase64PublicKey);
@@ -115,13 +115,13 @@ IN_PROC_BROWSER_TEST_F(BraveTorClientUpdaterTest, TorClientInstalls) {
 
   content::RunAllTasksUntilIdle();
   base::FilePath executable_path =
-      g_brave_browser_process->tor_client_updater()->GetExecutablePath();
+      g_adrbrowsiel_browser_process->tor_client_updater()->GetExecutablePath();
   ASSERT_TRUE(PathExists(executable_path));
 }
 
 // Load the Tor client updater extension and verify that we can launch
 // the client.
-IN_PROC_BROWSER_TEST_F(BraveTorClientUpdaterTest, TorClientLaunches) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielTorClientUpdaterTest, TorClientLaunches) {
   SetComponentIdAndBase64PublicKeyForTest(
       kTorClientUpdaterComponentTestId,
       kTorClientUpdaterComponentTestBase64PublicKey);
@@ -129,7 +129,7 @@ IN_PROC_BROWSER_TEST_F(BraveTorClientUpdaterTest, TorClientLaunches) {
 
   content::RunAllTasksUntilIdle();
   base::FilePath executable_path =
-      g_brave_browser_process->tor_client_updater()->GetExecutablePath();
+      g_adrbrowsiel_browser_process->tor_client_updater()->GetExecutablePath();
   ASSERT_TRUE(PathExists(executable_path));
 
   base::CommandLine cmd_line(executable_path);

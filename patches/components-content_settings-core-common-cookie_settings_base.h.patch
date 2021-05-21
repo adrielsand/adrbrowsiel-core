@@ -6,7 +6,7 @@ index 509fbf0fa3adb1a249c5bf56d1657a52571eebad..d11098c20051e92ab79344eeebfe44c3
    // Determines whether |setting| is a valid content setting for legacy cookie
    // access.
    static bool IsValidSettingForLegacyAccess(ContentSetting setting);
-+  BRAVE_COOKIE_SETTINGS_BASE_H
++  adrbrowsiel_COOKIE_SETTINGS_BASE_H
  
   private:
    virtual ContentSetting GetCookieSettingInternal(

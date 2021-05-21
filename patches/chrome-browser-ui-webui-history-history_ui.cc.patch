@@ -6,7 +6,7 @@ index bc0219651739efe5aba136935501845ded8b2680..68e56aafda5754501e3b48f6c510132e
    content::WebUIDataSource* source =
        content::WebUIDataSource::Create(chrome::kChromeUIHistoryHost);
  
-+  BraveCustomizeHistoryDataSource(source);
++  adrbrowsielCustomizeHistoryDataSource(source);
    static constexpr webui::LocalizedString kStrings[] = {
        // Localized strings (alphabetical order).
        {"actionMenuDescription", IDS_HISTORY_ACTION_MENU_DESCRIPTION},

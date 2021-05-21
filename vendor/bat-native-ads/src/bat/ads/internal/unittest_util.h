@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_UNITTEST_UTIL_H_
-#define BRAVE_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_UNITTEST_UTIL_H_
+#ifndef adrbrowsiel_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_UNITTEST_UTIL_H_
+#define adrbrowsiel_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_UNITTEST_UTIL_H_
 
 #include <cstdint>
 #include <map>
@@ -19,7 +19,7 @@
 #include "bat/ads/ads.h"
 #include "bat/ads/database.h"
 #include "bat/ads/internal/platform/platform_helper_mock.h"
-#include "brave/components/l10n/browser/locale_helper_mock.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper_mock.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
 namespace ads {
@@ -92,7 +92,7 @@ void SetSysInfo(const SysInfo& sys_info);
 
 void SetBuildChannel(const bool is_release, const std::string& name);
 
-void MockLocaleHelper(const std::unique_ptr<brave_l10n::LocaleHelperMock>& mock,
+void MockLocaleHelper(const std::unique_ptr<adrbrowsiel_l10n::LocaleHelperMock>& mock,
                       const std::string& locale);
 
 void MockPlatformHelper(const std::unique_ptr<PlatformHelperMock>& mock,
@@ -155,4 +155,4 @@ std::string DistantFutureAsISO8601();
 
 }  // namespace ads
 
-#endif  // BRAVE_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_UNITTEST_UTIL_H_
+#endif  // adrbrowsiel_VENDOR_BAT_NATIVE_ADS_SRC_BAT_ADS_INTERNAL_UNITTEST_UTIL_H_

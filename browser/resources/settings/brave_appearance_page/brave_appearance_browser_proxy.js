@@ -5,35 +5,35 @@
 import {addSingletonGetter, sendWithPromise} from 'chrome://resources/js/cr.m.js';
 
 /** @interface */
-export class BraveAppearanceBrowserProxy {
+export class adrbrowsielAppearanceBrowserProxy {
   /**
    * @return {!Promise<Array>}
    */
-  getBraveThemeList() {}
+  getadrbrowsielThemeList() {}
   /**
    * @return {!Promise<Number>}
    */
-  getBraveThemeType() {}
+  getadrbrowsielThemeType() {}
   /**
    * @param {Number} type
    */
-  setBraveThemeType(value) {}
+  setadrbrowsielThemeType(value) {}
 }
 
 /**
- * @implements {BraveAppearanceBrowserProxy}
+ * @implements {adrbrowsielAppearanceBrowserProxy}
  */
-export class BraveAppearanceBrowserProxyImpl {
+export class adrbrowsielAppearanceBrowserProxyImpl {
   /** @override */
-  getBraveThemeList() {
-    return new Promise(resolve => chrome.braveTheme.getBraveThemeList(resolve))
+  getadrbrowsielThemeList() {
+    return new Promise(resolve => chrome.adrbrowsielTheme.getadrbrowsielThemeList(resolve))
   }
-  getBraveThemeType() {
-    return sendWithPromise('getBraveThemeType');
+  getadrbrowsielThemeType() {
+    return sendWithPromise('getadrbrowsielThemeType');
   }
-  setBraveThemeType(value) {
-    chrome.send('setBraveThemeType', [value]);
+  setadrbrowsielThemeType(value) {
+    chrome.send('setadrbrowsielThemeType', [value]);
   }
 }
 
-addSingletonGetter(BraveAppearanceBrowserProxyImpl);
+addSingletonGetter(adrbrowsielAppearanceBrowserProxyImpl);

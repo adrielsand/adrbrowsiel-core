@@ -7,7 +7,7 @@ index 0e5a49f707bf49f40b726f2bc3e8de629354acff..32af7450688ac1538ccc0f35aa2ed567
  
  import 'chrome://resources/cr_elements/cr_lazy_render/cr_lazy_render.m.js';
 -import 'chrome://resources/cr_elements/cr_toolbar/cr_toolbar.js';
-+import 'chrome://brave-resources/br_elements/br_toolbar/br_toolbar.m.js'
++import 'chrome://adrbrowsiel-resources/br_elements/br_toolbar/br_toolbar.m.js'
  import './shared_style.js';
  import './strings.m.js';
  

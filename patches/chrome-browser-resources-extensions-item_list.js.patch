@@ -6,7 +6,7 @@ index 22b1ef2f95f238eefa0ceffec1df1d4f21f280c7..b45a94cc2ef67d9ccfde24abeff44f83
  import {html, Polymer} from 'chrome://resources/polymer/v3_0/polymer/polymer_bundled.min.js';
  
  import {ItemDelegate} from './item.js';
-+import './brave_item_list_more_items.js'
++import './adrbrowsiel_item_list_more_items.js'
  
  Polymer({
    is: 'extensions-item-list',

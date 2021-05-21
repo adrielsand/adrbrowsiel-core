@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_BROWSER_DIALOGS_H_
-#define BRAVE_BROWSER_UI_BROWSER_DIALOGS_H_
+#ifndef adrbrowsiel_BROWSER_UI_BROWSER_DIALOGS_H_
+#define adrbrowsiel_BROWSER_UI_BROWSER_DIALOGS_H_
 
 class Browser;
 
-namespace brave {
+namespace adrbrowsiel {
 
 void ShowDefaultBrowserDialog(Browser* browser);
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_BROWSER_UI_BROWSER_DIALOGS_H_
+#endif  // adrbrowsiel_BROWSER_UI_BROWSER_DIALOGS_H_

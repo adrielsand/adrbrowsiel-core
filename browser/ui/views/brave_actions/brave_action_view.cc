@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/brave_actions/brave_action_view.h"
+#include "adrbrowsiel/browser/ui/views/adrbrowsiel_actions/adrbrowsiel_action_view.h"
 
 #include <memory>
 
@@ -24,35 +24,35 @@
 
 namespace {
 
-class BraveActionViewHighlightPathGenerator
+class adrbrowsielActionViewHighlightPathGenerator
     : public views::HighlightPathGenerator {
  public:
-  BraveActionViewHighlightPathGenerator() = default;
+  adrbrowsielActionViewHighlightPathGenerator() = default;
 
   // HighlightPathGenerator
   SkPath GetHighlightPath(const views::View* view) override {
-    return static_cast<const BraveActionView*>(view)->GetHighlightPath();
+    return static_cast<const adrbrowsielActionView*>(view)->GetHighlightPath();
   }
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveActionViewHighlightPathGenerator);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielActionViewHighlightPathGenerator);
 };
 
 }  // namespace
 
-BraveActionView::BraveActionView(ToolbarActionViewController* view_controller,
+adrbrowsielActionView::adrbrowsielActionView(ToolbarActionViewController* view_controller,
                                  ToolbarActionView::Delegate* delegate)
     : ToolbarActionView(view_controller, delegate) {
   views::HighlightPathGenerator::Install(
-      this, std::make_unique<BraveActionViewHighlightPathGenerator>());
+      this, std::make_unique<adrbrowsielActionViewHighlightPathGenerator>());
 }
 
-SkPath BraveActionView::GetHighlightPath() const {
+SkPath adrbrowsielActionView::GetHighlightPath() const {
   // Set the highlight path for the toolbar button,
   // making it inset so that the badge can show outside it in the
   // fake margin on the right that we are creating.
   SkPath path;
-  gfx::Insets highlight_insets(0, 0, 0, kBraveActionRightMargin);
+  gfx::Insets highlight_insets(0, 0, 0, kadrbrowsielActionRightMargin);
   gfx::Rect rect(size());
   rect.Inset(highlight_insets);
   const int radii = ChromeLayoutProvider::Get()->GetCornerRadiusMetric(

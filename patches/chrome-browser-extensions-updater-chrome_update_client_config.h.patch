@@ -6,7 +6,7 @@ index 63354b13b22b8258295e46fe2fa4e5dfecce04a2..f9dace4c2767e79f4a95eb687ac0f871
    bool IsPerUserInstall() const override;
    std::unique_ptr<update_client::ProtocolHandlerFactory>
    GetProtocolHandlerFactory() const override;
-+  BRAVE_CHROME_UPDATE_CLIENT_CONFIG_H_
++  adrbrowsiel_CHROME_UPDATE_CLIENT_CONFIG_H_
  
   protected:
    friend class base::RefCountedThreadSafe<ChromeUpdateClientConfig>;

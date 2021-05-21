@@ -8,7 +8,7 @@
 
 cr.define('settings', function() {
   /** @interface */
-  /* #export */ class DefaultBraveShieldsBrowserProxy {
+  /* #export */ class DefaultadrbrowsielShieldsBrowserProxy {
     /**
      * @return {!Promise<boolean>}
      */
@@ -57,9 +57,9 @@ cr.define('settings', function() {
   }
 
   /**
-   * @implements {settings.DefaultBraveShieldsBrowserProxy}
+   * @implements {settings.DefaultadrbrowsielShieldsBrowserProxy}
    */
-  /* #export */ class DefaultBraveShieldsBrowserProxyImpl {
+  /* #export */ class DefaultadrbrowsielShieldsBrowserProxyImpl {
     /** @override */
     isAdControlEnabled() {
       return cr.sendWithPromise('isAdControlEnabled');
@@ -111,11 +111,11 @@ cr.define('settings', function() {
     }
   }
 
-  cr.addSingletonGetter(DefaultBraveShieldsBrowserProxyImpl);
+  cr.addSingletonGetter(DefaultadrbrowsielShieldsBrowserProxyImpl);
 
   // #cr_define_end
   return {
-    DefaultBraveShieldsBrowserProxy,
-    DefaultBraveShieldsBrowserProxyImpl
+    DefaultadrbrowsielShieldsBrowserProxy,
+    DefaultadrbrowsielShieldsBrowserProxyImpl
   };
 });

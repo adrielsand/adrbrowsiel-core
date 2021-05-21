@@ -1,32 +1,32 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_AUTOCOMPLETE_BRAVE_AUTOCOMPLETE_SCHEME_CLASSIFIER_H_
-#define BRAVE_BROWSER_AUTOCOMPLETE_BRAVE_AUTOCOMPLETE_SCHEME_CLASSIFIER_H_
+#ifndef adrbrowsiel_BROWSER_AUTOCOMPLETE_adrbrowsiel_AUTOCOMPLETE_SCHEME_CLASSIFIER_H_
+#define adrbrowsiel_BROWSER_AUTOCOMPLETE_adrbrowsiel_AUTOCOMPLETE_SCHEME_CLASSIFIER_H_
 
 #include <string>
 
-#include "brave/components/brave_webtorrent/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags/buildflags.h"
 #include "chrome/browser/autocomplete/chrome_autocomplete_scheme_classifier.h"
 
-class BraveAutocompleteSchemeClassifier
+class adrbrowsielAutocompleteSchemeClassifier
     : public ChromeAutocompleteSchemeClassifier {
  public:
-  explicit BraveAutocompleteSchemeClassifier(Profile* profile);
-  ~BraveAutocompleteSchemeClassifier() override;
+  explicit adrbrowsielAutocompleteSchemeClassifier(Profile* profile);
+  ~adrbrowsielAutocompleteSchemeClassifier() override;
 
   metrics::OmniboxInputType GetInputTypeForScheme(
       const std::string& scheme) const override;
 
  private:
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
   Profile* profile_ = nullptr;
 #endif
 
-  DISALLOW_COPY_AND_ASSIGN(BraveAutocompleteSchemeClassifier);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielAutocompleteSchemeClassifier);
 };
 
-#endif  // BRAVE_BROWSER_AUTOCOMPLETE_BRAVE_AUTOCOMPLETE_SCHEME_CLASSIFIER_H_
+#endif  // adrbrowsiel_BROWSER_AUTOCOMPLETE_adrbrowsiel_AUTOCOMPLETE_SCHEME_CLASSIFIER_H_
 

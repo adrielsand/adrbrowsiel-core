@@ -8,5 +8,5 @@ index 7df2cdb7328c7d3137ac406763128fcc8deef4e7..2b72dd5b731eee70474148b67280faa9
    array<ContentSettingPatternSource> mixed_content_rules;
 +  array<ContentSettingPatternSource> autoplay_rules;
 +  array<ContentSettingPatternSource> fingerprinting_rules;
-+  array<ContentSettingPatternSource> brave_shields_rules;
++  array<ContentSettingPatternSource> adrbrowsiel_shields_rules;
  };

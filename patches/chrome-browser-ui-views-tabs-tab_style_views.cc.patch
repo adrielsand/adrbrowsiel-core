@@ -6,7 +6,7 @@ index 9a633298bb57858a3bcf79ed5f3b56d5ae6252c8..0544075a5c47f7cdf2bcd26ebadb8807
    void HideHover(HideHoverStyle style) override;
  
   private:
-+  BRAVE_GM2_TAB_STYLE_H
++  adrbrowsiel_GM2_TAB_STYLE_H
    // Gets the bounds for the leading and trailing separators for a tab.
    SeparatorBounds GetSeparatorBounds(float scale) const;
  

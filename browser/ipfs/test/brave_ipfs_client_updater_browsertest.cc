@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,11 +6,11 @@
 #include "base/files/file_util.h"
 #include "base/path_service.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/ipfs/brave_ipfs_client_updater.h"
-#include "brave/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/ipfs/adrbrowsiel_ipfs_client_updater.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "chrome/test/base/ui_test_utils.h"
 #include "content/public/test/browser_test.h"
@@ -28,9 +28,9 @@ static const char kIpfsClientUpdaterComponentTestBase64PublicKey[] =
     "+NJdHcu+jj2LIEcxmZ8TjtbK9kfWORHhA/ELjTx4ScvKfVKJgdLpxy5QOBFFnTLR"
     "QQIDAQAB";
 
-class BraveIpfsClientUpdaterTest : public ExtensionBrowserTest {
+class adrbrowsielIpfsClientUpdaterTest : public ExtensionBrowserTest {
  public:
-  BraveIpfsClientUpdaterTest() {}
+  adrbrowsielIpfsClientUpdaterTest() {}
 
   void SetUp() override {
     InitEmbeddedTestServer();
@@ -38,16 +38,16 @@ class BraveIpfsClientUpdaterTest : public ExtensionBrowserTest {
   }
 
   void InitEmbeddedTestServer() {
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
     ASSERT_TRUE(embedded_test_server()->Start());
   }
 
   void GetTestDataDir(base::FilePath* test_data_dir) {
     base::ScopedAllowBlockingForTesting allow_blocking;
-    base::PathService::Get(brave::DIR_TEST_DATA, test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, test_data_dir);
   }
 
   bool PathExists(const base::FilePath& file_path) {
@@ -58,7 +58,7 @@ class BraveIpfsClientUpdaterTest : public ExtensionBrowserTest {
   void SetComponentIdAndBase64PublicKeyForTest(
       const std::string& component_id,
       const std::string& component_base64_public_key) {
-    ipfs::BraveIpfsClientUpdater::SetComponentIdAndBase64PublicKeyForTest(
+    ipfs::adrbrowsielIpfsClientUpdater::SetComponentIdAndBase64PublicKeyForTest(
         component_id, component_base64_public_key);
   }
 
@@ -84,7 +84,7 @@ class BraveIpfsClientUpdaterTest : public ExtensionBrowserTest {
     if (!ipfs_client_updater)
       return false;
 
-    g_brave_browser_process->ipfs_client_updater()->OnComponentReady(
+    g_adrbrowsiel_browser_process->ipfs_client_updater()->OnComponentReady(
         ipfs_client_updater->id(), ipfs_client_updater->path(), "");
     WaitForIpfsClientUpdaterThread();
     WaitForMainThreadTasksToFinish();
@@ -93,7 +93,7 @@ class BraveIpfsClientUpdaterTest : public ExtensionBrowserTest {
 
   void WaitForIpfsClientUpdaterThread() {
     scoped_refptr<base::ThreadTestHelper> io_helper(new base::ThreadTestHelper(
-        g_brave_browser_process->ipfs_client_updater()->GetTaskRunner()));
+        g_adrbrowsiel_browser_process->ipfs_client_updater()->GetTaskRunner()));
     ASSERT_TRUE(io_helper->Run());
   }
 
@@ -105,17 +105,17 @@ class BraveIpfsClientUpdaterTest : public ExtensionBrowserTest {
 
 // Load the Ipfs client updater extension and verify that it correctly
 // installs the client.
-IN_PROC_BROWSER_TEST_F(BraveIpfsClientUpdaterTest, IpfsClientInstalls) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielIpfsClientUpdaterTest, IpfsClientInstalls) {
   SetComponentIdAndBase64PublicKeyForTest(
       kIpfsClientUpdaterComponentTestId,
       kIpfsClientUpdaterComponentTestBase64PublicKey);
   ASSERT_TRUE(InstallIpfsClientUpdater());
   base::FilePath executable_path =
-      g_brave_browser_process->ipfs_client_updater()->GetExecutablePath();
+      g_adrbrowsiel_browser_process->ipfs_client_updater()->GetExecutablePath();
   ASSERT_TRUE(PathExists(executable_path));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveIpfsClientUpdaterTest, IpfsExecutableReady) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielIpfsClientUpdaterTest, IpfsExecutableReady) {
   ipfs::IpfsService* ipfs_service =
       ipfs::IpfsServiceFactory::GetInstance()->GetForContext(profile());
   ASSERT_TRUE(ipfs_service);
@@ -126,7 +126,7 @@ IN_PROC_BROWSER_TEST_F(BraveIpfsClientUpdaterTest, IpfsExecutableReady) {
       kIpfsClientUpdaterComponentTestBase64PublicKey);
   ASSERT_TRUE(InstallIpfsClientUpdater());
   base::FilePath executable_path =
-      g_brave_browser_process->ipfs_client_updater()->GetExecutablePath();
+      g_adrbrowsiel_browser_process->ipfs_client_updater()->GetExecutablePath();
   ASSERT_TRUE(PathExists(executable_path));
 
   EXPECT_EQ(ipfs_service->GetIpfsExecutablePath(), executable_path);

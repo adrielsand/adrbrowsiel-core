@@ -1,21 +1,21 @@
-# Copyright (c) 2021 The Brave Authors. All rights reserved.
+# Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-brave_browser_component_updater_sources = [
-  "//brave/browser/component_updater/brave_component_installer.cc",
-  "//brave/browser/component_updater/brave_component_installer.h",
-  "//brave/browser/component_updater/brave_component_updater_configurator.cc",
-  "//brave/browser/component_updater/brave_component_updater_configurator.h",
-  "//brave/browser/component_updater/brave_component_updater_delegate.cc",
-  "//brave/browser/component_updater/brave_component_updater_delegate.h",
+adrbrowsiel_browser_component_updater_sources = [
+  "//adrbrowsiel/browser/component_updater/adrbrowsiel_component_installer.cc",
+  "//adrbrowsiel/browser/component_updater/adrbrowsiel_component_installer.h",
+  "//adrbrowsiel/browser/component_updater/adrbrowsiel_component_updater_configurator.cc",
+  "//adrbrowsiel/browser/component_updater/adrbrowsiel_component_updater_configurator.h",
+  "//adrbrowsiel/browser/component_updater/adrbrowsiel_component_updater_delegate.cc",
+  "//adrbrowsiel/browser/component_updater/adrbrowsiel_component_updater_delegate.h",
 ]
 
-brave_browser_component_updater_deps = [
+adrbrowsiel_browser_component_updater_deps = [
   "//base",
-  "//brave/common:switches",
-  "//brave/components/brave_component_updater/browser",
+  "//adrbrowsiel/common:switches",
+  "//adrbrowsiel/components/adrbrowsiel_component_updater/browser",
   "//chrome/browser:browser_process",
   "//chrome/common:constants",
   "//components/component_updater",

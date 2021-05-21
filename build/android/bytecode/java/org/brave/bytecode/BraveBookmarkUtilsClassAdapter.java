@@ -1,26 +1,26 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BraveBookmarkUtilsClassAdapter extends BraveClassVisitor {
+public class adrbrowsielBookmarkUtilsClassAdapter extends adrbrowsielClassVisitor {
     static String sBookmarkUtilsClassName = "org/chromium/chrome/browser/bookmarks/BookmarkUtils";
-    static String sBraveBookmarkUtilsClassName =
-            "org/chromium/chrome/browser/bookmarks/BraveBookmarkUtils";
+    static String sadrbrowsielBookmarkUtilsClassName =
+            "org/chromium/chrome/browser/bookmarks/adrbrowsielBookmarkUtils";
 
-    public BraveBookmarkUtilsClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielBookmarkUtilsClassAdapter(ClassVisitor visitor) {
         super(visitor);
         makePublicMethod(sBookmarkUtilsClassName, "showBookmarkBottomSheet");
         changeMethodOwner(
-                sBraveBookmarkUtilsClassName, "showBookmarkBottomSheet", sBookmarkUtilsClassName);
+                sadrbrowsielBookmarkUtilsClassName, "showBookmarkBottomSheet", sBookmarkUtilsClassName);
         makePublicMethod(sBookmarkUtilsClassName, "addBookmarkAndShowSnackbar");
-        changeMethodOwner(sBraveBookmarkUtilsClassName, "addBookmarkAndShowSnackbar",
+        changeMethodOwner(sadrbrowsielBookmarkUtilsClassName, "addBookmarkAndShowSnackbar",
                 sBookmarkUtilsClassName);
         changeMethodOwner(
-                sBookmarkUtilsClassName, "addOrEditBookmark", sBraveBookmarkUtilsClassName);
+                sBookmarkUtilsClassName, "addOrEditBookmark", sadrbrowsielBookmarkUtilsClassName);
     }
 }

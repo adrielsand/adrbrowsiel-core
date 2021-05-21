@@ -1,25 +1,25 @@
-import("//brave/components/sidebar/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/sidebar/buildflags/buildflags.gni")
 import("//build/config/features.gni")
 import("//build/config/locales.gni")
 import("//tools/grit/grit_rule.gni")
 
 source_set("command_ids") {
-  sources = [ "brave_command_ids.h" ]
+  sources = [ "adrbrowsiel_command_ids.h" ]
 }
 
-grit("brave_generated_resources_grit") {
+grit("adrbrowsiel_generated_resources_grit") {
   defines = [ "enable_sidebar=$enable_sidebar" ]
-  source = "brave_generated_resources.grd"
-  output_dir = "$root_gen_dir/brave"
+  source = "adrbrowsiel_generated_resources.grd"
+  output_dir = "$root_gen_dir/adrbrowsiel"
   outputs = [
-    "grit/brave_generated_resources.h",
+    "grit/adrbrowsiel_generated_resources.h",
 
     # This is needed for the includes and not the localized messages
-    "brave_generated_resources.pak",
+    "adrbrowsiel_generated_resources.pak",
   ]
 
   foreach(locale, locales_with_pseudolocales) {
-    outputs += [ "brave_generated_resources_$locale.pak" ]
+    outputs += [ "adrbrowsiel_generated_resources_$locale.pak" ]
   }
 
   grit_flags = [
@@ -27,7 +27,7 @@ grit("brave_generated_resources_grit") {
     "root_gen_dir=" + rebase_path(root_gen_dir, root_build_dir),
   ]
 
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 }
 
 group("app") {

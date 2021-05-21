@@ -7,7 +7,7 @@
     "namespace": "ftx",
     "description": "Use the <code>chrome.ftx</code> to interact with FTX services.",
     "compiler_options": {
-      "implemented_in": "brave/browser/extensions/api/ftx_api.h"
+      "implemented_in": "adrbrowsiel/browser/extensions/api/ftx_api.h"
     },
     "events": [
     ],

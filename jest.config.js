@@ -44,7 +44,7 @@ module.exports = {
     "lib/test.js"
   ],
   transformIgnorePatterns: [
-    "<rootDir>/node_modules/(?!(brave-ui)/)"
+    "<rootDir>/node_modules/(?!(adrbrowsiel-ui)/)"
   ],
   setupFilesAfterEnv: [
     "<rootDir>/components/test/testSetup.ts"
@@ -55,7 +55,7 @@ module.exports = {
   moduleNameMapper: {
     "\\.(jpg|jpeg|png|gif|eot|otf|svg|ttf|woff|woff2)$": "<rootDir>/components/test/fileMock.ts",
     "\\.(css|less)$": "identity-obj-proxy",
-    "^brave-ui$": "<rootDir>/node_modules/brave-ui/src",
-    "^brave-ui\\/(.*)": "<rootDir>/node_modules/brave-ui/src/$1"
+    "^adrbrowsiel-ui$": "<rootDir>/node_modules/adrbrowsiel-ui/src",
+    "^adrbrowsiel-ui\\/(.*)": "<rootDir>/node_modules/adrbrowsiel-ui/src/$1"
   }
 }

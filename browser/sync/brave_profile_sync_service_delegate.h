@@ -1,12 +1,12 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_SYNC_BRAVE_PROFILE_SYNC_SERVICE_DELEGATE_H_
-#define BRAVE_BROWSER_SYNC_BRAVE_PROFILE_SYNC_SERVICE_DELEGATE_H_
+#ifndef adrbrowsiel_BROWSER_SYNC_adrbrowsiel_PROFILE_SYNC_SERVICE_DELEGATE_H_
+#define adrbrowsiel_BROWSER_SYNC_adrbrowsiel_PROFILE_SYNC_SERVICE_DELEGATE_H_
 
-#include "brave/components/sync/driver/profile_sync_service_delegate.h"
+#include "adrbrowsiel/components/sync/driver/profile_sync_service_delegate.h"
 
 #include "base/memory/weak_ptr.h"
 #include "base/scoped_observer.h"
@@ -21,15 +21,15 @@ class DeviceInfoSyncService;
 class DeviceInfoTracker;
 class LocalDeviceInfoProvider;
 
-// Helper class to prevent pass of profile pointer into BraveProfileSyncService
+// Helper class to prevent pass of profile pointer into adrbrowsielProfileSyncService
 // and to keep DeviceInfoSyncService
-class BraveProfileSyncServiceDelegate
+class adrbrowsielProfileSyncServiceDelegate
     : public ProfileSyncServiceDelegate,
       public syncer::DeviceInfoTracker::Observer {
  public:
-  explicit BraveProfileSyncServiceDelegate(
+  explicit adrbrowsielProfileSyncServiceDelegate(
       DeviceInfoSyncService* device_info_sync_service);
-  ~BraveProfileSyncServiceDelegate() override;
+  ~adrbrowsielProfileSyncServiceDelegate() override;
 
   void SuspendDeviceObserverForOwnReset() override;
   void ResumeDeviceObserver() override;
@@ -47,14 +47,14 @@ class BraveProfileSyncServiceDelegate
 
   DeviceInfoSyncService* device_info_sync_service_;
 
-  base::WeakPtrFactory<BraveProfileSyncServiceDelegate> weak_ptr_factory_;
+  base::WeakPtrFactory<adrbrowsielProfileSyncServiceDelegate> weak_ptr_factory_;
 
-  BraveProfileSyncServiceDelegate(const BraveProfileSyncServiceDelegate&) =
+  adrbrowsielProfileSyncServiceDelegate(const adrbrowsielProfileSyncServiceDelegate&) =
       delete;
-  BraveProfileSyncServiceDelegate& operator=(
-      const BraveProfileSyncServiceDelegate&) = delete;
+  adrbrowsielProfileSyncServiceDelegate& operator=(
+      const adrbrowsielProfileSyncServiceDelegate&) = delete;
 };
 
 }  // namespace syncer
 
-#endif  // BRAVE_BROWSER_SYNC_BRAVE_PROFILE_SYNC_SERVICE_DELEGATE_H_
+#endif  // adrbrowsiel_BROWSER_SYNC_adrbrowsiel_PROFILE_SYNC_SERVICE_DELEGATE_H_

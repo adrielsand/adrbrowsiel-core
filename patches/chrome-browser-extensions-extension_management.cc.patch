@@ -6,7 +6,7 @@ index 59eb315e63d4d342c68c6fcad1b72404690f2681..f8c3b9d44edf8ad91e86a8faec0a89e2
      content::BrowserContext* context) const {
    TRACE_EVENT0("browser,startup",
                 "ExtensionManagementFactory::BuildServiceInstanceFor");
-+  BRAVE_EXTENSION_MANAGEMENT_FACTORY_BUILD_SERVICE_INSTANCE_FOR
++  adrbrowsiel_EXTENSION_MANAGEMENT_FACTORY_BUILD_SERVICE_INSTANCE_FOR
    return new ExtensionManagement(Profile::FromBrowserContext(context));
  }
  

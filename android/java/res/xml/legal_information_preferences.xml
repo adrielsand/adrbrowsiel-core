@@ -13,13 +13,13 @@
     <org.chromium.chrome.browser.about_settings.HyperlinkPreference
         android:key="terms_of_service"
         android:title="@string/google_terms_of_service_title"
-        app:url="@string/brave_terms_of_service_url" />
+        app:url="@string/adrbrowsiel_terms_of_service_url" />
     <org.chromium.chrome.browser.about_settings.HyperlinkPreference
         android:key="privacy_notice"
         android:title="@string/privacy_notice_title"
-        app:url="@string/brave_privacy_notice_url" />
+        app:url="@string/adrbrowsiel_privacy_notice_url" />
     <Preference
-        android:fragment="org.chromium.chrome.browser.settings.BraveLicensePreferences"
-        android:key="brave_license"
-        android:title="@string/brave_license_text" />
+        android:fragment="org.chromium.chrome.browser.settings.adrbrowsielLicensePreferences"
+        android:key="adrbrowsiel_license"
+        android:title="@string/adrbrowsiel_license_text" />
 </PreferenceScreen>

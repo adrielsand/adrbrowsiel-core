@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/startup/default_brave_browser_prompt.h"
+#include "adrbrowsiel/browser/ui/startup/default_adrbrowsiel_browser_prompt.h"
 
 #include <string>
 
 #include "base/bind.h"
 #include "base/logging.h"
 #include "base/version.h"
-#include "brave/browser/ui/browser_dialogs.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/browser/ui/browser_dialogs.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/first_run/first_run.h"
 #include "chrome/browser/profiles/profile.h"
@@ -74,7 +74,7 @@ void ShowPrompt() {
       continue;
 
     // Launch dialog.
-    brave::ShowDefaultBrowserDialog(browser);
+    adrbrowsiel::ShowDefaultBrowserDialog(browser);
     break;
   }
 }
@@ -83,7 +83,7 @@ void ResetCheckDefaultBrowserPref(const base::FilePath& profile_path) {
   Profile* profile =
       g_browser_process->profile_manager()->GetProfileByPath(profile_path);
   if (profile)
-    ResetDefaultBraveBrowserPrompt(profile);
+    ResetDefaultadrbrowsielBrowserPrompt(profile);
 }
 
 void OnCheckIsDefaultBrowserFinished(
@@ -132,7 +132,7 @@ bool ShouldShowDefaultBrowserPrompt(Profile* profile) {
 
 }  // namespace
 
-void ShowDefaultBraveBrowserPrompt(Profile* profile) {
+void ShowDefaultadrbrowsielBrowserPrompt(Profile* profile) {
 #if !defined(OFFICIAL_BUILD)
   // Disable in developer build. Showing with infobar didn't bother much but
   // modal dialog could distract developers.
@@ -155,7 +155,7 @@ void ShowDefaultBraveBrowserPrompt(Profile* profile) {
   // Reset preferences if kResetCheckDefaultBrowser is true.
   if (prefs->GetBoolean(prefs::kResetCheckDefaultBrowser)) {
     prefs->SetBoolean(prefs::kResetCheckDefaultBrowser, false);
-    ResetDefaultBraveBrowserPrompt(profile);
+    ResetDefaultadrbrowsielBrowserPrompt(profile);
   }
 
   IncreaseBrowserLaunchCount(profile);
@@ -167,11 +167,11 @@ void ShowDefaultBraveBrowserPrompt(Profile* profile) {
                          ShouldShowDefaultBrowserPrompt(profile)));
 }
 
-void ResetDefaultBraveBrowserPrompt(Profile* profile) {
+void ResetDefaultadrbrowsielBrowserPrompt(Profile* profile) {
   // Don't reset, but keep this function for now as more work is
-  // planned in https://github.com/brave/brave-browser/issues/14469
+  // planned in https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/14469
 }
 
-void RegisterDefaultBraveBrowserPromptPrefs(PrefRegistrySimple* registry) {
+void RegisterDefaultadrbrowsielBrowserPromptPrefs(PrefRegistrySimple* registry) {
   registry->RegisterIntegerPref(kDefaultBrowserLaunchingCount, 0);
 }

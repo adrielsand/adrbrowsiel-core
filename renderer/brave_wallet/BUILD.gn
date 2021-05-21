@@ -1,23 +1,23 @@
 import("//build/config/features.gni")
 
-source_set("brave_wallet") {
+source_set("adrbrowsiel_wallet") {
   visibility = [
-    "//brave:child_dependencies",
-    "//brave/renderer/*",
+    "//adrbrowsiel:child_dependencies",
+    "//adrbrowsiel/renderer/*",
     "//chrome/renderer/*",
   ]
 
   sources = [
-    "brave_wallet_render_frame_observer.cc",
-    "brave_wallet_render_frame_observer.h",
+    "adrbrowsiel_wallet_render_frame_observer.cc",
+    "adrbrowsiel_wallet_render_frame_observer.h",
   ]
 
   deps = [
     "//base",
-    "//brave/common:common",
-    "//brave/common:mojo_bindings",
-    "//brave/components/brave_wallet/common:mojom",
-    "//brave/components/brave_wallet/renderer",
+    "//adrbrowsiel/common:common",
+    "//adrbrowsiel/common:mojo_bindings",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/common:mojom",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/renderer",
     "//content/public/renderer",
     "//mojo/public/cpp/bindings",
     "//third_party/blink/public:blink",

@@ -62,7 +62,7 @@ index b5755a2ce97534dbcd7d1ad8bd977bb12679f683..caf7e30d8960ff31c69fe66938f6b68f
        exit 1
        ;;
    esac
-+  RELEASENOTES="https://brave.com/latest/"
++  RELEASENOTES="https://adrbrowsiel.com/latest/"
  }
  
  process_opts() {
@@ -88,9 +88,9 @@ index b5755a2ce97534dbcd7d1ad8bd977bb12679f683..caf7e30d8960ff31c69fe66938f6b68f
  MANUAL_RECOMMENDS="${SCRIPTDIR}/manual_recommends"
  COMMON_RECOMMENDS=$(grep -v ^$ "${MANUAL_RECOMMENDS}" | grep -v ^# |
                          sed ':a;N;$!ba;s/\n/, /g')
-+# Ensure that our signing key is up-to-date (brave/brave-browser#4205).
++# Ensure that our signing key is up-to-date (adrbrowsiel/adrbrowsiel-browser#4205).
 +if [ "$CHANNEL" = "stable" ]; then
-+  COMMON_DEPS="${COMMON_DEPS}, brave-keyring"
++  COMMON_DEPS="${COMMON_DEPS}, adrbrowsiel-keyring"
 +fi
  
  # Make everything happen in the OUTPUTDIR.

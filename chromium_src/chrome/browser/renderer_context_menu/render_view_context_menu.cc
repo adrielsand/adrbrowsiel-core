@@ -1,17 +1,17 @@
-// Copyright 2018 The Brave Authors. All rights reserved.
+// Copyright 2018 The adrbrowsiel Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
 #include "chrome/browser/renderer_context_menu/render_view_context_menu.h"
 
-#include "brave/browser/autocomplete/brave_autocomplete_scheme_classifier.h"
-#include "brave/browser/ipfs/import/ipfs_import_controller.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/renderer_context_menu/brave_spelling_options_submenu_observer.h"
-#include "brave/browser/translate/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/tor/buildflags/buildflags.h"
-#include "brave/grit/brave_theme_resources.h"
+#include "adrbrowsiel/browser/autocomplete/adrbrowsiel_autocomplete_scheme_classifier.h"
+#include "adrbrowsiel/browser/ipfs/import/ipfs_import_controller.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/renderer_context_menu/adrbrowsiel_spelling_options_submenu_observer.h"
+#include "adrbrowsiel/browser/translate/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/grit/adrbrowsiel_theme_resources.h"
 #include "chrome/browser/autocomplete/chrome_autocomplete_provider_client.h"
 #include "components/omnibox/browser/autocomplete_classifier.h"
 #include "components/omnibox/browser/autocomplete_controller.h"
@@ -21,16 +21,16 @@
 #include "ui/gfx/paint_vector_icon.h"
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/browser/tor/tor_profile_manager.h"
-#include "brave/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/browser/tor/tor_profile_manager.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/browser/ipfs/ipfs_tab_helper.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_tab_helper.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
 #endif
 // Our .h file creates a masquerade for RenderViewContextMenu.  Switch
 // back to the Chromium one for the Chromium implementation.
@@ -45,17 +45,17 @@ GURL GetSelectionNavigationURL(Profile* profile, const std::u16string& text) {
       std::make_unique<AutocompleteController>(
           std::make_unique<ChromeAutocompleteProviderClient>(profile),
           AutocompleteClassifier::DefaultOmniboxProviders()),
-      std::make_unique<BraveAutocompleteSchemeClassifier>(profile));
+      std::make_unique<adrbrowsielAutocompleteSchemeClassifier>(profile));
   classifier.Classify(text, false, false,
                       metrics::OmniboxEventProto::INVALID_SPEC, &match, NULL);
   classifier.Shutdown();
   return match.destination_url;
 }
 
-base::OnceCallback<void(BraveRenderViewContextMenu*)>*
-BraveGetMenuShownCallback() {
+base::OnceCallback<void(adrbrowsielRenderViewContextMenu*)>*
+adrbrowsielGetMenuShownCallback() {
   static base::NoDestructor<
-      base::OnceCallback<void(BraveRenderViewContextMenu*)>>
+      base::OnceCallback<void(adrbrowsielRenderViewContextMenu*)>>
       callback;
   return callback.get();
 }
@@ -63,11 +63,11 @@ BraveGetMenuShownCallback() {
 }  // namespace
 
 void RenderViewContextMenu::RegisterMenuShownCallbackForTesting(
-    base::OnceCallback<void(BraveRenderViewContextMenu*)> cb) {
-  *BraveGetMenuShownCallback() = std::move(cb);
+    base::OnceCallback<void(adrbrowsielRenderViewContextMenu*)> cb) {
+  *adrbrowsielGetMenuShownCallback() = std::move(cb);
 }
 
-#define BRAVE_APPEND_SEARCH_PROVIDER \
+#define adrbrowsiel_APPEND_SEARCH_PROVIDER \
   if (GetProfile()->IsOffTheRecord()) { \
     selection_navigation_url_ = \
         GetSelectionNavigationURL(GetProfile(), params_.selection_text); \
@@ -76,7 +76,7 @@ void RenderViewContextMenu::RegisterMenuShownCallbackForTesting(
   }
 
 // Use our subclass to initialize SpellingOptionsSubMenuObserver.
-#define SpellingOptionsSubMenuObserver BraveSpellingOptionsSubMenuObserver
+#define SpellingOptionsSubMenuObserver adrbrowsielSpellingOptionsSubMenuObserver
 #define RegisterMenuShownCallbackForTesting \
   RegisterMenuShownCallbackForTesting_unused
 
@@ -87,9 +87,9 @@ void RenderViewContextMenu::RegisterMenuShownCallbackForTesting(
 
 // Make it clear which class we mean here.
 #undef RenderViewContextMenu
-#undef BRAVE_APPEND_SEARCH_PROVIDER
+#undef adrbrowsiel_APPEND_SEARCH_PROVIDER
 
-BraveRenderViewContextMenu::BraveRenderViewContextMenu(
+adrbrowsielRenderViewContextMenu::adrbrowsielRenderViewContextMenu(
     content::RenderFrameHost* render_frame_host,
     const content::ContextMenuParams& params)
     : RenderViewContextMenu_Chromium(render_frame_host, params)
@@ -100,7 +100,7 @@ BraveRenderViewContextMenu::BraveRenderViewContextMenu(
 {
 }
 
-bool BraveRenderViewContextMenu::IsCommandIdEnabled(int id) const {
+bool adrbrowsielRenderViewContextMenu::IsCommandIdEnabled(int id) const {
   switch (id) {
 #if BUILDFLAG(IPFS_ENABLED)
     case IDC_CONTENT_CONTEXT_IMPORT_IPFS:
@@ -114,7 +114,7 @@ bool BraveRenderViewContextMenu::IsCommandIdEnabled(int id) const {
 #endif
     case IDC_CONTENT_CONTEXT_OPENLINKTOR:
 #if BUILDFLAG(ENABLE_TOR)
-      if (brave::IsTorDisabledForProfile(GetProfile()))
+      if (adrbrowsiel::IsTorDisabledForProfile(GetProfile()))
         return false;
 
       return params_.link_url.is_valid() &&
@@ -128,7 +128,7 @@ bool BraveRenderViewContextMenu::IsCommandIdEnabled(int id) const {
   }
 }
 #if BUILDFLAG(IPFS_ENABLED)
-void BraveRenderViewContextMenu::ExecuteIPFSCommand(int id, int event_flags) {
+void adrbrowsielRenderViewContextMenu::ExecuteIPFSCommand(int id, int event_flags) {
   ipfs::IPFSTabHelper* helper =
       ipfs::IPFSTabHelper::FromWebContents(source_web_contents_);
   if (!helper)
@@ -155,7 +155,7 @@ void BraveRenderViewContextMenu::ExecuteIPFSCommand(int id, int event_flags) {
 }
 #endif
 
-void BraveRenderViewContextMenu::ExecuteCommand(int id, int event_flags) {
+void adrbrowsielRenderViewContextMenu::ExecuteCommand(int id, int event_flags) {
   switch (id) {
 #if BUILDFLAG(IPFS_ENABLED)
     case IDC_CONTENT_CONTEXT_IMPORT_IPFS_PAGE:
@@ -180,24 +180,24 @@ void BraveRenderViewContextMenu::ExecuteCommand(int id, int event_flags) {
   }
 }
 
-void BraveRenderViewContextMenu::AddSpellCheckServiceItem(bool is_checked) {
+void adrbrowsielRenderViewContextMenu::AddSpellCheckServiceItem(bool is_checked) {
   // Call our implementation, not the one in the base class.
   // Assumption:
-  // Use of spelling service is disabled in Brave profile preferences.
+  // Use of spelling service is disabled in adrbrowsiel profile preferences.
   DCHECK(!GetProfile()->GetPrefs()->GetBoolean(
       spellcheck::prefs::kSpellCheckUseSpellingService));
   AddSpellCheckServiceItem(&menu_model_, is_checked);
 }
 
 // static
-void BraveRenderViewContextMenu::AddSpellCheckServiceItem(
+void adrbrowsielRenderViewContextMenu::AddSpellCheckServiceItem(
     ui::SimpleMenuModel* menu,
     bool is_checked) {
-  // Suppress adding "Spellcheck->Ask Brave for suggestions" item.
+  // Suppress adding "Spellcheck->Ask adrbrowsiel for suggestions" item.
 }
 
 #if BUILDFLAG(IPFS_ENABLED)
-bool BraveRenderViewContextMenu::IsIPFSCommandIdEnabled(int command) const {
+bool adrbrowsielRenderViewContextMenu::IsIPFSCommandIdEnabled(int command) const {
   if (!ipfs::IsIpfsMenuEnabled(browser_context_))
     return false;
   switch (command) {
@@ -225,14 +225,14 @@ bool BraveRenderViewContextMenu::IsIPFSCommandIdEnabled(int command) const {
   return false;
 }
 
-void BraveRenderViewContextMenu::SeIpfsIconAt(int index) {
+void adrbrowsielRenderViewContextMenu::SeIpfsIconAt(int index) {
   auto& bundle = ui::ResourceBundle::GetSharedInstance();
-  const auto& ipfs_logo = *bundle.GetImageSkiaNamed(IDR_BRAVE_IPFS_LOGO);
+  const auto& ipfs_logo = *bundle.GetImageSkiaNamed(IDR_adrbrowsiel_IPFS_LOGO);
   ui::ImageModel model = ui::ImageModel::FromImageSkia(ipfs_logo);
   menu_model_.SetIcon(index, model);
 }
 
-void BraveRenderViewContextMenu::BuildIPFSMenu() {
+void adrbrowsielRenderViewContextMenu::BuildIPFSMenu() {
   if (!ipfs::IsIpfsMenuEnabled(browser_context_))
     return;
   int index =
@@ -288,10 +288,10 @@ void BraveRenderViewContextMenu::BuildIPFSMenu() {
 }
 #endif
 
-void BraveRenderViewContextMenu::InitMenu() {
+void adrbrowsielRenderViewContextMenu::InitMenu() {
   RenderViewContextMenu_Chromium::InitMenu();
 
-#if BUILDFLAG(ENABLE_TOR) || !BUILDFLAG(ENABLE_BRAVE_TRANSLATE_GO)
+#if BUILDFLAG(ENABLE_TOR) || !BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_GO)
   int index = -1;
 #endif
 #if BUILDFLAG(ENABLE_TOR)
@@ -318,7 +318,7 @@ void BraveRenderViewContextMenu::InitMenu() {
 #endif
 
   // Only show the translate item when go-translate is enabled.
-#if !BUILDFLAG(ENABLE_BRAVE_TRANSLATE_GO)
+#if !BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_GO)
   index = menu_model_.GetIndexOfCommandId(IDC_CONTENT_CONTEXT_TRANSLATE);
   if (index != -1)
     menu_model_.RemoveItemAt(index);

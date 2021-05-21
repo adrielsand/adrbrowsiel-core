@@ -34,11 +34,11 @@
 </style>
 <div class="sync-setup">
   <div class="graphic">
-    <img alt="" src="chrome://settings/brave_sync_page/start_icon.svg" />
+    <img alt="" src="chrome://settings/adrbrowsiel_sync_page/start_icon.svg" />
   </div>
   <div class="content">
-    <h1>$i18n{braveSyncSetupTitle}</h1>
-    <p>$i18n{braveSyncSetupSubtitle}</p>
+    <h1>$i18n{adrbrowsielSyncSetupTitle}</h1>
+    <p>$i18n{adrbrowsielSyncSetupSubtitle}</p>
     <div class="actions">
       <cr-button class="action-button"
         on-click="handleStartSyncChain_"
@@ -46,23 +46,23 @@
       >
         <paper-spinner-lite hidden="[[!isGettingSyncCode_]]">
         </paper-spinner-lite>
-        <span hidden="[[isGettingSyncCode_]]">$i18n{braveSyncStartNewChain}</span>
+        <span hidden="[[isGettingSyncCode_]]">$i18n{adrbrowsielSyncStartNewChain}</span>
       </cr-button>
       <cr-button
         on-click="handleJoinSyncChain_"
         disabled="[[isGettingSyncCode_]]"
       >
-        $i18n{braveSyncEnterCode}
+        $i18n{adrbrowsielSyncEnterCode}
       </cr-button>
     </div>
   </div>
 </div>
 
 <template is="dom-if" if="[[syncCodeDialogType_]]" restamp>
-  <settings-brave-sync-code-dialog
+  <settings-adrbrowsiel-sync-code-dialog
     code-type="{{syncCodeDialogType_}}"
     sync-code="{{syncCode}}"
     is-invalid-sync-code="{{isInvalidSyncCode_}}"
     on-done="handleSyncCodeDialogDone_"
-  ></settings-brave-sync-code-dialog>
+  ></settings-adrbrowsiel-sync-code-dialog>
 </template>

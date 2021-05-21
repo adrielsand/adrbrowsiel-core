@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_proxying_web_socket.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_proxying_web_socket.h"
 
 #include <utility>
 
@@ -12,8 +12,8 @@
 #include "base/strings/string_util.h"
 #include "base/strings/stringprintf.h"
 #include "base/task/post_task.h"
-#include "brave/browser/net/brave_request_handler.h"
-#include "brave/common/network_constants.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_request_handler.h"
+#include "adrbrowsiel/common/network_constants.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/browser_task_traits.h"
 #include "content/public/browser/browser_thread.h"
@@ -21,7 +21,7 @@
 #include "content/public/browser/render_process_host.h"
 #include "net/cookies/site_for_cookies.h"
 
-BraveProxyingWebSocket::BraveProxyingWebSocket(
+adrbrowsielProxyingWebSocket::adrbrowsielProxyingWebSocket(
     WebSocketFactory factory,
     const network::ResourceRequest& request,
     mojo::PendingRemote<network::mojom::WebSocketHandshakeClient>
@@ -30,7 +30,7 @@ BraveProxyingWebSocket::BraveProxyingWebSocket(
     int frame_tree_node_id,
     content::BrowserContext* browser_context,
     scoped_refptr<RequestIDGenerator> request_id_generator,
-    BraveRequestHandler* handler,
+    adrbrowsielRequestHandler* handler,
     DisconnectCallback on_disconnect)
     : request_handler_(handler),
       process_id_(process_id),
@@ -45,7 +45,7 @@ BraveProxyingWebSocket::BraveProxyingWebSocket(
       request_(request),
       on_disconnect_(std::move(on_disconnect)) {}
 
-BraveProxyingWebSocket::~BraveProxyingWebSocket() {
+adrbrowsielProxyingWebSocket::~adrbrowsielProxyingWebSocket() {
   if (ctx_) {
     request_handler_->OnURLRequestDestroyed(ctx_);
   }
@@ -60,7 +60,7 @@ BraveProxyingWebSocket::~BraveProxyingWebSocket() {
 }
 
 // static
-BraveProxyingWebSocket* BraveProxyingWebSocket::ProxyWebSocket(
+adrbrowsielProxyingWebSocket* adrbrowsielProxyingWebSocket::ProxyWebSocket(
     content::RenderFrameHost* frame,
     content::ContentBrowserClient::WebSocketFactory factory,
     const GURL& url,
@@ -77,7 +77,7 @@ BraveProxyingWebSocket* BraveProxyingWebSocket::ProxyWebSocket(
       frame->GetFrameTreeNodeId(), frame->GetLastCommittedOrigin());
 }
 
-void BraveProxyingWebSocket::Start() {
+void adrbrowsielProxyingWebSocket::Start() {
   request_id_ = request_id_generator_->Generate();
   // If the header client will be used, we start the request immediately, and
   // OnBeforeSendHeaders and OnSendHeaders will be handled there. Otherwise,
@@ -85,15 +85,15 @@ void BraveProxyingWebSocket::Start() {
   base::RepeatingCallback<void(int)> continuation;
   if (proxy_has_extra_headers()) {
     continuation = base::BindRepeating(
-        &BraveProxyingWebSocket::ContinueToStartRequest,
+        &adrbrowsielProxyingWebSocket::ContinueToStartRequest,
         weak_factory_.GetWeakPtr());
   } else {
     continuation = base::BindRepeating(
-        &BraveProxyingWebSocket::OnBeforeRequestComplete,
+        &adrbrowsielProxyingWebSocket::OnBeforeRequestComplete,
         weak_factory_.GetWeakPtr());
   }
 
-  ctx_ = brave::BraveRequestInfo::MakeCTX(request_, process_id_,
+  ctx_ = adrbrowsiel::adrbrowsielRequestInfo::MakeCTX(request_, process_id_,
                                           frame_tree_node_id_, request_id_,
                                           browser_context_, ctx_);
   int result = request_handler_->OnBeforeURLRequest(
@@ -116,21 +116,21 @@ void BraveProxyingWebSocket::Start() {
 }
 
 content::ContentBrowserClient::WebSocketFactory
-BraveProxyingWebSocket::web_socket_factory() {
-  return base::BindOnce(&BraveProxyingWebSocket::WebSocketFactoryRun,
+adrbrowsielProxyingWebSocket::web_socket_factory() {
+  return base::BindOnce(&adrbrowsielProxyingWebSocket::WebSocketFactoryRun,
                         base::Unretained(this));
 }
 
 mojo::Remote<network::mojom::WebSocketHandshakeClient>
-BraveProxyingWebSocket::handshake_client() {
+adrbrowsielProxyingWebSocket::handshake_client() {
   return std::move(forwarding_handshake_client_);
 }
 
-bool BraveProxyingWebSocket::proxy_has_extra_headers() {
+bool adrbrowsielProxyingWebSocket::proxy_has_extra_headers() {
   return proxy_trusted_header_client_.is_bound();
 }
 
-void BraveProxyingWebSocket::WebSocketFactoryRun(
+void adrbrowsielProxyingWebSocket::WebSocketFactoryRun(
     const GURL& url,
     std::vector<network::mojom::HttpHeaderPtr> additional_headers,
     mojo::PendingRemote<network::mojom::WebSocketHandshakeClient>
@@ -156,17 +156,17 @@ void BraveProxyingWebSocket::WebSocketFactoryRun(
   Start();
 }
 
-void BraveProxyingWebSocket::OnOpeningHandshakeStarted(
+void adrbrowsielProxyingWebSocket::OnOpeningHandshakeStarted(
     network::mojom::WebSocketHandshakeRequestPtr request) {
   DCHECK(forwarding_handshake_client_);
   forwarding_handshake_client_->OnOpeningHandshakeStarted(std::move(request));
 }
 
-void BraveProxyingWebSocket::ContinueToHeadersReceived() {
+void adrbrowsielProxyingWebSocket::ContinueToHeadersReceived() {
   auto continuation = base::BindRepeating(
-      &BraveProxyingWebSocket::OnHeadersReceivedComplete,
+      &adrbrowsielProxyingWebSocket::OnHeadersReceivedComplete,
       weak_factory_.GetWeakPtr());
-  ctx_ = brave::BraveRequestInfo::MakeCTX(request_, process_id_,
+  ctx_ = adrbrowsiel::adrbrowsielRequestInfo::MakeCTX(request_, process_id_,
                                           frame_tree_node_id_, request_id_,
                                           browser_context_, ctx_);
   int result = request_handler_->OnHeadersReceived(
@@ -188,11 +188,11 @@ void BraveProxyingWebSocket::ContinueToHeadersReceived() {
   OnHeadersReceivedComplete(net::OK);
 }
 
-void BraveProxyingWebSocket::OnFailure(const std::string& message,
+void adrbrowsielProxyingWebSocket::OnFailure(const std::string& message,
                                        int32_t net_error,
                                        int32_t response_code) {}
 
-void BraveProxyingWebSocket::OnConnectionEstablished(
+void adrbrowsielProxyingWebSocket::OnConnectionEstablished(
     mojo::PendingRemote<network::mojom::WebSocket> websocket,
     mojo::PendingReceiver<network::mojom::WebSocketClient> client_receiver,
     network::mojom::WebSocketHandshakeResponsePtr response,
@@ -208,7 +208,7 @@ void BraveProxyingWebSocket::OnConnectionEstablished(
   OnError(net::ERR_FAILED);
 }
 
-void BraveProxyingWebSocket::OnAuthRequired(
+void adrbrowsielProxyingWebSocket::OnAuthRequired(
     const net::AuthChallengeInfo& auth_info,
     const scoped_refptr<net::HttpResponseHeaders>& headers,
     const net::IPEndPoint& remote_endpoint,
@@ -217,7 +217,7 @@ void BraveProxyingWebSocket::OnAuthRequired(
       auth_info, headers, remote_endpoint, std::move(callback));
 }
 
-void BraveProxyingWebSocket::OnBeforeSendHeaders(
+void adrbrowsielProxyingWebSocket::OnBeforeSendHeaders(
     const net::HttpRequestHeaders& headers,
     OnBeforeSendHeadersCallback callback) {
   DCHECK(proxy_has_extra_headers());
@@ -227,7 +227,7 @@ void BraveProxyingWebSocket::OnBeforeSendHeaders(
   OnBeforeRequestComplete(net::OK);
 }
 
-void BraveProxyingWebSocket::OnHeadersReceived(
+void adrbrowsielProxyingWebSocket::OnHeadersReceived(
     const std::string& headers,
     const ::net::IPEndPoint& remote_endpoint,
     OnHeadersReceivedCallback callback) {
@@ -239,7 +239,7 @@ void BraveProxyingWebSocket::OnHeadersReceived(
   ContinueToHeadersReceived();
 }
 
-void BraveProxyingWebSocket::OnBeforeRequestComplete(int error_code) {
+void adrbrowsielProxyingWebSocket::OnBeforeRequestComplete(int error_code) {
   DCHECK(proxy_has_extra_headers() ||
          !receiver_as_handshake_client_.is_bound());
   DCHECK(request_.url.SchemeIsWSOrWSS());
@@ -252,7 +252,7 @@ void BraveProxyingWebSocket::OnBeforeRequestComplete(int error_code) {
     proxy_trusted_header_client_->OnBeforeSendHeaders(
         request_.headers,
         base::BindOnce(
-            &BraveProxyingWebSocket::OnBeforeSendHeadersCompleteFromProxy,
+            &adrbrowsielProxyingWebSocket::OnBeforeSendHeadersCompleteFromProxy,
             weak_factory_.GetWeakPtr()));
   } else {
     OnBeforeSendHeadersCompleteFromProxy(
@@ -260,7 +260,7 @@ void BraveProxyingWebSocket::OnBeforeRequestComplete(int error_code) {
   }
 }
 
-void BraveProxyingWebSocket::OnBeforeSendHeadersCompleteFromProxy(
+void adrbrowsielProxyingWebSocket::OnBeforeSendHeadersCompleteFromProxy(
     int error_code,
     const base::Optional<net::HttpRequestHeaders>& headers) {
   DCHECK(proxy_has_extra_headers() ||
@@ -277,10 +277,10 @@ void BraveProxyingWebSocket::OnBeforeSendHeadersCompleteFromProxy(
     request_.headers.Clear();
 
   auto continuation = base::BindRepeating(
-      &BraveProxyingWebSocket::OnBeforeSendHeadersComplete,
+      &adrbrowsielProxyingWebSocket::OnBeforeSendHeadersComplete,
       weak_factory_.GetWeakPtr());
 
-  ctx_ = brave::BraveRequestInfo::MakeCTX(request_, process_id_,
+  ctx_ = adrbrowsiel::adrbrowsielRequestInfo::MakeCTX(request_, process_id_,
                                           frame_tree_node_id_, request_id_,
                                           browser_context_, ctx_);
   int result = request_handler_->OnBeforeStartTransaction(
@@ -298,7 +298,7 @@ void BraveProxyingWebSocket::OnBeforeSendHeadersCompleteFromProxy(
   continuation.Run(net::OK);
 }
 
-void BraveProxyingWebSocket::OnBeforeSendHeadersComplete(int error_code) {
+void adrbrowsielProxyingWebSocket::OnBeforeSendHeadersComplete(int error_code) {
   DCHECK(proxy_has_extra_headers() ||
          !receiver_as_handshake_client_.is_bound());
 
@@ -315,7 +315,7 @@ void BraveProxyingWebSocket::OnBeforeSendHeadersComplete(int error_code) {
     ContinueToStartRequest(error_code);
 }
 
-void BraveProxyingWebSocket::ContinueToStartRequest(int error_code) {
+void adrbrowsielProxyingWebSocket::ContinueToStartRequest(int error_code) {
   if (error_code != net::OK) {
     OnError(error_code);
     return;
@@ -346,11 +346,11 @@ void BraveProxyingWebSocket::ContinueToStartRequest(int error_code) {
   // See also CreateWebSocket in
   // //network/services/public/mojom/network_context.mojom.
   receiver_as_handshake_client_.set_disconnect_with_reason_handler(
-      base::BindOnce(&BraveProxyingWebSocket::OnMojoConnectionError,
+      base::BindOnce(&adrbrowsielProxyingWebSocket::OnMojoConnectionError,
                      base::Unretained(this)));
 }
 
-void BraveProxyingWebSocket::OnHeadersReceivedCompleteFromProxy(
+void adrbrowsielProxyingWebSocket::OnHeadersReceivedCompleteFromProxy(
     int error_code,
     const base::Optional<std::string>& headers,
     const base::Optional<GURL>& url) {
@@ -366,7 +366,7 @@ void BraveProxyingWebSocket::OnHeadersReceivedCompleteFromProxy(
   ResumeIncomingMethodCallProcessing();
 }
 
-void BraveProxyingWebSocket::OnHeadersReceivedComplete(int error_code) {
+void adrbrowsielProxyingWebSocket::OnHeadersReceivedComplete(int error_code) {
   if (error_code != net::OK) {
     OnError(error_code);
     return;
@@ -381,7 +381,7 @@ void BraveProxyingWebSocket::OnHeadersReceivedComplete(int error_code) {
         headers,
         remote_endpoint_,
         base::BindOnce(
-            &BraveProxyingWebSocket::OnHeadersReceivedCompleteFromProxy,
+            &adrbrowsielProxyingWebSocket::OnHeadersReceivedCompleteFromProxy,
             weak_factory_.GetWeakPtr()));
   } else {
     OnHeadersReceivedCompleteFromProxy(
@@ -389,19 +389,19 @@ void BraveProxyingWebSocket::OnHeadersReceivedComplete(int error_code) {
   }
 }
 
-void BraveProxyingWebSocket::PauseIncomingMethodCallProcessing() {
+void adrbrowsielProxyingWebSocket::PauseIncomingMethodCallProcessing() {
   receiver_as_handshake_client_.Pause();
   if (proxy_has_extra_headers())
     receiver_as_header_client_.Pause();
 }
 
-void BraveProxyingWebSocket::ResumeIncomingMethodCallProcessing() {
+void adrbrowsielProxyingWebSocket::ResumeIncomingMethodCallProcessing() {
   receiver_as_handshake_client_.Resume();
   if (proxy_has_extra_headers())
     receiver_as_header_client_.Resume();
 }
 
-void BraveProxyingWebSocket::OnError(int error_code) {
+void adrbrowsielProxyingWebSocket::OnError(int error_code) {
   if (!is_done_) {
     is_done_ = true;
   }
@@ -411,7 +411,7 @@ void BraveProxyingWebSocket::OnError(int error_code) {
 }
 
 // ResetWithReason
-void BraveProxyingWebSocket::OnMojoConnectionError(
+void adrbrowsielProxyingWebSocket::OnMojoConnectionError(
     uint32_t custom_reason,
     const std::string& description) {
   forwarding_handshake_client_.ResetWithReason(custom_reason, description);

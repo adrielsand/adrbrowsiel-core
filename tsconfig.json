@@ -22,8 +22,8 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "brave-ui": ["node_modules/brave-ui/src"],
-      "brave-ui/*": ["node_modules/brave-ui/src/*"]
+      "adrbrowsiel-ui": ["node_modules/adrbrowsiel-ui/src"],
+      "adrbrowsiel-ui/*": ["node_modules/adrbrowsiel-ui/src/*"]
     },
     "typeRoots": [
       "./node_modules/@types",

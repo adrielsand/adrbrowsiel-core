@@ -1,14 +1,14 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BROWSING_DATA_BRAVE_BROWSING_DATA_REMOVER_DELEGATE_H_
-#define BRAVE_BROWSER_BROWSING_DATA_BRAVE_BROWSING_DATA_REMOVER_DELEGATE_H_
+#ifndef adrbrowsiel_BROWSER_BROWSING_DATA_adrbrowsiel_BROWSING_DATA_REMOVER_DELEGATE_H_
+#define adrbrowsiel_BROWSER_BROWSING_DATA_adrbrowsiel_BROWSING_DATA_REMOVER_DELEGATE_H_
 
 #include "base/memory/weak_ptr.h"
 #include "base/time/time.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
 #include "chrome/browser/browsing_data/chrome_browsing_data_remover_delegate.h"
 
 namespace base {
@@ -16,25 +16,25 @@ class Process;
 }  // namespace base
 
 namespace content_settings {
-class BravePrefProvider;
+class adrbrowsielPrefProvider;
 }  // namespace content_settings
 
 class Profile;
 
-class BraveBrowsingDataRemoverDelegate
+class adrbrowsielBrowsingDataRemoverDelegate
     : public ChromeBrowsingDataRemoverDelegate {
  public:
-  explicit BraveBrowsingDataRemoverDelegate(
+  explicit adrbrowsielBrowsingDataRemoverDelegate(
       content::BrowserContext* browser_context);
-  ~BraveBrowsingDataRemoverDelegate() override;
+  ~adrbrowsielBrowsingDataRemoverDelegate() override;
 
-  BraveBrowsingDataRemoverDelegate(
-      const BraveBrowsingDataRemoverDelegate&) = delete;
-  BraveBrowsingDataRemoverDelegate operator=(
-      const BraveBrowsingDataRemoverDelegate&) = delete;
+  adrbrowsielBrowsingDataRemoverDelegate(
+      const adrbrowsielBrowsingDataRemoverDelegate&) = delete;
+  adrbrowsielBrowsingDataRemoverDelegate operator=(
+      const adrbrowsielBrowsingDataRemoverDelegate&) = delete;
 
  private:
-  FRIEND_TEST_ALL_PREFIXES(BraveBrowsingDataRemoverDelegateTest,
+  FRIEND_TEST_ALL_PREFIXES(adrbrowsielBrowsingDataRemoverDelegateTest,
                            ShieldsSettingsClearTest);
 
   // ChromeBrowsingDataRemoverDelegate overrides:
@@ -53,8 +53,8 @@ class BraveBrowsingDataRemoverDelegate
 #endif
 
   Profile* profile_;
-  base::WeakPtrFactory<BraveBrowsingDataRemoverDelegate> weak_ptr_factory_{
+  base::WeakPtrFactory<adrbrowsielBrowsingDataRemoverDelegate> weak_ptr_factory_{
       this};
 };
 
-#endif  // BRAVE_BROWSER_BROWSING_DATA_BRAVE_BROWSING_DATA_REMOVER_DELEGATE_H_
+#endif  // adrbrowsiel_BROWSER_BROWSING_DATA_adrbrowsiel_BROWSING_DATA_REMOVER_DELEGATE_H_

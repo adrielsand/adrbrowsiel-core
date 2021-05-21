@@ -1,29 +1,29 @@
-import("//brave/components/decentralized_dns/buildflags/buildflags.gni")
-import("//brave/components/tor/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/decentralized_dns/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/tor/buildflags/buildflags.gni")
 import("//components/gcm_driver/config.gni")
 
 source_set("profiles") {
-  # Remove when https://github.com/brave/brave-browser/issues/10648 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10648 is resolved
   check_includes = false
   sources = [
-    "brave_bookmark_model_loaded_observer.cc",
-    "brave_bookmark_model_loaded_observer.h",
-    "brave_profile_avatar_downloader.cc",
-    "brave_profile_avatar_downloader.h",
-    "brave_profile_impl.cc",
-    "brave_profile_impl.h",
-    "brave_profile_manager.cc",
-    "brave_profile_manager.h",
-    "brave_renderer_updater.cc",
-    "brave_renderer_updater.h",
-    "brave_renderer_updater_factory.cc",
-    "brave_renderer_updater_factory.h",
+    "adrbrowsiel_bookmark_model_loaded_observer.cc",
+    "adrbrowsiel_bookmark_model_loaded_observer.h",
+    "adrbrowsiel_profile_avatar_downloader.cc",
+    "adrbrowsiel_profile_avatar_downloader.h",
+    "adrbrowsiel_profile_impl.cc",
+    "adrbrowsiel_profile_impl.h",
+    "adrbrowsiel_profile_manager.cc",
+    "adrbrowsiel_profile_manager.h",
+    "adrbrowsiel_renderer_updater.cc",
+    "adrbrowsiel_renderer_updater.h",
+    "adrbrowsiel_renderer_updater_factory.cc",
+    "adrbrowsiel_renderer_updater_factory.h",
   ]
 
   if (is_win) {
     sources += [
-      "brave_profile_shortcut_manager_win.cc",
-      "brave_profile_shortcut_manager_win.h",
+      "adrbrowsiel_profile_shortcut_manager_win.cc",
+      "adrbrowsiel_profile_shortcut_manager_win.h",
     ]
   }
 
@@ -31,19 +31,19 @@ source_set("profiles") {
 
   deps = [
     "//base",
-    "//brave/browser/brave_ads",
-    "//brave/browser/gcm_driver",
-    "//brave/common",
-    "//brave/common:pref_names",
-    "//brave/components/brave_ads/browser",
-    "//brave/components/brave_rewards/browser",
-    "//brave/components/brave_sync:prefs",
-    "//brave/components/brave_wallet/common/buildflags",
-    "//brave/components/content_settings/core/browser",
-    "//brave/components/decentralized_dns/buildflags",
-    "//brave/components/ipfs/buildflags",
-    "//brave/components/tor",
-    "//brave/content:browser",
+    "//adrbrowsiel/browser/adrbrowsiel_ads",
+    "//adrbrowsiel/browser/gcm_driver",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/common:pref_names",
+    "//adrbrowsiel/components/adrbrowsiel_ads/browser",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/browser",
+    "//adrbrowsiel/components/adrbrowsiel_sync:prefs",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags",
+    "//adrbrowsiel/components/content_settings/core/browser",
+    "//adrbrowsiel/components/decentralized_dns/buildflags",
+    "//adrbrowsiel/components/ipfs/buildflags",
+    "//adrbrowsiel/components/tor",
+    "//adrbrowsiel/content:browser",
     "//chrome/common",
     "//components/gcm_driver:gcm_buildflags",
     "//components/keyed_service/content",
@@ -56,16 +56,16 @@ source_set("profiles") {
   ]
 
   if (use_gcm_from_platform) {
-    deps += [ "//brave/browser/gcm_driver" ]
+    deps += [ "//adrbrowsiel/browser/gcm_driver" ]
   }
 
   if (enable_tor) {
-    deps += [ "//brave/browser/tor" ]
+    deps += [ "//adrbrowsiel/browser/tor" ]
   }
 }
 
 source_set("util") {
-  # Remove when https://github.com/brave/brave-browser/issues/10648 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10648 is resolved
   check_includes = false
 
   sources = [
@@ -75,10 +75,10 @@ source_set("util") {
 
   deps = [
     "//base",
-    "//brave/common",
-    "//brave/components/ntp_background_images/common",
-    "//brave/components/search_engines",
-    "//brave/components/tor/buildflags",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/components/ntp_background_images/common",
+    "//adrbrowsiel/components/search_engines",
+    "//adrbrowsiel/components/tor/buildflags",
     "//components/prefs",
     "//content/public/browser",
   ]

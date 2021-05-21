@@ -27,7 +27,7 @@ index 1efb721e103ad43bb8799ceed2ce3fc199ccd9e6..0f773eff2ef5b03de11de367ffedb0ea
  
    // Returns the estimate of dynamically allocated memory in bytes.
    size_t EstimateMemoryUsage() const;
-+  BRAVE_HOST_PORT_PAIR_H_
++  adrbrowsiel_HOST_PORT_PAIR_H_
  
   private:
    // If |host_| represents an IPv6 address, this string will not contain

@@ -1,22 +1,22 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ipfs/content_browser_client_helper.h"
+#include "adrbrowsiel/browser/ipfs/content_browser_client_helper.h"
 
 #include <string>
 #include <utility>
 
 #include "base/strings/string_util.h"
 #include "base/task/post_task.h"
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/common/url_constants.h"
-#include "brave/common/webui_url_constants.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_utils.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #include "chrome/browser/external_protocol/external_protocol_handler.h"
 #include "chrome/common/channel_info.h"
 #include "components/prefs/pref_service.h"

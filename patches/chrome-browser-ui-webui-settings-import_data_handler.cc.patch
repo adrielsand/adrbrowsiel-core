@@ -6,7 +6,7 @@ index 7d2161fdf5e5cf56220bf316c4a8dd08338e1f4f..2bbdec2ce19edd7b29d3cb1a948ec6b2
      selected_items |= importer::PASSWORDS;
    if (*types->FindBoolKey(prefs::kImportDialogSearchEngine))
      selected_items |= importer::SEARCH_ENGINES;
-+  BRAVE_IMPORT_DATA
++  adrbrowsiel_IMPORT_DATA
  
    const importer::SourceProfile& source_profile =
        importer_list_->GetSourceProfileAt(browser_index);
@@ -14,7 +14,7 @@ index 7d2161fdf5e5cf56220bf316c4a8dd08338e1f4f..2bbdec2ce19edd7b29d3cb1a948ec6b2
      browser_profile->SetBoolean(
          "autofillFormData",
          (browser_services & importer::AUTOFILL_FORM_DATA) != 0);
-+    BRAVE_SEND_BROWSER_PROFILE_DATA
++    adrbrowsiel_SEND_BROWSER_PROFILE_DATA
  
      browser_profiles.Append(std::move(browser_profile));
    }

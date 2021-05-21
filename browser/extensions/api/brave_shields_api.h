@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_API_BRAVE_SHIELDS_API_H_
-#define BRAVE_BROWSER_EXTENSIONS_API_BRAVE_SHIELDS_API_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_SHIELDS_API_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_SHIELDS_API_H_
 
 #include <memory>
 #include <string>
@@ -15,12 +15,12 @@
 namespace extensions {
 namespace api {
 
-class BraveShieldsUrlCosmeticResourcesFunction : public ExtensionFunction {
+class adrbrowsielShieldsUrlCosmeticResourcesFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.urlCosmeticResources", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.urlCosmeticResources", UNKNOWN)
 
  protected:
-  ~BraveShieldsUrlCosmeticResourcesFunction() override {}
+  ~adrbrowsielShieldsUrlCosmeticResourcesFunction() override {}
 
   ResponseAction Run() override;
 
@@ -30,12 +30,12 @@ class BraveShieldsUrlCosmeticResourcesFunction : public ExtensionFunction {
   void GetUrlCosmeticResourcesOnUI(std::unique_ptr<base::ListValue> resources);
 };
 
-class BraveShieldsHiddenClassIdSelectorsFunction : public ExtensionFunction {
+class adrbrowsielShieldsHiddenClassIdSelectorsFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.hiddenClassIdSelectors", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.hiddenClassIdSelectors", UNKNOWN)
 
  protected:
-  ~BraveShieldsHiddenClassIdSelectorsFunction() override {}
+  ~adrbrowsielShieldsHiddenClassIdSelectorsFunction() override {}
 
   ResponseAction Run() override;
 
@@ -48,238 +48,238 @@ class BraveShieldsHiddenClassIdSelectorsFunction : public ExtensionFunction {
       std::unique_ptr<base::ListValue> selectors);
 };
 
-class BraveShieldsMigrateLegacyCosmeticFiltersFunction
+class adrbrowsielShieldsMigrateLegacyCosmeticFiltersFunction
     : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.migrateLegacyCosmeticFilters",
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.migrateLegacyCosmeticFilters",
                              UNKNOWN)
 
  protected:
-  ~BraveShieldsMigrateLegacyCosmeticFiltersFunction() override {}
+  ~adrbrowsielShieldsMigrateLegacyCosmeticFiltersFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsAddSiteCosmeticFilterFunction : public ExtensionFunction {
+class adrbrowsielShieldsAddSiteCosmeticFilterFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.addSiteCosmeticFilter", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.addSiteCosmeticFilter", UNKNOWN)
 
  protected:
-  ~BraveShieldsAddSiteCosmeticFilterFunction() override {}
+  ~adrbrowsielShieldsAddSiteCosmeticFilterFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsOpenFilterManagementPageFunction : public ExtensionFunction {
+class adrbrowsielShieldsOpenFilterManagementPageFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.openFilterManagementPage", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.openFilterManagementPage", UNKNOWN)
 
  protected:
-  ~BraveShieldsOpenFilterManagementPageFunction() override {}
+  ~adrbrowsielShieldsOpenFilterManagementPageFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsAllowScriptsOnceFunction : public ExtensionFunction {
+class adrbrowsielShieldsAllowScriptsOnceFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.allowScriptsOnce", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.allowScriptsOnce", UNKNOWN)
 
  protected:
-  ~BraveShieldsAllowScriptsOnceFunction() override {}
+  ~adrbrowsielShieldsAllowScriptsOnceFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsOpenBrowserActionUIFunction :
+class adrbrowsielShieldsOpenBrowserActionUIFunction :
     public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.openBrowserActionUI", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.openBrowserActionUI", UNKNOWN)
 
  protected:
-  ~BraveShieldsOpenBrowserActionUIFunction() override;
+  ~adrbrowsielShieldsOpenBrowserActionUIFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsSetBraveShieldsEnabledFunction : public ExtensionFunction {
+class adrbrowsielShieldsSetadrbrowsielShieldsEnabledFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.setBraveShieldsEnabled", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.setadrbrowsielShieldsEnabled", UNKNOWN)
 
  protected:
-  ~BraveShieldsSetBraveShieldsEnabledFunction() override {}
+  ~adrbrowsielShieldsSetadrbrowsielShieldsEnabledFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsGetBraveShieldsEnabledFunction : public ExtensionFunction {
+class adrbrowsielShieldsGetadrbrowsielShieldsEnabledFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.getBraveShieldsEnabled", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.getadrbrowsielShieldsEnabled", UNKNOWN)
 
  protected:
-  ~BraveShieldsGetBraveShieldsEnabledFunction() override {}
+  ~adrbrowsielShieldsGetadrbrowsielShieldsEnabledFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsShouldDoCosmeticFilteringFunction : public ExtensionFunction {
+class adrbrowsielShieldsShouldDoCosmeticFilteringFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.shouldDoCosmeticFiltering", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.shouldDoCosmeticFiltering", UNKNOWN)
 
  protected:
-  ~BraveShieldsShouldDoCosmeticFilteringFunction() override {}
+  ~adrbrowsielShieldsShouldDoCosmeticFilteringFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsSetCosmeticFilteringControlTypeFunction :
+class adrbrowsielShieldsSetCosmeticFilteringControlTypeFunction :
     public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.setCosmeticFilteringControlType",
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.setCosmeticFilteringControlType",
                              UNKNOWN)
 
  protected:
-  ~BraveShieldsSetCosmeticFilteringControlTypeFunction() override {}
+  ~adrbrowsielShieldsSetCosmeticFilteringControlTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsIsFirstPartyCosmeticFilteringEnabledFunction :
+class adrbrowsielShieldsIsFirstPartyCosmeticFilteringEnabledFunction :
     public ExtensionFunction {
  public:
   DECLARE_EXTENSION_FUNCTION(
-      "braveShields.isFirstPartyCosmeticFilteringEnabled",
+      "adrbrowsielShields.isFirstPartyCosmeticFilteringEnabled",
       UNKNOWN)
 
  protected:
-  ~BraveShieldsIsFirstPartyCosmeticFilteringEnabledFunction() override {}
+  ~adrbrowsielShieldsIsFirstPartyCosmeticFilteringEnabledFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsSetAdControlTypeFunction : public ExtensionFunction {
+class adrbrowsielShieldsSetAdControlTypeFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.setAdControlType", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.setAdControlType", UNKNOWN)
 
  protected:
-  ~BraveShieldsSetAdControlTypeFunction() override {}
+  ~adrbrowsielShieldsSetAdControlTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsGetAdControlTypeFunction : public ExtensionFunction {
+class adrbrowsielShieldsGetAdControlTypeFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.getAdControlType", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.getAdControlType", UNKNOWN)
 
  protected:
-  ~BraveShieldsGetAdControlTypeFunction() override {}
+  ~adrbrowsielShieldsGetAdControlTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsSetCookieControlTypeFunction : public ExtensionFunction {
+class adrbrowsielShieldsSetCookieControlTypeFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.setCookieControlType", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.setCookieControlType", UNKNOWN)
 
  protected:
-  ~BraveShieldsSetCookieControlTypeFunction() override {}
+  ~adrbrowsielShieldsSetCookieControlTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsGetCookieControlTypeFunction : public ExtensionFunction {
+class adrbrowsielShieldsGetCookieControlTypeFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.getCookieControlType", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.getCookieControlType", UNKNOWN)
 
  protected:
-  ~BraveShieldsGetCookieControlTypeFunction() override {}
+  ~adrbrowsielShieldsGetCookieControlTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsSetFingerprintingControlTypeFunction
+class adrbrowsielShieldsSetFingerprintingControlTypeFunction
     : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.setFingerprintingControlType",
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.setFingerprintingControlType",
                              UNKNOWN)
 
  protected:
-  ~BraveShieldsSetFingerprintingControlTypeFunction() override {}
+  ~adrbrowsielShieldsSetFingerprintingControlTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsGetFingerprintingControlTypeFunction
+class adrbrowsielShieldsGetFingerprintingControlTypeFunction
     : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.getFingerprintingControlType",
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.getFingerprintingControlType",
                              UNKNOWN)
 
  protected:
-  ~BraveShieldsGetFingerprintingControlTypeFunction() override {}
+  ~adrbrowsielShieldsGetFingerprintingControlTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsSetHTTPSEverywhereEnabledFunction : public ExtensionFunction {
+class adrbrowsielShieldsSetHTTPSEverywhereEnabledFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.setHTTPSEverywhereEnabled",
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.setHTTPSEverywhereEnabled",
                              UNKNOWN)
 
  protected:
-  ~BraveShieldsSetHTTPSEverywhereEnabledFunction() override {}
+  ~adrbrowsielShieldsSetHTTPSEverywhereEnabledFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsGetHTTPSEverywhereEnabledFunction : public ExtensionFunction {
+class adrbrowsielShieldsGetHTTPSEverywhereEnabledFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.getHTTPSEverywhereEnabled",
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.getHTTPSEverywhereEnabled",
                              UNKNOWN)
 
  protected:
-  ~BraveShieldsGetHTTPSEverywhereEnabledFunction() override {}
+  ~adrbrowsielShieldsGetHTTPSEverywhereEnabledFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsSetNoScriptControlTypeFunction : public ExtensionFunction {
+class adrbrowsielShieldsSetNoScriptControlTypeFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.setNoScriptControlType", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.setNoScriptControlType", UNKNOWN)
 
  protected:
-  ~BraveShieldsSetNoScriptControlTypeFunction() override {}
+  ~adrbrowsielShieldsSetNoScriptControlTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveShieldsGetNoScriptControlTypeFunction : public ExtensionFunction {
+class adrbrowsielShieldsGetNoScriptControlTypeFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.getNoScriptControlType", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.getNoScriptControlType", UNKNOWN)
 
  protected:
-  ~BraveShieldsGetNoScriptControlTypeFunction() override {}
+  ~adrbrowsielShieldsGetNoScriptControlTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
 // Notifies the browser that the shields panel was shown to the user.
-class BraveShieldsOnShieldsPanelShownFunction : public ExtensionFunction {
+class adrbrowsielShieldsOnShieldsPanelShownFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.onShieldsPanelShown", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.onShieldsPanelShown", UNKNOWN)
 
  protected:
-  ~BraveShieldsOnShieldsPanelShownFunction() override {}
+  ~adrbrowsielShieldsOnShieldsPanelShownFunction() override {}
 
   // ExtensionFunction:
   ResponseAction Run() override;
 };
 
-class BraveShieldsReportBrokenSiteFunction : public ExtensionFunction {
+class adrbrowsielShieldsReportBrokenSiteFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveShields.reportBrokenSite", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielShields.reportBrokenSite", UNKNOWN)
 
  protected:
-  ~BraveShieldsReportBrokenSiteFunction() override {}
+  ~adrbrowsielShieldsReportBrokenSiteFunction() override {}
 
   ResponseAction Run() override;
 };
@@ -287,4 +287,4 @@ class BraveShieldsReportBrokenSiteFunction : public ExtensionFunction {
 }  // namespace api
 }  // namespace extensions
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_API_BRAVE_SHIELDS_API_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_SHIELDS_API_H_

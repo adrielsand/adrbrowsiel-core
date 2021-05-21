@@ -7,7 +7,7 @@ index 0d21ef1b4fa164495e7bba3f4e6f9aeac2e14253..0ed75777da7ae404c8630ef9a483ea68
          crashLink.target = '_blank';
          crashLink.textContent = crash.id;
 -        uploadIdValue.appendChild(crashLink);
-+        //uploadIdValue.appendChild(crashLink); // feature disabled in Brave
++        //uploadIdValue.appendChild(crashLink); // feature disabled in adrbrowsiel
        } else {
          uploadIdValue.textContent = crash.id;
        }

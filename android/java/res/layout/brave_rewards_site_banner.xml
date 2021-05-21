@@ -109,7 +109,7 @@
                             android:textColor="#686978"
                             android:textSize="14sp"
                             android:padding="10dp"
-                            android:text="@string/brave_ui_site_banner_notice_text"/>
+                            android:text="@string/adrbrowsiel_ui_site_banner_notice_text"/>
                     </LinearLayout>
 
 
@@ -118,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
                         android:layout_gravity="center_vertical|center_horizontal"
-                        android:text="@string/brave_ui_site_banner_welcome"
+                        android:text="@string/adrbrowsiel_ui_site_banner_welcome"
                         android:textColor="#4B4C5C"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -134,7 +134,7 @@
                         android:fontFamily="sans-serif"
                         android:paddingStart="12dp"
                         android:paddingEnd="12dp"
-                        android:text="@string/brave_ui_rewards_banner_text1"
+                        android:text="@string/adrbrowsiel_ui_rewards_banner_text1"
                         android:textColor="#686978"
                         android:textSize="14sp" />
 
@@ -146,7 +146,7 @@
                         android:paddingTop="12dp"
                         android:paddingEnd="12dp"
                         android:paddingBottom="12dp"
-                        android:text="@string/brave_ui_rewards_banner_text2"
+                        android:text="@string/adrbrowsiel_ui_rewards_banner_text2"
                         android:textColor="#686978"
                         android:textSize="14sp" />
                 </LinearLayout> <!--Welcome-->
@@ -223,7 +223,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="8dp"
-            android:background="@drawable/brave_gradient_shadow"
+            android:background="@drawable/adrbrowsiel_gradient_shadow"
             android:layout_gravity="bottom"
             android:contentDescription="@null"/>
 
@@ -263,7 +263,7 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:fontFamily="sans-serif"
-                    android:text="@string/brave_ui_donation_amount"
+                    android:text="@string/adrbrowsiel_ui_donation_amount"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -277,7 +277,7 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:fontFamily="sans-serif"
-                    android:text="@string/brave_ui_wallet_balance"
+                    android:text="@string/adrbrowsiel_ui_wallet_balance"
                     android:textAlignment="textEnd"
                     android:textSize="12sp" />
 
@@ -429,7 +429,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:fontFamily="sans-serif"
-                    android:text="@string/brave_ui_make_monthly"
+                    android:text="@string/adrbrowsiel_ui_make_monthly"
                     android:textColor="@android:color/white"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -483,7 +483,7 @@
                         android:fontFamily="sans-serif"
                         android:layout_gravity="center_vertical|center"
                         android:singleLine="true"
-                        android:text="@string/brave_ui_send_tip"
+                        android:text="@string/adrbrowsiel_ui_send_tip"
                         android:textAlignment="center"
                         android:textAllCaps="true"
                         android:textColor="@android:color/white"

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_BAT_GET_MEDIA_H_
-#define BRAVELEDGER_BAT_GET_MEDIA_H_
+#ifndef adrbrowsielLEDGER_BAT_GET_MEDIA_H_
+#define adrbrowsielLEDGER_BAT_GET_MEDIA_H_
 
 #include <string>
 #include <memory>
@@ -21,7 +21,7 @@ namespace ledger {
 class LedgerImpl;
 }
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 class Media {
  public:
@@ -56,13 +56,13 @@ class Media {
                           uint64_t windowId);
 
   ledger::LedgerImpl* ledger_;  // NOT OWNED
-  std::unique_ptr<braveledger_media::YouTube> media_youtube_;
-  std::unique_ptr<braveledger_media::Twitch> media_twitch_;
-  std::unique_ptr<braveledger_media::Reddit> media_reddit_;
-  std::unique_ptr<braveledger_media::Vimeo> media_vimeo_;
-  std::unique_ptr<braveledger_media::GitHub> media_github_;
+  std::unique_ptr<adrbrowsielledger_media::YouTube> media_youtube_;
+  std::unique_ptr<adrbrowsielledger_media::Twitch> media_twitch_;
+  std::unique_ptr<adrbrowsielledger_media::Reddit> media_reddit_;
+  std::unique_ptr<adrbrowsielledger_media::Vimeo> media_vimeo_;
+  std::unique_ptr<adrbrowsielledger_media::GitHub> media_github_;
 };
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media
 
-#endif  // BRAVELEDGER_BAT_GET_MEDIA_H_
+#endif  // adrbrowsielLEDGER_BAT_GET_MEDIA_H_

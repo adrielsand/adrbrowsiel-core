@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/utility/importer/chrome_importer.h"
+#include "adrbrowsiel/utility/importer/chrome_importer.h"
 
 #include <string>
 
@@ -12,7 +12,7 @@
 #include "base/files/scoped_temp_dir.h"
 #include "base/path_service.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/common/brave_paths.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
 #include "chrome/common/chrome_paths.h"
 #include "chrome/common/importer/imported_bookmark_entry.h"
 #include "chrome/common/importer/importer_data_types.h"
@@ -28,11 +28,11 @@ using ::testing::_;
 
 // In order to test the Chrome import functionality effectively, we store a
 // simulated Chrome profile directory containing dummy data files with the
-// same structure as ~/Library/Application Support/Google/Chrome in the Brave
+// same structure as ~/Library/Application Support/Google/Chrome in the adrbrowsiel
 // test data directory. This function returns the path to that directory.
 base::FilePath GetTestChromeProfileDir(const std::string& profile) {
   base::FilePath test_dir;
-  base::PathService::Get(brave::DIR_TEST_DATA, &test_dir);
+  base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_dir);
 
   return test_dir.AppendASCII("import").AppendASCII("chrome")
       .AppendASCII(profile);
@@ -82,8 +82,8 @@ TEST_F(ChromeImporterTest, ImportHistory) {
   importer_->StartImport(profile_, importer::HISTORY, bridge_.get());
 
   ASSERT_EQ(3u, history.size());
-  EXPECT_EQ("https://brave.com/", history[0].url.spec());
-  EXPECT_EQ("https://github.com/brave", history[1].url.spec());
+  EXPECT_EQ("https://adrbrowsiel.com/", history[0].url.spec());
+  EXPECT_EQ("https://github.com/adrbrowsiel", history[1].url.spec());
   EXPECT_EQ("https://www.nytimes.com/", history[2].url.spec());
 }
 
@@ -110,7 +110,7 @@ TEST_F(ChromeImporterTest, ImportBookmarks) {
   EXPECT_TRUE(bookmarks[1].is_folder);
   EXPECT_EQ(ASCIIToUTF16("Empty"), bookmarks[1].title);
 
-  EXPECT_EQ("https://brave.com/", bookmarks[2].url.spec());
+  EXPECT_EQ("https://adrbrowsiel.com/", bookmarks[2].url.spec());
   EXPECT_FALSE(bookmarks[2].in_toolbar);
 }
 
@@ -129,7 +129,7 @@ TEST_F(ChromeImporterTest, ImportFavicons) {
   ASSERT_EQ(4u, favicons.size());
   EXPECT_EQ("https://www.google.com/favicon.ico",
             favicons[0].favicon_url.spec());
-  EXPECT_EQ("https://brave.com/images/cropped-brave_appicon_release-32x32.png",
+  EXPECT_EQ("https://adrbrowsiel.com/images/cropped-adrbrowsiel_appicon_release-32x32.png",
             favicons[1].favicon_url.spec());
   EXPECT_EQ("https://assets-cdn.github.com/favicon.ico",
             favicons[2].favicon_url.spec());

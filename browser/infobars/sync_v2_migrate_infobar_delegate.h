@@ -1,10 +1,10 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_INFOBARS_SYNC_V2_MIGRATE_INFOBAR_DELEGATE_H_
-#define BRAVE_BROWSER_INFOBARS_SYNC_V2_MIGRATE_INFOBAR_DELEGATE_H_
+#ifndef adrbrowsiel_BROWSER_INFOBARS_SYNC_V2_MIGRATE_INFOBAR_DELEGATE_H_
+#define adrbrowsiel_BROWSER_INFOBARS_SYNC_V2_MIGRATE_INFOBAR_DELEGATE_H_
 
 #include "base/compiler_specific.h"
 #include "base/macros.h"
@@ -16,9 +16,9 @@ class InfoBarService;
 class Profile;
 class PrefService;
 
-namespace brave_sync {
+namespace adrbrowsiel_sync {
 class Prefs;
-}  // namespace brave_sync
+}  // namespace adrbrowsiel_sync
 
 // An infobar that is run with a string, buttons, and a "Learn More" link.
 class SyncV2MigrateInfoBarDelegate : public ConfirmInfoBarDelegate {
@@ -45,4 +45,4 @@ class SyncV2MigrateInfoBarDelegate : public ConfirmInfoBarDelegate {
   DISALLOW_COPY_AND_ASSIGN(SyncV2MigrateInfoBarDelegate);
 };
 
-#endif  // BRAVE_BROWSER_INFOBARS_SYNC_V2_MIGRATE_INFOBAR_DELEGATE_H_
+#endif  // adrbrowsiel_BROWSER_INFOBARS_SYNC_V2_MIGRATE_INFOBAR_DELEGATE_H_

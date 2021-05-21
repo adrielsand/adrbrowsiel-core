@@ -11,13 +11,13 @@
     </style>
     <settings-toggle-button id="googleLoginControlType"
         class="cr-row first"
-        pref="{{prefs.brave.google_login_default}}"
+        pref="{{prefs.adrbrowsiel.google_login_default}}"
         label="$i18n{googleLoginControlLabel}"
         learn-more-url="$i18n{googleLoginLearnMoreURL}"
         on-settings-boolean-control-change="setSignInEnabledAtNextStartup_"
         >
         <template is="dom-if" if="[[shouldShowRestart_(
-          prefs.brave.google_login_default.value)]]">
+          prefs.adrbrowsiel.google_login_default.value)]]">
         <cr-button on-click="restartBrowser_" slot="more-actions">
           $i18n{restart}
         </cr-button>
@@ -25,17 +25,17 @@
     </settings-toggle-button>
     <settings-toggle-button id="fbEmbedControlType"
         class="cr-row"
-        pref="{{prefs.brave.fb_embed_default}}"
+        pref="{{prefs.adrbrowsiel.fb_embed_default}}"
         label="$i18n{fbEmbedControlLabel}">
     </settings-toggle-button>
     <settings-toggle-button id="twitterEmbedControlType"
         class="cr-row"
-        pref="{{prefs.brave.twitter_embed_default}}"
+        pref="{{prefs.adrbrowsiel.twitter_embed_default}}"
         label="$i18n{twitterEmbedControlLabel}">
     </settings-toggle-button>
     <settings-toggle-button id="linkedInEmbedControlType"
         class="cr-row"
-        pref="{{prefs.brave.linkedin_embed_default}}"
+        pref="{{prefs.adrbrowsiel.linkedin_embed_default}}"
         label="$i18n{linkedInEmbedControlLabel}">
     </settings-toggle-button>
   </template>

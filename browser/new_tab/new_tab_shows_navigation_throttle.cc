@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/new_tab/new_tab_shows_navigation_throttle.h"
+#include "adrbrowsiel/browser/new_tab/new_tab_shows_navigation_throttle.h"
 
 #include <string>
 
 #include "base/bind.h"
 #include "base/threading/sequenced_task_runner_handle.h"
-#include "brave/browser/new_tab/new_tab_shows_options.h"
-#include "brave/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/new_tab/new_tab_shows_options.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/webui/ntp/new_tab_ui.h"
 #include "content/public/browser/browser_context.h"
@@ -23,7 +23,7 @@ std::unique_ptr<NewTabShowsNavigationThrottle>
 NewTabShowsNavigationThrottle::MaybeCreateThrottleFor(
     content::NavigationHandle* navigation_handle) {
   auto* context = navigation_handle->GetWebContents()->GetBrowserContext();
-  if (!brave::IsRegularProfile(context) ||
+  if (!adrbrowsiel::IsRegularProfile(context) ||
       !NewTabUI::IsNewTab(navigation_handle->GetURL()))
     return nullptr;
 
@@ -40,11 +40,11 @@ NewTabShowsNavigationThrottle::WillStartRequest() {
   auto* web_contents = navigation_handle()->GetWebContents();
   auto* context = web_contents->GetBrowserContext();
   Profile* profile = Profile::FromBrowserContext(context);
-  if (brave::ShouldUseNewTabURLForNewTab(profile)) {
+  if (adrbrowsiel::ShouldUseNewTabURLForNewTab(profile)) {
     return content::NavigationThrottle::PROCEED;
   }
 
-  new_tab_options_url_ = brave::GetNewTabPageURL(profile);
+  new_tab_options_url_ = adrbrowsiel::GetNewTabPageURL(profile);
   base::SequencedTaskRunnerHandle::Get()->PostTask(
       FROM_HERE,
       base::BindOnce(&NewTabShowsNavigationThrottle::LoadNewTabOptionsURL,

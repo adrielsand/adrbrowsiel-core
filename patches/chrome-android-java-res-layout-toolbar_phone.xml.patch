@@ -30,7 +30,7 @@ index 85b766a50b49d415f0b89637e0af21ae3f31fce1..03f01ac1073bcef2ff2aa5b2c9397acb
              style="@style/ToolbarButton"
              android:paddingStart="@dimen/toolbar_phone_optional_button_padding"
              android:visibility="gone" />
-+        <include layout="@layout/brave_toolbar" android:layout_height="wrap_content" android:layout_width="match_parent" />
++        <include layout="@layout/adrbrowsiel_toolbar" android:layout_height="wrap_content" android:layout_width="match_parent" />
  
          <org.chromium.chrome.browser.toolbar.top.ToggleTabStackButton
              android:id="@+id/tab_switcher_button"

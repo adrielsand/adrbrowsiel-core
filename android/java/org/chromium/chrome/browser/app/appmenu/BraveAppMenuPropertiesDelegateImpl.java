@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -26,8 +26,8 @@ import org.chromium.chrome.browser.toolbar.ToolbarManager;
 import org.chromium.chrome.browser.ui.appmenu.AppMenuHandler;
 import org.chromium.ui.modaldialog.ModalDialogManager;
 
-public class BraveAppMenuPropertiesDelegateImpl extends AppMenuPropertiesDelegateImpl {
-    public BraveAppMenuPropertiesDelegateImpl(Context context,
+public class adrbrowsielAppMenuPropertiesDelegateImpl extends AppMenuPropertiesDelegateImpl {
+    public adrbrowsielAppMenuPropertiesDelegateImpl(Context context,
             ActivityTabProvider activityTabProvider,
             MultiWindowModeStateDispatcher multiWindowModeStateDispatcher,
             TabModelSelector tabModelSelector, ToolbarManager toolbarManager, View decorView,
@@ -52,22 +52,22 @@ public class BraveAppMenuPropertiesDelegateImpl extends AppMenuPropertiesDelegat
                     maybeReplaceIcons(item.getSubMenu());
                 } else if (item.getItemId() == R.id.new_incognito_tab_menu_id) {
                     item.setIcon(AppCompatResources.getDrawable(
-                            mContext, R.drawable.brave_menu_new_private_tab));
+                            mContext, R.drawable.adrbrowsiel_menu_new_private_tab));
                 } else if (item.getItemId() == R.id.all_bookmarks_menu_id) {
                     item.setIcon(AppCompatResources.getDrawable(
-                            mContext, R.drawable.brave_menu_bookmarks));
+                            mContext, R.drawable.adrbrowsiel_menu_bookmarks));
                 } else if (item.getItemId() == R.id.recent_tabs_menu_id) {
                     item.setIcon(AppCompatResources.getDrawable(
-                            mContext, R.drawable.brave_menu_recent_tabs));
+                            mContext, R.drawable.adrbrowsiel_menu_recent_tabs));
                 } else if (item.getItemId() == R.id.open_history_menu_id) {
                     item.setIcon(AppCompatResources.getDrawable(
-                            mContext, R.drawable.brave_menu_history));
+                            mContext, R.drawable.adrbrowsiel_menu_history));
                 } else if (item.getItemId() == R.id.downloads_menu_id) {
                     item.setIcon(AppCompatResources.getDrawable(
-                            mContext, R.drawable.brave_menu_downloads));
+                            mContext, R.drawable.adrbrowsiel_menu_downloads));
                 } else if (item.getItemId() == R.id.preferences_id) {
                     item.setIcon(AppCompatResources.getDrawable(
-                            mContext, R.drawable.brave_menu_settings));
+                            mContext, R.drawable.adrbrowsiel_menu_settings));
                 }
             }
         }

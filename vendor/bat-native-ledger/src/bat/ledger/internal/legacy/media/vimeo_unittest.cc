@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,9 +7,9 @@
 #include "bat/ledger/ledger.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=VimeoTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=VimeoTest.*
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 class VimeoTest : public testing::Test {
 };
@@ -38,7 +38,7 @@ const char page_config[] =
 const char user_link[] =
     "<div class=\"clip_info-subline--watch clip_info-subline--inline\"><p "
     "class=\"userbyline-subline userbyline-subline--lg\"><span>from</span>"
-    "<span class=\"userlink userlink--md\"><a href=\"/nejcbrave\">Nejc</a>"
+    "<span class=\"userlink userlink--md\"><a href=\"/nejcadrbrowsiel\">Nejc</a>"
     "<span style=\"display: inline-block\"></span></span></p><span "
     "class=\"clip_info-time\"><time datetime=\"2019-04-18T03:15:32-04:00\" "
     "title=\"Thursday, April 18, 2019 at 3:15 AM\">3 weeks ago</time>"
@@ -46,7 +46,7 @@ const char user_link[] =
 
 const char publisher_page[] =
     "<meta property=\"og:site_name\" content=\"Vimeo\">"
-    "<meta property=\"og:url\" content=\"https://vimeo.com/nejcbrave\">"
+    "<meta property=\"og:url\" content=\"https://vimeo.com/nejcadrbrowsiel\">"
     "<meta property=\"og:title\" content=\"Nejc\">"
     "<meta property=\"og:image\" "
     "content=\"https://i.vimeocdn.com/portrait/31487122_640x640.webp\">"
@@ -173,7 +173,7 @@ TEST(VimeoTest, GetUrlFromVideoPage) {
 
   // all good
   result = Vimeo::GetUrlFromVideoPage(user_link);
-  ASSERT_EQ(result, "https://vimeo.com/nejcbrave/videos");
+  ASSERT_EQ(result, "https://vimeo.com/nejcadrbrowsiel/videos");
 }
 
 TEST(VimeoTest, AllowedEvent) {
@@ -261,7 +261,7 @@ TEST(VimeoTest, IsExcludedPath) {
 
   // path is not excluded link
   result =
-      Vimeo::IsExcludedPath("/brave");
+      Vimeo::IsExcludedPath("/adrbrowsiel");
   ASSERT_EQ(result, false);
 }
 
@@ -307,4 +307,4 @@ TEST(VimeoTest, GetVideoIdFromVideoPage) {
   ASSERT_EQ(result, "331165963");
 }
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

@@ -8,7 +8,7 @@
 #import "DataController.h"
 #import "BATLedgerDatabase.h"
 #import "CoreDataModels.h"
-#import "BATBraveLedger.h"
+#import "BATadrbrowsielLedger.h"
 
 #include "bat/ledger/ledger_database.h"
 
@@ -149,8 +149,8 @@
 - (void)testMigratePublisherInfo
 {
   PublisherInfo *publisher = [self coreDataModelOfClass:PublisherInfo.self];
-  publisher.publisherID = @"brave.com";
-  publisher.url = @"https://brave.com";
+  publisher.publisherID = @"adrbrowsiel.com";
+  publisher.url = @"https://adrbrowsiel.com";
   publisher.faviconURL = @"";
   publisher.name = @"";
   publisher.provider = @"";
@@ -186,9 +186,9 @@
 {
   PublisherInfo *publisher = [self coreDataModelOfClass:PublisherInfo.self];
   publisher.publisherID = @"github#channel:12301619";
-  publisher.url = @"https://github.com/brave";
+  publisher.url = @"https://github.com/adrbrowsiel";
   publisher.faviconURL = @"";
-  publisher.name = @"Brave Software";
+  publisher.name = @"adrbrowsiel Software";
   publisher.provider = @"github";
   
   const auto migration = [BATLedgerDatabase migrateCoreDataToSQLTransaction];
@@ -221,7 +221,7 @@
 - (void)testMigrateMediaPublisherInfo
 {
   MediaPublisherInfo *media = [self coreDataModelOfClass:MediaPublisherInfo.self];
-  media.mediaKey = @"github_brave";
+  media.mediaKey = @"github_adrbrowsiel";
   media.publisherID = @"github#channel:12301619";
   
   const auto migration = [BATLedgerDatabase migrateCoreDataToSQLTransaction];
@@ -246,7 +246,7 @@
 - (void)testMigrateActivityInfo
 {
   ActivityInfo *activity = [self coreDataModelOfClass:ActivityInfo.self];
-  activity.publisherID = @"brave.com";
+  activity.publisherID = @"adrbrowsiel.com";
   activity.duration = 74270;
   activity.percent = 54;
   activity.visits = 16;
@@ -286,7 +286,7 @@
 - (void)testMigrateContributionInfo
 {
   ContributionInfo *contribution = [self coreDataModelOfClass:ContributionInfo.self];
-  contribution.publisherID = @"brave.com";
+  contribution.publisherID = @"adrbrowsiel.com";
   contribution.probi = @"1000000000000000000";
   contribution.date = [[NSDate date] timeIntervalSince1970];
   contribution.type = static_cast<int32_t>(ledger::type::RewardsType::ONE_TIME_TIP);
@@ -370,7 +370,7 @@
   
   ContributionPublisher *queuePublisher = [self coreDataModelOfClass:ContributionPublisher.self];
   queuePublisher.queue = queue;
-  queuePublisher.publisherKey = @"brave.com";
+  queuePublisher.publisherKey = @"adrbrowsiel.com";
   queuePublisher.amountPercent = 40;
   
   const auto migration = [BATLedgerDatabase migrateCoreDataToSQLTransaction];
@@ -577,7 +577,7 @@
 - (void)testMigrateRecurringTips
 {
   RecurringDonation *tip = [self coreDataModelOfClass:RecurringDonation.self];
-  tip.publisherID = @"brave.com";
+  tip.publisherID = @"adrbrowsiel.com";
   tip.amount = 20;
   tip.addedDate = [[NSDate date] timeIntervalSince1970];
   
@@ -666,9 +666,9 @@
   
   PublisherInfo *publisher = [self coreDataModelOfClass:PublisherInfo.self];
   publisher.publisherID = @"github#channel:12301619";
-  publisher.url = @"https://github.com/brave";
+  publisher.url = @"https://github.com/adrbrowsiel";
   publisher.faviconURL = @"";
-  publisher.name = @"Brave Software";
+  publisher.name = @"adrbrowsiel Software";
   publisher.provider = @"github";
   
   const auto migration = [BATLedgerDatabase migrateCoreDataBATOnlyToSQLTransaction];
@@ -689,14 +689,14 @@
 {
   PublisherInfo *publisher = [self coreDataModelOfClass:PublisherInfo.self];
   publisher.publisherID = @"github#channel:12301619";
-  publisher.url = @"https://github.com/brave";
+  publisher.url = @"https://github.com/adrbrowsiel";
   publisher.faviconURL = @"";
-  publisher.name = @"'Brave Software'";
+  publisher.name = @"'adrbrowsiel Software'";
   publisher.provider = @"github";
   
   const auto migration = [BATLedgerDatabase migrateCoreDataToSQLTransaction];
   const auto insert = [BATLedgerDatabase publisherInfoInsertFor:publisher];
-  XCTAssert([insert containsString:@"'''Brave Software'''"]);
+  XCTAssert([insert containsString:@"'''adrbrowsiel Software'''"]);
   
   const auto migrateResponse = [self executeSQLCommand:migration];
   XCTAssertEqual(migrateResponse->status, ledger::type::DBCommandResponse::Status::RESPONSE_OK);
@@ -755,7 +755,7 @@
 {
   PublisherInfo *publisher = [self coreDataModelOfClass:PublisherInfo.self];
   publisher.publisherID = @"github#channel:12301619";
-  publisher.url = @"https://github.com/brave";
+  publisher.url = @"https://github.com/adrbrowsiel";
   publisher.faviconURL = @"";
   publisher.name = @"😲👻  ｂŕᵃ𝕧𝐄 ⓢⓞℱţ𝐖α𝓻έ  ♣✌";
   publisher.provider = @"github";
@@ -780,15 +780,15 @@
 - (void)testClearServerPubList
 {
   ServerPublisherInfo *info = [self coreDataModelOfClass:ServerPublisherInfo.self];
-  info.publisherID = @"brave.com";
+  info.publisherID = @"adrbrowsiel.com";
   info.address = NSUUID.UUID.UUIDString;
   info.banner = [self coreDataModelOfClass:ServerPublisherBanner.self];
-  info.banner.publisherID = @"brave.com";
+  info.banner.publisherID = @"adrbrowsiel.com";
   ServerPublisherAmount *amount = [self coreDataModelOfClass:ServerPublisherAmount.self];
-  amount.publisherID = @"brave.com";
+  amount.publisherID = @"adrbrowsiel.com";
   amount.serverPublisherInfo = info;
   ServerPublisherLink *link = [self coreDataModelOfClass:ServerPublisherLink.self];
-  link.publisherID = @"brave.com";
+  link.publisherID = @"adrbrowsiel.com";
   link.serverPublisherInfo = info;
   
   // Save it to disk so the batch delete works

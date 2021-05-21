@@ -6,7 +6,7 @@ index b6b38ab9a251378ec235290bc3d2483c98852c8d..55a969d1a57c71a3b1005fefcf8116b5
    const WebDocument& document = render_frame()->GetWebFrame()->GetDocument();
    WebSecurityOrigin origin = document.GetSecurityOrigin();
    WebURL document_url = document.Url();
-+  BRAVE_CONTENT_SETTINGS_AGENT_IMPL_IS_WHITELISTED_FOR_CONTENT_SETTINGS
++  adrbrowsiel_CONTENT_SETTINGS_AGENT_IMPL_IS_WHITELISTED_FOR_CONTENT_SETTINGS
    if (document_url.GetString() == content::kUnreachableWebDataURL)
      return true;
  

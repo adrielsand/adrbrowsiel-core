@@ -1,21 +1,21 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/infobars/brave_wayback_machine_infobar_contents_view.h"
+#include "adrbrowsiel/browser/ui/views/infobars/adrbrowsiel_wayback_machine_infobar_contents_view.h"
 
 #include <memory>
 #include <string>
 #include <utility>
 
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/browser/themes/theme_properties.h"
-#include "brave/browser/ui/views/infobars/brave_wayback_machine_infobar_button_container.h"
-#include "brave/components/brave_wayback_machine/brave_wayback_machine_infobar_delegate.h"
-#include "brave/components/brave_wayback_machine/wayback_machine_url_fetcher.h"
-#include "brave/grit/brave_generated_resources.h"
-#include "brave/grit/brave_theme_resources.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
+#include "adrbrowsiel/browser/ui/views/infobars/adrbrowsiel_wayback_machine_infobar_button_container.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/adrbrowsiel_wayback_machine_infobar_delegate.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/wayback_machine_url_fetcher.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
+#include "adrbrowsiel/grit/adrbrowsiel_theme_resources.h"
 #include "chrome/browser/infobars/infobar_service.h"
 #include "chrome/browser/themes/theme_properties.h"
 #include "chrome/browser/ui/views/chrome_layout_provider.h"
@@ -45,7 +45,7 @@ constexpr int kInfoBarLabelBackgroundColor = ThemeProperties::COLOR_INFOBAR;
 constexpr int kInfoBarLabelTextColor = ThemeProperties::COLOR_BOOKMARK_TEXT;
 }  // namespace
 
-BraveWaybackMachineInfoBarContentsView::BraveWaybackMachineInfoBarContentsView(
+adrbrowsielWaybackMachineInfoBarContentsView::adrbrowsielWaybackMachineInfoBarContentsView(
     content::WebContents* contents)
     : contents_(contents),
       wayback_machine_url_fetcher_(
@@ -57,10 +57,10 @@ BraveWaybackMachineInfoBarContentsView::BraveWaybackMachineInfoBarContentsView(
   InitializeChildren();
 }
 
-BraveWaybackMachineInfoBarContentsView::
-~BraveWaybackMachineInfoBarContentsView() {}
+adrbrowsielWaybackMachineInfoBarContentsView::
+~adrbrowsielWaybackMachineInfoBarContentsView() {}
 
-void BraveWaybackMachineInfoBarContentsView::OnThemeChanged() {
+void adrbrowsielWaybackMachineInfoBarContentsView::OnThemeChanged() {
   views::View::OnThemeChanged();
 
   const SkColor background_color = GetColor(kInfoBarLabelBackgroundColor);
@@ -73,11 +73,11 @@ void BraveWaybackMachineInfoBarContentsView::OnThemeChanged() {
   ui::ResourceBundle& rb = ui::ResourceBundle::GetSharedInstance();
   wayback_spot_graphic_->SetImage(
       rb.GetImageSkiaNamed(ui::NativeTheme::GetInstanceForNativeUi()->
-          ShouldUseDarkColors() ? IDR_BRAVE_WAYBACK_INFOBAR_DARK
-                                : IDR_BRAVE_WAYBACK_INFOBAR));
+          ShouldUseDarkColors() ? IDR_adrbrowsiel_WAYBACK_INFOBAR_DARK
+                                : IDR_adrbrowsiel_WAYBACK_INFOBAR));
 }
 
-void BraveWaybackMachineInfoBarContentsView::OnWaybackURLFetched(
+void adrbrowsielWaybackMachineInfoBarContentsView::OnWaybackURLFetched(
     const GURL& latest_wayback_url) {
   DCHECK(wayback_url_fetch_requested_);
   wayback_url_fetch_requested_ = false;
@@ -95,7 +95,7 @@ void BraveWaybackMachineInfoBarContentsView::OnWaybackURLFetched(
   HideInfobar();
 }
 
-void BraveWaybackMachineInfoBarContentsView::HideInfobar() {
+void adrbrowsielWaybackMachineInfoBarContentsView::HideInfobar() {
   InfoBarService* infobar_service = InfoBarService::FromWebContents(contents_);
   if (!infobar_service)
     return;
@@ -103,14 +103,14 @@ void BraveWaybackMachineInfoBarContentsView::HideInfobar() {
   for (size_t i = 0; i < infobar_service->infobar_count(); ++i) {
     infobars::InfoBar* infobar = infobar_service->infobar_at(i);
     if (infobar->delegate()->GetIdentifier() ==
-        BraveWaybackMachineInfoBarDelegate::WAYBACK_MACHINE_INFOBAR_DELEGATE) {
+        adrbrowsielWaybackMachineInfoBarDelegate::WAYBACK_MACHINE_INFOBAR_DELEGATE) {
       infobar_service->RemoveInfoBar(infobar);
       break;
     }
   }
 }
 
-void BraveWaybackMachineInfoBarContentsView::ButtonPressed() {
+void adrbrowsielWaybackMachineInfoBarContentsView::ButtonPressed() {
   if (wayback_url_fetch_requested_)
     return;
   wayback_url_fetch_requested_ = true;
@@ -118,7 +118,7 @@ void BraveWaybackMachineInfoBarContentsView::ButtonPressed() {
   FetchWaybackURL();
 }
 
-void BraveWaybackMachineInfoBarContentsView::InitializeChildren() {
+void adrbrowsielWaybackMachineInfoBarContentsView::InitializeChildren() {
   wayback_spot_graphic_ = new views::ImageView();
   wayback_spot_graphic_->SetProperty(views::kMarginsKey,
                                     gfx::Insets(8, 34, 8, 24));
@@ -129,7 +129,7 @@ void BraveWaybackMachineInfoBarContentsView::InitializeChildren() {
                                views::MaximumFlexSizeRule::kPreferred);
   auto* label = CreateLabel(
       l10n_util::GetStringUTF16(
-          IDS_BRAVE_WAYBACK_MACHINE_INFOBAR_PAGE_MISSING_TEXT));
+          IDS_adrbrowsiel_WAYBACK_MACHINE_INFOBAR_PAGE_MISSING_TEXT));
   label->SetFontList(
       label->font_list().DeriveWithWeight(gfx::Font::Weight::BOLD));
   views_visible_before_checking_.push_back(label);
@@ -142,7 +142,7 @@ void BraveWaybackMachineInfoBarContentsView::InitializeChildren() {
   AddChildView(label);
 
   label = CreateLabel(l10n_util::GetStringUTF16(
-      IDS_BRAVE_WAYBACK_MACHINE_INFOBAR_ASK_ABOUT_CHECK_TEXT));
+      IDS_adrbrowsiel_WAYBACK_MACHINE_INFOBAR_ASK_ABOUT_CHECK_TEXT));
   views_visible_before_checking_.push_back(label);
   label->SetProperty(
       views::kMarginsKey,
@@ -166,7 +166,7 @@ void BraveWaybackMachineInfoBarContentsView::InitializeChildren() {
 
   label = CreateLabel(
       l10n_util::GetStringUTF16(
-          IDS_BRAVE_WAYBACK_MACHINE_INFOBAR_NOT_AVAILABLE_TEXT));
+          IDS_adrbrowsiel_WAYBACK_MACHINE_INFOBAR_NOT_AVAILABLE_TEXT));
   views_visible_after_checking_.push_back(label);
   label->SetProperty(views::kFlexBehaviorKey, label_flex_rule);
   label->SetProperty(
@@ -176,8 +176,8 @@ void BraveWaybackMachineInfoBarContentsView::InitializeChildren() {
                   0));
   AddChildView(label);
 
-  button_ = new BraveWaybackMachineInfoBarButtonContainer(base::BindRepeating(
-      &BraveWaybackMachineInfoBarContentsView::ButtonPressed,
+  button_ = new adrbrowsielWaybackMachineInfoBarButtonContainer(base::BindRepeating(
+      &adrbrowsielWaybackMachineInfoBarContentsView::ButtonPressed,
       base::Unretained(this)));
   views_visible_before_checking_.push_back(button_);
   button_->SetProperty(
@@ -191,7 +191,7 @@ void BraveWaybackMachineInfoBarContentsView::InitializeChildren() {
   UpdateChildrenVisibility(true);
 }
 
-views::Label* BraveWaybackMachineInfoBarContentsView::CreateLabel(
+views::Label* adrbrowsielWaybackMachineInfoBarContentsView::CreateLabel(
     const std::u16string& text) {
   views::Label* label =
       new views::Label(text, views::style::CONTEXT_DIALOG_BODY_TEXT);
@@ -202,7 +202,7 @@ views::Label* BraveWaybackMachineInfoBarContentsView::CreateLabel(
   return label;
 }
 
-void BraveWaybackMachineInfoBarContentsView::UpdateChildrenVisibility(
+void adrbrowsielWaybackMachineInfoBarContentsView::UpdateChildrenVisibility(
     bool show_before_checking_views) {
   for (auto* view : views_visible_before_checking_)
     view->SetVisible(show_before_checking_views);
@@ -210,19 +210,19 @@ void BraveWaybackMachineInfoBarContentsView::UpdateChildrenVisibility(
     view->SetVisible(!show_before_checking_views);
 }
 
-SkColor BraveWaybackMachineInfoBarContentsView::GetColor(int id) const {
+SkColor adrbrowsielWaybackMachineInfoBarContentsView::GetColor(int id) const {
   const auto* theme_provider = GetThemeProvider();
   return theme_provider ? theme_provider->GetColor(id)
                         : gfx::kPlaceholderColor;
 }
 
-void BraveWaybackMachineInfoBarContentsView::FetchWaybackURL() {
+void adrbrowsielWaybackMachineInfoBarContentsView::FetchWaybackURL() {
   button_->StartThrobber();
   wayback_machine_url_fetcher_.Fetch(contents_->GetVisibleURL());
   Layout();
 }
 
-void BraveWaybackMachineInfoBarContentsView::LoadURL(const GURL& url) {
+void adrbrowsielWaybackMachineInfoBarContentsView::LoadURL(const GURL& url) {
   contents_->GetController().LoadURL(url,
                                      content::Referrer(),
                                      ui::PAGE_TRANSITION_LINK,

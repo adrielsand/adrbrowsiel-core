@@ -61,7 +61,7 @@ index e5a9fd2d98b65ff7bb54ded343d1de3891b232a8..69079c604543de01500a7ec99e999a85
          </activity>
          {% endif %}
  
-+        {% include "//brave/android/java/AndroidManifest.xml" %}
++        {% include "//adrbrowsiel/android/java/AndroidManifest.xml" %}
          {% block extra_application_definitions %}
          {% endblock %}
        {% endmacro %}

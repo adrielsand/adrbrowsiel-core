@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ipfs/import/save_package_observer.h"
+#include "adrbrowsiel/browser/ipfs/import/save_package_observer.h"
 
 #include "base/files/file_util.h"
 #include "chrome/browser/download/download_item_model.h"
@@ -62,7 +62,7 @@ class FakePackageDownloadItem : public content::FakeDownloadItem {
 
 IN_PROC_BROWSER_TEST_F(SavePackageFinishedObserverBrowserTest, Success) {
   GURL url =
-      embedded_test_server()->GetURL("/save_page/brave-text-content.html");
+      embedded_test_server()->GetURL("/save_page/adrbrowsiel-text-content.html");
   ui_test_utils::NavigateToURL(browser(), url);
   auto* download_manager = content::BrowserContext::GetDownloadManager(
       web_contents()->GetBrowserContext());

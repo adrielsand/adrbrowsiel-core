@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_shields/ad_block_service_browsertest.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/ad_block_service_browsertest.h"
 
 #include "base/strings/utf_string_conversions.h"
 #include "base/test/bind.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
-#include "brave/components/brave_shields/common/features.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/features.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "chrome/browser/interstitials/security_interstitial_page_test_utils.h"
 #include "chrome/browser/ui/browser.h"
@@ -24,11 +24,11 @@
 #include "content/public/test/test_navigation_observer.h"
 #include "url/gurl.h"
 
-using brave_shields::ControlType;
-using brave_shields::ResetBraveShieldsEnabled;
-using brave_shields::SetBraveShieldsEnabled;
-using brave_shields::SetCosmeticFilteringControlType;
-using brave_shields::features::kBraveDomainBlock;
+using adrbrowsiel_shields::ControlType;
+using adrbrowsiel_shields::ResetadrbrowsielShieldsEnabled;
+using adrbrowsiel_shields::SetadrbrowsielShieldsEnabled;
+using adrbrowsiel_shields::SetCosmeticFilteringControlType;
+using adrbrowsiel_shields::features::kadrbrowsielDomainBlock;
 
 class DomainBlockTestBase : public AdBlockServiceTest {
  public:
@@ -86,7 +86,7 @@ class DomainBlockTestBase : public AdBlockServiceTest {
 
 class DomainBlockTest : public DomainBlockTestBase {
  public:
-  DomainBlockTest() { feature_list_.InitAndEnableFeature(kBraveDomainBlock); }
+  DomainBlockTest() { feature_list_.InitAndEnableFeature(kadrbrowsielDomainBlock); }
 
  private:
   base::test::ScopedFeatureList feature_list_;
@@ -95,7 +95,7 @@ class DomainBlockTest : public DomainBlockTestBase {
 class DomainBlockDisabledTest : public DomainBlockTestBase {
  public:
   DomainBlockDisabledTest() {
-    feature_list_.InitAndDisableFeature(kBraveDomainBlock);
+    feature_list_.InitAndDisableFeature(kadrbrowsielDomainBlock);
   }
 
  private:
@@ -318,7 +318,7 @@ IN_PROC_BROWSER_TEST_F(DomainBlockTest, NoFetch) {
 
 IN_PROC_BROWSER_TEST_F(DomainBlockTest, NoThirdPartyInterstitial) {
   ASSERT_TRUE(InstallDefaultAdBlockExtension());
-  ASSERT_TRUE(g_brave_browser_process->ad_block_custom_filters_service()
+  ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_custom_filters_service()
                   ->UpdateCustomFilters("||b.com^$third-party"));
 
   GURL url = embedded_test_server()->GetURL("a.com", "/simple_link.html");
@@ -378,7 +378,7 @@ IN_PROC_BROWSER_TEST_F(DomainBlockTest, NoInterstitialUnlessAggressive) {
   // to a page on a.com. This should not show an interstitial.
   BlockDomainByURL(url);
   SetCosmeticFilteringControlType(content_settings(), ControlType::BLOCK, url);
-  SetBraveShieldsEnabled(content_settings(), false /* enable */, url);
+  SetadrbrowsielShieldsEnabled(content_settings(), false /* enable */, url);
   NavigateTo(url);
   ASSERT_FALSE(IsShowingInterstitial());
 }

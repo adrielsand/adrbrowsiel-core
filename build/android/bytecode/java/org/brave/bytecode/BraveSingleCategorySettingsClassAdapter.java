@@ -1,19 +1,19 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BraveSingleCategorySettingsClassAdapter extends BraveClassVisitor {
+public class adrbrowsielSingleCategorySettingsClassAdapter extends adrbrowsielClassVisitor {
     static String sSingleCategorySettingsClassName = "org/chromium/components/browser_ui/site_settings/SingleCategorySettings";
-    static String sBraveSingleCategorySettingsClassName = "org/chromium/components/browser_ui/site_settings/BraveSingleCategorySettings";
+    static String sadrbrowsielSingleCategorySettingsClassName = "org/chromium/components/browser_ui/site_settings/adrbrowsielSingleCategorySettings";
 
-    public BraveSingleCategorySettingsClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielSingleCategorySettingsClassAdapter(ClassVisitor visitor) {
         super(visitor);
 
-        changeSuperName(sSingleCategorySettingsClassName, sBraveSingleCategorySettingsClassName);
+        changeSuperName(sSingleCategorySettingsClassName, sadrbrowsielSingleCategorySettingsClassName);
     }
 }

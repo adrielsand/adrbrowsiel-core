@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -18,7 +18,7 @@
 #include "bat/ledger/internal/endpoint/bitflyer/bitflyer_server.h"
 #include "bat/ledger/internal/ledger_impl.h"
 #include "bat/ledger/internal/logging/event_log_keys.h"
-#include "brave_base/random.h"
+#include "adrbrowsiel_base/random.h"
 
 using std::placeholders::_1;
 using std::placeholders::_2;
@@ -26,7 +26,7 @@ using std::placeholders::_3;
 
 namespace {
 const char kFeeMessage[] =
-    "5% transaction fee collected by Brave Software International";
+    "5% transaction fee collected by adrbrowsiel Software International";
 }  // namespace
 
 namespace ledger {

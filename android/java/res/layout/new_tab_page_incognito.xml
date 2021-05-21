@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--* Copyright (c) 2020 The Brave Authors. All rights reserved.
+<!--* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -12,7 +12,7 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:contentDescription="@string/brave_new_private_tab">
+    android:contentDescription="@string/adrbrowsiel_new_private_tab">
 
     <org.chromium.chrome.browser.ntp.NewTabPageScrollView
         android:id="@+id/ntp_scrollview"
@@ -52,14 +52,14 @@
                 android:layout_marginBottom="10dp"
                 tools:ignore="ContentDescription"
                 android:visibility="gone"
-                android:src="@drawable/brave_sync_btn_laptop" />
+                android:src="@drawable/adrbrowsiel_sync_btn_laptop" />
 
             <TextView
                 android:id="@+id/ntp_incognito_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/brave_new_tab_private_header"
+                android:text="@string/adrbrowsiel_new_tab_private_header"
                 android:textAppearance="@style/TextAppearance.Headline.Primary.Light" />
 
             <TextView
@@ -86,11 +86,11 @@
                 android:text="@string/learn_more"
                 android:visibility = "gone" />
 
-            <org.chromium.chrome.browser.ntp.BraveDuckDuckGoOfferView android:id="@+id/brave_duck_duck_go_offer_view"
+            <org.chromium.chrome.browser.ntp.adrbrowsielDuckDuckGoOfferView android:id="@+id/adrbrowsiel_duck_duck_go_offer_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
-                    <include layout="@layout/brave_ddg_offer_link" />
-            </org.chromium.chrome.browser.ntp.BraveDuckDuckGoOfferView>
+                    <include layout="@layout/adrbrowsiel_ddg_offer_link" />
+            </org.chromium.chrome.browser.ntp.adrbrowsielDuckDuckGoOfferView>
 
         </LinearLayout>
 

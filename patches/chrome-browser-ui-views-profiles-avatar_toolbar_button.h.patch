@@ -6,7 +6,7 @@ index 6b6dff787b01afae0a3823f6ea3b7f59129c6d74..e3da445735f0c47f52e2734401a1e958
    // ToolbarButton:
    void NotifyClick(const ui::Event& event) override;
  
-+BRAVE_AVATAR_BUTTON_H
++adrbrowsiel_AVATAR_BUTTON_H
   private:
    FRIEND_TEST_ALL_PREFIXES(AvatarToolbarButtonTest,
                             HighlightMeetsMinimumContrast);

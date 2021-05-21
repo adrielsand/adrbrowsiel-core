@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -17,12 +17,12 @@ import androidx.core.app.NotificationCompat;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.brave_stats.BraveStatsUtil;
+import org.chromium.chrome.browser.adrbrowsiel_stats.adrbrowsielStatsUtil;
 import org.chromium.chrome.browser.local_database.DatabaseHelper;
-import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
-import org.chromium.chrome.browser.notifications.BraveSetDefaultBrowserNotificationService;
-import org.chromium.chrome.browser.notifications.channels.BraveChannelDefinitions;
-import org.chromium.chrome.browser.ntp.BraveNewTabPageLayout;
+import org.chromium.chrome.browser.notifications.adrbrowsielOnboardingNotification;
+import org.chromium.chrome.browser.notifications.adrbrowsielSetDefaultBrowserNotificationService;
+import org.chromium.chrome.browser.notifications.channels.adrbrowsielChannelDefinitions;
+import org.chromium.chrome.browser.ntp.adrbrowsielNewTabPageLayout;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 
 import java.util.Calendar;
@@ -32,7 +32,7 @@ import java.util.Map;
 
 public class RetentionNotificationUtil {
     public static String NOTIFICATION_TYPE = "notification_type";
-    private static final String BRAVE_BROWSER = "Brave Browser";
+    private static final String adrbrowsiel_BROWSER = "adrbrowsiel Browser";
 
     public static final String HOUR_3 = "hour_3";
     public static final String HOUR_24 = "hour_24";
@@ -41,9 +41,9 @@ public class RetentionNotificationUtil {
     public static final String DAY_10 = "day_10";
     public static final String DAY_30 = "day_30";
     public static final String DAY_35 = "day_35";
-    public static final String BRAVE_STATS_ADS_TRACKERS = "brave_stats_ads_trackers";
-    public static final String BRAVE_STATS_DATA = "brave_stats_data";
-    public static final String BRAVE_STATS_TIME = "brave_stats_time";
+    public static final String adrbrowsiel_STATS_ADS_TRACKERS = "adrbrowsiel_stats_ads_trackers";
+    public static final String adrbrowsiel_STATS_DATA = "adrbrowsiel_stats_data";
+    public static final String adrbrowsiel_STATS_TIME = "adrbrowsiel_stats_time";
     public static final String DEFAULT_BROWSER_1 = "default_browser_1";
     public static final String DEFAULT_BROWSER_2 = "default_browser_2";
     public static final String DEFAULT_BROWSER_3 = "default_browser_3";
@@ -52,21 +52,21 @@ public class RetentionNotificationUtil {
         {
             put(HOUR_3,
                     new RetentionNotification(
-                            3, 3 * 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
+                            3, 3 * 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
             put(HOUR_24,
                     new RetentionNotification(
-                            24, 24 * 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(DAY_6, new RetentionNotification(6, 6 * 24 * 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(EVERY_SUNDAY, new RetentionNotification(7, -1, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(DAY_10, new RetentionNotification(10, 10 * 24 * 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(DAY_30, new RetentionNotification(30, 30 * 24 * 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(DAY_35, new RetentionNotification(35, 35 * 24 * 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(BRAVE_STATS_ADS_TRACKERS, new RetentionNotification(14, 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(BRAVE_STATS_DATA, new RetentionNotification(15, 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(BRAVE_STATS_TIME, new RetentionNotification(16, 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(DEFAULT_BROWSER_1, new RetentionNotification(17, 48 * 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(DEFAULT_BROWSER_2, new RetentionNotification(18, 6 * 24 * 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
-            put(DEFAULT_BROWSER_3, new RetentionNotification(19, 20 * 24 * 60, BraveChannelDefinitions.ChannelId.BRAVE_BROWSER, BRAVE_BROWSER));
+                            24, 24 * 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(DAY_6, new RetentionNotification(6, 6 * 24 * 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(EVERY_SUNDAY, new RetentionNotification(7, -1, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(DAY_10, new RetentionNotification(10, 10 * 24 * 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(DAY_30, new RetentionNotification(30, 30 * 24 * 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(DAY_35, new RetentionNotification(35, 35 * 24 * 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(adrbrowsiel_STATS_ADS_TRACKERS, new RetentionNotification(14, 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(adrbrowsiel_STATS_DATA, new RetentionNotification(15, 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(adrbrowsiel_STATS_TIME, new RetentionNotification(16, 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(DEFAULT_BROWSER_1, new RetentionNotification(17, 48 * 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(DEFAULT_BROWSER_2, new RetentionNotification(18, 6 * 24 * 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
+            put(DEFAULT_BROWSER_3, new RetentionNotification(19, 20 * 24 * 60, adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_BROWSER, adrbrowsiel_BROWSER));
         }
     };
 
@@ -87,7 +87,7 @@ public class RetentionNotificationUtil {
         if (notificationType.equals(DEFAULT_BROWSER_1)
                 || notificationType.equals(DEFAULT_BROWSER_2)
                 || notificationType.equals(DEFAULT_BROWSER_3)) {
-            builder.setContentIntent(BraveSetDefaultBrowserNotificationService.getDefaultAppSettingsIntent(context));
+            builder.setContentIntent(adrbrowsielSetDefaultBrowserNotificationService.getDefaultAppSettingsIntent(context));
         } else {
             builder.setContentIntent(getRetentionNotificationActionIntent(context, notificationType));
         }
@@ -98,7 +98,7 @@ public class RetentionNotificationUtil {
         DatabaseHelper mDatabaseHelper = DatabaseHelper.getInstance();
         switch (notificationType) {
         case HOUR_3:
-            if (OnboardingPrefManager.getInstance().isBraveStatsEnabled()) {
+            if (OnboardingPrefManager.getInstance().isadrbrowsielStatsEnabled()) {
                 long adsTrackersCount = mDatabaseHelper.getAllStats().size();
                 if (adsTrackersCount >= 5) {
                     return String.format(context.getResources().getString(R.string.notification_hour_3_text_1), adsTrackersCount);
@@ -109,9 +109,9 @@ public class RetentionNotificationUtil {
                 return context.getResources().getString(R.string.notification_hour_3_text_3);
             }
         case HOUR_24:
-            if (OnboardingPrefManager.getInstance().isBraveStatsEnabled()) {
+            if (OnboardingPrefManager.getInstance().isadrbrowsielStatsEnabled()) {
                 Pair<String, String> dataSavedPair =
-                        BraveStatsUtil.getBraveStatsStringFormNumberPair(
+                        adrbrowsielStatsUtil.getadrbrowsielStatsStringFormNumberPair(
                                 mDatabaseHelper.getTotalSavedBandwidth(), true);
                 return String.format(context.getResources().getString(R.string.notification_hour_24_text_1), dataSavedPair.first, dataSavedPair.second);
             } else {
@@ -120,8 +120,8 @@ public class RetentionNotificationUtil {
         case EVERY_SUNDAY:
             long adsTrackersCountWeekly =
                     mDatabaseHelper
-                            .getAllStatsWithDate(BraveStatsUtil.getCalculatedDate("yyyy-MM-dd", -7),
-                                    BraveStatsUtil.getCalculatedDate("yyyy-MM-dd", 0))
+                            .getAllStatsWithDate(adrbrowsielStatsUtil.getCalculatedDate("yyyy-MM-dd", -7),
+                                    adrbrowsielStatsUtil.getCalculatedDate("yyyy-MM-dd", 0))
                             .size();
             Log.e("NTP", "Weekly count : " + adsTrackersCountWeekly);
             return String.format(context.getResources().getString(R.string.notification_weekly_stats), adsTrackersCountWeekly);
@@ -131,16 +131,16 @@ public class RetentionNotificationUtil {
         case DAY_30:
         case DAY_35:
             return context.getResources().getString(R.string.notification_rewards);
-        case BRAVE_STATS_ADS_TRACKERS:
-            return context.getResources().getString(R.string.notification_brave_stats_trackers);
-        case BRAVE_STATS_DATA:
-            return context.getResources().getString(R.string.notification_brave_stats_data);
-        case BRAVE_STATS_TIME:
-            return context.getResources().getString(R.string.notification_brave_stats_time);
+        case adrbrowsiel_STATS_ADS_TRACKERS:
+            return context.getResources().getString(R.string.notification_adrbrowsiel_stats_trackers);
+        case adrbrowsiel_STATS_DATA:
+            return context.getResources().getString(R.string.notification_adrbrowsiel_stats_data);
+        case adrbrowsiel_STATS_TIME:
+            return context.getResources().getString(R.string.notification_adrbrowsiel_stats_time);
         case DEFAULT_BROWSER_1:
         case DEFAULT_BROWSER_2:
         case DEFAULT_BROWSER_3:
-            return context.getResources().getString(R.string.set_brave_as_your);
+            return context.getResources().getString(R.string.set_adrbrowsiel_as_your);
         }
         return "";
     }

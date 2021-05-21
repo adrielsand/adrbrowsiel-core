@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_WALLET_BRAVE_WALLET_DELEGATE_IMPL_H_
-#define BRAVE_BROWSER_BRAVE_WALLET_BRAVE_WALLET_DELEGATE_IMPL_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_WALLET_adrbrowsiel_WALLET_DELEGATE_IMPL_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_WALLET_adrbrowsiel_WALLET_DELEGATE_IMPL_H_
 
-#include "brave/components/brave_wallet/browser/brave_wallet_delegate.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_delegate.h"
 
-class BraveWalletDelegateImpl : public BraveWalletDelegate {
+class adrbrowsielWalletDelegateImpl : public adrbrowsielWalletDelegate {
  public:
-  ~BraveWalletDelegateImpl() override;
+  ~adrbrowsielWalletDelegateImpl() override;
   void MaybeLoadCryptoWalletsExtension(
       content::BrowserContext* context) override;
 };
 
-#endif  // BRAVE_BROWSER_BRAVE_WALLET_BRAVE_WALLET_DELEGATE_IMPL_H_
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_WALLET_adrbrowsiel_WALLET_DELEGATE_IMPL_H_

@@ -6,7 +6,7 @@ index 9747d2f74006b412d3c325b95368064a635d153e..a25d0c3ffaff4b6b24ace73e0c1ef609
    registry->RegisterIntegerPref(kPasswordManagerOnboardingState, 0);
    registry->RegisterBooleanPref(kWasOnboardingFeatureCheckedBefore, false);
    registry->RegisterDictionaryPref(kDomainsWithCookiePref);
-+  BRAVE_REGISTER_BROWSER_STATE_PREFS
++  adrbrowsiel_REGISTER_BROWSER_STATE_PREFS
  }
  
  // This method should be periodically pruned of year+ old migrations.

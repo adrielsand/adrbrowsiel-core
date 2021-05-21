@@ -6,7 +6,7 @@ index 5947cb28ae1aac0f062c5cb21667bfd31603b449..4f12dd4e6f8318374fe2d47efe727a52
      "java/src/org/chromium/chrome/browser/tasks/tab_management/suggestions/TabSuggestionsRanker.java",
      "java/src/org/chromium/chrome/browser/tasks/tab_management/suggestions/TabSuggestionsServerFetcher.java",
    ]
-+  sources += brave_android_features_tab_ui_java_sources
++  sources += adrbrowsiel_android_features_tab_ui_java_sources
  
    deps = [
      ":java_resources",

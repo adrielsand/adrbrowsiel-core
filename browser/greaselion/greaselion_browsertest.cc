@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,17 +8,17 @@
 #include "base/run_loop.h"
 #include "base/task/post_task.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/browser/extensions/brave_base_local_data_files_browsertest.h"
-#include "brave/browser/greaselion/greaselion_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_response.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
-#include "brave/components/greaselion/browser/greaselion_download_service.h"
-#include "brave/components/greaselion/browser/greaselion_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_base_local_data_files_browsertest.h"
+#include "adrbrowsiel/browser/greaselion/greaselion_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_download_service.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_service.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "chrome/test/base/ui_test_utils.h"
 #include "content/public/test/browser_test.h"
@@ -26,8 +26,8 @@
 #include "net/dns/mock_host_resolver.h"
 #include "ui/base/ui_base_switches.h"
 
-using brave_rewards::RewardsService;
-using brave_rewards::RewardsServiceFactory;
+using adrbrowsiel_rewards::RewardsService;
+using adrbrowsiel_rewards::RewardsServiceFactory;
 using extensions::ExtensionBrowserTest;
 using greaselion::GreaselionDownloadService;
 using greaselion::GreaselionService;
@@ -110,14 +110,14 @@ class GreaselionServiceTest : public BaseLocalDataFilesBrowserTest {
     return kEmbeddedTestServerDirectory;
   }
   LocalDataFilesObserver* service() override {
-    return g_brave_browser_process->greaselion_download_service();
+    return g_adrbrowsiel_browser_process->greaselion_download_service();
   }
 
   void WaitForService() override {
     // wait for Greaselion download service to load and parse its
     // configuration file
     greaselion::GreaselionDownloadService* download_service =
-        g_brave_browser_process->greaselion_download_service();
+        g_adrbrowsiel_browser_process->greaselion_download_service();
     GreaselionDownloadServiceWaiter(download_service).Wait();
     GreaselionService* greaselion_service =
         GreaselionServiceFactory::GetForBrowserContext(profile());
@@ -129,13 +129,13 @@ class GreaselionServiceTest : public BaseLocalDataFilesBrowserTest {
   }
 
   int GetRulesSize() {
-    return g_brave_browser_process->greaselion_download_service()
+    return g_adrbrowsiel_browser_process->greaselion_download_service()
         ->rules()
         ->size();
   }
 
   void ClearRules() {
-    g_brave_browser_process->greaselion_download_service()->rules()->clear();
+    g_adrbrowsiel_browser_process->greaselion_download_service()->rules()->clear();
   }
 
   void StartRewards() {
@@ -146,8 +146,8 @@ class GreaselionServiceTest : public BaseLocalDataFilesBrowserTest {
     ASSERT_TRUE(https_server_.Start());
 
     // Rewards service
-    rewards_service_ = static_cast<brave_rewards::RewardsServiceImpl*>(
-        brave_rewards::RewardsServiceFactory::GetForProfile(profile()));
+    rewards_service_ = static_cast<adrbrowsiel_rewards::RewardsServiceImpl*>(
+        adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile()));
     rewards_browsertest_util::StartProcess(rewards_service_);
 
     // Response mock
@@ -178,7 +178,7 @@ class GreaselionServiceTest : public BaseLocalDataFilesBrowserTest {
 
   std::unique_ptr<rewards_browsertest::RewardsBrowserTestResponse> response_;
   net::test_server::EmbeddedTestServer https_server_;
-  brave_rewards::RewardsServiceImpl* rewards_service_;
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;
 };
 
 #if !defined(OS_MAC)
@@ -214,7 +214,7 @@ class GreaselionServiceLocaleTestFrench : public GreaselionServiceLocaleTest {
 
 // Ensure the site specific script service properly clears its cache of
 // precompiled URLPatterns if initialized twice. (This can happen if
-// the parent component is updated while Brave is running.)
+// the parent component is updated while adrbrowsiel is running.)
 IN_PROC_BROWSER_TEST_F(GreaselionServiceTest, ClearCache) {
   ASSERT_TRUE(InstallMockExtension());
   int size = GetRulesSize();

@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/themes/brave_dark_mode_utils.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_dark_mode_utils.h"
 
 #include <utility>
 
 #include "base/command_line.h"
 #include "base/strings/string_util.h"
-#include "brave/browser/themes/brave_dark_mode_utils_internal.h"
-#include "brave/common/brave_switches.h"
-#include "brave/common/pref_names.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_dark_mode_utils_internal.h"
+#include "adrbrowsiel/common/adrbrowsiel_switches.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/common/channel_info.h"
@@ -28,26 +28,26 @@ namespace {
 bool g_is_test_ = false;
 bool g_system_dark_mode_enabled_in_test_ = false;
 
-void ClearBraveDarkModeProfilePrefs(Profile* profile) {
+void ClearadrbrowsielDarkModeProfilePrefs(Profile* profile) {
   PrefService* prefs = profile->GetPrefs();
-  prefs->ClearPref(kBraveThemeType);
-  prefs->ClearPref(kUseOverriddenBraveThemeType);
+  prefs->ClearPref(kadrbrowsielThemeType);
+  prefs->ClearPref(kUseOverriddenadrbrowsielThemeType);
 }
 
-dark_mode::BraveDarkModeType GetDarkModeTypeBasedOnChannel() {
+dark_mode::adrbrowsielDarkModeType GetDarkModeTypeBasedOnChannel() {
   switch (chrome::GetChannel()) {
     case version_info::Channel::STABLE:
     case version_info::Channel::BETA:
-      return dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT;
+      return dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT;
     case version_info::Channel::DEV:
     case version_info::Channel::CANARY:
     case version_info::Channel::UNKNOWN:
     default:
-      return dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK;
+      return dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK;
   }
 }
 
-dark_mode::BraveDarkModeType GetDarkModeSwitchValue(
+dark_mode::adrbrowsielDarkModeType GetDarkModeSwitchValue(
     const base::CommandLine& command_line) {
   DCHECK(command_line.HasSwitch(switches::kDarkMode));
 
@@ -56,45 +56,45 @@ dark_mode::BraveDarkModeType GetDarkModeSwitchValue(
   std::string requested_dark_mode_value_lower =
       base::ToLowerASCII(requested_dark_mode_value);
   if (requested_dark_mode_value_lower == "light")
-    return dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT;
+    return dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT;
   if (requested_dark_mode_value_lower == "dark")
-    return dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK;
+    return dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK;
 
   NOTREACHED();
-  return dark_mode::BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT;
+  return dark_mode::adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT;
 }
 
 }  // namespace
 
 namespace dark_mode {
 
-void MigrateBraveDarkModePrefs(Profile* profile) {
+void MigrateadrbrowsielDarkModePrefs(Profile* profile) {
   auto* local_state = g_browser_process->local_state();
   // If migration is done, local state doesn't have default value because
   // they were explicitly set by primary prefs' value. After that, we don't
   // need to try migration again and prefs from profiles are already cleared.
-  if (local_state->FindPreference(kBraveDarkMode)->IsDefaultValue()) {
+  if (local_state->FindPreference(kadrbrowsielDarkMode)->IsDefaultValue()) {
     PrefService* prefs = profile->GetPrefs();
-    local_state->SetInteger(kBraveDarkMode,
-                            prefs->GetInteger(kBraveThemeType));
+    local_state->SetInteger(kadrbrowsielDarkMode,
+                            prefs->GetInteger(kadrbrowsielThemeType));
   }
 
   // Clear deprecated prefs.
-  ClearBraveDarkModeProfilePrefs(profile);
+  ClearadrbrowsielDarkModeProfilePrefs(profile);
 }
 
-void RegisterBraveDarkModeLocalStatePrefs(PrefRegistrySimple* registry) {
+void RegisteradrbrowsielDarkModeLocalStatePrefs(PrefRegistrySimple* registry) {
   registry->RegisterIntegerPref(
-      kBraveDarkMode,
-      static_cast<int>(BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT));
+      kadrbrowsielDarkMode,
+      static_cast<int>(adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT));
 }
 
-void RegisterBraveDarkModePrefsForMigration(
+void RegisteradrbrowsielDarkModePrefsForMigration(
     user_prefs::PrefRegistrySyncable* registry) {
   registry->RegisterIntegerPref(
-      kBraveThemeType,
-      static_cast<int>(BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT));
-  registry->RegisterBooleanPref(kUseOverriddenBraveThemeType, false);
+      kadrbrowsielThemeType,
+      static_cast<int>(adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT));
+  registry->RegisterBooleanPref(kUseOverriddenadrbrowsielThemeType, false);
 }
 
 bool SystemDarkModeEnabled() {
@@ -109,11 +109,11 @@ void SetUseSystemDarkModeEnabledForTest(bool enabled) {
   g_system_dark_mode_enabled_in_test_ = enabled;
 }
 
-std::string GetStringFromBraveDarkModeType(BraveDarkModeType type) {
+std::string GetStringFromadrbrowsielDarkModeType(adrbrowsielDarkModeType type) {
   switch (type) {
-    case BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT:
+    case adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT:
       return "Light";
-    case BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK:
+    case adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK:
       return "Dark";
     default:
       NOTREACHED();
@@ -121,53 +121,53 @@ std::string GetStringFromBraveDarkModeType(BraveDarkModeType type) {
   }
 }
 
-void SetBraveDarkModeType(const std::string& type) {
-  BraveDarkModeType parsed_type =
-      BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT;
+void SetadrbrowsielDarkModeType(const std::string& type) {
+  adrbrowsielDarkModeType parsed_type =
+      adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT;
 
   if (type == "Light") {
-    parsed_type = BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT;
+    parsed_type = adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT;
   } else if (type == "Dark") {
-    parsed_type = BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK;
+    parsed_type = adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK;
   }
-  SetBraveDarkModeType(parsed_type);
+  SetadrbrowsielDarkModeType(parsed_type);
 }
 
-void SetBraveDarkModeType(BraveDarkModeType type) {
-  g_browser_process->local_state()->SetInteger(kBraveDarkMode,
+void SetadrbrowsielDarkModeType(adrbrowsielDarkModeType type) {
+  g_browser_process->local_state()->SetInteger(kadrbrowsielDarkMode,
                                                static_cast<int>(type));
 }
 
-BraveDarkModeType GetActiveBraveDarkModeType() {
+adrbrowsielDarkModeType GetActiveadrbrowsielDarkModeType() {
   // allow override via cli flag
   const base::CommandLine& command_line =
       *base::CommandLine::ForCurrentProcess();
   if (command_line.HasSwitch(switches::kDarkMode))
     return GetDarkModeSwitchValue(command_line);
 
-  BraveDarkModeType type = static_cast<BraveDarkModeType>(
-      g_browser_process->local_state()->GetInteger(kBraveDarkMode));
-  if (type == BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT) {
+  adrbrowsielDarkModeType type = static_cast<adrbrowsielDarkModeType>(
+      g_browser_process->local_state()->GetInteger(kadrbrowsielDarkMode));
+  if (type == adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT) {
     if (!SystemDarkModeEnabled())
       return GetDarkModeTypeBasedOnChannel();
 
     return ui::NativeTheme::GetInstanceForNativeUi()->ShouldUseDarkColors()
-               ? BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK
-               : BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT;
+               ? adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK
+               : adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT;
   }
   return type;
 }
 
-BraveDarkModeType GetBraveDarkModeType() {
+adrbrowsielDarkModeType GetadrbrowsielDarkModeType() {
   // allow override via cli flag
   const base::CommandLine& command_line =
       *base::CommandLine::ForCurrentProcess();
   if (command_line.HasSwitch(switches::kDarkMode))
     return GetDarkModeSwitchValue(command_line);
 
-  BraveDarkModeType type = static_cast<BraveDarkModeType>(
-      g_browser_process->local_state()->GetInteger(kBraveDarkMode));
-  if (type == BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT) {
+  adrbrowsielDarkModeType type = static_cast<adrbrowsielDarkModeType>(
+      g_browser_process->local_state()->GetInteger(kadrbrowsielDarkMode));
+  if (type == adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT) {
     if (!SystemDarkModeEnabled())
       return GetDarkModeTypeBasedOnChannel();
     return type;
@@ -175,7 +175,7 @@ BraveDarkModeType GetBraveDarkModeType() {
   return type;
 }
 
-base::Value GetBraveDarkModeTypeList() {
+base::Value GetadrbrowsielDarkModeTypeList() {
   base::Value list(base::Value::Type::LIST);
 
   if (SystemDarkModeEnabled()) {
@@ -183,10 +183,10 @@ base::Value GetBraveDarkModeTypeList() {
     system_type.SetKey(
         "value",
         base::Value(static_cast<int>(
-            BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT)));
+            adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT)));
     system_type.SetKey(
         "name",
-        base::Value(l10n_util::GetStringUTF16(IDS_BRAVE_THEME_TYPE_SYSTEM)));
+        base::Value(l10n_util::GetStringUTF16(IDS_adrbrowsiel_THEME_TYPE_SYSTEM)));
     list.Append(std::move(system_type));
   }
 
@@ -194,20 +194,20 @@ base::Value GetBraveDarkModeTypeList() {
   dark_type.SetKey(
       "value",
       base::Value(static_cast<int>(
-          BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DARK)));
+          adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DARK)));
   dark_type.SetKey(
       "name",
-      base::Value(l10n_util::GetStringUTF16(IDS_BRAVE_THEME_TYPE_DARK)));
+      base::Value(l10n_util::GetStringUTF16(IDS_adrbrowsiel_THEME_TYPE_DARK)));
   list.Append(std::move(dark_type));
 
   base::Value light_type(base::Value::Type::DICTIONARY);
   light_type.SetKey(
       "value",
       base::Value(static_cast<int>(
-          BraveDarkModeType::BRAVE_DARK_MODE_TYPE_LIGHT)));
+          adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_LIGHT)));
   light_type.SetKey(
       "name",
-      base::Value(l10n_util::GetStringUTF16(IDS_BRAVE_THEME_TYPE_LIGHT)));
+      base::Value(l10n_util::GetStringUTF16(IDS_adrbrowsiel_THEME_TYPE_LIGHT)));
   list.Append(std::move(light_type));
 
   return list;

@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_static_redirect_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_static_redirect_network_delegate_helper.h"
 
 #include <algorithm>
 #include <memory>
@@ -11,13 +11,13 @@
 #include <vector>
 
 #include "base/strings/string_piece_forward.h"
-#include "brave/browser/translate/buildflags/buildflags.h"
-#include "brave/common/network_constants.h"
-#include "brave/common/translate_network_constants.h"
+#include "adrbrowsiel/browser/translate/buildflags/buildflags.h"
+#include "adrbrowsiel/common/network_constants.h"
+#include "adrbrowsiel/common/translate_network_constants.h"
 #include "extensions/common/url_pattern.h"
 #include "net/base/net_errors.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 const char kSafeBrowsingTestingEndpoint[] = "test.safebrowsing.com";
 
@@ -39,7 +39,7 @@ void SetSafeBrowsingEndpointForTesting(bool testing) {
 
 int OnBeforeURLRequest_StaticRedirectWork(
     const ResponseCallback& next_callback,
-    std::shared_ptr<BraveRequestInfo> ctx) {
+    std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   GURL new_url;
   int rc = OnBeforeURLRequest_StaticRedirectWorkForGURL(ctx->request_url,
                                                         &new_url);
@@ -62,7 +62,7 @@ int OnBeforeURLRequest_StaticRedirectWorkForGURL(
                                                 kSafeBrowsingCrxListPrefix);
 
   // To-Do (@jumde) - Update the naming for the variables below
-  // https://github.com/brave/brave-browser/issues/10314
+  // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10314
   static URLPattern crlSet_pattern1(
       URLPattern::SCHEME_HTTP | URLPattern::SCHEME_HTTPS, kCRLSetPrefix1);
   static URLPattern crlSet_pattern2(
@@ -88,7 +88,7 @@ int OnBeforeURLRequest_StaticRedirectWorkForGURL(
       URLPattern::SCHEME_HTTP | URLPattern::SCHEME_HTTPS,
       kWidevineGoogleDlPrefix);
 
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_GO)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_GO)
   static URLPattern translate_pattern(URLPattern::SCHEME_HTTPS,
       kTranslateElementJSPattern);
   static URLPattern translate_language_pattern(URLPattern::SCHEME_HTTPS,
@@ -109,56 +109,56 @@ int OnBeforeURLRequest_StaticRedirectWorkForGURL(
 
   if (!safebrowsing_endpoint.empty() &&
       safebrowsingfilecheck_pattern.MatchesHost(request_url)) {
-    replacements.SetHostStr(kBraveSafeBrowsingSslProxy);
+    replacements.SetHostStr(kadrbrowsielSafeBrowsingSslProxy);
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
 
   if (!safebrowsing_endpoint.empty() &&
       safebrowsingcrxlist_pattern.MatchesHost(request_url)) {
-    replacements.SetHostStr(kBraveSafeBrowsing2Proxy);
+    replacements.SetHostStr(kadrbrowsielSafeBrowsing2Proxy);
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
 
   if (crxDownload_pattern.MatchesURL(request_url)) {
     replacements.SetSchemeStr("https");
-    replacements.SetHostStr("crxdownload.brave.com");
+    replacements.SetHostStr("crxdownload.adrbrowsiel.com");
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
 
   if (autofill_pattern.MatchesURL(request_url)) {
     replacements.SetSchemeStr("https");
-    replacements.SetHostStr(kBraveStaticProxy);
+    replacements.SetHostStr(kadrbrowsielStaticProxy);
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
 
   if (crlSet_pattern1.MatchesURL(request_url)) {
     replacements.SetSchemeStr("https");
-    replacements.SetHostStr("crlsets.brave.com");
+    replacements.SetHostStr("crlsets.adrbrowsiel.com");
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
 
   if (crlSet_pattern2.MatchesURL(request_url)) {
     replacements.SetSchemeStr("https");
-    replacements.SetHostStr("crlsets.brave.com");
+    replacements.SetHostStr("crlsets.adrbrowsiel.com");
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
 
   if (crlSet_pattern3.MatchesURL(request_url)) {
     replacements.SetSchemeStr("https");
-    replacements.SetHostStr("crlsets.brave.com");
+    replacements.SetHostStr("crlsets.adrbrowsiel.com");
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
 
   if (crlSet_pattern4.MatchesURL(request_url)) {
     replacements.SetSchemeStr("https");
-    replacements.SetHostStr("crlsets.brave.com");
+    replacements.SetHostStr("crlsets.adrbrowsiel.com");
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
@@ -166,7 +166,7 @@ int OnBeforeURLRequest_StaticRedirectWorkForGURL(
   if (gvt1_pattern.MatchesURL(request_url) &&
       !widevine_gvt1_pattern.MatchesURL(request_url)) {
     replacements.SetSchemeStr("https");
-    replacements.SetHostStr(kBraveRedirectorProxy);
+    replacements.SetHostStr(kadrbrowsielRedirectorProxy);
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
@@ -174,22 +174,22 @@ int OnBeforeURLRequest_StaticRedirectWorkForGURL(
   if (googleDl_pattern.MatchesURL(request_url) &&
       !widevine_google_dl_pattern.MatchesURL(request_url)) {
     replacements.SetSchemeStr("https");
-    replacements.SetHostStr(kBraveRedirectorProxy);
+    replacements.SetHostStr(kadrbrowsielRedirectorProxy);
     *new_url = request_url.ReplaceComponents(replacements);
     return net::OK;
   }
 
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_GO)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_GO)
   if (translate_pattern.MatchesURL(request_url)) {
     replacements.SetQueryStr(request_url.query_piece());
     replacements.SetPathStr(request_url.path_piece());
     *new_url =
-      GURL(kBraveTranslateEndpoint).ReplaceComponents(replacements);
+      GURL(kadrbrowsielTranslateEndpoint).ReplaceComponents(replacements);
     return net::OK;
   }
 
   if (translate_language_pattern.MatchesURL(request_url)) {
-    *new_url = GURL(kBraveTranslateLanguageEndpoint);
+    *new_url = GURL(kadrbrowsielTranslateLanguageEndpoint);
     return net::OK;
   }
 #endif
@@ -198,4 +198,4 @@ int OnBeforeURLRequest_StaticRedirectWorkForGURL(
 }
 
 
-}  // namespace brave
+}  // namespace adrbrowsiel

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2019 The Brave Authors. All rights reserved.
+<!-- Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
      This Source Code Form is subject to the terms of the Mozilla Public
      License, v. 2.0. If a copy of the MPL was not distributed with this file,
      You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -45,8 +45,8 @@
     <dimen name="search_accelerator_height_padding">6dp</dimen>
     <dimen name="search_accelerator_width_margin">4dp</dimen>
 
-    <dimen name="brave_tile_view_icon_size_modern">48dp</dimen>
-    <dimen name="brave_tile_view_icon_margin_top_modern">0dp</dimen>
+    <dimen name="adrbrowsiel_tile_view_icon_size_modern">48dp</dimen>
+    <dimen name="adrbrowsiel_tile_view_icon_margin_top_modern">0dp</dimen>
 
     <dimen name="shields_tooltip_margin">-10dp</dimen>
     <dimen name="shields_tooltip_padding">32dp</dimen>

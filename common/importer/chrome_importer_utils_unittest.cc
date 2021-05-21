@@ -1,4 +1,4 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,9 +7,9 @@
 #include "base/files/file_util.h"
 #include "base/json/json_reader.h"
 #include "base/path_service.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/importer/chrome_importer_utils.h"
-#include "brave/common/importer/importer_constants.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/importer/chrome_importer_utils.h"
+#include "adrbrowsiel/common/importer/importer_constants.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
 namespace {
@@ -17,7 +17,7 @@ namespace {
 // theme from webstore with fresh profile.
 base::FilePath GetTestPreferencesPath() {
   base::FilePath test_dir;
-  base::PathService::Get(brave::DIR_TEST_DATA, &test_dir);
+  base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_dir);
   return test_dir.AppendASCII("import").AppendASCII("chrome")
       .AppendASCII("default").AppendASCII(kChromeExtensionsPreferencesFile);
 }
@@ -25,7 +25,7 @@ base::FilePath GetTestPreferencesPath() {
 
 TEST(ChromeImporterUtilsTest, BasicTest) {
   base::FilePath data_path;
-  ASSERT_TRUE(base::PathService::Get(brave::DIR_TEST_DATA, &data_path));
+  ASSERT_TRUE(base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &data_path));
   base::FilePath secured_preference_path = GetTestPreferencesPath();
 
   std::string secured_preference_content;

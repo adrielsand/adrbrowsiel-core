@@ -1,19 +1,19 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/themes/brave_dark_mode_utils.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_dark_mode_utils.h"
 
 namespace dark_mode {
 
-void MigrateBraveDarkModePrefs(Profile* profile) {
+void MigrateadrbrowsielDarkModePrefs(Profile* profile) {
 }
 
-void RegisterBraveDarkModeLocalStatePrefs(PrefRegistrySimple* registry) {
+void RegisteradrbrowsielDarkModeLocalStatePrefs(PrefRegistrySimple* registry) {
 }
 
-void RegisterBraveDarkModePrefsForMigration(
+void RegisteradrbrowsielDarkModePrefsForMigration(
     user_prefs::PrefRegistrySyncable* registry) {
 }
 
@@ -24,29 +24,29 @@ bool SystemDarkModeEnabled() {
 void SetUseSystemDarkModeEnabledForTest(bool enabled) {
 }
 
-std::string GetStringFromBraveDarkModeType(BraveDarkModeType type) {
+std::string GetStringFromadrbrowsielDarkModeType(adrbrowsielDarkModeType type) {
   return "Default";
 }
 
-void SetBraveDarkModeType(const std::string& type) {
+void SetadrbrowsielDarkModeType(const std::string& type) {
 }
 
-void SetBraveDarkModeType(BraveDarkModeType type) {
+void SetadrbrowsielDarkModeType(adrbrowsielDarkModeType type) {
 }
 
-BraveDarkModeType GetActiveBraveDarkModeType() {
-  return BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT;
+adrbrowsielDarkModeType GetActiveadrbrowsielDarkModeType() {
+  return adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT;
 }
 
-BraveDarkModeType GetBraveDarkModeType() {
-  return BraveDarkModeType::BRAVE_DARK_MODE_TYPE_DEFAULT;
+adrbrowsielDarkModeType GetadrbrowsielDarkModeType() {
+  return adrbrowsielDarkModeType::adrbrowsiel_DARK_MODE_TYPE_DEFAULT;
 }
 
-base::Value GetBraveDarkModeTypeList() {
+base::Value GetadrbrowsielDarkModeTypeList() {
   return base::Value(base::Value::Type::LIST);
 }
 
-void SetSystemDarkMode(BraveDarkModeType type) {
+void SetSystemDarkMode(adrbrowsielDarkModeType type) {
 }
 
 }  // namespace dark_mode

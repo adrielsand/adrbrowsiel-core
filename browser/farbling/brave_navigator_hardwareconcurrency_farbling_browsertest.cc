@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,12 +8,12 @@
 #include "base/strings/stringprintf.h"
 #include "base/task/post_task.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/brave_content_browser_client.h"
-#include "brave/browser/extensions/brave_base_local_data_files_browsertest.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_content_browser_client.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_base_local_data_files_browsertest.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "chrome/browser/ui/browser.h"
@@ -27,13 +27,13 @@
 #include "content/public/test/browser_test_utils.h"
 #include "net/dns/mock_host_resolver.h"
 
-using brave_shields::ControlType;
+using adrbrowsiel_shields::ControlType;
 
 const char kHardwareConcurrencyScript[] =
     "domAutomationController.send(navigator.hardwareConcurrency);";
 const char kTitleScript[] = "domAutomationController.send(document.title);";
 
-class BraveNavigatorHardwareConcurrencyFarblingBrowserTest
+class adrbrowsielNavigatorHardwareConcurrencyFarblingBrowserTest
     : public InProcessBrowserTest {
  public:
   void SetUpOnMainThread() override {
@@ -41,15 +41,15 @@ class BraveNavigatorHardwareConcurrencyFarblingBrowserTest
 
     content_client_.reset(new ChromeContentClient);
     content::SetContentClient(content_client_.get());
-    browser_content_client_.reset(new BraveContentBrowserClient());
+    browser_content_client_.reset(new adrbrowsielContentBrowserClient());
     content::SetBrowserClientForTesting(browser_content_client_.get());
 
     host_resolver()->AddRule("*", "127.0.0.1");
     content::SetupCrossSiteRedirector(embedded_test_server());
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
 
     ASSERT_TRUE(embedded_test_server()->Start());
@@ -70,17 +70,17 @@ class BraveNavigatorHardwareConcurrencyFarblingBrowserTest
   }
 
   void AllowFingerprinting() {
-    brave_shields::SetFingerprintingControlType(
+    adrbrowsiel_shields::SetFingerprintingControlType(
         content_settings(), ControlType::ALLOW, top_level_page_url_);
   }
 
   void BlockFingerprinting() {
-    brave_shields::SetFingerprintingControlType(
+    adrbrowsiel_shields::SetFingerprintingControlType(
         content_settings(), ControlType::BLOCK, top_level_page_url_);
   }
 
   void SetFingerprintingDefault() {
-    brave_shields::SetFingerprintingControlType(
+    adrbrowsiel_shields::SetFingerprintingControlType(
         content_settings(), ControlType::DEFAULT, top_level_page_url_);
   }
 
@@ -111,11 +111,11 @@ class BraveNavigatorHardwareConcurrencyFarblingBrowserTest
   GURL top_level_page_url_;
   GURL farbling_url_;
   std::unique_ptr<ChromeContentClient> content_client_;
-  std::unique_ptr<BraveContentBrowserClient> browser_content_client_;
+  std::unique_ptr<adrbrowsielContentBrowserClient> browser_content_client_;
 };
 
 // Tests results of farbling known values
-IN_PROC_BROWSER_TEST_F(BraveNavigatorHardwareConcurrencyFarblingBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNavigatorHardwareConcurrencyFarblingBrowserTest,
                        FarbleNavigatorHardwareConcurrency) {
   // Farbling level: off
   // get real navigator.hardwareConcurrency
@@ -145,7 +145,7 @@ IN_PROC_BROWSER_TEST_F(BraveNavigatorHardwareConcurrencyFarblingBrowserTest,
   EXPECT_EQ(completely_fake_value, 7);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNavigatorHardwareConcurrencyFarblingBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNavigatorHardwareConcurrencyFarblingBrowserTest,
                        FarbleNavigatorHardwareConcurrencyWorkers) {
   GURL url = embedded_test_server()->GetURL(
       "a.com", "/navigator/workers-hardware-concurrency.html");

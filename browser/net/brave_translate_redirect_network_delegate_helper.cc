@@ -1,21 +1,21 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_translate_redirect_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_translate_redirect_network_delegate_helper.h"
 
 #include <memory>
 #include <string>
 #include <vector>
-#include "brave/common/translate_network_constants.h"
+#include "adrbrowsiel/common/translate_network_constants.h"
 #include "extensions/common/url_pattern.h"
 
 namespace {
 const char kTranslateElementLibQuery[] = "client=te_lib";
 }
 
-namespace brave {
+namespace adrbrowsiel {
 
 bool IsTranslateScriptRequest(const GURL& gurl) {
   static std::vector<URLPattern> translate_patterns({
@@ -56,7 +56,7 @@ bool IsTranslateGen204Request(const GURL& gurl) {
 
 int OnBeforeURLRequest_TranslateRedirectWork(
     const ResponseCallback& next_callback,
-    std::shared_ptr<BraveRequestInfo> ctx) {
+    std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   GURL::Replacements replacements;
 
   // Abort those gen204 requests triggered by translate element library.
@@ -65,12 +65,12 @@ int OnBeforeURLRequest_TranslateRedirectWork(
   }
 
   // For those translate resources which might be triggered by translate
-  // element library, go through brave's proxy so we won't introduce direct
+  // element library, go through adrbrowsiel's proxy so we won't introduce direct
   // connection to google when using translate element library.
   if (IsTranslateResourceRequest(ctx->request_url)) {
     replacements.SetPathStr(ctx->request_url.path_piece());
     ctx->new_url_spec =
-      GURL(kBraveTranslateEndpoint).ReplaceComponents(replacements).spec();
+      GURL(kadrbrowsielTranslateEndpoint).ReplaceComponents(replacements).spec();
     return net::OK;
   }
 
@@ -85,18 +85,18 @@ int OnBeforeURLRequest_TranslateRedirectWork(
     replacements.SetQueryStr(ctx->request_url.query_piece());
     replacements.SetPathStr(ctx->request_url.path_piece());
     ctx->new_url_spec =
-      GURL(kBraveTranslateEndpoint).ReplaceComponents(replacements).spec();
+      GURL(kadrbrowsielTranslateEndpoint).ReplaceComponents(replacements).spec();
     return net::OK;
   }
 
   if (IsTranslateRequest(ctx->request_url)) {
     replacements.SetQueryStr(ctx->request_url.query_piece());
     ctx->new_url_spec =
-      GURL(kBraveTranslateEndpoint).ReplaceComponents(replacements).spec();
+      GURL(kadrbrowsielTranslateEndpoint).ReplaceComponents(replacements).spec();
     return net::OK;
   }
 
   return net::OK;
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

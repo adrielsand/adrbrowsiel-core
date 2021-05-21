@@ -1,24 +1,24 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BraveTabGroupUiCoordinatorClassAdapter extends BraveClassVisitor {
+public class adrbrowsielTabGroupUiCoordinatorClassAdapter extends adrbrowsielClassVisitor {
     static String sTabGroupUiCoordinatorClassName =
             "org/chromium/chrome/browser/tasks/tab_management/TabGroupUiCoordinator";
-    static String sBraveTabGroupUiCoordinatorClassName =
-            "org/chromium/chrome/browser/tasks/tab_management/BraveTabGroupUiCoordinator";
+    static String sadrbrowsielTabGroupUiCoordinatorClassName =
+            "org/chromium/chrome/browser/tasks/tab_management/adrbrowsielTabGroupUiCoordinator";
 
-    public BraveTabGroupUiCoordinatorClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielTabGroupUiCoordinatorClassAdapter(ClassVisitor visitor) {
         super(visitor);
 
-        redirectConstructor(sTabGroupUiCoordinatorClassName, sBraveTabGroupUiCoordinatorClassName);
+        redirectConstructor(sTabGroupUiCoordinatorClassName, sadrbrowsielTabGroupUiCoordinatorClassName);
 
-        deleteField(sBraveTabGroupUiCoordinatorClassName, "mToolbarView");
+        deleteField(sadrbrowsielTabGroupUiCoordinatorClassName, "mToolbarView");
         makeProtectedField(sTabGroupUiCoordinatorClassName, "mToolbarView");
     }
 }

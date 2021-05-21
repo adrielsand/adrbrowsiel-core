@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2020 The Brave Authors. All rights reserved.
+<!-- Copyright 2020 The adrbrowsiel Authors. All rights reserved.
      Use of this source code is governed by a BSD-style license that can be
      found in the LICENSE file. -->
 
-<org.chromium.chrome.browser.toolbar.top.BraveTabSwitcherModeTTPhone
+<org.chromium.chrome.browser.toolbar.top.adrbrowsielTabSwitcherModeTTPhone
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/tab_switcher_toolbar"
@@ -95,4 +95,4 @@
 
     </LinearLayout>
 
-</org.chromium.chrome.browser.toolbar.top.BraveTabSwitcherModeTTPhone>
+</org.chromium.chrome.browser.toolbar.top.adrbrowsielTabSwitcherModeTTPhone>

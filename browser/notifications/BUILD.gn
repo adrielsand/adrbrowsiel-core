@@ -1,7 +1,7 @@
 import("//chrome/common/features.gni")
 
 source_set("notifications") {
-  # Remove when https://github.com/brave/brave-browser/issues/10657 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10657 is resolved
   check_includes = false
 
   sources = [
@@ -13,14 +13,14 @@ source_set("notifications") {
 
   if (is_mac) {
     sources += [
-      "brave_alert_dispatcher_mac.h",
-      "brave_alert_dispatcher_mac.mm",
+      "adrbrowsiel_alert_dispatcher_mac.h",
+      "adrbrowsiel_alert_dispatcher_mac.mm",
     ]
 
     if (enable_system_notifications) {
       sources += [
-        "brave_notification_platform_bridge.h",
-        "brave_notification_platform_bridge_mac.mm",
+        "adrbrowsiel_notification_platform_bridge.h",
+        "adrbrowsiel_notification_platform_bridge_mac.mm",
       ]
     }
 
@@ -35,8 +35,8 @@ source_set("notifications") {
     frameworks = [ "Foundation.framework" ]
   } else if (is_android) {
     sources += [
-      "brave_notification_platform_bridge_helper_android.cc",
-      "brave_notification_platform_bridge_helper_android.h",
+      "adrbrowsiel_notification_platform_bridge_helper_android.cc",
+      "adrbrowsiel_notification_platform_bridge_helper_android.h",
     ]
 
     deps += [

@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -60,8 +60,8 @@ Bundle::~Bundle() = default;
 void Bundle::BuildFromCatalog(const Catalog& catalog) {
   const BundleState bundle_state = FromCatalog(catalog);
 
-  // TODO(https://github.com/brave/brave-browser/issues/3661): Merge in diffs
-  // to Brave Ads catalog instead of rebuilding the database
+  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/3661): Merge in diffs
+  // to adrbrowsiel Ads catalog instead of rebuilding the database
   DeleteDatabaseTables();
 
   SaveCreativeAdNotifications(bundle_state.creative_ad_notifications);

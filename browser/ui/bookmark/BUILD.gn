@@ -1,9 +1,9 @@
 source_set("bookmark") {
-  # Remove when https://github.com/brave/brave-browser/issues/10654 is resolved 
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10654 is resolved 
   check_includes = false
   sources = [
-    "brave_bookmark_tab_helper.cc",
-    "brave_bookmark_tab_helper.h",
+    "adrbrowsiel_bookmark_tab_helper.cc",
+    "adrbrowsiel_bookmark_tab_helper.h",
     "bookmark_prefs_service.cc",
     "bookmark_prefs_service.h",
     "bookmark_prefs_service_factory.cc",
@@ -12,7 +12,7 @@ source_set("bookmark") {
 
   deps = [
     "//base",
-    "//brave/common",
+    "//adrbrowsiel/common",
     "//components/bookmarks/common",
     "//components/keyed_service/content",
     "//components/keyed_service/core",

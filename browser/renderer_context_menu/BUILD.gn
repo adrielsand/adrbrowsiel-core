@@ -1,11 +1,11 @@
 source_set("renderer_context_menu") {
-  # Remove when https://github.com/brave/brave-browser/issues/10657 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10657 is resolved
   check_includes = false
 
   if (is_win || is_linux) {
     sources = [
-      "brave_spelling_options_submenu_observer.cc",
-      "brave_spelling_options_submenu_observer.h",
+      "adrbrowsiel_spelling_options_submenu_observer.cc",
+      "adrbrowsiel_spelling_options_submenu_observer.h",
     ]
 
     deps = [

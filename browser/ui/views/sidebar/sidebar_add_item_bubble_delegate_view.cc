@@ -1,22 +1,22 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/sidebar/sidebar_add_item_bubble_delegate_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_add_item_bubble_delegate_view.h"
 
 #include <utility>
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/themes/theme_properties.h"
-#include "brave/browser/ui/brave_browser.h"
-#include "brave/browser/ui/sidebar/sidebar_controller.h"
-#include "brave/browser/ui/sidebar/sidebar_service_factory.h"
-#include "brave/browser/ui/sidebar/sidebar_utils.h"
-#include "brave/browser/ui/views/sidebar/bubble_border_with_arrow.h"
-#include "brave/browser/ui/views/sidebar/sidebar_bubble_background.h"
-#include "brave/components/sidebar/sidebar_service.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_controller.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_service_factory.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_utils.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/bubble_border_with_arrow.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_bubble_background.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/ui/tabs/tab_strip_model.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 #include "content/public/browser/web_contents.h"
@@ -50,14 +50,14 @@ class SidebarAddItemButton : public views::LabelButton {
       SetTextColor(
           views::Button::STATE_NORMAL,
           theme_provider->GetColor(
-              BraveThemeProperties::COLOR_SIDEBAR_ADD_BUBBLE_ITEM_TEXT_NORMAL));
+              adrbrowsielThemeProperties::COLOR_SIDEBAR_ADD_BUBBLE_ITEM_TEXT_NORMAL));
       SetTextColor(views::Button::STATE_HOVERED,
                    theme_provider->GetColor(
-                       BraveThemeProperties::
+                       adrbrowsielThemeProperties::
                            COLOR_SIDEBAR_ADD_BUBBLE_ITEM_TEXT_HOVERED));
       SetTextColor(views::Button::STATE_PRESSED,
                    theme_provider->GetColor(
-                       BraveThemeProperties::
+                       adrbrowsielThemeProperties::
                            COLOR_SIDEBAR_ADD_BUBBLE_ITEM_TEXT_HOVERED));
     }
 
@@ -80,7 +80,7 @@ class SidebarAddItemButton : public views::LabelButton {
       flags.setStyle(cc::PaintFlags::kFill_Style);
       if (theme_provider_) {
         flags.setColor(theme_provider_->GetColor(
-            BraveThemeProperties::
+            adrbrowsielThemeProperties::
                 COLOR_SIDEBAR_ADD_BUBBLE_ITEM_TEXT_BACKGROUND_HOVERED));
       }
 
@@ -97,7 +97,7 @@ class SidebarAddItemButton : public views::LabelButton {
 }  // namespace
 
 SidebarAddItemBubbleDelegateView::SidebarAddItemBubbleDelegateView(
-    BraveBrowser* browser,
+    adrbrowsielBrowser* browser,
     views::View* anchor_view)
     : BubbleDialogDelegateView(anchor_view, views::BubbleBorder::LEFT_TOP),
       browser_(browser) {
@@ -111,7 +111,7 @@ SidebarAddItemBubbleDelegateView::SidebarAddItemBubbleDelegateView(
   if (auto* theme_provider =
           BrowserView::GetBrowserViewForBrowser(browser_)->GetThemeProvider()) {
     set_color(theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_ADD_BUBBLE_BACKGROUND));
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_ADD_BUBBLE_BACKGROUND));
   }
   AddChildViews();
 }
@@ -155,7 +155,7 @@ void SidebarAddItemBubbleDelegateView::AddChildViews() {
       BrowserView::GetBrowserViewForBrowser(browser_)->GetThemeProvider();
   if (theme_provider) {
     header->SetEnabledColor(theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_ADD_BUBBLE_HEADER_TEXT));
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_ADD_BUBBLE_HEADER_TEXT));
   }
   header->SetAutoColorReadabilityEnabled(false);
   header->SetPreferredSize(kAddItemBubbleEntrySize);
@@ -182,7 +182,7 @@ void SidebarAddItemBubbleDelegateView::AddChildViews() {
   auto* separator = AddChildView(std::make_unique<views::Separator>());
   if (theme_provider) {
     separator->SetColor(theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_SEPARATOR));
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_SEPARATOR));
   }
 
   // |default_part| includes not added default items.

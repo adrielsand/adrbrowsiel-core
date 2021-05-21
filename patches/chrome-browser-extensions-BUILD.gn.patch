@@ -6,7 +6,7 @@ index 08a1b17e857571f3b1aec386f4e6b6a7b3a1e987..f2c5eb3c1436e185ed5842a4fc7f260e
    } else {
      sources += [ "api/braille_display_private/braille_controller_stub.cc" ]
    }
-+  deps += brave_extensions_resources
++  deps += adrbrowsiel_extensions_resources
  }
  
  static_library("test_support") {

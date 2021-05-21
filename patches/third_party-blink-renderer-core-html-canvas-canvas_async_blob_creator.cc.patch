@@ -6,7 +6,7 @@ index aae43a337bc0ad3b150f0e54f95830834ad05931..55a3e0f3ff159fe6512261f7e6d89273
                           std::min(info.height(), max_dimension));
        src_data_.reset(info, src_data_.addr(), src_data_.rowBytes());
      }
-+    BRAVE_CANVAS_ASYNC_BLOB_CREATOR
++    adrbrowsiel_CANVAS_ASYNC_BLOB_CREATOR
    }
  
    idle_task_status_ = kIdleTaskNotSupported;

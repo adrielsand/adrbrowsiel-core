@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_CHROMIUM_SRC_CHROME_BROWSER_NOTIFICATIONS_NOTIFICATION_HANDLER_H_
-#define BRAVE_CHROMIUM_SRC_CHROME_BROWSER_NOTIFICATIONS_NOTIFICATION_HANDLER_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_CHROME_BROWSER_NOTIFICATIONS_NOTIFICATION_HANDLER_H_
+#define adrbrowsiel_CHROMIUM_SRC_CHROME_BROWSER_NOTIFICATIONS_NOTIFICATION_HANDLER_H_
 
 #define NotificationHandler NotificationHandler_ChromiumImpl
 #include "../../../../../chrome/browser/notifications/notification_handler.h"
@@ -24,7 +24,7 @@ class NotificationHandler : public NotificationHandler_ChromiumImpl {
     SHARING = 6,
     ANNOUNCEMENT = 7,
     NEARBY_SHARE = 8,
-    BRAVE_ADS = 9,
+    adrbrowsiel_ADS = 9,
     NOTIFICATIONS_MUTED = 10,
     MAX = NOTIFICATIONS_MUTED,
   };
@@ -36,4 +36,4 @@ class NotificationHandler : public NotificationHandler_ChromiumImpl {
   }
 };
 
-#endif  // BRAVE_CHROMIUM_SRC_CHROME_BROWSER_NOTIFICATIONS_NOTIFICATION_HANDLER_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_CHROME_BROWSER_NOTIFICATIONS_NOTIFICATION_HANDLER_H_

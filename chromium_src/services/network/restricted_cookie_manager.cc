@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -27,7 +27,7 @@ bool ShouldUseEphemeralStorage(
 
 }  // namespace
 
-#define BRAVE_GETALLFORURL                                                  \
+#define adrbrowsiel_GETALLFORURL                                                  \
   if (ShouldUseEphemeralStorage(url, top_frame_origin, site_for_cookies,    \
                                 cookie_settings_)) {                        \
     static_cast<net::CookieMonster*>(cookie_store_)                         \
@@ -41,7 +41,7 @@ bool ShouldUseEphemeralStorage(
     return;                                                                 \
   }
 
-#define BRAVE_SETCANONICALCOOKIE                                               \
+#define adrbrowsiel_SETCANONICALCOOKIE                                               \
   if (ShouldUseEphemeralStorage(url, top_frame_origin, site_for_cookies,       \
                                 cookie_settings_)) {                           \
     static_cast<net::CookieMonster*>(cookie_store_)                            \

@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -53,15 +53,15 @@ class RedirectObserver : public WebContentsObserver {
   DISALLOW_COPY_AND_ASSIGN(RedirectObserver);
 };
 
-class BraveNetworkDelegateBaseBrowserTest : public InProcessBrowserTest {
+class adrbrowsielNetworkDelegateBaseBrowserTest : public InProcessBrowserTest {
  public:
   void SetUpOnMainThread() override {
     InProcessBrowserTest::SetUpOnMainThread();
     host_resolver()->AddRule("*", "127.0.0.1");
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
 
     ASSERT_TRUE(embedded_test_server()->Start());
@@ -82,7 +82,7 @@ class BraveNetworkDelegateBaseBrowserTest : public InProcessBrowserTest {
   ContentSettingsPattern iframe_pattern_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBaseBrowserTest, FirstPartySTS) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBaseBrowserTest, FirstPartySTS) {
   const GURL third_party =
       embedded_test_server()->GetURL("c.com", "/iframe_hsts.html");
 
@@ -92,7 +92,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBaseBrowserTest, FirstPartySTS) {
   EXPECT_TRUE(redirect_observer.has_sts_header(third_party));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBaseBrowserTest, ThirdPartySTS) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBaseBrowserTest, ThirdPartySTS) {
   const GURL third_party =
       embedded_test_server()->GetURL("c.com", "/iframe_hsts.html");
   const GURL first_party =

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -35,15 +35,15 @@ bool IsAutoplayAllowedForElement(Member<HTMLMediaElement> element) {
 }  // namespace
 }  // namespace blink
 
-#define BRAVE_AUTOPLAY_POLICY_IS_GESTURE_NEEDED_FOR_PLAYBACK \
+#define adrbrowsiel_AUTOPLAY_POLICY_IS_GESTURE_NEEDED_FOR_PLAYBACK \
   if (!IsAutoplayAllowedForElement(element_))                \
     return true;
 
-#define BRAVE_GET_AUTOPLAY_POLICY_FOR_DOCUMENT \
+#define adrbrowsiel_GET_AUTOPLAY_POLICY_FOR_DOCUMENT \
   if (!IsAutoplayAllowedForDocument(document)) \
     return Type::kUserGestureRequired;
 
 #include "../../../../../../../../third_party/blink/renderer/core/html/media/autoplay_policy.cc"
 
-#undef BRAVE_AUTOPLAY_POLICY_IS_GESTURE_NEEDED_FOR_PLAYBACK
-#undef BRAVE_GET_AUTOPLAY_POLICY_FOR_DOCUMENT
+#undef adrbrowsiel_AUTOPLAY_POLICY_IS_GESTURE_NEEDED_FOR_PLAYBACK
+#undef adrbrowsiel_GET_AUTOPLAY_POLICY_FOR_DOCUMENT

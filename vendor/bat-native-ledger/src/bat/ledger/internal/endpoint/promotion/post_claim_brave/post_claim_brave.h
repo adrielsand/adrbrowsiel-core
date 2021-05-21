@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_ENDPOINT_PROMOTION_POST_CLAIM_BRAVE_POST_CLAIM_BRAVE_H_
-#define BRAVELEDGER_ENDPOINT_PROMOTION_POST_CLAIM_BRAVE_POST_CLAIM_BRAVE_H_
+#ifndef adrbrowsielLEDGER_ENDPOINT_PROMOTION_POST_CLAIM_adrbrowsiel_POST_CLAIM_adrbrowsiel_H_
+#define adrbrowsielLEDGER_ENDPOINT_PROMOTION_POST_CLAIM_adrbrowsiel_POST_CLAIM_adrbrowsiel_H_
 
 #include <string>
 
 #include "bat/ledger/ledger.h"
 
-// POST /v3/wallet/brave/{payment_id}/claim
+// POST /v3/wallet/adrbrowsiel/{payment_id}/claim
 //
 // Request body:
 // {
@@ -35,16 +35,16 @@ class LedgerImpl;
 namespace endpoint {
 namespace promotion {
 
-using PostClaimBraveCallback = std::function<void(const type::Result result)>;
+using PostClaimadrbrowsielCallback = std::function<void(const type::Result result)>;
 
-class PostClaimBrave {
+class PostClaimadrbrowsiel {
  public:
-  explicit PostClaimBrave(LedgerImpl* ledger);
-  ~PostClaimBrave();
+  explicit PostClaimadrbrowsiel(LedgerImpl* ledger);
+  ~PostClaimadrbrowsiel();
 
   void Request(
       const std::string& destination_payment_id,
-      PostClaimBraveCallback callback);
+      PostClaimadrbrowsielCallback callback);
 
  private:
   std::string GetUrl();
@@ -55,7 +55,7 @@ class PostClaimBrave {
 
   void OnRequest(
       const type::UrlResponse& response,
-      PostClaimBraveCallback callback);
+      PostClaimadrbrowsielCallback callback);
 
   LedgerImpl* ledger_;  // NOT OWNED
 };
@@ -64,4 +64,4 @@ class PostClaimBrave {
 }  // namespace endpoint
 }  // namespace ledger
 
-#endif  // BRAVELEDGER_ENDPOINT_PROMOTION_POST_CLAIM_BRAVE_POST_CLAIM_BRAVE_H_
+#endif  // adrbrowsielLEDGER_ENDPOINT_PROMOTION_POST_CLAIM_adrbrowsiel_POST_CLAIM_adrbrowsiel_H_

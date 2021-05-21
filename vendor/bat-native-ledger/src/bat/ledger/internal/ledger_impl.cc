@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -29,7 +29,7 @@ LedgerImpl::LedgerImpl(ledger::LedgerClient* client)
       context_(std::make_unique<BATLedgerContext>(this)),
       promotion_(std::make_unique<promotion::Promotion>(this)),
       publisher_(std::make_unique<publisher::Publisher>(this)),
-      media_(std::make_unique<braveledger_media::Media>(this)),
+      media_(std::make_unique<adrbrowsielledger_media::Media>(this)),
       contribution_(std::make_unique<contribution::Contribution>(this)),
       wallet_(std::make_unique<wallet::Wallet>(this)),
       database_(std::make_unique<database::Database>(this)),
@@ -91,7 +91,7 @@ publisher::Publisher* LedgerImpl::publisher() const {
   return publisher_.get();
 }
 
-braveledger_media::Media* LedgerImpl::media() const {
+adrbrowsielledger_media::Media* LedgerImpl::media() const {
   return media_.get();
 }
 
@@ -360,7 +360,7 @@ void LedgerImpl::OnPostData(
 
   if (type == TWITCH_MEDIA_TYPE) {
     std::vector<base::flat_map<std::string, std::string>> twitchParts;
-    braveledger_media::GetTwitchParts(post_data, &twitchParts);
+    adrbrowsielledger_media::GetTwitchParts(post_data, &twitchParts);
     for (size_t i = 0; i < twitchParts.size(); i++) {
       media()->ProcessMedia(twitchParts[i], type, std::move(visit_data));
     }
@@ -369,7 +369,7 @@ void LedgerImpl::OnPostData(
 
   if (type == VIMEO_MEDIA_TYPE) {
     std::vector<base::flat_map<std::string, std::string>> parts;
-    braveledger_media::GetVimeoParts(post_data, &parts);
+    adrbrowsielledger_media::GetVimeoParts(post_data, &parts);
 
     for (auto part = parts.begin(); part != parts.end(); part++) {
       media()->ProcessMedia(*part, type, std::move(visit_data));
@@ -559,7 +559,7 @@ void LedgerImpl::GetRewardsInternalsInfo(
     ledger::RewardsInternalsInfoCallback callback) {
   auto info = type::RewardsInternalsInfo::New();
 
-  type::BraveWalletPtr wallet = wallet_->GetWallet();
+  type::adrbrowsielWalletPtr wallet = wallet_->GetWallet();
   if (!wallet) {
     BLOG(0, "Wallet is null");
     callback(std::move(info));
@@ -842,22 +842,22 @@ bool LedgerImpl::IsShuttingDown() const {
   return shutting_down_;
 }
 
-void LedgerImpl::GetBraveWallet(GetBraveWalletCallback callback) {
+void LedgerImpl::GetadrbrowsielWallet(GetadrbrowsielWalletCallback callback) {
   callback(wallet()->GetWallet());
 }
 
 std::string LedgerImpl::GetWalletPassphrase() const {
-  const auto brave_wallet = wallet()->GetWallet();
-  if (!brave_wallet) {
+  const auto adrbrowsiel_wallet = wallet()->GetWallet();
+  if (!adrbrowsiel_wallet) {
     return "";
   }
 
-  return wallet()->GetWalletPassphrase(brave_wallet->Clone());
+  return wallet()->GetWalletPassphrase(adrbrowsiel_wallet->Clone());
 }
 
-void LedgerImpl::LinkBraveWallet(const std::string& destination_payment_id,
+void LedgerImpl::LinkadrbrowsielWallet(const std::string& destination_payment_id,
                                  PostSuggestionsClaimCallback callback) {
-  wallet()->LinkBraveWallet(destination_payment_id, callback);
+  wallet()->LinkadrbrowsielWallet(destination_payment_id, callback);
 }
 
 void LedgerImpl::GetTransferableAmount(GetTransferableAmountCallback callback) {

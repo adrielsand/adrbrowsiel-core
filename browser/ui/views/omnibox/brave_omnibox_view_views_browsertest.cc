@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -15,7 +15,7 @@
 #include "ui/strings/grit/ui_strings.h"
 #include "ui/views/controls/textfield/textfield.h"
 
-class BraveOmniboxViewViewsTest : public InProcessBrowserTest {
+class adrbrowsielOmniboxViewViewsTest : public InProcessBrowserTest {
  public:
   LocationBarView* location_bar() {
     auto* browser_view = BrowserView::GetBrowserViewForBrowser(browser());
@@ -24,9 +24,9 @@ class BraveOmniboxViewViewsTest : public InProcessBrowserTest {
   OmniboxViewViews* omnibox_view() { return location_bar()->omnibox_view(); }
 };
 
-// Load brave url and check copied url also has brave scheme.
-IN_PROC_BROWSER_TEST_F(BraveOmniboxViewViewsTest, CopyURLToClipboardTest) {
-  const std::string test_url("brave://version/");
+// Load adrbrowsiel url and check copied url also has adrbrowsiel scheme.
+IN_PROC_BROWSER_TEST_F(adrbrowsielOmniboxViewViewsTest, CopyURLToClipboardTest) {
+  const std::string test_url("adrbrowsiel://version/");
   ui_test_utils::NavigateToURL(browser(), GURL(test_url));
 
   omnibox_view()->SelectAll(true);

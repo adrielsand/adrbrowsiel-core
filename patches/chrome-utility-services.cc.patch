@@ -6,7 +6,7 @@ index 3fc96174d7e387fb07003021ae25f38e76369f73..64c2f24008d6b79bc3dc34c75468eac6
    services.Add(RunAssistantAudioDecoder);
  #endif
  #endif
-+    BRAVE_GET_MAIN_THREAD_SERVICE_FACTORY
++    adrbrowsiel_GET_MAIN_THREAD_SERVICE_FACTORY
  }
  
  void RegisterIOThreadServices(mojo::ServiceFactory& services) {

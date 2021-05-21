@@ -6,7 +6,7 @@ index ea847b6875bae8ec8e73522dac9e83dfe09eab25..a6aa6a2971a9c6dc8a597d9980ca634a
  
  void ResetReportUploader::DispatchReportInternal(
      const std::string& request_data) {
-+  return; // feature disabled in Brave
++  return; // feature disabled in adrbrowsiel
    // Create traffic annotation tag.
    net::NetworkTrafficAnnotationTag traffic_annotation =
        net::DefineNetworkTrafficAnnotation("profile_resetter_upload", R"(

@@ -7,7 +7,7 @@ index cc26aa05ebc9165699a94917e07ddb541034e9e4..9f364d5e59f73b8d93584a67cc09e55f
      @Override
      public ExternalNavigationHandler createExternalNavigationHandler(Tab tab) {
 -        return new ExternalNavigationHandler(new ExternalNavigationDelegateImpl(tab));
-+        return new org.chromium.chrome.browser.externalnav.BraveExternalNavigationHandler(new ExternalNavigationDelegateImpl(tab));
++        return new org.chromium.chrome.browser.externalnav.adrbrowsielExternalNavigationHandler(new ExternalNavigationDelegateImpl(tab));
      }
  
      @Override

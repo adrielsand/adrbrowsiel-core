@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/download/brave_download_item_view.h"
+#include "adrbrowsiel/browser/ui/views/download/adrbrowsiel_download_item_view.h"
 
 #include <algorithm>
 #include <utility>
 
 #include "base/auto_reset.h"
-#include "brave/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
 #include "chrome/browser/themes/theme_properties.h"
 #include "chrome/browser/ui/views/download/download_shelf_view.h"
 #include "components/strings/grit/components_strings.h"
@@ -56,12 +56,12 @@ constexpr int kDownloadUnlockIconHeightDecr = 1;
 
 }  // namespace
 
-BraveDownloadItemView::BraveDownloadItemView(
+adrbrowsielDownloadItemView::adrbrowsielDownloadItemView(
     DownloadUIModel::DownloadUIModelPtr download,
     DownloadShelfView* parent,
     views::View* accessible_alert)
     : DownloadItemView(std::move(download), parent, accessible_alert),
-      brave_model_(model_.get()),
+      adrbrowsiel_model_(model_.get()),
       is_origin_url_secure_(false) {
   // Prepare origin url font.
   ui::ResourceBundle& rb = ui::ResourceBundle::GetSharedInstance();
@@ -69,11 +69,11 @@ BraveDownloadItemView::BraveDownloadItemView(
       rb.GetFontList(ui::ResourceBundle::BaseFont).DeriveWithSizeDelta(-1);
 }
 
-BraveDownloadItemView::~BraveDownloadItemView() {}
+adrbrowsielDownloadItemView::~adrbrowsielDownloadItemView() {}
 
 // View overrides.
 
-void BraveDownloadItemView::Layout() {
+void adrbrowsielDownloadItemView::Layout() {
   DownloadItemView::Layout();
   // Adjust the position of the status text label.
   if (!IsShowingWarningDialog()) {
@@ -82,14 +82,14 @@ void BraveDownloadItemView::Layout() {
   }
 }
 
-gfx::Size BraveDownloadItemView::CalculatePreferredSize() const {
+gfx::Size adrbrowsielDownloadItemView::CalculatePreferredSize() const {
   // Call base class to get the width.
   gfx::Size size = DownloadItemView::CalculatePreferredSize();
   // Calculate the height accounting for the extra line.
   int child_height = file_name_label_->GetLineHeight() +
-                     kBraveVerticalTextPadding +
+                     kadrbrowsielVerticalTextPadding +
                      origin_url_font_list_.GetHeight() +
-                     kBraveVerticalTextPadding + status_label_->GetLineHeight();
+                     kadrbrowsielVerticalTextPadding + status_label_->GetLineHeight();
   if (IsShowingWarningDialog()) {
     child_height = std::max(
         {child_height, GetButtonSize().height(), GetIcon().Size().width()});
@@ -99,14 +99,14 @@ gfx::Size BraveDownloadItemView::CalculatePreferredSize() const {
   return size;
 }
 
-void BraveDownloadItemView::OnPaint(gfx::Canvas* canvas) {
+void adrbrowsielDownloadItemView::OnPaint(gfx::Canvas* canvas) {
   DownloadItemView::OnPaint(canvas);
   DrawOriginURL(canvas);
 }
 
 // download::DownloadItem::Observer overrides.
 
-void BraveDownloadItemView::OnDownloadUpdated() {
+void adrbrowsielDownloadItemView::OnDownloadUpdated() {
   // Check for conditions that would disregard origin url change and fall back
   // onto base implementation to handle them.
   if (!model()->ShouldShowInShelf() ||
@@ -125,7 +125,7 @@ void BraveDownloadItemView::OnDownloadUpdated() {
     bool needs_repaint = false;
     bool new_is_secure = false;
     std::u16string new_origin_url =
-        brave_model_.GetOriginURLText(&new_is_secure);
+        adrbrowsiel_model_.GetOriginURLText(&new_is_secure);
     if (new_origin_url != origin_url_text_ ||
       new_is_secure != is_origin_url_secure_) {
       origin_url_text_ = new_origin_url;
@@ -142,7 +142,7 @@ void BraveDownloadItemView::OnDownloadUpdated() {
   }
 
   // Update tooltip.
-  std::u16string new_tip = brave_model_.GetTooltipText();
+  std::u16string new_tip = adrbrowsiel_model_.GetTooltipText();
   if (new_tip != tooltip_text_) {
     tooltip_text_ = new_tip;
     TooltipTextChanged();
@@ -151,32 +151,32 @@ void BraveDownloadItemView::OnDownloadUpdated() {
 
 // Positioning routines.
 
-int BraveDownloadItemView::GetYForFilenameText() const {
+int adrbrowsielDownloadItemView::GetYForFilenameText() const {
   int text_height = file_name_label_->GetLineHeight();
   if (!origin_url_text_.empty())
     text_height +=
-        kBraveVerticalTextPadding + origin_url_font_list_.GetHeight();
+        kadrbrowsielVerticalTextPadding + origin_url_font_list_.GetHeight();
   if (status_label_ && !status_label_->GetText().empty())
-    text_height += kBraveVerticalTextPadding + status_label_->GetLineHeight();
+    text_height += kadrbrowsielVerticalTextPadding + status_label_->GetLineHeight();
   return (height() - text_height) / 2;
 }
 
-int BraveDownloadItemView::GetYForOriginURLText() const {
+int adrbrowsielDownloadItemView::GetYForOriginURLText() const {
   int y = GetYForFilenameText();
-  y += (file_name_label_->GetLineHeight() + kBraveVerticalTextPadding);
+  y += (file_name_label_->GetLineHeight() + kadrbrowsielVerticalTextPadding);
   return y;
 }
 
-int BraveDownloadItemView::GetYForStatusText() const {
+int adrbrowsielDownloadItemView::GetYForStatusText() const {
   int y = GetYForOriginURLText();
   if (!origin_url_text_.empty())
-    y += (origin_url_font_list_.GetHeight() + kBraveVerticalTextPadding);
+    y += (origin_url_font_list_.GetHeight() + kadrbrowsielVerticalTextPadding);
   return y;
 }
 
 // Drawing routines.
 
-void BraveDownloadItemView::DrawOriginURL(gfx::Canvas* canvas) {
+void adrbrowsielDownloadItemView::DrawOriginURL(gfx::Canvas* canvas) {
   if (origin_url_text_.empty() || IsShowingWarningDialog())
     return;
 
@@ -202,7 +202,7 @@ void BraveDownloadItemView::DrawOriginURL(gfx::Canvas* canvas) {
                 origin_url_font_list_.GetHeight()));
 }
 
-void BraveDownloadItemView::DrawLockIcon(gfx::Canvas* canvas) {
+void adrbrowsielDownloadItemView::DrawLockIcon(gfx::Canvas* canvas) {
   if (origin_url_text_.empty() || IsShowingWarningDialog())
     return;
 
@@ -217,13 +217,13 @@ void BraveDownloadItemView::DrawLockIcon(gfx::Canvas* canvas) {
 }
 
 // Get lock icon from vector icons.
-gfx::ImageSkia BraveDownloadItemView::GetLockIcon(int height) {
+gfx::ImageSkia adrbrowsielDownloadItemView::GetLockIcon(int height) {
   return gfx::CreateVectorIcon(kDownloadUnlockIcon, height,
     kDownloadUnlockIconColor);
 }
 
 // Update accessible name with origin URL.
-void BraveDownloadItemView::SetMode(Mode mode) {
+void adrbrowsielDownloadItemView::SetMode(Mode mode) {
   DownloadItemView::SetMode(mode);
   if (IsShowingWarningDialog())
     return;

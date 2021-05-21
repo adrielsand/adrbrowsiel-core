@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -26,7 +26,7 @@
 #include "tweetnacl.h"  // NOLINT
 #include "url/gurl.h"
 
-namespace braveledger_bat_helper {
+namespace adrbrowsielledger_bat_helper {
 
 using JsonWriter = rapidjson::Writer<rapidjson::StringBuffer>;
 
@@ -154,4 +154,4 @@ bool HasSameDomainAndPath(
       gurl.path().substr(0, path_to_match.size()) == path_to_match;
 }
 
-}  // namespace braveledger_bat_helper
+}  // namespace adrbrowsielledger_bat_helper

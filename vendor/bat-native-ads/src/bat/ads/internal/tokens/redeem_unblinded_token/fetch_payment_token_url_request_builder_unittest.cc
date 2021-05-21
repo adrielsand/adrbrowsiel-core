@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,7 +7,7 @@
 
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 
@@ -26,7 +26,7 @@ TEST(BatAdsFetchPaymentTokenUrlRequestBuilderTest, BuildUrl) {
   // Assert
   UrlRequestPtr expected_url_request = UrlRequest::New();
   expected_url_request->url =
-      R"(https://ads-serve.brave.software/v1/confirmation/546fe7b0-5047-4f28-a11c-81f14edcf0f6/paymentToken)";
+      R"(https://ads-serve.adrbrowsiel.software/v1/confirmation/546fe7b0-5047-4f28-a11c-81f14edcf0f6/paymentToken)";
   expected_url_request->method = UrlRequestMethod::GET;
 
   EXPECT_EQ(expected_url_request, url_request);

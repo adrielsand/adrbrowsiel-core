@@ -1,4 +1,4 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,8 +10,8 @@
 namespace bookmarks {
 
 // Move bookmarks under "Other Bookmarks" folder from
-// https://github.com/brave/brave-core/pull/3620 to original permanent node
-void BraveMigrateOtherNodeFolder(BookmarkModel* model) {
+// https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3620 to original permanent node
+void adrbrowsielMigrateOtherNodeFolder(BookmarkModel* model) {
   CHECK(model);
   CHECK(model->loaded());
   // Model must be loaded at this point
@@ -31,7 +31,7 @@ void BraveMigrateOtherNodeFolder(BookmarkModel* model) {
   }
 }
 
-void BraveClearSyncV1MetaInfo(BookmarkModel* model) {
+void adrbrowsielClearSyncV1MetaInfo(BookmarkModel* model) {
   CHECK(model);
   CHECK(model->loaded());
   model->BeginExtensiveChanges();

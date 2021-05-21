@@ -1,4 +1,4 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,20 +8,20 @@
 #include "../../../../../chrome/browser/page_load_metrics/page_load_metrics_initialize.cc"
 #undef InitializePageLoadMetricsForWebContents
 
-#include "brave/components/brave_perf_predictor/browser/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/buildflags.h"
 
-#if BUILDFLAG(ENABLE_BRAVE_PERF_PREDICTOR)
-#include "brave/components/brave_perf_predictor/browser/perf_predictor_page_metrics_observer.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_PERF_PREDICTOR)
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/perf_predictor_page_metrics_observer.h"
 #endif
 
 namespace chrome {
 
 namespace {
 
-class BravePageLoadMetricsEmbedder : public chrome::PageLoadMetricsEmbedder {
+class adrbrowsielPageLoadMetricsEmbedder : public chrome::PageLoadMetricsEmbedder {
  public:
-  explicit BravePageLoadMetricsEmbedder(content::WebContents* web_contents);
-  ~BravePageLoadMetricsEmbedder() override;
+  explicit adrbrowsielPageLoadMetricsEmbedder(content::WebContents* web_contents);
+  ~adrbrowsielPageLoadMetricsEmbedder() override;
 
  protected:
   // page_load_metrics::PageLoadMetricsEmbedderBase:
@@ -29,23 +29,23 @@ class BravePageLoadMetricsEmbedder : public chrome::PageLoadMetricsEmbedder {
       ::page_load_metrics::PageLoadTracker* tracker) override;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BravePageLoadMetricsEmbedder);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielPageLoadMetricsEmbedder);
 };
 
-BravePageLoadMetricsEmbedder::BravePageLoadMetricsEmbedder(
+adrbrowsielPageLoadMetricsEmbedder::adrbrowsielPageLoadMetricsEmbedder(
     content::WebContents* web_contents)
     : chrome::PageLoadMetricsEmbedder(web_contents) {}
 
-BravePageLoadMetricsEmbedder::~BravePageLoadMetricsEmbedder() = default;
+adrbrowsielPageLoadMetricsEmbedder::~adrbrowsielPageLoadMetricsEmbedder() = default;
 
-void BravePageLoadMetricsEmbedder::RegisterEmbedderObservers(
+void adrbrowsielPageLoadMetricsEmbedder::RegisterEmbedderObservers(
     page_load_metrics::PageLoadTracker* tracker) {
   PageLoadMetricsEmbedder::RegisterEmbedderObservers(tracker);
 
-#if BUILDFLAG(ENABLE_BRAVE_PERF_PREDICTOR)
+#if BUILDFLAG(ENABLE_adrbrowsiel_PERF_PREDICTOR)
   tracker->AddObserver(
       std::make_unique<
-          brave_perf_predictor::PerfPredictorPageMetricsObserver>());
+          adrbrowsiel_perf_predictor::PerfPredictorPageMetricsObserver>());
 #endif
 }
 
@@ -53,13 +53,13 @@ void BravePageLoadMetricsEmbedder::RegisterEmbedderObservers(
 
 void InitializePageLoadMetricsForWebContents(
     content::WebContents* web_contents) {
-  // TODO(bug https://github.com/brave/brave-browser/issues/7784)
+  // TODO(bug https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7784)
   // change
   // android_webview/browser/page_load_metrics/page_load_metrics_initialize.cc
   // as well to register Page Load Metrics Observers
   page_load_metrics::MetricsWebContentsObserver::CreateForWebContents(
       web_contents,
-      std::make_unique<BravePageLoadMetricsEmbedder>(web_contents));
+      std::make_unique<adrbrowsielPageLoadMetricsEmbedder>(web_contents));
 }
 
 }  // namespace chrome

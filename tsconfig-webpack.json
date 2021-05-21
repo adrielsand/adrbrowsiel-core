@@ -2,6 +2,6 @@
   "extends": "./tsconfig",
   "include": [
     "./components/definitions/*",
-    "./components/brave_extension/extension/brave_extension/types/**/*"
+    "./components/adrbrowsiel_extension/extension/adrbrowsiel_extension/types/**/*"
   ]
 }

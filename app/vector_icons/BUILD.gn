@@ -2,17 +2,17 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
-import("//brave/components/sidebar/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/sidebar/buildflags/buildflags.gni")
 import("//components/vector_icons/vector_icons.gni")
 
-aggregate_vector_icons("brave_vector_icons") {
+aggregate_vector_icons("adrbrowsiel_vector_icons") {
   icon_directory = "."
 
   sources = [
-    "brave_ads_close_button.icon",
-    "brave_ads_dark_mode_info_button.icon",
-    "brave_ads_light_mode_info_button.icon",
+    "adrbrowsiel_ads_close_button.icon",
+    "adrbrowsiel_ads_dark_mode_info_button.icon",
+    "adrbrowsiel_ads_light_mode_info_button.icon",
     "download_unlock.icon",
     "open_in_ipfs.icon",
     "open_in_tor.icon",
@@ -25,7 +25,7 @@ aggregate_vector_icons("brave_vector_icons") {
     sources += [
       "sidebar_add_item.icon",
       "sidebar_bookmarks.icon",
-      "sidebar_brave_together.icon",
+      "sidebar_adrbrowsiel_together.icon",
       "sidebar_crypto_wallet.icon",
       "sidebar_history.icon",
       "sidebar_hover_widget_button.icon",
@@ -37,16 +37,16 @@ aggregate_vector_icons("brave_vector_icons") {
     ]
   }
 
-  if (brave_wallet_enabled) {
+  if (adrbrowsiel_wallet_enabled) {
     sources += [ "wallet_toolbar_button.icon" ]
   }
 }
 
 source_set("vector_icons") {
-  sources = get_target_outputs(":brave_vector_icons")
+  sources = get_target_outputs(":adrbrowsiel_vector_icons")
 
   deps = [
-    ":brave_vector_icons",
+    ":adrbrowsiel_vector_icons",
     "//base",
     "//skia",
     "//ui/gfx",

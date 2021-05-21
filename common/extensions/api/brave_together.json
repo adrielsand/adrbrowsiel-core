@@ -4,10 +4,10 @@
 
 [
   {
-    "namespace": "braveTogether",
-    "description": "Use the <code>chrome.braveTogether</code> API to to receive info pertaining to the Brave Together feature.",
+    "namespace": "adrbrowsielTogether",
+    "description": "Use the <code>chrome.adrbrowsielTogether</code> API to to receive info pertaining to the adrbrowsiel Together feature.",
     "compiler_options": {
-      "implemented_in": "brave/browser/extensions/api/brave_together_api.h"
+      "implemented_in": "adrbrowsiel/browser/extensions/api/adrbrowsiel_together_api.h"
     },
     "events": [
     ],
@@ -15,7 +15,7 @@
       {
         "name": "isSupported",
         "type": "function",
-        "description": "Fetches whether or not Brave Together is supported",
+        "description": "Fetches whether or not adrbrowsiel Together is supported",
         "parameters": [
           {
             "type": "function",

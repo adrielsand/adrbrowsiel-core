@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <string>
 
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "components/external_intents/android/jni_headers/InterceptNavigationDelegateImpl_jni.h"
 #include "components/navigation_interception/intercept_navigation_delegate.h"
 #include "components/navigation_interception/navigation_params.h"
@@ -23,9 +23,9 @@ namespace {
 using navigation_interception::InterceptNavigationDelegate;
 using navigation_interception::NavigationParams;
 
-class BraveInterceptNavigationDelegate : public InterceptNavigationDelegate {
+class adrbrowsielInterceptNavigationDelegate : public InterceptNavigationDelegate {
  public:
-  BraveInterceptNavigationDelegate(JNIEnv* env,
+  adrbrowsielInterceptNavigationDelegate(JNIEnv* env,
                                    jobject jdelegate,
                                    PrefService* pref_service)
       : InterceptNavigationDelegate(env, jdelegate) {
@@ -78,7 +78,7 @@ static void JNI_InterceptNavigationDelegateImpl_AssociateWithWebContents(
       content::WebContents::FromJavaWebContents(jweb_contents);
   InterceptNavigationDelegate::Associate(
       web_contents,
-      std::make_unique<BraveInterceptNavigationDelegate>(
+      std::make_unique<adrbrowsielInterceptNavigationDelegate>(
           env, jdelegate,
           user_prefs::UserPrefs::Get(web_contents->GetBrowserContext())));
 }

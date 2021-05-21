@@ -5,9 +5,9 @@
 #include <limits>
 
 #import "BATAdNotification.h"
-#import "BATBraveAds+Private.h"
-#import "BATBraveAds.h"
-#import "BATBraveLedger.h"
+#import "BATadrbrowsielAds+Private.h"
+#import "BATadrbrowsielAds.h"
+#import "BATadrbrowsielLedger.h"
 
 #import "bat/ads/ad_event_history.h"
 #import "bat/ads/ads.h"
@@ -86,7 +86,7 @@ ads::DBCommandResponsePtr RunDBTransactionOnTaskRunner(
 - (instancetype)initWithNotificationInfo:(const ads::AdNotificationInfo&)info;
 @end
 
-@interface BATBraveAds () <NativeAdsClientBridge> {
+@interface BATadrbrowsielAds () <NativeAdsClientBridge> {
   NativeAdsClient* adsClient;
   ads::Ads* ads;
   ads::Database* adsDatabase;
@@ -108,7 +108,7 @@ ads::DBCommandResponsePtr RunDBTransactionOnTaskRunner(
 @property(nonatomic, readonly) NSDictionary* componentPaths;
 @end
 
-@implementation BATBraveAds
+@implementation BATadrbrowsielAds
 
 - (instancetype)initWithStateStoragePath:(NSString*)path {
   if ((self = [super init])) {
@@ -214,19 +214,19 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
   ads::g_environment = static_cast<ads::Environment>(environment);
 }
 
-+ (BATBraveAdsSysInfo*)sysInfo {
-  auto sys_info = [[BATBraveAdsSysInfo alloc] init];
++ (BATadrbrowsielAdsSysInfo*)sysInfo {
+  auto sys_info = [[BATadrbrowsielAdsSysInfo alloc] init];
   sys_info.isUncertainFuture = ads::g_sys_info.is_uncertain_future;
 
   return sys_info;
 }
 
-+ (void)setSysInfo:(BATBraveAdsSysInfo*)sysInfo {
++ (void)setSysInfo:(BATadrbrowsielAdsSysInfo*)sysInfo {
   ads::g_sys_info.is_uncertain_future = sysInfo.isUncertainFuture;
 }
 
-+ (BATBraveAdsBuildChannel*)buildChannel {
-  auto build_channel = [[BATBraveAdsBuildChannel alloc] init];
++ (BATadrbrowsielAdsBuildChannel*)buildChannel {
+  auto build_channel = [[BATadrbrowsielAdsBuildChannel alloc] init];
   build_channel.isRelease = ads::g_build_channel.is_release;
   build_channel.name =
       [NSString stringWithUTF8String:ads::g_build_channel.name.c_str()];
@@ -234,7 +234,7 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
   return build_channel;
 }
 
-+ (void)setBuildChannel:(BATBraveAdsBuildChannel*)buildChannel {
++ (void)setBuildChannel:(BATadrbrowsielAdsBuildChannel*)buildChannel {
   ads::g_build_channel.is_release = buildChannel.isRelease;
   ads::g_build_channel.name = buildChannel.name.UTF8String;
 }
@@ -254,7 +254,7 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
     if (!self.ledger) {
       return;
     }
-    [self.ledger currentWalletInfo:^(BATBraveWallet* _Nullable wallet) {
+    [self.ledger currentWalletInfo:^(BATadrbrowsielWallet* _Nullable wallet) {
       if (!wallet || wallet.recoverySeed.count == 0) {
         BLOG(0, @"Failed to obtain wallet information to initialize ads");
         return;
@@ -760,7 +760,7 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
 
   NSString* languageCodeAdsResourceId =
       [languageCodeAdsResourceIds firstObject];
-  BLOG(1, @"Registering Brave Ads Resources Installer (%@) with id %@",
+  BLOG(1, @"Registering adrbrowsiel Ads Resources Installer (%@) with id %@",
        languageCode, languageCodeAdsResourceId);
 
   BLOG(1, @"Notifying ads resource observers");
@@ -798,7 +798,7 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
   }
 
   NSString* countryCodeAdsResourceId = [countryCodeAdsResourceIds firstObject];
-  BLOG(1, @"Registering Brave Ads Resources Installer (%@) with id %@",
+  BLOG(1, @"Registering adrbrowsiel Ads Resources Installer (%@) with id %@",
        countryCode, countryCodeAdsResourceId);
 
   BLOG(1, @"Notifying ads resource observers");
@@ -931,10 +931,10 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
 
   NSString* baseUrl;
   if (ads::g_environment == ads::Environment::PRODUCTION) {
-    baseUrl = @"https://brave-user-model-installer-input.s3.brave.com";
+    baseUrl = @"https://adrbrowsiel-user-model-installer-input.s3.adrbrowsiel.com";
   } else {
     baseUrl =
-        @"https://brave-user-model-installer-input-dev.s3.bravesoftware.com";
+        @"https://adrbrowsiel-user-model-installer-input-dev.s3.adrbrowsielsoftware.com";
   }
 
   baseUrl = [baseUrl stringByAppendingPathComponent:folderName];
@@ -1085,7 +1085,7 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
 - (void)getBrowsingHistory:(const int)max_count
                    forDays:(const int)days_ago
                   callback:(ads::GetBrowsingHistoryCallback)callback {
-  // To be implemented https://github.com/brave/brave-ios/issues/3499
+  // To be implemented https://github.com/adrbrowsiel/adrbrowsiel-ios/issues/3499
   callback({});
 }
 
@@ -1118,7 +1118,7 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
 }
 
 - (const std::string)loadResourceForId:(const std::string&)id {
-  const auto bundle = [NSBundle bundleForClass:[BATBraveAds class]];
+  const auto bundle = [NSBundle bundleForClass:[BATadrbrowsielAds class]];
   const auto path =
       [bundle pathForResource:[NSString stringWithUTF8String:id.c_str()]
                        ofType:nil];
@@ -1243,7 +1243,7 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
 
 - (void)runDBTransaction:(ads::DBTransactionPtr)transaction
                 callback:(ads::RunDBTransactionCallback)callback {
-  __weak BATBraveAds* weakSelf = self;
+  __weak BATadrbrowsielAds* weakSelf = self;
   base::PostTaskAndReplyWithResult(
       databaseQueue.get(), FROM_HERE,
       base::BindOnce(&RunDBTransactionOnTaskRunner, std::move(transaction),

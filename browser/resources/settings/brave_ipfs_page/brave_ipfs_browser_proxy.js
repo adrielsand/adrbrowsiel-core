@@ -5,7 +5,7 @@
 import {addSingletonGetter} from 'chrome://resources/js/cr.m.js';
 
 /** @interface */
-export class BraveIPFSBrowserProxy {
+export class adrbrowsielIPFSBrowserProxy {
   /**
    * @param {boolean} value name.
    */
@@ -17,9 +17,9 @@ export class BraveIPFSBrowserProxy {
 }
 
 /**
- * @implements {settings.BraveIPFSBrowserProxy}
+ * @implements {settings.adrbrowsielIPFSBrowserProxy}
  */
-export class BraveIPFSBrowserProxyImpl {
+export class adrbrowsielIPFSBrowserProxyImpl {
   setIPFSCompanionEnabled (value) {
     chrome.send('setIPFSCompanionEnabled', [value])
   }
@@ -104,4 +104,4 @@ export class BraveIPFSBrowserProxyImpl {
   }
 }
 
-cr.addSingletonGetter(BraveIPFSBrowserProxyImpl)
+cr.addSingletonGetter(adrbrowsielIPFSBrowserProxyImpl)

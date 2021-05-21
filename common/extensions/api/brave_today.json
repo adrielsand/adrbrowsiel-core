@@ -1,14 +1,14 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 [
   {
-    "namespace": "braveToday",
-    "description": "Brave Today related data API.",
+    "namespace": "adrbrowsielToday",
+    "description": "adrbrowsiel Today related data API.",
     "compiler_options": {
-      "implemented_in": "brave/browser/extensions/api/brave_today_api.h"
+      "implemented_in": "adrbrowsiel/browser/extensions/api/adrbrowsiel_today_api.h"
     },
     "events": [
       {
@@ -22,7 +22,7 @@
       {
         "name": "getHostname",
         "type": "function",
-        "description": "Gets hostname for currently configured Brave Today endpoint",
+        "description": "Gets hostname for currently configured adrbrowsiel Today endpoint",
         "parameters": [
           {
             "name": "callback",
@@ -40,7 +40,7 @@
       {
         "name": "getRegionUrlPart",
         "type": "function",
-        "description": "Gets optional url part for currently configured Brave Today region variation.",
+        "description": "Gets optional url part for currently configured adrbrowsiel Today region variation.",
         "parameters": [
           {
             "name": "callback",

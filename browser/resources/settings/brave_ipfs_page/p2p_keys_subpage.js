@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 import {Router} from '../router.js';
-import {BraveIPFSBrowserProxyImpl} from './brave_ipfs_browser_proxy.m.js';
+import {adrbrowsielIPFSBrowserProxyImpl} from './adrbrowsiel_ipfs_browser_proxy.m.js';
 
 (function() {
   'use strict';
@@ -61,14 +61,14 @@ Polymer({
 
   /** @override */
   created: function() {
-    this.browserProxy_ = BraveIPFSBrowserProxyImpl.getInstance();
-    this.addWebUIListener('brave-ipfs-node-status-changed', (launched) => {
+    this.browserProxy_ = adrbrowsielIPFSBrowserProxyImpl.getInstance();
+    this.addWebUIListener('adrbrowsiel-ipfs-node-status-changed', (launched) => {
       this.onServiceLaunched(launched)
     })
-    this.addWebUIListener('brave-ipfs-keys-loaded', (success) => {
+    this.addWebUIListener('adrbrowsiel-ipfs-keys-loaded', (success) => {
       this.updateKeys()
     })
-    this.addWebUIListener('brave-ipfs-key-imported', (key, value, success) => {
+    this.addWebUIListener('adrbrowsiel-ipfs-key-imported', (key, value, success) => {
       this.importKeysError_ = !success
       if (this.importKeysError_ ) {
         const errorLabel = (this.$$('#key-import-error'));

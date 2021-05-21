@@ -1,11 +1,11 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <random>
 
-#include "brave/third_party/blink/renderer/brave_farbling_constants.h"
+#include "adrbrowsiel/third_party/blink/renderer/adrbrowsiel_farbling_constants.h"
 #include "third_party/blink/public/platform/web_content_settings_client.h"
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
 #include "third_party/blink/renderer/core/frame/local_dom_window.h"
@@ -29,10 +29,10 @@ using blink::PluginInfo;
 using WTF::String;
 using WTF::StringBuilder;
 
-namespace brave {
+namespace adrbrowsiel {
 
 String PluginReplacementName(std::mt19937_64* prng) {
-  std::vector<String> chrome{"Chrome ", "Chromium ",   "Brave ",
+  std::vector<String> chrome{"Chrome ", "Chromium ",   "adrbrowsiel ",
                              "Web ",    "Browser ",    "OpenSource ",
                              "Online ", "JavaScript ", ""};
   std::vector<String> pdf{"PDF ",
@@ -59,18 +59,18 @@ void FarblePlugins(DOMPluginArray* owner,
   LocalFrame* frame = owner->DomWindow()->GetFrame();
   if (!frame || !frame->GetContentSettingsClient())
     return;
-  switch (frame->GetContentSettingsClient()->GetBraveFarblingLevel()) {
-    case BraveFarblingLevel::OFF: {
+  switch (frame->GetContentSettingsClient()->GetadrbrowsielFarblingLevel()) {
+    case adrbrowsielFarblingLevel::OFF: {
       break;
     }
-    case BraveFarblingLevel::MAXIMUM: {
+    case adrbrowsielFarblingLevel::MAXIMUM: {
       dom_plugins->clear();
       // "Maximum" behavior is clear existing plugins + "balanced" behavior,
       // so fall through here.
       U_FALLTHROUGH;
     }
-    case BraveFarblingLevel::BALANCED: {
-      std::mt19937_64 prng = BraveSessionCache::From(*(frame->DomWindow()))
+    case adrbrowsielFarblingLevel::BALANCED: {
+      std::mt19937_64 prng = adrbrowsielSessionCache::From(*(frame->DomWindow()))
                                  .MakePseudoRandomGenerator();
       // The item() method will populate plugin info if any item of
       // |dom_plugins_| is null, but when it tries, it assumes the
@@ -88,7 +88,7 @@ void FarblePlugins(DOMPluginArray* owner,
         if ((name == "Chrome PDF Plugin") || (name == "Chrome PDF Viewer")) {
           plugin->SetName(PluginReplacementName(&prng));
           plugin->SetFilename(
-              BraveSessionCache::From(*(frame->DomWindow()))
+              adrbrowsielSessionCache::From(*(frame->DomWindow()))
                   .GenerateRandomString(plugin->Filename().Ascii(), 32));
         }
         (*dom_plugins)[index] =
@@ -96,16 +96,16 @@ void FarblePlugins(DOMPluginArray* owner,
       }
       // Add fake plugin #1.
       auto* fake_plugin_info_1 = MakeGarbageCollected<PluginInfo>(
-          BraveSessionCache::From(*(frame->DomWindow()))
+          adrbrowsielSessionCache::From(*(frame->DomWindow()))
               .GenerateRandomString("PLUGIN_1_NAME", 8),
-          BraveSessionCache::From(*(frame->DomWindow()))
+          adrbrowsielSessionCache::From(*(frame->DomWindow()))
               .GenerateRandomString("PLUGIN_1_FILENAME", 16),
-          BraveSessionCache::From(*(frame->DomWindow()))
+          adrbrowsielSessionCache::From(*(frame->DomWindow()))
               .GenerateRandomString("PLUGIN_1_DESCRIPTION", 32),
           0, false);
       auto* fake_mime_info_1 = MakeGarbageCollected<MimeClassInfo>(
           "",
-          BraveSessionCache::From(*(frame->DomWindow()))
+          adrbrowsielSessionCache::From(*(frame->DomWindow()))
               .GenerateRandomString("MIME_1_DESCRIPTION", 32),
           *fake_plugin_info_1);
       fake_plugin_info_1->AddMimeType(fake_mime_info_1);
@@ -114,16 +114,16 @@ void FarblePlugins(DOMPluginArray* owner,
       dom_plugins->push_back(fake_dom_plugin_1);
       // Add fake plugin #2.
       auto* fake_plugin_info_2 = MakeGarbageCollected<PluginInfo>(
-          BraveSessionCache::From(*(frame->DomWindow()))
+          adrbrowsielSessionCache::From(*(frame->DomWindow()))
               .GenerateRandomString("PLUGIN_2_NAME", 7),
-          BraveSessionCache::From(*(frame->DomWindow()))
+          adrbrowsielSessionCache::From(*(frame->DomWindow()))
               .GenerateRandomString("PLUGIN_2_FILENAME", 15),
-          BraveSessionCache::From(*(frame->DomWindow()))
+          adrbrowsielSessionCache::From(*(frame->DomWindow()))
               .GenerateRandomString("PLUGIN_2_DESCRIPTION", 31),
           0, false);
       auto* fake_mime_info_2 = MakeGarbageCollected<MimeClassInfo>(
           "",
-          BraveSessionCache::From(*(frame->DomWindow()))
+          adrbrowsielSessionCache::From(*(frame->DomWindow()))
               .GenerateRandomString("MIME_2_DESCRIPTION", 32),
           *fake_plugin_info_2);
       fake_plugin_info_2->AddMimeType(fake_mime_info_2);
@@ -139,15 +139,15 @@ void FarblePlugins(DOMPluginArray* owner,
   }
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#define BRAVE_DOM_PLUGINS_UPDATE_PLUGIN_DATA__RESET_PLUGIN_DATA \
+#define adrbrowsiel_DOM_PLUGINS_UPDATE_PLUGIN_DATA__RESET_PLUGIN_DATA \
   if (PluginData* data = GetPluginData())                       \
     data->ResetPluginData();
 
-#define BRAVE_DOM_PLUGINS_UPDATE_PLUGIN_DATA__FARBLE_PLUGIN_DATA \
-  brave::FarblePlugins(this, data, &dom_plugins_);
+#define adrbrowsiel_DOM_PLUGINS_UPDATE_PLUGIN_DATA__FARBLE_PLUGIN_DATA \
+  adrbrowsiel::FarblePlugins(this, data, &dom_plugins_);
 
 #include "../../../../../../../third_party/blink/renderer/modules/plugins/dom_plugin_array.cc"
 
-#undef BRAVE_DOM_PLUGIN_ARRAY_GET_PLUGIN_DATA
+#undef adrbrowsiel_DOM_PLUGIN_ARRAY_GET_PLUGIN_DATA

@@ -3,12 +3,12 @@
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-brave_locale_source_patterns = [
-  "${root_gen_dir}/components/brave_components_strings_",
-  "${root_gen_dir}/brave/brave_generated_resources_",
+adrbrowsiel_locale_source_patterns = [
+  "${root_gen_dir}/components/adrbrowsiel_components_strings_",
+  "${root_gen_dir}/adrbrowsiel/adrbrowsiel_generated_resources_",
 ]
 
-brave_locale_deps = [
-  "//brave/app:brave_generated_resources_grit",
-  "//brave/components/resources:strings",
+adrbrowsiel_locale_deps = [
+  "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+  "//adrbrowsiel/components/resources:strings",
 ]

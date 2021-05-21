@@ -6,7 +6,7 @@ const versions = (buildConfig = config.defaultBuildConfig, options = {}) => {
   config.update(options)
 
   console.log('chrome ' + config.getProjectRef('chrome'))
-  console.log('brave-core ' + config.getProjectRef('brave-core'))
+  console.log('adrbrowsiel-core ' + config.getProjectRef('adrbrowsiel-core'))
 }
 
 module.exports = versions

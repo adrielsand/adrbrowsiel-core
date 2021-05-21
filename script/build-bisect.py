@@ -183,13 +183,13 @@ def install(download_dir, path):
         result_lines = result.splitlines()
         for x in result_lines:
             x = x.strip()
-            index = x.find('/Volumes/Brave')
+            index = x.find('/Volumes/adrbrowsiel')
             if index > -1:
                 volume = x[index:]
                 break
 
         if volume is None:
-            raise Exception('[ERROR] did not find "/Volumes/Brave" sub-string in mount list!\n \
+            raise Exception('[ERROR] did not find "/Volumes/adrbrowsiel" sub-string in mount list!\n \
                              Full response from "hdiutil":\n' + result)
 
         print('-> mounted as "' + volume + '"')
@@ -292,9 +292,9 @@ def test_version(args, attempt, tag):
 def get_github_token():
     github_token = get_env_var('GITHUB_TOKEN')
     if len(github_token) == 0:
-        result = execute(['npm', 'config', 'get', 'BRAVE_GITHUB_TOKEN']).strip()
+        result = execute(['npm', 'config', 'get', 'adrbrowsiel_GITHUB_TOKEN']).strip()
         if result == 'undefined':
-            raise Exception('`BRAVE_GITHUB_TOKEN` value not found!')
+            raise Exception('`adrbrowsiel_GITHUB_TOKEN` value not found!')
         return result
     else:
         return github_token
@@ -418,7 +418,7 @@ def main():
         return 1
 
     github_token = get_github_token()
-    repo = GitHub(github_token).repos(BRAVE_REPO)
+    repo = GitHub(github_token).repos(adrbrowsiel_REPO)
 
     get_releases(repo)
     tag_names.sort(key=lambda s: map(int, s.split('.')))

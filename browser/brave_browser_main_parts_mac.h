@@ -2,19 +2,19 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_BROWSER_MAIN_PARTS_MAC_H_
-#define BRAVE_BROWSER_BRAVE_BROWSER_MAIN_PARTS_MAC_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_BROWSER_MAIN_PARTS_MAC_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_BROWSER_MAIN_PARTS_MAC_H_
 
 #include "chrome/browser/chrome_browser_main_mac.h"
 
-class BraveBrowserMainPartsMac : public ChromeBrowserMainPartsMac {
+class adrbrowsielBrowserMainPartsMac : public ChromeBrowserMainPartsMac {
  public:
   using ChromeBrowserMainPartsMac::ChromeBrowserMainPartsMac;
-  ~BraveBrowserMainPartsMac() override = default;
+  ~adrbrowsielBrowserMainPartsMac() override = default;
 
  private:
   // ChromeBrowserMainPartsMac overrides:
   void PreMainMessageLoopStart() override;
 };
 
-#endif  // BRAVE_BROWSER_BRAVE_BROWSER_MAIN_PARTS_MAC_H_
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_BROWSER_MAIN_PARTS_MAC_H_

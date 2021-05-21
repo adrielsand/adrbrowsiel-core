@@ -6,7 +6,7 @@ index c127958f7c47a349b624b08c0c549913bc21d973..690ffdc1ad5343e90d74eca536391de4
          if (mCurrentLocationBarColor == color) return;
          mCurrentLocationBarColor = color;
          mLocationBarBackground.setColorFilter(color, PorterDuff.Mode.SRC_IN);
-+        BraveToolbarLayout.class.cast(this).updateModernLocationBarColorImpl(color);
++        adrbrowsielToolbarLayout.class.cast(this).updateModernLocationBarColorImpl(color);
      }
  
      /**
@@ -14,7 +14,7 @@ index c127958f7c47a349b624b08c0c549913bc21d973..690ffdc1ad5343e90d74eca536391de4
                          EventConstants.PARTNER_HOME_PAGE_BUTTON_PRESSED);
              }
          }
-+        BraveToolbarLayout.class.cast(this).onClickImpl(v);
++        adrbrowsielToolbarLayout.class.cast(this).onClickImpl(v);
      }
  
      @Override
@@ -22,7 +22,7 @@ index c127958f7c47a349b624b08c0c549913bc21d973..690ffdc1ad5343e90d74eca536391de4
       * @return The right bounds of the location bar after accounting for any visible left buttons.
       */
      private int getBoundsAfterAccountingForRightButtons() {
-+        if (true) return Math.max(mToolbarSidePadding, BraveToolbarLayout.class.cast(this).getBoundsAfterAccountingForRightButtons(mToolbarButtonsContainer));
++        if (true) return Math.max(mToolbarSidePadding, adrbrowsielToolbarLayout.class.cast(this).getBoundsAfterAccountingForRightButtons(mToolbarButtonsContainer));
          return Math.max(mToolbarSidePadding, mToolbarButtonsContainer.getMeasuredWidth());
      }
  
@@ -30,7 +30,7 @@ index c127958f7c47a349b624b08c0c549913bc21d973..690ffdc1ad5343e90d74eca536391de4
          } else {
              populateUrlClearExpansionAnimatorSet(animators);
          }
-+        BraveToolbarLayout.class.cast(this).populateUrlAnimatorSet(showExpandedState, URL_FOCUS_TOOLBAR_BUTTONS_DURATION_MS, URL_CLEAR_FOCUS_TABSTACK_DELAY_MS, animators);
++        adrbrowsielToolbarLayout.class.cast(this).populateUrlAnimatorSet(showExpandedState, URL_FOCUS_TOOLBAR_BUTTONS_DURATION_MS, URL_CLEAR_FOCUS_TABSTACK_DELAY_MS, animators);
          mUrlFocusLayoutAnimator = new AnimatorSet();
          mUrlFocusLayoutAnimator.playTogether(animators);
  

@@ -1,37 +1,37 @@
-import("//brave/components/brave_referrals/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.gni")
 
 declare_args() {
-  brave_stats_updater_url = ""
+  adrbrowsiel_stats_updater_url = ""
 }
 
 if (is_official_build) {
-  assert(brave_stats_updater_url != "")
+  assert(adrbrowsiel_stats_updater_url != "")
 }
 
 source_set("stats_updater") {
-  # Remove when https://github.com/brave/brave-browser/issues/10657 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10657 is resolved
   check_includes = false
-  defines = [ "BRAVE_USAGE_SERVER=\"$brave_stats_updater_url\"" ]
+  defines = [ "adrbrowsiel_USAGE_SERVER=\"$adrbrowsiel_stats_updater_url\"" ]
 
   sources = [
-    "brave_stats_tab_helper.cc",
-    "brave_stats_tab_helper.h",
-    "brave_stats_updater.cc",
-    "brave_stats_updater.h",
-    "brave_stats_updater_params.cc",
-    "brave_stats_updater_params.h",
+    "adrbrowsiel_stats_tab_helper.cc",
+    "adrbrowsiel_stats_tab_helper.h",
+    "adrbrowsiel_stats_updater.cc",
+    "adrbrowsiel_stats_updater.h",
+    "adrbrowsiel_stats_updater_params.cc",
+    "adrbrowsiel_stats_updater_params.h",
     "switches.h",
   ]
 
   deps = [
     "//base",
-    "//brave/common",
-    "//brave/common:pref_names",
-    "//brave/components/brave_referrals/buildflags",
-    "//brave/components/brave_stats/browser",
-    "//brave/components/rpill/common",
-    "//brave/components/version_info",
-    "//brave/vendor/bat-native-ads",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/common:pref_names",
+    "//adrbrowsiel/components/adrbrowsiel_referrals/buildflags",
+    "//adrbrowsiel/components/adrbrowsiel_stats/browser",
+    "//adrbrowsiel/components/rpill/common",
+    "//adrbrowsiel/components/version_info",
+    "//adrbrowsiel/vendor/bat-native-ads",
     "//chrome/common",
     "//components/prefs",
     "//content/public/browser",
@@ -40,7 +40,7 @@ source_set("stats_updater") {
     "//ui/base",
   ]
 
-  if (enable_brave_referrals) {
-    deps += [ "//brave/components/brave_referrals/common" ]
+  if (enable_adrbrowsiel_referrals) {
+    deps += [ "//adrbrowsiel/components/adrbrowsiel_referrals/common" ]
   }
 }

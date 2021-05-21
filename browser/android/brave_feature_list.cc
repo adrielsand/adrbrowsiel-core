@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 3.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,7 +7,7 @@
 
 #include "base/android/jni_string.h"
 #include "base/feature_list.h"
-#include "brave/build/android/jni_headers/BraveFeatureList_jni.h"
+#include "adrbrowsiel/build/android/jni_headers/adrbrowsielFeatureList_jni.h"
 #include "chrome/browser/about_flags.h"
 #include "chrome/browser/browser_process.h"
 #include "components/flags_ui/feature_entry.h"
@@ -31,7 +31,7 @@ int GetNumberOfOptions(const std::string& internal_name) {
   return entry->NumOptions();
 }
 
-static void JNI_BraveFeatureList_EnableFeature(
+static void JNI_adrbrowsielFeatureList_EnableFeature(
     JNIEnv* env,
     const base::android::JavaParamRef<jstring>& featureName,
     jboolean enabled,

@@ -7,14 +7,14 @@ index d115d6f43abbaee4b4142591d77a233f294fba58..82346778d92143a6a452987aa859da1c
  namespace {
  
 +#if defined(OFFICIAL_BUILD)
-+const wchar_t kGCAPITempKey[] = L"Software\\BraveSoftware\\GCAPITemp";
++const wchar_t kGCAPITempKey[] = L"Software\\adrbrowsielSoftware\\GCAPITemp";
 +const wchar_t kChromeRegVersion[] = L"pv";
 +const wchar_t kNoChromeOfferUntil[] =
-+    L"SOFTWARE\\BraveSoftware\\No Chrome Offer Until";
++    L"SOFTWARE\\adrbrowsielSoftware\\No Chrome Offer Until";
 +const wchar_t kC1FPendingKey[] =
-+    L"Software\\BraveSoftware\\Common\\Rlz\\Events\\C";
++    L"Software\\adrbrowsielSoftware\\Common\\Rlz\\Events\\C";
 +const wchar_t kC1FSentKey[] =
-+    L"Software\\BraveSoftware\\Common\\Rlz\\StatefulEvents\\C";
++    L"Software\\adrbrowsielSoftware\\Common\\Rlz\\StatefulEvents\\C";
 +#else
  const wchar_t kGCAPITempKey[] = L"Software\\Google\\GCAPITemp";
  

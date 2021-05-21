@@ -7,12 +7,12 @@
     android:layout_gravity="end|top">
 
     <include
-        android:id="@+id/brave_rewards_onboarding_modal_id"
-        layout="@layout/brave_rewards_onboarding_modal"/>
+        android:id="@+id/adrbrowsiel_rewards_onboarding_modal_id"
+        layout="@layout/adrbrowsiel_rewards_onboarding_modal"/>
 
     <include
-        android:id="@+id/brave_rewards_onboarding_layout_id"
-        layout="@layout/brave_rewards_onboarding_layout"/>
+        android:id="@+id/adrbrowsiel_rewards_onboarding_layout_id"
+        layout="@layout/adrbrowsiel_rewards_onboarding_layout"/>
 
     <!--Your wallet screen-->
     <ScrollView
@@ -35,10 +35,10 @@
 
                 <include
                     android:id="@+id/header_layout"
-                    layout="@layout/brave_rewards_panel_header"/>
+                    layout="@layout/adrbrowsiel_rewards_panel_header"/>
 
-                <include android:id="@+id/brave_rewards_opt_in_layout_id"
-                    layout="@layout/brave_rewards_opt_in_layout"/>
+                <include android:id="@+id/adrbrowsiel_rewards_opt_in_layout_id"
+                    layout="@layout/adrbrowsiel_rewards_opt_in_layout"/>
 
             </FrameLayout>
 
@@ -146,7 +146,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_width="wrap_content"
                                                 android:layout_gravity="start|center"
-                                                android:text="@string/brave_ui_verified_publisher"
+                                                android:text="@string/adrbrowsiel_ui_verified_publisher"
                                                 app:drawableStartCompat="@drawable/bat_verified"
                                                 android:drawablePadding="4dp"
                                                 android:fontFamily="sans-serif"
@@ -171,7 +171,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_width="wrap_content"
                                                 android:layout_gravity="start|center"
-                                                android:text="@string/brave_ui_refresh_publisher_status"
+                                                android:text="@string/adrbrowsiel_ui_refresh_publisher_status"
                                                 android:fontFamily="sans-serif"
                                                 android:textSize="14sp"
                                                 android:textColor="#4E56CD"
@@ -194,12 +194,12 @@
                                 android:layout_gravity="start"
                                 android:layout_marginTop="2dp"
                                 android:padding="5dp"
-                                android:text="@string/brave_ui_not_verified_publisher_description"
+                                android:text="@string/adrbrowsiel_ui_not_verified_publisher_description"
                                 android:textColor="@color/modern_grey_700"
                                 android:fontFamily="sans-serif"
                                 android:gravity="start"
                                 android:textSize="12sp"
-                                android:background="@drawable/brave_rewards_not_verified_rectangle"
+                                android:background="@drawable/adrbrowsiel_rewards_not_verified_rectangle"
                                 android:visibility="gone"/>
 
                         </LinearLayout>
@@ -207,7 +207,7 @@
                         <!--AC set of controls-->
                         <include
                             android:id="@+id/ac_enabled_controls"
-                            layout="@layout/brave_rewards_auto_contrib"
+                            layout="@layout/adrbrowsiel_rewards_auto_contrib"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"
                             android:layout_row="1"
@@ -224,7 +224,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             android:background="@drawable/rewards_button_purple_border"
-                            android:text="@string/brave_ui_donate_now"
+                            android:text="@string/adrbrowsiel_ui_donate_now"
                             android:gravity="center"
                             android:layout_gravity="center"
                             android:fontFamily="sans-serif"
@@ -241,7 +241,7 @@
                         android:layout_height="50dp"
                         android:layout_width="fill_parent"
                         android:background="@drawable/rewards_button_summary"
-                        android:text="@string/brave_ui_rewards_summary"
+                        android:text="@string/adrbrowsiel_ui_rewards_summary"
                         android:gravity="start|center"
                         android:layout_gravity="center"
                         android:fontFamily="sans-serif"
@@ -260,7 +260,7 @@
                             android:id="@+id/br_no_activities_yet"
                             android:layout_height="100dp"
                             android:layout_width="wrap_content"
-                            android:text="@string/brave_ui_no_activity"
+                            android:text="@string/adrbrowsiel_ui_no_activity"
                             android:gravity="center"
                             android:layout_gravity="center"
                             android:fontFamily="sans-serif"
@@ -327,7 +327,7 @@
                                 android:layout_gravity="start|center"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginStart="10dp"
-                                android:text="@string/brave_ui_earnings_ads"
+                                android:text="@string/adrbrowsiel_ui_earnings_ads"
                                 android:textColor="@color/modern_grey_700"
                                 android:fontFamily="sans-serif"
                                 android:gravity="start"
@@ -371,7 +371,7 @@
                                 android:layout_gravity="start|center"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginStart="10dp"
-                                android:text="@string/brave_ui_rewards_contribute"
+                                android:text="@string/adrbrowsiel_ui_rewards_contribute"
                                 android:textColor="@color/modern_grey_700"
                                 android:fontFamily="sans-serif"
                                 android:gravity="start"
@@ -416,7 +416,7 @@
                                 android:layout_gravity="start|center"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginStart="10dp"
-                                android:text="@string/brave_ui_one_time_donation"
+                                android:text="@string/adrbrowsiel_ui_one_time_donation"
                                 android:textColor="@color/modern_grey_700"
                                 android:fontFamily="sans-serif"
                                 android:gravity="start"
@@ -461,7 +461,7 @@
                                 android:layout_gravity="start|center"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginStart="10dp"
-                                android:text="@string/brave_ui_recurring_donation"
+                                android:text="@string/adrbrowsiel_ui_recurring_donation"
                                 android:textColor="@color/modern_grey_700"
                                 android:fontFamily="sans-serif"
                                 android:gravity="start"
@@ -511,7 +511,7 @@
                                 android:fontFamily="sans-serif"
                                 android:gravity="start"
                                 android:textSize="12sp"
-                                android:background="@drawable/brave_rewards_not_verified_rectangle"
+                                android:background="@drawable/adrbrowsiel_rewards_not_verified_rectangle"
                                 android:visibility="gone"
                                 android:layout_row="5"
                                 android:layout_columnSpan="3"/>
@@ -521,8 +521,8 @@
                 </LinearLayout>
 
                 <include
-                    android:id="@+id/brave_rewards_welcome_layout_id"
-                    layout="@layout/brave_rewards_welcome_layout"/>
+                    android:id="@+id/adrbrowsiel_rewards_welcome_layout_id"
+                    layout="@layout/adrbrowsiel_rewards_welcome_layout"/>
 
             </FrameLayout>
         </LinearLayout>

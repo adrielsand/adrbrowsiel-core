@@ -3,17 +3,17 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 import {PrefsBehavior} from '../prefs/prefs_behavior.js';
 import {Router, RouteObserverBehavior} from '../router.js';
-import {BraveIPFSBrowserProxyImpl} from './brave_ipfs_browser_proxy.m.js';
+import {adrbrowsielIPFSBrowserProxyImpl} from './adrbrowsiel_ipfs_browser_proxy.m.js';
 
 (function() {
 'use strict';
 
 /**
- * 'settings-brave-default-extensions-page' is the settings page containing
- * brave's default extensions.
+ * 'settings-adrbrowsiel-default-extensions-page' is the settings page containing
+ * adrbrowsiel's default extensions.
  */
 Polymer({
-  is: 'settings-brave-ipfs-page',
+  is: 'settings-adrbrowsiel-ipfs-page',
 
   behaviors: [
     WebUIListenerBehavior,
@@ -23,7 +23,7 @@ Polymer({
 
   /**
    * Keep it same as in IPFSResolveMethodTypes
-   * in brave\components\ipfs\ipfs_constants.h */
+   * in adrbrowsiel\components\ipfs\ipfs_constants.h */
   IPFSResolveMethodTypes: {
     IPFS_ASK: 0,
     IPFS_GATEWAY: 1,
@@ -43,12 +43,12 @@ Polymer({
     mainBlockVisibility_: String
   },
 
-  /** @private {?settings.BraveIPFSBrowserProxy} */
+  /** @private {?settings.adrbrowsielIPFSBrowserProxy} */
   browserProxy_: null,
 
   /** @override */
   created: function() {
-    this.browserProxy_ = BraveIPFSBrowserProxyImpl.getInstance();
+    this.browserProxy_ = adrbrowsielIPFSBrowserProxyImpl.getInstance();
   },
 
   /** @override */
@@ -65,7 +65,7 @@ Polymer({
       this.ipfsEnabled_ = enabled
     });
 
-    this.addWebUIListener('brave-ipfs-node-status-changed', (launched) => {
+    this.addWebUIListener('adrbrowsiel-ipfs-node-status-changed', (launched) => {
       this.isLocalNodeLaunched_ = launched
     })
     this.browserProxy_.notifyIpfsNodeStatus();
@@ -73,27 +73,27 @@ Polymer({
   },
 
   setupOptionsVisibility: function() {
-    const resolve_method = this.getPref('brave.ipfs.resolve_method').value;
+    const resolve_method = this.getPref('adrbrowsiel.ipfs.resolve_method').value;
     // Check if IPFS method is LOCAL_NODE
     this.isLocalNodeEnabled_ = (resolve_method == this.IPFSResolveMethodTypes.IPFS_LOCAL) &&
                                 this.ipfsEnabled_;
     this.showIPFSLearnMoreLink_ =
       (resolve_method == this.IPFSResolveMethodTypes.IPFS_ASK);
     this.$.ipfsStorageMax.value =
-      this.getPref('brave.ipfs.storage_max').value;
+      this.getPref('adrbrowsiel.ipfs.storage_max').value;
   },
 
   onLoad_: function() {
     this.setupOptionsVisibility();
     if (this.isKeysEditorRoute() && !this.isLocalNodeEnabled_) {
       const router = Router.getInstance();
-      router.navigateTo(router.getRoutes().BRAVE_IPFS);
+      router.navigateTo(router.getRoutes().adrbrowsiel_IPFS);
     }
   },
 
   onP2pKeysEditorClick_: function() {
     const router = Router.getInstance();
-    router.navigateTo(router.getRoutes().BRAVE_IPFS_KEYS);
+    router.navigateTo(router.getRoutes().adrbrowsiel_IPFS_KEYS);
   },
 
   onChangeIpfsMethod_: function() {
@@ -111,7 +111,7 @@ Polymer({
 
   isKeysEditorRoute: function () {
     const router = Router.getInstance();
-    return (router.getCurrentRoute() == router.getRoutes().BRAVE_IPFS_KEYS);
+    return (router.getCurrentRoute() == router.getRoutes().adrbrowsiel_IPFS_KEYS);
   },
 
   /** @protected */

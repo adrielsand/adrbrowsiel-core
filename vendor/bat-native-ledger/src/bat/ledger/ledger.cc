@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -26,7 +26,7 @@ Ledger* Ledger::CreateInstance(LedgerClient* client) {
 bool Ledger::IsMediaLink(const std::string& url,
                          const std::string& first_party_url,
                          const std::string& referrer) {
-  const std::string type = braveledger_media::Media::GetLinkType(
+  const std::string type = adrbrowsielledger_media::Media::GetLinkType(
       url,
       first_party_url,
       referrer);

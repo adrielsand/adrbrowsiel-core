@@ -5,30 +5,30 @@
 #import <UIKit/UIKit.h>
 
 //! Project version number for Ledger.
-FOUNDATION_EXPORT double BraveRewardsVersionNumber;
+FOUNDATION_EXPORT double adrbrowsielRewardsVersionNumber;
 
 //! Project version string for Ledger.
-FOUNDATION_EXPORT const unsigned char BraveRewardsVersionString[];
+FOUNDATION_EXPORT const unsigned char adrbrowsielRewardsVersionString[];
 
-#import <BraveRewards/BATBraveRewards.h>
+#import <adrbrowsielRewards/BATadrbrowsielRewards.h>
 
 // Ads
-#import <BraveRewards/BATAdNotification.h>
+#import <adrbrowsielRewards/BATAdNotification.h>
 
 // Ledger
-#import <BraveRewards/Enums.h>
-#import <BraveRewards/ledger.mojom.objc.h>
-#import <BraveRewards/BATRewardsNotification.h>
-#import <BraveRewards/BATPromotionSolution.h>
+#import <adrbrowsielRewards/Enums.h>
+#import <adrbrowsielRewards/ledger.mojom.objc.h>
+#import <adrbrowsielRewards/BATRewardsNotification.h>
+#import <adrbrowsielRewards/BATPromotionSolution.h>
 
-// brave-core
-#import <BraveRewards/brave_core_main.h>
+// adrbrowsiel-core
+#import <adrbrowsielRewards/adrbrowsiel_core_main.h>
 
 // Sync
-#import <BraveRewards/brave_sync_api.h>
+#import <adrbrowsielRewards/adrbrowsiel_sync_api.h>
 
 // Bookmarks
-#import <BraveRewards/brave_bookmarks_api.h>
-#import <BraveRewards/brave_bookmarks_observer.h>
-#import <BraveRewards/brave_bookmarks_importer.h>
-#import <BraveRewards/brave_bookmarks_exporter.h>
+#import <adrbrowsielRewards/adrbrowsiel_bookmarks_api.h>
+#import <adrbrowsielRewards/adrbrowsiel_bookmarks_observer.h>
+#import <adrbrowsielRewards/adrbrowsiel_bookmarks_importer.h>
+#import <adrbrowsielRewards/adrbrowsiel_bookmarks_exporter.h>

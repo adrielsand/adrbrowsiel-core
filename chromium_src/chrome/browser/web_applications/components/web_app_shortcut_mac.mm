@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,38 +8,38 @@ class FilePath;
 }  // namespace base
 
 namespace {
-base::FilePath GetLocalizableBraveAppShortcutsSubdirName();
+base::FilePath GetLocalizableadrbrowsielAppShortcutsSubdirName();
 }
 
 #include "../../../../../../chrome/browser/web_applications/components/web_app_shortcut_mac.mm"  // NOLINT
 
 namespace {
-base::FilePath GetLocalizableBraveAppShortcutsSubdirName() {
-  static const char kBraveBrowserDevelopmentAppDirName[] =
-      "Brave Browser Development Apps.localized";
-  static const char kBraveBrowserAppDirName[] =
-      "Brave Browser Apps.localized";
-  static const char kBraveBrowserBetaAppDirName[] =
-      "Brave Browser Beta Apps.localized";
-  static const char kBraveBrowserDevAppDirName[] =
-      "Brave Browser Dev Apps.localized";
-  static const char kBraveBrowserNightlyAppDirName[] =
-      "Brave Browser Nightly Apps.localized";
+base::FilePath GetLocalizableadrbrowsielAppShortcutsSubdirName() {
+  static const char kadrbrowsielBrowserDevelopmentAppDirName[] =
+      "adrbrowsiel Browser Development Apps.localized";
+  static const char kadrbrowsielBrowserAppDirName[] =
+      "adrbrowsiel Browser Apps.localized";
+  static const char kadrbrowsielBrowserBetaAppDirName[] =
+      "adrbrowsiel Browser Beta Apps.localized";
+  static const char kadrbrowsielBrowserDevAppDirName[] =
+      "adrbrowsiel Browser Dev Apps.localized";
+  static const char kadrbrowsielBrowserNightlyAppDirName[] =
+      "adrbrowsiel Browser Nightly Apps.localized";
 
   switch (chrome::GetChannel()) {
     case version_info::Channel::STABLE:
-      return base::FilePath(kBraveBrowserAppDirName);
+      return base::FilePath(kadrbrowsielBrowserAppDirName);
     case version_info::Channel::BETA:
-      return base::FilePath(kBraveBrowserBetaAppDirName);
+      return base::FilePath(kadrbrowsielBrowserBetaAppDirName);
     case version_info::Channel::DEV:
-      return base::FilePath(kBraveBrowserDevAppDirName);
+      return base::FilePath(kadrbrowsielBrowserDevAppDirName);
     case version_info::Channel::CANARY:
-      return base::FilePath(kBraveBrowserNightlyAppDirName);
+      return base::FilePath(kadrbrowsielBrowserNightlyAppDirName);
     case version_info::Channel::UNKNOWN:
-      return base::FilePath(kBraveBrowserDevelopmentAppDirName);
+      return base::FilePath(kadrbrowsielBrowserDevelopmentAppDirName);
     default:
       NOTREACHED();
-      return base::FilePath(kBraveBrowserDevelopmentAppDirName);
+      return base::FilePath(kadrbrowsielBrowserDevelopmentAppDirName);
   }
 }
 }  // namespace

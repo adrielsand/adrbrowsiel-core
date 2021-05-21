@@ -1,15 +1,15 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/permissions/permission_lifetime_manager_factory.h"
+#include "adrbrowsiel/browser/permissions/permission_lifetime_manager_factory.h"
 
 #include <memory>
 #include <utility>
 
-#include "brave/components/permissions/permission_lifetime_manager.h"
-#include "brave/components/permissions/permission_origin_lifetime_monitor_impl.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_manager.h"
+#include "adrbrowsiel/components/permissions/permission_origin_lifetime_monitor_impl.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/permissions/permission_manager_factory.h"
 #include "chrome/browser/profiles/incognito_helpers.h"
@@ -50,7 +50,7 @@ KeyedService* PermissionLifetimeManagerFactory::BuildServiceInstanceFor(
   }
   std::unique_ptr<permissions::PermissionOriginLifetimeMonitor>
       permission_origin_lifetime_monitor;
-  if (base::FeatureList::IsEnabled(net::features::kBraveEphemeralStorage)) {
+  if (base::FeatureList::IsEnabled(net::features::kadrbrowsielEphemeralStorage)) {
     permission_origin_lifetime_monitor =
         std::make_unique<permissions::PermissionOriginLifetimeMonitorImpl>(
             context);

@@ -1,27 +1,27 @@
-# Copyright (c) 2021 The Brave Authors. All rights reserved.
+# Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import(
-    "//brave/components/brave_perf_predictor/browser/buildflags/buildflags.gni")
+    "//adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/buildflags/buildflags.gni")
 import("//extensions/buildflags/buildflags.gni")
 
-brave_browser_brave_shields_sources = [
-  "//brave/browser/brave_shields/ad_block_pref_service_factory.cc",
-  "//brave/browser/brave_shields/ad_block_pref_service_factory.h",
-  "//brave/browser/brave_shields/brave_shields_web_contents_observer.cc",
-  "//brave/browser/brave_shields/brave_shields_web_contents_observer.h",
-  "//brave/browser/brave_shields/cookie_pref_service_factory.cc",
-  "//brave/browser/brave_shields/cookie_pref_service_factory.h",
+adrbrowsiel_browser_adrbrowsiel_shields_sources = [
+  "//adrbrowsiel/browser/adrbrowsiel_shields/ad_block_pref_service_factory.cc",
+  "//adrbrowsiel/browser/adrbrowsiel_shields/ad_block_pref_service_factory.h",
+  "//adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer.cc",
+  "//adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer.h",
+  "//adrbrowsiel/browser/adrbrowsiel_shields/cookie_pref_service_factory.cc",
+  "//adrbrowsiel/browser/adrbrowsiel_shields/cookie_pref_service_factory.h",
 ]
 
-brave_browser_brave_shields_deps = [
+adrbrowsiel_browser_adrbrowsiel_shields_deps = [
   "//base",
-  "//brave/browser:browser_process",
-  "//brave/common",
-  "//brave/components/brave_shields/browser",
-  "//brave/components/brave_shields/common",
+  "//adrbrowsiel/browser:browser_process",
+  "//adrbrowsiel/common",
+  "//adrbrowsiel/components/adrbrowsiel_shields/browser",
+  "//adrbrowsiel/components/adrbrowsiel_shields/common",
   "//chrome/browser/profiles:profile",
   "//chrome/common",
   "//components/content_settings/core/browser",
@@ -35,20 +35,20 @@ brave_browser_brave_shields_deps = [
 ]
 
 if (is_android) {
-  brave_browser_brave_shields_sources += [ "//brave/browser/brave_shields/brave_shields_web_contents_observer_android.cc" ]
-  brave_browser_brave_shields_deps +=
-      [ "//brave/browser/android:android_browser_process" ]
+  adrbrowsiel_browser_adrbrowsiel_shields_sources += [ "//adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer_android.cc" ]
+  adrbrowsiel_browser_adrbrowsiel_shields_deps +=
+      [ "//adrbrowsiel/browser/android:android_browser_process" ]
 }
 
 if (enable_extensions) {
-  brave_browser_brave_shields_deps += [
-    "//brave/common/extensions/api",
+  adrbrowsiel_browser_adrbrowsiel_shields_deps += [
+    "//adrbrowsiel/common/extensions/api",
     "//chrome/browser/extensions",
     "//extensions/browser",
   ]
 }
 
-if (enable_brave_perf_predictor) {
-  brave_browser_brave_shields_deps +=
-      [ "//brave/components/brave_perf_predictor/browser" ]
+if (enable_adrbrowsiel_perf_predictor) {
+  adrbrowsiel_browser_adrbrowsiel_shields_deps +=
+      [ "//adrbrowsiel/components/adrbrowsiel_perf_predictor/browser" ]
 }

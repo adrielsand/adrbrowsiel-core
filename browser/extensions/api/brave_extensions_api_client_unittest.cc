@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 #include <string>
 
-#include "brave/browser/extensions/api/brave_extensions_api_client.h"
+#include "adrbrowsiel/browser/extensions/api/adrbrowsiel_extensions_api_client.h"
 #include "chrome/test/base/chrome_render_view_host_test_harness.h"
 #include "extensions/browser/api/web_request/web_request_info.h"
 #include "testing/gtest/include/gtest/gtest.h"
@@ -13,7 +13,7 @@
 
 namespace extensions {
 
-class BraveExtensionsAPIClientTests : public ChromeRenderViewHostTestHarness {
+class adrbrowsielExtensionsAPIClientTests : public ChromeRenderViewHostTestHarness {
  public:
   bool ShouldHideBrowserNetworkRequest(const WebRequestInfo& request_info) {
     return client_.ShouldHideBrowserNetworkRequest(browser_context(),
@@ -21,15 +21,15 @@ class BraveExtensionsAPIClientTests : public ChromeRenderViewHostTestHarness {
   }
 
  protected:
-  BraveExtensionsAPIClientTests() = default;
+  adrbrowsielExtensionsAPIClientTests() = default;
 
  private:
-  BraveExtensionsAPIClient client_;
+  adrbrowsielExtensionsAPIClient client_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveExtensionsAPIClientTests);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielExtensionsAPIClientTests);
 };
 
-TEST_F(BraveExtensionsAPIClientTests, IsBraveProtectedUrlUphold) {
+TEST_F(adrbrowsielExtensionsAPIClientTests, IsadrbrowsielProtectedUrlUphold) {
   auto create_request_params = [](const std::string& url) {
     const int kRendererProcessId = 2;
     WebRequestInfoInitParams request;
@@ -50,13 +50,13 @@ TEST_F(BraveExtensionsAPIClientTests, IsBraveProtectedUrlUphold) {
 
   WebRequestInfo allowed1(create_request_params("https://uphold.com/"));
   WebRequestInfo allowed2(create_request_params("https://www.uphold.com/"));
-  WebRequestInfo allowed3(create_request_params("https://brave.com/"));
+  WebRequestInfo allowed3(create_request_params("https://adrbrowsiel.com/"));
   ASSERT_FALSE(ShouldHideBrowserNetworkRequest(allowed1));
   ASSERT_FALSE(ShouldHideBrowserNetworkRequest(allowed2));
   ASSERT_FALSE(ShouldHideBrowserNetworkRequest(allowed3));
 }
 
-TEST_F(BraveExtensionsAPIClientTests, IsBraveProtectedUrlBinance) {
+TEST_F(adrbrowsielExtensionsAPIClientTests, IsadrbrowsielProtectedUrlBinance) {
   auto create_request_params = [](const std::string& url) {
     const int kRendererProcessId = 2;
     WebRequestInfoInitParams request;
@@ -72,7 +72,7 @@ TEST_F(BraveExtensionsAPIClientTests, IsBraveProtectedUrlBinance) {
   WebRequestInfo blocked3(
       create_request_params("https://accounts.binance.com/fr/oauth/authorize"));
   WebRequestInfo blocked4(
-      create_request_params("com.brave.binance://authorization?code=Asv4EWY3"));
+      create_request_params("com.adrbrowsiel.binance://authorization?code=Asv4EWY3"));
 
   ASSERT_TRUE(ShouldHideBrowserNetworkRequest(blocked1));
   ASSERT_TRUE(ShouldHideBrowserNetworkRequest(blocked2));
@@ -86,7 +86,7 @@ TEST_F(BraveExtensionsAPIClientTests, IsBraveProtectedUrlBinance) {
   ASSERT_FALSE(ShouldHideBrowserNetworkRequest(allowed2));
 }
 
-TEST_F(BraveExtensionsAPIClientTests, IsBraveProtectedUrlGemini) {
+TEST_F(adrbrowsielExtensionsAPIClientTests, IsadrbrowsielProtectedUrlGemini) {
   auto create_request_params = [](const std::string& url) {
     const int kRendererProcessId = 2;
     WebRequestInfoInitParams request;
@@ -100,7 +100,7 @@ TEST_F(BraveExtensionsAPIClientTests, IsBraveProtectedUrlGemini) {
   WebRequestInfo blocked2(create_request_params(
       "https://exchange.gemini.com/auth/token"));
   WebRequestInfo blocked3(
-      create_request_params("com.brave.gemini://authorization?code=Sggjh9s"));
+      create_request_params("com.adrbrowsiel.gemini://authorization?code=Sggjh9s"));
 
   ASSERT_TRUE(ShouldHideBrowserNetworkRequest(blocked1));
   ASSERT_TRUE(ShouldHideBrowserNetworkRequest(blocked2));

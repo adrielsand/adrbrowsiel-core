@@ -1,12 +1,12 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 package org.chromium.chrome.browser.local_database;
 
-public class BraveStatsTable {
-    public static final String TABLE_NAME = "brave_stats_table";
+public class adrbrowsielStatsTable {
+    public static final String TABLE_NAME = "adrbrowsiel_stats_table";
 
     public static final String COLUMN_URL = "url";
     public static final String COLUMN_DOMAIN = "domain";
@@ -25,7 +25,7 @@ public class BraveStatsTable {
         + COLUMN_TIMESTAMP + " DATETIME"
         + ")";
 
-    public BraveStatsTable() {
+    public adrbrowsielStatsTable() {
     }
 
     private String mUrl;
@@ -35,7 +35,7 @@ public class BraveStatsTable {
     private String mStatSiteDomain;
     private String mTimestamp;
 
-    public BraveStatsTable(String url, String domain, String statType, String statSite, String statSiteDomain, String timestamp) {
+    public adrbrowsielStatsTable(String url, String domain, String statType, String statSite, String statSiteDomain, String timestamp) {
         mUrl = url;
         mDomain = domain;
         mStatType = statType;

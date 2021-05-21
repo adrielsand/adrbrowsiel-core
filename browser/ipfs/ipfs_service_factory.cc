@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
 
 #include "base/path_service.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
 #include "chrome/common/channel_info.h"
 #include "chrome/common/chrome_paths.h"
 #include "components/keyed_service/content/browser_context_dependency_manager.h"
@@ -32,7 +32,7 @@ IpfsServiceFactory* IpfsServiceFactory::GetInstance() {
 // static
 IpfsService* IpfsServiceFactory::GetForContext(
     content::BrowserContext* context) {
-  if (!brave::IsRegularProfile(context) || !IsIpfsEnabled(context))
+  if (!adrbrowsiel::IsRegularProfile(context) || !IsIpfsEnabled(context))
     return nullptr;
 
   return static_cast<IpfsService*>(
@@ -57,8 +57,8 @@ KeyedService* IpfsServiceFactory::BuildServiceInstanceFor(
   base::FilePath user_data_dir;
   base::PathService::Get(chrome::DIR_USER_DATA, &user_data_dir);
   return new IpfsService(context,
-                         g_brave_browser_process
-                             ? g_brave_browser_process->ipfs_client_updater()
+                         g_adrbrowsiel_browser_process
+                             ? g_adrbrowsiel_browser_process->ipfs_client_updater()
                              : nullptr,
                          user_data_dir, chrome::GetChannel());
 }

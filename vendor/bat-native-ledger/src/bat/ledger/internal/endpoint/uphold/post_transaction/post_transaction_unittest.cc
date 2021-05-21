@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -15,7 +15,7 @@
 #include "net/http/http_status_code.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=PostTransactionTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=PostTransactionTest.*
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -87,7 +87,7 @@ TEST_F(PostTransactionTest, ServerOK) {
                "base": "1.00",
                "commission": "0.00",
                "currency": "BAT",
-               "description": "Brave Software International",
+               "description": "adrbrowsiel Software International",
                "fee": "0.00",
                "isMember": true,
                "node": {
@@ -95,12 +95,12 @@ TEST_F(PostTransactionTest, ServerOK) {
                  "type": "card",
                  "user": {
                    "id": "f5e37294-68f1-49ae-89e2-b24b64aedd37",
-                   "username": "braveintl"
+                   "username": "adrbrowsielintl"
                  }
                },
                "rate": "1.00",
                "type": "card",
-               "username": "braveintl"
+               "username": "adrbrowsielintl"
              },
              "origin": {
                "amount": "1.00",

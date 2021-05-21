@@ -6,7 +6,7 @@ index 1928aa2c798274987b98ed135b390f8cfcbeb44b..2b7dc095412eb6e87fe84b8c7ba317b1
          std::move(pdf_viewer_replacements);
    }
  #endif
-+  BRAVE_CHROME_COMPONENT_EXTENSION_RESOURCE_MANAGER_DATA_DATA
++  adrbrowsiel_CHROME_COMPONENT_EXTENSION_RESOURCE_MANAGER_DATA_DATA
  }
  
  void ChromeComponentExtensionResourceManager::Data::AddComponentResourceEntries(

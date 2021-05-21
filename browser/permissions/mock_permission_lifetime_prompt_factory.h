@@ -1,15 +1,15 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_PERMISSIONS_MOCK_PERMISSION_LIFETIME_PROMPT_FACTORY_H_
-#define BRAVE_BROWSER_PERMISSIONS_MOCK_PERMISSION_LIFETIME_PROMPT_FACTORY_H_
+#ifndef adrbrowsiel_BROWSER_PERMISSIONS_MOCK_PERMISSION_LIFETIME_PROMPT_FACTORY_H_
+#define adrbrowsiel_BROWSER_PERMISSIONS_MOCK_PERMISSION_LIFETIME_PROMPT_FACTORY_H_
 
 #include <memory>
 #include <vector>
 
-#include "brave/browser/permissions/mock_permission_lifetime_prompt.h"
+#include "adrbrowsiel/browser/permissions/mock_permission_lifetime_prompt.h"
 #include "components/permissions/permission_prompt.h"
 #include "components/permissions/permission_request.h"
 #include "components/permissions/permission_request_manager.h"
@@ -68,4 +68,4 @@ class MockPermissionLifetimePromptFactory {
 
 }  // namespace permissions
 
-#endif  // BRAVE_BROWSER_PERMISSIONS_MOCK_PERMISSION_LIFETIME_PROMPT_FACTORY_H_
+#endif  // adrbrowsiel_BROWSER_PERMISSIONS_MOCK_PERMISSION_LIFETIME_PROMPT_FACTORY_H_

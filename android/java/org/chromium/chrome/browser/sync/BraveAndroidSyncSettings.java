@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,11 +9,11 @@ import android.accounts.Account;
 
 import org.chromium.chrome.browser.sync.ProfileSyncService;
 
-// see org.brave.bytecode.BraveAndroidSyncSettingsAdapter
-public class BraveAndroidSyncSettings extends AndroidSyncSettings {
+// see org.adrbrowsiel.bytecode.adrbrowsielAndroidSyncSettingsAdapter
+public class adrbrowsielAndroidSyncSettings extends AndroidSyncSettings {
     private boolean mMasterSyncEnabled;
 
-    public BraveAndroidSyncSettings(Account account) {
+    public adrbrowsielAndroidSyncSettings(Account account) {
         super(account);
     }
 
@@ -22,8 +22,8 @@ public class BraveAndroidSyncSettings extends AndroidSyncSettings {
 
     // We need to override this to make able
     // DevicePickerBottomSheetContent.createContentView send the link
-    // For Brave we don't have an account in Android system account,
-    // so pretend sync for Brave "account" is always on when sync is configured
+    // For adrbrowsiel we don't have an account in Android system account,
+    // so pretend sync for adrbrowsiel "account" is always on when sync is configured
     @Override
     public boolean isChromeSyncEnabled() {
         ProfileSyncService profileSyncService = ProfileSyncService.get();

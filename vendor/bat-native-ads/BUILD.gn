@@ -19,9 +19,9 @@ config("external_config") {
 config("internal_config") {
   visibility = [
     ":*",
-    "//brave/components/brave_ads/browser:testutil",
-    "//brave/components/brave_ads/test:*",
-    "//brave/test:*",
+    "//adrbrowsiel/components/adrbrowsiel_ads/browser:testutil",
+    "//adrbrowsiel/components/adrbrowsiel_ads/test:*",
+    "//adrbrowsiel/test:*",
   ]
   include_dirs = [ "src" ]
 }
@@ -48,9 +48,9 @@ static_library("bat-native-ads-standalone") {
 source_set("headers") {
   visibility = [
     ":*",
-    "//brave/browser/extensions:extensions",
-    "//brave/components/brave_ads/test:*",
-    "//brave/test:*",
+    "//adrbrowsiel/browser/extensions:extensions",
+    "//adrbrowsiel/components/adrbrowsiel_ads/test:*",
+    "//adrbrowsiel/test:*",
   ]
 
   public_configs = [ ":external_config" ]
@@ -702,10 +702,10 @@ source_set("ads") {
 
   deps = [
     "//base",
-    "//brave/common",
-    "//brave/components/challenge_bypass_ristretto",
-    "//brave/components/l10n/browser",
-    "//brave/components/l10n/common",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/components/challenge_bypass_ristretto",
+    "//adrbrowsiel/components/l10n/browser",
+    "//adrbrowsiel/components/l10n/common",
     "//crypto",
     "//net",
     "//sql",
@@ -716,7 +716,7 @@ source_set("ads") {
     "//url",
     rebase_path("bat-native-rapidjson", dep_base),
     rebase_path("bat-native-tweetnacl:tweetnacl", dep_base),
-    rebase_path("brave_base", dep_base),
+    rebase_path("adrbrowsiel_base", dep_base),
   ]
 
   public_deps = [ ":headers" ]

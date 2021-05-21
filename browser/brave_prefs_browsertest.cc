@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
-#include "brave/components/brave_shields/common/pref_names.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/brave_wayback_machine/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/net/prediction_options.h"
 #include "chrome/browser/profiles/profile.h"
@@ -24,29 +24,29 @@
 #include "content/public/test/browser_test.h"
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
-#include "brave/components/brave_wallet/browser/pref_names.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/pref_names.h"
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_WAYBACK_MACHINE)
-#include "brave/components/brave_wayback_machine/pref_names.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_WAYBACK_MACHINE)
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/pref_names.h"
 #endif
 
-using BraveProfilePrefsBrowserTest = InProcessBrowserTest;
-using BraveLocalStatePrefsBrowserTest = InProcessBrowserTest;
+using adrbrowsielProfilePrefsBrowserTest = InProcessBrowserTest;
+using adrbrowsielLocalStatePrefsBrowserTest = InProcessBrowserTest;
 
 // Check download prompt preference is set to true by default.
-IN_PROC_BROWSER_TEST_F(BraveProfilePrefsBrowserTest, DownloadPromptDefault) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielProfilePrefsBrowserTest, DownloadPromptDefault) {
   EXPECT_TRUE(
       browser()->profile()->GetPrefs()->GetBoolean(prefs::kPromptForDownload));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveProfilePrefsBrowserTest, MiscBravePrefs) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielProfilePrefsBrowserTest, MiscadrbrowsielPrefs) {
   EXPECT_TRUE(browser()->profile()->GetPrefs()->GetBoolean(
       kHTTPSEVerywhereControlType));
   EXPECT_FALSE(
@@ -59,19 +59,19 @@ IN_PROC_BROWSER_TEST_F(BraveProfilePrefsBrowserTest, MiscBravePrefs) {
   EXPECT_TRUE(
       browser()->profile()->GetPrefs()->GetBoolean(kGoogleLoginControlType));
   EXPECT_TRUE(browser()->profile()->GetPrefs()->GetBoolean(
-      brave_shields::prefs::kFBEmbedControlType));
+      adrbrowsiel_shields::prefs::kFBEmbedControlType));
   EXPECT_TRUE(browser()->profile()->GetPrefs()->GetBoolean(
-      brave_shields::prefs::kTwitterEmbedControlType));
+      adrbrowsiel_shields::prefs::kTwitterEmbedControlType));
   EXPECT_FALSE(browser()->profile()->GetPrefs()->GetBoolean(
-      brave_shields::prefs::kLinkedInEmbedControlType));
+      adrbrowsiel_shields::prefs::kLinkedInEmbedControlType));
   EXPECT_TRUE(browser()->profile()->GetPrefs()->GetBoolean(kWebTorrentEnabled));
-#if BUILDFLAG(ENABLE_BRAVE_WAYBACK_MACHINE)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WAYBACK_MACHINE)
   EXPECT_TRUE(browser()->profile()->GetPrefs()->GetBoolean(
-      kBraveWaybackMachineEnabled));
+      kadrbrowsielWaybackMachineEnabled));
 #endif
   EXPECT_TRUE(browser()->profile()->GetPrefs()->GetBoolean(kHangoutsEnabled));
   EXPECT_FALSE(browser()->profile()->GetPrefs()->GetBoolean(
-      brave_rewards::prefs::kHideButton));
+      adrbrowsiel_rewards::prefs::kHideButton));
 #if BUILDFLAG(IPFS_ENABLED)
   EXPECT_EQ(browser()->profile()->GetPrefs()->GetInteger(kIPFSResolveMethod),
             static_cast<int>((ipfs::IPFSResolveMethodTypes::IPFS_ASK)));
@@ -82,12 +82,12 @@ IN_PROC_BROWSER_TEST_F(BraveProfilePrefsBrowserTest, MiscBravePrefs) {
 #endif
   EXPECT_FALSE(
       browser()->profile()->GetPrefs()->GetBoolean(kIPFSCompanionEnabled));
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
   EXPECT_EQ(
-      browser()->profile()->GetPrefs()->GetInteger(kBraveWalletWeb3Provider),
-      static_cast<int>(brave_wallet::IsNativeWalletEnabled()
-                           ? BraveWalletWeb3ProviderTypes::BRAVE_WALLET
-                           : BraveWalletWeb3ProviderTypes::ASK));
+      browser()->profile()->GetPrefs()->GetInteger(kadrbrowsielWalletWeb3Provider),
+      static_cast<int>(adrbrowsiel_wallet::IsNativeWalletEnabled()
+                           ? adrbrowsielWalletWeb3ProviderTypes::adrbrowsiel_WALLET
+                           : adrbrowsielWalletWeb3ProviderTypes::ASK));
   EXPECT_FALSE(browser()->profile()->GetPrefs()->GetBoolean(
       kLoadCryptoWalletsOnStartup));
   EXPECT_FALSE(
@@ -99,11 +99,11 @@ IN_PROC_BROWSER_TEST_F(BraveProfilePrefsBrowserTest, MiscBravePrefs) {
       browser()->profile()->GetPrefs()->GetBoolean(kMRUCyclingEnabled));
 #if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
   EXPECT_FALSE(
-      browser()->profile()->GetPrefs()->GetBoolean(kBraveGCMChannelStatus));
+      browser()->profile()->GetPrefs()->GetBoolean(kadrbrowsielGCMChannelStatus));
 #endif
 }
 
-IN_PROC_BROWSER_TEST_F(BraveProfilePrefsBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielProfilePrefsBrowserTest,
                        DisableGoogleServicesByDefault) {
   EXPECT_FALSE(browser()->profile()->GetPrefs()->GetBoolean(
       embedder_support::kAlternateErrorPagesEnabled));
@@ -129,7 +129,7 @@ IN_PROC_BROWSER_TEST_F(BraveProfilePrefsBrowserTest,
       browser()->profile()->GetPrefs()->GetBoolean(prefs::kHideWebStoreIcon));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveLocalStatePrefsBrowserTest, DefaultLocalStateTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielLocalStatePrefsBrowserTest, DefaultLocalStateTest) {
   EXPECT_TRUE(g_browser_process->local_state()->GetBoolean(
       kDefaultBrowserPromptEnabled));
 }

@@ -2,15 +2,15 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_browser_main_parts_mac.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_main_parts_mac.h"
 
-#include "brave/browser/sparkle_buildflags.h"
+#include "adrbrowsiel/browser/sparkle_buildflags.h"
 
 #if BUILDFLAG(ENABLE_SPARKLE)
-#import "brave/browser/mac/sparkle_glue.h"
+#import "adrbrowsiel/browser/mac/sparkle_glue.h"
 #endif
 
-void BraveBrowserMainPartsMac::PreMainMessageLoopStart() {
+void adrbrowsielBrowserMainPartsMac::PreMainMessageLoopStart() {
   ChromeBrowserMainPartsMac::PreMainMessageLoopStart();
 
 #if BUILDFLAG(ENABLE_SPARKLE)

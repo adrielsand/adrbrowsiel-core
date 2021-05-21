@@ -6,6 +6,6 @@ index 56b2f7b6b8a659479fc8d1c55c3d9dbed1b3406d..68771c31ae011a5b1db3f8b8a6b6db05
          </template>
        </div>
      </div>
-+    <extensions-brave-item-list-more-items apps="{{apps}}" extensions="{{extensions}}" />
++    <extensions-adrbrowsiel-item-list-more-items apps="{{apps}}" extensions="{{extensions}}" />
    </div>
  </div>

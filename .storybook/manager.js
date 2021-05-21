@@ -1,10 +1,10 @@
 import { addons } from '@storybook/addons'
 import { create } from '@storybook/theming'
 
-const braveTheme = create({
+const adrbrowsielTheme = create({
   base: 'dark',
-  brandTitle: 'Brave Browser UI',
-  brandUrl: 'https://github.com/brave/brave-core'
+  brandTitle: 'adrbrowsiel Browser UI',
+  brandUrl: 'https://github.com/adrbrowsiel/adrbrowsiel-core'
 })
 
 addons.setConfig({
@@ -12,5 +12,5 @@ addons.setConfig({
   showNav: true,
   showPanel: true,
   panelPosition: 'right',
-  theme: braveTheme
+  theme: adrbrowsielTheme
 })

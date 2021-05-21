@@ -6,7 +6,7 @@ index 33c7167f6d7adbf73f266346b82560785befce72..1b578e1332fb8c44aa06dcdafe62f415
      return weak_factory_.GetWeakPtr();
    }
  
-+  BRAVE_BOOKMARK_MODEL_H
++  adrbrowsiel_BOOKMARK_MODEL_H
   private:
    friend class BookmarkCodecTest;
    friend class BookmarkModelFaviconTest;

@@ -6,7 +6,7 @@ index 2faa3caadfea14878ec7a833fb61a4499a0bd556..07d6897832f4d45858c3793653c71b69
      "//ui/base",
      "//url",
    ]
-+  import("//brave/components/permissions/sources.gni") sources += brave_components_permissions_sources deps += brave_components_permissions_deps
++  import("//adrbrowsiel/components/permissions/sources.gni") sources += adrbrowsiel_components_permissions_sources deps += adrbrowsiel_components_permissions_deps
    if (is_android) {
      sources += [
        "android/android_permission_util.cc",

@@ -14,7 +14,7 @@ index 312b78877ace97691ac864437f669e054af1f4c8..a24b7c7bfa458a7a9e5a91cc0490cea5
        service && !disallowed_by_policy && service->IsSetupInProgress() &&
            !service->GetUserSettings()->IsFirstSetupComplete() &&
            identity_manager->HasPrimaryAccount(signin::ConsentLevel::kSync));
-+  BRAVE_GET_SYNC_STATUS_DICTIONARY
++  adrbrowsiel_GET_SYNC_STATUS_DICTIONARY
  
    const sync_ui_util::StatusLabels status_labels =
        sync_ui_util::GetStatusLabels(profile_);

@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "RewardsLogging.h"
-#import "BATBraveRewards.h"
+#import "BATadrbrowsielRewards.h"
 
 namespace rewards {
 
-__weak BATBraveRewards* g_rewards_client = nil;
+__weak BATadrbrowsielRewards* g_rewards_client = nil;
 
-void set_rewards_client_for_logging(BATBraveRewards *rewards) {
+void set_rewards_client_for_logging(BATadrbrowsielRewards *rewards) {
   g_rewards_client = rewards;
 }
 

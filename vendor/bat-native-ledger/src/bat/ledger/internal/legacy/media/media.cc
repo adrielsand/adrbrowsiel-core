@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -29,16 +29,16 @@ bool HandledByGreaselion(const std::string media_type) {
 
 }  // namespace
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 Media::Media(ledger::LedgerImpl* ledger):
   ledger_(ledger),
-  media_youtube_(new braveledger_media::YouTube(ledger)),
-  media_twitch_(new braveledger_media::Twitch(ledger)),
-  media_reddit_(new braveledger_media::Reddit(ledger)),
-  media_vimeo_(new braveledger_media::Vimeo(ledger)),
-  media_github_(new braveledger_media::GitHub(ledger)) {
-}  // namespace braveledger_media
+  media_youtube_(new adrbrowsielledger_media::YouTube(ledger)),
+  media_twitch_(new adrbrowsielledger_media::Twitch(ledger)),
+  media_reddit_(new adrbrowsielledger_media::Reddit(ledger)),
+  media_vimeo_(new adrbrowsielledger_media::Vimeo(ledger)),
+  media_github_(new adrbrowsielledger_media::GitHub(ledger)) {
+}  // namespace adrbrowsielledger_media
 
 Media::~Media() {}
 
@@ -47,24 +47,24 @@ std::string Media::GetLinkType(
     const std::string& url,
     const std::string& first_party_url,
     const std::string& referrer) {
-  std::string type = braveledger_media::YouTube::GetLinkType(url);
+  std::string type = adrbrowsielledger_media::YouTube::GetLinkType(url);
   if (HandledByGreaselion(type)) {
     return std::string();
   }
 
   if (type.empty()) {
-    type = braveledger_media::Twitch::GetLinkType(
+    type = adrbrowsielledger_media::Twitch::GetLinkType(
         url,
         first_party_url,
         referrer);
   }
 
   if (type.empty()) {
-    type = braveledger_media::Vimeo::GetLinkType(url);
+    type = adrbrowsielledger_media::Vimeo::GetLinkType(url);
   }
 
   if (type.empty()) {
-    type = braveledger_media::GitHub::GetLinkType(url);
+    type = adrbrowsielledger_media::GitHub::GetLinkType(url);
   }
 
   return type;
@@ -183,4 +183,4 @@ void Media::SaveMediaInfo(const std::string& type,
   }
 }
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

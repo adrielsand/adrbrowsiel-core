@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -89,7 +89,7 @@ std::string Security::Sign(
     return "";
   }
 
-  return braveledger_bat_helper::sign(
+  return adrbrowsielledger_bat_helper::sign(
       header_keys,
       header_values,
       key_id,

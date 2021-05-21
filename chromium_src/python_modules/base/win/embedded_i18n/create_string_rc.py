@@ -9,13 +9,13 @@ MODE_SPECIFIC_STRINGS = {
     'chromium': [
       'IDS_APP_SHORTCUTS_SUBDIR_NAME',
     ],
-    'brave': [
+    'adrbrowsiel': [
       'IDS_APP_SHORTCUTS_SUBDIR_NAME',
       'IDS_APP_SHORTCUTS_SUBDIR_NAME_BETA',
       'IDS_APP_SHORTCUTS_SUBDIR_NAME_DEV',
       'IDS_APP_SHORTCUTS_SUBDIR_NAME_CANARY',
     ],
-    'brave-development': [
+    'adrbrowsiel-development': [
       'IDS_APP_SHORTCUTS_SUBDIR_NAME',
     ],
   },
@@ -29,13 +29,13 @@ MODE_SPECIFIC_STRINGS = {
     'chromium': [
       'IDS_INBOUND_MDNS_RULE_DESCRIPTION',
     ],
-    'brave': [
+    'adrbrowsiel': [
       'IDS_INBOUND_MDNS_RULE_DESCRIPTION',
       'IDS_INBOUND_MDNS_RULE_DESCRIPTION_BETA',
       'IDS_INBOUND_MDNS_RULE_DESCRIPTION_DEV',
       'IDS_INBOUND_MDNS_RULE_DESCRIPTION_CANARY',
     ],
-    'brave-development': [
+    'adrbrowsiel-development': [
       'IDS_INBOUND_MDNS_RULE_DESCRIPTION',
     ],
   },
@@ -49,13 +49,13 @@ MODE_SPECIFIC_STRINGS = {
     'chromium': [
       'IDS_INBOUND_MDNS_RULE_NAME',
     ],
-    'brave': [
+    'adrbrowsiel': [
       'IDS_INBOUND_MDNS_RULE_NAME',
       'IDS_INBOUND_MDNS_RULE_NAME_BETA',
       'IDS_INBOUND_MDNS_RULE_NAME_DEV',
       'IDS_INBOUND_MDNS_RULE_NAME_CANARY',
     ],
-    'brave-development': [
+    'adrbrowsiel-development': [
       'IDS_INBOUND_MDNS_RULE_NAME',
     ],
   },
@@ -73,13 +73,13 @@ MODE_SPECIFIC_STRINGS = {
     'chromium': [
       'IDS_PRODUCT_NAME',
     ],
-    'brave': [
+    'adrbrowsiel': [
       'IDS_PRODUCT_NAME',
       'IDS_SHORTCUT_NAME_BETA',
       'IDS_SHORTCUT_NAME_DEV',
       'IDS_SXS_SHORTCUT_NAME',
     ],
-    'brave-development': [
+    'adrbrowsiel-development': [
       'IDS_PRODUCT_NAME',
     ],
   },

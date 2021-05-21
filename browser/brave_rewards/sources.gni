@@ -1,32 +1,32 @@
-# Copyright (c) 2021 The Brave Authors. All rights reserved.
+# Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-import("//brave/components/brave_rewards/browser/buildflags/buildflags.gni")
-import("//brave/components/greaselion/browser/buildflags/buildflags.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/greaselion/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
 import("//extensions/buildflags/buildflags.gni")
 
-brave_browser_brave_rewards_sources = []
-brave_browser_brave_rewards_deps = []
+adrbrowsiel_browser_adrbrowsiel_rewards_sources = []
+adrbrowsiel_browser_adrbrowsiel_rewards_deps = []
 
-if (brave_rewards_enabled) {
-  brave_browser_brave_rewards_sources += [
-    "//brave/browser/brave_rewards/rewards_service_factory.cc",
-    "//brave/browser/brave_rewards/rewards_service_factory.h",
-    "//brave/browser/brave_rewards/rewards_tab_helper.cc",
-    "//brave/browser/brave_rewards/rewards_tab_helper.h",
+if (adrbrowsiel_rewards_enabled) {
+  adrbrowsiel_browser_adrbrowsiel_rewards_sources += [
+    "//adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.cc",
+    "//adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h",
+    "//adrbrowsiel/browser/adrbrowsiel_rewards/rewards_tab_helper.cc",
+    "//adrbrowsiel/browser/adrbrowsiel_rewards/rewards_tab_helper.h",
   ]
 
-  brave_browser_brave_rewards_deps += [
+  adrbrowsiel_browser_adrbrowsiel_rewards_deps += [
     "//base",
-    "//brave/browser/profiles",
-    "//brave/browser/profiles:util",
-    "//brave/components/brave_rewards/browser",
-    "//brave/components/brave_rewards/common",
-    "//brave/components/ipfs/buildflags",
-    "//brave/vendor/bat-native-ledger:headers",
+    "//adrbrowsiel/browser/profiles",
+    "//adrbrowsiel/browser/profiles:util",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/browser",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/common",
+    "//adrbrowsiel/components/ipfs/buildflags",
+    "//adrbrowsiel/vendor/bat-native-ledger:headers",
     "//chrome/browser:browser_process",
     "//chrome/browser/profiles:profile",
     "//chrome/browser/ui",
@@ -37,46 +37,46 @@ if (brave_rewards_enabled) {
   ]
 
   if (enable_greaselion) {
-    brave_browser_brave_rewards_deps +=
-        [ "//brave/components/greaselion/browser" ]
+    adrbrowsiel_browser_adrbrowsiel_rewards_deps +=
+        [ "//adrbrowsiel/components/greaselion/browser" ]
   }
 
   if (enable_extensions) {
-    brave_browser_brave_rewards_sources += [
-      "//brave/browser/brave_rewards/extension_rewards_notification_service_observer.cc",
-      "//brave/browser/brave_rewards/extension_rewards_notification_service_observer.h",
-      "//brave/browser/brave_rewards/extension_rewards_service_observer.cc",
-      "//brave/browser/brave_rewards/extension_rewards_service_observer.h",
+    adrbrowsiel_browser_adrbrowsiel_rewards_sources += [
+      "//adrbrowsiel/browser/adrbrowsiel_rewards/extension_rewards_notification_service_observer.cc",
+      "//adrbrowsiel/browser/adrbrowsiel_rewards/extension_rewards_notification_service_observer.h",
+      "//adrbrowsiel/browser/adrbrowsiel_rewards/extension_rewards_service_observer.cc",
+      "//adrbrowsiel/browser/adrbrowsiel_rewards/extension_rewards_service_observer.h",
     ]
 
-    brave_browser_brave_rewards_deps += [
-      "//brave/common/extensions/api",
+    adrbrowsiel_browser_adrbrowsiel_rewards_deps += [
+      "//adrbrowsiel/common/extensions/api",
       "//extensions/browser",
     ]
   }
 
   if (ipfs_enabled) {
-    brave_browser_brave_rewards_deps += [ "//brave/components/ipfs" ]
+    adrbrowsiel_browser_adrbrowsiel_rewards_deps += [ "//adrbrowsiel/components/ipfs" ]
   }
 
   if (is_android) {
-    brave_browser_brave_rewards_sources += [
-      "//brave/browser/brave_rewards/android/brave_rewards_native_worker.cc",
-      "//brave/browser/brave_rewards/android/brave_rewards_native_worker.h",
+    adrbrowsiel_browser_adrbrowsiel_rewards_sources += [
+      "//adrbrowsiel/browser/adrbrowsiel_rewards/android/adrbrowsiel_rewards_native_worker.cc",
+      "//adrbrowsiel/browser/adrbrowsiel_rewards/android/adrbrowsiel_rewards_native_worker.h",
     ]
 
-    brave_browser_brave_rewards_deps += [
-      "//brave/browser/brave_ads",
-      "//brave/components/brave_ads/browser",
+    adrbrowsiel_browser_adrbrowsiel_rewards_deps += [
+      "//adrbrowsiel/browser/adrbrowsiel_ads",
+      "//adrbrowsiel/components/adrbrowsiel_ads/browser",
     ]
   } else {
-    brave_browser_brave_rewards_sources += [
-      "//brave/browser/brave_rewards/tip_dialog.cc",
-      "//brave/browser/brave_rewards/tip_dialog.h",
+    adrbrowsiel_browser_adrbrowsiel_rewards_sources += [
+      "//adrbrowsiel/browser/adrbrowsiel_rewards/tip_dialog.cc",
+      "//adrbrowsiel/browser/adrbrowsiel_rewards/tip_dialog.h",
     ]
 
-    brave_browser_brave_rewards_deps += [
-      "//brave/common",
+    adrbrowsiel_browser_adrbrowsiel_rewards_deps += [
+      "//adrbrowsiel/common",
       "//components/guest_view/browser",
       "//components/web_modal",
       "//ui/web_dialogs",
@@ -85,6 +85,6 @@ if (brave_rewards_enabled) {
 }
 
 if (!is_android) {
-  brave_browser_brave_rewards_deps +=
-      [ "//brave/components/brave_rewards/common:features" ]
+  adrbrowsiel_browser_adrbrowsiel_rewards_deps +=
+      [ "//adrbrowsiel/components/adrbrowsiel_rewards/common:features" ]
 }

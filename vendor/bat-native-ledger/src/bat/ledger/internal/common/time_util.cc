@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,7 +6,7 @@
 #include "bat/ledger/internal/common/time_util.h"
 
 #include <algorithm>
-#include "brave_base/random.h"
+#include "adrbrowsiel_base/random.h"
 
 namespace ledger {
 namespace util {
@@ -38,7 +38,7 @@ uint64_t GetCurrentTimeStamp() {
 }
 
 base::TimeDelta GetRandomizedDelay(base::TimeDelta delay) {
-  uint64_t seconds = brave_base::random::Geometric(delay.InSecondsF());
+  uint64_t seconds = adrbrowsiel_base::random::Geometric(delay.InSecondsF());
   return base::TimeDelta::FromSeconds(static_cast<int64_t>(seconds));
 }
 

@@ -6,7 +6,7 @@ index 23f473b4a74b6cbac5d395dff79d655fa1ec7792..380464ab92e4b24baaa143fb3ac25964
      "//ui/base:buildflags",
    ]
  
-+  import("//brave/utility/sources.gni") sources += brave_utility_sources deps += brave_utility_deps public_deps += brave_utility_public_deps
++  import("//adrbrowsiel/utility/sources.gni") sources += adrbrowsiel_utility_sources deps += adrbrowsiel_utility_deps public_deps += adrbrowsiel_utility_public_deps
 +
    if (is_win) {
      deps += [

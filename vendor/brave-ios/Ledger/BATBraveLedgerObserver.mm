@@ -3,16 +3,16 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #import <Foundation/Foundation.h>
-#import "BATBraveLedgerObserver.h"
-#import "BATBraveLedger.h"
+#import "BATadrbrowsielLedgerObserver.h"
+#import "BATadrbrowsielLedger.h"
 
-@interface BATBraveLedgerObserver ()
-@property (nonatomic, weak) BATBraveLedger *ledger;
+@interface BATadrbrowsielLedgerObserver ()
+@property (nonatomic, weak) BATadrbrowsielLedger *ledger;
 @end
 
-@implementation BATBraveLedgerObserver
+@implementation BATadrbrowsielLedgerObserver
 
-- (instancetype)initWithLedger:(BATBraveLedger *)ledger {
+- (instancetype)initWithLedger:(BATadrbrowsielLedger *)ledger {
   if ((self = [super init])) {
     self.ledger = ledger;
   }

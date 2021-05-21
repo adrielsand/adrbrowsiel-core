@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 The Brave Authors. All rights reserved.
+ * Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -16,36 +16,36 @@ import org.chromium.components.browser_ui.notifications.channels.ChannelDefiniti
 import java.util.Map;
 import java.util.Set;
 
-public class BraveChannelDefinitions {
+public class adrbrowsielChannelDefinitions {
     public class ChannelId {
-        public static final String BRAVE_ADS = "com.brave.browser.ads";
-        public static final String BRAVE_ADS_BACKGROUND = "com.brave.browser.ads.background";
-        public static final String BRAVE_BROWSER = "com.brave.browser";
+        public static final String adrbrowsiel_ADS = "com.adrbrowsiel.browser.ads";
+        public static final String adrbrowsiel_ADS_BACKGROUND = "com.adrbrowsiel.browser.ads.background";
+        public static final String adrbrowsiel_BROWSER = "com.adrbrowsiel.browser";
     }
 
     public class ChannelGroupId {
-        public static final String BRAVE_ADS = "com.brave.browser.ads";
+        public static final String adrbrowsiel_ADS = "com.adrbrowsiel.browser.ads";
     }
 
-    static protected void addBraveChannels(
+    static protected void addadrbrowsielChannels(
         Map<String, PredefinedChannel> map, Set<String> startup) {
-        map.put(ChannelId.BRAVE_ADS,
-                PredefinedChannel.create(ChannelId.BRAVE_ADS,
-                                         R.string.notification_category_brave_ads,
-                                         NotificationManager.IMPORTANCE_HIGH, ChannelGroupId.BRAVE_ADS));
-        startup.add(ChannelId.BRAVE_ADS);
+        map.put(ChannelId.adrbrowsiel_ADS,
+                PredefinedChannel.create(ChannelId.adrbrowsiel_ADS,
+                                         R.string.notification_category_adrbrowsiel_ads,
+                                         NotificationManager.IMPORTANCE_HIGH, ChannelGroupId.adrbrowsiel_ADS));
+        startup.add(ChannelId.adrbrowsiel_ADS);
 
-        map.put(ChannelId.BRAVE_ADS_BACKGROUND,
-                PredefinedChannel.create(ChannelId.BRAVE_ADS_BACKGROUND,
-                                         R.string.notification_category_brave_ads_background,
-                                         NotificationManager.IMPORTANCE_LOW, ChannelGroupId.BRAVE_ADS));
-        startup.add(ChannelId.BRAVE_ADS_BACKGROUND);
+        map.put(ChannelId.adrbrowsiel_ADS_BACKGROUND,
+                PredefinedChannel.create(ChannelId.adrbrowsiel_ADS_BACKGROUND,
+                                         R.string.notification_category_adrbrowsiel_ads_background,
+                                         NotificationManager.IMPORTANCE_LOW, ChannelGroupId.adrbrowsiel_ADS));
+        startup.add(ChannelId.adrbrowsiel_ADS_BACKGROUND);
     }
 
-    static protected void addBraveChannelGroups(
+    static protected void addadrbrowsielChannelGroups(
         Map<String, ChannelDefinitions.PredefinedChannelGroup> map) {
-        map.put(ChannelGroupId.BRAVE_ADS,
+        map.put(ChannelGroupId.adrbrowsiel_ADS,
                 new ChannelDefinitions.PredefinedChannelGroup(
-                    ChannelGroupId.BRAVE_ADS, R.string.notification_category_group_brave_ads));
+                    ChannelGroupId.adrbrowsiel_ADS, R.string.notification_category_group_adrbrowsiel_ads));
     }
 }

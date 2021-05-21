@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -125,7 +125,7 @@ bool IsExcludedScreenName(const std::string& path) {
 
 }  // namespace
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 Twitter::Twitter(ledger::LedgerImpl* ledger):
   ledger_(ledger) {
@@ -227,18 +227,18 @@ std::string Twitter::GetUserId(const std::string& response) {
     return std::string();
   }
 
-  std::string id = braveledger_media::ExtractData(
+  std::string id = adrbrowsielledger_media::ExtractData(
       response,
       "<a href=\"/intent/user?user_id=\"", "\">");
 
   if (id.empty()) {
-    id = braveledger_media::ExtractData(
+    id = adrbrowsielledger_media::ExtractData(
         response,
         "<div class=\"ProfileNav\" role=\"navigation\" data-user-id=\"", "\">");
   }
 
   if (id.empty()) {
-    id = braveledger_media::ExtractData(
+    id = adrbrowsielledger_media::ExtractData(
         response, "https://pbs.twimg.com/profile_banners/", "/");
   }
 
@@ -251,7 +251,7 @@ std::string Twitter::GetPublisherName(const std::string& response) {
     return std::string();
   }
 
-  const std::string title = braveledger_media::ExtractData(
+  const std::string title = adrbrowsielledger_media::ExtractData(
       response, "<title>", "</title>");
 
   if (title.empty()) {
@@ -557,4 +557,4 @@ void Twitter::OnUserPage(
       [](ledger::type::Result, ledger::type::PublisherInfoPtr) {});
 }
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

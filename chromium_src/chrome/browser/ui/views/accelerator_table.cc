@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -11,7 +11,7 @@
 
 namespace {
 
-const AcceleratorMapping kBraveAcceleratorMap[] = {
+const AcceleratorMapping kadrbrowsielAcceleratorMap[] = {
 #if defined(OS_MAC)
     // Command-Option-N
     {ui::VKEY_N, ui::EF_ALT_DOWN | ui::EF_PLATFORM_ACCELERATOR,
@@ -31,8 +31,8 @@ std::vector<AcceleratorMapping> GetAcceleratorList() {
 
   accelerator_list.insert(
       accelerator_list.end(),
-      kBraveAcceleratorMap,
-      kBraveAcceleratorMap + base::size(kBraveAcceleratorMap));
+      kadrbrowsielAcceleratorMap,
+      kadrbrowsielAcceleratorMap + base::size(kadrbrowsielAcceleratorMap));
 
   return accelerator_list;
 }

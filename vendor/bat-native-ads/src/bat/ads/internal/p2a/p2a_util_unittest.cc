@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,7 +7,7 @@
 
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 namespace p2a {
@@ -23,10 +23,10 @@ TEST(BatAdsP2AUtilTest, CreateAdOpportunityQuestionList) {
 
   // Assert
   const std::vector<std::string> expected_questions = {
-      "Brave.P2A.AdOpportunitiesPerSegment.technologycomputing",
-      "Brave.P2A.AdOpportunitiesPerSegment.personalfinance",
-      "Brave.P2A.AdOpportunitiesPerSegment.travel",
-      "Brave.P2A.TotalAdOpportunities"};
+      "adrbrowsiel.P2A.AdOpportunitiesPerSegment.technologycomputing",
+      "adrbrowsiel.P2A.AdOpportunitiesPerSegment.personalfinance",
+      "adrbrowsiel.P2A.AdOpportunitiesPerSegment.travel",
+      "adrbrowsiel.P2A.TotalAdOpportunities"};
 
   EXPECT_EQ(expected_questions, questions);
 }
@@ -41,7 +41,7 @@ TEST(BatAdsP2AUtilTest, CreateAdOpportunityQuestionListForEmptySegmentList) {
 
   // Assert
   const std::vector<std::string> expected_questions = {
-      "Brave.P2A.TotalAdOpportunities"};
+      "adrbrowsiel.P2A.TotalAdOpportunities"};
 
   EXPECT_EQ(expected_questions, questions);
 }
@@ -56,8 +56,8 @@ TEST(BatAdsP2AUtilTest, CreateAdImpressionQuestionList) {
 
   // Assert
   const std::vector<std::string> expected_questions = {
-      "Brave.P2A.AdImpressionsPerSegment.technologycomputing",
-      "Brave.P2A.TotalAdImpressions"};
+      "adrbrowsiel.P2A.AdImpressionsPerSegment.technologycomputing",
+      "adrbrowsiel.P2A.TotalAdImpressions"};
 
   EXPECT_EQ(expected_questions, questions);
 }
@@ -72,7 +72,7 @@ TEST(BatAdsP2AUtilTest, CreateAdImpressionQuestionListForEmptySegment) {
 
   // Assert
   const std::vector<std::string> expected_questions = {
-      "Brave.P2A.TotalAdImpressions"};
+      "adrbrowsiel.P2A.TotalAdImpressions"};
 
   EXPECT_EQ(expected_questions, questions);
 }

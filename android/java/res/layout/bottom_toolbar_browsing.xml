@@ -18,7 +18,7 @@
 
     <!-- <include layout="@layout/toolbar_space" /> -->
 
-    <org.chromium.chrome.browser.toolbar.BraveHomeButton
+    <org.chromium.chrome.browser.toolbar.adrbrowsielHomeButton
         android:id="@+id/bottom_home_button"
         app:tint="@color/default_icon_color_tint_list"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -38,7 +38,7 @@
 -->
 
     <include layout="@layout/toolbar_space" />
-    <include layout="@layout/brave_bookmark_toolbar" />
+    <include layout="@layout/adrbrowsiel_bookmark_toolbar" />
     <include layout="@layout/toolbar_space" />
 
     <org.chromium.chrome.browser.toolbar.bottom.SearchAccelerator
@@ -52,7 +52,7 @@
         android:paddingBottom="@dimen/search_accelerator_height_padding"
         android:contentDescription="@string/accessibility_toolbar_btn_search_accelerator"
         android:src="@drawable/ic_search"/>
-    <include layout="@layout/brave_bottom_new_tab_button" />
+    <include layout="@layout/adrbrowsiel_bottom_new_tab_button" />
 
     <!-- <include layout="@layout/toolbar_space" /> -->
     <include layout="@layout/toolbar_space" />

@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,9 +9,9 @@
 #include "base/json/json_reader.h"
 #include "extensions/common/constants.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
-bool BraveRewriteManifest(const std::string& extension_id,
+bool adrbrowsielRewriteManifest(const std::string& extension_id,
     base::DictionaryValue* manifest) {
   if (extension_id == ipfs_companion_extension_id ||
       extension_id == ipfs_companion_beta_extension_id) {
@@ -39,12 +39,12 @@ bool BraveRewriteManifest(const std::string& extension_id,
   return false;
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#define BRAVE_SANDBOXEDUNPACKER_REWRITEMANIFESTFILE \
+#define adrbrowsiel_SANDBOXEDUNPACKER_REWRITEMANIFESTFILE \
   base::DictionaryValue* dict_manifest;             \
   final_manifest.GetAsDictionary(&dict_manifest);   \
-  brave::BraveRewriteManifest(extension_id_, dict_manifest);
+  adrbrowsiel::adrbrowsielRewriteManifest(extension_id_, dict_manifest);
 
 #include "../../../../extensions/browser/sandboxed_unpacker.cc"
-#undef BRAVE_SANDBOXEDUNPACKER_REWRITEMANIFESTFILE
+#undef adrbrowsiel_SANDBOXEDUNPACKER_REWRITEMANIFESTFILE

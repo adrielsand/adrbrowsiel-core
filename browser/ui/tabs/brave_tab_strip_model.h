@@ -1,24 +1,24 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_TABS_BRAVE_TAB_STRIP_MODEL_H_
-#define BRAVE_BROWSER_UI_TABS_BRAVE_TAB_STRIP_MODEL_H_
+#ifndef adrbrowsiel_BROWSER_UI_TABS_adrbrowsiel_TAB_STRIP_MODEL_H_
+#define adrbrowsiel_BROWSER_UI_TABS_adrbrowsiel_TAB_STRIP_MODEL_H_
 
 #include <vector>
 
 #include "chrome/browser/ui/tabs/tab_strip_model.h"
 
-class BraveTabStripModel : public TabStripModel {
+class adrbrowsielTabStripModel : public TabStripModel {
  public:
-  explicit BraveTabStripModel(TabStripModelDelegate* delegate,
+  explicit adrbrowsielTabStripModel(TabStripModelDelegate* delegate,
                               Profile* profile);
 
-  ~BraveTabStripModel() override;
+  ~adrbrowsielTabStripModel() override;
 
-  BraveTabStripModel(const BraveTabStripModel&) = delete;
-  BraveTabStripModel operator=(const BraveTabStripModel&) = delete;
+  adrbrowsielTabStripModel(const adrbrowsielTabStripModel&) = delete;
+  adrbrowsielTabStripModel operator=(const adrbrowsielTabStripModel&) = delete;
 
   void SelectRelativeTab(bool forward, UserGestureDetails detail) override;
 
@@ -35,4 +35,4 @@ class BraveTabStripModel : public TabStripModel {
   std::vector<int> mru_cycle_list_;
 };
 
-#endif  // BRAVE_BROWSER_UI_TABS_BRAVE_TAB_STRIP_MODEL_H_
+#endif  // adrbrowsiel_BROWSER_UI_TABS_adrbrowsiel_TAB_STRIP_MODEL_H_

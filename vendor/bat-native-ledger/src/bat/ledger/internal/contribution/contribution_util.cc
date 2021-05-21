@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -34,11 +34,11 @@ type::ReportType GetReportTypeFromRewardsType(
 
 type::ContributionProcessor GetProcessor(const std::string& wallet_type) {
   if (wallet_type == constant::kWalletUnBlinded) {
-    return type::ContributionProcessor::BRAVE_TOKENS;
+    return type::ContributionProcessor::adrbrowsiel_TOKENS;
   }
 
   if (wallet_type == constant::kWalletAnonymous) {
-    return type::ContributionProcessor::BRAVE_USER_FUNDS;
+    return type::ContributionProcessor::adrbrowsiel_USER_FUNDS;
   }
 
   if (wallet_type == constant::kWalletUphold) {

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_IMPORTER_BRAVE_EXTERNAL_PROCESS_IMPORTER_HOST_H_
-#define BRAVE_BROWSER_IMPORTER_BRAVE_EXTERNAL_PROCESS_IMPORTER_HOST_H_
+#ifndef adrbrowsiel_BROWSER_IMPORTER_adrbrowsiel_EXTERNAL_PROCESS_IMPORTER_HOST_H_
+#define adrbrowsiel_BROWSER_IMPORTER_adrbrowsiel_EXTERNAL_PROCESS_IMPORTER_HOST_H_
 
 #include "base/memory/weak_ptr.h"
 #include "base/optional.h"
@@ -12,14 +12,14 @@
 #include "chrome/browser/importer/external_process_importer_host.h"
 #include "extensions/buildflags/buildflags.h"
 
-class BraveExternalProcessImporterHost : public ExternalProcessImporterHost {
+class adrbrowsielExternalProcessImporterHost : public ExternalProcessImporterHost {
  public:
-  BraveExternalProcessImporterHost();
+  adrbrowsielExternalProcessImporterHost();
 
  private:
   friend class ExternalProcessImporterHost;
 
-  ~BraveExternalProcessImporterHost() override;
+  ~adrbrowsielExternalProcessImporterHost() override;
 
   // ExternalProcessImporterHost overrides:
   void NotifyImportEnded() override;
@@ -30,9 +30,9 @@ class BraveExternalProcessImporterHost : public ExternalProcessImporterHost {
 #endif
 
   // Vends weak pointers for the importer to call us back.
-  base::WeakPtrFactory<BraveExternalProcessImporterHost> weak_ptr_factory_;
+  base::WeakPtrFactory<adrbrowsielExternalProcessImporterHost> weak_ptr_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveExternalProcessImporterHost);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielExternalProcessImporterHost);
 };
 
-#endif  // BRAVE_BROWSER_IMPORTER_BRAVE_EXTERNAL_PROCESS_IMPORTER_HOST_H_
+#endif  // adrbrowsiel_BROWSER_IMPORTER_adrbrowsiel_EXTERNAL_PROCESS_IMPORTER_HOST_H_

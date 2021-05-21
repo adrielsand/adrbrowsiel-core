@@ -1,20 +1,20 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/importer/brave_external_process_importer_client.h"
+#include "adrbrowsiel/browser/importer/adrbrowsiel_external_process_importer_client.h"
 
 #include <utility>
 
 #include "base/bind.h"
-#include "brave/browser/importer/brave_in_process_importer_bridge.h"
+#include "adrbrowsiel/browser/importer/adrbrowsiel_in_process_importer_bridge.h"
 #include "chrome/browser/service_sandbox_type.h"
 #include "chrome/grit/generated_resources.h"
 #include "content/public/browser/service_process_host.h"
 
 namespace {
-bool ShouldUseBraveImporter(importer::ImporterType type) {
+bool ShouldUseadrbrowsielImporter(importer::ImporterType type) {
   if (type == importer::TYPE_CHROME)
     return true;
 
@@ -22,7 +22,7 @@ bool ShouldUseBraveImporter(importer::ImporterType type) {
 }
 }  // namespace
 
-BraveExternalProcessImporterClient::BraveExternalProcessImporterClient(
+adrbrowsielExternalProcessImporterClient::adrbrowsielExternalProcessImporterClient(
     base::WeakPtr<ExternalProcessImporterHost> importer_host,
     const importer::SourceProfile& source_profile,
     uint16_t items,
@@ -30,11 +30,11 @@ BraveExternalProcessImporterClient::BraveExternalProcessImporterClient(
     : ExternalProcessImporterClient(
           importer_host, source_profile, items, bridge) {}
 
-BraveExternalProcessImporterClient::
-    ~BraveExternalProcessImporterClient() = default;
+adrbrowsielExternalProcessImporterClient::
+    ~adrbrowsielExternalProcessImporterClient() = default;
 
-void BraveExternalProcessImporterClient::Start() {
-  if (!ShouldUseBraveImporter(source_profile_.importer_type)) {
+void adrbrowsielExternalProcessImporterClient::Start() {
+  if (!ShouldUseadrbrowsielImporter(source_profile_.importer_type)) {
     ExternalProcessImporterClient::Start();
     return;
   }
@@ -45,22 +45,22 @@ void BraveExternalProcessImporterClient::Start() {
                      .WithDisplayName(IDS_UTILITY_PROCESS_PROFILE_IMPORTER_NAME)
                      .Pass();
   options.sandbox_type =
-      content::GetServiceSandboxType<brave::mojom::ProfileImport>();
+      content::GetServiceSandboxType<adrbrowsiel::mojom::ProfileImport>();
   content::ServiceProcessHost::Launch(
-      brave_profile_import_.BindNewPipeAndPassReceiver(), std::move(options));
+      adrbrowsiel_profile_import_.BindNewPipeAndPassReceiver(), std::move(options));
 
-  brave_profile_import_.set_disconnect_handler(
+  adrbrowsiel_profile_import_.set_disconnect_handler(
       base::BindOnce(&ExternalProcessImporterClient::OnProcessCrashed, this));
 
   base::flat_map<uint32_t, std::string> localized_strings;
-  brave_profile_import_->StartImport(
+  adrbrowsiel_profile_import_->StartImport(
       source_profile_, items_, localized_strings,
       receiver_.BindNewPipeAndPassRemote(),
-      brave_receiver_.BindNewPipeAndPassRemote());
+      adrbrowsiel_receiver_.BindNewPipeAndPassRemote());
 }
 
-void BraveExternalProcessImporterClient::Cancel() {
-  if (!ShouldUseBraveImporter(source_profile_.importer_type)) {
+void adrbrowsielExternalProcessImporterClient::Cancel() {
+  if (!ShouldUseadrbrowsielImporter(source_profile_.importer_type)) {
     ExternalProcessImporterClient::Cancel();
     return;
   }
@@ -69,25 +69,25 @@ void BraveExternalProcessImporterClient::Cancel() {
     return;
 
   cancelled_ = true;
-  brave_profile_import_->CancelImport();
+  adrbrowsiel_profile_import_->CancelImport();
   CloseMojoHandles();
   Release();
 }
 
-void BraveExternalProcessImporterClient::CloseMojoHandles() {
-  if (!ShouldUseBraveImporter(source_profile_.importer_type)) {
+void adrbrowsielExternalProcessImporterClient::CloseMojoHandles() {
+  if (!ShouldUseadrbrowsielImporter(source_profile_.importer_type)) {
     ExternalProcessImporterClient::CloseMojoHandles();
     return;
   }
 
-  brave_profile_import_.reset();
-  brave_receiver_.reset();
+  adrbrowsiel_profile_import_.reset();
+  adrbrowsiel_receiver_.reset();
   receiver_.reset();
 }
 
-void BraveExternalProcessImporterClient::OnImportItemFinished(
+void adrbrowsielExternalProcessImporterClient::OnImportItemFinished(
     importer::ImportItem import_item) {
-  if (!ShouldUseBraveImporter(source_profile_.importer_type)) {
+  if (!ShouldUseadrbrowsielImporter(source_profile_.importer_type)) {
     ExternalProcessImporterClient::OnImportItemFinished(import_item);
     return;
   }
@@ -96,10 +96,10 @@ void BraveExternalProcessImporterClient::OnImportItemFinished(
     return;
 
   bridge_->NotifyItemEnded(import_item);
-  brave_profile_import_->ReportImportItemFinished(import_item);
+  adrbrowsiel_profile_import_->ReportImportItemFinished(import_item);
 }
 
-void BraveExternalProcessImporterClient::OnCreditCardImportReady(
+void adrbrowsielExternalProcessImporterClient::OnCreditCardImportReady(
     const std::u16string& name_on_card,
     const std::u16string& expiration_month,
     const std::u16string& expiration_year,
@@ -108,7 +108,7 @@ void BraveExternalProcessImporterClient::OnCreditCardImportReady(
   if (cancelled_)
     return;
 
-  static_cast<BraveInProcessImporterBridge*>(
+  static_cast<adrbrowsielInProcessImporterBridge*>(
       bridge_.get())->SetCreditCard(name_on_card,
                                     expiration_month,
                                     expiration_year,

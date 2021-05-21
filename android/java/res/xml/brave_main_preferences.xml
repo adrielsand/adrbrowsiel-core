@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2019 The Brave Authors. All rights reserved.
+<!-- Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
      This Source Code Form is subject to the terms of the Mozilla Public
      License, v. 2.0. If a copy of the MPL was not distributed with this file,
      You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -12,52 +12,52 @@
         android:order="0"
         android:title="@string/prefs_section_features"/>
     <org.chromium.components.browser_ui.settings.ChromeBasePreference
-        android:fragment="org.chromium.chrome.browser.privacy.BravePrivacySettings"
-        android:key="brave_shields_and_privacy"
-        android:icon="@drawable/ic_brave"
+        android:fragment="org.chromium.chrome.browser.privacy.adrbrowsielPrivacySettings"
+        android:key="adrbrowsiel_shields_and_privacy"
+        android:icon="@drawable/ic_adrbrowsiel"
         android:order="1"
-        android:title="@string/brave_shields_and_privacy"/>
+        android:title="@string/adrbrowsiel_shields_and_privacy"/>
     <org.chromium.components.browser_ui.settings.ChromeBasePreference
-        android:fragment="org.chromium.chrome.browser.settings.BraveRewardsPreferences"
-        android:key="brave_rewards"
+        android:fragment="org.chromium.chrome.browser.settings.adrbrowsielRewardsPreferences"
+        android:key="adrbrowsiel_rewards"
         android:order="2"
         android:icon="@drawable/ic_rewards"
-        android:title="@string/brave_ui_brave_rewards"/>
+        android:title="@string/adrbrowsiel_ui_adrbrowsiel_rewards"/>
 <!--     <org.chromium.components.browser_ui.settings.ChromeBasePreference
-        android:fragment="org.chromium.chrome.browser.settings.BraveRewardsPreferences"
-        android:key="brave_today"
+        android:fragment="org.chromium.chrome.browser.settings.adrbrowsielRewardsPreferences"
+        android:key="adrbrowsiel_today"
         android:icon="@drawable/btn_bat"
         android:order="3"
-        android:title="@string/brave_today"/>
+        android:title="@string/adrbrowsiel_today"/>
     <org.chromium.components.browser_ui.settings.ChromeBasePreference
-        android:fragment="org.chromium.chrome.browser.settings.BraveRewardsPreferences"
-        android:key="brave_vpn"
+        android:fragment="org.chromium.chrome.browser.settings.adrbrowsielRewardsPreferences"
+        android:key="adrbrowsiel_vpn"
         android:icon="@drawable/btn_bat"
         android:order="4"
-        android:title="@string/brave_vpn"/>  -->
+        android:title="@string/adrbrowsiel_vpn"/>  -->
     <PreferenceCategory
         android:key="general_section"
         android:order="5"
         android:title="@string/prefs_section_general"/>
     <org.chromium.components.browser_ui.settings.ChromeBasePreference
-        android:fragment="org.chromium.chrome.browser.settings.BraveSearchEnginesPreferences"
-        android:key="brave_search_engines"
+        android:fragment="org.chromium.chrome.browser.settings.adrbrowsielSearchEnginesPreferences"
+        android:key="adrbrowsiel_search_engines"
         android:order="6"
         android:icon="@drawable/ic_search_vector"
-        android:title="@string/brave_search_engines"/>
+        android:title="@string/adrbrowsiel_search_engines"/>
 
     <org.chromium.components.browser_ui.settings.ChromeBasePreference
-        android:fragment="org.chromium.chrome.browser.settings.BraveStatsPreferences"
-        android:key="brave_stats"
+        android:fragment="org.chromium.chrome.browser.settings.adrbrowsielStatsPreferences"
+        android:key="adrbrowsiel_stats"
         android:order="9"
         android:icon="@drawable/ic_privacy_reports"
-        android:title="@string/brave_stats"/>
+        android:title="@string/adrbrowsiel_stats"/>
     <org.chromium.components.browser_ui.settings.ChromeSwitchPreference
-        android:key="closing_all_tabs_closes_brave"
+        android:key="closing_all_tabs_closes_adrbrowsiel"
         android:order="13"
         android:defaultValue="false"
-        android:icon="@drawable/ic_closing_all_closes_brave"
-        android:title="@string/prefs_closing_all_tabs_closes_brave"/>
+        android:icon="@drawable/ic_closing_all_closes_adrbrowsiel"
+        android:title="@string/prefs_closing_all_tabs_closes_adrbrowsiel"/>
     <org.chromium.components.browser_ui.settings.ChromeSwitchPreference
         android:key="background_video_playback"
         android:order="14"
@@ -90,31 +90,31 @@
         android:title="@string/prefs_support_section"/>
 
     <org.chromium.components.browser_ui.settings.ChromeBasePreference
-        android:fragment="org.chromium.chrome.browser.settings.BraveSyncScreensPreference"
-        android:key="brave_sync_layout"
+        android:fragment="org.chromium.chrome.browser.settings.adrbrowsielSyncScreensPreference"
+        android:key="adrbrowsiel_sync_layout"
         android:order="22"
         android:icon="@drawable/ic_sync"
         android:title="@string/sync_category_title"/>
     <Preference
-        android:key="rate_brave"
+        android:key="rate_adrbrowsiel"
         android:order="28"
         android:icon="@drawable/ic_rate"
-        android:title="@string/prefs_rate_brave"/>
+        android:title="@string/prefs_rate_adrbrowsiel"/>
     <org.chromium.components.browser_ui.settings.ChromeBasePreference
-        android:fragment="org.chromium.chrome.browser.settings.BraveCustomTabsPreference"
+        android:fragment="org.chromium.chrome.browser.settings.adrbrowsielCustomTabsPreference"
         android:key="use_custom_tabs"
         android:order="20"
         android:icon="@drawable/ic_custom_tabs"
         android:title="@string/prefs_use_custom_tabs"/>
     <Preference
-        android:fragment="org.chromium.chrome.browser.language.settings.BraveLanguageSettings"
-        android:key="brave_languages"
+        android:fragment="org.chromium.chrome.browser.language.settings.adrbrowsielLanguageSettings"
+        android:key="adrbrowsiel_languages"
         android:order="23"
         icon="@drawable/ic_languages"
         android:title="@string/language_settings"/>
     <org.chromium.components.browser_ui.settings.ChromeBasePreference
-        android:fragment="org.chromium.chrome.browser.brave_downloads.settings.BraveDownloadSettings"
-        android:key="brave_downloads"
+        android:fragment="org.chromium.chrome.browser.adrbrowsiel_downloads.settings.adrbrowsielDownloadSettings"
+        android:key="adrbrowsiel_downloads"
         android:order="24"
         android:icon="@drawable/ic_downloads"
         android:title="@string/menu_downloads"/>

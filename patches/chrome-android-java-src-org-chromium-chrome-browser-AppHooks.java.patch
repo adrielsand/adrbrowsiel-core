@@ -7,7 +7,7 @@ index c72d5f2e8fcf2829a9e2ab4b25338af13780881f..0f458a805fe08c6da66855c641d153a1
      @CalledByNative
      public static AppHooks get() {
 -        if (sInstance == null) sInstance = new AppHooksImpl();
-+        if (sInstance == null) sInstance = new BraveAppHooks();
++        if (sInstance == null) sInstance = new adrbrowsielAppHooks();
          return sInstance;
      }
  

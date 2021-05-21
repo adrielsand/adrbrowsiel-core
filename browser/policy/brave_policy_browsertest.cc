@@ -1,12 +1,12 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/app/brave_command_ids.h"
-#include "brave/browser/tor/tor_profile_service_factory.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/app/adrbrowsiel_command_ids.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_command_controller.h"
@@ -23,10 +23,10 @@ using NoTorPolicyBrowserTest = InProcessBrowserTest;
 
 namespace policy {
 
-class BravePolicyTest : public InProcessBrowserTest {
+class adrbrowsielPolicyTest : public InProcessBrowserTest {
  protected:
-  BravePolicyTest() {}
-  ~BravePolicyTest() override {}
+  adrbrowsielPolicyTest() {}
+  ~adrbrowsielPolicyTest() override {}
 
   void SetUpInProcessBrowserTestFixture() override {
     EXPECT_CALL(provider_, IsInitializationComplete(_))
@@ -40,13 +40,13 @@ class BravePolicyTest : public InProcessBrowserTest {
 #if BUILDFLAG(ENABLE_TOR)
 // This policy only exists on Windows.
 // Sets the tor policy before the browser is started.
-class TorDisabledPolicyBrowserTest : public BravePolicyTest {
+class TorDisabledPolicyBrowserTest : public adrbrowsielPolicyTest {
  public:
   TorDisabledPolicyBrowserTest() {}
   ~TorDisabledPolicyBrowserTest() override {}
 
   void SetUpInProcessBrowserTestFixture() override {
-    BravePolicyTest::SetUpInProcessBrowserTestFixture();
+    adrbrowsielPolicyTest::SetUpInProcessBrowserTestFixture();
 
     PolicyMap policies;
     policies.Set(key::kTorDisabled, POLICY_LEVEL_MANDATORY,
@@ -62,13 +62,13 @@ IN_PROC_BROWSER_TEST_F(TorDisabledPolicyBrowserTest, TorDisabledPrefValueTest) {
   EXPECT_TRUE(TorProfileServiceFactory::IsTorDisabled());
 }
 
-class TorEnabledPolicyBrowserTest : public BravePolicyTest {
+class TorEnabledPolicyBrowserTest : public adrbrowsielPolicyTest {
  public:
   TorEnabledPolicyBrowserTest() {}
   ~TorEnabledPolicyBrowserTest() override {}
 
   void SetUpInProcessBrowserTestFixture() override {
-    BravePolicyTest::SetUpInProcessBrowserTestFixture();
+    adrbrowsielPolicyTest::SetUpInProcessBrowserTestFixture();
 
     PolicyMap policies;
     policies.Set(key::kTorDisabled, POLICY_LEVEL_MANDATORY,
@@ -86,13 +86,13 @@ IN_PROC_BROWSER_TEST_F(TorEnabledPolicyBrowserTest, TorDisabledPrefValueTest) {
 #endif
 
 template <bool enable>
-class BrowserAddPersonPolicyTest : public BravePolicyTest {
+class BrowserAddPersonPolicyTest : public adrbrowsielPolicyTest {
  public:
   BrowserAddPersonPolicyTest() = default;
   ~BrowserAddPersonPolicyTest() override = default;
 
   void SetUpInProcessBrowserTestFixture() override {
-    BravePolicyTest::SetUpInProcessBrowserTestFixture();
+    adrbrowsielPolicyTest::SetUpInProcessBrowserTestFixture();
 
     PolicyMap policies;
     policies.Set(key::kBrowserAddPersonEnabled, POLICY_LEVEL_MANDATORY,
@@ -118,13 +118,13 @@ IN_PROC_BROWSER_TEST_F(BrowserAddPersonDisabledPolicyTest,
 }
 
 template <bool enable>
-class BrowserGuestModePolicyTest : public BravePolicyTest {
+class BrowserGuestModePolicyTest : public adrbrowsielPolicyTest {
  public:
   BrowserGuestModePolicyTest() = default;
   ~BrowserGuestModePolicyTest() override = default;
 
   void SetUpInProcessBrowserTestFixture() override {
-    BravePolicyTest::SetUpInProcessBrowserTestFixture();
+    adrbrowsielPolicyTest::SetUpInProcessBrowserTestFixture();
 
     PolicyMap policies;
     policies.Set(key::kBrowserGuestModeEnabled, POLICY_LEVEL_MANDATORY,

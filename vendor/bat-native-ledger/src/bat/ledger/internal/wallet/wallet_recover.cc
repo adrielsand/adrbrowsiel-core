@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -95,7 +95,7 @@ void WalletRecover::OnRecover(
     return;
   }
 
-  auto wallet = type::BraveWallet::New();
+  auto wallet = type::adrbrowsielWallet::New();
   wallet->payment_id = payment_id;
   wallet->recovery_seed = new_seed;
   const bool success = ledger_->wallet()->SetWallet(std::move(wallet));

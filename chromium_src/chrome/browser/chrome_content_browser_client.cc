@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,9 +8,9 @@
 #include "content/public/browser/browser_url_handler.h"
 
 #if defined(OS_MAC)
-#include "brave/browser/brave_browser_main_parts_mac.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_main_parts_mac.h"
 #undef ChromeBrowserMainPartsMac
-#define ChromeBrowserMainPartsMac BraveBrowserMainPartsMac
+#define ChromeBrowserMainPartsMac adrbrowsielBrowserMainPartsMac
 #endif
 
 #define HandleNewTabURLRewrite HandleNewTabURLRewrite_ChromiumImpl

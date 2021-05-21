@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_CONTRIBUTION_CONTRIBUTION_TIP_H_
-#define BRAVELEDGER_CONTRIBUTION_CONTRIBUTION_TIP_H_
+#ifndef adrbrowsielLEDGER_CONTRIBUTION_CONTRIBUTION_TIP_H_
+#define adrbrowsielLEDGER_CONTRIBUTION_CONTRIBUTION_TIP_H_
 
 #include <string>
 
@@ -51,4 +51,4 @@ class ContributionTip {
 
 }  // namespace contribution
 }  // namespace ledger
-#endif  // BRAVELEDGER_CONTRIBUTION_CONTRIBUTION_TIP_H_
+#endif  // adrbrowsielLEDGER_CONTRIBUTION_CONTRIBUTION_TIP_H_

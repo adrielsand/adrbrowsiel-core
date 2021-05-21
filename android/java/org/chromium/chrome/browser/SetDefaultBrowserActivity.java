@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 The Brave Authors. All rights reserved.
+ * Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.night_mode.GlobalNightModeStateProviderHolder;
-import org.chromium.chrome.browser.app.BraveActivity;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
 
 import static org.chromium.ui.base.ViewUtils.dpToPx;
 
@@ -33,8 +33,8 @@ public class SetDefaultBrowserActivity extends AppCompatActivity {
 
         ImageView setDefaultBrowserImg = findViewById(R.id.set_default_browser_img);
         setDefaultBrowserImg.setImageResource(isNightMode
-                                        ? R.drawable.ic_setbraveasdefault_dark
-                                        : R.drawable.ic_setbraveasdefault);
+                                        ? R.drawable.ic_setadrbrowsielasdefault_dark
+                                        : R.drawable.ic_setadrbrowsielasdefault);
         if (isNightMode) {
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) setDefaultBrowserImg.getLayoutParams();
             lp.setMargins(0, dpToPx(this, 16), 0, dpToPx(this, 16));
@@ -45,8 +45,8 @@ public class SetDefaultBrowserActivity extends AppCompatActivity {
         btnSetDefaultBrowser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (BraveActivity.getBraveActivity() != null) {
-                    BraveActivity.getBraveActivity().handleBraveSetDefaultBrowserDialog();
+                if (adrbrowsielActivity.getadrbrowsielActivity() != null) {
+                    adrbrowsielActivity.getadrbrowsielActivity().handleadrbrowsielSetDefaultBrowserDialog();
                 }
                 finish();
             }

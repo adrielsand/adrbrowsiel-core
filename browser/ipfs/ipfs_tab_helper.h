@@ -1,18 +1,18 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_IPFS_IPFS_TAB_HELPER_H_
-#define BRAVE_BROWSER_IPFS_IPFS_TAB_HELPER_H_
+#ifndef adrbrowsiel_BROWSER_IPFS_IPFS_TAB_HELPER_H_
+#define adrbrowsiel_BROWSER_IPFS_IPFS_TAB_HELPER_H_
 
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
 
-#include "brave/browser/ipfs/import/ipfs_import_controller.h"
-#include "brave/browser/ipfs/ipfs_host_resolver.h"
+#include "adrbrowsiel/browser/ipfs/import/ipfs_import_controller.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_host_resolver.h"
 #include "components/prefs/pref_change_registrar.h"
 #include "content/public/browser/web_contents_observer.h"
 #include "content/public/browser/web_contents_user_data.h"
@@ -78,4 +78,4 @@ class IPFSTabHelper : public content::WebContentsObserver,
 
 }  // namespace ipfs
 
-#endif  // BRAVE_BROWSER_IPFS_IPFS_TAB_HELPER_H_
+#endif  // adrbrowsiel_BROWSER_IPFS_IPFS_TAB_HELPER_H_

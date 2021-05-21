@@ -6,7 +6,7 @@ index 4573bd4fa051a9ea96b992ac425bd01cdfde76b1..59d81b7e54bdb92bff01a1b23e60a0e2
          "common/crash_keys.cc",
          "common/crash_keys.h",
        ]
-+      sources -= [ "app/chrome_exe.rc", ] sources += [ "//brave/app/brave_exe.rc", ]
++      sources -= [ "app/chrome_exe.rc", ] sources += [ "//adrbrowsiel/app/adrbrowsiel_exe.rc", ]
  
        deps += [
          ":chrome_dll",
@@ -14,13 +14,13 @@ index 4573bd4fa051a9ea96b992ac425bd01cdfde76b1..59d81b7e54bdb92bff01a1b23e60a0e2
        args += [ "--keystone=0" ]
      }
    }
-+  copy("brave_app_plist") { deps = [ "//brave:brave_app_plist" ] sources = [ "$root_gen_dir/brave/brave_app_plist_tweaked.plist" ] outputs = [ "$root_gen_dir/chrome/{{source_file_part}}" ] }
++  copy("adrbrowsiel_app_plist") { deps = [ "//adrbrowsiel:adrbrowsiel_app_plist" ] sources = [ "$root_gen_dir/adrbrowsiel/adrbrowsiel_app_plist_tweaked.plist" ] outputs = [ "$root_gen_dir/chrome/{{source_file_part}}" ] }
  
    mac_app_bundle("chrome_app") {
      output_name = chrome_product_full_name
  
 -    info_plist_target = ":chrome_app_plist"
-+    info_plist_target = ":brave_app_plist"
++    info_plist_target = ":adrbrowsiel_app_plist"
      extra_substitutions = [
        "CHROMIUM_BUNDLE_ID=$chrome_mac_bundle_id",
        "CHROMIUM_SHORT_NAME=$chrome_product_short_name",
@@ -28,7 +28,7 @@ index 4573bd4fa051a9ea96b992ac425bd01cdfde76b1..59d81b7e54bdb92bff01a1b23e60a0e2
        "//chrome/common:buildflags",
        "//chrome/common:version_header",
      ]
-+    deps += [ "//brave:brave_app" ]
++    deps += [ "//adrbrowsiel:adrbrowsiel_app" ]
  
      if (enable_stripping) {
        # At link time, preserve the global symbols specified in the .exports
@@ -53,7 +53,7 @@ index 4573bd4fa051a9ea96b992ac425bd01cdfde76b1..59d81b7e54bdb92bff01a1b23e60a0e2
        "--scm=0",
      ]
    }
-+  copy("brave_helper_plist") { deps = [ "//brave:brave_helper_plist" ] sources = [ "$root_gen_dir/brave/brave_helper_plist_tweaked.plist" ] outputs = [ "$root_gen_dir/chrome/{{source_file_part}}" ] }
++  copy("adrbrowsiel_helper_plist") { deps = [ "//adrbrowsiel:adrbrowsiel_helper_plist" ] sources = [ "$root_gen_dir/adrbrowsiel/adrbrowsiel_helper_plist_tweaked.plist" ] outputs = [ "$root_gen_dir/chrome/{{source_file_part}}" ] }
  
    compile_entitlements("entitlements") {
      entitlements_templates = [ "app/app-entitlements.plist" ]
@@ -65,7 +65,7 @@ index 4573bd4fa051a9ea96b992ac425bd01cdfde76b1..59d81b7e54bdb92bff01a1b23e60a0e2
          info_plist_target = ":chrome_helper_plist"
        }
  
-+      info_plist_target = ":brave_helper_plist"
++      info_plist_target = ":adrbrowsiel_helper_plist"
        extra_substitutions = [
          "CHROMIUM_BUNDLE_ID=$chrome_mac_bundle_id",
          "CHROMIUM_SHORT_NAME=$chrome_product_short_name",
@@ -73,7 +73,7 @@ index 4573bd4fa051a9ea96b992ac425bd01cdfde76b1..59d81b7e54bdb92bff01a1b23e60a0e2
      if (is_chrome_branded) {
        deps += [ ":default_apps" ]
      }
-+    deps += [ "//brave:framework_bundle_data" ] if (defined(chrome_framework_version)) { framework_contents += [ "Frameworks", ] }
++    deps += [ "//adrbrowsiel:framework_bundle_data" ] if (defined(chrome_framework_version)) { framework_contents += [ "Frameworks", ] }
  
      ldflags = [ "-Wl,-install_name,@executable_path/../Frameworks/$chrome_framework_name.framework/Versions/$chrome_version_full/$chrome_framework_name" ]
  
@@ -81,7 +81,7 @@ index 4573bd4fa051a9ea96b992ac425bd01cdfde76b1..59d81b7e54bdb92bff01a1b23e60a0e2
  
  group("browser_dependencies") {
    public_deps = [
-+    "//brave:browser_dependencies",
++    "//adrbrowsiel:browser_dependencies",
      "//build:branding_buildflags",
      "//build:chromeos_buildflags",
      "//chrome/app:shutdown_signal_handlers",
@@ -96,7 +96,7 @@ index 4573bd4fa051a9ea96b992ac425bd01cdfde76b1..59d81b7e54bdb92bff01a1b23e60a0e2
  if (is_win) {
    process_version_rc_template("chrome_exe_version") {
 -    sources = [ "app/chrome_exe.ver" ]
-+    sources = [ "//brave/app/brave_exe.ver" ]
++    sources = [ "//adrbrowsiel/app/adrbrowsiel_exe.ver" ]
      output = "$target_gen_dir/chrome_exe_version.rc"
    }
  
@@ -104,7 +104,7 @@ index 4573bd4fa051a9ea96b992ac425bd01cdfde76b1..59d81b7e54bdb92bff01a1b23e60a0e2
      "//chrome/browser:resources",
      "//chrome/common:resources",
      "//chrome/renderer:resources",
-+    "//brave:resources",
++    "//adrbrowsiel:resources",
    ]
  }
  

@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_SYNC_BRAVE_SYNC_DEVICES_ANDROID_H_
-#define BRAVE_BROWSER_SYNC_BRAVE_SYNC_DEVICES_ANDROID_H_
+#ifndef adrbrowsiel_BROWSER_SYNC_adrbrowsiel_SYNC_DEVICES_ANDROID_H_
+#define adrbrowsiel_BROWSER_SYNC_adrbrowsiel_SYNC_DEVICES_ANDROID_H_
 
 #include <jni.h>
 
@@ -15,17 +15,17 @@
 #include "components/sync_device_info/device_info_tracker.h"
 
 namespace syncer {
-class BraveProfileSyncService;
+class adrbrowsielProfileSyncService;
 }
 
 namespace chrome {
 namespace android {
 
-class BraveSyncDevicesAndroid : public syncer::DeviceInfoTracker::Observer {
+class adrbrowsielSyncDevicesAndroid : public syncer::DeviceInfoTracker::Observer {
  public:
-  BraveSyncDevicesAndroid(JNIEnv* env,
+  adrbrowsielSyncDevicesAndroid(JNIEnv* env,
                           const base::android::JavaRef<jobject>& obj);
-  virtual ~BraveSyncDevicesAndroid();
+  virtual ~adrbrowsielSyncDevicesAndroid();
 
   void Destroy(JNIEnv* env);
 
@@ -40,16 +40,16 @@ class BraveSyncDevicesAndroid : public syncer::DeviceInfoTracker::Observer {
 
   base::Value GetSyncDeviceList();
 
-  syncer::BraveProfileSyncService* GetSyncService() const;
+  syncer::adrbrowsielProfileSyncService* GetSyncService() const;
 
   ScopedObserver<syncer::DeviceInfoTracker, syncer::DeviceInfoTracker::Observer>
       device_info_tracker_observer_{this};
 
-  JavaObjectWeakGlobalRef weak_java_brave_sync_worker_;
+  JavaObjectWeakGlobalRef weak_java_adrbrowsiel_sync_worker_;
   Profile* profile_ = nullptr;
 };
 
 }  // namespace android
 }  // namespace chrome
 
-#endif  // BRAVE_BROWSER_SYNC_BRAVE_SYNC_DEVICES_ANDROID_H_
+#endif  // adrbrowsiel_BROWSER_SYNC_adrbrowsiel_SYNC_DEVICES_ANDROID_H_

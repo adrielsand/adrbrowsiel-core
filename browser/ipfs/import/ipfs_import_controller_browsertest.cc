@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ipfs/import/ipfs_import_controller.h"
+#include "adrbrowsiel/browser/ipfs/import/ipfs_import_controller.h"
 
 #include "base/path_service.h"
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/browser/ipfs/ipfs_tab_helper.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_tab_helper.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
 #include "chrome/browser/notifications/notification_display_service_tester.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -28,7 +28,7 @@ namespace {
 class FakeIpfsService : public ipfs::IpfsService {
  public:
   FakeIpfsService(content::BrowserContext* context,
-                  ipfs::BraveIpfsClientUpdater* updater,
+                  ipfs::adrbrowsielIpfsClientUpdater* updater,
                   const base::FilePath& user_dir,
                   version_info::Channel channel)
       : ipfs::IpfsService(context, updater, user_dir, channel) {}
@@ -125,7 +125,7 @@ IN_PROC_BROWSER_TEST_F(IpfsImportControllerBrowserTest, ImportFileToIpfs) {
   data.hash = "QmYbK4SLaSvTKKAKvNZMwyzYPy4P3GqBPN6CZzbS73FxxU";
   data.filename = "google.com";
   data.size = 111;
-  data.directory = "/brave/imports/";
+  data.directory = "/adrbrowsiel/imports/";
   data.state = ipfs::IPFS_IMPORT_SUCCESS;
   ipfs_service->SetImportData(data);
   auto* controller = helper->GetImportController();
@@ -159,7 +159,7 @@ IN_PROC_BROWSER_TEST_F(IpfsImportControllerBrowserTest, ImportTextToIpfs) {
   data.hash = "QmYbK4SLaSvTKKAKvNZMwyzYPy4P3GqBPN6CZzbS73FxxU";
   data.filename = "google.com";
   data.size = 111;
-  data.directory = "/brave/imports/";
+  data.directory = "/adrbrowsiel/imports/";
   data.state = ipfs::IPFS_IMPORT_SUCCESS;
   ipfs_service->SetImportData(data);
   auto* controller = helper->GetImportController();
@@ -192,7 +192,7 @@ IN_PROC_BROWSER_TEST_F(IpfsImportControllerBrowserTest, ImportLinkToIpfs) {
   data.hash = "QmYbK4SLaSvTKKAKvNZMwyzYPy4P3GqBPN6CZzbS73FxxU";
   data.filename = "google.com";
   data.size = 111;
-  data.directory = "/brave/imports/";
+  data.directory = "/adrbrowsiel/imports/";
   data.state = ipfs::IPFS_IMPORT_SUCCESS;
   ipfs_service->SetImportData(data);
   auto* controller = helper->GetImportController();
@@ -225,7 +225,7 @@ IN_PROC_BROWSER_TEST_F(IpfsImportControllerBrowserTest, ImportDirectoryToIpfs) {
   data.hash = "QmYbK4SLaSvTKKAKvNZMwyzYPy4P3GqBPN6CZzbS73FxxU";
   data.filename = "google.com";
   data.size = 111;
-  data.directory = "/brave/imports/";
+  data.directory = "/adrbrowsiel/imports/";
   data.state = ipfs::IPFS_IMPORT_SUCCESS;
   ipfs_service->SetImportData(data);
   auto* controller = helper->GetImportController();
@@ -260,7 +260,7 @@ IN_PROC_BROWSER_TEST_F(IpfsImportControllerBrowserTest,
   data.hash = "QmYbK4SLaSvTKKAKvNZMwyzYPy4P3GqBPN6CZzbS73FxxU";
   data.filename = "google.com";
   data.size = 111;
-  data.directory = "/brave/imports/";
+  data.directory = "/adrbrowsiel/imports/";
   data.state = ipfs::IPFS_IMPORT_SUCCESS;
   ipfs_service->SetImportData(data);
   base::RunLoop run_loop;

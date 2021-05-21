@@ -6,7 +6,7 @@
 #include "../../../../../chrome/installer/setup/setup_main.cc"
 #undef wWinMain
 
-const char kBraveReferralCode[] = "brave-referral-code";
+const char kadrbrowsielReferralCode[] = "adrbrowsiel-referral-code";
 
 int WINAPI wWinMain(HINSTANCE instance, HINSTANCE prev_instance,
                     wchar_t* command_line, int show_command) {
@@ -14,9 +14,9 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE prev_instance,
                                           show_command);
   if (!return_code) {
     const base::CommandLine& cmd_line = *base::CommandLine::ForCurrentProcess();
-    if (cmd_line.HasSwitch(kBraveReferralCode)) {
+    if (cmd_line.HasSwitch(kadrbrowsielReferralCode)) {
       const std::string referral_code =
-          cmd_line.GetSwitchValueASCII(kBraveReferralCode);
+          cmd_line.GetSwitchValueASCII(kadrbrowsielReferralCode);
       if (!referral_code.empty()) {
         base::FilePath user_data_dir;
         base::PathService::Get(chrome::DIR_USER_DATA, &user_data_dir);

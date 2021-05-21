@@ -1,13 +1,13 @@
-import("//brave/utility/importer/sources.gni")
+import("//adrbrowsiel/utility/importer/sources.gni")
 
-brave_utility_sources = [
-  "//brave/utility/brave_content_utility_client.cc",
-  "//brave/utility/brave_content_utility_client.h",
+adrbrowsiel_utility_sources = [
+  "//adrbrowsiel/utility/adrbrowsiel_content_utility_client.cc",
+  "//adrbrowsiel/utility/adrbrowsiel_content_utility_client.h",
 ]
-brave_utility_sources += brave_utility_importer_sources
+adrbrowsiel_utility_sources += adrbrowsiel_utility_importer_sources
 
-brave_utility_deps = []
-brave_utility_deps += brave_utility_importer_deps
+adrbrowsiel_utility_deps = []
+adrbrowsiel_utility_deps += adrbrowsiel_utility_importer_deps
 
-brave_utility_public_deps = []
-brave_utility_public_deps += brave_utility_importer_public_deps
+adrbrowsiel_utility_public_deps = []
+adrbrowsiel_utility_public_deps += adrbrowsiel_utility_importer_public_deps

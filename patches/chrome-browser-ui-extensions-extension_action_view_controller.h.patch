@@ -6,7 +6,7 @@ index 3c9b24e7d5af7b4b739609fd39dcd334c6490cfd..8fe213f17b8acca378c71de952a16798
  #include "extensions/browser/extension_host_observer.h"
  #include "ui/gfx/image/image.h"
  
-+class BraveActionViewController;
++class adrbrowsielActionViewController;
  class Browser;
  class ExtensionActionPlatformDelegate;
  class GURL;
@@ -14,7 +14,7 @@ index 3c9b24e7d5af7b4b739609fd39dcd334c6490cfd..8fe213f17b8acca378c71de952a16798
        public extensions::ExtensionContextMenuModel::PopupDelegate,
        public extensions::ExtensionHostObserver {
   public:
-+  friend class BraveActionViewController;
++  friend class adrbrowsielActionViewController;
    // The different options for showing a popup.
    enum PopupShowAction { SHOW_POPUP, SHOW_POPUP_AND_INSPECT };
  

@@ -7,7 +7,7 @@ index c755e4cea2202fefbe6b5095a6bb0435169d7a81..722827d1c22a59e767f7ea7deedac982
  fi
  
 -. "$DEFAULTS_FILE"
-+# Don't install the Chrome repo (brave/brave-browser#1967)
++# Don't install the Chrome repo (adrbrowsiel/adrbrowsiel-browser#1967)
 +#. "$DEFAULTS_FILE"
  
  if [ "$repo_add_once" = "true" ]; then

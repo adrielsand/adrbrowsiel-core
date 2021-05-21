@@ -1,4 +1,4 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,11 +6,11 @@
 #include "base/path_service.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/extensions/brave_extension_functional_test.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/brave_shields/browser/https_everywhere_service.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_extension_functional_test.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/https_everywhere_service.h"
 #include "chrome/browser/extensions/crx_installer.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "chrome/browser/ui/browser.h"
@@ -18,7 +18,7 @@
 #include "content/public/test/browser_test.h"
 #include "content/public/test/browser_test_utils.h"
 
-class BraveExtensionProviderTest : public extensions::ExtensionFunctionalTest {
+class adrbrowsielExtensionProviderTest : public extensions::ExtensionFunctionalTest {
  public:
   void SetUpOnMainThread() override {
     extensions::ExtensionFunctionalTest::SetUpOnMainThread();
@@ -27,7 +27,7 @@ class BraveExtensionProviderTest : public extensions::ExtensionFunctionalTest {
 
 namespace extensions {
 
-IN_PROC_BROWSER_TEST_F(BraveExtensionProviderTest, BlacklistExtension) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielExtensionProviderTest, BlacklistExtension) {
   base::FilePath test_data_dir;
   GetTestDataDir(&test_data_dir);
   const extensions::Extension* extension = InstallExtension(
@@ -35,7 +35,7 @@ IN_PROC_BROWSER_TEST_F(BraveExtensionProviderTest, BlacklistExtension) {
   ASSERT_FALSE(extension);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveExtensionProviderTest, WhitelistedExtension) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielExtensionProviderTest, WhitelistedExtension) {
   base::FilePath test_data_dir;
   GetTestDataDir(&test_data_dir);
   const extensions::Extension* extension = InstallExtension(
@@ -46,7 +46,7 @@ IN_PROC_BROWSER_TEST_F(BraveExtensionProviderTest, WhitelistedExtension) {
 
 // Load an extension page with an ad image, and make sure it is NOT blocked.
 // It would otherwise be blocked though if it wasn't an extension.
-IN_PROC_BROWSER_TEST_F(BraveExtensionProviderTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielExtensionProviderTest,
                        AdsNotBlockedByDefaultBlockerInExtension) {
   base::FilePath test_data_dir;
   GetTestDataDir(&test_data_dir);
@@ -73,7 +73,7 @@ IN_PROC_BROWSER_TEST_F(BraveExtensionProviderTest,
   EXPECT_EQ(browser()->profile()->GetPrefs()->GetUint64(kAdsBlocked), 0ULL);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveExtensionProviderTest, ExtensionsCanGetCookies) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielExtensionProviderTest, ExtensionsCanGetCookies) {
   base::FilePath test_data_dir;
   GetTestDataDir(&test_data_dir);
   scoped_refptr<const extensions::Extension> extension =
@@ -97,7 +97,7 @@ IN_PROC_BROWSER_TEST_F(BraveExtensionProviderTest, ExtensionsCanGetCookies) {
   EXPECT_TRUE(as_expected);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveExtensionProviderTest, ExtensionsCanSetCookies) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielExtensionProviderTest, ExtensionsCanSetCookies) {
   base::FilePath test_data_dir;
   GetTestDataDir(&test_data_dir);
   scoped_refptr<const extensions::Extension> extension =

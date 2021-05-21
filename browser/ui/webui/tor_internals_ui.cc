@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/tor_internals_ui.h"
+#include "adrbrowsiel/browser/ui/webui/tor_internals_ui.h"
 
 #include <utility>
 
-#include "brave/browser/ui/webui/brave_webui_source.h"
-#include "brave/components/tor/resources/grit/tor_internals_generated_map.h"
-#include "brave/components/tor/resources/grit/tor_resources.h"
-#include "brave/components/tor/tor_launcher_factory.h"
-#include "components/grit/brave_components_resources.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_webui_source.h"
+#include "adrbrowsiel/components/tor/resources/grit/tor_internals_generated_map.h"
+#include "adrbrowsiel/components/tor/resources/grit/tor_resources.h"
+#include "adrbrowsiel/components/tor/tor_launcher_factory.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
 #include "content/public/browser/web_ui.h"
 
 TorInternalsDOMHandler::TorInternalsDOMHandler()

@@ -7,7 +7,7 @@ index d1f6e9cc6b11c060067baff9c6ba5acf7fe9052b..8a37e1696f37d98c245a6adab3b6693c
  import androidx.fragment.app.FragmentManager;
  import androidx.fragment.app.FragmentTransaction;
 -import androidx.preference.CheckBoxPreference;
-+import org.chromium.chrome.browser.ui.brave_tricks.checkbox_to_switch.CheckBoxPreference;
++import org.chromium.chrome.browser.ui.adrbrowsiel_tricks.checkbox_to_switch.CheckBoxPreference;
  import androidx.preference.Preference;
  import androidx.preference.PreferenceCategory;
  import androidx.preference.PreferenceFragmentCompat;

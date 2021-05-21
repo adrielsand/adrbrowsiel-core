@@ -25,11 +25,11 @@ typedef NS_ENUM(NSInteger, BATPromotedContentAdEventType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class BATAdNotification, BATBraveAds, BATBraveLedger;
+@class BATAdNotification, BATadrbrowsielAds, BATadrbrowsielLedger;
 
 OBJC_EXPORT
-NS_SWIFT_NAME(BraveAdsNotificationHandler)
-@protocol BATBraveAdsNotificationHandler
+NS_SWIFT_NAME(adrbrowsielAdsNotificationHandler)
+@protocol BATadrbrowsielAdsNotificationHandler
 @required
 /// Determine whether or not the client can currently show notifications
 /// to the user.
@@ -42,15 +42,15 @@ NS_SWIFT_NAME(BraveAdsNotificationHandler)
 @end
 
 OBJC_EXPORT 
-NS_SWIFT_NAME(BraveAds)
-@interface BATBraveAds : NSObject
+NS_SWIFT_NAME(adrbrowsielAds)
+@interface BATadrbrowsielAds : NSObject
 
-@property (nonatomic, weak) BATBraveLedger *ledger;
+@property (nonatomic, weak) BATadrbrowsielLedger *ledger;
 
 /// The notifications handler.
 ///
 /// @see BATSystemNotificationsHandler
-@property (nonatomic, weak, nullable) id<BATBraveAdsNotificationHandler> notificationsHandler;
+@property (nonatomic, weak, nullable) id<BATadrbrowsielAdsNotificationHandler> notificationsHandler;
 
 #pragma mark - Global
 
@@ -71,9 +71,9 @@ NS_SWIFT_NAME(BraveAds)
 /// for appropriate values.
 @property (nonatomic, class) int environment;
 /// System info
-@property (nonatomic, class) BATBraveAdsSysInfo *sysInfo;
+@property (nonatomic, class) BATadrbrowsielAdsSysInfo *sysInfo;
 /// The build channel that ads is configured for
-@property (nonatomic, class) BATBraveAdsBuildChannel *buildChannel;
+@property (nonatomic, class) BATadrbrowsielAdsBuildChannel *buildChannel;
 
 #pragma mark - Initialization / Shutdown
 

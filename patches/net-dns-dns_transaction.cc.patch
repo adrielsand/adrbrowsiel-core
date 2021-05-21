@@ -6,7 +6,7 @@ index e53e4e0141b0ca5c6b56ece4e928ddfc490d660d..d4f7caf16bb6bd5d9ce31380ceeb55d4
      DCHECK(secure_);
  
      size_t doh_server_index = dns_server_iterator_->GetNextAttemptIndex();
-+    BRAVE_MAKE_HTTP_ATTEMPT
++    adrbrowsiel_MAKE_HTTP_ATTEMPT
  
      unsigned attempt_number = attempts_.size();
      ConstructDnsHTTPAttempt(

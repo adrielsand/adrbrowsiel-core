@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,7 +12,7 @@
 #include "bat/ads/internal/ad_targeting/data_types/contextual/text_classification/text_classification_aliases.h"
 #include "bat/ads/internal/client/client.h"
 #include "bat/ads/internal/logging.h"
-#include "brave/components/l10n/browser/locale_helper.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper.h"
 
 namespace ads {
 namespace ad_targeting {
@@ -88,7 +88,7 @@ SegmentList TextClassification::GetSegments() const {
 
   if (probabilities.empty()) {
     const std::string locale =
-        brave_l10n::LocaleHelper::GetInstance()->GetLocale();
+        adrbrowsiel_l10n::LocaleHelper::GetInstance()->GetLocale();
     BLOG(1, "No text classification probabilities found for " << locale
                                                               << " locale");
 

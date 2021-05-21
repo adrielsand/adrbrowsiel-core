@@ -6,7 +6,7 @@ index 6a05a56c8d305ff221fa6d82aba07d4a7a6a07e2..ad09b9c1d5704b84adb83a234fff3718
  package sync_pb;
  
  import "components/sync/protocol/sync_enums.proto";
-+import "brave/components/sync/protocol/brave_device_info_specifics.proto";
++import "adrbrowsiel/components/sync/protocol/adrbrowsiel_device_info_specifics.proto";
  
  // Information about a device that is running a sync-enabled Chrome browser.  We
  // are mapping the per-client cache guid to more specific information about the
@@ -14,7 +14,7 @@ index 6a05a56c8d305ff221fa6d82aba07d4a7a6a07e2..ad09b9c1d5704b84adb83a234fff3718
    // Unique hardware identifier string which details the HW combination of
    // a ChromeOS device. This field will be empty on other OS devices.
    optional string full_hardware_class = 16;
-+  optional BraveSpecificFields brave_fields = 1000;
++  optional adrbrowsielSpecificFields adrbrowsiel_fields = 1000;
  }
  
  // Feature specific information about the device that is running a sync-enabled

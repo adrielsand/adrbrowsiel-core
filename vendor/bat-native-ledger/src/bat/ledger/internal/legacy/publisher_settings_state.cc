@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -19,7 +19,7 @@ const char kAllowNonVerifiedSitesInListKey[] = "allow_non_verified";
 const char kAllowContributionToVideosKey[] = "allow_videos";
 // There is a spelling error with min_pubslisher_duration, however we cannot
 // change this otherwise we will break legacy installs. This will be resolved as
-// part of https://github.com/brave/brave-browser/issues/7024
+// part of https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7024
 const char kMinPageTimeBeforeLoggingAVisitKey[] = "min_pubslisher_duration";
 const char kMinVisitsForPublisherRelevancy[] = "min_visits";
 const char kMonthlyBalancesKey[] = "monthly_balances";

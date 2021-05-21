@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -17,7 +17,7 @@
 #include "net/http/http_status_code.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=PostCredsTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=PostCredsTest.*
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -47,7 +47,7 @@ class PostCredsTest : public testing::Test {
       "payment_id":"fa5dea51-6af4-44ca-801b-07b6df3dcfe4",
       "recovery_seed":"AN6DLuI2iZzzDxpzywf+IKmK1nzFRarNswbaIDI3pQg="
     })";
-    ON_CALL(*mock_ledger_client_, GetEncryptedStringState(state::kWalletBrave))
+    ON_CALL(*mock_ledger_client_, GetEncryptedStringState(state::kWalletadrbrowsiel))
       .WillByDefault(testing::Return(wallet));
   }
 };

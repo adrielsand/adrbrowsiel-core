@@ -6,7 +6,7 @@ index a50d5b83afa2d0ab433f85fbce6f2496f6e1dd78..4fa7cf99ec8f6ed8b9bdb3a402471751
      // Block any navigation requests in locked fullscreen mode.
      return;
    }
-+  BRAVE_ADJUST_NAVIGATE_PARAMS_FOR_URL
++  adrbrowsiel_ADJUST_NAVIGATE_PARAMS_FOR_URL
  
    // Open System Apps in their standalone window if necessary.
    // TODO(crbug.com/1096345): Remove this code after we integrate with intent
@@ -14,7 +14,7 @@ index a50d5b83afa2d0ab433f85fbce6f2496f6e1dd78..4fa7cf99ec8f6ed8b9bdb3a402471751
  bool IsHostAllowedInIncognito(const GURL& url) {
    std::string scheme = url.scheme();
    base::StringPiece host = url.host_piece();
-+  if (!IsHostAllowedInIncognitoBraveImpl(host)) return false;
++  if (!IsHostAllowedInIncognitoadrbrowsielImpl(host)) return false;
    if (scheme == chrome::kChromeSearchScheme) {
      return host != chrome::kChromeUIThumbnailHost &&
             host != chrome::kChromeUIThumbnailHost2 &&

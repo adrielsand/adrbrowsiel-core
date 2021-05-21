@@ -1,4 +1,4 @@
-import("//brave/build/features.gni")
+import("//adrbrowsiel/build/features.gni")
 import("//build/util/branding.gni")
 
 declare_args() {
@@ -7,7 +7,7 @@ declare_args() {
   # "dev" for dev channel release.
   # "nightly" for nightly channel release.
   # "" for stable channel release.
-  brave_channel = ""
+  adrbrowsiel_channel = ""
   is_release_channel = true
   base_sparkle_update_url = ""
   enable_sparkle = is_official_build && is_mac
@@ -16,23 +16,23 @@ declare_args() {
   sparkle_eddsa_private_key = ""
   sparkle_eddsa_public_key = ""
 
-  brave_product_name = ""
-  brave_project_name = ""
-  brave_exe = ""
-  brave_version_major = ""
-  brave_version_minor = ""
-  brave_version_build = ""
-  brave_version_patch = 0
+  adrbrowsiel_product_name = ""
+  adrbrowsiel_project_name = ""
+  adrbrowsiel_exe = ""
+  adrbrowsiel_version_major = ""
+  adrbrowsiel_version_minor = ""
+  adrbrowsiel_version_build = ""
+  adrbrowsiel_version_patch = 0
   chrome_version_string = ""
   chrome_version_major = ""
   build_omaha = false
   tag_ap = ""
   target_android_base = ""
   target_android_output_format = ""
-  brave_android_keystore_path = "."
-  brave_android_keystore_name = ""
-  brave_android_keystore_password = ""
-  brave_android_key_password = ""
+  adrbrowsiel_android_keystore_path = "."
+  adrbrowsiel_android_keystore_name = ""
+  adrbrowsiel_android_keystore_password = ""
+  adrbrowsiel_android_key_password = ""
 
   skip_signing = false
 
@@ -41,32 +41,32 @@ declare_args() {
   last_chrome_installer = ""
 }
 
-brave_version = "$brave_version_major.$brave_version_minor.$brave_version_build"
+adrbrowsiel_version = "$adrbrowsiel_version_major.$adrbrowsiel_version_minor.$adrbrowsiel_version_build"
 
-if (brave_exe == "") {
-  brave_exe = brave_project_name
+if (adrbrowsiel_exe == "") {
+  adrbrowsiel_exe = adrbrowsiel_project_name
 }
 
-brave_dist_dir = "$root_out_dir/dist"
+adrbrowsiel_dist_dir = "$root_out_dir/dist"
 if (is_win) {
-  brave_exe = "$brave_exe.exe"
-  brave_underline_full_version =
-      "_$chrome_version_major" + "_$brave_version_major" +
-      "_$brave_version_minor" + "_$brave_version_build"
+  adrbrowsiel_exe = "$adrbrowsiel_exe.exe"
+  adrbrowsiel_underline_full_version =
+      "_$chrome_version_major" + "_$adrbrowsiel_version_major" +
+      "_$adrbrowsiel_version_minor" + "_$adrbrowsiel_version_build"
   _channel = ""
-  brave_app_guid = "{AFE6A462-C574-4B8A-AF43-4CC60DF4563B}"
+  adrbrowsiel_app_guid = "{AFE6A462-C574-4B8A-AF43-4CC60DF4563B}"
   if (is_official_build) {
-    if (brave_channel == "beta") {
+    if (adrbrowsiel_channel == "beta") {
       _channel = "Beta"
-      brave_app_guid = "{103BD053-949B-43A8-9120-2E424887DE11}"
-    } else if (brave_channel == "dev") {
+      adrbrowsiel_app_guid = "{103BD053-949B-43A8-9120-2E424887DE11}"
+    } else if (adrbrowsiel_channel == "dev") {
       _channel = "Dev"
-      brave_app_guid = "{CB2150F2-595F-4633-891A-E39720CE0531}"
-    } else if (brave_channel == "nightly") {
+      adrbrowsiel_app_guid = "{CB2150F2-595F-4633-891A-E39720CE0531}"
+    } else if (adrbrowsiel_channel == "nightly") {
       _channel = "Nightly"
-      brave_app_guid = "{C6CB981E-DB30-4876-8639-109F8933582C}"
+      adrbrowsiel_app_guid = "{C6CB981E-DB30-4876-8639-109F8933582C}"
     } else {
-      assert(brave_channel == "", "Unknown channel name")
+      assert(adrbrowsiel_channel == "", "Unknown channel name")
     }
   } else {
     _channel = "Development"
@@ -75,79 +75,79 @@ if (is_win) {
   if (target_cpu == "x86") {
     _arch = "32"
   }
-  brave_installer_exe = "brave_installer$brave_underline_full_version.exe"
-  brave_stub_installer_exe =
-      "BraveBrowser$_channel" + "Setup$_arch$brave_underline_full_version.exe"
-  brave_untagged_stub_installer_exe =
-      "BraveBrowserUntagged$_channel" +
-      "Setup$_arch$brave_underline_full_version.exe"
-  brave_standalone_installer_exe =
-      "BraveBrowserStandalone$_channel" +
-      "Setup$_arch$brave_underline_full_version.exe"
-  brave_silent_installer_exe = "BraveBrowserStandaloneSilent$_channel" +
-                               "Setup$_arch$brave_underline_full_version.exe"
-  brave_untagged_installer_exe = "BraveBrowserStandaloneUntagged$_channel" +
-                                 "Setup$_arch$brave_underline_full_version.exe"
+  adrbrowsiel_installer_exe = "adrbrowsiel_installer$adrbrowsiel_underline_full_version.exe"
+  adrbrowsiel_stub_installer_exe =
+      "adrbrowsielBrowser$_channel" + "Setup$_arch$adrbrowsiel_underline_full_version.exe"
+  adrbrowsiel_untagged_stub_installer_exe =
+      "adrbrowsielBrowserUntagged$_channel" +
+      "Setup$_arch$adrbrowsiel_underline_full_version.exe"
+  adrbrowsiel_standalone_installer_exe =
+      "adrbrowsielBrowserStandalone$_channel" +
+      "Setup$_arch$adrbrowsiel_underline_full_version.exe"
+  adrbrowsiel_silent_installer_exe = "adrbrowsielBrowserStandaloneSilent$_channel" +
+                               "Setup$_arch$adrbrowsiel_underline_full_version.exe"
+  adrbrowsiel_untagged_installer_exe = "adrbrowsielBrowserStandaloneUntagged$_channel" +
+                                 "Setup$_arch$adrbrowsiel_underline_full_version.exe"
 } else if (is_mac) {
-  brave_exe = "$chrome_product_full_name.app"
-  brave_dmg = "$chrome_product_full_name.dmg"
-  brave_pkg = "$chrome_product_full_name.pkg"
-  brave_delta = "$chrome_product_full_name.delta"
+  adrbrowsiel_exe = "$chrome_product_full_name.app"
+  adrbrowsiel_dmg = "$chrome_product_full_name.dmg"
+  adrbrowsiel_pkg = "$chrome_product_full_name.pkg"
+  adrbrowsiel_delta = "$chrome_product_full_name.delta"
 
-  brave_product_dir_name_suffix = ""
+  adrbrowsiel_product_dir_name_suffix = ""
   if (is_official_build) {
-    if (brave_channel == "beta") {
-      brave_product_dir_name_suffix = "-Beta"
-    } else if (brave_channel == "dev") {
-      brave_product_dir_name_suffix = "-Dev"
-    } else if (brave_channel == "nightly") {
-      brave_product_dir_name_suffix = "-Nightly"
+    if (adrbrowsiel_channel == "beta") {
+      adrbrowsiel_product_dir_name_suffix = "-Beta"
+    } else if (adrbrowsiel_channel == "dev") {
+      adrbrowsiel_product_dir_name_suffix = "-Dev"
+    } else if (adrbrowsiel_channel == "nightly") {
+      adrbrowsiel_product_dir_name_suffix = "-Nightly"
     } else {
-      assert(brave_channel == "", "Unknown channel name")
+      assert(adrbrowsiel_channel == "", "Unknown channel name")
     }
   } else {
-    brave_product_dir_name_suffix = "-Development"
+    adrbrowsiel_product_dir_name_suffix = "-Development"
   }
-  brave_product_dir_name =
-      "BraveSoftware/Brave-Browser$brave_product_dir_name_suffix"
+  adrbrowsiel_product_dir_name =
+      "adrbrowsielSoftware/adrbrowsiel-Browser$adrbrowsiel_product_dir_name_suffix"
 
   if (base_sparkle_update_url == "") {
     base_sparkle_update_url =
-        "https://updates.bravesoftware.com/sparkle/Brave-Browser"
+        "https://updates.adrbrowsielsoftware.com/sparkle/adrbrowsiel-Browser"
   }
-  _update_channel = brave_channel
+  _update_channel = adrbrowsiel_channel
   if (_update_channel == "") {
     _update_channel = "stable"
   }
   if (target_cpu == "arm64") {
     _update_channel += "-arm64"
   }
-  brave_feed_url = "$base_sparkle_update_url/$_update_channel/appcast.xml"
+  adrbrowsiel_feed_url = "$base_sparkle_update_url/$_update_channel/appcast.xml"
 }
 
-brave_platform = "darwin"
+adrbrowsiel_platform = "darwin"
 if (is_win) {
-  brave_platform = "win32"
+  adrbrowsiel_platform = "win32"
 } else if (is_linux) {
-  brave_platform = "linux"
+  adrbrowsiel_platform = "linux"
 }
 
-is_release_channel = brave_channel == ""
+is_release_channel = adrbrowsiel_channel == ""
 
-brave_android_output = ""
+adrbrowsiel_android_output = ""
 if (is_android) {
-  brave_android_output += "$root_out_dir/apks/Brave"
+  adrbrowsiel_android_output += "$root_out_dir/apks/adrbrowsiel"
   if (target_android_base == "modern") {
     assert(target_cpu != "arm64" && target_cpu != "x64")
-    brave_android_output += "Modern"
+    adrbrowsiel_android_output += "Modern"
   } else if (target_cpu == "arm64" || target_cpu == "x64" ||
              target_android_base == "mono") {
-    brave_android_output += "Mono"
+    adrbrowsiel_android_output += "Mono"
   }
 
   if (target_android_output_format == "aab") {
-    brave_android_output += "$target_cpu.aab"
+    adrbrowsiel_android_output += "$target_cpu.aab"
   } else {
-    brave_android_output += "$target_cpu.apk"
+    adrbrowsiel_android_output += "$target_cpu.apk"
   }
 }

@@ -1,4 +1,4 @@
-/** Copyright (c) 2020 The Brave Authors. All rights reserved.
+/** Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
   * This Source Code Form is subject to the terms of the Mozilla Public
   * License, v. 2.0. If a copy of the MPL was not distributed with this file,
   * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -18,12 +18,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveRewardsBalance;
-import org.chromium.chrome.browser.BraveRewardsExternalWallet;
-import org.chromium.chrome.browser.BraveRewardsNativeWorker;
-import org.chromium.chrome.browser.app.BraveActivity;
+import org.chromium.chrome.browser.adrbrowsielRewardsBalance;
+import org.chromium.chrome.browser.adrbrowsielRewardsExternalWallet;
+import org.chromium.chrome.browser.adrbrowsielRewardsNativeWorker;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
 
-public class BraveRewardsUserWalletActivity extends AppCompatActivity {
+public class adrbrowsielRewardsUserWalletActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class BraveRewardsUserWalletActivity extends AppCompatActivity {
     private void SetUIControls() {
         Intent intent = getIntent();
         final int status = intent.getIntExtra(
-                BraveRewardsExternalWallet.STATUS, -1);
+                adrbrowsielRewardsExternalWallet.STATUS, -1);
         TextView txtUserId = (TextView)findViewById(R.id.user_id);
         TextView txtUserStatus = (TextView)findViewById(R.id.user_status);
         Button btn1 = (Button)findViewById(R.id.user_wallet_btn1);
@@ -51,11 +51,11 @@ public class BraveRewardsUserWalletActivity extends AppCompatActivity {
         Button btnGotoUphold = (Button)findViewById(
                 R.id.user_wallet_go_to_uphold);
 
-        if (status < BraveRewardsExternalWallet.NOT_CONNECTED ||
-                status > BraveRewardsExternalWallet.PENDING) {
+        if (status < adrbrowsielRewardsExternalWallet.NOT_CONNECTED ||
+                status > adrbrowsielRewardsExternalWallet.PENDING) {
             finish();
         }
-        else if (status == BraveRewardsExternalWallet.VERIFIED){
+        else if (status == adrbrowsielRewardsExternalWallet.VERIFIED){
           //set 2nd button visible
           findViewById(R.id.user_wallet_btn2_separator).setVisibility(
                   View.VISIBLE);
@@ -68,16 +68,16 @@ public class BraveRewardsUserWalletActivity extends AppCompatActivity {
           //Go to uphold
           //Disconnect
           btn1.setText(getResources().getString(
-                  R.string.brave_rewards_local_panel_add_funds));
+                  R.string.adrbrowsiel_rewards_local_panel_add_funds));
           btn2.setText(getResources().getString(
                   R.string.user_wallet_withdraw_funds));
           txtUserStatus.setText(
-                  BraveRewardsExternalWallet.WalletStatusToString(status));
+                  adrbrowsielRewardsExternalWallet.WalletStatusToString(status));
 
           SetBtnOpenUrlClickHandler(btn1,
-                  intent.getStringExtra(BraveRewardsExternalWallet.ADD_URL));
+                  intent.getStringExtra(adrbrowsielRewardsExternalWallet.ADD_URL));
           SetBtnOpenUrlClickHandler(btn2,
-                  intent.getStringExtra(BraveRewardsExternalWallet.WITHDRAW_URL));
+                  intent.getStringExtra(adrbrowsielRewardsExternalWallet.WITHDRAW_URL));
         }
         else {
           //CONNECTED or PENDING
@@ -88,13 +88,13 @@ public class BraveRewardsUserWalletActivity extends AppCompatActivity {
           btn1.setText(getResources().getString(
                   R.string.user_wallet_complete_verification));
           SetBtnOpenUrlClickHandler(btn1,
-                  intent.getStringExtra(BraveRewardsExternalWallet.VERIFY_URL));
+                  intent.getStringExtra(adrbrowsielRewardsExternalWallet.VERIFY_URL));
         }
 
         SetBtnOpenUrlClickHandler(btnGotoUphold,
-                  intent.getStringExtra(BraveRewardsExternalWallet.ACCOUNT_URL));
+                  intent.getStringExtra(adrbrowsielRewardsExternalWallet.ACCOUNT_URL));
 
-        String userId = intent.getStringExtra(BraveRewardsExternalWallet.USER_NAME);
+        String userId = intent.getStringExtra(adrbrowsielRewardsExternalWallet.USER_NAME);
         txtUserId.setText(userId);
         SetDisconnectBtnClickHandler();
     }
@@ -102,7 +102,7 @@ public class BraveRewardsUserWalletActivity extends AppCompatActivity {
     private void SetBtnOpenUrlClickHandler(Button btn, String url) {
       btn.setOnClickListener( (View v) -> {
               Intent intent = new Intent();
-              intent.putExtra(BraveActivity.OPEN_URL, url);
+              intent.putExtra(adrbrowsielActivity.OPEN_URL, url);
               setResult(RESULT_OK, intent);
               finish();
       });
@@ -112,7 +112,7 @@ public class BraveRewardsUserWalletActivity extends AppCompatActivity {
         Button btnDisconnect = (Button)findViewById(
                 R.id.user_wallet_disconnect);
         btnDisconnect.setOnClickListener((View v) -> {
-            BraveRewardsNativeWorker.getInstance().DisconnectWallet();
+            adrbrowsielRewardsNativeWorker.getInstance().DisconnectWallet();
             Intent intent = new Intent();
             setResult(RESULT_OK, intent);
             finish();

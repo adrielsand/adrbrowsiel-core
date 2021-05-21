@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/settings/brave_import_data_handler.h"
+#include "adrbrowsiel/browser/ui/webui/settings/adrbrowsiel_import_data_handler.h"
 
 #import <AppKit/AppKit.h>
 
@@ -14,7 +14,7 @@
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
 #include "base/values.h"
-#include "brave/common/url_constants.h"
+#include "adrbrowsiel/common/url_constants.h"
 #include "chrome/browser/importer/external_process_importer_host.h"
 #include "chrome/browser/ui/browser_finder.h"
 #include "chrome/browser/ui/browser_tabstrip.h"
@@ -127,10 +127,10 @@ bool HasProperDiskAccessPermission(uint16_t imported_items) {
 
 namespace settings {
 
-BraveImportDataHandler::BraveImportDataHandler() : weak_factory_(this) {}
-BraveImportDataHandler::~BraveImportDataHandler() = default;
+adrbrowsielImportDataHandler::adrbrowsielImportDataHandler() : weak_factory_(this) {}
+adrbrowsielImportDataHandler::~adrbrowsielImportDataHandler() = default;
 
-void BraveImportDataHandler::StartImport(
+void adrbrowsielImportDataHandler::StartImport(
     const importer::SourceProfile& source_profile,
     uint16_t imported_items) {
   DCHECK_CURRENTLY_ON(BrowserThread::UI);
@@ -141,12 +141,12 @@ void BraveImportDataHandler::StartImport(
     return;
 
   if (source_profile.importer_type == importer::TYPE_SAFARI) {
-    // Start import if Brave has full disk access permission.
+    // Start import if adrbrowsiel has full disk access permission.
     // If not, show dialog that has infos about that permission.
     base::ThreadPool::PostTaskAndReplyWithResult(
         FROM_HERE, {base::MayBlock()},
         base::BindOnce(&HasProperDiskAccessPermission, imported_items),
-        base::BindOnce(&BraveImportDataHandler::OnGetDiskAccessPermission,
+        base::BindOnce(&adrbrowsielImportDataHandler::OnGetDiskAccessPermission,
                        weak_factory_.GetWeakPtr(), source_profile,
                        imported_items));
     return;
@@ -155,7 +155,7 @@ void BraveImportDataHandler::StartImport(
   ImportDataHandler::StartImport(source_profile, imported_items);
 }
 
-void BraveImportDataHandler::OnGetDiskAccessPermission(
+void adrbrowsielImportDataHandler::OnGetDiskAccessPermission(
     const importer::SourceProfile& source_profile,
     uint16_t imported_items,
     bool allowed) {
@@ -176,7 +176,7 @@ void BraveImportDataHandler::OnGetDiskAccessPermission(
   return ImportDataHandler::StartImport(source_profile, imported_items);
 }
 
-void BraveImportDataHandler::DidStopLoading() {
+void adrbrowsielImportDataHandler::DidStopLoading() {
   Observe(nullptr);
 
   if (!guide_dialog_is_requested_)

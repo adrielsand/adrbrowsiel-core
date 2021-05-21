@@ -2,8 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_CONTENT_SETTINGS_BRAVE_AUTOPLAY_CONTENT_SETTING_BUBBLE_MODEL_H_
-#define BRAVE_BROWSER_UI_CONTENT_SETTINGS_BRAVE_AUTOPLAY_CONTENT_SETTING_BUBBLE_MODEL_H_
+#ifndef adrbrowsiel_BROWSER_UI_CONTENT_SETTINGS_adrbrowsiel_AUTOPLAY_CONTENT_SETTING_BUBBLE_MODEL_H_
+#define adrbrowsiel_BROWSER_UI_CONTENT_SETTINGS_adrbrowsiel_AUTOPLAY_CONTENT_SETTING_BUBBLE_MODEL_H_
 
 #include "chrome/browser/ui/content_settings/content_setting_bubble_model.h"
 
@@ -11,11 +11,11 @@ class Profile;
 
 using content::WebContents;
 
-class BraveAutoplayContentSettingBubbleModel : public ContentSettingSimpleBubbleModel {
+class adrbrowsielAutoplayContentSettingBubbleModel : public ContentSettingSimpleBubbleModel {
  public:
-   BraveAutoplayContentSettingBubbleModel(Delegate* delegate,
+   adrbrowsielAutoplayContentSettingBubbleModel(Delegate* delegate,
                                           WebContents* web_contents);
-   ~BraveAutoplayContentSettingBubbleModel() override;
+   ~adrbrowsielAutoplayContentSettingBubbleModel() override;
 
   // ContentSettingSimpleBubbleModel:
   void CommitChanges() override;
@@ -30,7 +30,7 @@ class BraveAutoplayContentSettingBubbleModel : public ContentSettingSimpleBubble
 
   ContentSetting block_setting_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveAutoplayContentSettingBubbleModel);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielAutoplayContentSettingBubbleModel);
 };
 
-#endif // BRAVE_BROWSER_UI_CONTENT_SETTINGS_BRAVE_AUTOPLAY_CONTENT_SETTING_BUBBLE_MODEL_H_
+#endif // adrbrowsiel_BROWSER_UI_CONTENT_SETTINGS_adrbrowsiel_AUTOPLAY_CONTENT_SETTING_BUBBLE_MODEL_H_

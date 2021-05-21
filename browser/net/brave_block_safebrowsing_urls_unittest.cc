@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_block_safebrowsing_urls.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_block_safebrowsing_urls.h"
 
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "brave/browser/net/url_context.h"
+#include "adrbrowsiel/browser/net/url_context.h"
 #include "net/base/net_errors.h"
 #include "testing/gtest/include/gtest/gtest.h"
 #include "url/gurl.h"
@@ -23,15 +23,15 @@ void CheckUrl(const std::string& test_url,
               const char* expected_url,
               int expected_error) {
   GURL new_url;
-  int rc = brave::OnBeforeURLRequest_BlockSafeBrowsingReportingURLs(
+  int rc = adrbrowsiel::OnBeforeURLRequest_BlockSafeBrowsingReportingURLs(
       GURL(test_url), &new_url);
   EXPECT_EQ(new_url, GURL(expected_url));
   EXPECT_EQ(rc, expected_error);
 }
 
-TEST(BraveBlockReportingUrlsHelperTest, PreserveNormalUrls) {
+TEST(adrbrowsielBlockReportingUrlsHelperTest, PreserveNormalUrls) {
   const std::vector<const std::string> normalUrls({
-      "https://brave.com/",
+      "https://adrbrowsiel.com/",
       "https://safebrowsing.google.com/safebrowsing",
       "https://safebrowsing.google.com/safebrowsing/clientreport/crx-list-info",
       "https://safebrowsing.googleapis.com/v4",
@@ -43,7 +43,7 @@ TEST(BraveBlockReportingUrlsHelperTest, PreserveNormalUrls) {
   }
 }
 
-TEST(BraveBlockReportingUrlsHelperTest, CancelReportingUrl) {
+TEST(adrbrowsielBlockReportingUrlsHelperTest, CancelReportingUrl) {
   const std::vector<const std::string> reportingUrls({
       "https://sb-ssl.google.com/safebrowsing/clientreport/chrome-cct",
       "https://sb-ssl.google.com/safebrowsing/clientreport/chrome-reset",

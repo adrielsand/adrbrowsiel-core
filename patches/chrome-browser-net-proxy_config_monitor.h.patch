@@ -7,7 +7,7 @@ index abffb6dbdbf730e2cc4423eaca6a9a8a9f8af582..ea140ad7bc2ac17c104d9884183cc586
    // configuration changes have been applied.
    void FlushForTesting();
 -
-+  BRAVE_PROXY_CONFIG_MONITOR_H
++  adrbrowsiel_PROXY_CONFIG_MONITOR_H
   private:
    // net::ProxyConfigService::Observer implementation:
    void OnProxyConfigChanged(

@@ -1,26 +1,26 @@
-import("//brave/components/brave_ads/browser/buildflags/buildflags.gni")
-import("//brave/components/brave_rewards/browser/buildflags/buildflags.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
-import("//brave/components/tor/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_ads/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/tor/buildflags/buildflags.gni")
 
-brave_utility_importer_sources = []
-brave_utility_importer_deps = []
-brave_utility_importer_public_deps = []
+adrbrowsiel_utility_importer_sources = []
+adrbrowsiel_utility_importer_deps = []
+adrbrowsiel_utility_importer_public_deps = []
 
 if (!is_android) {
-  brave_utility_importer_sources += [
-    "//brave/utility/importer/brave_external_process_importer_bridge.cc",
-    "//brave/utility/importer/brave_external_process_importer_bridge.h",
-    "//brave/utility/importer/brave_profile_import_impl.cc",
-    "//brave/utility/importer/brave_profile_import_impl.h",
-    "//brave/utility/importer/chrome_importer.cc",
-    "//brave/utility/importer/chrome_importer.h",
+  adrbrowsiel_utility_importer_sources += [
+    "//adrbrowsiel/utility/importer/adrbrowsiel_external_process_importer_bridge.cc",
+    "//adrbrowsiel/utility/importer/adrbrowsiel_external_process_importer_bridge.h",
+    "//adrbrowsiel/utility/importer/adrbrowsiel_profile_import_impl.cc",
+    "//adrbrowsiel/utility/importer/adrbrowsiel_profile_import_impl.h",
+    "//adrbrowsiel/utility/importer/chrome_importer.cc",
+    "//adrbrowsiel/utility/importer/chrome_importer.h",
   ]
 
-  brave_utility_importer_deps += [
+  adrbrowsiel_utility_importer_deps += [
     "//base",
-    "//brave/common/importer:importer",
-    "//brave/common/importer:interfaces",
+    "//adrbrowsiel/common/importer:importer",
+    "//adrbrowsiel/common/importer:interfaces",
     "//chrome/app:chromium_strings",
     "//components/os_crypt",
     "//components/password_manager/core/browser",
@@ -29,19 +29,19 @@ if (!is_android) {
 }
 
 if (enable_tor) {
-  brave_utility_importer_deps += [ "//brave/components/services/tor" ]
+  adrbrowsiel_utility_importer_deps += [ "//adrbrowsiel/components/services/tor" ]
 }
 
 if (ipfs_enabled) {
-  brave_utility_importer_deps += [ "//brave/components/services/ipfs" ]
+  adrbrowsiel_utility_importer_deps += [ "//adrbrowsiel/components/services/ipfs" ]
 }
 
-if (brave_ads_enabled) {
-  brave_utility_importer_public_deps +=
-      [ "//brave/components/services/bat_ads:lib" ]
+if (adrbrowsiel_ads_enabled) {
+  adrbrowsiel_utility_importer_public_deps +=
+      [ "//adrbrowsiel/components/services/bat_ads:lib" ]
 }
 
-if (brave_rewards_enabled) {
-  brave_utility_importer_public_deps +=
-      [ "//brave/components/services/bat_ledger:lib" ]
+if (adrbrowsiel_rewards_enabled) {
+  adrbrowsiel_utility_importer_public_deps +=
+      [ "//adrbrowsiel/components/services/bat_ledger:lib" ]
 }

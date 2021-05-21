@@ -6,13 +6,13 @@ index 19905a0a9f24afdfe4bd6f78d03be2a633d18cba..c5a7414edd9fce805d5d3acd32b1fa17
  
  void PermissionDialogDelegate::Accept(JNIEnv* env,
                                        const JavaParamRef<jobject>& obj) {
-+  BRAVE_PERMISSION_DIALOG_DELEGATE_ACCEPT
++  adrbrowsiel_PERMISSION_DIALOG_DELEGATE_ACCEPT
    permission_prompt_->Accept();
  }
  
  void PermissionDialogDelegate::Cancel(JNIEnv* env,
                                        const JavaParamRef<jobject>& obj) {
-+  BRAVE_PERMISSION_DIALOG_DELEGATE_CANCEL
++  adrbrowsiel_PERMISSION_DIALOG_DELEGATE_CANCEL
    permission_prompt_->Deny();
  }
  

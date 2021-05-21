@@ -1,17 +1,17 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_shields/ad_block_pref_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/ad_block_pref_service_factory.h"
 
-#include "brave/browser/brave_browser_process.h"
-#include "brave/components/brave_shields/browser/ad_block_pref_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_pref_service.h"
 #include "chrome/browser/profiles/incognito_helpers.h"
 #include "chrome/browser/profiles/profile.h"
 #include "components/keyed_service/content/browser_context_dependency_manager.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 // static
 AdBlockPrefService* AdBlockPrefServiceFactory::GetForBrowserContext(
@@ -36,7 +36,7 @@ AdBlockPrefServiceFactory::~AdBlockPrefServiceFactory() {}
 KeyedService* AdBlockPrefServiceFactory::BuildServiceInstanceFor(
     content::BrowserContext* context) const {
   return new AdBlockPrefService(
-      g_brave_browser_process->ad_block_service(),
+      g_adrbrowsiel_browser_process->ad_block_service(),
       Profile::FromBrowserContext(context)->GetPrefs());
 }
 
@@ -49,4 +49,4 @@ bool AdBlockPrefServiceFactory::ServiceIsCreatedWithBrowserContext() const {
   return true;
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

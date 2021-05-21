@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_BAT_HELPER_H_
-#define BRAVELEDGER_BAT_HELPER_H_
+#ifndef adrbrowsielLEDGER_BAT_HELPER_H_
+#define adrbrowsielLEDGER_BAT_HELPER_H_
 
 #include <string>
 #include <vector>
@@ -15,7 +15,7 @@
 #include "bat/ledger/internal/constants.h"
 #include "bat/ledger/ledger.h"
 
-namespace braveledger_bat_helper {
+namespace adrbrowsielledger_bat_helper {
 
 bool getJSONValue(const std::string& fieldName,
                   const std::string& json,
@@ -39,6 +39,6 @@ bool HasSameDomainAndPath(
     const std::string& to_match,
     const std::string& path);
 
-}  // namespace braveledger_bat_helper
+}  // namespace adrbrowsielledger_bat_helper
 
-#endif  // BRAVELEDGER_BAT_HELPER_H_
+#endif  // adrbrowsielLEDGER_BAT_HELPER_H_

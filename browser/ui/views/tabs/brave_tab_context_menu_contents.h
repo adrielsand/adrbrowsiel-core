@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_TAB_CONTEXT_MENU_CONTENTS_H_
-#define BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_TAB_CONTEXT_MENU_CONTENTS_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_TAB_CONTEXT_MENU_CONTENTS_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_TAB_CONTEXT_MENU_CONTENTS_H_
 
 #include <memory>
 
 #include "ui/base/models/simple_menu_model.h"
 #include "ui/base/ui_base_types.h"
 
-class BraveBrowserTabStripController;
-class BraveTabMenuModel;
+class adrbrowsielBrowserTabStripController;
+class adrbrowsielTabMenuModel;
 class Browser;
 class Tab;
 
@@ -24,12 +24,12 @@ namespace views {
 class MenuRunner;
 }  // namespace views
 
-class BraveTabContextMenuContents : public ui::SimpleMenuModel::Delegate {
+class adrbrowsielTabContextMenuContents : public ui::SimpleMenuModel::Delegate {
  public:
-  BraveTabContextMenuContents(Tab* tab,
-                              BraveBrowserTabStripController* controller,
+  adrbrowsielTabContextMenuContents(Tab* tab,
+                              adrbrowsielBrowserTabStripController* controller,
                               int index);
-  ~BraveTabContextMenuContents() override;
+  ~adrbrowsielTabContextMenuContents() override;
 
   void Cancel();
 
@@ -43,19 +43,19 @@ class BraveTabContextMenuContents : public ui::SimpleMenuModel::Delegate {
   void ExecuteCommand(int command_id, int event_flags) override;
 
  private:
-  bool IsBraveCommandIdEnabled(int command_id) const;
-  void ExecuteBraveCommand(int command_id);
-  bool IsBraveCommandId(int command_id) const;
+  bool IsadrbrowsielCommandIdEnabled(int command_id) const;
+  void ExecuteadrbrowsielCommand(int command_id);
+  bool IsadrbrowsielCommandId(int command_id) const;
 
-  std::unique_ptr<BraveTabMenuModel> model_;
+  std::unique_ptr<adrbrowsielTabMenuModel> model_;
   std::unique_ptr<views::MenuRunner> menu_runner_;
 
   Tab* tab_;
   Browser* browser_;
   sessions::TabRestoreService* restore_service_ = nullptr;
-  BraveBrowserTabStripController* controller_;
+  adrbrowsielBrowserTabStripController* controller_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveTabContextMenuContents);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielTabContextMenuContents);
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_TAB_CONTEXT_MENU_CONTENTS_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_TAB_CONTEXT_MENU_CONTENTS_H_

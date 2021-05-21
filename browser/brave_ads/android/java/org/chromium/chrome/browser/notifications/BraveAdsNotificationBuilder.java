@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 The Brave Authors. All rights reserved.
+ * Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -29,16 +29,16 @@ import androidx.annotation.VisibleForTesting;
 import org.chromium.base.ApiCompatibilityUtils;
 import org.chromium.base.ApplicationStatus;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.notifications.channels.BraveChannelDefinitions;
+import org.chromium.chrome.browser.notifications.channels.adrbrowsielChannelDefinitions;
 import org.chromium.components.browser_ui.notifications.NotificationMetadata;
 import org.chromium.components.browser_ui.notifications.NotificationWrapper;
 import org.chromium.components.browser_ui.notifications.NotificationWrapperBuilder;
 import org.chromium.components.browser_ui.notifications.PendingIntentProvider;
 
 /**
- * Builds a notification according to BraveAds spec.
+ * Builds a notification according to adrbrowsielAds spec.
  */
-public class BraveAdsNotificationBuilder extends NotificationBuilderBase {
+public class adrbrowsielAdsNotificationBuilder extends NotificationBuilderBase {
     /**
      * The maximum width of action icons in dp units.
      */
@@ -82,11 +82,11 @@ public class BraveAdsNotificationBuilder extends NotificationBuilderBase {
      */
     private static final int BUTTON_ICON_COLOR_MATERIAL = 0xff757575;
 
-    private static Bitmap sBraveIcon;
+    private static Bitmap sadrbrowsielIcon;
 
     private final Context mContext;
 
-    public BraveAdsNotificationBuilder(Context context) {
+    public adrbrowsielAdsNotificationBuilder(Context context) {
         super(context.getResources());
         mContext = context;
     }
@@ -99,7 +99,7 @@ public class BraveAdsNotificationBuilder extends NotificationBuilderBase {
      */
     @Override
     public NotificationBuilderBase setChannelId(String channelId) {
-        return super.setChannelId(BraveChannelDefinitions.ChannelId.BRAVE_ADS);
+        return super.setChannelId(adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_ADS);
     }
 
     @Override
@@ -113,20 +113,20 @@ public class BraveAdsNotificationBuilder extends NotificationBuilderBase {
         // {@link RemoteViews#addView} the result could be to append new views below stale ones. In
         // that case {@link RemoteViews#removeAllViews} must be called before adding new ones.
         RemoteViews compactView =
-                new RemoteViews(mContext.getPackageName(), R.layout.web_notification_brave_ads);
+                new RemoteViews(mContext.getPackageName(), R.layout.web_notification_adrbrowsiel_ads);
         RemoteViews bigView =
-                new RemoteViews(mContext.getPackageName(), R.layout.web_notification_big_brave_ads);
+                new RemoteViews(mContext.getPackageName(), R.layout.web_notification_big_adrbrowsiel_ads);
 
         float fontScale = mContext.getResources().getConfiguration().fontScale;
         bigView.setInt(R.id.body, "setMaxLines", calculateMaxBodyLines(fontScale));
         int scaledPadding =
                 calculateScaledPadding(fontScale, mContext.getResources().getDisplayMetrics());
-        setChannelId(BraveChannelDefinitions.ChannelId.BRAVE_ADS);
+        setChannelId(adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_ADS);
 
         for (RemoteViews view : new RemoteViews[] {compactView, bigView}) {
             view.setTextViewText(R.id.title, mTitle);
             view.setTextViewText(R.id.body, mBody);
-            view.setImageViewBitmap(R.id.icon, getBraveIcon());
+            view.setImageViewBitmap(R.id.icon, getadrbrowsielIcon());
             view.setViewPadding(R.id.title, 0, scaledPadding, 0, 0);
             view.setViewPadding(R.id.body_container, 0, scaledPadding, 0, scaledPadding);
             // addWorkProfileBadge(view);
@@ -144,8 +144,8 @@ public class BraveAdsNotificationBuilder extends NotificationBuilderBase {
         // API level of methods you call on the builder.
         // TODO(crbug.com/697104) We should probably use a Compat builder.
         String channelId =  (ApplicationStatus.hasVisibleActivities()) ?
-                BraveChannelDefinitions.ChannelId.BRAVE_ADS :
-                BraveChannelDefinitions.ChannelId.BRAVE_ADS_BACKGROUND;
+                adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_ADS :
+                adrbrowsielChannelDefinitions.ChannelId.adrbrowsiel_ADS_BACKGROUND;
         NotificationWrapperBuilder builder =
                 NotificationWrapperBuilderFactory.createNotificationWrapperBuilder(false /* preferCompat */,
                         channelId, mRemotePackageForBuilderContext, metadata);
@@ -169,7 +169,7 @@ public class BraveAdsNotificationBuilder extends NotificationBuilderBase {
         // Wear devices and custom lock screens.
         builder.setContentTitle(mTitle);
         builder.setContentText(mBody);
-        builder.setLargeIcon(getBraveIcon());
+        builder.setLargeIcon(getadrbrowsielIcon());
         setStatusBarIcon(builder, mSmallIconId, mSmallIconBitmapForStatusBar);
         // TODO: Check to see if this is what we want
         setGroupOnBuilder(builder, mOrigin);
@@ -181,16 +181,16 @@ public class BraveAdsNotificationBuilder extends NotificationBuilderBase {
         return builder.buildWithBigContentView(bigView);
     }
 
-    private Bitmap getBraveIcon() {
-        if (sBraveIcon == null) {
+    private Bitmap getadrbrowsielIcon() {
+        if (sadrbrowsielIcon == null) {
             int largeIconId = R.mipmap.app_icon;
             Resources resources = mContext.getResources();
             DisplayMetrics metrics = resources.getDisplayMetrics();
             int iconSize = dpToPx(metrics, MAX_ACTION_ICON_WIDTH_DP);
-            sBraveIcon = Bitmap.createScaledBitmap(
+            sadrbrowsielIcon = Bitmap.createScaledBitmap(
                     BitmapFactory.decodeResource(resources, largeIconId), iconSize, iconSize, true);
         }
-        return sBraveIcon;
+        return sadrbrowsielIcon;
     }
 
     @Override

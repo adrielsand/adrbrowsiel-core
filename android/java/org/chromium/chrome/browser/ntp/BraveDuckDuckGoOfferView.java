@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -14,17 +14,17 @@ import android.widget.LinearLayout;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.settings.BraveSearchEngineUtils;
+import org.chromium.chrome.browser.settings.adrbrowsielSearchEngineUtils;
 import org.chromium.components.search_engines.TemplateUrl;
 
-public class BraveDuckDuckGoOfferView extends LinearLayout {
+public class adrbrowsielDuckDuckGoOfferView extends LinearLayout {
     public static String DDG_SEARCH_ENGINE_SHORT_NAME = "DuckDuckGo";
-    public static String PREF_DDG_OFFER_SHOWN = "brave_ddg_offer_shown";
+    public static String PREF_DDG_OFFER_SHOWN = "adrbrowsiel_ddg_offer_shown";
 
     private Context mContext;
     private View mDDGOfferLink;
 
-    public BraveDuckDuckGoOfferView(Context context, AttributeSet attrs) {
+    public adrbrowsielDuckDuckGoOfferView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
     }
@@ -45,7 +45,7 @@ public class BraveDuckDuckGoOfferView extends LinearLayout {
     }
 
     private void showDDGOffer(boolean forceShow) {
-        if (BraveSearchEngineUtils.getDSEShortName(true).equals(DDG_SEARCH_ENGINE_SHORT_NAME)) {
+        if (adrbrowsielSearchEngineUtils.getDSEShortName(true).equals(DDG_SEARCH_ENGINE_SHORT_NAME)) {
             mDDGOfferLink.setVisibility(View.GONE);
             return;
         }
@@ -57,17 +57,17 @@ public class BraveDuckDuckGoOfferView extends LinearLayout {
                 .edit()
                 .putBoolean(PREF_DDG_OFFER_SHOWN, true)
                 .apply();
-        new AlertDialog.Builder(mContext, R.style.BraveDialogTheme)
+        new AlertDialog.Builder(mContext, R.style.adrbrowsielDialogTheme)
                 .setView(R.layout.ddg_offer_layout)
                 .setPositiveButton(R.string.ddg_offer_positive,
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                TemplateUrl templateUrl = BraveSearchEngineUtils
+                                TemplateUrl templateUrl = adrbrowsielSearchEngineUtils
                                         .getTemplateUrlByShortName(DDG_SEARCH_ENGINE_SHORT_NAME);
                                 if (templateUrl != null) {
-                                    BraveSearchEngineUtils.setDSEPrefs(templateUrl, true);
-                                    BraveSearchEngineUtils.updateActiveDSE(true);
+                                    adrbrowsielSearchEngineUtils.setDSEPrefs(templateUrl, true);
+                                    adrbrowsielSearchEngineUtils.updateActiveDSE(true);
                                 }
                                 mDDGOfferLink.setVisibility(View.GONE);
                             }

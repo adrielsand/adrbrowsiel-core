@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/tabs/brave_tab_menu_model.h"
+#include "adrbrowsiel/browser/ui/tabs/adrbrowsiel_tab_menu_model.h"
 
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/sessions/tab_restore_service_factory.h"
@@ -13,7 +13,7 @@
 #include "chrome/grit/generated_resources.h"
 #include "components/sessions/core/tab_restore_service.h"
 
-BraveTabMenuModel::BraveTabMenuModel(ui::SimpleMenuModel::Delegate* delegate,
+adrbrowsielTabMenuModel::adrbrowsielTabMenuModel(ui::SimpleMenuModel::Delegate* delegate,
                                      TabStripModel* tab_strip_model,
                                      int index)
     : TabMenuModel(delegate, tab_strip_model, index) {
@@ -27,10 +27,10 @@ BraveTabMenuModel::BraveTabMenuModel(ui::SimpleMenuModel::Delegate* delegate,
   Build();
 }
 
-BraveTabMenuModel::~BraveTabMenuModel() {
+adrbrowsielTabMenuModel::~adrbrowsielTabMenuModel() {
 }
 
-int BraveTabMenuModel::GetRestoreTabCommandStringId() const {
+int adrbrowsielTabMenuModel::GetRestoreTabCommandStringId() const {
   int id = IDS_RESTORE_TAB;
 
   if (!web_contents_)
@@ -50,7 +50,7 @@ int BraveTabMenuModel::GetRestoreTabCommandStringId() const {
   return id;
 }
 
-void BraveTabMenuModel::Build() {
+void adrbrowsielTabMenuModel::Build() {
   AddSeparator(ui::NORMAL_SEPARATOR);
   AddItemWithStringId(CommandRestoreTab, GetRestoreTabCommandStringId());
   AddItemWithStringId(CommandBookmarkAllTabs, IDS_TAB_CXMENU_BOOKMARK_ALL_TABS);

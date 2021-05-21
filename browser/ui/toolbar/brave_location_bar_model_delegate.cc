@@ -1,64 +1,64 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/toolbar/brave_location_bar_model_delegate.h"
+#include "adrbrowsiel/browser/ui/toolbar/adrbrowsiel_location_bar_model_delegate.h"
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/common/url_constants.h"
-#include "brave/common/webui_url_constants.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "extensions/buildflags/buildflags.h"
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
 #endif
 
-BraveLocationBarModelDelegate::BraveLocationBarModelDelegate(Browser* browser)
+adrbrowsielLocationBarModelDelegate::adrbrowsielLocationBarModelDelegate(Browser* browser)
     : BrowserLocationBarModelDelegate(browser) {}
 
-BraveLocationBarModelDelegate::~BraveLocationBarModelDelegate() {}
+adrbrowsielLocationBarModelDelegate::~adrbrowsielLocationBarModelDelegate() {}
 
 // static
-void BraveLocationBarModelDelegate::FormattedStringFromURL(
+void adrbrowsielLocationBarModelDelegate::FormattedStringFromURL(
     const GURL& url,
     std::u16string* new_formatted_url) {
   if (url.SchemeIs("chrome")) {
     base::ReplaceFirstSubstringAfterOffset(new_formatted_url, 0, u"chrome://",
-                                           u"brave://");
+                                           u"adrbrowsiel://");
   }
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
   if (url.SchemeIs(kChromeExtensionScheme) &&
       url.host() == ethereum_remote_client_extension_id) {
     base::ReplaceFirstSubstringAfterOffset(
         new_formatted_url, 0,
-        base::UTF8ToUTF16(ethereum_remote_client_base_url), u"brave://wallet");
+        base::UTF8ToUTF16(ethereum_remote_client_base_url), u"adrbrowsiel://wallet");
     base::ReplaceFirstSubstringAfterOffset(
         new_formatted_url, 0,
         base::UTF8ToUTF16(ethereum_remote_client_phishing_url),
-        u"brave://wallet");
+        u"adrbrowsiel://wallet");
     base::ReplaceFirstSubstringAfterOffset(
         new_formatted_url, 0,
         base::UTF8ToUTF16(ethereum_remote_client_ens_redirect_url),
-        u"brave://wallet");
+        u"adrbrowsiel://wallet");
   }
 #endif
 }
 
 std::u16string
-BraveLocationBarModelDelegate::FormattedStringWithEquivalentMeaning(
+adrbrowsielLocationBarModelDelegate::FormattedStringWithEquivalentMeaning(
     const GURL& url,
     const std::u16string& formatted_url) const {
   std::u16string new_formatted_url =
       BrowserLocationBarModelDelegate::FormattedStringWithEquivalentMeaning(
           url, formatted_url);
-  BraveLocationBarModelDelegate::FormattedStringFromURL(url,
+  adrbrowsielLocationBarModelDelegate::FormattedStringFromURL(url,
                                                         &new_formatted_url);
   return new_formatted_url;
 }

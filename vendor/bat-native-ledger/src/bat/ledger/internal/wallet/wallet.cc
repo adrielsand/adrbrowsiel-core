@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -42,7 +42,7 @@ void Wallet::CreateWalletIfNecessary(ledger::ResultCallback callback) {
   create_->Start(std::move(callback));
 }
 
-std::string Wallet::GetWalletPassphrase(type::BraveWalletPtr wallet) {
+std::string Wallet::GetWalletPassphrase(type::adrbrowsielWalletPtr wallet) {
   if (!wallet) {
     BLOG(0, "Wallet is null");
     return "";
@@ -200,9 +200,9 @@ void Wallet::DisconnectAllWallets(ledger::ResultCallback callback) {
   callback(type::Result::LEDGER_OK);
 }
 
-type::BraveWalletPtr Wallet::GetWallet() {
+type::adrbrowsielWalletPtr Wallet::GetWallet() {
   const std::string wallet_string =
-      ledger_->ledger_client()->GetEncryptedStringState(state::kWalletBrave);
+      ledger_->ledger_client()->GetEncryptedStringState(state::kWalletadrbrowsiel);
 
   if (wallet_string.empty()) {
     return nullptr;
@@ -210,17 +210,17 @@ type::BraveWalletPtr Wallet::GetWallet() {
 
   base::Optional<base::Value> value = base::JSONReader::Read(wallet_string);
   if (!value || !value->is_dict()) {
-    BLOG(0, "Parsing of brave wallet failed");
+    BLOG(0, "Parsing of adrbrowsiel wallet failed");
     return nullptr;
   }
 
   base::DictionaryValue* dictionary = nullptr;
   if (!value->GetAsDictionary(&dictionary)) {
-    BLOG(0, "Parsing of brave wallet failed");
+    BLOG(0, "Parsing of adrbrowsiel wallet failed");
     return nullptr;
   }
 
-  auto wallet = ledger::type::BraveWallet::New();
+  auto wallet = ledger::type::adrbrowsielWallet::New();
 
   auto* payment_id = dictionary->FindStringKey("payment_id");
   if (!payment_id) {
@@ -246,9 +246,9 @@ type::BraveWalletPtr Wallet::GetWallet() {
   return wallet;
 }
 
-bool Wallet::SetWallet(type::BraveWalletPtr wallet) {
+bool Wallet::SetWallet(type::adrbrowsielWalletPtr wallet) {
   if (!wallet) {
-    BLOG(0, "Brave wallet is null");
+    BLOG(0, "adrbrowsiel wallet is null");
     return false;
   }
 
@@ -266,21 +266,21 @@ bool Wallet::SetWallet(type::BraveWalletPtr wallet) {
   std::string json;
   base::JSONWriter::Write(new_wallet, &json);
   const bool success = ledger_->ledger_client()->SetEncryptedStringState(
-      state::kWalletBrave,
+      state::kWalletadrbrowsiel,
       json);
   ledger_->database()->SaveEventLog(state::kRecoverySeed, event_string);
   if (!wallet->payment_id.empty()) {
     ledger_->database()->SaveEventLog(state::kPaymentId, wallet->payment_id);
   }
 
-  BLOG_IF(0, !success, "Can't encrypt brave wallet");
+  BLOG_IF(0, !success, "Can't encrypt adrbrowsiel wallet");
 
   return success;
 }
 
-void Wallet::LinkBraveWallet(const std::string& destination_payment_id,
+void Wallet::LinkadrbrowsielWallet(const std::string& destination_payment_id,
                              ledger::PostSuggestionsClaimCallback callback) {
-  promotion_server_->post_claim_brave()->Request(
+  promotion_server_->post_claim_adrbrowsiel()->Request(
       destination_payment_id, [this, callback](const type::Result result) {
         if (result != type::Result::LEDGER_OK &&
             result != type::Result::ALREADY_EXISTS) {

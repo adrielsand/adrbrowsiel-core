@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/p3a/p3a_core_metrics.h"
+#include "adrbrowsiel/browser/p3a/p3a_core_metrics.h"
 
 #include <utility>
 
@@ -15,11 +15,11 @@
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 namespace {
 
-BraveWindowTracker* g_brave_windows_tracker_instance = nullptr;
+adrbrowsielWindowTracker* g_adrbrowsiel_windows_tracker_instance = nullptr;
 
 constexpr char kLastTimeIncognitoUsed[] =
     "core_p3a_metrics.incognito_used_timestamp";
@@ -49,21 +49,21 @@ const char* GetPrefNameForProfile(Profile* profile) {
   return nullptr;
 }
 
-BraveUptimeTracker* g_brave_uptime_tracker_instance = nullptr;
+adrbrowsielUptimeTracker* g_adrbrowsiel_uptime_tracker_instance = nullptr;
 
 constexpr size_t kUsageTimeQueryIntervalMinutes = 1;
 constexpr char kDailyUptimesListPrefName[] = "daily_uptimes";
 
 }  // namespace
 
-BraveUptimeTracker::BraveUptimeTracker(PrefService* local_state)
+adrbrowsielUptimeTracker::adrbrowsielUptimeTracker(PrefService* local_state)
     : state_(local_state, kDailyUptimesListPrefName) {
   timer_.Start(
       FROM_HERE, base::TimeDelta::FromMinutes(kUsageTimeQueryIntervalMinutes),
-      base::Bind(&BraveUptimeTracker::RecordUsage, base::Unretained(this)));
+      base::Bind(&adrbrowsielUptimeTracker::RecordUsage, base::Unretained(this)));
 }
 
-void BraveUptimeTracker::RecordUsage() {
+void adrbrowsielUptimeTracker::RecordUsage() {
   const base::TimeDelta new_total = usage_clock_.GetTotalUsageTime();
   const base::TimeDelta interval = new_total - current_total_usage_;
   if (interval > base::TimeDelta()) {
@@ -74,7 +74,7 @@ void BraveUptimeTracker::RecordUsage() {
   }
 }
 
-void BraveUptimeTracker::RecordP3A() {
+void adrbrowsielUptimeTracker::RecordP3A() {
   int answer = 0;
   if (state_.IsOneWeekPassed()) {
     uint64_t total = state_.GetWeeklySum();
@@ -88,20 +88,20 @@ void BraveUptimeTracker::RecordP3A() {
       answer = 3;
     }
   }
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Uptime.BrowserOpenMinutes", answer, 3);
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Uptime.BrowserOpenMinutes", answer, 3);
 }
 
-BraveUptimeTracker::~BraveUptimeTracker() = default;
+adrbrowsielUptimeTracker::~adrbrowsielUptimeTracker() = default;
 
-void BraveUptimeTracker::CreateInstance(PrefService* local_state) {
-  g_brave_uptime_tracker_instance = new BraveUptimeTracker(local_state);
+void adrbrowsielUptimeTracker::CreateInstance(PrefService* local_state) {
+  g_adrbrowsiel_uptime_tracker_instance = new adrbrowsielUptimeTracker(local_state);
 }
 
-void BraveUptimeTracker::RegisterPrefs(PrefRegistrySimple* registry) {
+void adrbrowsielUptimeTracker::RegisterPrefs(PrefRegistrySimple* registry) {
   registry->RegisterListPref(kDailyUptimesListPrefName);
 }
 
-BraveWindowTracker::BraveWindowTracker(PrefService* local_state)
+adrbrowsielWindowTracker::adrbrowsielWindowTracker(PrefService* local_state)
     : local_state_(local_state) {
   if (!local_state) {
     // Can happen in tests.
@@ -110,25 +110,25 @@ BraveWindowTracker::BraveWindowTracker(PrefService* local_state)
   BrowserList::AddObserver(this);
   timer_.Start(FROM_HERE,
                base::TimeDelta::FromMinutes(kWindowUsageP3AIntervalMinutes),
-               base::Bind(&BraveWindowTracker::UpdateP3AValues,
+               base::Bind(&adrbrowsielWindowTracker::UpdateP3AValues,
                           base::Unretained(this)));
   UpdateP3AValues();
 }
 
-BraveWindowTracker::~BraveWindowTracker() {
+adrbrowsielWindowTracker::~adrbrowsielWindowTracker() {
   BrowserList::RemoveObserver(this);
 }
 
-void BraveWindowTracker::CreateInstance(PrefService* local_state) {
-  g_brave_windows_tracker_instance = new BraveWindowTracker(local_state);
+void adrbrowsielWindowTracker::CreateInstance(PrefService* local_state) {
+  g_adrbrowsiel_windows_tracker_instance = new adrbrowsielWindowTracker(local_state);
 }
 
-void BraveWindowTracker::RegisterPrefs(PrefRegistrySimple* registry) {
+void adrbrowsielWindowTracker::RegisterPrefs(PrefRegistrySimple* registry) {
   registry->RegisterTimePref(kLastTimeIncognitoUsed, {});
   registry->RegisterBooleanPref(kTorUsed, false);
 }
 
-void BraveWindowTracker::OnBrowserAdded(Browser* browser) {
+void adrbrowsielWindowTracker::OnBrowserAdded(Browser* browser) {
   if (browser->profile()->IsTor()) {
     local_state_->SetBoolean(kTorUsed, true);
     return;
@@ -139,14 +139,14 @@ void BraveWindowTracker::OnBrowserAdded(Browser* browser) {
   }
 }
 
-void BraveWindowTracker::OnBrowserSetLastActive(Browser* browser) {
+void adrbrowsielWindowTracker::OnBrowserSetLastActive(Browser* browser) {
   const char* pref = GetPrefNameForProfile(browser->profile());
   if (pref) {
     local_state_->SetTime(pref, base::Time::Now());
   }
 }
 
-void BraveWindowTracker::UpdateP3AValues() const {
+void adrbrowsielWindowTracker::UpdateP3AValues() const {
   // Deal with the incognito window.
   WindowUsageStats bucket;
   const base::Time time = local_state_->GetTime(kLastTimeIncognitoUsed);
@@ -163,13 +163,13 @@ void BraveWindowTracker::UpdateP3AValues() const {
     bucket = WindowUsageStats::kEverUsed;
   }
 
-  UMA_HISTOGRAM_ENUMERATION("Brave.Core.LastTimeIncognitoUsed", bucket,
+  UMA_HISTOGRAM_ENUMERATION("adrbrowsiel.Core.LastTimeIncognitoUsed", bucket,
                             WindowUsageStats::kSize);
 
   // Record if the TOR window was ever used.
   // 0 -> Yes; 1 -> No.
   const int tor_used = !local_state_->GetBoolean(kTorUsed);
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Core.TorEverUsed", tor_used, 1);
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Core.TorEverUsed", tor_used, 1);
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

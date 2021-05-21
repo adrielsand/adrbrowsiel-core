@@ -6,7 +6,7 @@ index 1d02e801f97bf2e51bb66a235420479262ccd750..1027f33ff22f43915f19ef7db3485de2
    void OverrideDomainReliabilityClearerForTesting(
        DomainReliabilityClearer clearer);
  
-+  BRAVE_CHROME_BROWSING_DATA_REMOVER_DELEGATE_H
++  adrbrowsiel_CHROME_BROWSING_DATA_REMOVER_DELEGATE_H
   private:
    using WebRtcEventLogManager = webrtc_event_logging::WebRtcEventLogManager;
  

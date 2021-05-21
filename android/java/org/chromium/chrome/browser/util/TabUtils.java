@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -17,7 +17,7 @@ import android.widget.PopupMenu;
 
 import org.chromium.base.ApplicationStatus;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.app.BraveActivity;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
 import org.chromium.chrome.browser.app.ChromeActivity;
 import org.chromium.chrome.browser.night_mode.GlobalNightModeStateProviderHolder;
 import org.chromium.chrome.browser.tab.TabLaunchType;
@@ -25,7 +25,7 @@ import org.chromium.content_public.browser.LoadUrlParams;
 
 public class TabUtils {
     public static void showTabPopupMenu(Context context, View view) {
-        BraveActivity braveActivity = BraveActivity.getBraveActivity();
+        adrbrowsielActivity adrbrowsielActivity = adrbrowsielActivity.getadrbrowsielActivity();
         Context wrapper = new ContextThemeWrapper(context,
                 GlobalNightModeStateProviderHolder.getInstance().isInNightMode()
                         ? R.style.NewTabPopupMenuDark
@@ -35,7 +35,7 @@ public class TabUtils {
         // Inflating the Popup using xml file
         popup.getMenuInflater().inflate(R.menu.new_tab_menu, popup.getMenu());
 
-        if (braveActivity != null && braveActivity.getCurrentTabModel().isIncognito()) {
+        if (adrbrowsielActivity != null && adrbrowsielActivity.getCurrentTabModel().isIncognito()) {
             popup.getMenu().findItem(R.id.new_tab_menu_id).setVisible(false);
         }
         // registering popup with OnMenuItemClickListener
@@ -44,9 +44,9 @@ public class TabUtils {
             public boolean onMenuItemClick(MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.new_tab_menu_id) {
-                    openNewTab(braveActivity, false);
+                    openNewTab(adrbrowsielActivity, false);
                 } else if (id == R.id.new_incognito_tab_menu_id) {
-                    openNewTab(braveActivity, true);
+                    openNewTab(adrbrowsielActivity, true);
                 }
                 return true;
             }
@@ -55,43 +55,43 @@ public class TabUtils {
     }
 
     public static void openNewTab() {
-        BraveActivity braveActivity = BraveActivity.getBraveActivity();
+        adrbrowsielActivity adrbrowsielActivity = adrbrowsielActivity.getadrbrowsielActivity();
         boolean isIncognito =
-                braveActivity != null ? braveActivity.getCurrentTabModel().isIncognito() : false;
-        openNewTab(braveActivity, isIncognito);
+                adrbrowsielActivity != null ? adrbrowsielActivity.getCurrentTabModel().isIncognito() : false;
+        openNewTab(adrbrowsielActivity, isIncognito);
     }
 
-    private static void openNewTab(BraveActivity braveActivity, boolean isIncognito) {
-        if (braveActivity == null) return;
-        braveActivity.getTabModelSelector().getModel(isIncognito).commitAllTabClosures();
-        braveActivity.getTabCreator(isIncognito).launchNTP();
+    private static void openNewTab(adrbrowsielActivity adrbrowsielActivity, boolean isIncognito) {
+        if (adrbrowsielActivity == null) return;
+        adrbrowsielActivity.getTabModelSelector().getModel(isIncognito).commitAllTabClosures();
+        adrbrowsielActivity.getTabCreator(isIncognito).launchNTP();
     }
 
     public static void openUrlInNewTab(boolean isIncognito, String url) {
-        BraveActivity braveActivity = BraveActivity.getBraveActivity();
-        if (braveActivity != null) {
-            braveActivity.getTabCreator(isIncognito).launchUrl(url, TabLaunchType.FROM_CHROME_UI);
+        adrbrowsielActivity adrbrowsielActivity = adrbrowsielActivity.getadrbrowsielActivity();
+        if (adrbrowsielActivity != null) {
+            adrbrowsielActivity.getTabCreator(isIncognito).launchUrl(url, TabLaunchType.FROM_CHROME_UI);
         }
     }
 
     public static void openUrlInSameTab(String url) {
-        BraveActivity braveActivity = BraveActivity.getBraveActivity();
-        if (braveActivity != null) {
+        adrbrowsielActivity adrbrowsielActivity = adrbrowsielActivity.getadrbrowsielActivity();
+        if (adrbrowsielActivity != null) {
             LoadUrlParams loadUrlParams = new LoadUrlParams(url);
-            braveActivity.getActivityTab().loadUrl(loadUrlParams);
+            adrbrowsielActivity.getActivityTab().loadUrl(loadUrlParams);
         }
     }
 
     public static void enableRewardsButton() {
-        BraveActivity braveActivity = BraveActivity.getBraveActivity();
-        if (braveActivity == null || braveActivity.getToolbarManager() == null) {
+        adrbrowsielActivity adrbrowsielActivity = adrbrowsielActivity.getadrbrowsielActivity();
+        if (adrbrowsielActivity == null || adrbrowsielActivity.getToolbarManager() == null) {
             return;
         }
-        View toolbarView = braveActivity.findViewById(R.id.toolbar);
+        View toolbarView = adrbrowsielActivity.findViewById(R.id.toolbar);
         if (toolbarView == null) {
             return;
         }
-        FrameLayout rewardsLayout = toolbarView.findViewById(R.id.brave_rewards_button_layout);
+        FrameLayout rewardsLayout = toolbarView.findViewById(R.id.adrbrowsiel_rewards_button_layout);
         if (rewardsLayout == null) {
             return;
         }

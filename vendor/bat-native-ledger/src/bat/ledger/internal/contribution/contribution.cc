@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -229,7 +229,7 @@ void Contribution::ContributionCompleted(
     return;
   }
 
-  // TODO(https://github.com/brave/brave-browser/issues/7717)
+  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7717)
   // rename to ContributionCompleted
   ledger_->ledger_client()->OnReconcileComplete(
       result,
@@ -629,7 +629,7 @@ void Contribution::OnResult(
 
   if (result == type::Result::RETRY_LONG) {
     if (contribution->processor ==
-        type::ContributionProcessor::BRAVE_TOKENS) {
+        type::ContributionProcessor::adrbrowsiel_TOKENS) {
       SetRetryTimer(
           contribution->contribution_id,
           util::GetRandomizedDelay(
@@ -749,7 +749,7 @@ void Contribution::Retry(
     (*shared_contribution)->contribution_id);
 
   switch ((*shared_contribution)->processor) {
-    case type::ContributionProcessor::BRAVE_TOKENS: {
+    case type::ContributionProcessor::adrbrowsiel_TOKENS: {
       RetryUnblindedContribution(
           (*shared_contribution)->Clone(),
           {type::CredsBatchType::PROMOTION},
@@ -767,7 +767,7 @@ void Contribution::Retry(
       external_wallet_->Retry((*shared_contribution)->Clone(), result_callback);
       return;
     }
-    case type::ContributionProcessor::BRAVE_USER_FUNDS: {
+    case type::ContributionProcessor::adrbrowsiel_USER_FUNDS: {
       sku_->Retry((*shared_contribution)->Clone(), result_callback);
       return;
     }

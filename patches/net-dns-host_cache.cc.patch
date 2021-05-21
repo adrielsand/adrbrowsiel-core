@@ -6,7 +6,7 @@ index b5677269f0658878a1226d6464ef39798f4be68e..f871088564b896ce24512ccb338a0af6
      }
      copy.set_hostnames(std::move(hostnames_with_port));
    }
-+  BRAVE_COPY_WITH_DEFAULT_PORT
++  adrbrowsiel_COPY_WITH_DEFAULT_PORT
  
    return copy;
  }

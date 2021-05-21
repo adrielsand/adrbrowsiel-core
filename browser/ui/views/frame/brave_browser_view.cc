@@ -1,47 +1,47 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/frame/brave_browser_view.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_browser_view.h"
 
 #include <utility>
 
-#include "brave/browser/sparkle_buildflags.h"
-#include "brave/browser/translate/buildflags/buildflags.h"
-#include "brave/browser/ui/views/toolbar/bookmark_button.h"
-#include "brave/browser/ui/views/toolbar/brave_toolbar_view.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/sparkle_buildflags.h"
+#include "adrbrowsiel/browser/translate/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/ui/views/toolbar/bookmark_button.h"
+#include "adrbrowsiel/browser/ui/views/toolbar/adrbrowsiel_toolbar_view.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
 #include "extensions/buildflags/buildflags.h"
 #include "ui/events/event_observer.h"
 #include "ui/views/event_monitor.h"
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
-#include "brave/browser/ui/brave_browser.h"
-#include "brave/browser/ui/sidebar/sidebar_utils.h"
-#include "brave/browser/ui/views/frame/brave_contents_layout_manager.h"
-#include "brave/browser/ui/views/sidebar/sidebar_container_view.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_utils.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_contents_layout_manager.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_container_view.h"
 #include "chrome/browser/ui/views/frame/contents_layout_manager.h"
 #include "ui/views/layout/fill_layout.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SPARKLE)
-#include "brave/browser/ui/views/update_recommended_message_box_mac.h"
+#include "adrbrowsiel/browser/ui/views/update_recommended_message_box_mac.h"
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_EXTENSION)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_EXTENSION)
 #include "extensions/browser/extension_registry.h"
 #include "extensions/common/constants.h"
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-#include "brave/browser/ui/views/toolbar/wallet_button.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+#include "adrbrowsiel/browser/ui/views/toolbar/wallet_button.h"
 #endif
 
-class BraveBrowserView::TabCyclingEventHandler : public ui::EventObserver,
+class adrbrowsielBrowserView::TabCyclingEventHandler : public ui::EventObserver,
                                                  public views::WidgetObserver {
  public:
-  explicit TabCyclingEventHandler(BraveBrowserView* browser_view)
+  explicit TabCyclingEventHandler(adrbrowsielBrowserView* browser_view)
       : browser_view_(browser_view) {
     Start();
   }
@@ -104,11 +104,11 @@ class BraveBrowserView::TabCyclingEventHandler : public ui::EventObserver,
     browser_view_->StopTabCycling();
   }
 
-  BraveBrowserView* browser_view_;
+  adrbrowsielBrowserView* browser_view_;
   std::unique_ptr<views::EventMonitor> monitor_;
 };
 
-BraveBrowserView::BraveBrowserView(std::unique_ptr<Browser> browser)
+adrbrowsielBrowserView::adrbrowsielBrowserView(std::unique_ptr<Browser> browser)
     : BrowserView(std::move(browser)) {
 #if BUILDFLAG(ENABLE_SIDEBAR)
   // Only normal window (tabbed) should have sidebar.
@@ -117,20 +117,20 @@ BraveBrowserView::BraveBrowserView(std::unique_ptr<Browser> browser)
     return;
   }
 
-  auto brave_contents_container = std::make_unique<views::View>();
+  auto adrbrowsiel_contents_container = std::make_unique<views::View>();
 
-  // Wrap |contents_container_| within our new |brave_contents_container_|.
-  // |brave_contents_container_| also contains sidebar.
+  // Wrap |contents_container_| within our new |adrbrowsiel_contents_container_|.
+  // |adrbrowsiel_contents_container_| also contains sidebar.
   auto orignal_contents_container = RemoveChildViewT(contents_container_);
-  sidebar_container_view_ = brave_contents_container->AddChildView(
+  sidebar_container_view_ = adrbrowsiel_contents_container->AddChildView(
       std::make_unique<SidebarContainerView>(
-          static_cast<BraveBrowser*>(browser_.get())));
-  original_contents_container_ = brave_contents_container->AddChildView(
+          static_cast<adrbrowsielBrowser*>(browser_.get())));
+  original_contents_container_ = adrbrowsiel_contents_container->AddChildView(
       std::move(orignal_contents_container));
-  brave_contents_container->SetLayoutManager(
-      std::make_unique<BraveContentsLayoutManager>(
+  adrbrowsiel_contents_container->SetLayoutManager(
+      std::make_unique<adrbrowsielContentsLayoutManager>(
           sidebar_container_view_, original_contents_container_));
-  contents_container_ = AddChildView(std::move(brave_contents_container));
+  contents_container_ = AddChildView(std::move(adrbrowsiel_contents_container));
   set_contents_view(contents_container_);
 
   sidebar_host_view_ = AddChildView(std::make_unique<views::View>());
@@ -142,20 +142,20 @@ BraveBrowserView::BraveBrowserView(std::unique_ptr<Browser> browser)
 #endif
 }
 
-BraveBrowserView::~BraveBrowserView() {
+adrbrowsielBrowserView::~adrbrowsielBrowserView() {
   tab_cycling_event_handler_.reset();
   DCHECK(!tab_cycling_event_handler_);
 }
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
-sidebar::Sidebar* BraveBrowserView::InitSidebar() {
+sidebar::Sidebar* adrbrowsielBrowserView::InitSidebar() {
   // Start Sidebar UI initialization.
   DCHECK(sidebar_container_view_);
   sidebar_container_view_->Init();
   return sidebar_container_view_;
 }
 
-ContentsLayoutManager* BraveBrowserView::GetContentsLayoutManager() const {
+ContentsLayoutManager* adrbrowsielBrowserView::GetContentsLayoutManager() const {
   if (sidebar::CanUseSidebar(browser_->profile()) &&
       browser_->is_type_normal()) {
     return static_cast<ContentsLayoutManager*>(
@@ -166,14 +166,14 @@ ContentsLayoutManager* BraveBrowserView::GetContentsLayoutManager() const {
 }
 #endif
 
-void BraveBrowserView::SetStarredState(bool is_starred) {
+void adrbrowsielBrowserView::SetStarredState(bool is_starred) {
   BookmarkButton* button =
-      static_cast<BraveToolbarView*>(toolbar())->bookmark_button();
+      static_cast<adrbrowsielToolbarView*>(toolbar())->bookmark_button();
   if (button)
     button->SetToggled(is_starred);
 }
 
-void BraveBrowserView::ShowUpdateChromeDialog() {
+void adrbrowsielBrowserView::ShowUpdateChromeDialog() {
 #if BUILDFLAG(ENABLE_SPARKLE)
   // On mac, sparkle frameworks's relaunch api is used.
   UpdateRecommendedMessageBoxMac::Show(GetNativeWindow());
@@ -182,28 +182,28 @@ void BraveBrowserView::ShowUpdateChromeDialog() {
 #endif
 }
 
-// The translate bubble will be shown if ENABLE_BRAVE_TRANSLATE_GO or
-// ENABLE_BRAVE_TRANSLATE_EXTENSIONS build flag is enabled and Google Translate
-// is not installed. In ENABLE_BRAVE_TRANSLATE case, we utilize chromium's
+// The translate bubble will be shown if ENABLE_adrbrowsiel_TRANSLATE_GO or
+// ENABLE_adrbrowsiel_TRANSLATE_EXTENSIONS build flag is enabled and Google Translate
+// is not installed. In ENABLE_adrbrowsiel_TRANSLATE case, we utilize chromium's
 // translate UI directly along with go-translate. In
-// ENABLE_BRAVE_TRANSLATE_EXTENSION case, we repurpose the translate bubble to
+// ENABLE_adrbrowsiel_TRANSLATE_EXTENSION case, we repurpose the translate bubble to
 // offer Google Translate extension installation, and the bubble will only be
 // shown when Google Translate is not installed.
-ShowTranslateBubbleResult BraveBrowserView::ShowTranslateBubble(
+ShowTranslateBubbleResult adrbrowsielBrowserView::ShowTranslateBubble(
     content::WebContents* web_contents,
     translate::TranslateStep step,
     const std::string& source_language,
     const std::string& target_language,
     translate::TranslateErrors::Type error_type,
     bool is_user_gesture) {
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_GO)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_GO)
   return BrowserView::ShowTranslateBubble(web_contents,
                                           step,
                                           source_language,
                                           target_language,
                                           error_type,
                                           is_user_gesture);
-#elif BUILDFLAG(ENABLE_BRAVE_TRANSLATE_EXTENSION)
+#elif BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_EXTENSION)
   if (!extensions::ExtensionRegistry::Get(GetProfile())
       ->GetInstalledExtension(google_translate_extension_id)) {
     return BrowserView::ShowTranslateBubble(web_contents,
@@ -217,25 +217,25 @@ ShowTranslateBubbleResult BraveBrowserView::ShowTranslateBubble(
   return ShowTranslateBubbleResult::BROWSER_WINDOW_NOT_VALID;
 }
 
-WalletButton* BraveBrowserView::GetWalletButton() {
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-  return static_cast<BraveToolbarView*>(toolbar())->wallet_button();
+WalletButton* adrbrowsielBrowserView::GetWalletButton() {
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+  return static_cast<adrbrowsielToolbarView*>(toolbar())->wallet_button();
 #else
   return nullptr;
 #endif
 }
 
-void BraveBrowserView::CreateWalletBubble() {
+void adrbrowsielBrowserView::CreateWalletBubble() {
   DCHECK(GetWalletButton());
   GetWalletButton()->ShowWalletBubble();
 }
 
-void BraveBrowserView::CloseWalletBubble() {
+void adrbrowsielBrowserView::CloseWalletBubble() {
   if (GetWalletButton())
     GetWalletButton()->CloseWalletBubble();
 }
 
-void BraveBrowserView::OnTabStripModelChanged(
+void adrbrowsielBrowserView::OnTabStripModelChanged(
     TabStripModel* tab_strip_model,
     const TabStripModelChange& change,
     const TabStripSelectionChange& selection) {
@@ -249,12 +249,12 @@ void BraveBrowserView::OnTabStripModelChanged(
   }
 }
 
-void BraveBrowserView::StartTabCycling() {
+void adrbrowsielBrowserView::StartTabCycling() {
   tab_cycling_event_handler_ = std::make_unique<TabCyclingEventHandler>(this);
 }
 
-void BraveBrowserView::StopTabCycling() {
+void adrbrowsielBrowserView::StopTabCycling() {
   tab_cycling_event_handler_.reset();
-  static_cast<BraveTabStripModel*>(browser()->tab_strip_model())->
+  static_cast<adrbrowsielTabStripModel*>(browser()->tab_strip_model())->
       StopMRUCycling();
 }

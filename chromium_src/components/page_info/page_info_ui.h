@@ -1,12 +1,12 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_CHROMIUM_SRC_COMPONENTS_PAGE_INFO_PAGE_INFO_UI_H_
-#define BRAVE_CHROMIUM_SRC_COMPONENTS_PAGE_INFO_PAGE_INFO_UI_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_COMPONENTS_PAGE_INFO_PAGE_INFO_UI_H_
+#define adrbrowsiel_CHROMIUM_SRC_COMPONENTS_PAGE_INFO_PAGE_INFO_UI_H_
 
-#include "brave/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
 
 #if BUILDFLAG(IPFS_ENABLED)
 #define GetSecurityDescription                                           \
@@ -21,4 +21,4 @@
 #undef GetSecurityDescription
 #endif  // BUILDFLAG(IPFS_ENABLED)
 
-#endif  // BRAVE_CHROMIUM_SRC_COMPONENTS_PAGE_INFO_PAGE_INFO_UI_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_COMPONENTS_PAGE_INFO_PAGE_INFO_UI_H_

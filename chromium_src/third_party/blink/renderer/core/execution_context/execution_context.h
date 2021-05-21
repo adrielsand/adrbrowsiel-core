@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_CHROMIUM_SRC_THIRD_PARTY_BLINK_RENDERER_CORE_EXECUTION_CONTEXT_EXECUTION_CONTEXT_H_
-#define BRAVE_CHROMIUM_SRC_THIRD_PARTY_BLINK_RENDERER_CORE_EXECUTION_CONTEXT_EXECUTION_CONTEXT_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_THIRD_PARTY_BLINK_RENDERER_CORE_EXECUTION_CONTEXT_EXECUTION_CONTEXT_H_
+#define adrbrowsiel_CHROMIUM_SRC_THIRD_PARTY_BLINK_RENDERER_CORE_EXECUTION_CONTEXT_EXECUTION_CONTEXT_H_
 
 #include "../../../../../../../third_party/blink/renderer/core/execution_context/execution_context.h"
 
@@ -24,23 +24,23 @@ using blink::Supplement;
 using blink::TraceDescriptor;
 using blink::TraceTrait;
 
-namespace brave {
+namespace adrbrowsiel {
 
 typedef base::RepeatingCallback<float(float, size_t)> AudioFarblingCallback;
 
 CORE_EXPORT blink::WebContentSettingsClient* GetContentSettingsClientFor(
     ExecutionContext* context);
 
-class CORE_EXPORT BraveSessionCache final
-    : public GarbageCollected<BraveSessionCache>,
+class CORE_EXPORT adrbrowsielSessionCache final
+    : public GarbageCollected<adrbrowsielSessionCache>,
       public Supplement<ExecutionContext> {
  public:
   static const char kSupplementName[];
 
-  explicit BraveSessionCache(ExecutionContext&);
-  virtual ~BraveSessionCache() = default;
+  explicit adrbrowsielSessionCache(ExecutionContext&);
+  virtual ~adrbrowsielSessionCache() = default;
 
-  static BraveSessionCache& From(ExecutionContext&);
+  static adrbrowsielSessionCache& From(ExecutionContext&);
 
   AudioFarblingCallback GetAudioFarblingCallback(
       blink::WebContentSettingsClient* settings);
@@ -58,6 +58,6 @@ class CORE_EXPORT BraveSessionCache final
 
   void PerturbPixelsInternal(const unsigned char* data, size_t size);
 };
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_CHROMIUM_SRC_THIRD_PARTY_BLINK_RENDERER_CORE_EXECUTION_CONTEXT_EXECUTION_CONTEXT_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_THIRD_PARTY_BLINK_RENDERER_CORE_EXECUTION_CONTEXT_EXECUTION_CONTEXT_H_

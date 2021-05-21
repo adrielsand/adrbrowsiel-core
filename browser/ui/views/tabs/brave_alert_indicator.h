@@ -1,19 +1,19 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_ALERT_INDICATOR_H_
-#define BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_ALERT_INDICATOR_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_ALERT_INDICATOR_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_ALERT_INDICATOR_H_
 
 #include "chrome/browser/ui/views/tabs/alert_indicator.h"
 
-class BraveAlertIndicator : public AlertIndicator {
+class adrbrowsielAlertIndicator : public AlertIndicator {
  public:
-  explicit BraveAlertIndicator(Tab* parent_tab);
+  explicit adrbrowsielAlertIndicator(Tab* parent_tab);
 
  private:
-  class BraveAlertBackground;
+  class adrbrowsielAlertBackground;
 
   // views::View overrides:
   bool OnMousePressed(const ui::MouseEvent& event) override;
@@ -28,7 +28,7 @@ class BraveAlertIndicator : public AlertIndicator {
 
   bool mouse_pressed_ = false;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveAlertIndicator);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielAlertIndicator);
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_TABS_BRAVE_ALERT_INDICATOR_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_TABS_adrbrowsiel_ALERT_INDICATOR_H_

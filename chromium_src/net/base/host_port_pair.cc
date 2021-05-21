@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -56,14 +56,14 @@ std::string MaybeAddUsernameAndPassword(const HostPortPair* host_port_pair,
 }  // namespace
 }  // namespace net
 
-#define BRAVE_HOST_PORT_PAIR_TO_STRING_ \
+#define adrbrowsiel_HOST_PORT_PAIR_TO_STRING_ \
   ret = MaybeAddUsernameAndPassword(this, ret);
 
-#define BRAVE_HOST_PORT_PAIR_FROM_STRING_ \
+#define adrbrowsiel_HOST_PORT_PAIR_FROM_STRING_ \
   if (HasAuthentication(str)) \
     return FromStringWithAuthentication(str);
 
-#define BRAVE_HOST_PORT_PAIR_FROM_URL_ \
+#define adrbrowsiel_HOST_PORT_PAIR_FROM_URL_ \
   if (HasAuthentication(url)) \
     return HostPortPair(url.username(), \
                         url.password(), \
@@ -72,9 +72,9 @@ std::string MaybeAddUsernameAndPassword(const HostPortPair* host_port_pair,
 
 #include "../../../../net/base/host_port_pair.cc"  // NOLINT
 
-#undef BRAVE_HOST_PORT_PAIR_TO_STRING_
-#undef BRAVE_HOST_PORT_PAIR_FROM_STRING_
-#undef BRAVE_HOST_PORT_PAIR_FROM_URL_
+#undef adrbrowsiel_HOST_PORT_PAIR_TO_STRING_
+#undef adrbrowsiel_HOST_PORT_PAIR_FROM_STRING_
+#undef adrbrowsiel_HOST_PORT_PAIR_FROM_URL_
 
 namespace net {
 

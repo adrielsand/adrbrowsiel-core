@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/brave_views_delegate_linux.h"
+#include "adrbrowsiel/browser/ui/views/adrbrowsiel_views_delegate_linux.h"
 #include "chrome/grit/chrome_unscaled_resources.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "content/public/test/browser_test.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "ui/views/views_delegate.h"
 
-using BraveViewsDelegateViewLinuxBrowserTest = InProcessBrowserTest;
+using adrbrowsielViewsDelegateViewLinuxBrowserTest = InProcessBrowserTest;
 
-IN_PROC_BROWSER_TEST_F(BraveViewsDelegateViewLinuxBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielViewsDelegateViewLinuxBrowserTest,
                        GetDefaultWindowIconTest) {
   auto env = base::Environment::Create();
   views::ViewsDelegate* views_delegate = views::ViewsDelegate::GetInstance();
@@ -28,10 +28,10 @@ IN_PROC_BROWSER_TEST_F(BraveViewsDelegateViewLinuxBrowserTest,
   env->SetVar("CHROME_VERSION_EXTRA", LINUX_CHANNEL_DEV);
   EXPECT_EQ(rb.GetImageSkiaNamed(IDR_PRODUCT_LOGO_128_DEV)->bitmap(),
             views_delegate->GetDefaultWindowIcon()->bitmap());
-  env->SetVar("CHROME_VERSION_EXTRA", BRAVE_LINUX_CHANNEL_DEV);
+  env->SetVar("CHROME_VERSION_EXTRA", adrbrowsiel_LINUX_CHANNEL_DEV);
   EXPECT_EQ(rb.GetImageSkiaNamed(IDR_PRODUCT_LOGO_128_DEV)->bitmap(),
             views_delegate->GetDefaultWindowIcon()->bitmap());
-  env->SetVar("CHROME_VERSION_EXTRA", BRAVE_LINUX_CHANNEL_NIGHTLY);
+  env->SetVar("CHROME_VERSION_EXTRA", adrbrowsiel_LINUX_CHANNEL_NIGHTLY);
   EXPECT_EQ(rb.GetImageSkiaNamed(IDR_PRODUCT_LOGO_128_NIGHTLY)->bitmap(),
             views_delegate->GetDefaultWindowIcon()->bitmap());
 #else  // OFFICIAL_BUILD

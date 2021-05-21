@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 CANVAS_DIMENSIONS, 32,
-// BRAVE ORANGE
+// adrbrowsiel ORANGE
 PATH_COLOR_ARGB, 0xFF, 0xFB, 0x54, 0x2B,
 MOVE_TO, 27.14f, 8.73f,
 R_LINE_TO, 0.63f, -1.4f,
@@ -31,7 +31,7 @@ R_LINE_TO, 2.55f, -9.63f,
 R_LINE_TO, 0.58f, -2.11f,
 CLOSE,
 NEW_PATH,
-// BRAVE WHITE
+// adrbrowsiel WHITE
 PATH_COLOR_ARGB, 0xFF, 0xFF, 0xFF, 0xFF,
 MOVE_TO, 22.08f, 6.52f,
 R_LINE_TO, -2.8f, 0.53f,
@@ -95,7 +95,7 @@ R_ARC_TO, 2.48f, 2.48f, 0, 0, 0, -0.1f, -0.73f,
 R_CUBIC_TO, -0.06f, -0.13f, -3.08f, -4.22f, -3.09f, -4.22f,
 CLOSE,
 NEW_PATH,
-// BRAVE WHITE
+// adrbrowsiel WHITE
 PATH_COLOR_ARGB, 0xFF, 0xFF, 0xFF, 0xFF,
 MOVE_TO, 19.62f, 21,
 LINE_TO, 16, 19.42f,

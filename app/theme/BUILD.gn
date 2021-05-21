@@ -1,38 +1,38 @@
-import("//brave/components/ipfs/buildflags/buildflags.gni")
-import("//brave/components/sidebar/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/sidebar/buildflags/buildflags.gni")
 import("//chrome/common/features.gni")
 import("//tools/grit/grit_rule.gni")
 
-grit("brave_theme_resources") {
-  source = "brave_theme_resources.grd"
+grit("adrbrowsiel_theme_resources") {
+  source = "adrbrowsiel_theme_resources.grd"
   defines = chrome_grit_defines
   defines += [
     "enable_sidebar=$enable_sidebar",
     "ipfs_enabled=$ipfs_enabled",
   ]
   outputs = [
-    "grit/brave_theme_resources.h",
-    "grit/brave_theme_resources_map.cc",
-    "grit/brave_theme_resources_map.h",
-    "brave_theme_resources_100_percent.pak",
-    "brave_theme_resources_200_percent.pak",
-    "brave_theme_resources_300_percent.pak",
+    "grit/adrbrowsiel_theme_resources.h",
+    "grit/adrbrowsiel_theme_resources_map.cc",
+    "grit/adrbrowsiel_theme_resources_map.h",
+    "adrbrowsiel_theme_resources_100_percent.pak",
+    "adrbrowsiel_theme_resources_200_percent.pak",
+    "adrbrowsiel_theme_resources_300_percent.pak",
   ]
 
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 
-  output_dir = "$root_gen_dir/brave"
+  output_dir = "$root_gen_dir/adrbrowsiel"
 }
 
-grit("brave_unscaled_resources") {
-  source = "brave_unscaled_resources.grd"
+grit("adrbrowsiel_unscaled_resources") {
+  source = "adrbrowsiel_unscaled_resources.grd"
   defines = chrome_grit_defines
   outputs = [
-    "grit/brave_unscaled_resources.h",
-    "brave_unscaled_resources.pak",
+    "grit/adrbrowsiel_unscaled_resources.h",
+    "adrbrowsiel_unscaled_resources.pak",
   ]
 
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 
-  output_dir = "$root_gen_dir/brave"
+  output_dir = "$root_gen_dir/adrbrowsiel"
 }

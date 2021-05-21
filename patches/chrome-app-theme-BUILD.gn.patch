@@ -6,7 +6,7 @@ index 57e8917e359a2fc59f567bd33f9340e400e55b1f..a4489e2c34d1a02138afb05ccfc72d01
      ":chrome_unscaled_resources",
      "//ui/resources",
    ]
-+  deps += ["//brave/app/theme:brave_theme_resources"]
++  deps += ["//adrbrowsiel/app/theme:adrbrowsiel_theme_resources"]
  
    output_dir = "$root_gen_dir/chrome"
  }
@@ -14,7 +14,7 @@ index 57e8917e359a2fc59f567bd33f9340e400e55b1f..a4489e2c34d1a02138afb05ccfc72d01
      "grit/chrome_unscaled_resources.h",
      "chrome_unscaled_resources.pak",
    ]
-+  deps = ["//brave/app/theme:brave_unscaled_resources"]
++  deps = ["//adrbrowsiel/app/theme:adrbrowsiel_unscaled_resources"]
  
    output_dir = "$root_gen_dir/chrome"
  }

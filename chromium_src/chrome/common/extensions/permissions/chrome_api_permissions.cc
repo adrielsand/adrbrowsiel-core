@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
@@ -12,22 +12,22 @@ namespace chrome_api_permissions {
 
 namespace {
 
-constexpr APIPermissionInfo::InitInfo brave_permissions_to_register[] = {
+constexpr APIPermissionInfo::InitInfo adrbrowsiel_permissions_to_register[] = {
     {APIPermissionID::kIpfs, "ipfs",
      APIPermissionInfo::kFlagImpliesFullURLAccess}};
 
-// Merges Brave and Chrormium constant arrays to final list of permissions.
+// Merges adrbrowsiel and Chrormium constant arrays to final list of permissions.
 template <typename T, size_t N>
 class PermissionsContainer {
  public:
   constexpr PermissionsContainer(base::span<const T> chromium,
-                                 base::span<const T> brave) {
-    CHECK(N == chromium.size() + brave.size());
+                                 base::span<const T> adrbrowsiel) {
+    CHECK(N == chromium.size() + adrbrowsiel.size());
     size_t last_index = 0;
     for (const auto& item : chromium) {
       permissions_[last_index++] = item;
     }
-    for (const auto& item : brave) {
+    for (const auto& item : adrbrowsiel) {
       permissions_[last_index++] = item;
     }
   }
@@ -40,11 +40,11 @@ class PermissionsContainer {
 };
 
 constexpr size_t PermissionsTotal = base::size(permissions_to_register) +
-                                    base::size(brave_permissions_to_register);
+                                    base::size(adrbrowsiel_permissions_to_register);
 
 const PermissionsContainer<APIPermissionInfo::InitInfo, PermissionsTotal>
     final_permissions(base::make_span(permissions_to_register),
-                      base::make_span(brave_permissions_to_register));
+                      base::make_span(adrbrowsiel_permissions_to_register));
 
 }  // namespace
 

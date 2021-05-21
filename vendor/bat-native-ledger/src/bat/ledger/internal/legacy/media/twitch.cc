@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -21,7 +21,7 @@ using std::placeholders::_1;
 using std::placeholders::_2;
 using std::placeholders::_3;
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 static const std::vector<std::string> _twitch_events = {
     "buffer-empty",
@@ -186,7 +186,7 @@ std::string Twitch::GetLinkType(const std::string& url,
                                      const std::string& referrer) {
   std::string type;
   bool is_valid_twitch_path =
-      braveledger_bat_helper::HasSameDomainAndPath(
+      adrbrowsielledger_bat_helper::HasSameDomainAndPath(
                                   url, "ttvnw.net", "/v1/segment/");
 
   if (
@@ -206,10 +206,10 @@ std::string Twitch::GetLinkType(const std::string& url,
 std::string Twitch::GetMediaIdFromUrl(
   const std::string& url,
   const std::string& publisher_blob) {
-  std::string mediaId = braveledger_media::ExtractData(url, "twitch.tv/", "/");
+  std::string mediaId = adrbrowsielledger_media::ExtractData(url, "twitch.tv/", "/");
 
   if (url.find("twitch.tv/videos/") != std::string::npos) {
-    mediaId = braveledger_media::ExtractData(publisher_blob,
+    mediaId = adrbrowsielledger_media::ExtractData(publisher_blob,
       "data-a-target=\"videos-channel-header-item\" href=\"/", "/");
   }
   return mediaId;
@@ -224,7 +224,7 @@ std::string Twitch::GetMediaKeyFromUrl(
   }
 
   if (url.find("twitch.tv/videos/") != std::string::npos) {
-    std::string vod_id = braveledger_media::ExtractData(url,
+    std::string vod_id = adrbrowsielledger_media::ExtractData(url,
                                                       "twitch.tv/videos/",
                                                       "/");
     return (std::string)TWITCH_MEDIA_TYPE + "_" + id + "_vod_" + vod_id;
@@ -244,7 +244,7 @@ void Twitch::UpdatePublisherData(
 // static
 std::string Twitch::GetPublisherName(
     const std::string& publisher_blob) {
-  return braveledger_media::ExtractData(publisher_blob,
+  return adrbrowsielledger_media::ExtractData(publisher_blob,
     "<h5 class>", "</h5>");
 }
 
@@ -256,11 +256,11 @@ std::string Twitch::GetFaviconUrl(
     return std::string();
   }
 
-  const std::string wrapper = braveledger_media::ExtractData(publisher_blob,
+  const std::string wrapper = adrbrowsielledger_media::ExtractData(publisher_blob,
     "class=\"tw-avatar tw-avatar--size-36\"",
     "</figure>");
 
-  return braveledger_media::ExtractData(wrapper, "src=\"", "\"");
+  return adrbrowsielledger_media::ExtractData(wrapper, "src=\"", "\"");
 }
 
 // static
@@ -301,7 +301,7 @@ void Twitch::ProcessMedia(const base::flat_map<std::string, std::string>& parts,
     return;
   }
 
-  std::string media_key = braveledger_media::GetMediaKey(media_id,
+  std::string media_key = adrbrowsielledger_media::GetMediaKey(media_id,
                                                          TWITCH_MEDIA_TYPE);
 
   ledger::type::MediaEventInfo twitch_info;
@@ -488,12 +488,12 @@ void Twitch::OnEmbedResponse(
   }
 
   std::string fav_icon;
-  braveledger_bat_helper::getJSONValue(
+  adrbrowsielledger_bat_helper::getJSONValue(
       "author_thumbnail_url",
       response.body,
       &fav_icon);
   std::string author_name;
-  braveledger_bat_helper::getJSONValue(
+  adrbrowsielledger_bat_helper::getJSONValue(
       "author_name",
       response.body,
       &author_name);
@@ -662,4 +662,4 @@ void Twitch::SavePublisherInfo(const uint64_t duration,
   }
 }
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

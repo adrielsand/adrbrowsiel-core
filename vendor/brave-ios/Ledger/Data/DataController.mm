@@ -40,7 +40,7 @@ static DataController *_dataController = nil;
 
 - (NSURL *)storeURL
 {
-  return [[self storeDirectoryURL] URLByAppendingPathComponent:@"BraveRewards.sqlite"];
+  return [[self storeDirectoryURL] URLByAppendingPathComponent:@"adrbrowsielRewards.sqlite"];
 }
 
 + (BOOL)defaultStoreExists
@@ -51,7 +51,7 @@ static DataController *_dataController = nil;
     return NO;
   }
   const auto directoryURL = [NSURL fileURLWithPath:[documentURL stringByAppendingPathComponent:@"rewards"]];
-  const auto storeURL = [directoryURL URLByAppendingPathComponent:@"BraveRewards.sqlite"];
+  const auto storeURL = [directoryURL URLByAppendingPathComponent:@"adrbrowsielRewards.sqlite"];
   return [NSFileManager.defaultManager fileExistsAtPath:storeURL.path];
 }
 

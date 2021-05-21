@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
 #include "base/scoped_observer.h"
-#include "brave/browser/infobars/crypto_wallets_infobar_delegate.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/components/brave_wallet/browser/pref_names.h"
+#include "adrbrowsiel/browser/infobars/crypto_wallets_infobar_delegate.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/pref_names.h"
 #include "chrome/browser/infobars/infobar_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -31,17 +31,17 @@ using namespace infobars;  // NOLINT
 
 namespace extensions {
 
-class BraveWalletAPIBrowserTest : public InProcessBrowserTest,
+class adrbrowsielWalletAPIBrowserTest : public InProcessBrowserTest,
     public InfoBarManager::Observer {
  public:
-  BraveWalletAPIBrowserTest() : infobar_observer_(this),
+  adrbrowsielWalletAPIBrowserTest() : infobar_observer_(this),
       infobar_added_(false) {
   }
 
-  void WaitForBraveExtensionAdded() {
-    // Brave extension must be loaded, otherwise dapp detection events
+  void WaitForadrbrowsielExtensionAdded() {
+    // adrbrowsiel extension must be loaded, otherwise dapp detection events
     // could be missed from a race condition.
-    ExtensionTestMessageListener extension_listener("brave-extension-enabled",
+    ExtensionTestMessageListener extension_listener("adrbrowsiel-extension-enabled",
         false);
     ASSERT_TRUE(extension_listener.WaitUntilSatisfied());
   }
@@ -63,9 +63,9 @@ class BraveWalletAPIBrowserTest : public InProcessBrowserTest,
     InProcessBrowserTest::SetUpOnMainThread();
     host_resolver()->AddRule("*", "127.0.0.1");
     content::SetupCrossSiteRedirector(embedded_test_server());
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
     ASSERT_TRUE(embedded_test_server()->Start());
   }
@@ -100,7 +100,7 @@ class BraveWalletAPIBrowserTest : public InProcessBrowserTest,
         extension_.get(), extensions::UNINSTALL_REASON_FOR_TESTING);
   }
 
-  ~BraveWalletAPIBrowserTest() override {
+  ~adrbrowsielWalletAPIBrowserTest() override {
   }
 
   void AddInfoBarObserver(InfoBarService* infobar_service) {
@@ -175,13 +175,13 @@ class BraveWalletAPIBrowserTest : public InProcessBrowserTest,
   }
 };
 
-IN_PROC_BROWSER_TEST_F(BraveWalletAPIBrowserTest, DappDetectionTestAccept) {
-  if (brave_wallet::IsNativeWalletEnabled()) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielWalletAPIBrowserTest, DappDetectionTestAccept) {
+  if (adrbrowsiel_wallet::IsNativeWalletEnabled()) {
     browser()->profile()->GetPrefs()->SetInteger(
-        kBraveWalletWeb3Provider,
-        static_cast<int>(BraveWalletWeb3ProviderTypes::ASK));
+        kadrbrowsielWalletWeb3Provider,
+        static_cast<int>(adrbrowsielWalletWeb3ProviderTypes::ASK));
   }
-  WaitForBraveExtensionAdded();
+  WaitForadrbrowsielExtensionAdded();
   InfoBarService* infobar_service =
       InfoBarService::FromWebContents(active_contents());
   AddInfoBarObserver(infobar_service);
@@ -189,9 +189,9 @@ IN_PROC_BROWSER_TEST_F(BraveWalletAPIBrowserTest, DappDetectionTestAccept) {
       NavigateToURLUntilLoadStop("a.com", "/dapp.html"));
   WaitForCryptoWalletsInfobarAdded();
   // Pref for Wallet should still be ask by default
-  auto provider = static_cast<BraveWalletWeb3ProviderTypes>(
-      browser()->profile()->GetPrefs()->GetInteger(kBraveWalletWeb3Provider));
-  ASSERT_EQ(provider, BraveWalletWeb3ProviderTypes::ASK);
+  auto provider = static_cast<adrbrowsielWalletWeb3ProviderTypes>(
+      browser()->profile()->GetPrefs()->GetInteger(kadrbrowsielWalletWeb3Provider));
+  ASSERT_EQ(provider, adrbrowsielWalletWeb3ProviderTypes::ASK);
   CryptoWalletsInfoBarAccept(
       ConfirmInfoBarDelegate::BUTTON_OK |
       ConfirmInfoBarDelegate::BUTTON_CANCEL);
@@ -199,14 +199,14 @@ IN_PROC_BROWSER_TEST_F(BraveWalletAPIBrowserTest, DappDetectionTestAccept) {
   RemoveInfoBarObserver(infobar_service);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveWalletAPIBrowserTest, InfoBarDontAsk) {
-  if (brave_wallet::IsNativeWalletEnabled()) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielWalletAPIBrowserTest, InfoBarDontAsk) {
+  if (adrbrowsiel_wallet::IsNativeWalletEnabled()) {
     browser()->profile()->GetPrefs()->SetInteger(
-        kBraveWalletWeb3Provider,
-        static_cast<int>(BraveWalletWeb3ProviderTypes::ASK));
+        kadrbrowsielWalletWeb3Provider,
+        static_cast<int>(adrbrowsielWalletWeb3ProviderTypes::ASK));
   }
   // Navigate to dapp
-  WaitForBraveExtensionAdded();
+  WaitForadrbrowsielExtensionAdded();
   InfoBarService* infobar_service =
       InfoBarService::FromWebContents(active_contents());
   AddInfoBarObserver(infobar_service);
@@ -214,64 +214,64 @@ IN_PROC_BROWSER_TEST_F(BraveWalletAPIBrowserTest, InfoBarDontAsk) {
       NavigateToURLUntilLoadStop("a.com", "/dapp.html"));
   WaitForCryptoWalletsInfobarAdded();
   // Provider type should be Ask by default
-  auto provider_before = static_cast<BraveWalletWeb3ProviderTypes>(
-      browser()->profile()->GetPrefs()->GetInteger(kBraveWalletWeb3Provider));
-  ASSERT_EQ(provider_before, BraveWalletWeb3ProviderTypes::ASK);
+  auto provider_before = static_cast<adrbrowsielWalletWeb3ProviderTypes>(
+      browser()->profile()->GetPrefs()->GetInteger(kadrbrowsielWalletWeb3Provider));
+  ASSERT_EQ(provider_before, adrbrowsielWalletWeb3ProviderTypes::ASK);
   // Click "Don't ask again"
   CryptoWalletsInfoBarCancel(
       ConfirmInfoBarDelegate::BUTTON_OK |
       ConfirmInfoBarDelegate::BUTTON_CANCEL);
   // Provider type should now be none
-  auto provider_after = static_cast<BraveWalletWeb3ProviderTypes>(
-      browser()->profile()->GetPrefs()->GetInteger(kBraveWalletWeb3Provider));
-  ASSERT_EQ(provider_after, BraveWalletWeb3ProviderTypes::NONE);
+  auto provider_after = static_cast<adrbrowsielWalletWeb3ProviderTypes>(
+      browser()->profile()->GetPrefs()->GetInteger(kadrbrowsielWalletWeb3Provider));
+  ASSERT_EQ(provider_after, adrbrowsielWalletWeb3ProviderTypes::NONE);
   RemoveInfoBarObserver(infobar_service);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveWalletAPIBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielWalletAPIBrowserTest,
     FakeInstallMetaMask) {
-  if (brave_wallet::IsNativeWalletEnabled()) {
+  if (adrbrowsiel_wallet::IsNativeWalletEnabled()) {
     browser()->profile()->GetPrefs()->SetInteger(
-        kBraveWalletWeb3Provider,
-        static_cast<int>(BraveWalletWeb3ProviderTypes::ASK));
+        kadrbrowsielWalletWeb3Provider,
+        static_cast<int>(adrbrowsielWalletWeb3ProviderTypes::ASK));
   }
-  WaitForBraveExtensionAdded();
+  WaitForadrbrowsielExtensionAdded();
   AddFakeMetaMaskExtension(false);
   // Should auto select MetaMask
-  auto provider = static_cast<BraveWalletWeb3ProviderTypes>(
-      browser()->profile()->GetPrefs()->GetInteger(kBraveWalletWeb3Provider));
-  ASSERT_EQ(provider, BraveWalletWeb3ProviderTypes::METAMASK);
+  auto provider = static_cast<adrbrowsielWalletWeb3ProviderTypes>(
+      browser()->profile()->GetPrefs()->GetInteger(kadrbrowsielWalletWeb3Provider));
+  ASSERT_EQ(provider, adrbrowsielWalletWeb3ProviderTypes::METAMASK);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveWalletAPIBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielWalletAPIBrowserTest,
     FakeUninstallMetaMask) {
-  WaitForBraveExtensionAdded();
+  WaitForadrbrowsielExtensionAdded();
   AddFakeMetaMaskExtension(false);
   RemoveFakeMetaMaskExtension();
   // Should revert back to Ask
-  auto provider = static_cast<BraveWalletWeb3ProviderTypes>(
-      browser()->profile()->GetPrefs()->GetInteger(kBraveWalletWeb3Provider));
-  if (brave_wallet::IsNativeWalletEnabled()) {
-    ASSERT_EQ(provider, BraveWalletWeb3ProviderTypes::BRAVE_WALLET);
+  auto provider = static_cast<adrbrowsielWalletWeb3ProviderTypes>(
+      browser()->profile()->GetPrefs()->GetInteger(kadrbrowsielWalletWeb3Provider));
+  if (adrbrowsiel_wallet::IsNativeWalletEnabled()) {
+    ASSERT_EQ(provider, adrbrowsielWalletWeb3ProviderTypes::adrbrowsiel_WALLET);
   } else {
-    ASSERT_EQ(provider, BraveWalletWeb3ProviderTypes::CRYPTO_WALLETS);
+    ASSERT_EQ(provider, adrbrowsielWalletWeb3ProviderTypes::CRYPTO_WALLETS);
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveWalletAPIBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielWalletAPIBrowserTest,
     UpdatesDoNotChangeSettings) {
-  WaitForBraveExtensionAdded();
+  WaitForadrbrowsielExtensionAdded();
   // User installs MetaMask
   AddFakeMetaMaskExtension(false);
   // Then if the user explicitly manually sets it to Crypto Wallets
-  browser()->profile()->GetPrefs()->SetInteger(kBraveWalletWeb3Provider,
-      static_cast<int>(BraveWalletWeb3ProviderTypes::CRYPTO_WALLETS));
+  browser()->profile()->GetPrefs()->SetInteger(kadrbrowsielWalletWeb3Provider,
+      static_cast<int>(adrbrowsielWalletWeb3ProviderTypes::CRYPTO_WALLETS));
   // Then the user updates MetaMask
   AddFakeMetaMaskExtension(true);
   // It should not toggle the setting
-  auto provider = static_cast<BraveWalletWeb3ProviderTypes>(
-      browser()->profile()->GetPrefs()->GetInteger(kBraveWalletWeb3Provider));
-  ASSERT_EQ(provider, BraveWalletWeb3ProviderTypes::CRYPTO_WALLETS);
+  auto provider = static_cast<adrbrowsielWalletWeb3ProviderTypes>(
+      browser()->profile()->GetPrefs()->GetInteger(kadrbrowsielWalletWeb3Provider));
+  ASSERT_EQ(provider, adrbrowsielWalletWeb3ProviderTypes::CRYPTO_WALLETS);
 }
 
 }  // namespace extensions

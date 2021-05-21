@@ -6,7 +6,7 @@ index 818e836776cb99acb7e6e64bd5ebd3ac26c58c33..142d09ef2468b2666552296379f5d579
  TEMP_ARCHIVE_DIR = "temp_installer_archive"
  VERSION_FILE = "VERSION"
  
-+from create_installer_archive_helper import SignAndCopyPreSignedBinaries, BraveCopyAllFilesToStagingDir
++from create_installer_archive_helper import SignAndCopyPreSignedBinaries, adrbrowsielCopyAllFilesToStagingDir
  
  g_archive_inputs = []
  
@@ -14,7 +14,7 @@ index 818e836776cb99acb7e6e64bd5ebd3ac26c58c33..142d09ef2468b2666552296379f5d579
    if enable_hidpi == '1':
      CopySectionFilesToStagingDir(config, 'HIDPI', staging_dir, build_dir,
                                   verbose)
-+  BraveCopyAllFilesToStagingDir(config, staging_dir, g_archive_inputs)
++  adrbrowsielCopyAllFilesToStagingDir(config, staging_dir, g_archive_inputs)
  
    if include_snapshotblob == '1':
      CopySectionFilesToStagingDir(config, 'SNAPSHOTBLOB', staging_dir, build_dir,

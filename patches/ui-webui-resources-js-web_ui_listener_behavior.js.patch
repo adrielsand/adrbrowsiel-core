@@ -6,7 +6,7 @@ index 837518397f7fc79a68c51211b98155afd2d2bfb5..9381fde24cdc6b52b4c2254cfe70e809
   */
  
  // #import {WebUIListener, addWebUIListener, removeWebUIListener} from './cr.m.js';
-+// #import 'chrome://brave-resources/polymer_overriding.js';
++// #import 'chrome://adrbrowsiel-resources/polymer_overriding.js';
  
  /** @polymerBehavior */
  // eslint-disable-next-line no-var

@@ -6,7 +6,7 @@ index 4fb3926576c80881a9230bb91bfe7655fec12df1..1cf767b9a63d078f47b8017710dda474
  #endif
  
   private:
-+  friend class BraveContentRendererClient;
++  friend class adrbrowsielContentRendererClient;
    FRIEND_TEST_ALL_PREFIXES(ChromeContentRendererClientTest, NaClRestriction);
    FRIEND_TEST_ALL_PREFIXES(ChromeContentRendererClientTest,
                             ShouldSuppressErrorPage);

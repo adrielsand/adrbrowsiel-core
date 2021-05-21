@@ -6,7 +6,7 @@ index b49605c0c63da82ba708bdf483ec8eca0c8a4375..9190269e728e1cea4f44d4b78da164b6
    }
    source->AddString(kLoadTimeClassesKey, GetLoadTimeClasses(in_dev_mode));
  
-+  BraveAddExtensionsResources(source);
++  adrbrowsielAddExtensionsResources(source);
 +
    return source;
  }

@@ -7,7 +7,7 @@ index 8829e1b7a1c4529cb244216f5caf39ebb9724c0c..1124a2d73775cbcf29849f08074d9aad
    favicon_ = icon;
  
 -  if (!GetNonDefaultFavicon() || ShouldThemifyFaviconForUrl(url)) {
-+  if (!GetNonDefaultFavicon() || BraveShouldThemifyFaviconForUrl(url)) {
++  if (!GetNonDefaultFavicon() || adrbrowsielShouldThemifyFaviconForUrl(url)) {
      themed_favicon_ = ThemeImage(icon);
    } else {
      themed_favicon_ = gfx::ImageSkia();

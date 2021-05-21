@@ -24,9 +24,9 @@ pipeline {
             steps {
                 script {
                     REPO = JOB_NAME.substring(0, JOB_NAME.indexOf('-build-pr'))
-                    OTHER_REPO = REPO.equals('brave-browser') ? 'brave-core' : 'brave-browser'
+                    OTHER_REPO = REPO.equals('adrbrowsiel-browser') ? 'adrbrowsiel-core' : 'adrbrowsiel-browser'
                     PLATFORM = JOB_NAME.substring(JOB_NAME.indexOf('-build-pr') + 10, JOB_NAME.indexOf('/PR-'))
-                    PIPELINE_NAME = 'pr-brave-browser-' + CHANGE_BRANCH.replace('/', '-') + '-' + PLATFORM
+                    PIPELINE_NAME = 'pr-adrbrowsiel-browser-' + CHANGE_BRANCH.replace('/', '-') + '-' + PLATFORM
 
                     if (params.BUILD_STATUS) {
                         if (Jenkins.instance.getItemByFullName(JOB_NAME).getLastBuild().getCause(hudson.model.Cause$UpstreamCause) == null) {
@@ -41,15 +41,15 @@ pipeline {
                         }
                     }
 
-                    withCredentials([usernamePassword(credentialsId: 'brave-builds-github-token-for-pr-builder', usernameVariable: 'PR_BUILDER_USER', passwordVariable: 'PR_BUILDER_TOKEN')]) {
-                        GITHUB_API = 'https://api.github.com/repos/brave'
+                    withCredentials([usernamePassword(credentialsId: 'adrbrowsiel-builds-github-token-for-pr-builder', usernameVariable: 'PR_BUILDER_USER', passwordVariable: 'PR_BUILDER_TOKEN')]) {
+                        GITHUB_API = 'https://api.github.com/repos/adrbrowsiel'
                         GITHUB_AUTH_HEADERS = [[name: 'Authorization', value: 'token ' + PR_BUILDER_TOKEN]]
-                        def prDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + REPO + '/pulls?head=brave:' + CHANGE_BRANCH, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
+                        def prDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + REPO + '/pulls?head=adrbrowsiel:' + CHANGE_BRANCH, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
                         SKIP = prDetails.draft.equals(true) || prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/skip') }.equals(1) || prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-${PLATFORM}") }.equals(1)
                         RUN_NETWORK_AUDIT = prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/run-network-audit') }.equals(1)
                         def branchExistsInOtherRepo = httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/branches/' + CHANGE_BRANCH, validResponseCodes: '100:499', customHeaders: GITHUB_AUTH_HEADERS, quiet: true).status.equals(200)
                         if (branchExistsInOtherRepo) {
-                            def otherPrDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/pulls?head=brave:' + CHANGE_BRANCH, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
+                            def otherPrDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/pulls?head=adrbrowsiel:' + CHANGE_BRANCH, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
                             if (otherPrDetails) {
                                 env.OTHER_PR_NUMBER = otherPrDetails.number
                                 SKIP = SKIP || otherPrDetails.draft.equals(true) || otherPrDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/skip') }.equals(1) || otherPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-${PLATFORM}") }.equals(1)
@@ -93,13 +93,13 @@ pipeline {
                                     scm {
                                         git {
                                             remote {
-                                                credentials('brave-builds-github-token-for-pr-builder')
-                                                github('brave/devops', 'https')
+                                                credentials('adrbrowsiel-builds-github-token-for-pr-builder')
+                                                github('adrbrowsiel/devops', 'https')
                                             }
                                             branch('master')
                                         }
                                     }
-                                    scriptPath("jenkins/jobs/browser/pr-brave-browser-${PLATFORM}.Jenkinsfile")
+                                    scriptPath("jenkins/jobs/browser/pr-adrbrowsiel-browser-${PLATFORM}.Jenkinsfile")
                                 }
                             }
                         }

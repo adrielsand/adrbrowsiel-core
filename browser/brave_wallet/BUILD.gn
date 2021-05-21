@@ -1,22 +1,22 @@
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
 import("//extensions/buildflags/buildflags.gni")
 
-assert(brave_wallet_enabled)
+assert(adrbrowsiel_wallet_enabled)
 
-source_set("brave_wallet") {
+source_set("adrbrowsiel_wallet") {
   sources = [
-    "brave_wallet_delegate_impl.cc",
-    "brave_wallet_delegate_impl.h",
+    "adrbrowsiel_wallet_delegate_impl.cc",
+    "adrbrowsiel_wallet_delegate_impl.h",
   ]
   deps = [
-    "//brave/components/brave_wallet/browser",
-    "//brave/components/brave_wallet/common",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/browser",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/common",
     "//content/public/browser",
     "//extensions/buildflags",
   ]
   if (enable_extensions) {
     deps += [
-      "//brave/browser/extensions",
+      "//adrbrowsiel/browser/extensions",
       "//chrome/browser/extensions:extensions",
       "//extensions/browser",
     ]

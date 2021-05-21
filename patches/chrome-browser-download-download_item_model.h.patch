@@ -6,7 +6,7 @@ index 2ab1b7640b4bb8b0d2ca7cbec2b3902682751fef..231789a4b09409a589da51e1ccfebe91
    void OnDownloadDestroyed(download::DownloadItem* download) override;
  
   private:
-+  friend class BraveDownloadItemModel;
++  friend class adrbrowsielDownloadItemModel;
    // DownloadUIModel implementation.
    std::string GetMimeType() const override;
    bool IsExtensionDownload() const override;

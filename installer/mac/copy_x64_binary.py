@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at https://mozilla.org/MPL/2.0/.
@@ -22,7 +22,7 @@ def copy_x64(x64_src_path, x64_dest_path):
     if (os.path.exists(x64_dest_path)):
         shutil.rmtree(x64_dest_path)
 
-    # TODO check why brave_resources.pak differs between x64 and arm64
+    # TODO check why adrbrowsiel_resources.pak differs between x64 and arm64
     shutil.copytree(x64_src_path, x64_dest_path, symlinks=True,
         ignore=shutil.ignore_patterns('Sparkle.framework', '*.pak'))
     # remove conflicting files

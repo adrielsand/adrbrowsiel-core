@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_content_browser_client.h"
+#include "adrbrowsiel/browser/adrbrowsiel_content_browser_client.h"
 
 #include <algorithm>
 #include <string>
@@ -15,33 +15,33 @@
 #include "base/rand_util.h"
 #include "base/system/sys_info.h"
 #include "base/task/post_task.h"
-#include "brave/browser/brave_browser_main_extra_parts.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/brave_shields/brave_shields_web_contents_observer.h"
-#include "brave/browser/net/brave_proxying_url_loader_factory.h"
-#include "brave/browser/net/brave_proxying_web_socket.h"
-#include "brave/browser/profiles/brave_renderer_updater.h"
-#include "brave/browser/profiles/brave_renderer_updater_factory.h"
-#include "brave/common/pref_names.h"
-#include "brave/common/webui_url_constants.h"
-#include "brave/components/binance/browser/buildflags/buildflags.h"
-#include "brave/components/brave_rewards/browser/buildflags/buildflags.h"
-#include "brave/components/brave_search/browser/brave_search_host.h"
-#include "brave/components/brave_search/common/brave_search.mojom.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
-#include "brave/components/brave_shields/browser/domain_block_navigation_throttle.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/brave_webtorrent/browser/buildflags/buildflags.h"
-#include "brave/components/cosmetic_filters/browser/cosmetic_filters_resources.h"
-#include "brave/components/cosmetic_filters/common/cosmetic_filters.mojom.h"
-#include "brave/components/decentralized_dns/buildflags/buildflags.h"
-#include "brave/components/ftx/browser/buildflags/buildflags.h"
-#include "brave/components/gemini/browser/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/speedreader/buildflags.h"
-#include "brave/components/tor/buildflags/buildflags.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_main_extra_parts.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_proxying_url_loader_factory.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_proxying_web_socket.h"
+#include "adrbrowsiel/browser/profiles/adrbrowsiel_renderer_updater.h"
+#include "adrbrowsiel/browser/profiles/adrbrowsiel_renderer_updater_factory.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
+#include "adrbrowsiel/components/binance/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_search/browser/adrbrowsiel_search_host.h"
+#include "adrbrowsiel/components/adrbrowsiel_search/common/adrbrowsiel_search.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_navigation_throttle.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/cosmetic_filters/browser/cosmetic_filters_resources.h"
+#include "adrbrowsiel/components/cosmetic_filters/common/cosmetic_filters.mojom.h"
+#include "adrbrowsiel/components/decentralized_dns/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ftx/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/gemini/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/speedreader/buildflags.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/chrome_browser_interface_binders.h"
 #include "chrome/browser/chrome_content_browser_client.h"
@@ -72,10 +72,10 @@
 #include "third_party/blink/public/common/loader/url_loader_throttle.h"
 #include "ui/base/l10n/l10n_util.h"
 
-using brave_shields::BraveShieldsWebContentsObserver;
-using brave_shields::ControlType;
-using brave_shields::GetBraveShieldsEnabled;
-using brave_shields::GetFingerprintingControlType;
+using adrbrowsiel_shields::adrbrowsielShieldsWebContentsObserver;
+using adrbrowsiel_shields::ControlType;
+using adrbrowsiel_shields::GetadrbrowsielShieldsEnabled;
+using adrbrowsiel_shields::GetFingerprintingControlType;
 using content::BrowserThread;
 using content::ContentBrowserClient;
 using content::RenderFrameHost;
@@ -87,81 +87,81 @@ using content::WebContents;
 using extensions::ChromeContentBrowserClientExtensionsPart;
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
-#include "brave/browser/extensions/brave_webtorrent_navigation_throttle.h"
-#include "brave/components/brave_webtorrent/browser/content_browser_client_helper.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_webtorrent_navigation_throttle.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/content_browser_client_helper.h"
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/browser/ipfs/content_browser_client_helper.h"
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_navigation_throttle.h"
+#include "adrbrowsiel/browser/ipfs/content_browser_client_helper.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_navigation_throttle.h"
 #endif
 
 #if BUILDFLAG(DECENTRALIZED_DNS_ENABLED)
-#include "brave/components/decentralized_dns/decentralized_dns_navigation_throttle.h"
+#include "adrbrowsiel/components/decentralized_dns/decentralized_dns_navigation_throttle.h"
 #endif
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-#include "brave/components/brave_rewards/browser/rewards_protocol_handler.h"
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_protocol_handler.h"
 #endif
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/browser/tor/onion_location_navigation_throttle_delegate.h"
-#include "brave/browser/tor/tor_profile_service_factory.h"
-#include "brave/components/tor/onion_location_navigation_throttle.h"
-#include "brave/components/tor/tor_navigation_throttle.h"
+#include "adrbrowsiel/browser/tor/onion_location_navigation_throttle_delegate.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/components/tor/onion_location_navigation_throttle.h"
+#include "adrbrowsiel/components/tor/tor_navigation_throttle.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SPEEDREADER)
-#include "brave/browser/speedreader/speedreader_tab_helper.h"
-#include "brave/components/speedreader/speedreader_throttle.h"
+#include "adrbrowsiel/browser/speedreader/speedreader_tab_helper.h"
+#include "adrbrowsiel/components/speedreader/speedreader_throttle.h"
 #include "third_party/blink/public/mojom/loader/resource_load_info.mojom-shared.h"
 #endif
 
 #if BUILDFLAG(BINANCE_ENABLED)
-#include "brave/browser/binance/binance_protocol_handler.h"
+#include "adrbrowsiel/browser/binance/binance_protocol_handler.h"
 #endif
 
 #if BUILDFLAG(GEMINI_ENABLED)
-#include "brave/browser/gemini/gemini_protocol_handler.h"
+#include "adrbrowsiel/browser/gemini/gemini_protocol_handler.h"
 #endif
 
 #if BUILDFLAG(ENABLE_FTX)
-#include "brave/browser/ftx/ftx_protocol_handler.h"
+#include "adrbrowsiel/browser/ftx/ftx_protocol_handler.h"
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-#include "brave/browser/brave_wallet/brave_wallet_context_utils.h"
-#include "brave/browser/brave_wallet/brave_wallet_service_factory.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_provider_impl.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_service.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/components/brave_wallet/common/brave_wallet.mojom.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+#include "adrbrowsiel/browser/adrbrowsiel_wallet/adrbrowsiel_wallet_context_utils.h"
+#include "adrbrowsiel/browser/adrbrowsiel_wallet/adrbrowsiel_wallet_service_factory.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_provider_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/adrbrowsiel_wallet.mojom.h"
 #if !defined(OS_ANDROID)
-#include "brave/browser/ui/webui/brave_wallet/wallet_panel_ui.h"
-#include "brave/components/brave_wallet_ui/wallet_panel.mojom.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_wallet/wallet_panel_ui.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet_ui/wallet_panel.mojom.h"
 #endif
 #endif
 
 #if !defined(OS_ANDROID)
-#include "brave/browser/new_tab/new_tab_shows_navigation_throttle.h"
+#include "adrbrowsiel/browser/new_tab/new_tab_shows_navigation_throttle.h"
 #endif
 
 namespace {
 
 bool HandleURLReverseOverrideRewrite(GURL* url,
                                      content::BrowserContext* browser_context) {
-  if (BraveContentBrowserClient::HandleURLOverrideRewrite(url, browser_context))
+  if (adrbrowsielContentBrowserClient::HandleURLOverrideRewrite(url, browser_context))
     return true;
 
   return false;
 }
 
 bool HandleURLRewrite(GURL* url, content::BrowserContext* browser_context) {
-  if (BraveContentBrowserClient::HandleURLOverrideRewrite(url, browser_context))
+  if (adrbrowsielContentBrowserClient::HandleURLOverrideRewrite(url, browser_context))
     return true;
 
   return false;
@@ -181,31 +181,31 @@ void BindCosmeticFiltersResources(
 
   mojo::MakeSelfOwnedReceiver(
       std::make_unique<cosmetic_filters::CosmeticFiltersResources>(
-          settings_map, g_brave_browser_process->ad_block_service()),
+          settings_map, g_adrbrowsiel_browser_process->ad_block_service()),
       std::move(receiver));
 }
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-void MaybeBindBraveWalletProvider(
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+void MaybeBindadrbrowsielWalletProvider(
     content::RenderFrameHost* const frame_host,
-    mojo::PendingReceiver<brave_wallet::mojom::BraveWalletProvider> receiver) {
+    mojo::PendingReceiver<adrbrowsiel_wallet::mojom::adrbrowsielWalletProvider> receiver) {
   auto* context = frame_host->GetBrowserContext();
-  if (!brave_wallet::IsAllowedForContext(context))
+  if (!adrbrowsiel_wallet::IsAllowedForContext(context))
     return;
 
-  BraveWalletService* service =
-      BraveWalletServiceFactory::GetInstance()->GetForContext(context);
+  adrbrowsielWalletService* service =
+      adrbrowsielWalletServiceFactory::GetInstance()->GetForContext(context);
 
   mojo::MakeSelfOwnedReceiver(
-      std::make_unique<brave_wallet::BraveWalletProviderImpl>(
+      std::make_unique<adrbrowsiel_wallet::adrbrowsielWalletProviderImpl>(
           service->AsWeakPtr()),
       std::move(receiver));
 }
 #endif
 
-void BindBraveSearchHost(
+void BindadrbrowsielSearchHost(
     int process_id,
-    mojo::PendingReceiver<brave_search::mojom::BraveSearchFallback> receiver) {
+    mojo::PendingReceiver<adrbrowsiel_search::mojom::adrbrowsielSearchFallback> receiver) {
   content::RenderProcessHost* render_process_host =
       content::RenderProcessHost::FromID(process_id);
   if (!render_process_host)
@@ -213,33 +213,33 @@ void BindBraveSearchHost(
 
   content::BrowserContext* context = render_process_host->GetBrowserContext();
   mojo::MakeSelfOwnedReceiver(
-      std::make_unique<brave_search::BraveSearchHost>(
+      std::make_unique<adrbrowsiel_search::adrbrowsielSearchHost>(
           content::BrowserContext::GetDefaultStoragePartition(context)
               ->GetURLLoaderFactoryForBrowserProcess()),
       std::move(receiver));
 }
 }  // namespace
 
-BraveContentBrowserClient::BraveContentBrowserClient()
+adrbrowsielContentBrowserClient::adrbrowsielContentBrowserClient()
     : session_token_(base::RandUint64()),
       incognito_session_token_(base::RandUint64()) {}
 
-BraveContentBrowserClient::~BraveContentBrowserClient() {}
+adrbrowsielContentBrowserClient::~adrbrowsielContentBrowserClient() {}
 
 std::unique_ptr<content::BrowserMainParts>
-BraveContentBrowserClient::CreateBrowserMainParts(
+adrbrowsielContentBrowserClient::CreateBrowserMainParts(
     const content::MainFunctionParams& parameters) {
   std::unique_ptr<content::BrowserMainParts> main_parts =
       ChromeContentBrowserClient::CreateBrowserMainParts(parameters);
   ChromeBrowserMainParts* chrome_main_parts =
       static_cast<ChromeBrowserMainParts*>(main_parts.get());
-  chrome_main_parts->AddParts(std::make_unique<BraveBrowserMainExtraParts>());
+  chrome_main_parts->AddParts(std::make_unique<adrbrowsielBrowserMainExtraParts>());
   return main_parts;
 }
 
-void BraveContentBrowserClient::BrowserURLHandlerCreated(
+void adrbrowsielContentBrowserClient::BrowserURLHandlerCreated(
     content::BrowserURLHandler* handler) {
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
   handler->AddHandlerPair(&webtorrent::HandleMagnetURLRewrite,
                           content::BrowserURLHandler::null_handler());
   handler->AddHandlerPair(&webtorrent::HandleTorrentURLRewrite,
@@ -253,35 +253,35 @@ void BraveContentBrowserClient::BrowserURLHandlerCreated(
   ChromeContentBrowserClient::BrowserURLHandlerCreated(handler);
 }
 
-void BraveContentBrowserClient::RenderProcessWillLaunch(
+void adrbrowsielContentBrowserClient::RenderProcessWillLaunch(
     content::RenderProcessHost* host) {
   Profile* profile = Profile::FromBrowserContext(host->GetBrowserContext());
-  BraveRendererUpdaterFactory::GetForProfile(profile)
+  adrbrowsielRendererUpdaterFactory::GetForProfile(profile)
       ->InitializeRenderer(host);
 
   ChromeContentBrowserClient::RenderProcessWillLaunch(host);
 }
 
 content::ContentBrowserClient::AllowWebBluetoothResult
-BraveContentBrowserClient::AllowWebBluetooth(
+adrbrowsielContentBrowserClient::AllowWebBluetooth(
     content::BrowserContext* browser_context,
     const url::Origin& requesting_origin,
     const url::Origin& embedding_origin) {
   return ContentBrowserClient::AllowWebBluetoothResult::BLOCK_GLOBALLY_DISABLED;
 }
 
-void BraveContentBrowserClient::ExposeInterfacesToRenderer(
+void adrbrowsielContentBrowserClient::ExposeInterfacesToRenderer(
     service_manager::BinderRegistry* registry,
     blink::AssociatedInterfaceRegistry* associated_registry,
     content::RenderProcessHost* render_process_host) {
   ChromeContentBrowserClient::ExposeInterfacesToRenderer(
       registry, associated_registry, render_process_host);
   registry->AddInterface(
-      base::BindRepeating(&BindBraveSearchHost, render_process_host->GetID()),
+      base::BindRepeating(&BindadrbrowsielSearchHost, render_process_host->GetID()),
       content::GetUIThreadTaskRunner({}));
 }
 
-void BraveContentBrowserClient::RegisterBrowserInterfaceBindersForFrame(
+void adrbrowsielContentBrowserClient::RegisterBrowserInterfaceBindersForFrame(
     content::RenderFrameHost* render_frame_host,
     mojo::BinderMapWithContext<content::RenderFrameHost*>* map) {
   ChromeContentBrowserClient::RegisterBrowserInterfaceBindersForFrame(
@@ -289,10 +289,10 @@ void BraveContentBrowserClient::RegisterBrowserInterfaceBindersForFrame(
   map->Add<cosmetic_filters::mojom::CosmeticFiltersResources>(
       base::BindRepeating(&BindCosmeticFiltersResources));
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-  if (brave_wallet::IsNativeWalletEnabled()) {
-    map->Add<brave_wallet::mojom::BraveWalletProvider>(
-        base::BindRepeating(&MaybeBindBraveWalletProvider));
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+  if (adrbrowsiel_wallet::IsNativeWalletEnabled()) {
+    map->Add<adrbrowsiel_wallet::mojom::adrbrowsielWalletProvider>(
+        base::BindRepeating(&MaybeBindadrbrowsielWalletProvider));
   }
 #if !defined(OS_ANDROID)
   chrome::internal::RegisterWebUIControllerInterfaceBinder<
@@ -301,7 +301,7 @@ void BraveContentBrowserClient::RegisterBrowserInterfaceBindersForFrame(
 #endif
 }
 
-bool BraveContentBrowserClient::HandleExternalProtocol(
+bool adrbrowsielContentBrowserClient::HandleExternalProtocol(
     const GURL& url,
     content::WebContents::OnceGetter web_contents_getter,
     int child_id,
@@ -312,7 +312,7 @@ bool BraveContentBrowserClient::HandleExternalProtocol(
     bool has_user_gesture,
     const base::Optional<url::Origin>& initiating_origin,
     mojo::PendingRemote<network::mojom::URLLoaderFactory>* out_factory) {
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
   if (webtorrent::IsMagnetProtocol(url)) {
     webtorrent::HandleMagnetProtocol(url, std::move(web_contents_getter),
                                      page_transition, has_user_gesture,
@@ -321,9 +321,9 @@ bool BraveContentBrowserClient::HandleExternalProtocol(
   }
 #endif
 
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
-  if (brave_rewards::IsRewardsProtocol(url)) {
-    brave_rewards::HandleRewardsProtocol(url, std::move(web_contents_getter),
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
+  if (adrbrowsiel_rewards::IsRewardsProtocol(url)) {
+    adrbrowsiel_rewards::HandleRewardsProtocol(url, std::move(web_contents_getter),
                                          page_transition, has_user_gesture);
     return true;
   }
@@ -361,7 +361,7 @@ bool BraveContentBrowserClient::HandleExternalProtocol(
       initiating_origin, out_factory);
 }
 
-void BraveContentBrowserClient::AppendExtraCommandLineSwitches(
+void adrbrowsielContentBrowserClient::AppendExtraCommandLineSwitches(
     base::CommandLine* command_line,
     int child_process_id) {
   ChromeContentBrowserClient::AppendExtraCommandLineSwitches(command_line,
@@ -383,13 +383,13 @@ void BraveContentBrowserClient::AppendExtraCommandLineSwitches(
         session_token = incognito_session_token_;
       }
     }
-    command_line->AppendSwitchASCII("brave_session_token",
+    command_line->AppendSwitchASCII("adrbrowsiel_session_token",
                                     base::NumberToString(session_token));
   }
 }
 
 std::vector<std::unique_ptr<blink::URLLoaderThrottle>>
-BraveContentBrowserClient::CreateURLLoaderThrottles(
+adrbrowsielContentBrowserClient::CreateURLLoaderThrottles(
     const network::ResourceRequest& request,
     content::BrowserContext* browser_context,
     const base::RepeatingCallback<content::WebContents*()>& wc_getter,
@@ -409,14 +409,14 @@ BraveContentBrowserClient::CreateURLLoaderThrottles(
       request.resource_type ==
           static_cast<int>(blink::mojom::ResourceType::kMainFrame)) {
     result.push_back(std::make_unique<speedreader::SpeedReaderThrottle>(
-        g_brave_browser_process->speedreader_rewriter_service(),
+        g_adrbrowsiel_browser_process->speedreader_rewriter_service(),
         base::ThreadTaskRunnerHandle::Get()));
   }
 #endif  // ENABLE_SPEEDREADER
   return result;
 }
 
-bool BraveContentBrowserClient::WillCreateURLLoaderFactory(
+bool adrbrowsielContentBrowserClient::WillCreateURLLoaderFactory(
     content::BrowserContext* browser_context,
     content::RenderFrameHost* frame,
     int render_process_id,
@@ -432,7 +432,7 @@ bool BraveContentBrowserClient::WillCreateURLLoaderFactory(
     network::mojom::URLLoaderFactoryOverridePtr* factory_override) {
   bool use_proxy = false;
   // TODO(iefremov): Skip proxying for certain requests?
-  use_proxy = BraveProxyingURLLoaderFactory::MaybeProxyRequest(
+  use_proxy = adrbrowsielProxyingURLLoaderFactory::MaybeProxyRequest(
       browser_context, frame,
       type == URLLoaderFactoryType::kNavigation ? -1 : render_process_id,
       factory_receiver);
@@ -445,12 +445,12 @@ bool BraveContentBrowserClient::WillCreateURLLoaderFactory(
   return use_proxy;
 }
 
-bool BraveContentBrowserClient::WillInterceptWebSocket(
+bool adrbrowsielContentBrowserClient::WillInterceptWebSocket(
     content::RenderFrameHost* frame) {
   return (frame != nullptr);
 }
 
-void BraveContentBrowserClient::CreateWebSocket(
+void adrbrowsielContentBrowserClient::CreateWebSocket(
     content::RenderFrameHost* frame,
     content::ContentBrowserClient::WebSocketFactory factory,
     const GURL& url,
@@ -458,7 +458,7 @@ void BraveContentBrowserClient::CreateWebSocket(
     const base::Optional<std::string>& user_agent,
     mojo::PendingRemote<network::mojom::WebSocketHandshakeClient>
         handshake_client) {
-  auto* proxy = BraveProxyingWebSocket::ProxyWebSocket(
+  auto* proxy = adrbrowsielProxyingWebSocket::ProxyWebSocket(
       frame, std::move(factory), url, site_for_cookies, user_agent,
       std::move(handshake_client));
 
@@ -471,7 +471,7 @@ void BraveContentBrowserClient::CreateWebSocket(
   }
 }
 
-void BraveContentBrowserClient::MaybeHideReferrer(
+void adrbrowsielContentBrowserClient::MaybeHideReferrer(
     content::BrowserContext* browser_context,
     const GURL& request_url,
     const GURL& document_url,
@@ -489,13 +489,13 @@ void BraveContentBrowserClient::MaybeHideReferrer(
   }
 
   Profile* profile = Profile::FromBrowserContext(browser_context);
-  const bool allow_referrers = brave_shields::AllowReferrers(
+  const bool allow_referrers = adrbrowsiel_shields::AllowReferrers(
       HostContentSettingsMapFactory::GetForProfile(profile), document_url);
-  const bool shields_up = brave_shields::GetBraveShieldsEnabled(
+  const bool shields_up = adrbrowsiel_shields::GetadrbrowsielShieldsEnabled(
       HostContentSettingsMapFactory::GetForProfile(profile), document_url);
 
   content::Referrer new_referrer;
-  if (brave_shields::MaybeChangeReferrer(allow_referrers, shields_up,
+  if (adrbrowsiel_shields::MaybeChangeReferrer(allow_referrers, shields_up,
                                          (*referrer)->url, request_url,
                                          &new_referrer)) {
     (*referrer)->url = new_referrer.url;
@@ -503,7 +503,7 @@ void BraveContentBrowserClient::MaybeHideReferrer(
   }
 }
 
-GURL BraveContentBrowserClient::GetEffectiveURL(
+GURL adrbrowsielContentBrowserClient::GetEffectiveURL(
     content::BrowserContext* browser_context,
     const GURL& url) {
   Profile* profile = Profile::FromBrowserContext(browser_context);
@@ -519,13 +519,13 @@ GURL BraveContentBrowserClient::GetEffectiveURL(
 }
 
 // [static]
-bool BraveContentBrowserClient::HandleURLOverrideRewrite(
+bool adrbrowsielContentBrowserClient::HandleURLOverrideRewrite(
     GURL* url,
     content::BrowserContext* browser_context) {
   if (url->host() == chrome::kChromeUISyncHost) {
     GURL::Replacements replacements;
     replacements.SetHostStr(chrome::kChromeUISettingsHost);
-    replacements.SetPathStr(kBraveSyncPath);
+    replacements.SetPathStr(kadrbrowsielSyncPath);
     *url = url->ReplaceComponents(replacements);
     return true;
   }
@@ -536,9 +536,9 @@ bool BraveContentBrowserClient::HandleURLOverrideRewrite(
     return true;
   }
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED) && BUILDFLAG(ENABLE_EXTENSIONS)
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED) && BUILDFLAG(ENABLE_EXTENSIONS)
   // If the Crypto Wallets extension is loaded, then it replaces the WebUI
-  auto* service = BraveWalletServiceFactory::GetForContext(browser_context);
+  auto* service = adrbrowsielWalletServiceFactory::GetForContext(browser_context);
   if (service->IsCryptoWalletsReady() &&
       url->SchemeIs(content::kChromeUIScheme) &&
       url->host() == ethereum_remote_client_host) {
@@ -555,7 +555,7 @@ bool BraveContentBrowserClient::HandleURLOverrideRewrite(
 }
 
 std::vector<std::unique_ptr<content::NavigationThrottle>>
-BraveContentBrowserClient::CreateThrottlesForNavigation(
+adrbrowsielContentBrowserClient::CreateThrottlesForNavigation(
     content::NavigationHandle* handle) {
   std::vector<std::unique_ptr<content::NavigationThrottle>> throttles =
       ChromeContentBrowserClient::CreateThrottlesForNavigation(handle);
@@ -567,9 +567,9 @@ BraveContentBrowserClient::CreateThrottlesForNavigation(
     throttles.push_back(std::move(ntp_shows_navigation_throttle));
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
   throttles.push_back(
-      std::make_unique<extensions::BraveWebTorrentNavigationThrottle>(handle));
+      std::make_unique<extensions::adrbrowsielWebTorrentNavigationThrottle>(handle));
 #endif
 
   content::BrowserContext* context =
@@ -615,9 +615,9 @@ BraveContentBrowserClient::CreateThrottlesForNavigation(
 
   if (std::unique_ptr<
           content::NavigationThrottle> domain_block_navigation_throttle =
-          brave_shields::DomainBlockNavigationThrottle::MaybeCreateThrottleFor(
-              handle, g_brave_browser_process->ad_block_service(),
-              g_brave_browser_process->ad_block_custom_filters_service(),
+          adrbrowsiel_shields::DomainBlockNavigationThrottle::MaybeCreateThrottleFor(
+              handle, g_adrbrowsiel_browser_process->ad_block_service(),
+              g_adrbrowsiel_browser_process->ad_block_custom_filters_service(),
               HostContentSettingsMapFactory::GetForProfile(
                   Profile::FromBrowserContext(context)),
               g_browser_process->GetApplicationLocale()))

@@ -1,19 +1,19 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/ui/views/toolbar/wallet_button.h"
+#include "adrbrowsiel/browser/ui/views/toolbar/wallet_button.h"
 
 #include <utility>
 
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/browser/ui/brave_view_ids.h"
-#include "brave/common/webui_url_constants.h"
-#include "brave/components/brave_wallet/browser/pref_names.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_view_ids.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/themes/theme_properties.h"
-#include "components/grit/brave_components_strings.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/prefs/pref_service.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/gfx/paint_vector_icon.h"
@@ -64,8 +64,8 @@ void WalletButton::InitBubbleManagerAnchor() {
     anchor_view = backup_anchor_view_;
   }
   webui_bubble_manager_ = std::make_unique<WebUIBubbleManagerT<WalletPanelUI>>(
-      anchor_view, profile_, GURL(kBraveUIWalletPanelURL),
-      IDS_ACCNAME_BRAVE_WALLET_BUTTON, true);
+      anchor_view, profile_, GURL(kadrbrowsielUIWalletPanelURL),
+      IDS_ACCNAME_adrbrowsiel_WALLET_BUTTON, true);
 }
 
 void WalletButton::UpdateVisibility() {

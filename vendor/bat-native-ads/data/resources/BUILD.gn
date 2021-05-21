@@ -9,7 +9,7 @@ grit("resources") {
     "bat_ads_resources.pak",
   ]
 
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 
   output_dir = "$root_gen_dir/bat/ads/resources"
 }

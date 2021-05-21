@@ -8,123 +8,123 @@
 
 namespace mini_installer {
 
-class BraveMiniInstallerTest: public testing::Test {
+class adrbrowsielMiniInstallerTest: public testing::Test {
  public:
-  BraveMiniInstallerTest() {
+  adrbrowsielMiniInstallerTest() {
   }
-  ~BraveMiniInstallerTest() override {}
+  ~adrbrowsielMiniInstallerTest() override {}
 };
 
 
-TEST_F(BraveMiniInstallerTest, HasNoReferralCode) {
+TEST_F(adrbrowsielMiniInstallerTest, HasNoReferralCode) {
   ReferralCodeString referral_code;
-  EXPECT_FALSE(ParseReferralCode(L"BraveBrowserSetup.exe", &referral_code));
+  EXPECT_FALSE(ParseReferralCode(L"adrbrowsielBrowserSetup.exe", &referral_code));
 }
 
-TEST_F(BraveMiniInstallerTest, HasStandardReferralCode) {
+TEST_F(adrbrowsielMiniInstallerTest, HasStandardReferralCode) {
   ReferralCodeString referral_code;
-  EXPECT_TRUE(ParseReferralCode(L"BraveBrowserSetup-FOO123.exe",
+  EXPECT_TRUE(ParseReferralCode(L"adrbrowsielBrowserSetup-FOO123.exe",
                           &referral_code));
   EXPECT_STREQ(referral_code.get(), L"FOO123");
 }
 
-TEST_F(BraveMiniInstallerTest, HasStandardReferralCodeWithLowercase) {
+TEST_F(adrbrowsielMiniInstallerTest, HasStandardReferralCodeWithLowercase) {
   ReferralCodeString referral_code;
-  EXPECT_TRUE(ParseReferralCode(L"BraveBrowserSetup-foo123.exe",
+  EXPECT_TRUE(ParseReferralCode(L"adrbrowsielBrowserSetup-foo123.exe",
                           &referral_code));
   EXPECT_STREQ(referral_code.get(), L"FOO123");
 }
 
-TEST_F(BraveMiniInstallerTest, HasStandardReferralCodeWithPath) {
+TEST_F(adrbrowsielMiniInstallerTest, HasStandardReferralCodeWithPath) {
   ReferralCodeString referral_code;
-  EXPECT_TRUE(ParseReferralCode(L"c:/foo/bar/BraveBrowserSetup-FOO123.exe",
+  EXPECT_TRUE(ParseReferralCode(L"c:/foo/bar/adrbrowsielBrowserSetup-FOO123.exe",
                           &referral_code));
   EXPECT_STREQ(referral_code.get(), L"FOO123");
 }
 
-TEST_F(BraveMiniInstallerTest,
+TEST_F(adrbrowsielMiniInstallerTest,
                 HasStandardReferralCodeWithDeduplicatingSuffix) {
   ReferralCodeString referral_code;
-  EXPECT_TRUE(ParseReferralCode(L"c:/foo/bar/BraveBrowserSetup-FOO123 (1).exe",
+  EXPECT_TRUE(ParseReferralCode(L"c:/foo/bar/adrbrowsielBrowserSetup-FOO123 (1).exe",
                           &referral_code));
   EXPECT_STREQ(referral_code.get(), L"FOO123");
 }
 
-TEST_F(BraveMiniInstallerTest,
+TEST_F(adrbrowsielMiniInstallerTest,
                 HasStandardReferralCodeWithDeduplicatingSuffixNoSpaces) {
   ReferralCodeString referral_code;
-  EXPECT_TRUE(ParseReferralCode(L"c:/foo/bar/BraveBrowserSetup-FOO123(1).exe",
+  EXPECT_TRUE(ParseReferralCode(L"c:/foo/bar/adrbrowsielBrowserSetup-FOO123(1).exe",
                           &referral_code));
   EXPECT_STREQ(referral_code.get(), L"FOO123");
 }
 
-TEST_F(BraveMiniInstallerTest,
+TEST_F(adrbrowsielMiniInstallerTest,
                 HasStandardReferralCodeWithDeduplicatingSuffixExtraSpaces) {
   ReferralCodeString referral_code;
   EXPECT_TRUE(ParseReferralCode(
-                          L"c:/foo/bar/BraveBrowserSetup-FOO123   (1).exe",
+                          L"c:/foo/bar/adrbrowsielBrowserSetup-FOO123   (1).exe",
                           &referral_code));
   EXPECT_STREQ(referral_code.get(), L"FOO123");
 }
 
-TEST_F(BraveMiniInstallerTest, HasInvalidStandardReferralCodeReversed) {
+TEST_F(adrbrowsielMiniInstallerTest, HasInvalidStandardReferralCodeReversed) {
   ReferralCodeString referral_code;
-  EXPECT_FALSE(ParseReferralCode(L"BraveBrowserSetup-123FOO.exe",
+  EXPECT_FALSE(ParseReferralCode(L"adrbrowsielBrowserSetup-123FOO.exe",
                           &referral_code));
 }
 
-TEST_F(BraveMiniInstallerTest, HasInvalidStandardReferralCodeNoDigits) {
+TEST_F(adrbrowsielMiniInstallerTest, HasInvalidStandardReferralCodeNoDigits) {
   ReferralCodeString referral_code;
-  EXPECT_FALSE(ParseReferralCode(L"BraveBrowserSetup-FOO.exe", &referral_code));
+  EXPECT_FALSE(ParseReferralCode(L"adrbrowsielBrowserSetup-FOO.exe", &referral_code));
 }
 
-TEST_F(BraveMiniInstallerTest, HasInvalidStandardReferralCodeNoLetters) {
+TEST_F(adrbrowsielMiniInstallerTest, HasInvalidStandardReferralCodeNoLetters) {
   ReferralCodeString referral_code;
-  EXPECT_FALSE(ParseReferralCode(L"BraveBrowserSetup-123.exe", &referral_code));
+  EXPECT_FALSE(ParseReferralCode(L"adrbrowsielBrowserSetup-123.exe", &referral_code));
 }
 
-TEST_F(BraveMiniInstallerTest, HasInvalidStandardReferralCodeTooManyDigits) {
+TEST_F(adrbrowsielMiniInstallerTest, HasInvalidStandardReferralCodeTooManyDigits) {
   ReferralCodeString referral_code;
-  EXPECT_FALSE(ParseReferralCode(L"BraveBrowserSetup-FOO1234.exe",
+  EXPECT_FALSE(ParseReferralCode(L"adrbrowsielBrowserSetup-FOO1234.exe",
                           &referral_code));
 }
 
-TEST_F(BraveMiniInstallerTest, HasInvalidStandardReferralCodeTooFewDigits) {
+TEST_F(adrbrowsielMiniInstallerTest, HasInvalidStandardReferralCodeTooFewDigits) {
   ReferralCodeString referral_code;
-  EXPECT_FALSE(ParseReferralCode(L"BraveBrowserSetup-FOO12.exe",
+  EXPECT_FALSE(ParseReferralCode(L"adrbrowsielBrowserSetup-FOO12.exe",
                           &referral_code));
 }
 
-TEST_F(BraveMiniInstallerTest, HasInvalidStandardReferralCodeTooManyLetters) {
+TEST_F(adrbrowsielMiniInstallerTest, HasInvalidStandardReferralCodeTooManyLetters) {
   ReferralCodeString referral_code;
-  EXPECT_FALSE(ParseReferralCode(L"BraveBrowserSetup-FOOO123.exe",
+  EXPECT_FALSE(ParseReferralCode(L"adrbrowsielBrowserSetup-FOOO123.exe",
                           &referral_code));
 }
 
-TEST_F(BraveMiniInstallerTest, HasInvalidStandardReferralCodeTooFewLetters) {
+TEST_F(adrbrowsielMiniInstallerTest, HasInvalidStandardReferralCodeTooFewLetters) {
   ReferralCodeString referral_code;
-  EXPECT_FALSE(ParseReferralCode(L"BraveBrowserSetup-FO123.exe",
+  EXPECT_FALSE(ParseReferralCode(L"adrbrowsielBrowserSetup-FO123.exe",
                           &referral_code));
 }
 
-TEST_F(BraveMiniInstallerTest, HasExtendedReferralCode) {
+TEST_F(adrbrowsielMiniInstallerTest, HasExtendedReferralCode) {
   ReferralCodeString referral_code;
-  EXPECT_TRUE(ParseReferralCode(L"BraveBrowserSetup-extended-code.exe",
+  EXPECT_TRUE(ParseReferralCode(L"adrbrowsielBrowserSetup-extended-code.exe",
                           &referral_code));
   EXPECT_STREQ(referral_code.get(), L"extended-code");
 }
 
-TEST_F(BraveMiniInstallerTest,
+TEST_F(adrbrowsielMiniInstallerTest,
                 HasInvalidExtendedReferralCodeNonAlphabeticCharacters) {
   ReferralCodeString referral_code;
   EXPECT_FALSE(ParseReferralCode(
-                          L"BraveBrowserSetup-invalid-extended-c0de.exe",
+                          L"adrbrowsielBrowserSetup-invalid-extended-c0de.exe",
                           &referral_code));
 }
 
-TEST_F(BraveMiniInstallerTest, HasInvalidExtendedReferralCodeTooFewWords) {
+TEST_F(adrbrowsielMiniInstallerTest, HasInvalidExtendedReferralCodeTooFewWords) {
   ReferralCodeString referral_code;
-  EXPECT_FALSE(ParseReferralCode(L"BraveBrowserSetup-invalidextendedcode.exe",
+  EXPECT_FALSE(ParseReferralCode(L"adrbrowsielBrowserSetup-invalidextendedcode.exe",
                           &referral_code));
 }
 

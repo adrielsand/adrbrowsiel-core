@@ -1,16 +1,16 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_FRAME_BRAVE_BROWSER_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_FRAME_BRAVE_BROWSER_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_FRAME_adrbrowsiel_BROWSER_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_FRAME_adrbrowsiel_BROWSER_VIEW_H_
 
 #include <memory>
 #include <string>
 
-#include "brave/browser/ui/tabs/brave_tab_strip_model.h"
-#include "brave/components/sidebar/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/ui/tabs/adrbrowsiel_tab_strip_model.h"
+#include "adrbrowsiel/components/sidebar/buildflags/buildflags.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
@@ -20,10 +20,10 @@ class SidebarContainerView;
 
 class WalletButton;
 
-class BraveBrowserView : public BrowserView {
+class adrbrowsielBrowserView : public BrowserView {
  public:
-  explicit BraveBrowserView(std::unique_ptr<Browser> browser);
-  ~BraveBrowserView() override;
+  explicit adrbrowsielBrowserView(std::unique_ptr<Browser> browser);
+  ~adrbrowsielBrowserView() override;
 
   void SetStarredState(bool is_starred) override;
   void ShowUpdateChromeDialog() override;
@@ -59,7 +59,7 @@ class BraveBrowserView : public BrowserView {
   ContentsLayoutManager* GetContentsLayoutManager() const override;
 
   // If sidebar is enabled, |BrowserView::contents_container_| points to
-  // |brave_contents_container_| that includes sidebar and contents container.
+  // |adrbrowsiel_contents_container_| that includes sidebar and contents container.
   // |original_contents_container_| points to original contents container that
   // includes contents & devtools webview. It's used by
   // GetContentsLayoutManager().
@@ -70,7 +70,7 @@ class BraveBrowserView : public BrowserView {
 
   std::unique_ptr<TabCyclingEventHandler> tab_cycling_event_handler_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveBrowserView);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielBrowserView);
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_FRAME_BRAVE_BROWSER_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_FRAME_adrbrowsiel_BROWSER_VIEW_H_

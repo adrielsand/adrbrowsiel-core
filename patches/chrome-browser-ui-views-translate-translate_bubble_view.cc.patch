@@ -7,7 +7,7 @@ index 1fcb2d15f2af9a136f1c4be7f060d05e9bede168..81b8d8e9bed3e13c70de2109aad32018
    std::unique_ptr<TranslateBubbleModel> model(
        new TranslateBubbleModelImpl(step, std::move(ui_delegate)));
 -  TranslateBubbleView* view = new TranslateBubbleView(
-+  TranslateBubbleView* view = new BRAVE_TRANSLATE_BUBBLE_VIEW_(
++  TranslateBubbleView* view = new adrbrowsiel_TRANSLATE_BUBBLE_VIEW_(
        anchor_view, std::move(model), error_type, web_contents);
  
    if (highlighted_button)

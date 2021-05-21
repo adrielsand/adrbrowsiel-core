@@ -6,7 +6,7 @@ index e82f79440e4bc4c3d19daae41688beab01be6831..dca40a6e26b88f7319a4a68d6fef610e
    bool paint_blocked_actions_decoration() const {
      return paint_blocked_actions_decoration_;
    }
-+  BRAVE_ICON_WITH_BADGE_IMAGE_SOURCE_H_
++  adrbrowsiel_ICON_WITH_BADGE_IMAGE_SOURCE_H_
  
   private:
    // gfx::CanvasImageSource:

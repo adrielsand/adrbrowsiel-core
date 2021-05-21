@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,33 +6,33 @@
 import {addSingletonGetter} from 'chrome://resources/js/cr.m.js';
 
 /** @interface */
-export class BraveWalletBrowserProxy {
+export class adrbrowsielWalletBrowserProxy {
   /**
    * @param {boolean} value name.
    */
-   setBraveWalletEnabled (value) {}
+   setadrbrowsielWalletEnabled (value) {}
    getWeb3ProviderList () {}
    isNativeWalletEnabled() {}
 }
 
 /**
- * @implements {settings.BraveWalletBrowserProxy}
+ * @implements {settings.adrbrowsielWalletBrowserProxy}
  */
-export class BraveWalletBrowserProxyImpl {
+export class adrbrowsielWalletBrowserProxyImpl {
   /** @override */
-  setBraveWalletEnabled (value) {
-    chrome.send('setBraveWalletEnabled', [value])
+  setadrbrowsielWalletEnabled (value) {
+    chrome.send('setadrbrowsielWalletEnabled', [value])
   }
 
   /** @override */
   getWeb3ProviderList () {
-    return new Promise(resolve => chrome.braveWallet.getWeb3ProviderList(resolve))
+    return new Promise(resolve => chrome.adrbrowsielWallet.getWeb3ProviderList(resolve))
   }
 
   /** @override */
   isNativeWalletEnabled () {
-    return new Promise(resolve => chrome.braveWallet.isNativeWalletEnabled(resolve))
+    return new Promise(resolve => chrome.adrbrowsielWallet.isNativeWalletEnabled(resolve))
   }
 }
 
-addSingletonGetter(BraveWalletBrowserProxyImpl)
+addSingletonGetter(adrbrowsielWalletBrowserProxyImpl)

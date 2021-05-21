@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,12 +7,12 @@
 #include "base/strings/stringprintf.h"
 #include "base/task/post_task.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/brave_content_browser_client.h"
-#include "brave/browser/extensions/brave_base_local_data_files_browsertest.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_content_browser_client.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_base_local_data_files_browsertest.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "chrome/browser/ui/browser.h"
@@ -25,27 +25,27 @@
 #include "content/public/test/browser_test_utils.h"
 #include "net/dns/mock_host_resolver.h"
 
-using brave_shields::ControlType;
+using adrbrowsiel_shields::ControlType;
 
 const char kEmbeddedTestServerDirectory[] = "webaudio";
 const char kTitleScript[] = "domAutomationController.send(document.title);";
 
-class BraveWebAudioFarblingBrowserTest : public InProcessBrowserTest {
+class adrbrowsielWebAudioFarblingBrowserTest : public InProcessBrowserTest {
  public:
   void SetUpOnMainThread() override {
     InProcessBrowserTest::SetUpOnMainThread();
 
     content_client_.reset(new ChromeContentClient);
     content::SetContentClient(content_client_.get());
-    browser_content_client_.reset(new BraveContentBrowserClient());
+    browser_content_client_.reset(new adrbrowsielContentBrowserClient());
     content::SetBrowserClientForTesting(browser_content_client_.get());
 
     host_resolver()->AddRule("*", "127.0.0.1");
     content::SetupCrossSiteRedirector(embedded_test_server());
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     test_data_dir = test_data_dir.AppendASCII(kEmbeddedTestServerDirectory);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
 
@@ -71,17 +71,17 @@ class BraveWebAudioFarblingBrowserTest : public InProcessBrowserTest {
   }
 
   void AllowFingerprinting() {
-    brave_shields::SetFingerprintingControlType(
+    adrbrowsiel_shields::SetFingerprintingControlType(
         content_settings(), ControlType::ALLOW, top_level_page_url_);
   }
 
   void BlockFingerprinting() {
-    brave_shields::SetFingerprintingControlType(
+    adrbrowsiel_shields::SetFingerprintingControlType(
         content_settings(), ControlType::BLOCK, top_level_page_url_);
   }
 
   void SetFingerprintingDefault() {
-    brave_shields::SetFingerprintingControlType(
+    adrbrowsiel_shields::SetFingerprintingControlType(
         content_settings(), ControlType::DEFAULT, top_level_page_url_);
   }
 
@@ -106,19 +106,19 @@ class BraveWebAudioFarblingBrowserTest : public InProcessBrowserTest {
   GURL copy_from_channel_url_;
   GURL farbling_url_;
   std::unique_ptr<ChromeContentClient> content_client_;
-  std::unique_ptr<BraveContentBrowserClient> browser_content_client_;
+  std::unique_ptr<adrbrowsielContentBrowserClient> browser_content_client_;
 };
 
 // Tests for crash in copyFromChannel as reported in
-// https://github.com/brave/brave-browser/issues/9552
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/9552
 // No crash indicates a successful test.
-IN_PROC_BROWSER_TEST_F(BraveWebAudioFarblingBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielWebAudioFarblingBrowserTest,
                        CopyFromChannelNoCrash) {
   NavigateToURLUntilLoadStop(copy_from_channel_url());
 }
 
 // Tests results of farbling known values
-IN_PROC_BROWSER_TEST_F(BraveWebAudioFarblingBrowserTest, FarbleWebAudio) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielWebAudioFarblingBrowserTest, FarbleWebAudio) {
   // Farbling level: maximum
   // web audio: pseudo-random data with no relation to underlying audio channel
   BlockFingerprinting();

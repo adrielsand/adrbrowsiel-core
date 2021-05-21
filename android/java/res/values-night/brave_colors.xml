@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2019 The Brave Authors. All rights reserved.
+<!-- Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
      This Source Code Form is subject to the terms of the Mozilla Public
      License, v. 2.0. If a copy of the MPL was not distributed with this file,
      You can obtain one at http://mozilla.org/MPL/2.0/
@@ -20,11 +20,11 @@
     <color name="onboarding_progressbar_secondary_bg">#212529</color>
 
     <!-- Sync colors -->
-    <color name="brave_sync_bg_color">@color/modern_grey_800</color>
-    <color name="brave_sync_border_color">@color/modern_grey_800</color>
-    <color name="brave_sync_bg_secondary_color">#212529</color>
+    <color name="adrbrowsiel_sync_bg_color">@color/modern_grey_800</color>
+    <color name="adrbrowsiel_sync_border_color">@color/modern_grey_800</color>
+    <color name="adrbrowsiel_sync_bg_secondary_color">#212529</color>
 
-    <color name="brave_set_default_dialog_text_color">@android:color/white</color>
+    <color name="adrbrowsiel_set_default_dialog_text_color">@android:color/white</color>
 
     <color name="qr_button_color">@color/modern_grey_800</color>
     <color name="shield_title_color">#F0F2FF</color>
@@ -39,17 +39,17 @@
     
     <color name="shield_thank_you_icon_color">#F0F2FF</color>
 
-    <color name="brave_stats_ads_color">#FF7654</color>
-    <color name="brave_stats_data_saved_color">#737ADE</color>
+    <color name="adrbrowsiel_stats_ads_color">#FF7654</color>
+    <color name="adrbrowsiel_stats_data_saved_color">#737ADE</color>
 
-    <color name="brave_stats_title_color">#84889C</color>
-    <color name="brave_stats_text_color">#F0F2FF</color>
+    <color name="adrbrowsiel_stats_title_color">#84889C</color>
+    <color name="adrbrowsiel_stats_text_color">#F0F2FF</color>
 
-    <color name="brave_stats_bg_color">#1E2029</color>
-    <color name="brave_stats_bg_color_20_alpha">#33F0F2FF</color>
-    <color name="brave_stats_close_button_color">#F0F2FF</color>
-    <color name="brave_stats_radio_group_bg">#17171F</color>
-    <color name="brave_stats_radio_button_active">#3B3E4F</color>
+    <color name="adrbrowsiel_stats_bg_color">#1E2029</color>
+    <color name="adrbrowsiel_stats_bg_color_20_alpha">#33F0F2FF</color>
+    <color name="adrbrowsiel_stats_close_button_color">#F0F2FF</color>
+    <color name="adrbrowsiel_stats_radio_group_bg">#17171F</color>
+    <color name="adrbrowsiel_stats_radio_button_active">#3B3E4F</color>
     <color name="spinner_bg_color">#212529</color>
-    <color name="brave_blue_tint_color">#737ADE</color>
+    <color name="adrbrowsiel_blue_tint_color">#737ADE</color>
 </resources>

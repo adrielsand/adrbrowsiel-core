@@ -1,25 +1,25 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // You can obtain one at http://mozilla.org/MPL/2.0/.
 module ads.mojom;
 
-enum BraveAdsEnvironment {
+enum adrbrowsielAdsEnvironment {
   STAGING = 0,
   PRODUCTION,
   DEVELOPMENT
 };
 
-struct BraveAdsSysInfo {
+struct adrbrowsielAdsSysInfo {
   bool is_uncertain_future;
 };
 
-struct BraveAdsBuildChannel {
+struct adrbrowsielAdsBuildChannel {
   bool is_release;
   string name;
 };
 
-enum BraveAdsAdType {
+enum adrbrowsielAdsAdType {
   kUndefined = 0,
   kAdNotification,
   kNewTabPageAd,
@@ -28,7 +28,7 @@ enum BraveAdsAdType {
 
 // If ad notification event types are added to the 7-day ads history you should
 // update |kMaximumEntries| in |ads_history.h|
-enum BraveAdsAdNotificationEventType {
+enum adrbrowsielAdsAdNotificationEventType {
   kViewed = 0,
   kClicked,
   kDismissed,
@@ -37,37 +37,37 @@ enum BraveAdsAdNotificationEventType {
 
 // If new tab page ad event types are added to the 7-day ads history you should
 // update |kMaximumEntries| in |ads_history.h|
-enum BraveAdsNewTabPageAdEventType {
+enum adrbrowsielAdsNewTabPageAdEventType {
   kViewed = 0,
   kClicked
 };
 
 // If promoted content ad event types are added to the 7-day ads history you
 // should update |kMaximumEntries| in |ads_history.h|
-enum BraveAdsPromotedContentAdEventType {
+enum adrbrowsielAdsPromotedContentAdEventType {
   kViewed = 0,
   kClicked
 };
 
-enum BraveAdsUrlRequestMethod {
+enum adrbrowsielAdsUrlRequestMethod {
   GET = 0,
   PUT,
   POST
 };
 
-enum BraveAdsP2AEventType {
+enum adrbrowsielAdsP2AEventType {
   kListType = 0
 };
 
-struct BraveAdsUrlRequest {
+struct adrbrowsielAdsUrlRequest {
   string url;
   array<string> headers;
   string content;
   string content_type;
-  BraveAdsUrlRequestMethod method;
+  adrbrowsielAdsUrlRequestMethod method;
 };
 
-struct BraveAdsUrlResponse {
+struct adrbrowsielAdsUrlResponse {
   string url;
   int32 status_code;
   string body;

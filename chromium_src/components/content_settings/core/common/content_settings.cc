@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,27 +10,27 @@ namespace {
 
 // Do not change the value arbitrarily. This variable is only used for the
 // DCHECK in ContentSettingTypeToHistogramValue function below.
-constexpr int kBraveValuesStart = 1000;
+constexpr int kadrbrowsielValuesStart = 1000;
 
-constexpr int brave_value(int incr) {
-  return kBraveValuesStart + incr;
+constexpr int adrbrowsiel_value(int incr) {
+  return kadrbrowsielValuesStart + incr;
 }
 
 }  // namespace
 
 // clang-format off
-#define BRAVE_HISTOGRAM_VALUE_LIST                                        \
-  {ContentSettingsType::BRAVE_ADS, brave_value(0)},                       \
-  {ContentSettingsType::BRAVE_COSMETIC_FILTERING, brave_value(1)},        \
-  {ContentSettingsType::BRAVE_TRACKERS, brave_value(2)},                  \
-  {ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES, brave_value(3)}, \
-  {ContentSettingsType::BRAVE_FINGERPRINTING_V2, brave_value(4)},         \
-  {ContentSettingsType::BRAVE_SHIELDS, brave_value(5)},                   \
-  {ContentSettingsType::BRAVE_REFERRERS, brave_value(6)},                 \
-  {ContentSettingsType::BRAVE_COOKIES, brave_value(7)},
+#define adrbrowsiel_HISTOGRAM_VALUE_LIST                                        \
+  {ContentSettingsType::adrbrowsiel_ADS, adrbrowsiel_value(0)},                       \
+  {ContentSettingsType::adrbrowsiel_COSMETIC_FILTERING, adrbrowsiel_value(1)},        \
+  {ContentSettingsType::adrbrowsiel_TRACKERS, adrbrowsiel_value(2)},                  \
+  {ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES, adrbrowsiel_value(3)}, \
+  {ContentSettingsType::adrbrowsiel_FINGERPRINTING_V2, adrbrowsiel_value(4)},         \
+  {ContentSettingsType::adrbrowsiel_SHIELDS, adrbrowsiel_value(5)},                   \
+  {ContentSettingsType::adrbrowsiel_REFERRERS, adrbrowsiel_value(6)},                 \
+  {ContentSettingsType::adrbrowsiel_COOKIES, adrbrowsiel_value(7)},
 // clang-format on
 
-#define BRAVE_IS_RENDERER_CONTENT_SETTING \
+#define adrbrowsiel_IS_RENDERER_CONTENT_SETTING \
   content_type == ContentSettingsType::AUTOPLAY ||
 
 #define ContentSettingTypeToHistogramValue \
@@ -39,12 +39,12 @@ constexpr int brave_value(int incr) {
 #include "../../../../../../components/content_settings/core/common/content_settings.cc"
 
 #undef ContentSettingTypeToHistogramValue
-#undef BRAVE_HISTOGRAM_VALUE_LIST
-#undef BRAVE_IS_RENDERER_CONTENT_SETTING
+#undef adrbrowsiel_HISTOGRAM_VALUE_LIST
+#undef adrbrowsiel_IS_RENDERER_CONTENT_SETTING
 
 int ContentSettingTypeToHistogramValue(ContentSettingsType content_setting,
                                        size_t* num_values) {
-  DCHECK(static_cast<int>(ContentSettingsType::NUM_TYPES) < kBraveValuesStart);
+  DCHECK(static_cast<int>(ContentSettingsType::NUM_TYPES) < kadrbrowsielValuesStart);
   return ContentSettingTypeToHistogramValue_ChromiumImpl(content_setting,
                                                          num_values);
 }

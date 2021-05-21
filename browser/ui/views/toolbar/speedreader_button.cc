@@ -1,21 +1,21 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/toolbar/speedreader_button.h"
+#include "adrbrowsiel/browser/ui/views/toolbar/speedreader_button.h"
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/app/brave_command_ids.h"
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/browser/speedreader/speedreader_tab_helper.h"
-#include "brave/browser/ui/brave_view_ids.h"
-#include "brave/components/speedreader/speedreader_pref_names.h"
+#include "adrbrowsiel/app/adrbrowsiel_command_ids.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/browser/speedreader/speedreader_tab_helper.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_view_ids.h"
+#include "adrbrowsiel/components/speedreader/speedreader_pref_names.h"
 #include "chrome/app/chrome_command_ids.h"
 #include "chrome/browser/themes/theme_properties.h"
 #include "chrome/browser/ui/views/toolbar/toolbar_view.h"
 #include "chrome/grit/generated_resources.h"
-#include "components/grit/brave_components_strings.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/prefs/pref_service.h"
 #include "components/strings/grit/components_strings.h"
 #include "ui/base/l10n/l10n_util.h"
@@ -25,7 +25,7 @@
 SpeedreaderButton::SpeedreaderButton(PressedCallback callback,
                                      PrefService* prefs)
     : ToolbarButton(callback), prefs_(prefs) {
-  SetID(BRAVE_VIEW_ID_SPEEDREADER_BUTTON);
+  SetID(adrbrowsiel_VIEW_ID_SPEEDREADER_BUTTON);
   set_tag(IDC_TOGGLE_SPEEDREADER);
 
   on_ = prefs_->GetBoolean(speedreader::kSpeedreaderPrefEnabled);

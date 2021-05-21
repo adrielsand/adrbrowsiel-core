@@ -7,7 +7,7 @@ index 7af3d7b83c5a7f9c61bbc55219989575595c1708..e3fc3d7942ce3af9d1fecaea5f22d43e
    HOME_PAGE          = 1 << 5,
    AUTOFILL_FORM_DATA = 1 << 6,
 -  ALL                = (1 << 7) - 1  // All the bits should be 1, hence the -1.
-+  BRAVE_IMPORT_ITEM
++  adrbrowsiel_IMPORT_ITEM
  };
  
  // Information about a profile needed by an importer to do import work.
@@ -15,7 +15,7 @@ index 7af3d7b83c5a7f9c61bbc55219989575595c1708..e3fc3d7942ce3af9d1fecaea5f22d43e
    VISIT_SOURCE_FIREFOX_IMPORTED = 1,
    VISIT_SOURCE_IE_IMPORTED = 2,
    VISIT_SOURCE_SAFARI_IMPORTED = 3,
-+  BRAVE_VISIT_SOURCE
++  adrbrowsiel_VISIT_SOURCE
  };
  
  }  // namespace importer

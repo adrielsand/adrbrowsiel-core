@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -17,7 +17,7 @@ import org.chromium.base.supplier.OneshotSupplier;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.ActivityTabProvider;
 import org.chromium.chrome.browser.ActivityTabProvider.HintlessActivityTabObserver;
-import org.chromium.chrome.browser.app.BraveActivity;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
 import org.chromium.chrome.browser.compositor.layouts.OverviewModeBehavior;
 import org.chromium.chrome.browser.feature_engagement.TrackerFactory;
 import org.chromium.chrome.browser.profiles.Profile;
@@ -27,7 +27,7 @@ import org.chromium.chrome.browser.tab.TabUtils;
 import org.chromium.chrome.browser.tabmodel.IncognitoStateProvider;
 import org.chromium.chrome.browser.tasks.ReturnToChromeExperimentsUtil;
 import org.chromium.chrome.browser.theme.ThemeColorProvider;
-import org.chromium.chrome.browser.toolbar.BraveHomeButton;
+import org.chromium.chrome.browser.toolbar.adrbrowsielHomeButton;
 import org.chromium.chrome.browser.toolbar.TabCountProvider;
 import org.chromium.chrome.browser.toolbar.TabSwitcherButtonCoordinator;
 import org.chromium.chrome.browser.toolbar.TabSwitcherButtonView;
@@ -47,7 +47,7 @@ public class BrowsingModeBottomToolbarCoordinator {
     private final BrowsingModeBottomToolbarMediator mMediator;
 
     /** The home button that lives in the bottom toolbar. */
-    private final BraveHomeButton mBraveHomeButton;
+    private final adrbrowsielHomeButton madrbrowsielHomeButton;
 
     /** The share button that lives in the bottom toolbar. */
     private final ShareButton mShareButton;
@@ -106,8 +106,8 @@ public class BrowsingModeBottomToolbarCoordinator {
 
         mMediator = new BrowsingModeBottomToolbarMediator(mModel);
 
-        mBraveHomeButton = mToolbarRoot.findViewById(R.id.bottom_home_button);
-        mBraveHomeButton.setOnClickListener(homeButtonListener);
+        madrbrowsielHomeButton = mToolbarRoot.findViewById(R.id.bottom_home_button);
+        madrbrowsielHomeButton.setOnClickListener(homeButtonListener);
 
         mNewTabButton = mToolbarRoot.findViewById(R.id.bottom_new_tab_button);
 
@@ -125,7 +125,7 @@ public class BrowsingModeBottomToolbarCoordinator {
             mNewTabButton.setVisibility(View.VISIBLE);
         }
         if (BottomToolbarVariationManager.isHomeButtonOnBottom()) {
-            mBraveHomeButton.setVisibility(View.VISIBLE);
+            madrbrowsielHomeButton.setVisibility(View.VISIBLE);
         }
 
         if (BottomToolbarVariationManager.isTabSwitcherOnBottom()) {
@@ -147,7 +147,7 @@ public class BrowsingModeBottomToolbarCoordinator {
             getNewTabButtonParent().setVisibility(View.GONE);
             OnClickListener bookmarkClickHandler = v -> {
                 TabImpl tab = (TabImpl) mTabProvider.get();
-                BraveActivity activity = BraveActivity.getBraveActivity();
+                adrbrowsielActivity activity = adrbrowsielActivity.getadrbrowsielActivity();
                 if (tab == null || activity == null) {
                     assert false;
                     return;
@@ -198,7 +198,7 @@ public class BrowsingModeBottomToolbarCoordinator {
         }
 
         if (BottomToolbarVariationManager.isHomeButtonOnBottom()) {
-            mBraveHomeButton.setThemeColorProvider(themeColorProvider);
+            madrbrowsielHomeButton.setThemeColorProvider(themeColorProvider);
         }
 
         mSearchAccelerator.setThemeColorProvider(themeColorProvider);
@@ -263,8 +263,8 @@ public class BrowsingModeBottomToolbarCoordinator {
     /**
      * @return The browsing mode bottom toolbar's home button.
      */
-    BraveHomeButton getHomeButton() {
-        return mBraveHomeButton;
+    adrbrowsielHomeButton getHomeButton() {
+        return madrbrowsielHomeButton;
     }
 
     /**
@@ -275,7 +275,7 @@ public class BrowsingModeBottomToolbarCoordinator {
             mShareButtonListenerSupplier.removeObserver(mShareButtonListenerSupplierCallback);
         }
         mMediator.destroy();
-        mBraveHomeButton.destroy();
+        madrbrowsielHomeButton.destroy();
         mShareButton.destroy();
         mSearchAccelerator.destroy();
         mTabSwitcherButtonCoordinator.destroy();

@@ -6,7 +6,7 @@ index 9c9a289262c01daa45e24d4cb553b7d90797f7b8..de4e8ced39169f817f6c228420135571
    bool isMojoJSEnabled() const { return enable_mojo_js_; }
  
    void Trace(Visitor*) const override;
-+  BRAVE_CONTEXT_FEATURE_SETTINGS_H_
++  adrbrowsiel_CONTEXT_FEATURE_SETTINGS_H_
  
   private:
    bool enable_mojo_js_ = false;

@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,9 +7,9 @@
 
 #include "base/android/jni_array.h"
 #include "base/android/jni_string.h"
-#include "brave/components/permissions/android/jni_headers/BravePermissionDialogDelegate_jni.h"
-#include "brave/components/permissions/permission_lifetime_utils.h"
-#include "components/grit/brave_components_strings.h"
+#include "adrbrowsiel/components/permissions/android/jni_headers/adrbrowsielPermissionDialogDelegate_jni.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_utils.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/permissions/android/jni_headers/PermissionDialogController_jni.h"
 #include "components/permissions/features.h"
 #include "components/strings/grit/components_strings.h"
@@ -24,7 +24,7 @@ void SetLifetimeOptions(const base::android::JavaRef<jobject>& j_delegate) {
   }
 
   JNIEnv* env = base::android::AttachCurrentThread();
-  Java_BravePermissionDialogDelegate_setLifetimeOptionsText(
+  Java_adrbrowsielPermissionDialogDelegate_setLifetimeOptionsText(
       env, j_delegate,
       base::android::ConvertUTF16ToJavaString(
           env, l10n_util::GetStringUTF16(
@@ -37,7 +37,7 @@ void SetLifetimeOptions(const base::android::JavaRef<jobject>& j_delegate) {
     lifetime_labels.push_back(lifetime_option.label);
   }
 
-  Java_BravePermissionDialogDelegate_setLifetimeOptions(
+  Java_adrbrowsielPermissionDialogDelegate_setLifetimeOptions(
       env, j_delegate,
       base::android::ToJavaArrayOfStrings(env, lifetime_labels));
 }
@@ -50,7 +50,7 @@ void ApplyLifetimeToPermissionRequests(
     return;
   }
   const int selected_lifetime_option =
-      Java_BravePermissionDialogDelegate_getSelectedLifetimeOption(env, obj);
+      Java_adrbrowsielPermissionDialogDelegate_getSelectedLifetimeOption(env, obj);
   DCHECK(!ShouldShowLifetimeOptions(permission_prompt->delegate()) ||
          selected_lifetime_option != -1);
   if (selected_lifetime_option != -1) {
@@ -61,7 +61,7 @@ void ApplyLifetimeToPermissionRequests(
   }
 }
 
-void Java_PermissionDialogController_createDialog_BraveImpl(
+void Java_PermissionDialogController_createDialog_adrbrowsielImpl(
     JNIEnv* env,
     const base::android::JavaRef<jobject>& delegate) {
   SetLifetimeOptions(delegate);
@@ -71,15 +71,15 @@ void Java_PermissionDialogController_createDialog_BraveImpl(
 }  // namespace
 }  // namespace permissions
 
-#define BRAVE_PERMISSION_DIALOG_DELEGATE_ACCEPT \
+#define adrbrowsiel_PERMISSION_DIALOG_DELEGATE_ACCEPT \
   ApplyLifetimeToPermissionRequests(env, obj, permission_prompt_);
-#define BRAVE_PERMISSION_DIALOG_DELEGATE_CANCEL \
+#define adrbrowsiel_PERMISSION_DIALOG_DELEGATE_CANCEL \
   ApplyLifetimeToPermissionRequests(env, obj, permission_prompt_);
 #define Java_PermissionDialogController_createDialog \
-  Java_PermissionDialogController_createDialog_BraveImpl
+  Java_PermissionDialogController_createDialog_adrbrowsielImpl
 
 #include "../../../../../components/permissions/android/permission_dialog_delegate.cc"
 
 #undef Java_PermissionDialogController_createDialog
-#undef BRAVE_PERMISSION_DIALOG_DELEGATE_CANCEL
-#undef BRAVE_PERMISSION_DIALOG_DELEGATE_ACCEPT
+#undef adrbrowsiel_PERMISSION_DIALOG_DELEGATE_CANCEL
+#undef adrbrowsiel_PERMISSION_DIALOG_DELEGATE_ACCEPT

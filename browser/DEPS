@@ -4,9 +4,9 @@ include_rules = [
   "+cc/test",
 
   "+bat/ads/pref_names.h",
-  "+brave/app",
-  "+brave/common",
-  "+brave/services/network/public",
+  "+adrbrowsiel/app",
+  "+adrbrowsiel/common",
+  "+adrbrowsiel/services/network/public",
   "+chrome/app",
   "+chrome/browser",
   "+chrome/common",
@@ -129,10 +129,10 @@ include_rules = [
 ]
 
 specific_include_rules = {
-  "brave_browser_main_loop.h": [
+  "adrbrowsiel_browser_main_loop.h": [
     "+content/browser/browser_main_loop.h",
   ],
-  "brave_content_browser_client.cc": [
+  "adrbrowsiel_content_browser_client.cc": [
     "+content/browser/renderer_host/render_frame_host_impl.h",
   ],
 }

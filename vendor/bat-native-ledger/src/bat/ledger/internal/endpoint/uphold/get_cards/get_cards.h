@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_ENDPOINT_UPHOLD_GET_CARDS_GET_CARDS_H_
-#define BRAVELEDGER_ENDPOINT_UPHOLD_GET_CARDS_GET_CARDS_H_
+#ifndef adrbrowsielLEDGER_ENDPOINT_UPHOLD_GET_CARDS_GET_CARDS_H_
+#define adrbrowsielLEDGER_ENDPOINT_UPHOLD_GET_CARDS_GET_CARDS_H_
 
 #include <string>
 
@@ -29,7 +29,7 @@
 //     "balance": "12.35",
 //     "currency": "BAT",
 //     "id": "3ed3b2c4-a715-4c01-b302-fa2681a971ea",
-//     "label": "Twitter - User - Brave Rewards",
+//     "label": "Twitter - User - adrbrowsiel Rewards",
 //     "lastTransactionAt": "2020-03-31T19:27:57.552Z",
 //     "settings": {
 //       "position": 7,
@@ -110,4 +110,4 @@ class GetCards {
 }  // namespace endpoint
 }  // namespace ledger
 
-#endif  // BRAVELEDGER_ENDPOINT_UPHOLD_GET_CARDS_GET_CARDS_H_
+#endif  // adrbrowsielLEDGER_ENDPOINT_UPHOLD_GET_CARDS_GET_CARDS_H_

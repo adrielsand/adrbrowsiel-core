@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/importer/brave_external_process_importer_host.h"
+#include "adrbrowsiel/browser/importer/adrbrowsiel_external_process_importer_host.h"
 
 #include <memory>
 #include <string>
@@ -13,9 +13,9 @@
 #include "base/json/json_reader.h"
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
-#include "brave/browser/importer/brave_importer_p3a.h"
-#include "brave/common/importer/chrome_importer_utils.h"
-#include "brave/common/importer/importer_constants.h"
+#include "adrbrowsiel/browser/importer/adrbrowsiel_importer_p3a.h"
+#include "adrbrowsiel/common/importer/chrome_importer_utils.h"
+#include "adrbrowsiel/common/importer/importer_constants.h"
 
 #if BUILDFLAG(ENABLE_EXTENSIONS)
 #include "chrome/browser/extensions/webstore_install_with_prompt.h"
@@ -61,13 +61,13 @@ class WebstoreInstallerForImporting
 
 }  // namespace
 
-BraveExternalProcessImporterHost::BraveExternalProcessImporterHost()
+adrbrowsielExternalProcessImporterHost::adrbrowsielExternalProcessImporterHost()
     : ExternalProcessImporterHost(),
       weak_ptr_factory_(this) {}
-BraveExternalProcessImporterHost::~BraveExternalProcessImporterHost() = default;
+adrbrowsielExternalProcessImporterHost::~adrbrowsielExternalProcessImporterHost() = default;
 
 #if BUILDFLAG(ENABLE_EXTENSIONS)
-void BraveExternalProcessImporterHost::LaunchExtensionsImport() {
+void adrbrowsielExternalProcessImporterHost::LaunchExtensionsImport() {
   DCHECK_EQ(importer::TYPE_CHROME, source_profile_.importer_type);
 
   const base::FilePath pref_file = source_profile_.source_path.AppendASCII(
@@ -78,11 +78,11 @@ void BraveExternalProcessImporterHost::LaunchExtensionsImport() {
        base::TaskShutdownBehavior::CONTINUE_ON_SHUTDOWN},
       base::BindOnce(&GetChromeExtensionsList, pref_file),
       base::BindOnce(
-          &BraveExternalProcessImporterHost::OnGetChromeExtensionsList,
+          &adrbrowsielExternalProcessImporterHost::OnGetChromeExtensionsList,
           weak_ptr_factory_.GetWeakPtr()));
 }
 
-void BraveExternalProcessImporterHost::OnGetChromeExtensionsList(
+void adrbrowsielExternalProcessImporterHost::OnGetChromeExtensionsList(
     base::Optional<base::Value> extensions_list) {
   if (!extensions_list || !extensions_list->is_dict()) {
     ExternalProcessImporterHost::NotifyImportEnded();
@@ -108,7 +108,7 @@ void BraveExternalProcessImporterHost::OnGetChromeExtensionsList(
   ExternalProcessImporterHost::NotifyImportEnded();
 }
 
-void BraveExternalProcessImporterHost::NotifyImportEnded() {
+void adrbrowsielExternalProcessImporterHost::NotifyImportEnded() {
   if (!cancelled_)
     RecordImporterP3A(source_profile_.importer_type);
 

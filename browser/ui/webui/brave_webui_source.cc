@@ -1,22 +1,22 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/brave_webui_source.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_webui_source.h"
 
 #include <map>
 #include <vector>
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/crypto_dot_com/browser/buildflags/buildflags.h"
-#include "brave/components/ftx/browser/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/crypto_dot_com/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ftx/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/profiles/profile.h"
-#include "components/grit/brave_components_resources.h"
-#include "components/grit/brave_components_strings.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/grit/components_resources.h"
 #include "content/public/browser/web_ui_data_source.h"
 #include "services/network/public/mojom/content_security_policy.mojom.h"
@@ -24,8 +24,8 @@
 #include "ui/base/webui/resource_path.h"
 
 #if !defined(OS_ANDROID)
-#include "brave/browser/ui/webui/navigation_bar_data_provider.h"
-#include "brave/components/brave_rewards/resources/grit/brave_rewards_resources.h"
+#include "adrbrowsiel/browser/ui/webui/navigation_bar_data_provider.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/resources/grit/adrbrowsiel_rewards_resources.h"
 #include "chrome/grit/chromium_strings.h"
 #endif
 
@@ -64,40 +64,40 @@ void CustomizeWebUIHTMLSource(const std::string &name,
   static std::map<std::string, std::vector<WebUISimpleItem> > resources = {
     {
       std::string("newtab"), {
-        { "img/toolbar/menu_btn.svg", IDR_BRAVE_COMMON_TOOLBAR_IMG },
+        { "img/toolbar/menu_btn.svg", IDR_adrbrowsiel_COMMON_TOOLBAR_IMG },
         // Hash path is the MD5 of the file contents,
         // webpack image loader does this
-        { "fd85070af5114d6ac462c466e78448e4.svg", IDR_BRAVE_NEW_TAB_IMG1 },
-        { "314e7529efec41c8867019815f4d8dad.svg", IDR_BRAVE_NEW_TAB_IMG4 },
-        { "6c337c63662ee0ba4e57f6f8156d69ce.svg", IDR_BRAVE_NEW_TAB_IMG2 },
+        { "fd85070af5114d6ac462c466e78448e4.svg", IDR_adrbrowsiel_NEW_TAB_IMG1 },
+        { "314e7529efec41c8867019815f4d8dad.svg", IDR_adrbrowsiel_NEW_TAB_IMG4 },
+        { "6c337c63662ee0ba4e57f6f8156d69ce.svg", IDR_adrbrowsiel_NEW_TAB_IMG2 },
         // New tab Backgrounds
 #if !defined(OS_ANDROID)
-        { "alex-plesovskich.avif", IDR_BRAVE_NEW_TAB_BACKGROUND1 },
-        { "andre-benz.avif", IDR_BRAVE_NEW_TAB_BACKGROUND2 },
-        { "corwin-prescott_olympic.avif", IDR_BRAVE_NEW_TAB_BACKGROUND3 },
-        { "dylan-malval_alps.avif", IDR_BRAVE_NEW_TAB_BACKGROUND4 },
-        { "sora-sagano.avif", IDR_BRAVE_NEW_TAB_BACKGROUND5 },
-        { "spencer-moore_lake.avif", IDR_BRAVE_NEW_TAB_BACKGROUND6 },
-        { "su-san-lee.avif", IDR_BRAVE_NEW_TAB_BACKGROUND7 },
-        { "zane-lee.avif", IDR_BRAVE_NEW_TAB_BACKGROUND8 },
+        { "alex-plesovskich.avif", IDR_adrbrowsiel_NEW_TAB_BACKGROUND1 },
+        { "andre-benz.avif", IDR_adrbrowsiel_NEW_TAB_BACKGROUND2 },
+        { "corwin-prescott_olympic.avif", IDR_adrbrowsiel_NEW_TAB_BACKGROUND3 },
+        { "dylan-malval_alps.avif", IDR_adrbrowsiel_NEW_TAB_BACKGROUND4 },
+        { "sora-sagano.avif", IDR_adrbrowsiel_NEW_TAB_BACKGROUND5 },
+        { "spencer-moore_lake.avif", IDR_adrbrowsiel_NEW_TAB_BACKGROUND6 },
+        { "su-san-lee.avif", IDR_adrbrowsiel_NEW_TAB_BACKGROUND7 },
+        { "zane-lee.avif", IDR_adrbrowsiel_NEW_TAB_BACKGROUND8 },
 #endif
         // private tab
-        { "c168145d6bf1abf2c0322636366f7dbe.svg", IDR_BRAVE_PRIVATE_TAB_TOR_IMG },               // NOLINT
-        { "dbdc336ccc651b8a7c925b3482d6e65a.svg", IDR_BRAVE_PRIVATE_TAB_IMG }
+        { "c168145d6bf1abf2c0322636366f7dbe.svg", IDR_adrbrowsiel_PRIVATE_TAB_TOR_IMG },               // NOLINT
+        { "dbdc336ccc651b8a7c925b3482d6e65a.svg", IDR_adrbrowsiel_PRIVATE_TAB_IMG }
     }
 #if !defined(OS_ANDROID)
     }, {
       std::string("rewards"), {
-        { "favicon.ico", IDR_BRAVE_REWARDS_FAVICON },
-        { "6dd79d472f9c73429b26dae4ef14575e.svg", IDR_BRAVE_REWARDS_IMG_WALLET_BG },             // NOLINT
-        { "c9255cc2aa3d81ca6328e82d25a95766.png", IDR_BRAVE_REWARDS_IMG_CAPTCHA_BAT },           // NOLINT
-        { "1bb9aa85741c6d1c077f043324aae835.svg", IDR_BRAVE_REWARDS_IMG_WELCOME_BG },            // NOLINT
-        { "dcaf489409ca7908aef96547c9aad274.svg", IDR_BRAVE_REWARDS_IMG_TAP },                   // NOLINT
+        { "favicon.ico", IDR_adrbrowsiel_REWARDS_FAVICON },
+        { "6dd79d472f9c73429b26dae4ef14575e.svg", IDR_adrbrowsiel_REWARDS_IMG_WALLET_BG },             // NOLINT
+        { "c9255cc2aa3d81ca6328e82d25a95766.png", IDR_adrbrowsiel_REWARDS_IMG_CAPTCHA_BAT },           // NOLINT
+        { "1bb9aa85741c6d1c077f043324aae835.svg", IDR_adrbrowsiel_REWARDS_IMG_WELCOME_BG },            // NOLINT
+        { "dcaf489409ca7908aef96547c9aad274.svg", IDR_adrbrowsiel_REWARDS_IMG_TAP },                   // NOLINT
       }
 #endif
     }, {
       std::string("welcome"), {
-        { "favicon.ico", IDR_BRAVE_WELCOME_PAGE_FAVICON }
+        { "favicon.ico", IDR_adrbrowsiel_WELCOME_PAGE_FAVICON }
       }
     }, {
       std::string("adblock"), {}
@@ -110,152 +110,152 @@ void CustomizeWebUIHTMLSource(const std::string &name,
                                                            localized_strings = {
     {
       std::string("newtab"), {
-        { "adsTrackersBlocked", IDS_BRAVE_NEW_TAB_TOTAL_ADS_TRACKERS_BLOCKED },
-        { "httpsUpgraded", IDS_BRAVE_NEW_TAB_TOTAL_HTTPS_UPGRADES },
-        { "estimatedTimeSaved", IDS_BRAVE_NEW_TAB_TOTAL_TIME_SAVED },
+        { "adsTrackersBlocked", IDS_adrbrowsiel_NEW_TAB_TOTAL_ADS_TRACKERS_BLOCKED },
+        { "httpsUpgraded", IDS_adrbrowsiel_NEW_TAB_TOTAL_HTTPS_UPGRADES },
+        { "estimatedTimeSaved", IDS_adrbrowsiel_NEW_TAB_TOTAL_TIME_SAVED },
         { "estimatedBandwidthSaved",
-            IDS_BRAVE_NEW_TAB_ESTIMATED_BANDWIDTH_SAVED },
-        { "thumbRemoved", IDS_BRAVE_NEW_TAB_THUMB_REMOVED },
-        { "undoRemoved", IDS_BRAVE_NEW_TAB_UNDO_REMOVED },
-        { "close", IDS_BRAVE_NEW_TAB_CLOSE },
-        { "restoreAll", IDS_BRAVE_NEW_TAB_RESTORE_ALL },
-        { "second", IDS_BRAVE_NEW_TAB_SECOND },
-        { "seconds", IDS_BRAVE_NEW_TAB_SECONDS },
-        { "minute", IDS_BRAVE_NEW_TAB_MINUTE },
-        { "minutes", IDS_BRAVE_NEW_TAB_MINUTES },
-        { "hour", IDS_BRAVE_NEW_TAB_HOUR },
-        { "hours", IDS_BRAVE_NEW_TAB_HOURS },
-        { "day", IDS_BRAVE_NEW_TAB_DAY },
-        { "days", IDS_BRAVE_NEW_TAB_DAYS },
-        { "B", IDS_BRAVE_NEW_TAB_BYTES },
-        { "KB", IDS_BRAVE_NEW_TAB_KILOBYTES },
-        { "MB", IDS_BRAVE_NEW_TAB_MEGABYTES },
-        { "GB", IDS_BRAVE_NEW_TAB_GIGABYTES },
-        { "photoBy", IDS_BRAVE_NEW_TAB_PHOTO_BY },
-        { "hide", IDS_BRAVE_NEW_TAB_HIDE },
-        { "preferencesPageTitle", IDS_BRAVE_NEW_TAB_PREFERENCES_PAGE_TITLE },
-        { "bookmarksPageTitle", IDS_BRAVE_NEW_TAB_BOOKMARKS_PAGE_TITLE },
-        { "historyPageTitle", IDS_BRAVE_NEW_TAB_HISTORY_PAGE_TITLE },
+            IDS_adrbrowsiel_NEW_TAB_ESTIMATED_BANDWIDTH_SAVED },
+        { "thumbRemoved", IDS_adrbrowsiel_NEW_TAB_THUMB_REMOVED },
+        { "undoRemoved", IDS_adrbrowsiel_NEW_TAB_UNDO_REMOVED },
+        { "close", IDS_adrbrowsiel_NEW_TAB_CLOSE },
+        { "restoreAll", IDS_adrbrowsiel_NEW_TAB_RESTORE_ALL },
+        { "second", IDS_adrbrowsiel_NEW_TAB_SECOND },
+        { "seconds", IDS_adrbrowsiel_NEW_TAB_SECONDS },
+        { "minute", IDS_adrbrowsiel_NEW_TAB_MINUTE },
+        { "minutes", IDS_adrbrowsiel_NEW_TAB_MINUTES },
+        { "hour", IDS_adrbrowsiel_NEW_TAB_HOUR },
+        { "hours", IDS_adrbrowsiel_NEW_TAB_HOURS },
+        { "day", IDS_adrbrowsiel_NEW_TAB_DAY },
+        { "days", IDS_adrbrowsiel_NEW_TAB_DAYS },
+        { "B", IDS_adrbrowsiel_NEW_TAB_BYTES },
+        { "KB", IDS_adrbrowsiel_NEW_TAB_KILOBYTES },
+        { "MB", IDS_adrbrowsiel_NEW_TAB_MEGABYTES },
+        { "GB", IDS_adrbrowsiel_NEW_TAB_GIGABYTES },
+        { "photoBy", IDS_adrbrowsiel_NEW_TAB_PHOTO_BY },
+        { "hide", IDS_adrbrowsiel_NEW_TAB_HIDE },
+        { "preferencesPageTitle", IDS_adrbrowsiel_NEW_TAB_PREFERENCES_PAGE_TITLE },
+        { "bookmarksPageTitle", IDS_adrbrowsiel_NEW_TAB_BOOKMARKS_PAGE_TITLE },
+        { "historyPageTitle", IDS_adrbrowsiel_NEW_TAB_HISTORY_PAGE_TITLE },
         { "dashboardSettingsTitle",
-            IDS_BRAVE_NEW_TAB_DASHBOARD_SETTINGS_TITLE },
-        { "customize", IDS_BRAVE_NEW_TAB_CUSTOMIZE },
-        { "showBackgroundImage", IDS_BRAVE_NEW_TAB_SHOW_BACKGROUND_IMAGE },
-        { "showBraveStats", IDS_BRAVE_NEW_TAB_SHOW_BRAVE_STATS },
-        { "showClock", IDS_BRAVE_NEW_TAB_SHOW_CLOCK },
-        { "clockFormat", IDS_BRAVE_NEW_TAB_CLOCK_FORMAT },
-        { "clockFormatDefault", IDS_BRAVE_NEW_TAB_CLOCK_FORMAT_DEFAULT },
-        { "clockFormat12", IDS_BRAVE_NEW_TAB_CLOCK_FORMAT_12 },
-        { "clockFormat24", IDS_BRAVE_NEW_TAB_CLOCK_FORMAT_24 },
-        { "addTopSiteDialogTitle", IDS_BRAVE_NEW_TAB_ADD_TOP_SITE_DIALOG_TITLE },  // NOLINT
-        { "editTopSiteDialogTitle", IDS_BRAVE_NEW_TAB_EDIT_TOP_SITE_DIALOG_TITLE },  // NOLINT
-        { "editSiteTileMenuItem", IDS_BRAVE_NEW_TAB_EDIT_SITE_TILE_MENU_ITEM },
-        { "removeTileMenuItem", IDS_BRAVE_NEW_TAB_REMOVE_TILE_MENU_ITEM },
-        { "addTopSiteDialogURLLabel", IDS_BRAVE_NEW_TAB_ADD_TOP_SITE_DIALOG_URL_LABEL },  // NOLINT
-        { "addTopSiteDialogURLInputPlaceHolder", IDS_BRAVE_NEW_TAB_ADD_TOP_SITE_DIALOG_URL_INPUT_PLACEHOLDER },  // NOLINT
-        { "addTopSiteDialogNameLabel", IDS_BRAVE_NEW_TAB_ADD_TOP_SITE_DIALOG_NAME_LABEL },  // NOLINT
-        { "addTopSiteDialogNameInputPlaceHolder", IDS_BRAVE_NEW_TAB_ADD_TOP_SITE_DIALOG_NAME_INPUT_PLACEHOLDER },  // NOLINT
-        { "addTopSiteDialogSaveButtonLabel", IDS_BRAVE_NEW_TAB_ADD_TOP_SITE_DIALOG_SAVE_BUTTON_LABEL },  // NOLINT
-        { "addTopSiteDialogCancelButtonLabel", IDS_BRAVE_NEW_TAB_ADD_TOP_SITE_DIALOG_CANCEL_BUTTON_LABEL },  // NOLINT
-        { "showTopSites", IDS_BRAVE_NEW_TAB_SHOW_TOP_SITES },
-        { "showFavoritesLabel", IDS_BRAVE_NEW_TAB_SHOW_FAVORITES_LABEL },
-        { "showFavoritesDesc", IDS_BRAVE_NEW_TAB_SHOW_FAVORITES_DESC },
-        { "showFrecencyLabel", IDS_BRAVE_NEW_TAB_SHOW_FRECENCY_LABEL },
-        { "showFrecencyDesc", IDS_BRAVE_NEW_TAB_SHOW_FRECENCY_DESC },
-        { "addSiteMenuLabel", IDS_BRAVE_NEW_TAB_ADD_SITE_MENU_LABEL },
-        { "showFrecencyMenuLabel", IDS_BRAVE_NEW_TAB_SHOW_FRECENCY_MENU_LABEL },
-        { "showFavoritesMenuLabel", IDS_BRAVE_NEW_TAB_SHOW_FAVORITES_MENU_LABEL },  // NOLINT
-        { "showRewards", IDS_BRAVE_NEW_TAB_SHOW_REWARDS },
-        { "showBinance", IDS_BRAVE_NEW_TAB_SHOW_BINANCE },
-        { "showTogether", IDS_BRAVE_NEW_TAB_SHOW_TOGETHER },
-        { "cards", IDS_BRAVE_NEW_TAB_SHOW_CARDS },
-        { "brandedWallpaperOptIn", IDS_BRAVE_NEW_TAB_BRANDED_WALLPAPER_OPT_IN },
-        { "topSitesTitle", IDS_BRAVE_NEW_TAB_TOP_SITES },
-        { "statsTitle", IDS_BRAVE_NEW_TAB_STATS },
-        { "clockTitle", IDS_BRAVE_NEW_TAB_CLOCK },
-        { "backgroundImageTitle", IDS_BRAVE_NEW_TAB_BACKGROUND_IMAGE },
-        { "settingsNavigateBack", IDS_BRAVE_NEW_TAB_SETTINGS_BACK },
+            IDS_adrbrowsiel_NEW_TAB_DASHBOARD_SETTINGS_TITLE },
+        { "customize", IDS_adrbrowsiel_NEW_TAB_CUSTOMIZE },
+        { "showBackgroundImage", IDS_adrbrowsiel_NEW_TAB_SHOW_BACKGROUND_IMAGE },
+        { "showadrbrowsielStats", IDS_adrbrowsiel_NEW_TAB_SHOW_adrbrowsiel_STATS },
+        { "showClock", IDS_adrbrowsiel_NEW_TAB_SHOW_CLOCK },
+        { "clockFormat", IDS_adrbrowsiel_NEW_TAB_CLOCK_FORMAT },
+        { "clockFormatDefault", IDS_adrbrowsiel_NEW_TAB_CLOCK_FORMAT_DEFAULT },
+        { "clockFormat12", IDS_adrbrowsiel_NEW_TAB_CLOCK_FORMAT_12 },
+        { "clockFormat24", IDS_adrbrowsiel_NEW_TAB_CLOCK_FORMAT_24 },
+        { "addTopSiteDialogTitle", IDS_adrbrowsiel_NEW_TAB_ADD_TOP_SITE_DIALOG_TITLE },  // NOLINT
+        { "editTopSiteDialogTitle", IDS_adrbrowsiel_NEW_TAB_EDIT_TOP_SITE_DIALOG_TITLE },  // NOLINT
+        { "editSiteTileMenuItem", IDS_adrbrowsiel_NEW_TAB_EDIT_SITE_TILE_MENU_ITEM },
+        { "removeTileMenuItem", IDS_adrbrowsiel_NEW_TAB_REMOVE_TILE_MENU_ITEM },
+        { "addTopSiteDialogURLLabel", IDS_adrbrowsiel_NEW_TAB_ADD_TOP_SITE_DIALOG_URL_LABEL },  // NOLINT
+        { "addTopSiteDialogURLInputPlaceHolder", IDS_adrbrowsiel_NEW_TAB_ADD_TOP_SITE_DIALOG_URL_INPUT_PLACEHOLDER },  // NOLINT
+        { "addTopSiteDialogNameLabel", IDS_adrbrowsiel_NEW_TAB_ADD_TOP_SITE_DIALOG_NAME_LABEL },  // NOLINT
+        { "addTopSiteDialogNameInputPlaceHolder", IDS_adrbrowsiel_NEW_TAB_ADD_TOP_SITE_DIALOG_NAME_INPUT_PLACEHOLDER },  // NOLINT
+        { "addTopSiteDialogSaveButtonLabel", IDS_adrbrowsiel_NEW_TAB_ADD_TOP_SITE_DIALOG_SAVE_BUTTON_LABEL },  // NOLINT
+        { "addTopSiteDialogCancelButtonLabel", IDS_adrbrowsiel_NEW_TAB_ADD_TOP_SITE_DIALOG_CANCEL_BUTTON_LABEL },  // NOLINT
+        { "showTopSites", IDS_adrbrowsiel_NEW_TAB_SHOW_TOP_SITES },
+        { "showFavoritesLabel", IDS_adrbrowsiel_NEW_TAB_SHOW_FAVORITES_LABEL },
+        { "showFavoritesDesc", IDS_adrbrowsiel_NEW_TAB_SHOW_FAVORITES_DESC },
+        { "showFrecencyLabel", IDS_adrbrowsiel_NEW_TAB_SHOW_FRECENCY_LABEL },
+        { "showFrecencyDesc", IDS_adrbrowsiel_NEW_TAB_SHOW_FRECENCY_DESC },
+        { "addSiteMenuLabel", IDS_adrbrowsiel_NEW_TAB_ADD_SITE_MENU_LABEL },
+        { "showFrecencyMenuLabel", IDS_adrbrowsiel_NEW_TAB_SHOW_FRECENCY_MENU_LABEL },
+        { "showFavoritesMenuLabel", IDS_adrbrowsiel_NEW_TAB_SHOW_FAVORITES_MENU_LABEL },  // NOLINT
+        { "showRewards", IDS_adrbrowsiel_NEW_TAB_SHOW_REWARDS },
+        { "showBinance", IDS_adrbrowsiel_NEW_TAB_SHOW_BINANCE },
+        { "showTogether", IDS_adrbrowsiel_NEW_TAB_SHOW_TOGETHER },
+        { "cards", IDS_adrbrowsiel_NEW_TAB_SHOW_CARDS },
+        { "brandedWallpaperOptIn", IDS_adrbrowsiel_NEW_TAB_BRANDED_WALLPAPER_OPT_IN },
+        { "topSitesTitle", IDS_adrbrowsiel_NEW_TAB_TOP_SITES },
+        { "statsTitle", IDS_adrbrowsiel_NEW_TAB_STATS },
+        { "clockTitle", IDS_adrbrowsiel_NEW_TAB_CLOCK },
+        { "backgroundImageTitle", IDS_adrbrowsiel_NEW_TAB_BACKGROUND_IMAGE },
+        { "settingsNavigateBack", IDS_adrbrowsiel_NEW_TAB_SETTINGS_BACK },
 
-        { "braveTodayTitle", IDS_BRAVE_TODAY_TITLE },
-        { "braveTodayIntroTitle", IDS_BRAVE_TODAY_INTRO_TITLE },
-        { "braveTodayIntroDescription", IDS_BRAVE_TODAY_INTRO_DESCRIPTION },
-        { "braveTodayOptInActionLabel", IDS_BRAVE_TODAY_OPT_IN_ACTION_LABEL },
-        { "braveTodayOptOutActionLabel", IDS_BRAVE_TODAY_OPT_OUT_ACTION_LABEL },
-        { "braveTodayStatusFetching", IDS_BRAVE_TODAY_STATUS_FETCHING},
-        { "braveTodayActionRefresh", IDS_BRAVE_TODAY_ACTION_REFRESH},
-        { "braveTodayScrollHint", IDS_BRAVE_TODAY_SCROLL_HINT},
-        { "braveTodayResetAction", IDS_BRAVE_TODAY_RESET_ACTION},
-        { "braveTodayResetConfirm", IDS_BRAVE_TODAY_RESET_CONFIRM},
-        { "braveTodayCategoryNameAll", IDS_BRAVE_TODAY_CATEGORY_NAME_ALL},
-        { "braveTodaySourcesTitle", IDS_BRAVE_TODAY_SOURCES_TITLE},
-        { "braveTodayDisableSourceCommand",
-            IDS_BRAVE_TODAY_DISABLE_SOURCE_COMMAND},
-        { "promoted", IDS_BRAVE_TODAY_PROMOTED },
+        { "adrbrowsielTodayTitle", IDS_adrbrowsiel_TODAY_TITLE },
+        { "adrbrowsielTodayIntroTitle", IDS_adrbrowsiel_TODAY_INTRO_TITLE },
+        { "adrbrowsielTodayIntroDescription", IDS_adrbrowsiel_TODAY_INTRO_DESCRIPTION },
+        { "adrbrowsielTodayOptInActionLabel", IDS_adrbrowsiel_TODAY_OPT_IN_ACTION_LABEL },
+        { "adrbrowsielTodayOptOutActionLabel", IDS_adrbrowsiel_TODAY_OPT_OUT_ACTION_LABEL },
+        { "adrbrowsielTodayStatusFetching", IDS_adrbrowsiel_TODAY_STATUS_FETCHING},
+        { "adrbrowsielTodayActionRefresh", IDS_adrbrowsiel_TODAY_ACTION_REFRESH},
+        { "adrbrowsielTodayScrollHint", IDS_adrbrowsiel_TODAY_SCROLL_HINT},
+        { "adrbrowsielTodayResetAction", IDS_adrbrowsiel_TODAY_RESET_ACTION},
+        { "adrbrowsielTodayResetConfirm", IDS_adrbrowsiel_TODAY_RESET_CONFIRM},
+        { "adrbrowsielTodayCategoryNameAll", IDS_adrbrowsiel_TODAY_CATEGORY_NAME_ALL},
+        { "adrbrowsielTodaySourcesTitle", IDS_adrbrowsiel_TODAY_SOURCES_TITLE},
+        { "adrbrowsielTodayDisableSourceCommand",
+            IDS_adrbrowsiel_TODAY_DISABLE_SOURCE_COMMAND},
+        { "promoted", IDS_adrbrowsiel_TODAY_PROMOTED },
 
-        { "addWidget", IDS_BRAVE_NEW_TAB_WIDGET_ADD },
-        { "hideWidget", IDS_BRAVE_NEW_TAB_WIDGET_HIDE },
-        { "rewardsWidgetDesc", IDS_BRAVE_NEW_TAB_REWARDS_WIDGET_DESC },
-        { "binanceWidgetDesc", IDS_BRAVE_NEW_TAB_BINANCE_WIDGET_DESC },
-        { "geminiWidgetDesc", IDS_BRAVE_NEW_TAB_GEMINI_WIDGET_DESC },
-        { "cardsToggleTitle", IDS_BRAVE_NEW_TAB_CARDS_TITLE },
-        { "cardsToggleDesc", IDS_BRAVE_NEW_TAB_CARDS_DESC },
+        { "addWidget", IDS_adrbrowsiel_NEW_TAB_WIDGET_ADD },
+        { "hideWidget", IDS_adrbrowsiel_NEW_TAB_WIDGET_HIDE },
+        { "rewardsWidgetDesc", IDS_adrbrowsiel_NEW_TAB_REWARDS_WIDGET_DESC },
+        { "binanceWidgetDesc", IDS_adrbrowsiel_NEW_TAB_BINANCE_WIDGET_DESC },
+        { "geminiWidgetDesc", IDS_adrbrowsiel_NEW_TAB_GEMINI_WIDGET_DESC },
+        { "cardsToggleTitle", IDS_adrbrowsiel_NEW_TAB_CARDS_TITLE },
+        { "cardsToggleDesc", IDS_adrbrowsiel_NEW_TAB_CARDS_DESC },
 #if BUILDFLAG(CRYPTO_DOT_COM_ENABLED)
-        { "cryptoDotComWidgetDesc", IDS_BRAVE_NEW_TAB_CRYPTO_DOT_COM_WIDGET_DESC },              // NOLINT
+        { "cryptoDotComWidgetDesc", IDS_adrbrowsiel_NEW_TAB_CRYPTO_DOT_COM_WIDGET_DESC },              // NOLINT
 #endif
-        { "braveRewardsTitle", IDS_BRAVE_NEW_TAB_BRAVE_REWARDS_TITLE },
+        { "adrbrowsielRewardsTitle", IDS_adrbrowsiel_NEW_TAB_adrbrowsiel_REWARDS_TITLE },
         // Private Tab - General
-        { "learnMore", IDS_BRAVE_PRIVATE_NEW_TAB_LEARN_MORE },
-        { "done", IDS_BRAVE_PRIVATE_NEW_TAB_DONE },
-        { "searchSettings", IDS_BRAVE_PRIVATE_NEW_TAB_SEARCH_SETTINGS },
-        { "headerLabel", IDS_BRAVE_PRIVATE_NEW_TAB_THIS_IS_A },
+        { "learnMore", IDS_adrbrowsiel_PRIVATE_NEW_TAB_LEARN_MORE },
+        { "done", IDS_adrbrowsiel_PRIVATE_NEW_TAB_DONE },
+        { "searchSettings", IDS_adrbrowsiel_PRIVATE_NEW_TAB_SEARCH_SETTINGS },
+        { "headerLabel", IDS_adrbrowsiel_PRIVATE_NEW_TAB_THIS_IS_A },
 
         // Private Tab - Header Private Window
-        { "headerTitle", IDS_BRAVE_PRIVATE_NEW_TAB_PRIVATE_WINDOW },
-        { "headerText", IDS_BRAVE_PRIVATE_NEW_TAB_PRIVATE_WINDOW_DESC },
-        { "headerButton", IDS_BRAVE_PRIVATE_NEW_TAB_PRIVATE_WINDOW_BUTTON },
+        { "headerTitle", IDS_adrbrowsiel_PRIVATE_NEW_TAB_PRIVATE_WINDOW },
+        { "headerText", IDS_adrbrowsiel_PRIVATE_NEW_TAB_PRIVATE_WINDOW_DESC },
+        { "headerButton", IDS_adrbrowsiel_PRIVATE_NEW_TAB_PRIVATE_WINDOW_BUTTON },
 
         // Private Tab - Header Private Window with Tor
-        { "headerTorTitle", IDS_BRAVE_PRIVATE_NEW_TAB_PRIVATE_WINDOW_TOR },
-        { "headerTorText", IDS_BRAVE_PRIVATE_NEW_TAB_PRIVATE_WINDOW_TOR_DESC },
-        { "headerTorButton", IDS_BRAVE_PRIVATE_NEW_TAB_PRIVATE_WIONDOW_TOR_BUTTON },             // NOLINT
+        { "headerTorTitle", IDS_adrbrowsiel_PRIVATE_NEW_TAB_PRIVATE_WINDOW_TOR },
+        { "headerTorText", IDS_adrbrowsiel_PRIVATE_NEW_TAB_PRIVATE_WINDOW_TOR_DESC },
+        { "headerTorButton", IDS_adrbrowsiel_PRIVATE_NEW_TAB_PRIVATE_WIONDOW_TOR_BUTTON },             // NOLINT
 
         // Private Tab - Box for DDG
-        { "boxDdgLabel", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_DDG_LABEL },
-        { "boxDdgTitle", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_DDG_TITLE },
-        { "boxDdgText", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_DDG_TEXT_1 },
-        { "boxDdgText2", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_DDG_TEXT_2 },
-        { "boxDdgButton", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_DDG_BUTTON },
+        { "boxDdgLabel", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_DDG_LABEL },
+        { "boxDdgTitle", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_DDG_TITLE },
+        { "boxDdgText", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_DDG_TEXT_1 },
+        { "boxDdgText2", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_DDG_TEXT_2 },
+        { "boxDdgButton", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_DDG_BUTTON },
 
         // Private Tab - Box for Tor
-        { "boxTorLabel", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_TOR_LABEL },
-        { "boxTorLabel2", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_TOR_LABEL_2 },
-        { "boxTorTitle", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_TOR_TITLE },
+        { "boxTorLabel", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_TOR_LABEL },
+        { "boxTorLabel2", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_TOR_LABEL_2 },
+        { "boxTorTitle", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_TOR_TITLE },
 
         // Private Tab - Private Window with Tor - Tor Box
-        { "boxTorText", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_TOR_TEXT_1 },
+        { "boxTorText", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_TOR_TEXT_1 },
 
         // Private Tab - Private Window - Tor Box
-        { "boxTorText2", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_TOR_TEXT_2 },
-        { "boxTorButton", IDS_BRAVE_PRIVATE_NEW_TAB_BOX_TOR_BUTTON },
+        { "boxTorText2", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_TOR_TEXT_2 },
+        { "boxTorButton", IDS_adrbrowsiel_PRIVATE_NEW_TAB_BOX_TOR_BUTTON },
 
         // Private Tab - Private Window - Tor Status
-        { "torStatus", IDS_BRAVE_PRIVATE_NEW_TAB_TOR_STATUS },
-        { "torStatusConnected", IDS_BRAVE_PRIVATE_NEW_TAB_TOR_STATUS_CONNECTED },         // NOLINT
-        { "torStatusDisconnected", IDS_BRAVE_PRIVATE_NEW_TAB_TOR_STATUS_DISCONNECTED },   // NOLINT
-        { "torStatusInitializing", IDS_BRAVE_PRIVATE_NEW_TAB_TOR_STATUS_INITIALIZING },   // NOLINT
-        { "torTip", IDS_BRAVE_PRIVATE_NEW_TAB_TOR_TIP},
+        { "torStatus", IDS_adrbrowsiel_PRIVATE_NEW_TAB_TOR_STATUS },
+        { "torStatusConnected", IDS_adrbrowsiel_PRIVATE_NEW_TAB_TOR_STATUS_CONNECTED },         // NOLINT
+        { "torStatusDisconnected", IDS_adrbrowsiel_PRIVATE_NEW_TAB_TOR_STATUS_DISCONNECTED },   // NOLINT
+        { "torStatusInitializing", IDS_adrbrowsiel_PRIVATE_NEW_TAB_TOR_STATUS_INITIALIZING },   // NOLINT
+        { "torTip", IDS_adrbrowsiel_PRIVATE_NEW_TAB_TOR_TIP},
 
         // Together prompt
-        { "togetherPromptTitle", IDS_BRAVE_TOGETHER_PROMPT_TITLE },
-        { "togetherPromptDescription", IDS_BRAVE_TOGETHER_PROMPT_DESCRIPTION },
-        { "togetherPromptAction", IDS_BRAVE_TOGETHER_PROMPT_ACTION },
+        { "togetherPromptTitle", IDS_adrbrowsiel_TOGETHER_PROMPT_TITLE },
+        { "togetherPromptDescription", IDS_adrbrowsiel_TOGETHER_PROMPT_DESCRIPTION },
+        { "togetherPromptAction", IDS_adrbrowsiel_TOGETHER_PROMPT_ACTION },
 
         // Rewards widget
-        { "rewardsWidgetBap", IDS_BRAVE_UI_BAP_REWARDS_TEXT },
-        { "rewardsWidgetBat", IDS_BRAVE_UI_BAT_REWARDS_TEXT },
-        { "rewardsWidgetBraveRewards", IDS_BRAVE_UI_BRAVE_REWARDS },
-        { "rewardsWidgetTurnOnAds", IDS_BRAVE_UI_TURN_ON_ADS },
-        { "rewardsWidgetTurnOnText", IDS_BRAVE_UI_TURN_ON_TEXT },
-        { "rewardsWidgetTurnOnTitle", IDS_BRAVE_UI_TURN_ON_TITLE },
+        { "rewardsWidgetBap", IDS_adrbrowsiel_UI_BAP_REWARDS_TEXT },
+        { "rewardsWidgetBat", IDS_adrbrowsiel_UI_BAT_REWARDS_TEXT },
+        { "rewardsWidgetadrbrowsielRewards", IDS_adrbrowsiel_UI_adrbrowsiel_REWARDS },
+        { "rewardsWidgetTurnOnAds", IDS_adrbrowsiel_UI_TURN_ON_ADS },
+        { "rewardsWidgetTurnOnText", IDS_adrbrowsiel_UI_TURN_ON_TEXT },
+        { "rewardsWidgetTurnOnTitle", IDS_adrbrowsiel_UI_TURN_ON_TITLE },
         { "rewardsWidgetClaimMyRewards", IDS_REWARDS_WIDGET_CLAIM_MY_REWARDS },
         { "rewardsWidgetAboutRewards", IDS_REWARDS_WIDGET_ABOUT_REWARDS },
         { "rewardsWidgetServiceText", IDS_REWARDS_WIDGET_SERVICE_TEXT },
@@ -263,7 +263,7 @@ void CustomizeWebUIHTMLSource(const std::string &name,
         { "rewardsWidgetMonthlyTips", IDS_REWARDS_WIDGET_MONTHLY_TIPS },
         { "rewardsWidgetEnableBrandedWallpaperTitle", IDS_REWARDS_WIDGET_ENABLE_BRANDED_WALLPAPER_TITLE },  // NOLINT
         { "rewardsWidgetEnableBrandedWallpaperSubTitle", IDS_REWARDS_WIDGET_ENABLE_BRANDED_WALLPAPER_SUBTITLE },            // NOLINT
-        { "rewardsWidgetAdsNotSupported", IDS_BRAVE_REWARDS_LOCAL_ADS_NOT_SUPPORTED_REGION },    // NOLINT
+        { "rewardsWidgetAdsNotSupported", IDS_adrbrowsiel_REWARDS_LOCAL_ADS_NOT_SUPPORTED_REGION },    // NOLINT
         { "rewardsWidgetNotificationTitle", IDS_REWARDS_WIDGET_NOTIFICATION_TITLE },      // NOLINT
         { "rewardsWidgetNotificationTextAds", IDS_REWARDS_WIDGET_NOTIFICATION_TEXT_ADS }, // NOLINT
         { "rewardsWidgetNotificationTextUGP", IDS_REWARDS_WIDGET_NOTIFICATION_TEXT_UGP },  // NOLINT
@@ -292,7 +292,7 @@ void CustomizeWebUIHTMLSource(const std::string &name,
         { "binanceWidgetDismissText", IDS_BINANCE_WIDGET_DISMISS_TEXT },
         { "binanceWidgetValueText", IDS_BINANCE_WIDGET_VALUE_TEXT },
         { "binanceWidgetBTCTickerText" , IDS_BINANCE_BTC_TICKER_TEXT },
-        { "binanceWidgetViewDetails", IDS_BRAVE_UI_VIEW_DETAILS },
+        { "binanceWidgetViewDetails", IDS_adrbrowsiel_UI_VIEW_DETAILS },
         { "binanceWidgetDepositLabel", IDS_BINANCE_WIDGET_DEPOSIT_LABEL },
         { "binanceWidgetTradeLabel", IDS_BINANCE_WIDGET_TRADE_LABEL },
         { "binanceWidgetInvalidEntry", IDS_BINANCE_WIDGET_INVALID_ENTRY },
@@ -300,7 +300,7 @@ void CustomizeWebUIHTMLSource(const std::string &name,
         { "binanceWidgetDisconnectTitle", IDS_BINANCE_WIDGET_DISCONNECT_TITLE },    // NOLINT
         { "binanceWidgetDisconnectText" , IDS_BINANCE_WIDGET_DISCONNECT_TEXT },     // NOLINT
         { "binanceWidgetDisconnectButton" , IDS_BINANCE_WIDGET_DISCONNECT_BUTTON }, // NOLINT
-        { "binanceWidgetCancelText" , IDS_BRAVE_UI_CANCEL },
+        { "binanceWidgetCancelText" , IDS_adrbrowsiel_UI_CANCEL },
         { "binanceWidgetAccountDisconnected" , IDS_BINANCE_WIDGET_ACCOUNT_DISCONNECTED }, // NOLINT
         { "binanceWidgetConfigureButton" , IDS_BINANCE_WIDGET_CONFIGURE_BUTTON },         // NOLINT
         { "binanceWidgetConnect", IDS_BINANCE_WIDGET_CONNECT },
@@ -411,492 +411,492 @@ void CustomizeWebUIHTMLSource(const std::string &name,
       }
     }, {
       std::string("wallet"), {
-        { "cryptoWalletsWelcome", IDS_BRAVE_WALLET_WELCOME },
-        { "cryptoWalletsDisclosureOne", IDS_BRAVE_WALLET_DISCLOSURE_ONE },
-        { "cryptoWalletsDisclosureTwo", IDS_BRAVE_WALLET_DISCLOSURE_TWO },
-        { "cryptoWalletsDisclosureThree", IDS_BRAVE_WALLET_DISCLOSURE_THREE },
-        { "cryptoWalletsDisclosureFour", IDS_BRAVE_WALLET_DISCLOSURE_FOUR },
-        { "cryptoWalletsBraveRewards", IDS_BRAVE_WALLET_BRAVE_REWARDS },
-        { "cryptoWalletsDownloading", IDS_BRAVE_WALLET_DOWNLOADING },
-        { "cryptoWalletsDisclosureConfirm", IDS_BRAVE_WALLET_DISCLOSURE_CONFIRM }         // NOLINT
+        { "cryptoWalletsWelcome", IDS_adrbrowsiel_WALLET_WELCOME },
+        { "cryptoWalletsDisclosureOne", IDS_adrbrowsiel_WALLET_DISCLOSURE_ONE },
+        { "cryptoWalletsDisclosureTwo", IDS_adrbrowsiel_WALLET_DISCLOSURE_TWO },
+        { "cryptoWalletsDisclosureThree", IDS_adrbrowsiel_WALLET_DISCLOSURE_THREE },
+        { "cryptoWalletsDisclosureFour", IDS_adrbrowsiel_WALLET_DISCLOSURE_FOUR },
+        { "cryptoWalletsadrbrowsielRewards", IDS_adrbrowsiel_WALLET_adrbrowsiel_REWARDS },
+        { "cryptoWalletsDownloading", IDS_adrbrowsiel_WALLET_DOWNLOADING },
+        { "cryptoWalletsDisclosureConfirm", IDS_adrbrowsiel_WALLET_DISCLOSURE_CONFIRM }         // NOLINT
       }
     }, {
       std::string("welcome"), {
 #if !defined(OS_ANDROID)
         { "headerText", IDS_WELCOME_HEADER },
 #endif
-        { "welcome", IDS_BRAVE_WELCOME_PAGE_MAIN_TITLE },
-        { "whatIsBrave", IDS_BRAVE_WELCOME_PAGE_MAIN_DESC },
-        { "letsGo", IDS_BRAVE_WELCOME_PAGE_MAIN_BUTTON },
-        { "braveRewardsTitle", IDS_BRAVE_WELCOME_PAGE_REWARDS_TITLE },
-        { "setupBraveRewards", IDS_BRAVE_WELCOME_PAGE_REWARDS_DESC },
-        { "braveRewardsTerms", IDS_BRAVE_WELCOME_PAGE_REWARDS_TERMS },
-        { "braveRewardsNote", IDS_BRAVE_WELCOME_PAGE_REWARDS_NOTE },
-        { "enableRewards", IDS_BRAVE_WELCOME_PAGE_REWARDS_BUTTON },
-        { "importFromAnotherBrowser", IDS_BRAVE_WELCOME_PAGE_IMPORT_TITLE },
-        { "setupImport", IDS_BRAVE_WELCOME_PAGE_IMPORT_DESC },
-        { "import", IDS_BRAVE_WELCOME_PAGE_IMPORT_BUTTON },
-        { "importFrom", IDS_BRAVE_WELCOME_PAGE_IMPORT_FROM_DESC },
-        { "default", IDS_BRAVE_WELCOME_PAGE_DEFAULT_TEXT },
-        { "manageShields", IDS_BRAVE_WELCOME_PAGE_SHIELDS_TITLE },
-        { "adjustProtectionLevel", IDS_BRAVE_WELCOME_PAGE_SHIELDS_DESC },
-        { "shieldSettings", IDS_BRAVE_WELCOME_PAGE_SHIELDS_BUTTON },
-        { "setDefault", IDS_BRAVE_WELCOME_PAGE_SET_DEFAULT_SEARCH_BUTTON },
-        { "setDefaultSearchEngine", IDS_BRAVE_WELCOME_PAGE_SEARCH_TITLE },
-        { "chooseSearchEngine", IDS_BRAVE_WELCOME_PAGE_SEARCH_DESC },
-        { "selectSearchEngine", IDS_BRAVE_WELCOME_PAGE_SEARCH_SELECT },
-        { "privateExperience", IDS_BRAVE_WELCOME_PAGE_PRIVATE_EXPERIENCE_DESC },
-        { "skipWelcomeTour", IDS_BRAVE_WELCOME_PAGE_SKIP_BUTTON },
-        { "next", IDS_BRAVE_WELCOME_PAGE_NEXT_BUTTON },
-        { "done", IDS_BRAVE_WELCOME_PAGE_DONE_BUTTON },
-        { "privacyTitle", IDS_BRAVE_WELCOME_PAGE_PRIVACY_TITLE },
-        { "privacyDesc", IDS_BRAVE_WELCOME_PAGE_PRIVACY_DESC }
+        { "welcome", IDS_adrbrowsiel_WELCOME_PAGE_MAIN_TITLE },
+        { "whatIsadrbrowsiel", IDS_adrbrowsiel_WELCOME_PAGE_MAIN_DESC },
+        { "letsGo", IDS_adrbrowsiel_WELCOME_PAGE_MAIN_BUTTON },
+        { "adrbrowsielRewardsTitle", IDS_adrbrowsiel_WELCOME_PAGE_REWARDS_TITLE },
+        { "setupadrbrowsielRewards", IDS_adrbrowsiel_WELCOME_PAGE_REWARDS_DESC },
+        { "adrbrowsielRewardsTerms", IDS_adrbrowsiel_WELCOME_PAGE_REWARDS_TERMS },
+        { "adrbrowsielRewardsNote", IDS_adrbrowsiel_WELCOME_PAGE_REWARDS_NOTE },
+        { "enableRewards", IDS_adrbrowsiel_WELCOME_PAGE_REWARDS_BUTTON },
+        { "importFromAnotherBrowser", IDS_adrbrowsiel_WELCOME_PAGE_IMPORT_TITLE },
+        { "setupImport", IDS_adrbrowsiel_WELCOME_PAGE_IMPORT_DESC },
+        { "import", IDS_adrbrowsiel_WELCOME_PAGE_IMPORT_BUTTON },
+        { "importFrom", IDS_adrbrowsiel_WELCOME_PAGE_IMPORT_FROM_DESC },
+        { "default", IDS_adrbrowsiel_WELCOME_PAGE_DEFAULT_TEXT },
+        { "manageShields", IDS_adrbrowsiel_WELCOME_PAGE_SHIELDS_TITLE },
+        { "adjustProtectionLevel", IDS_adrbrowsiel_WELCOME_PAGE_SHIELDS_DESC },
+        { "shieldSettings", IDS_adrbrowsiel_WELCOME_PAGE_SHIELDS_BUTTON },
+        { "setDefault", IDS_adrbrowsiel_WELCOME_PAGE_SET_DEFAULT_SEARCH_BUTTON },
+        { "setDefaultSearchEngine", IDS_adrbrowsiel_WELCOME_PAGE_SEARCH_TITLE },
+        { "chooseSearchEngine", IDS_adrbrowsiel_WELCOME_PAGE_SEARCH_DESC },
+        { "selectSearchEngine", IDS_adrbrowsiel_WELCOME_PAGE_SEARCH_SELECT },
+        { "privateExperience", IDS_adrbrowsiel_WELCOME_PAGE_PRIVATE_EXPERIENCE_DESC },
+        { "skipWelcomeTour", IDS_adrbrowsiel_WELCOME_PAGE_SKIP_BUTTON },
+        { "next", IDS_adrbrowsiel_WELCOME_PAGE_NEXT_BUTTON },
+        { "done", IDS_adrbrowsiel_WELCOME_PAGE_DONE_BUTTON },
+        { "privacyTitle", IDS_adrbrowsiel_WELCOME_PAGE_PRIVACY_TITLE },
+        { "privacyDesc", IDS_adrbrowsiel_WELCOME_PAGE_PRIVACY_DESC }
       }
     }, {
       std::string("rewards"), {
-        { "adsCurrentEarnings",  IDS_BRAVE_REWARDS_LOCAL_ADS_CURRENT_EARNINGS },
-        { "adsDesc",  IDS_BRAVE_REWARDS_LOCAL_ADS_DESC },
-        { "adsDisabledTextOne",  IDS_BRAVE_REWARDS_LOCAL_ADS_DISABLED_TEXT_ONE },                // NOLINT
-        { "adsDisabledTextTwo",  IDS_BRAVE_REWARDS_LOCAL_ADS_DISABLED_TEXT_TWO },                // NOLINT
-        { "adsNotificationsReceived",  IDS_BRAVE_REWARDS_LOCAL_ADS_NOTIFICATIONS_RECEIVED },     // NOLINT
-        { "adsNotSupportedRegion", IDS_BRAVE_REWARDS_LOCAL_ADS_NOT_SUPPORTED_REGION },           // NOLINT
-        { "adsNotSupportedDevice", IDS_BRAVE_REWARDS_LOCAL_ADS_NOT_SUPPORTED_DEVICE },           // NOLINT
-        { "adsPaymentDate",  IDS_BRAVE_REWARDS_LOCAL_ADS_PAYMENT_DATE },
-        { "adsPagesViewed",  IDS_BRAVE_REWARDS_LOCAL_ADS_PAGES_VIEWED },
-        { "adsOtherSettings",  IDS_BRAVE_REWARDS_LOCAL_ADS_OTHER_SETTINGS },
-        { "adsPerHour",  IDS_BRAVE_REWARDS_LOCAL_ADS_PER_HOUR },
-        { "adsPerHour1",  IDS_BRAVE_REWARDS_LOCAL_ADS_PER_HOUR_1 },
-        { "adsPerHour2",  IDS_BRAVE_REWARDS_LOCAL_ADS_PER_HOUR_2 },
-        { "adsPerHour3",  IDS_BRAVE_REWARDS_LOCAL_ADS_PER_HOUR_3 },
-        { "adsPerHour4",  IDS_BRAVE_REWARDS_LOCAL_ADS_PER_HOUR_4 },
-        { "adsPerHour5",  IDS_BRAVE_REWARDS_LOCAL_ADS_PER_HOUR_5 },
-        { "adsSubdivisionTargetingTitle",  IDS_BRAVE_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_TITLE },  // NOLINT
-        { "adsSubdivisionTargetingDescription",  IDS_BRAVE_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_DESCRIPTION },  // NOLINT
-        { "adsSubdivisionTargetingLearn",  IDS_BRAVE_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_LEARN },  // NOLINT
-        { "adsSubdivisionTargetingAutoDetectedAs",  IDS_BRAVE_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_AUTO_DETECTED_AS },  // NOLINT
-        { "adsSubdivisionTargetingAutoDetect",  IDS_BRAVE_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_AUTO_DETECT },  // NOLINT
-        { "adsSubdivisionTargetingDisable",  IDS_BRAVE_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_DISABLE },  // NOLINT
-        { "adsSubdivisionTargetingDisabled",  IDS_BRAVE_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_DISABLED },  // NOLINT
-        { "adsTitle",  IDS_BRAVE_REWARDS_LOCAL_ADS_TITLE },
+        { "adsCurrentEarnings",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_CURRENT_EARNINGS },
+        { "adsDesc",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_DESC },
+        { "adsDisabledTextOne",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_DISABLED_TEXT_ONE },                // NOLINT
+        { "adsDisabledTextTwo",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_DISABLED_TEXT_TWO },                // NOLINT
+        { "adsNotificationsReceived",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_NOTIFICATIONS_RECEIVED },     // NOLINT
+        { "adsNotSupportedRegion", IDS_adrbrowsiel_REWARDS_LOCAL_ADS_NOT_SUPPORTED_REGION },           // NOLINT
+        { "adsNotSupportedDevice", IDS_adrbrowsiel_REWARDS_LOCAL_ADS_NOT_SUPPORTED_DEVICE },           // NOLINT
+        { "adsPaymentDate",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_PAYMENT_DATE },
+        { "adsPagesViewed",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_PAGES_VIEWED },
+        { "adsOtherSettings",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_OTHER_SETTINGS },
+        { "adsPerHour",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_PER_HOUR },
+        { "adsPerHour1",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_PER_HOUR_1 },
+        { "adsPerHour2",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_PER_HOUR_2 },
+        { "adsPerHour3",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_PER_HOUR_3 },
+        { "adsPerHour4",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_PER_HOUR_4 },
+        { "adsPerHour5",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_PER_HOUR_5 },
+        { "adsSubdivisionTargetingTitle",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_TITLE },  // NOLINT
+        { "adsSubdivisionTargetingDescription",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_DESCRIPTION },  // NOLINT
+        { "adsSubdivisionTargetingLearn",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_LEARN },  // NOLINT
+        { "adsSubdivisionTargetingAutoDetectedAs",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_AUTO_DETECTED_AS },  // NOLINT
+        { "adsSubdivisionTargetingAutoDetect",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_AUTO_DETECT },  // NOLINT
+        { "adsSubdivisionTargetingDisable",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_DISABLE },  // NOLINT
+        { "adsSubdivisionTargetingDisabled",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_SUBDIVISION_TARGETING_DISABLED },  // NOLINT
+        { "adsTitle",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_TITLE },
 
-        { "qrBoxText",  IDS_BRAVE_REWARDS_LOCAL_QR_BOX_TEXT },
-        { "qrBoxButton",  IDS_BRAVE_REWARDS_LOCAL_QR_BOX_BUTTON },
+        { "qrBoxText",  IDS_adrbrowsiel_REWARDS_LOCAL_QR_BOX_TEXT },
+        { "qrBoxButton",  IDS_adrbrowsiel_REWARDS_LOCAL_QR_BOX_BUTTON },
 
-        { "bat", IDS_BRAVE_UI_BAT_REWARDS_TEXT },
-        { "bap", IDS_BRAVE_UI_BAP_REWARDS_TEXT },
-        { "batPoints", IDS_BRAVE_UI_BAT_POINTS_TEXT },
-        { "batPointsMessage", IDS_BRAVE_UI_POINTS_MESSAGE },
-        { "contributionTitle",  IDS_BRAVE_REWARDS_LOCAL_CONTR_TITLE },
-        { "contributionDesc",  IDS_BRAVE_REWARDS_LOCAL_CONTR_DESC },
-        { "contributionMonthly",  IDS_BRAVE_REWARDS_LOCAL_CONTR_MONTHLY },
-        { "contributionNextDate",  IDS_BRAVE_REWARDS_LOCAL_CONTR_NEXT_DATE },
-        { "contributionSites",  IDS_BRAVE_REWARDS_LOCAL_CONTR_SITES },
-        { "contributionDisabledText1",  IDS_BRAVE_REWARDS_LOCAL_CONTR_DISABLED_TEXT1 },          // NOLINT
-        { "contributionDisabledText2",  IDS_BRAVE_REWARDS_LOCAL_CONTR_DISABLED_TEXT2 },          // NOLINT
-        { "contributionVisitSome",  IDS_BRAVE_REWARDS_LOCAL_CONTR_VISIT_SOME },
-        { "contributionMinTime",  IDS_BRAVE_REWARDS_LOCAL_CONTR_MIN_TIME },
-        { "contributionMinVisits",  IDS_BRAVE_REWARDS_LOCAL_CONTR_MIN_VISITS },
-        { "contributionOther",  IDS_BRAVE_REWARDS_LOCAL_CONTR_OTHER },
-        { "contributionShowNonVerified",  IDS_BRAVE_REWARDS_LOCAL_CONTR_SHOW_NON_VERIFIED },        // NOLINT
-        { "contributionVideos",  IDS_BRAVE_REWARDS_LOCAL_CONTR_ALLOW_VIDEOS },
-        { "contributionVisit1",  IDS_BRAVE_REWARDS_LOCAL_CONTR_VISIT_1 },
-        { "contributionVisit5",  IDS_BRAVE_REWARDS_LOCAL_CONTR_VISIT_5 },
-        { "contributionVisit10",  IDS_BRAVE_REWARDS_LOCAL_CONTR_VISIT_10 },
-        { "contributionTime5",  IDS_BRAVE_REWARDS_LOCAL_CONTR_TIME_5 },
-        { "contributionTime8",  IDS_BRAVE_REWARDS_LOCAL_CONTR_TIME_8 },
-        { "contributionTime60",  IDS_BRAVE_REWARDS_LOCAL_CONTR_TIME_60 },
-        { "contributionUpTo",  IDS_BRAVE_REWARDS_LOCAL_CONTR_UP_TO },
+        { "bat", IDS_adrbrowsiel_UI_BAT_REWARDS_TEXT },
+        { "bap", IDS_adrbrowsiel_UI_BAP_REWARDS_TEXT },
+        { "batPoints", IDS_adrbrowsiel_UI_BAT_POINTS_TEXT },
+        { "batPointsMessage", IDS_adrbrowsiel_UI_POINTS_MESSAGE },
+        { "contributionTitle",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_TITLE },
+        { "contributionDesc",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_DESC },
+        { "contributionMonthly",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_MONTHLY },
+        { "contributionNextDate",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_NEXT_DATE },
+        { "contributionSites",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_SITES },
+        { "contributionDisabledText1",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_DISABLED_TEXT1 },          // NOLINT
+        { "contributionDisabledText2",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_DISABLED_TEXT2 },          // NOLINT
+        { "contributionVisitSome",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_VISIT_SOME },
+        { "contributionMinTime",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_MIN_TIME },
+        { "contributionMinVisits",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_MIN_VISITS },
+        { "contributionOther",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_OTHER },
+        { "contributionShowNonVerified",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_SHOW_NON_VERIFIED },        // NOLINT
+        { "contributionVideos",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_ALLOW_VIDEOS },
+        { "contributionVisit1",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_VISIT_1 },
+        { "contributionVisit5",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_VISIT_5 },
+        { "contributionVisit10",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_VISIT_10 },
+        { "contributionTime5",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_TIME_5 },
+        { "contributionTime8",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_TIME_8 },
+        { "contributionTime60",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_TIME_60 },
+        { "contributionUpTo",  IDS_adrbrowsiel_REWARDS_LOCAL_CONTR_UP_TO },
 
-        { "deviceOffline", IDS_BRAVE_REWARDS_LOCAL_DEVICE_OFFLINE },
-        { "donationTitle",  IDS_BRAVE_REWARDS_LOCAL_DONAT_TITLE },
-        { "donationDesc",  IDS_BRAVE_REWARDS_LOCAL_DONAT_DESC },
-        { "donationTotalDonations",  IDS_BRAVE_REWARDS_LOCAL_DONAT_TOTAL_DONATIONS },            // NOLINT
-        { "donationTotalMonthlyContribution",  IDS_BRAVE_REWARDS_LOCAL_DONAT_TOTAL_MONTHLY_CONTRIBUTION },       // NOLINT
-        { "donationVisitSome",  IDS_BRAVE_REWARDS_LOCAL_DONAT_VISIT_SOME },
-        { "donationAbility",  IDS_BRAVE_REWARDS_LOCAL_DONAT_ABILITY },
-        { "donationAbilityYT",  IDS_BRAVE_REWARDS_LOCAL_DONAT_ABILITY_YT },
-        { "donationAbilityReddit", IDS_BRAVE_REWARDS_LOCAL_DONAT_ABILITY_REDT},
-        { "donationAbilityTwitter",  IDS_BRAVE_REWARDS_LOCAL_DONAT_ABILITY_TW },
-        { "donationAbilityGitHub",  IDS_BRAVE_REWARDS_LOCAL_DONAT_ABILITY_GH },
-        { "donationDisabledText1",  IDS_BRAVE_REWARDS_LOCAL_DONAT_DISABLED_TEXT1 },              // NOLINT
-        { "donationDisabledText2",  IDS_BRAVE_REWARDS_LOCAL_DONAT_DISABLED_TEXT2 },              // NOLINT
-        { "donationNextDate",  IDS_BRAVE_REWARDS_LOCAL_DONAT_NEXT_DATE },
-        { "monthlyContributionTitle",  IDS_BRAVE_REWARDS_LOCAL_MONTHLY_CONTRIBUTION_TITLE },     // NOLINT
-        { "monthlyContributionDesc",  IDS_BRAVE_REWARDS_LOCAL_MONTHLY_CONTRIBUTION_DESC },       // NOLINT
-        { "monthlyContributionEmpty", IDS_BRAVE_REWARDS_LOCAL_MONTHLY_CONTRIBUTION_EMPTY },      // NOLINT
-        { "monthlyContributionDisabledText", IDS_BRAVE_REWARDS_LOCAL_MONTHLY_CONTRIBUTION_DISABLED_TEXT },      // NOLINT
+        { "deviceOffline", IDS_adrbrowsiel_REWARDS_LOCAL_DEVICE_OFFLINE },
+        { "donationTitle",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_TITLE },
+        { "donationDesc",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_DESC },
+        { "donationTotalDonations",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_TOTAL_DONATIONS },            // NOLINT
+        { "donationTotalMonthlyContribution",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_TOTAL_MONTHLY_CONTRIBUTION },       // NOLINT
+        { "donationVisitSome",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_VISIT_SOME },
+        { "donationAbility",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_ABILITY },
+        { "donationAbilityYT",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_ABILITY_YT },
+        { "donationAbilityReddit", IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_ABILITY_REDT},
+        { "donationAbilityTwitter",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_ABILITY_TW },
+        { "donationAbilityGitHub",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_ABILITY_GH },
+        { "donationDisabledText1",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_DISABLED_TEXT1 },              // NOLINT
+        { "donationDisabledText2",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_DISABLED_TEXT2 },              // NOLINT
+        { "donationNextDate",  IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_NEXT_DATE },
+        { "monthlyContributionTitle",  IDS_adrbrowsiel_REWARDS_LOCAL_MONTHLY_CONTRIBUTION_TITLE },     // NOLINT
+        { "monthlyContributionDesc",  IDS_adrbrowsiel_REWARDS_LOCAL_MONTHLY_CONTRIBUTION_DESC },       // NOLINT
+        { "monthlyContributionEmpty", IDS_adrbrowsiel_REWARDS_LOCAL_MONTHLY_CONTRIBUTION_EMPTY },      // NOLINT
+        { "monthlyContributionDisabledText", IDS_adrbrowsiel_REWARDS_LOCAL_MONTHLY_CONTRIBUTION_DISABLED_TEXT },      // NOLINT
 
-        { "panelAddFunds",  IDS_BRAVE_REWARDS_LOCAL_PANEL_ADD_FUNDS },
-        { "panelWithdrawFunds",  IDS_BRAVE_REWARDS_LOCAL_PANEL_WITHDRAW_FUNDS },
-        { "tokens",  IDS_BRAVE_REWARDS_LOCAL_TOKENS },
-        { "walletRecoverySuccess",  IDS_BRAVE_REWARDS_LOCAL_WALLET_RECOVERY_SUCCESS },           // NOLINT
-        { "walletRestored",  IDS_BRAVE_REWARDS_LOCAL_WALLET_RESTORED },
-        { "walletRecoveryFail",  IDS_BRAVE_REWARDS_LOCAL_WALLET_RECOVERY_FAIL },                 // NOLINT
-        { "walletRecoveryOutdated",  IDS_BRAVE_REWARDS_LOCAL_WALLET_RECOVERY_OUTDATED },                 // NOLINT
-        { "almostThere",  IDS_BRAVE_REWARDS_LOCAL_ALMOST_THERE },
-        { "notQuite",  IDS_BRAVE_REWARDS_LOCAL_NOT_QUITE },
-        { "proveHuman",  IDS_BRAVE_REWARDS_LOCAL_PROVE_HUMAN },
-        { "serverNotResponding",  IDS_BRAVE_REWARDS_LOCAL_SERVER_NOT_RESPONDING },               // NOLINT
-        { "uhOh",  IDS_BRAVE_REWARDS_LOCAL_UH_OH },
-        { "grantGeneralErrorTitle",  IDS_BRAVE_REWARDS_LOCAL_GENERAL_GRANT_ERROR_TITLE },        // NOLINT
-        { "grantGeneralErrorButton",  IDS_BRAVE_REWARDS_LOCAL_GENERAL_GRANT_ERROR_BUTTON },      // NOLINT
-        { "grantGeneralErrorText",  IDS_BRAVE_REWARDS_LOCAL_GENERAL_GRANT_ERROR_TEXT },          // NOLINT
-        { "redirectModalError", IDS_BRAVE_REWARDS_LOCAL_REDIRECT_MODAL_ERROR },
-        { "redirectModalClose", IDS_BRAVE_REWARDS_LOCAL_REDIRECT_MODAL_CLOSE },
-        { "redirectModalErrorWallet", IDS_BRAVE_REWARDS_LOCAL_REDIRECT_MODAL_ERROR_WALLET },     // NOLINT
-        { "redirectModalBatLimitTitle", IDS_BRAVE_REWARDS_LOCAL_REDIRECT_MODAL_BAT_LIMIT_TITLE },     // NOLINT
-        { "redirectModalBatLimitText", IDS_BRAVE_REWARDS_LOCAL_REDIRECT_MODAL_BAT_LIMIT_TEXT },     // NOLINT
-        { "redirectModalNotAllowed", IDS_BRAVE_REWARDS_LOCAL_REDIRECT_MODAL_NOT_ALLOWED},     // NOLINT
-        { "tosAndPp", IDS_BRAVE_REWARDS_LOCAL_TOS_AND_PP},     // NOLINT
+        { "panelAddFunds",  IDS_adrbrowsiel_REWARDS_LOCAL_PANEL_ADD_FUNDS },
+        { "panelWithdrawFunds",  IDS_adrbrowsiel_REWARDS_LOCAL_PANEL_WITHDRAW_FUNDS },
+        { "tokens",  IDS_adrbrowsiel_REWARDS_LOCAL_TOKENS },
+        { "walletRecoverySuccess",  IDS_adrbrowsiel_REWARDS_LOCAL_WALLET_RECOVERY_SUCCESS },           // NOLINT
+        { "walletRestored",  IDS_adrbrowsiel_REWARDS_LOCAL_WALLET_RESTORED },
+        { "walletRecoveryFail",  IDS_adrbrowsiel_REWARDS_LOCAL_WALLET_RECOVERY_FAIL },                 // NOLINT
+        { "walletRecoveryOutdated",  IDS_adrbrowsiel_REWARDS_LOCAL_WALLET_RECOVERY_OUTDATED },                 // NOLINT
+        { "almostThere",  IDS_adrbrowsiel_REWARDS_LOCAL_ALMOST_THERE },
+        { "notQuite",  IDS_adrbrowsiel_REWARDS_LOCAL_NOT_QUITE },
+        { "proveHuman",  IDS_adrbrowsiel_REWARDS_LOCAL_PROVE_HUMAN },
+        { "serverNotResponding",  IDS_adrbrowsiel_REWARDS_LOCAL_SERVER_NOT_RESPONDING },               // NOLINT
+        { "uhOh",  IDS_adrbrowsiel_REWARDS_LOCAL_UH_OH },
+        { "grantGeneralErrorTitle",  IDS_adrbrowsiel_REWARDS_LOCAL_GENERAL_GRANT_ERROR_TITLE },        // NOLINT
+        { "grantGeneralErrorButton",  IDS_adrbrowsiel_REWARDS_LOCAL_GENERAL_GRANT_ERROR_BUTTON },      // NOLINT
+        { "grantGeneralErrorText",  IDS_adrbrowsiel_REWARDS_LOCAL_GENERAL_GRANT_ERROR_TEXT },          // NOLINT
+        { "redirectModalError", IDS_adrbrowsiel_REWARDS_LOCAL_REDIRECT_MODAL_ERROR },
+        { "redirectModalClose", IDS_adrbrowsiel_REWARDS_LOCAL_REDIRECT_MODAL_CLOSE },
+        { "redirectModalErrorWallet", IDS_adrbrowsiel_REWARDS_LOCAL_REDIRECT_MODAL_ERROR_WALLET },     // NOLINT
+        { "redirectModalBatLimitTitle", IDS_adrbrowsiel_REWARDS_LOCAL_REDIRECT_MODAL_BAT_LIMIT_TITLE },     // NOLINT
+        { "redirectModalBatLimitText", IDS_adrbrowsiel_REWARDS_LOCAL_REDIRECT_MODAL_BAT_LIMIT_TEXT },     // NOLINT
+        { "redirectModalNotAllowed", IDS_adrbrowsiel_REWARDS_LOCAL_REDIRECT_MODAL_NOT_ALLOWED},     // NOLINT
+        { "tosAndPp", IDS_adrbrowsiel_REWARDS_LOCAL_TOS_AND_PP},     // NOLINT
 
-        { "click",  IDS_BRAVE_REWARDS_LOCAL_ADS_CONFIRMATION_TYPE_CLICK },
-        { "dismiss",  IDS_BRAVE_REWARDS_LOCAL_ADS_CONFIRMATION_TYPE_DISMISS },
-        { "landed",  IDS_BRAVE_REWARDS_LOCAL_ADS_CONFIRMATION_TYPE_LANDED },
-        { "view",  IDS_BRAVE_REWARDS_LOCAL_ADS_CONFIRMATION_TYPE_VIEW },
+        { "click",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_CONFIRMATION_TYPE_CLICK },
+        { "dismiss",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_CONFIRMATION_TYPE_DISMISS },
+        { "landed",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_CONFIRMATION_TYPE_LANDED },
+        { "view",  IDS_adrbrowsiel_REWARDS_LOCAL_ADS_CONFIRMATION_TYPE_VIEW },
 
-        { "about", IDS_BRAVE_UI_ABOUT },
-        { "accept", IDS_BRAVE_UI_ACCEPT },
-        { "activityCopy", IDS_BRAVE_UI_ACTIVITY_COPY },
-        { "activityNote", IDS_BRAVE_UI_ACTIVITY_NOTE },
-        { "addFunds", IDS_BRAVE_UI_ADD_FUNDS },
-        { "ads", IDS_BRAVE_UI_ADS},
-        { "adsCurrentlyViewing", IDS_BRAVE_UI_ADS_CURRENTLY_VIEWING },
-        { "adsEarnings", IDS_BRAVE_UI_ADS_EARNINGS },
-        { "adsHistoryFilterAll", IDS_BRAVE_UI_ADS_HISTORY_FILTER_ALL },
-        { "adsHistoryFilterSaved", IDS_BRAVE_UI_ADS_HISTORY_FILTER_SAVED },
-        { "adsHistorySubTitle", IDS_BRAVE_UI_ADS_HISTORY_SUBTITLE },
-        { "adsHistoryTitle", IDS_BRAVE_UI_ADS_HISTORY_TITLE },
-        { "adsGrantReceived", IDS_BRAVE_UI_ADS_GRANT_RECEIVED },
-        { "all", IDS_BRAVE_UI_ADS_ALL },
-        { "allowTip", IDS_BRAVE_UI_ALLOW_TIP },
-        { "amount", IDS_BRAVE_UI_AMOUNT },
-        { "autoContribute", IDS_BRAVE_UI_BRAVE_CONTRIBUTE_TITLE },
-        { "autoContributeTransaction", IDS_BRAVE_UI_BRAVE_CONTRIBUTE_TRANSACTION },              // NOLINT
-        { "backup", IDS_BRAVE_UI_BACKUP },
-        { "braveAdsDesc", IDS_BRAVE_UI_BRAVE_ADS_DESC },
-        { "braveAdsDescPoints", IDS_BRAVE_UI_BRAVE_ADS_DESC_POINTS },
-        { "braveAdsLaunchTitle", IDS_BRAVE_UI_BRAVE_ADS_LAUNCH_TITLE },
-        { "braveAdsTitle", IDS_BRAVE_UI_BRAVE_ADS_TITLE },
-        { "braveContributeDesc", IDS_BRAVE_UI_BRAVE_CONTRIBUTE_DESC },
-        { "braveContributeTitle", IDS_BRAVE_UI_BRAVE_CONTRIBUTE_TITLE },
-        { "braveRewards", IDS_BRAVE_UI_BRAVE_REWARDS },
-        { "braveRewardsCreatingText", IDS_BRAVE_UI_BRAVE_REWARDS_CREATING_TEXT },                // NOLINT
-        { "braveRewardsDesc", IDS_BRAVE_UI_BRAVE_REWARDS_DESC },
-        { "braveRewardsOptInText", IDS_BRAVE_UI_BRAVE_REWARDS_OPT_IN_TEXT },
-        { "braveRewardsSubTitle", IDS_BRAVE_UI_BRAVE_REWARDS_SUB_TITLE },
-        { "braveRewardsTeaser", IDS_BRAVE_UI_BRAVE_REWARDS_TEASER },
-        { "braveRewardsTitle", IDS_BRAVE_UI_BRAVE_REWARDS_TITLE },
-        { "braveVerified", IDS_BRAVE_UI_BRAVE_VERIFIED },
-        { "cancel", IDS_BRAVE_UI_CANCEL },
-        { "captchaDrag", IDS_BRAVE_UI_CAPTCHA_DRAG },
-        { "captchaProveHuman", IDS_BRAVE_UI_CAPTCHA_PROVE_HUMAN },
-        { "captchaTarget", IDS_BRAVE_UI_CAPTCHA_TARGET },
-        { "captchaMissedTarget", IDS_BRAVE_UI_CAPTCHA_MISSED_TARGET },
-        { "category", IDS_BRAVE_UI_ADS_CATEGORY },
-        { "claim", IDS_BRAVE_UI_CLAIM },
-        { "closeBalance", IDS_BRAVE_UI_CLOSE_BALANCE },
-        { "contribute", IDS_BRAVE_UI_CONTRIBUTE },
-        { "contributeAllocation", IDS_BRAVE_UI_CONTRIBUTE_ALLOCATION },
-        { "copy", IDS_BRAVE_UI_COPY },
-        { "currentDonation", IDS_BRAVE_UI_CURRENT_DONATION },
-        { "date", IDS_BRAVE_UI_DATE },
-        { "deposit", IDS_BRAVE_UI_DEPOSIT },
-        { "deposits", IDS_BRAVE_UI_DEPOSITS },
-        { "description", IDS_BRAVE_UI_DESCRIPTION },
-        { "details", IDS_BRAVE_UI_DETAILS },
-        { "disabledPanelOff", IDS_BRAVE_UI_DISABLED_PANEL_OFF },
-        { "disabledPanelSettings", IDS_BRAVE_UI_DISABLED_PANEL_SETTINGS },
-        { "disabledPanelText", IDS_BRAVE_UI_DISABLED_PANEL_TEXT },
-        { "disabledPanelTitle", IDS_BRAVE_UI_DISABLED_PANEL_TITLE },
-        { "dndCaptchaText1", IDS_BRAVE_UI_DND_CAPTCHA_TEXT_1 },
-        { "dndCaptchaText2", IDS_BRAVE_UI_DND_CAPTCHA_TEXT_2 },
-        { "donation", IDS_BRAVE_UI_DONATION },
-        { "donationAmount", IDS_BRAVE_UI_DONATION_AMOUNT },
-        { "donationTips", IDS_BRAVE_REWARDS_LOCAL_DONAT_TITLE },
-        { "donateMonthly", IDS_BRAVE_UI_DONATE_MONTHLY },
-        { "donateNow", IDS_BRAVE_UI_DONATE_NOW },
-        { "done", IDS_BRAVE_UI_DONE },
-        { "downloadPDF", IDS_BRAVE_UI_DOWNLOAD_PDF },
-        { "earningsAds", IDS_BRAVE_UI_EARNINGS_ADS },
-        { "earningsClaimDefault", IDS_BRAVE_UI_EARNINGS_CLAIM_DEFAULT },
-        { "enableTips", IDS_BRAVE_UI_ENABLE_TIPS },
-        { "excludeSite", IDS_BRAVE_UI_EXCLUDE_SITE },
-        { "excludedSitesText", IDS_BRAVE_UI_EXCLUDED_SITES },
-        { "expiresOn", IDS_BRAVE_UI_EXPIRES_ON },
-        { "for", IDS_BRAVE_UI_FOR },
-        { "grantDisclaimer", IDS_BRAVE_UI_GRANT_DISCLAIMER },
-        { "grantTitleUGP", IDS_BRAVE_UI_GRANT_TITLE_UGP },
-        { "grantSubtitleUGP", IDS_BRAVE_UI_GRANT_SUBTITLE_UGP },
-        { "grantAmountTitleUGP", IDS_BRAVE_UI_GRANT_AMOUNT_TITLE_UGP },
-        { "grantDateTitleUGP", IDS_BRAVE_UI_GRANT_DATE_TITLE_UGP },
-        { "grantTitleAds", IDS_BRAVE_UI_GRANT_TITLE_ADS },
-        { "grantSubtitleAds", IDS_BRAVE_UI_GRANT_SUBTITLE_ADS },
-        { "grantAmountTitleAds", IDS_BRAVE_UI_GRANT_AMOUNT_TITLE_ADS },
-        { "grantDateTitleAds", IDS_BRAVE_UI_GRANT_DATE_TITLE_ADS },
-        { "grantExpire", IDS_BRAVE_UI_GRANT_EXPIRE },
-        { "grantFinishTextAds", IDS_BRAVE_UI_GRANT_FINISH_TEXT_ADS },
-        { "grantFinishTextUGP", IDS_BRAVE_UI_GRANT_FINISH_TEXT_UGP },
-        { "grantFinishTitleAds", IDS_BRAVE_UI_GRANT_FINISH_TITLE_ADS },
-        { "grantFinishTitleUGP", IDS_BRAVE_UI_GRANT_FINISH_TITLE_UGP },
-        { "grantFinishTokenAds", IDS_BRAVE_UI_GRANT_FINISH_TOKEN_ADS },
-        { "grantFinishTokenUGP", IDS_BRAVE_UI_GRANT_FINISH_TOKEN_UGP },
-        { "grantFinishPointUGP", IDS_BRAVE_UI_GRANT_FINISH_POINT_UGP },
-        { "grants", IDS_BRAVE_UI_GRANTS },
-        { "greetingsVerified", IDS_BRAVE_UI_GREETINGS_VERIFIED },
-        { "import", IDS_BRAVE_UI_IMPORT },
-        { "includeInAuto", IDS_BRAVE_UI_INCLUDE_IN_AUTO },
-        { "learnMore", IDS_BRAVE_UI_LEARN_MORE },
-        { "login", IDS_BRAVE_UI_LOGIN },
-        { "loginMessageTitle", IDS_BRAVE_UI_LOGIN_MESSAGE_TITLE },
-        { "loginMessageText", IDS_BRAVE_UI_LOGIN_MESSAGE_TEXT },
-        { "makeMonthly", IDS_BRAVE_UI_MAKE_MONTHLY },
-        { "manageWallet", IDS_BRAVE_UI_MANAGE_WALLET },
-        { "markAsInappropriate", IDS_BRAVE_UI_ADS_MARK_AS_INAPPROPRIATE },
-        { "markAsInappropriateChecked", IDS_BRAVE_UI_ADS_MARK_AS_INAPPROPRIATE_CHECKED },        // NOLINT
-        { "monthApr", IDS_BRAVE_UI_MONTH_APR },
-        { "monthAug", IDS_BRAVE_UI_MONTH_AUG },
-        { "monthDec", IDS_BRAVE_UI_MONTH_DEC },
-        { "monthFeb", IDS_BRAVE_UI_MONTH_FEB },
-        { "monthJan", IDS_BRAVE_UI_MONTH_JAN },
-        { "monthJul", IDS_BRAVE_UI_MONTH_JUL },
-        { "monthJun", IDS_BRAVE_UI_MONTH_JUN },
-        { "monthMar", IDS_BRAVE_UI_MONTH_MAR },
-        { "monthMay", IDS_BRAVE_UI_MONTH_MAY },
-        { "monthNov", IDS_BRAVE_UI_MONTH_NOV },
-        { "monthOct", IDS_BRAVE_UI_MONTH_OCT },
-        { "monthSep", IDS_BRAVE_UI_MONTH_SEP },
-        { "monthlyTips", IDS_BRAVE_UI_MONTHLY_TIPS },
-        { "monthlyContributions", IDS_BRAVE_UI_MONTHLY_CONTRIBUTIONS },
-        { "newGrant", IDS_BRAVE_UI_NEW_GRANT },
-        { "newTokenGrant", IDS_BRAVE_UI_NEW_TOKEN_GRANT },
-        { "noActivity", IDS_BRAVE_UI_NO_ACTIVITY },
-        { "noAdsHistory", IDS_BRAVE_UI_ADS_NO_ADS_HISTORY },
-        { "noGrants", IDS_BRAVE_UI_NO_GRANTS },
-        { "noThankYou", IDS_BRAVE_UI_NO_THANK_YOU },
-        { "off", IDS_BRAVE_UI_OFF },
-        { "ok", IDS_BRAVE_UI_OK },
-        { "on", IDS_BRAVE_UI_ON },
-        { "onboardingBraveRewards", IDS_BRAVE_REWARDS_ONBOARDING_BRAVE_REWARDS },  // NOLINT
-        { "onboardingDetailLinks", IDS_BRAVE_REWARDS_ONBOARDING_DETAIL_LINKS },
-        { "onboardingEarnHeader", IDS_BRAVE_REWARDS_ONBOARDING_EARN_HEADER },
-        { "onboardingEarnText", IDS_BRAVE_REWARDS_ONBOARDING_EARN_TEXT },
-        { "onboardingPromoHeader", IDS_BRAVE_REWARDS_ONBOARDING_PROMO_HEADER },
-        { "onboardingPromoText", IDS_BRAVE_REWARDS_ONBOARDING_PROMO_TEXT },
-        { "onboardingSetupAdsHeader", IDS_BRAVE_REWARDS_ONBOARDING_SETUP_ADS_HEADER },  // NOLINT
-        { "onboardingSetupAdsSubheader", IDS_BRAVE_REWARDS_ONBOARDING_SETUP_ADS_SUBHEADER },  // NOLINT
-        { "onboardingSetupContributeHeader", IDS_BRAVE_REWARDS_ONBOARDING_SETUP_CONTRIBUTE_HEADER },  // NOLINT
-        { "onboardingSetupContributeSubheader", IDS_BRAVE_REWARDS_ONBOARDING_SETUP_CONTRIBUTE_SUBHEADER },  // NOLINT
-        { "onboardingStartUsingRewards", IDS_BRAVE_REWARDS_ONBOARDING_START_USING_REWARDS },  // NOLINT
-        { "onboardingTakeTour", IDS_BRAVE_REWARDS_ONBOARDING_TAKE_TOUR },
-        { "onboardingTerms", IDS_BRAVE_REWARDS_ONBOARDING_TERMS },
-        { "onboardingTourBack", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_BACK },
-        { "onboardingTourBegin", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_BEGIN },
-        { "onboardingTourContinue", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_CONTINUE },  // NOLINT
-        { "onboardingTourDone", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_DONE },
-        { "onboardingTourSkip", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_SKIP },
-        { "onboardingTourSkipForNow", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_SKIP_FOR_NOW },  // NOLINT
-        { "onboardingPanelWelcomeHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_WELCOME_HEADER },  // NOLINT
-        { "onboardingPanelWelcomeText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_WELCOME_TEXT },  // NOLINT
-        { "onboardingPanelAdsHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_ADS_HEADER },  // NOLINT
-        { "onboardingPanelAdsText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_ADS_TEXT },  // NOLINT
-        { "onboardingPanelScheduleHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_SCHEDULE_HEADER },  // NOLINT
-        { "onboardingPanelScheduleText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_SCHEDULE_TEXT },  // NOLINT
-        { "onboardingPanelAcHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_AC_HEADER },  // NOLINT
-        { "onboardingPanelAcText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_AC_TEXT },
-        { "onboardingPanelTippingHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_TIPPING_HEADER },  // NOLINT
-        { "onboardingPanelTippingText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_TIPPING_TEXT },  // NOLINT
-        { "onboardingPanelRedeemHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_REDEEM_HEADER },  // NOLINT
-        { "onboardingPanelRedeemText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_REDEEM_TEXT },  // NOLINT
-        { "onboardingPanelSetupHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_SETUP_HEADER },  // NOLINT
-        { "onboardingPanelSetupText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_SETUP_TEXT },  // NOLINT
-        { "onboardingPanelCompleteHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_COMPLETE_HEADER },  // NOLINT
-        { "onboardingPanelCompleteText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_COMPLETE_TEXT },  // NOLINT
-        { "onboardingPanelVerifyHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_VERIFY_HEADER },  // NOLINT
-        { "onboardingPanelVerifySubtext", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_VERIFY_SUBTEXT },  // NOLINT
-        { "onboardingPanelVerifyLater", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_VERIFY_LATER },  // NOLINT
-        { "onboardingPanelVerifyNow", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_VERIFY_NOW },  // NOLINT
-        { "onboardingPanelBitflyerNote", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_BITFLYER_NOTE },  // NOLINT
-        { "onboardingPanelBitflyerText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_BITFLYER_TEXT },  // NOLINT
-        { "onboardingPanelBitflyerLearnMore", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_BITFLYER_LEARN_MORE },  // NOLINT
-        { "oneTime", IDS_BRAVE_UI_ONE_TIME },
-        { "oneTimeDonation", IDS_BRAVE_UI_ONE_TIME_DONATION },
-        { "openBalance", IDS_BRAVE_UI_OPEN_BALANCE },
-        { "openAdsHistory", IDS_BRAVE_UI_OPEN_ADS_HISTORY },
-        { "optOutTooltip", IDS_BRAVE_UI_ADS_OPT_OUT_TOOLTIP },
-        { "payment", IDS_BRAVE_UI_PAYMENT },
-        { "paymentNotMade", IDS_BRAVE_UI_PAYMENT_NOT_MADE },
-        { "pendingContributions", IDS_BRAVE_UI_PENDING_CONTRIBUTIONS },
-        { "pendingContributionEmpty", IDS_BRAVE_UI_PENDING_CONTRIBUTION_EMPTY },
-        { "pendingContributionRemoveAll", IDS_BRAVE_UI_PENDING_CONTRIBUTION_REMOVE_ALL },        // NOLINT
-        { "pendingTyperecurring", IDS_BRAVE_UI_PENDING_TYPE_RECURRING },
-        { "pendingTypetip", IDS_BRAVE_UI_PENDING_TYPE_TIP },
-        { "pendingTypeac", IDS_BRAVE_UI_PENDING_TYPE_AC },
-        { "pendingUntil", IDS_BRAVE_UI_PENDING_UNTIL },
-        { "pinnedSitesHeader", IDS_BRAVE_UI_PAYMENT_PINNED_SITES_HEADER },
-        { "pinnedSitesMsg", IDS_BRAVE_UI_PAYMENT_PINNED_SITES_MSG },
-        { "pinnedSitesOne", IDS_BRAVE_UI_PAYMENT_PINNED_SITES_ONE },
-        { "pinnedSitesTwo", IDS_BRAVE_UI_PAYMENT_PINNED_SITES_TWO },
-        { "pinnedSitesThree", IDS_BRAVE_UI_PAYMENT_PINNED_SITES_THREE },
-        { "pinnedSitesFour", IDS_BRAVE_UI_PAYMENT_PINNED_SITES_FOUR },
-        { "pleaseNote", IDS_BRAVE_UI_PLEASE_NOTE },
-        { "point", IDS_BRAVE_UI_POINT },
-        { "pointGrantClaimed", IDS_BRAVE_UI_POINT_GRANT_CLAIMED },
-        { "points", IDS_BRAVE_UI_POINTS },
-        { "print", IDS_BRAVE_UI_PRINT },
-        { "processingRequest", IDS_BRAVE_UI_PROCESSING_REQUEST },
-        { "processingRequestButton", IDS_BRAVE_UI_PROCESSING_REQUEST_BUTTON },
-        { "processorBraveTokens", IDS_BRAVE_UI_PROCESSOR_BRAVE_TOKENS },
-        { "processorUphold", IDS_BRAVE_UI_PROCESSOR_UPHOLD },
-        { "processorBitflyer", IDS_BRAVE_UI_PROCESSOR_BITFLYER },
-        { "processorBraveUserFunds", IDS_BRAVE_UI_PROCESSOR_BRAVE_USER_FUNDS },
-        { "readyToTakePart", IDS_BRAVE_UI_READY_TO_TAKE_PART },
-        { "readyToTakePartOptInText", IDS_BRAVE_UI_READY_TO_TAKE_PART_OPT_IN_TEXT },             // NOLINT
-        { "readyToTakePartStart", IDS_BRAVE_UI_READY_TO_TAKE_PART_START },
-        { "recoveryKeys", IDS_BRAVE_UI_RECOVERY_KEYS },
-        { "recurring", IDS_BRAVE_UI_RECURRING },
-        { "recurringDonation", IDS_BRAVE_UI_RECURRING_DONATION },
-        { "recurringDonations", IDS_BRAVE_UI_RECURRING_DONATIONS },
-        { "remove", IDS_BRAVE_UI_REMOVE },
-        { "removeAdFromSaved", IDS_BRAVE_UI_REMOVE_AD_FROM_SAVED },
-        { "reservedAmountText", IDS_BRAVE_UI_RESERVED_AMOUNT_TEXT },
-        { "reservedMoreLink", IDS_BRAVE_UI_RESERVED_MORE_LINK },
-        { "reservedAllLink", IDS_BRAVE_UI_RESERVED_ALL_LINK },
-        { "reset", IDS_BRAVE_UI_RESET },
-        { "restore", IDS_BRAVE_UI_RESTORE },
-        { "restoreAll", IDS_BRAVE_UI_RESTORE_ALL },
-        { "reviewSitesMsg", IDS_BRAVE_UI_REVIEW_SITE_MSG },
-        { "rewardsBackupNoticeText1", IDS_BRAVE_UI_REWARDS_BACKUP_NOTICE_TEXT1 },                // NOLINT
-        { "rewardsBackupNoticeText2", IDS_BRAVE_UI_REWARDS_BACKUP_NOTICE_TEXT2 },                // NOLINT
-        { "rewardsBackupNoticeText3", IDS_BRAVE_UI_REWARDS_BACKUP_NOTICE_TEXT3 },                // NOLINT
-        { "rewardsBackupText1", IDS_BRAVE_UI_REWARDS_BACKUP_TEXT1 },
-        { "rewardsBackupText2", IDS_BRAVE_UI_REWARDS_BACKUP_TEXT2 },
-        { "rewardsBackupText3", IDS_BRAVE_UI_REWARDS_BACKUP_TEXT3 },
-        { "rewardsBackupText4", IDS_BRAVE_UI_REWARDS_BACKUP_TEXT4 },
-        { "rewardsBackupText5", IDS_BRAVE_UI_REWARDS_BACKUP_TEXT5 },
-        { "rewardsBackupText6", IDS_BRAVE_UI_REWARDS_BACKUP_TEXT6 },
-        { "rewardsBannerText1", IDS_BRAVE_UI_REWARDS_BANNER_TEXT1 },
-        { "rewardsBannerText2", IDS_BRAVE_UI_REWARDS_BANNER_TEXT2 },
-        { "rewardsContribute", IDS_BRAVE_UI_REWARDS_CONTRIBUTE },
-        { "rewardsContributeAttention", IDS_BRAVE_UI_REWARDS_CONTRIBUTE_ATTENTION },             // NOLINT
-        { "rewardsContributeAttentionScore", IDS_BRAVE_UI_REWARDS_CONTRIBUTE_ATTENTION_SCORE },  // NOLINT
-        { "rewardsOffText2", IDS_BRAVE_UI_REWARDS_OFF_TEXT2 },
-        { "rewardsOffText3", IDS_BRAVE_UI_REWARDS_OFF_TEXT3 },
-        { "rewardsOffText4", IDS_BRAVE_UI_REWARDS_OFF_TEXT4 },
-        { "rewardsPanelEmptyTextPoints", IDS_BRAVE_UI_REWARDS_PANEL_EMPTY_TEXT_POINTS },         // NOLINT
-        { "rewardsPanelEmptyText1", IDS_BRAVE_UI_REWARDS_PANEL_EMPTY_TEXT1 },
-        { "rewardsPanelEmptyText2", IDS_BRAVE_UI_REWARDS_PANEL_EMPTY_TEXT2 },
-        { "rewardsPanelEmptyText3", IDS_BRAVE_UI_REWARDS_PANEL_EMPTY_TEXT3 },
-        { "rewardsPanelEmptyText4", IDS_BRAVE_UI_REWARDS_PANEL_EMPTY_TEXT4 },
-        { "rewardsPanelEmptyText5", IDS_BRAVE_UI_REWARDS_PANEL_EMPTY_TEXT5 },
-        { "rewardsPanelEmptyText6", IDS_BRAVE_UI_REWARDS_PANEL_EMPTY_TEXT6 },
-        { "rewardsPanelOffText1", IDS_BRAVE_UI_REWARDS_PANEL_OFF_TEXT1 },
-        { "rewardsPanelOffText2", IDS_BRAVE_UI_REWARDS_PANEL_OFF_TEXT2 },
-        { "rewardsPanelText1", IDS_BRAVE_UI_REWARDS_PANEL_TEXT1 },
-        { "rewardsPanelText2", IDS_BRAVE_UI_REWARDS_PANEL_TEXT2 },
-        { "rewardsPanelText3", IDS_BRAVE_UI_REWARDS_PANEL_TEXT3 },
-        { "rewardsPanelText4", IDS_BRAVE_UI_REWARDS_PANEL_TEXT4 },
-        { "rewardsPanelTextVerify", IDS_BRAVE_UI_REWARDS_PANEL_VERIFY },
-        { "rewardsRestoreText1", IDS_BRAVE_UI_REWARDS_RESTORE_TEXT1 },
-        { "rewardsRestoreText2", IDS_BRAVE_UI_REWARDS_RESTORE_TEXT2 },
-        { "rewardsRestoreText3", IDS_BRAVE_UI_REWARDS_RESTORE_TEXT3 },
-        { "rewardsRestoreText4", IDS_BRAVE_UI_REWARDS_RESTORE_TEXT4 },
-        { "rewardsRestoreWarning", IDS_BRAVE_UI_REWARDS_RESTORE_WARNING },
-        { "rewardsResetConfirmation", IDS_BRAVE_UI_REWARDS_RESET_CONFIRMATION },
-        { "rewardsResetTextFunds", IDS_BRAVE_UI_REWARDS_RESET_TEXT_FUNDS },
-        { "rewardsResetTextNoFunds", IDS_BRAVE_UI_REWARDS_RESET_TEXT_NO_FUNDS },
-        { "rewardsSummary", IDS_BRAVE_UI_REWARDS_SUMMARY },
-        { "saved", IDS_BRAVE_UI_ADS_SAVED },
-        { "saveAd", IDS_BRAVE_UI_ADS_SAVE_AD },
-        { "saveAsFile", IDS_BRAVE_UI_SAVE_AS_FILE },
-        { "seeAllItems", IDS_BRAVE_UI_SEE_ALL_ITEMS },
-        { "seeAllSites", IDS_BRAVE_UI_SEE_ALL_SITES },
-        { "sendDonation", IDS_BRAVE_UI_SEND_DONATION },
-        { "sendTip", IDS_BRAVE_UI_SEND_TIP },
-        { "settings", IDS_BRAVE_UI_SETTINGS },
-        { "site", IDS_BRAVE_UI_SITE },
-        { "sites", IDS_BRAVE_UI_SITES },
-        { "tipOnLike", IDS_BRAVE_UI_TIP_ON_LIKE },
-        { "titleBAT", IDS_BRAVE_UI_TITLE_BAT},
-        { "titleBTC", IDS_BRAVE_UI_TITLE_BTC},
-        { "titleETH", IDS_BRAVE_UI_TITLE_ETH},
-        { "titleLTC", IDS_BRAVE_UI_TITLE_LTC},
-        { "tokenGrantClaimed", IDS_BRAVE_UI_TOKEN_GRANT_CLAIMED },
-        { "tokenGrantReceived", IDS_BRAVE_UI_TOKEN_GRANT_RECEIVED },
-        { "token", IDS_BRAVE_UI_TOKEN },
-        { "tokens", IDS_BRAVE_UI_TOKENS },
-        { "tokenGrants", IDS_BRAVE_UI_TOKEN_GRANTS },
-        { "pointGrants", IDS_BRAVE_UI_POINT_GRANTS },
-        { "qrCodeLoading", IDS_BRAVE_UI_QR_CODE_LOADING },
-        { "total", IDS_BRAVE_UI_TOTAL },
-        { "transactions", IDS_BRAVE_UI_TRANSACTIONS },
-        { "turnOnAds", IDS_BRAVE_UI_TURN_ON_ADS },
-        { "turnOnRewardsDesc", IDS_BRAVE_UI_TURN_ON_REWARDS_DESC },
-        { "turnOnRewardsTitle", IDS_BRAVE_UI_TURN_ON_REWARDS_TITLE },
-        { "type", IDS_BRAVE_UI_TYPE },
-        { "verifiedPublisher", IDS_BRAVE_UI_VERIFIED_PUBLISHER },
-        { "viewDetails" , IDS_BRAVE_UI_VIEW_DETAILS },
-        { "viewMonthly", IDS_BRAVE_UI_VIEW_MONTHLY },
-        { "walletActivity", IDS_BRAVE_UI_WALLET_ACTIVITY },
-        { "walletAddress", IDS_BRAVE_UI_WALLET_ADDRESS },
-        { "walletBalance", IDS_BRAVE_UI_WALLET_BALANCE },
-        { "walletButtonDisconnected", IDS_BRAVE_UI_WALLET_BUTTON_DISCONNECTED },
-        { "walletButtonUnverified", IDS_BRAVE_UI_WALLET_BUTTON_UNVERIFIED },
-        { "walletButtonVerified", IDS_BRAVE_UI_WALLET_BUTTON_VERIFIED },
-        { "walletGoToProvider", IDS_BRAVE_UI_WALLET_GO_TO_PROVIDER },
-        { "walletGoToVerifyPage", IDS_BRAVE_UI_WALLET_GO_TO_VERIFY_PAGE },
-        { "walletDisconnect", IDS_BRAVE_UI_WALLET_DISCONNECT },
-        { "walletVerificationButton", IDS_BRAVE_UI_WALLET_VERIFICATION_BUTTON },
-        { "walletVerificationFooter", IDS_BRAVE_UI_WALLET_VERIFICATION_FOOTER },
-        { "walletVerificationID", IDS_BRAVE_UI_WALLET_VERIFICATION_ID },
-        { "walletVerificationList1", IDS_BRAVE_UI_WALLET_VERIFICATION_LIST1 },
-        { "walletVerificationList2", IDS_BRAVE_UI_WALLET_VERIFICATION_LIST2 },
-        { "walletVerificationList3", IDS_BRAVE_UI_WALLET_VERIFICATION_LIST3 },
-        { "walletVerificationListHeader", IDS_BRAVE_UI_WALLET_VERIFICATION_HEADER },  // NOLINT
-        { "walletVerificationNote1", IDS_BRAVE_UI_WALLET_VERIFICATION_NOTE1 },
-        { "walletVerificationNote2", IDS_BRAVE_UI_WALLET_VERIFICATION_NOTE2 },
-        { "walletVerificationNote3", IDS_BRAVE_UI_WALLET_VERIFICATION_NOTE3 },
-        { "walletVerificationTitle1", IDS_BRAVE_UI_WALLET_VERIFICATION_TITLE1 },
-        { "walletConnected", IDS_BRAVE_UI_WALLET_CONNECTED },
-        { "walletPending", IDS_BRAVE_UI_WALLET_PENDING },
-        { "walletVerified", IDS_BRAVE_UI_WALLET_VERIFIED },
-        { "walletFailedTitle", IDS_BRAVE_UI_WALLET_FAILED_TITLE },
-        { "walletFailedText", IDS_BRAVE_UI_WALLET_FAILED_TEXT },
-        { "welcome", IDS_BRAVE_UI_WELCOME },
-        { "welcomeButtonTextOne", IDS_BRAVE_UI_WELCOME_BUTTON_TEXT_ONE},
-        { "welcomeButtonTextTwo", IDS_BRAVE_UI_WELCOME_BUTTON_TEXT_TWO},
-        { "welcomeDescOne", IDS_BRAVE_UI_WELCOME_DESC_ONE},
-        { "welcomeDescTwo", IDS_BRAVE_UI_WELCOME_DESC_TWO},
-        { "welcomeDescPoints", IDS_BRAVE_UI_WELCOME_DESC_POINTS },
-        { "welcomeFooterTextOne", IDS_BRAVE_UI_WELCOME_FOOTER_TEXT_ONE},
-        { "welcomeFooterTextTwo", IDS_BRAVE_UI_WELCOME_FOOTER_TEXT_TWO},
-        { "welcomeHeaderOne", IDS_BRAVE_UI_WELCOME_HEADER_ONE},
-        { "welcomeHeaderTwo", IDS_BRAVE_UI_WELCOME_HEADER_TWO},
-        { "whyBraveRewards", IDS_BRAVE_UI_WHY_BRAVE_REWARDS },
-        { "yourBalance", IDS_BRAVE_UI_YOUR_BALANCE },
-        { "yourWallet", IDS_BRAVE_UI_YOUR_WALLET },
+        { "about", IDS_adrbrowsiel_UI_ABOUT },
+        { "accept", IDS_adrbrowsiel_UI_ACCEPT },
+        { "activityCopy", IDS_adrbrowsiel_UI_ACTIVITY_COPY },
+        { "activityNote", IDS_adrbrowsiel_UI_ACTIVITY_NOTE },
+        { "addFunds", IDS_adrbrowsiel_UI_ADD_FUNDS },
+        { "ads", IDS_adrbrowsiel_UI_ADS},
+        { "adsCurrentlyViewing", IDS_adrbrowsiel_UI_ADS_CURRENTLY_VIEWING },
+        { "adsEarnings", IDS_adrbrowsiel_UI_ADS_EARNINGS },
+        { "adsHistoryFilterAll", IDS_adrbrowsiel_UI_ADS_HISTORY_FILTER_ALL },
+        { "adsHistoryFilterSaved", IDS_adrbrowsiel_UI_ADS_HISTORY_FILTER_SAVED },
+        { "adsHistorySubTitle", IDS_adrbrowsiel_UI_ADS_HISTORY_SUBTITLE },
+        { "adsHistoryTitle", IDS_adrbrowsiel_UI_ADS_HISTORY_TITLE },
+        { "adsGrantReceived", IDS_adrbrowsiel_UI_ADS_GRANT_RECEIVED },
+        { "all", IDS_adrbrowsiel_UI_ADS_ALL },
+        { "allowTip", IDS_adrbrowsiel_UI_ALLOW_TIP },
+        { "amount", IDS_adrbrowsiel_UI_AMOUNT },
+        { "autoContribute", IDS_adrbrowsiel_UI_adrbrowsiel_CONTRIBUTE_TITLE },
+        { "autoContributeTransaction", IDS_adrbrowsiel_UI_adrbrowsiel_CONTRIBUTE_TRANSACTION },              // NOLINT
+        { "backup", IDS_adrbrowsiel_UI_BACKUP },
+        { "adrbrowsielAdsDesc", IDS_adrbrowsiel_UI_adrbrowsiel_ADS_DESC },
+        { "adrbrowsielAdsDescPoints", IDS_adrbrowsiel_UI_adrbrowsiel_ADS_DESC_POINTS },
+        { "adrbrowsielAdsLaunchTitle", IDS_adrbrowsiel_UI_adrbrowsiel_ADS_LAUNCH_TITLE },
+        { "adrbrowsielAdsTitle", IDS_adrbrowsiel_UI_adrbrowsiel_ADS_TITLE },
+        { "adrbrowsielContributeDesc", IDS_adrbrowsiel_UI_adrbrowsiel_CONTRIBUTE_DESC },
+        { "adrbrowsielContributeTitle", IDS_adrbrowsiel_UI_adrbrowsiel_CONTRIBUTE_TITLE },
+        { "adrbrowsielRewards", IDS_adrbrowsiel_UI_adrbrowsiel_REWARDS },
+        { "adrbrowsielRewardsCreatingText", IDS_adrbrowsiel_UI_adrbrowsiel_REWARDS_CREATING_TEXT },                // NOLINT
+        { "adrbrowsielRewardsDesc", IDS_adrbrowsiel_UI_adrbrowsiel_REWARDS_DESC },
+        { "adrbrowsielRewardsOptInText", IDS_adrbrowsiel_UI_adrbrowsiel_REWARDS_OPT_IN_TEXT },
+        { "adrbrowsielRewardsSubTitle", IDS_adrbrowsiel_UI_adrbrowsiel_REWARDS_SUB_TITLE },
+        { "adrbrowsielRewardsTeaser", IDS_adrbrowsiel_UI_adrbrowsiel_REWARDS_TEASER },
+        { "adrbrowsielRewardsTitle", IDS_adrbrowsiel_UI_adrbrowsiel_REWARDS_TITLE },
+        { "adrbrowsielVerified", IDS_adrbrowsiel_UI_adrbrowsiel_VERIFIED },
+        { "cancel", IDS_adrbrowsiel_UI_CANCEL },
+        { "captchaDrag", IDS_adrbrowsiel_UI_CAPTCHA_DRAG },
+        { "captchaProveHuman", IDS_adrbrowsiel_UI_CAPTCHA_PROVE_HUMAN },
+        { "captchaTarget", IDS_adrbrowsiel_UI_CAPTCHA_TARGET },
+        { "captchaMissedTarget", IDS_adrbrowsiel_UI_CAPTCHA_MISSED_TARGET },
+        { "category", IDS_adrbrowsiel_UI_ADS_CATEGORY },
+        { "claim", IDS_adrbrowsiel_UI_CLAIM },
+        { "closeBalance", IDS_adrbrowsiel_UI_CLOSE_BALANCE },
+        { "contribute", IDS_adrbrowsiel_UI_CONTRIBUTE },
+        { "contributeAllocation", IDS_adrbrowsiel_UI_CONTRIBUTE_ALLOCATION },
+        { "copy", IDS_adrbrowsiel_UI_COPY },
+        { "currentDonation", IDS_adrbrowsiel_UI_CURRENT_DONATION },
+        { "date", IDS_adrbrowsiel_UI_DATE },
+        { "deposit", IDS_adrbrowsiel_UI_DEPOSIT },
+        { "deposits", IDS_adrbrowsiel_UI_DEPOSITS },
+        { "description", IDS_adrbrowsiel_UI_DESCRIPTION },
+        { "details", IDS_adrbrowsiel_UI_DETAILS },
+        { "disabledPanelOff", IDS_adrbrowsiel_UI_DISABLED_PANEL_OFF },
+        { "disabledPanelSettings", IDS_adrbrowsiel_UI_DISABLED_PANEL_SETTINGS },
+        { "disabledPanelText", IDS_adrbrowsiel_UI_DISABLED_PANEL_TEXT },
+        { "disabledPanelTitle", IDS_adrbrowsiel_UI_DISABLED_PANEL_TITLE },
+        { "dndCaptchaText1", IDS_adrbrowsiel_UI_DND_CAPTCHA_TEXT_1 },
+        { "dndCaptchaText2", IDS_adrbrowsiel_UI_DND_CAPTCHA_TEXT_2 },
+        { "donation", IDS_adrbrowsiel_UI_DONATION },
+        { "donationAmount", IDS_adrbrowsiel_UI_DONATION_AMOUNT },
+        { "donationTips", IDS_adrbrowsiel_REWARDS_LOCAL_DONAT_TITLE },
+        { "donateMonthly", IDS_adrbrowsiel_UI_DONATE_MONTHLY },
+        { "donateNow", IDS_adrbrowsiel_UI_DONATE_NOW },
+        { "done", IDS_adrbrowsiel_UI_DONE },
+        { "downloadPDF", IDS_adrbrowsiel_UI_DOWNLOAD_PDF },
+        { "earningsAds", IDS_adrbrowsiel_UI_EARNINGS_ADS },
+        { "earningsClaimDefault", IDS_adrbrowsiel_UI_EARNINGS_CLAIM_DEFAULT },
+        { "enableTips", IDS_adrbrowsiel_UI_ENABLE_TIPS },
+        { "excludeSite", IDS_adrbrowsiel_UI_EXCLUDE_SITE },
+        { "excludedSitesText", IDS_adrbrowsiel_UI_EXCLUDED_SITES },
+        { "expiresOn", IDS_adrbrowsiel_UI_EXPIRES_ON },
+        { "for", IDS_adrbrowsiel_UI_FOR },
+        { "grantDisclaimer", IDS_adrbrowsiel_UI_GRANT_DISCLAIMER },
+        { "grantTitleUGP", IDS_adrbrowsiel_UI_GRANT_TITLE_UGP },
+        { "grantSubtitleUGP", IDS_adrbrowsiel_UI_GRANT_SUBTITLE_UGP },
+        { "grantAmountTitleUGP", IDS_adrbrowsiel_UI_GRANT_AMOUNT_TITLE_UGP },
+        { "grantDateTitleUGP", IDS_adrbrowsiel_UI_GRANT_DATE_TITLE_UGP },
+        { "grantTitleAds", IDS_adrbrowsiel_UI_GRANT_TITLE_ADS },
+        { "grantSubtitleAds", IDS_adrbrowsiel_UI_GRANT_SUBTITLE_ADS },
+        { "grantAmountTitleAds", IDS_adrbrowsiel_UI_GRANT_AMOUNT_TITLE_ADS },
+        { "grantDateTitleAds", IDS_adrbrowsiel_UI_GRANT_DATE_TITLE_ADS },
+        { "grantExpire", IDS_adrbrowsiel_UI_GRANT_EXPIRE },
+        { "grantFinishTextAds", IDS_adrbrowsiel_UI_GRANT_FINISH_TEXT_ADS },
+        { "grantFinishTextUGP", IDS_adrbrowsiel_UI_GRANT_FINISH_TEXT_UGP },
+        { "grantFinishTitleAds", IDS_adrbrowsiel_UI_GRANT_FINISH_TITLE_ADS },
+        { "grantFinishTitleUGP", IDS_adrbrowsiel_UI_GRANT_FINISH_TITLE_UGP },
+        { "grantFinishTokenAds", IDS_adrbrowsiel_UI_GRANT_FINISH_TOKEN_ADS },
+        { "grantFinishTokenUGP", IDS_adrbrowsiel_UI_GRANT_FINISH_TOKEN_UGP },
+        { "grantFinishPointUGP", IDS_adrbrowsiel_UI_GRANT_FINISH_POINT_UGP },
+        { "grants", IDS_adrbrowsiel_UI_GRANTS },
+        { "greetingsVerified", IDS_adrbrowsiel_UI_GREETINGS_VERIFIED },
+        { "import", IDS_adrbrowsiel_UI_IMPORT },
+        { "includeInAuto", IDS_adrbrowsiel_UI_INCLUDE_IN_AUTO },
+        { "learnMore", IDS_adrbrowsiel_UI_LEARN_MORE },
+        { "login", IDS_adrbrowsiel_UI_LOGIN },
+        { "loginMessageTitle", IDS_adrbrowsiel_UI_LOGIN_MESSAGE_TITLE },
+        { "loginMessageText", IDS_adrbrowsiel_UI_LOGIN_MESSAGE_TEXT },
+        { "makeMonthly", IDS_adrbrowsiel_UI_MAKE_MONTHLY },
+        { "manageWallet", IDS_adrbrowsiel_UI_MANAGE_WALLET },
+        { "markAsInappropriate", IDS_adrbrowsiel_UI_ADS_MARK_AS_INAPPROPRIATE },
+        { "markAsInappropriateChecked", IDS_adrbrowsiel_UI_ADS_MARK_AS_INAPPROPRIATE_CHECKED },        // NOLINT
+        { "monthApr", IDS_adrbrowsiel_UI_MONTH_APR },
+        { "monthAug", IDS_adrbrowsiel_UI_MONTH_AUG },
+        { "monthDec", IDS_adrbrowsiel_UI_MONTH_DEC },
+        { "monthFeb", IDS_adrbrowsiel_UI_MONTH_FEB },
+        { "monthJan", IDS_adrbrowsiel_UI_MONTH_JAN },
+        { "monthJul", IDS_adrbrowsiel_UI_MONTH_JUL },
+        { "monthJun", IDS_adrbrowsiel_UI_MONTH_JUN },
+        { "monthMar", IDS_adrbrowsiel_UI_MONTH_MAR },
+        { "monthMay", IDS_adrbrowsiel_UI_MONTH_MAY },
+        { "monthNov", IDS_adrbrowsiel_UI_MONTH_NOV },
+        { "monthOct", IDS_adrbrowsiel_UI_MONTH_OCT },
+        { "monthSep", IDS_adrbrowsiel_UI_MONTH_SEP },
+        { "monthlyTips", IDS_adrbrowsiel_UI_MONTHLY_TIPS },
+        { "monthlyContributions", IDS_adrbrowsiel_UI_MONTHLY_CONTRIBUTIONS },
+        { "newGrant", IDS_adrbrowsiel_UI_NEW_GRANT },
+        { "newTokenGrant", IDS_adrbrowsiel_UI_NEW_TOKEN_GRANT },
+        { "noActivity", IDS_adrbrowsiel_UI_NO_ACTIVITY },
+        { "noAdsHistory", IDS_adrbrowsiel_UI_ADS_NO_ADS_HISTORY },
+        { "noGrants", IDS_adrbrowsiel_UI_NO_GRANTS },
+        { "noThankYou", IDS_adrbrowsiel_UI_NO_THANK_YOU },
+        { "off", IDS_adrbrowsiel_UI_OFF },
+        { "ok", IDS_adrbrowsiel_UI_OK },
+        { "on", IDS_adrbrowsiel_UI_ON },
+        { "onboardingadrbrowsielRewards", IDS_adrbrowsiel_REWARDS_ONBOARDING_adrbrowsiel_REWARDS },  // NOLINT
+        { "onboardingDetailLinks", IDS_adrbrowsiel_REWARDS_ONBOARDING_DETAIL_LINKS },
+        { "onboardingEarnHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_EARN_HEADER },
+        { "onboardingEarnText", IDS_adrbrowsiel_REWARDS_ONBOARDING_EARN_TEXT },
+        { "onboardingPromoHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PROMO_HEADER },
+        { "onboardingPromoText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PROMO_TEXT },
+        { "onboardingSetupAdsHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_SETUP_ADS_HEADER },  // NOLINT
+        { "onboardingSetupAdsSubheader", IDS_adrbrowsiel_REWARDS_ONBOARDING_SETUP_ADS_SUBHEADER },  // NOLINT
+        { "onboardingSetupContributeHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_SETUP_CONTRIBUTE_HEADER },  // NOLINT
+        { "onboardingSetupContributeSubheader", IDS_adrbrowsiel_REWARDS_ONBOARDING_SETUP_CONTRIBUTE_SUBHEADER },  // NOLINT
+        { "onboardingStartUsingRewards", IDS_adrbrowsiel_REWARDS_ONBOARDING_START_USING_REWARDS },  // NOLINT
+        { "onboardingTakeTour", IDS_adrbrowsiel_REWARDS_ONBOARDING_TAKE_TOUR },
+        { "onboardingTerms", IDS_adrbrowsiel_REWARDS_ONBOARDING_TERMS },
+        { "onboardingTourBack", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_BACK },
+        { "onboardingTourBegin", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_BEGIN },
+        { "onboardingTourContinue", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_CONTINUE },  // NOLINT
+        { "onboardingTourDone", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_DONE },
+        { "onboardingTourSkip", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_SKIP },
+        { "onboardingTourSkipForNow", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_SKIP_FOR_NOW },  // NOLINT
+        { "onboardingPanelWelcomeHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_WELCOME_HEADER },  // NOLINT
+        { "onboardingPanelWelcomeText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_WELCOME_TEXT },  // NOLINT
+        { "onboardingPanelAdsHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_ADS_HEADER },  // NOLINT
+        { "onboardingPanelAdsText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_ADS_TEXT },  // NOLINT
+        { "onboardingPanelScheduleHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_SCHEDULE_HEADER },  // NOLINT
+        { "onboardingPanelScheduleText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_SCHEDULE_TEXT },  // NOLINT
+        { "onboardingPanelAcHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_AC_HEADER },  // NOLINT
+        { "onboardingPanelAcText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_AC_TEXT },
+        { "onboardingPanelTippingHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_TIPPING_HEADER },  // NOLINT
+        { "onboardingPanelTippingText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_TIPPING_TEXT },  // NOLINT
+        { "onboardingPanelRedeemHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_REDEEM_HEADER },  // NOLINT
+        { "onboardingPanelRedeemText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_REDEEM_TEXT },  // NOLINT
+        { "onboardingPanelSetupHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_SETUP_HEADER },  // NOLINT
+        { "onboardingPanelSetupText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_SETUP_TEXT },  // NOLINT
+        { "onboardingPanelCompleteHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_COMPLETE_HEADER },  // NOLINT
+        { "onboardingPanelCompleteText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_COMPLETE_TEXT },  // NOLINT
+        { "onboardingPanelVerifyHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_VERIFY_HEADER },  // NOLINT
+        { "onboardingPanelVerifySubtext", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_VERIFY_SUBTEXT },  // NOLINT
+        { "onboardingPanelVerifyLater", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_VERIFY_LATER },  // NOLINT
+        { "onboardingPanelVerifyNow", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_VERIFY_NOW },  // NOLINT
+        { "onboardingPanelBitflyerNote", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_BITFLYER_NOTE },  // NOLINT
+        { "onboardingPanelBitflyerText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_BITFLYER_TEXT },  // NOLINT
+        { "onboardingPanelBitflyerLearnMore", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_BITFLYER_LEARN_MORE },  // NOLINT
+        { "oneTime", IDS_adrbrowsiel_UI_ONE_TIME },
+        { "oneTimeDonation", IDS_adrbrowsiel_UI_ONE_TIME_DONATION },
+        { "openBalance", IDS_adrbrowsiel_UI_OPEN_BALANCE },
+        { "openAdsHistory", IDS_adrbrowsiel_UI_OPEN_ADS_HISTORY },
+        { "optOutTooltip", IDS_adrbrowsiel_UI_ADS_OPT_OUT_TOOLTIP },
+        { "payment", IDS_adrbrowsiel_UI_PAYMENT },
+        { "paymentNotMade", IDS_adrbrowsiel_UI_PAYMENT_NOT_MADE },
+        { "pendingContributions", IDS_adrbrowsiel_UI_PENDING_CONTRIBUTIONS },
+        { "pendingContributionEmpty", IDS_adrbrowsiel_UI_PENDING_CONTRIBUTION_EMPTY },
+        { "pendingContributionRemoveAll", IDS_adrbrowsiel_UI_PENDING_CONTRIBUTION_REMOVE_ALL },        // NOLINT
+        { "pendingTyperecurring", IDS_adrbrowsiel_UI_PENDING_TYPE_RECURRING },
+        { "pendingTypetip", IDS_adrbrowsiel_UI_PENDING_TYPE_TIP },
+        { "pendingTypeac", IDS_adrbrowsiel_UI_PENDING_TYPE_AC },
+        { "pendingUntil", IDS_adrbrowsiel_UI_PENDING_UNTIL },
+        { "pinnedSitesHeader", IDS_adrbrowsiel_UI_PAYMENT_PINNED_SITES_HEADER },
+        { "pinnedSitesMsg", IDS_adrbrowsiel_UI_PAYMENT_PINNED_SITES_MSG },
+        { "pinnedSitesOne", IDS_adrbrowsiel_UI_PAYMENT_PINNED_SITES_ONE },
+        { "pinnedSitesTwo", IDS_adrbrowsiel_UI_PAYMENT_PINNED_SITES_TWO },
+        { "pinnedSitesThree", IDS_adrbrowsiel_UI_PAYMENT_PINNED_SITES_THREE },
+        { "pinnedSitesFour", IDS_adrbrowsiel_UI_PAYMENT_PINNED_SITES_FOUR },
+        { "pleaseNote", IDS_adrbrowsiel_UI_PLEASE_NOTE },
+        { "point", IDS_adrbrowsiel_UI_POINT },
+        { "pointGrantClaimed", IDS_adrbrowsiel_UI_POINT_GRANT_CLAIMED },
+        { "points", IDS_adrbrowsiel_UI_POINTS },
+        { "print", IDS_adrbrowsiel_UI_PRINT },
+        { "processingRequest", IDS_adrbrowsiel_UI_PROCESSING_REQUEST },
+        { "processingRequestButton", IDS_adrbrowsiel_UI_PROCESSING_REQUEST_BUTTON },
+        { "processoradrbrowsielTokens", IDS_adrbrowsiel_UI_PROCESSOR_adrbrowsiel_TOKENS },
+        { "processorUphold", IDS_adrbrowsiel_UI_PROCESSOR_UPHOLD },
+        { "processorBitflyer", IDS_adrbrowsiel_UI_PROCESSOR_BITFLYER },
+        { "processoradrbrowsielUserFunds", IDS_adrbrowsiel_UI_PROCESSOR_adrbrowsiel_USER_FUNDS },
+        { "readyToTakePart", IDS_adrbrowsiel_UI_READY_TO_TAKE_PART },
+        { "readyToTakePartOptInText", IDS_adrbrowsiel_UI_READY_TO_TAKE_PART_OPT_IN_TEXT },             // NOLINT
+        { "readyToTakePartStart", IDS_adrbrowsiel_UI_READY_TO_TAKE_PART_START },
+        { "recoveryKeys", IDS_adrbrowsiel_UI_RECOVERY_KEYS },
+        { "recurring", IDS_adrbrowsiel_UI_RECURRING },
+        { "recurringDonation", IDS_adrbrowsiel_UI_RECURRING_DONATION },
+        { "recurringDonations", IDS_adrbrowsiel_UI_RECURRING_DONATIONS },
+        { "remove", IDS_adrbrowsiel_UI_REMOVE },
+        { "removeAdFromSaved", IDS_adrbrowsiel_UI_REMOVE_AD_FROM_SAVED },
+        { "reservedAmountText", IDS_adrbrowsiel_UI_RESERVED_AMOUNT_TEXT },
+        { "reservedMoreLink", IDS_adrbrowsiel_UI_RESERVED_MORE_LINK },
+        { "reservedAllLink", IDS_adrbrowsiel_UI_RESERVED_ALL_LINK },
+        { "reset", IDS_adrbrowsiel_UI_RESET },
+        { "restore", IDS_adrbrowsiel_UI_RESTORE },
+        { "restoreAll", IDS_adrbrowsiel_UI_RESTORE_ALL },
+        { "reviewSitesMsg", IDS_adrbrowsiel_UI_REVIEW_SITE_MSG },
+        { "rewardsBackupNoticeText1", IDS_adrbrowsiel_UI_REWARDS_BACKUP_NOTICE_TEXT1 },                // NOLINT
+        { "rewardsBackupNoticeText2", IDS_adrbrowsiel_UI_REWARDS_BACKUP_NOTICE_TEXT2 },                // NOLINT
+        { "rewardsBackupNoticeText3", IDS_adrbrowsiel_UI_REWARDS_BACKUP_NOTICE_TEXT3 },                // NOLINT
+        { "rewardsBackupText1", IDS_adrbrowsiel_UI_REWARDS_BACKUP_TEXT1 },
+        { "rewardsBackupText2", IDS_adrbrowsiel_UI_REWARDS_BACKUP_TEXT2 },
+        { "rewardsBackupText3", IDS_adrbrowsiel_UI_REWARDS_BACKUP_TEXT3 },
+        { "rewardsBackupText4", IDS_adrbrowsiel_UI_REWARDS_BACKUP_TEXT4 },
+        { "rewardsBackupText5", IDS_adrbrowsiel_UI_REWARDS_BACKUP_TEXT5 },
+        { "rewardsBackupText6", IDS_adrbrowsiel_UI_REWARDS_BACKUP_TEXT6 },
+        { "rewardsBannerText1", IDS_adrbrowsiel_UI_REWARDS_BANNER_TEXT1 },
+        { "rewardsBannerText2", IDS_adrbrowsiel_UI_REWARDS_BANNER_TEXT2 },
+        { "rewardsContribute", IDS_adrbrowsiel_UI_REWARDS_CONTRIBUTE },
+        { "rewardsContributeAttention", IDS_adrbrowsiel_UI_REWARDS_CONTRIBUTE_ATTENTION },             // NOLINT
+        { "rewardsContributeAttentionScore", IDS_adrbrowsiel_UI_REWARDS_CONTRIBUTE_ATTENTION_SCORE },  // NOLINT
+        { "rewardsOffText2", IDS_adrbrowsiel_UI_REWARDS_OFF_TEXT2 },
+        { "rewardsOffText3", IDS_adrbrowsiel_UI_REWARDS_OFF_TEXT3 },
+        { "rewardsOffText4", IDS_adrbrowsiel_UI_REWARDS_OFF_TEXT4 },
+        { "rewardsPanelEmptyTextPoints", IDS_adrbrowsiel_UI_REWARDS_PANEL_EMPTY_TEXT_POINTS },         // NOLINT
+        { "rewardsPanelEmptyText1", IDS_adrbrowsiel_UI_REWARDS_PANEL_EMPTY_TEXT1 },
+        { "rewardsPanelEmptyText2", IDS_adrbrowsiel_UI_REWARDS_PANEL_EMPTY_TEXT2 },
+        { "rewardsPanelEmptyText3", IDS_adrbrowsiel_UI_REWARDS_PANEL_EMPTY_TEXT3 },
+        { "rewardsPanelEmptyText4", IDS_adrbrowsiel_UI_REWARDS_PANEL_EMPTY_TEXT4 },
+        { "rewardsPanelEmptyText5", IDS_adrbrowsiel_UI_REWARDS_PANEL_EMPTY_TEXT5 },
+        { "rewardsPanelEmptyText6", IDS_adrbrowsiel_UI_REWARDS_PANEL_EMPTY_TEXT6 },
+        { "rewardsPanelOffText1", IDS_adrbrowsiel_UI_REWARDS_PANEL_OFF_TEXT1 },
+        { "rewardsPanelOffText2", IDS_adrbrowsiel_UI_REWARDS_PANEL_OFF_TEXT2 },
+        { "rewardsPanelText1", IDS_adrbrowsiel_UI_REWARDS_PANEL_TEXT1 },
+        { "rewardsPanelText2", IDS_adrbrowsiel_UI_REWARDS_PANEL_TEXT2 },
+        { "rewardsPanelText3", IDS_adrbrowsiel_UI_REWARDS_PANEL_TEXT3 },
+        { "rewardsPanelText4", IDS_adrbrowsiel_UI_REWARDS_PANEL_TEXT4 },
+        { "rewardsPanelTextVerify", IDS_adrbrowsiel_UI_REWARDS_PANEL_VERIFY },
+        { "rewardsRestoreText1", IDS_adrbrowsiel_UI_REWARDS_RESTORE_TEXT1 },
+        { "rewardsRestoreText2", IDS_adrbrowsiel_UI_REWARDS_RESTORE_TEXT2 },
+        { "rewardsRestoreText3", IDS_adrbrowsiel_UI_REWARDS_RESTORE_TEXT3 },
+        { "rewardsRestoreText4", IDS_adrbrowsiel_UI_REWARDS_RESTORE_TEXT4 },
+        { "rewardsRestoreWarning", IDS_adrbrowsiel_UI_REWARDS_RESTORE_WARNING },
+        { "rewardsResetConfirmation", IDS_adrbrowsiel_UI_REWARDS_RESET_CONFIRMATION },
+        { "rewardsResetTextFunds", IDS_adrbrowsiel_UI_REWARDS_RESET_TEXT_FUNDS },
+        { "rewardsResetTextNoFunds", IDS_adrbrowsiel_UI_REWARDS_RESET_TEXT_NO_FUNDS },
+        { "rewardsSummary", IDS_adrbrowsiel_UI_REWARDS_SUMMARY },
+        { "saved", IDS_adrbrowsiel_UI_ADS_SAVED },
+        { "saveAd", IDS_adrbrowsiel_UI_ADS_SAVE_AD },
+        { "saveAsFile", IDS_adrbrowsiel_UI_SAVE_AS_FILE },
+        { "seeAllItems", IDS_adrbrowsiel_UI_SEE_ALL_ITEMS },
+        { "seeAllSites", IDS_adrbrowsiel_UI_SEE_ALL_SITES },
+        { "sendDonation", IDS_adrbrowsiel_UI_SEND_DONATION },
+        { "sendTip", IDS_adrbrowsiel_UI_SEND_TIP },
+        { "settings", IDS_adrbrowsiel_UI_SETTINGS },
+        { "site", IDS_adrbrowsiel_UI_SITE },
+        { "sites", IDS_adrbrowsiel_UI_SITES },
+        { "tipOnLike", IDS_adrbrowsiel_UI_TIP_ON_LIKE },
+        { "titleBAT", IDS_adrbrowsiel_UI_TITLE_BAT},
+        { "titleBTC", IDS_adrbrowsiel_UI_TITLE_BTC},
+        { "titleETH", IDS_adrbrowsiel_UI_TITLE_ETH},
+        { "titleLTC", IDS_adrbrowsiel_UI_TITLE_LTC},
+        { "tokenGrantClaimed", IDS_adrbrowsiel_UI_TOKEN_GRANT_CLAIMED },
+        { "tokenGrantReceived", IDS_adrbrowsiel_UI_TOKEN_GRANT_RECEIVED },
+        { "token", IDS_adrbrowsiel_UI_TOKEN },
+        { "tokens", IDS_adrbrowsiel_UI_TOKENS },
+        { "tokenGrants", IDS_adrbrowsiel_UI_TOKEN_GRANTS },
+        { "pointGrants", IDS_adrbrowsiel_UI_POINT_GRANTS },
+        { "qrCodeLoading", IDS_adrbrowsiel_UI_QR_CODE_LOADING },
+        { "total", IDS_adrbrowsiel_UI_TOTAL },
+        { "transactions", IDS_adrbrowsiel_UI_TRANSACTIONS },
+        { "turnOnAds", IDS_adrbrowsiel_UI_TURN_ON_ADS },
+        { "turnOnRewardsDesc", IDS_adrbrowsiel_UI_TURN_ON_REWARDS_DESC },
+        { "turnOnRewardsTitle", IDS_adrbrowsiel_UI_TURN_ON_REWARDS_TITLE },
+        { "type", IDS_adrbrowsiel_UI_TYPE },
+        { "verifiedPublisher", IDS_adrbrowsiel_UI_VERIFIED_PUBLISHER },
+        { "viewDetails" , IDS_adrbrowsiel_UI_VIEW_DETAILS },
+        { "viewMonthly", IDS_adrbrowsiel_UI_VIEW_MONTHLY },
+        { "walletActivity", IDS_adrbrowsiel_UI_WALLET_ACTIVITY },
+        { "walletAddress", IDS_adrbrowsiel_UI_WALLET_ADDRESS },
+        { "walletBalance", IDS_adrbrowsiel_UI_WALLET_BALANCE },
+        { "walletButtonDisconnected", IDS_adrbrowsiel_UI_WALLET_BUTTON_DISCONNECTED },
+        { "walletButtonUnverified", IDS_adrbrowsiel_UI_WALLET_BUTTON_UNVERIFIED },
+        { "walletButtonVerified", IDS_adrbrowsiel_UI_WALLET_BUTTON_VERIFIED },
+        { "walletGoToProvider", IDS_adrbrowsiel_UI_WALLET_GO_TO_PROVIDER },
+        { "walletGoToVerifyPage", IDS_adrbrowsiel_UI_WALLET_GO_TO_VERIFY_PAGE },
+        { "walletDisconnect", IDS_adrbrowsiel_UI_WALLET_DISCONNECT },
+        { "walletVerificationButton", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_BUTTON },
+        { "walletVerificationFooter", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_FOOTER },
+        { "walletVerificationID", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_ID },
+        { "walletVerificationList1", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_LIST1 },
+        { "walletVerificationList2", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_LIST2 },
+        { "walletVerificationList3", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_LIST3 },
+        { "walletVerificationListHeader", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_HEADER },  // NOLINT
+        { "walletVerificationNote1", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_NOTE1 },
+        { "walletVerificationNote2", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_NOTE2 },
+        { "walletVerificationNote3", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_NOTE3 },
+        { "walletVerificationTitle1", IDS_adrbrowsiel_UI_WALLET_VERIFICATION_TITLE1 },
+        { "walletConnected", IDS_adrbrowsiel_UI_WALLET_CONNECTED },
+        { "walletPending", IDS_adrbrowsiel_UI_WALLET_PENDING },
+        { "walletVerified", IDS_adrbrowsiel_UI_WALLET_VERIFIED },
+        { "walletFailedTitle", IDS_adrbrowsiel_UI_WALLET_FAILED_TITLE },
+        { "walletFailedText", IDS_adrbrowsiel_UI_WALLET_FAILED_TEXT },
+        { "welcome", IDS_adrbrowsiel_UI_WELCOME },
+        { "welcomeButtonTextOne", IDS_adrbrowsiel_UI_WELCOME_BUTTON_TEXT_ONE},
+        { "welcomeButtonTextTwo", IDS_adrbrowsiel_UI_WELCOME_BUTTON_TEXT_TWO},
+        { "welcomeDescOne", IDS_adrbrowsiel_UI_WELCOME_DESC_ONE},
+        { "welcomeDescTwo", IDS_adrbrowsiel_UI_WELCOME_DESC_TWO},
+        { "welcomeDescPoints", IDS_adrbrowsiel_UI_WELCOME_DESC_POINTS },
+        { "welcomeFooterTextOne", IDS_adrbrowsiel_UI_WELCOME_FOOTER_TEXT_ONE},
+        { "welcomeFooterTextTwo", IDS_adrbrowsiel_UI_WELCOME_FOOTER_TEXT_TWO},
+        { "welcomeHeaderOne", IDS_adrbrowsiel_UI_WELCOME_HEADER_ONE},
+        { "welcomeHeaderTwo", IDS_adrbrowsiel_UI_WELCOME_HEADER_TWO},
+        { "whyadrbrowsielRewards", IDS_adrbrowsiel_UI_WHY_adrbrowsiel_REWARDS },
+        { "yourBalance", IDS_adrbrowsiel_UI_YOUR_BALANCE },
+        { "yourWallet", IDS_adrbrowsiel_UI_YOUR_WALLET },
 
-        { "and", IDS_BRAVE_UI_AND },
-        { "excludedSites", IDS_BRAVE_UI_EXCLUDED_SITES_TEXT },
-        { "privacyPolicy", IDS_BRAVE_UI_PRIVACY_POLICY },
-        { "restoreSite", IDS_BRAVE_UI_RESTORE_SITE },
-        { "rewardsExcludedText1", IDS_BRAVE_UI_REWARDS_EXCLUDED_TEXT_1 },
-        { "rewardsExcludedText2", IDS_BRAVE_UI_REWARDS_EXCLUDED_TEXT_2 },
-        { "rewardsOffText5", IDS_BRAVE_UI_REWARDS_OFF_TEXT5 },
-        { "serviceTextWelcome", IDS_BRAVE_UI_SERVICE_TEXT_WELCOME },
-        { "serviceTextReady", IDS_BRAVE_UI_SERVICE_TEXT_READY },
-        { "showAll", IDS_BRAVE_UI_SHOW_ALL },
-        { "viewedSites", IDS_BRAVE_UI_VIEWED_SITES },
-        { "termsOfService", IDS_BRAVE_UI_TERMS_OF_SERVICE },
+        { "and", IDS_adrbrowsiel_UI_AND },
+        { "excludedSites", IDS_adrbrowsiel_UI_EXCLUDED_SITES_TEXT },
+        { "privacyPolicy", IDS_adrbrowsiel_UI_PRIVACY_POLICY },
+        { "restoreSite", IDS_adrbrowsiel_UI_RESTORE_SITE },
+        { "rewardsExcludedText1", IDS_adrbrowsiel_UI_REWARDS_EXCLUDED_TEXT_1 },
+        { "rewardsExcludedText2", IDS_adrbrowsiel_UI_REWARDS_EXCLUDED_TEXT_2 },
+        { "rewardsOffText5", IDS_adrbrowsiel_UI_REWARDS_OFF_TEXT5 },
+        { "serviceTextWelcome", IDS_adrbrowsiel_UI_SERVICE_TEXT_WELCOME },
+        { "serviceTextReady", IDS_adrbrowsiel_UI_SERVICE_TEXT_READY },
+        { "showAll", IDS_adrbrowsiel_UI_SHOW_ALL },
+        { "viewedSites", IDS_adrbrowsiel_UI_VIEWED_SITES },
+        { "termsOfService", IDS_adrbrowsiel_UI_TERMS_OF_SERVICE },
 
-        { "tapNetworkTitle", IDS_BRAVE_UI_TAP_NETWORK_TITLE },
-        { "tapNetworkInfo", IDS_BRAVE_UI_TAP_NETWORK_INFO },
-        { "tapNetworkDisclaimer", IDS_BRAVE_UI_TAP_NETWORK_DISCLAIMER },
+        { "tapNetworkTitle", IDS_adrbrowsiel_UI_TAP_NETWORK_TITLE },
+        { "tapNetworkInfo", IDS_adrbrowsiel_UI_TAP_NETWORK_INFO },
+        { "tapNetworkDisclaimer", IDS_adrbrowsiel_UI_TAP_NETWORK_DISCLAIMER },
 
-        { "upholdPromoTitle", IDS_BRAVE_UI_UPHOLD_PROMO_TITLE },
-        { "upholdPromoInfo", IDS_BRAVE_UI_UPHOLD_PROMO_INFO },
+        { "upholdPromoTitle", IDS_adrbrowsiel_UI_UPHOLD_PROMO_TITLE },
+        { "upholdPromoInfo", IDS_adrbrowsiel_UI_UPHOLD_PROMO_INFO },
 
-        { "upholdPromoEquitiesTitle",IDS_BRAVE_UI_UPHOLD_PROMO_EQUITIES_TITLE },                 // NOLINT
-        { "upholdPromoEquitiesInfo", IDS_BRAVE_UI_UPHOLD_PROMO_EQUITIES_INFO },
+        { "upholdPromoEquitiesTitle",IDS_adrbrowsiel_UI_UPHOLD_PROMO_EQUITIES_TITLE },                 // NOLINT
+        { "upholdPromoEquitiesInfo", IDS_adrbrowsiel_UI_UPHOLD_PROMO_EQUITIES_INFO },
       }
     }, {
       std::string("adblock"), {
@@ -941,183 +941,183 @@ void CustomizeWebUIHTMLSource(const std::string &name,
     }, {
 #endif
       std::string("tip"), {
-        { "bap", IDS_BRAVE_UI_BAP_REWARDS_TEXT },
-        { "bapFunds", IDS_BRAVE_REWARDS_TIP_BAP_FUNDS },
-        { "bat", IDS_BRAVE_UI_BAT_TEXT },
-        { "batFunds", IDS_BRAVE_REWARDS_TIP_BAT_FUNDS },
-        { "cancel", IDS_BRAVE_REWARDS_TIP_CANCEL },
-        { "cancelConfirmationText", IDS_BRAVE_REWARDS_TIP_CANCEL_CONFIRMATION_TEXT },  // NOLINT
-        { "cancelMonthlyContribution", IDS_BRAVE_REWARDS_TIP_CANCEL_MONTHLY_CONTRIBUTION },  // NOLINT
-        { "changeAmount", IDS_BRAVE_REWARDS_TIP_CHANGE_AMOUNT },
-        { "confirmCancel", IDS_BRAVE_REWARDS_TIP_CONFIRM_CANCEL },
-        { "continue", IDS_BRAVE_REWARDS_TIP_CONTINUE },
-        { "contributionAmount", IDS_BRAVE_REWARDS_TIP_CONTRIBUTION_AMOUNT },  // NOLINT
-        { "contributionCanceled", IDS_BRAVE_REWARDS_TIP_CONTRIBUTION_CANCELED },  // NOLINT
-        { "currentlySupporting", IDS_BRAVE_REWARDS_TIP_CURRENTLY_SUPPORTING },
-        { "currentMonthlyContribution", IDS_BRAVE_REWARDS_TIP_CURRENT_MONTHLY_CONTRIBUTION },  // NOLINT
-        { "customAmount", IDS_BRAVE_REWARDS_TIP_CUSTOM_AMOUNT },
-        { "customMonthlyTipText", IDS_BRAVE_REWARDS_TIP_CUSTOM_MONTHLY_TIP_TEXT },  // NOLINT
-        { "customTipAmount", IDS_BRAVE_REWARDS_TIP_CUSTOM_TIP_AMOUNT },
-        { "customTipText", IDS_BRAVE_REWARDS_TIP_CUSTOM_TIP_TEXT },
-        { "doMonthly", IDS_BRAVE_UI_DO_MONTHLY },
-        { "errorHasOccurred", IDS_BRAVE_REWARDS_TIP_ERROR_HAS_OCCURRED },
-        { "errorServerConnection", IDS_BRAVE_REWARDS_TIP_ERROR_SERVER_CONNECTION },  // NOLINT
-        { "errorTryAgain", IDS_BRAVE_REWARDS_TIP_ERROR_TRY_AGAIN },
-        { "exampleTipAmount", IDS_BRAVE_REWARDS_TIP_EXAMPLE_TIP_AMOUNT },
-        { "minimumTipAmount", IDS_BRAVE_REWARDS_TIP_MINIMUM_TIP_AMOUNT },
-        { "monthlyContribution", IDS_BRAVE_UI_MONTHLY_CONTRIBUTION },
-        { "monthlyContributionSet", IDS_BRAVE_REWARDS_TIP_MONTHLY_CONTRIBUTION_SET },  // NOLINT
-        { "monthlyText", IDS_BRAVE_UI_MONTHLY_TEXT },
-        { "nextContributionDate", IDS_BRAVE_REWARDS_TIP_NEXT_CONTRIBUTION_DATE },  // NOLINT
-        { "notEnoughPoints", IDS_BRAVE_REWARDS_TIP_NOT_ENOUGH_POINTS },
-        { "notEnoughTokens", IDS_BRAVE_REWARDS_TIP_NOT_ENOUGH_TOKENS },
-        { "on", IDS_BRAVE_UI_ON },
-        { "onboardingMaybeLater", IDS_BRAVE_REWARDS_ONBOARDING_MAYBE_LATER },
-        { "onboardingSetupAdsHeader", IDS_BRAVE_REWARDS_ONBOARDING_SETUP_ADS_HEADER },  // NOLINT
-        { "onboardingSetupAdsSubheader", IDS_BRAVE_REWARDS_ONBOARDING_SETUP_ADS_SUBHEADER },  // NOLINT
-        { "onboardingSetupContributeHeader", IDS_BRAVE_REWARDS_ONBOARDING_SETUP_CONTRIBUTE_HEADER },  // NOLINT
-        { "onboardingSetupContributeSubheader", IDS_BRAVE_REWARDS_ONBOARDING_SETUP_CONTRIBUTE_SUBHEADER },  // NOLINT
-        { "onboardingStartUsingRewards", IDS_BRAVE_REWARDS_ONBOARDING_START_USING_REWARDS },  // NOLINT
-        { "onboardingTakeTour", IDS_BRAVE_REWARDS_ONBOARDING_TAKE_TOUR },
-        { "onboardingTerms", IDS_BRAVE_REWARDS_ONBOARDING_TERMS },
-        { "onboardingTipHeader", IDS_BRAVE_REWARDS_ONBOARDING_TIP_HEADER },
-        { "onboardingTipText", IDS_BRAVE_REWARDS_ONBOARDING_TIP_TEXT },
-        { "onboardingTourBack", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_BACK },
-        { "onboardingTourBegin", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_BEGIN },
-        { "onboardingTourContinue", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_CONTINUE },  // NOLINT
-        { "onboardingTourDone", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_DONE },
-        { "onboardingTourSkip", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_SKIP },
-        { "onboardingTourSkipForNow", IDS_BRAVE_REWARDS_ONBOARDING_TOUR_SKIP_FOR_NOW },  // NOLINT
-        { "onboardingPanelWelcomeHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_WELCOME_HEADER },  // NOLINT
-        { "onboardingPanelWelcomeText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_WELCOME_TEXT },  // NOLINT
-        { "onboardingPanelAdsHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_ADS_HEADER },  // NOLINT
-        { "onboardingPanelAdsText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_ADS_TEXT },  // NOLINT
-        { "onboardingPanelScheduleHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_SCHEDULE_HEADER },  // NOLINT
-        { "onboardingPanelScheduleText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_SCHEDULE_TEXT },  // NOLINT
-        { "onboardingPanelAcHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_AC_HEADER },  // NOLINT
-        { "onboardingPanelAcText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_AC_TEXT },
-        { "onboardingPanelTippingHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_TIPPING_HEADER },  // NOLINT
-        { "onboardingPanelTippingText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_TIPPING_TEXT },  // NOLINT
-        { "onboardingPanelRedeemHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_REDEEM_HEADER },  // NOLINT
-        { "onboardingPanelRedeemText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_REDEEM_TEXT },  // NOLINT
-        { "onboardingPanelSetupHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_SETUP_HEADER },  // NOLINT
-        { "onboardingPanelSetupText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_SETUP_TEXT },  // NOLINT
-        { "onboardingPanelCompleteHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_COMPLETE_HEADER },  // NOLINT
-        { "onboardingPanelCompleteText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_COMPLETE_TEXT },  // NOLINT
-        { "onboardingPanelVerifyHeader", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_VERIFY_HEADER },  // NOLINT
-        { "onboardingPanelVerifySubtext", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_VERIFY_SUBTEXT },  // NOLINT
-        { "onboardingPanelVerifyLater", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_VERIFY_LATER },  // NOLINT
-        { "onboardingPanelVerifyNow", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_VERIFY_NOW },  // NOLINT
-        { "onboardingPanelBitflyerNote", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_BITFLYER_NOTE },  // NOLINT
-        { "onboardingPanelBitflyerText", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_BITFLYER_TEXT },  // NOLINT
-        { "onboardingPanelBitflyerLearnMore", IDS_BRAVE_REWARDS_ONBOARDING_PANEL_BITFLYER_LEARN_MORE },  // NOLINT
-        { "oneTimeTip", IDS_BRAVE_REWARDS_TIP_ONE_TIME_TIP },
-        { "oneTimeTipAmount", IDS_BRAVE_REWARDS_TIP_ONE_TIME_TIP_AMOUNT },
-        { "optInRequired", IDS_BRAVE_REWARDS_TIP_OPT_IN_REQUIRED },
-        { "points", IDS_BRAVE_UI_POINTS },
-        { "postHeader", IDS_BRAVE_REWARDS_TIP_POST_HEADER },
-        { "postHeaderTwitter", IDS_BRAVE_REWARDS_TIP_POST_HEADER_TWITTER },
-        { "rewardsBannerText1", IDS_BRAVE_UI_REWARDS_BANNER_TEXT1 },
-        { "sendDonation", IDS_BRAVE_UI_SEND_DONATION },
-        { "siteBannerConnectedText", IDS_BRAVE_UI_SITE_BANNER_CONNECTED_TEXT },
-        { "siteBannerNoticeNote", IDS_BRAVE_UI_SITE_BANNER_NOTICE_NOTE },
-        { "siteBannerNoticeText", IDS_BRAVE_UI_SITE_BANNER_NOTICE_TEXT },
-        { "sorryToSeeYouGo", IDS_BRAVE_REWARDS_TIP_SORRY_TO_SEE_YOU_GO },
-        { "supportThisCreator", IDS_BRAVE_REWARDS_TIP_SUPPORT_THIS_CREATOR },
-        { "thanksForTheSupport", IDS_BRAVE_REWARDS_TIP_THANKS_FOR_THE_SUPPORT },  // NOLINT
-        { "tipHasBeenSent", IDS_BRAVE_REWARDS_TIP_TIP_HAS_BEEN_SET },
-        { "tipPostSubtitle", IDS_BRAVE_REWARDS_TIP_TIP_POST_SUBTITLE },
-        { "tokens", IDS_BRAVE_UI_TOKENS },
-        { "tweetAboutSupport", IDS_BRAVE_REWARDS_TIP_TWEET_ABOUT_SUPPORT },
-        { "unverifiedTextMore", IDS_BRAVE_UI_SITE_UNVERIFIED_TEXT_MORE },
-        { "welcome", IDS_BRAVE_UI_WELCOME },
+        { "bap", IDS_adrbrowsiel_UI_BAP_REWARDS_TEXT },
+        { "bapFunds", IDS_adrbrowsiel_REWARDS_TIP_BAP_FUNDS },
+        { "bat", IDS_adrbrowsiel_UI_BAT_TEXT },
+        { "batFunds", IDS_adrbrowsiel_REWARDS_TIP_BAT_FUNDS },
+        { "cancel", IDS_adrbrowsiel_REWARDS_TIP_CANCEL },
+        { "cancelConfirmationText", IDS_adrbrowsiel_REWARDS_TIP_CANCEL_CONFIRMATION_TEXT },  // NOLINT
+        { "cancelMonthlyContribution", IDS_adrbrowsiel_REWARDS_TIP_CANCEL_MONTHLY_CONTRIBUTION },  // NOLINT
+        { "changeAmount", IDS_adrbrowsiel_REWARDS_TIP_CHANGE_AMOUNT },
+        { "confirmCancel", IDS_adrbrowsiel_REWARDS_TIP_CONFIRM_CANCEL },
+        { "continue", IDS_adrbrowsiel_REWARDS_TIP_CONTINUE },
+        { "contributionAmount", IDS_adrbrowsiel_REWARDS_TIP_CONTRIBUTION_AMOUNT },  // NOLINT
+        { "contributionCanceled", IDS_adrbrowsiel_REWARDS_TIP_CONTRIBUTION_CANCELED },  // NOLINT
+        { "currentlySupporting", IDS_adrbrowsiel_REWARDS_TIP_CURRENTLY_SUPPORTING },
+        { "currentMonthlyContribution", IDS_adrbrowsiel_REWARDS_TIP_CURRENT_MONTHLY_CONTRIBUTION },  // NOLINT
+        { "customAmount", IDS_adrbrowsiel_REWARDS_TIP_CUSTOM_AMOUNT },
+        { "customMonthlyTipText", IDS_adrbrowsiel_REWARDS_TIP_CUSTOM_MONTHLY_TIP_TEXT },  // NOLINT
+        { "customTipAmount", IDS_adrbrowsiel_REWARDS_TIP_CUSTOM_TIP_AMOUNT },
+        { "customTipText", IDS_adrbrowsiel_REWARDS_TIP_CUSTOM_TIP_TEXT },
+        { "doMonthly", IDS_adrbrowsiel_UI_DO_MONTHLY },
+        { "errorHasOccurred", IDS_adrbrowsiel_REWARDS_TIP_ERROR_HAS_OCCURRED },
+        { "errorServerConnection", IDS_adrbrowsiel_REWARDS_TIP_ERROR_SERVER_CONNECTION },  // NOLINT
+        { "errorTryAgain", IDS_adrbrowsiel_REWARDS_TIP_ERROR_TRY_AGAIN },
+        { "exampleTipAmount", IDS_adrbrowsiel_REWARDS_TIP_EXAMPLE_TIP_AMOUNT },
+        { "minimumTipAmount", IDS_adrbrowsiel_REWARDS_TIP_MINIMUM_TIP_AMOUNT },
+        { "monthlyContribution", IDS_adrbrowsiel_UI_MONTHLY_CONTRIBUTION },
+        { "monthlyContributionSet", IDS_adrbrowsiel_REWARDS_TIP_MONTHLY_CONTRIBUTION_SET },  // NOLINT
+        { "monthlyText", IDS_adrbrowsiel_UI_MONTHLY_TEXT },
+        { "nextContributionDate", IDS_adrbrowsiel_REWARDS_TIP_NEXT_CONTRIBUTION_DATE },  // NOLINT
+        { "notEnoughPoints", IDS_adrbrowsiel_REWARDS_TIP_NOT_ENOUGH_POINTS },
+        { "notEnoughTokens", IDS_adrbrowsiel_REWARDS_TIP_NOT_ENOUGH_TOKENS },
+        { "on", IDS_adrbrowsiel_UI_ON },
+        { "onboardingMaybeLater", IDS_adrbrowsiel_REWARDS_ONBOARDING_MAYBE_LATER },
+        { "onboardingSetupAdsHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_SETUP_ADS_HEADER },  // NOLINT
+        { "onboardingSetupAdsSubheader", IDS_adrbrowsiel_REWARDS_ONBOARDING_SETUP_ADS_SUBHEADER },  // NOLINT
+        { "onboardingSetupContributeHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_SETUP_CONTRIBUTE_HEADER },  // NOLINT
+        { "onboardingSetupContributeSubheader", IDS_adrbrowsiel_REWARDS_ONBOARDING_SETUP_CONTRIBUTE_SUBHEADER },  // NOLINT
+        { "onboardingStartUsingRewards", IDS_adrbrowsiel_REWARDS_ONBOARDING_START_USING_REWARDS },  // NOLINT
+        { "onboardingTakeTour", IDS_adrbrowsiel_REWARDS_ONBOARDING_TAKE_TOUR },
+        { "onboardingTerms", IDS_adrbrowsiel_REWARDS_ONBOARDING_TERMS },
+        { "onboardingTipHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_TIP_HEADER },
+        { "onboardingTipText", IDS_adrbrowsiel_REWARDS_ONBOARDING_TIP_TEXT },
+        { "onboardingTourBack", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_BACK },
+        { "onboardingTourBegin", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_BEGIN },
+        { "onboardingTourContinue", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_CONTINUE },  // NOLINT
+        { "onboardingTourDone", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_DONE },
+        { "onboardingTourSkip", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_SKIP },
+        { "onboardingTourSkipForNow", IDS_adrbrowsiel_REWARDS_ONBOARDING_TOUR_SKIP_FOR_NOW },  // NOLINT
+        { "onboardingPanelWelcomeHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_WELCOME_HEADER },  // NOLINT
+        { "onboardingPanelWelcomeText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_WELCOME_TEXT },  // NOLINT
+        { "onboardingPanelAdsHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_ADS_HEADER },  // NOLINT
+        { "onboardingPanelAdsText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_ADS_TEXT },  // NOLINT
+        { "onboardingPanelScheduleHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_SCHEDULE_HEADER },  // NOLINT
+        { "onboardingPanelScheduleText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_SCHEDULE_TEXT },  // NOLINT
+        { "onboardingPanelAcHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_AC_HEADER },  // NOLINT
+        { "onboardingPanelAcText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_AC_TEXT },
+        { "onboardingPanelTippingHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_TIPPING_HEADER },  // NOLINT
+        { "onboardingPanelTippingText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_TIPPING_TEXT },  // NOLINT
+        { "onboardingPanelRedeemHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_REDEEM_HEADER },  // NOLINT
+        { "onboardingPanelRedeemText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_REDEEM_TEXT },  // NOLINT
+        { "onboardingPanelSetupHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_SETUP_HEADER },  // NOLINT
+        { "onboardingPanelSetupText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_SETUP_TEXT },  // NOLINT
+        { "onboardingPanelCompleteHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_COMPLETE_HEADER },  // NOLINT
+        { "onboardingPanelCompleteText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_COMPLETE_TEXT },  // NOLINT
+        { "onboardingPanelVerifyHeader", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_VERIFY_HEADER },  // NOLINT
+        { "onboardingPanelVerifySubtext", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_VERIFY_SUBTEXT },  // NOLINT
+        { "onboardingPanelVerifyLater", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_VERIFY_LATER },  // NOLINT
+        { "onboardingPanelVerifyNow", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_VERIFY_NOW },  // NOLINT
+        { "onboardingPanelBitflyerNote", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_BITFLYER_NOTE },  // NOLINT
+        { "onboardingPanelBitflyerText", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_BITFLYER_TEXT },  // NOLINT
+        { "onboardingPanelBitflyerLearnMore", IDS_adrbrowsiel_REWARDS_ONBOARDING_PANEL_BITFLYER_LEARN_MORE },  // NOLINT
+        { "oneTimeTip", IDS_adrbrowsiel_REWARDS_TIP_ONE_TIME_TIP },
+        { "oneTimeTipAmount", IDS_adrbrowsiel_REWARDS_TIP_ONE_TIME_TIP_AMOUNT },
+        { "optInRequired", IDS_adrbrowsiel_REWARDS_TIP_OPT_IN_REQUIRED },
+        { "points", IDS_adrbrowsiel_UI_POINTS },
+        { "postHeader", IDS_adrbrowsiel_REWARDS_TIP_POST_HEADER },
+        { "postHeaderTwitter", IDS_adrbrowsiel_REWARDS_TIP_POST_HEADER_TWITTER },
+        { "rewardsBannerText1", IDS_adrbrowsiel_UI_REWARDS_BANNER_TEXT1 },
+        { "sendDonation", IDS_adrbrowsiel_UI_SEND_DONATION },
+        { "siteBannerConnectedText", IDS_adrbrowsiel_UI_SITE_BANNER_CONNECTED_TEXT },
+        { "siteBannerNoticeNote", IDS_adrbrowsiel_UI_SITE_BANNER_NOTICE_NOTE },
+        { "siteBannerNoticeText", IDS_adrbrowsiel_UI_SITE_BANNER_NOTICE_TEXT },
+        { "sorryToSeeYouGo", IDS_adrbrowsiel_REWARDS_TIP_SORRY_TO_SEE_YOU_GO },
+        { "supportThisCreator", IDS_adrbrowsiel_REWARDS_TIP_SUPPORT_THIS_CREATOR },
+        { "thanksForTheSupport", IDS_adrbrowsiel_REWARDS_TIP_THANKS_FOR_THE_SUPPORT },  // NOLINT
+        { "tipHasBeenSent", IDS_adrbrowsiel_REWARDS_TIP_TIP_HAS_BEEN_SET },
+        { "tipPostSubtitle", IDS_adrbrowsiel_REWARDS_TIP_TIP_POST_SUBTITLE },
+        { "tokens", IDS_adrbrowsiel_UI_TOKENS },
+        { "tweetAboutSupport", IDS_adrbrowsiel_REWARDS_TIP_TWEET_ABOUT_SUPPORT },
+        { "unverifiedTextMore", IDS_adrbrowsiel_UI_SITE_UNVERIFIED_TEXT_MORE },
+        { "welcome", IDS_adrbrowsiel_UI_WELCOME },
       }
     }, {
       std::string("rewards-internals"), {
-        { "amount", IDS_BRAVE_REWARDS_INTERNALS_AMOUNT },
-        { "autoRefresh", IDS_BRAVE_REWARDS_INTERNALS_AUTO_REFRESH },
-        { "balanceInfo", IDS_BRAVE_REWARDS_INTERNALS_BALANCE_INFO },
-        { "bat", IDS_BRAVE_UI_BAT_TEXT },
-        { "bootStamp", IDS_BRAVE_REWARDS_INTERNALS_BOOT_STAMP },
-        { "clearButton", IDS_BRAVE_REWARDS_INTERNALS_CLEAR_BUTTON },
-        { "contributedAmount", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTED_AMOUNT },
-        { "contributionCreatedAt", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTED_CREATED_AT },         // NOLINT
-        { "contribution", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION },
-        { "contributionProcessor", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_PROCESSOR },         // NOLINT
-        { "contributionStep", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP },
-        { "contributionStepAutoContributeTableEmpty", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_AUTO_CONTRIBUTE_TABLE_EMPTY },  // NOLINT
-        { "contributionStepNotEnoughFunds", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_NOT_ENOUGH_FUNDS },  // NOLINT
-        { "contributionStepFailed", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_FAILED },      // NOLINT
-        { "contributionStepCompleted", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_COMPLETED },// NOLINT
-        { "contributionStepNo", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_NO },              // NOLINT
-        { "contributionStepStart", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_START },        // NOLINT
-        { "contributionStepPrepare", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_PREPARE },    // NOLINT
-        { "contributionStepReserve", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_RESERVE },    // NOLINT
-        { "contributionStepExternalTransaction", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_EXTERNAL_TRANSACTION },  // NOLINT
-        { "contributionStepCreds", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_CREDS },        // NOLINT
-        { "contributionStepRewardsOff", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_REWARDS_OFF },        // NOLINT
-        { "contributionStepAutoContributeOff", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_AUTO_CONTRIBUTE_OFF },        // NOLINT
-        { "contributionStepRetryCount", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_STEP_RETRY_COUNT },        // NOLINT
-        { "eventLogKey", IDS_BRAVE_REWARDS_INTERNALS_EVENT_LOG_KEY },
-        { "eventLogValue", IDS_BRAVE_REWARDS_INTERNALS_EVENT_LOG_VALUE },
-        { "eventLogTime", IDS_BRAVE_REWARDS_INTERNALS_EVENT_LOG_TIME },
-        { "mainDisclaimer", IDS_BRAVE_REWARDS_INTERNALS_MAIN_DISCLAIMER },             // NOLINT
-        { "rewardsTypeAuto", IDS_BRAVE_REWARDS_INTERNALS_REWARDS_TYPE_AUTO },                    // NOLINT
-        { "rewardsTypeOneTimeTip", IDS_BRAVE_REWARDS_INTERNALS_REWARDS_TYPE_ONE_TIME_TIP },      // NOLINT
-        { "rewardsTypeRecurringTip", IDS_BRAVE_REWARDS_INTERNALS_REWARDS_TYPE_RECURRING_TIP },   // NOLINT
-        { "contributionType", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTION_TYPE },
-        { "contributions", IDS_BRAVE_REWARDS_INTERNALS_CONTRIBUTIONS },
-        { "downloadButton", IDS_BRAVE_REWARDS_INTERNALS_DOWNLOAD_BUTTON },
-        { "externalWallet", IDS_BRAVE_REWARDS_INTERNALS_EXTERNAL_WALLET },
-        { "invalid", IDS_BRAVE_REWARDS_INTERNALS_INVALID },
-        { "keyInfoSeed", IDS_BRAVE_REWARDS_INTERNALS_KEY_INFO_SEED },
-        { "logNotice", IDS_BRAVE_REWARDS_INTERNALS_LOG_NOTICE },
-        { "mainTitle", IDS_BRAVE_REWARDS_INTERNALS_MAIN_TITLE },
-        { "personaId", IDS_BRAVE_REWARDS_INTERNALS_PERSONA_ID },
-        { "processorBraveTokens", IDS_BRAVE_UI_PROCESSOR_BRAVE_TOKENS },
-        { "processorUphold", IDS_BRAVE_UI_PROCESSOR_UPHOLD },
-        { "processorBitflyer", IDS_BRAVE_UI_PROCESSOR_BITFLYER },
-        { "processorBraveUserFunds", IDS_BRAVE_UI_PROCESSOR_BRAVE_USER_FUNDS },
-        { "promotionAds", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_ADS },
-        { "promotionAmount", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_AMOUNT },
-        { "promotionClaimedAt", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_CLAIMED_AT },              // NOLINT
-        { "promotionClaimId", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_CLAIM_ID },
-        { "promotionExpiresAt", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_EXPIRES_AT },              // NOLINT
-        { "promotionId", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_ID },
-        { "promotionLegacyClaimed", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_LEGACY_CLAIMED },      // NOLINT
-        { "promotionLegacyNo", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_LEGACY_NO },                // NOLINT
-        { "promotionLegacyYes", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_LEGACY_YES },              // NOLINT
-        { "promotions", IDS_BRAVE_REWARDS_INTERNALS_PROMOTIONS },
-        { "promotionStatus", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_STATUS },
-        { "promotionStatusActive", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_STATUS_ACTIVE },        // NOLINT
-        { "promotionStatusAttested", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_STATUS_ATTESTED },    // NOLINT
-        { "promotionStatusFinished", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_STATUS_FINISHED },    // NOLINT
-        { "promotionStatusOver", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_STATUS_OVER },            // NOLINT
-        { "promotionType", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_TYPE },
-        { "promotionUGP", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_UGP },
-        { "promotionVersion", IDS_BRAVE_REWARDS_INTERNALS_PROMOTION_VERSION },
-        { "refreshButton", IDS_BRAVE_REWARDS_INTERNALS_REFRESH_BUTTON },
-        { "retryCount", IDS_BRAVE_REWARDS_INTERNALS_RETRY_COUNT },
-        { "tabGeneralInfo", IDS_BRAVE_REWARDS_INTERNALS_TAB_GENERAL_INFO },
-        { "tabLogs", IDS_BRAVE_REWARDS_INTERNALS_TAB_LOGS },
-        { "tabPromotions", IDS_BRAVE_REWARDS_INTERNALS_TAB_PROMOTIONS },
-        { "tabContributions", IDS_BRAVE_REWARDS_INTERNALS_TAB_CONTRIBUTIONS },
-        { "tabEventLogs", IDS_BRAVE_REWARDS_INTERNALS_TAB_EVENT_LOGS },
-        { "totalAmount", IDS_BRAVE_REWARDS_INTERNALS_TOTAL_AMOUNT },
-        { "totalBalance", IDS_BRAVE_REWARDS_INTERNALS_TOTAL_BALANCE },
-        { "userId", IDS_BRAVE_REWARDS_INTERNALS_USER_ID },
-        { "valid", IDS_BRAVE_REWARDS_INTERNALS_VALID },
-        { "walletAddress", IDS_BRAVE_REWARDS_INTERNALS_WALLET_ADDRESS },
-        { "walletInfo", IDS_BRAVE_REWARDS_INTERNALS_WALLET_INFO },
-        { "walletNotCreated", IDS_BRAVE_REWARDS_INTERNALS_WALLET_NOT_CREATED },
-        { "walletPaymentId", IDS_BRAVE_REWARDS_INTERNALS_WALLET_PAYMENT_ID },
-        { "walletStatus", IDS_BRAVE_REWARDS_INTERNALS_WALLET_STATUS },
-        { "walletStatusConnected", IDS_BRAVE_REWARDS_INTERNALS_WALLET_STATUS_CONNECTED },    // NOLINT
-        { "walletStatusNotConnected", IDS_BRAVE_REWARDS_INTERNALS_WALLET_STATUS_NOT_CONNECTED },    // NOLINT
-        { "walletStatusVerified", IDS_BRAVE_REWARDS_INTERNALS_WALLET_STATUS_VERIFIED },    // NOLINT
-        { "walletStatusDisconnectedNotVerified", IDS_BRAVE_REWARDS_INTERNALS_WALLET_STATUS_DISCONNECTED_NOT_VERIFIED },    // NOLINT
-        { "walletStatusDisconnectedVerified", IDS_BRAVE_REWARDS_INTERNALS_WALLET_STATUS_DISCONNECTED_VERIFIED },    // NOLINT
-        { "walletStatusPending", IDS_BRAVE_REWARDS_INTERNALS_WALLET_STATUS_PENDING },    // NOLINT
+        { "amount", IDS_adrbrowsiel_REWARDS_INTERNALS_AMOUNT },
+        { "autoRefresh", IDS_adrbrowsiel_REWARDS_INTERNALS_AUTO_REFRESH },
+        { "balanceInfo", IDS_adrbrowsiel_REWARDS_INTERNALS_BALANCE_INFO },
+        { "bat", IDS_adrbrowsiel_UI_BAT_TEXT },
+        { "bootStamp", IDS_adrbrowsiel_REWARDS_INTERNALS_BOOT_STAMP },
+        { "clearButton", IDS_adrbrowsiel_REWARDS_INTERNALS_CLEAR_BUTTON },
+        { "contributedAmount", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTED_AMOUNT },
+        { "contributionCreatedAt", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTED_CREATED_AT },         // NOLINT
+        { "contribution", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION },
+        { "contributionProcessor", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_PROCESSOR },         // NOLINT
+        { "contributionStep", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP },
+        { "contributionStepAutoContributeTableEmpty", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_AUTO_CONTRIBUTE_TABLE_EMPTY },  // NOLINT
+        { "contributionStepNotEnoughFunds", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_NOT_ENOUGH_FUNDS },  // NOLINT
+        { "contributionStepFailed", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_FAILED },      // NOLINT
+        { "contributionStepCompleted", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_COMPLETED },// NOLINT
+        { "contributionStepNo", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_NO },              // NOLINT
+        { "contributionStepStart", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_START },        // NOLINT
+        { "contributionStepPrepare", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_PREPARE },    // NOLINT
+        { "contributionStepReserve", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_RESERVE },    // NOLINT
+        { "contributionStepExternalTransaction", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_EXTERNAL_TRANSACTION },  // NOLINT
+        { "contributionStepCreds", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_CREDS },        // NOLINT
+        { "contributionStepRewardsOff", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_REWARDS_OFF },        // NOLINT
+        { "contributionStepAutoContributeOff", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_AUTO_CONTRIBUTE_OFF },        // NOLINT
+        { "contributionStepRetryCount", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_STEP_RETRY_COUNT },        // NOLINT
+        { "eventLogKey", IDS_adrbrowsiel_REWARDS_INTERNALS_EVENT_LOG_KEY },
+        { "eventLogValue", IDS_adrbrowsiel_REWARDS_INTERNALS_EVENT_LOG_VALUE },
+        { "eventLogTime", IDS_adrbrowsiel_REWARDS_INTERNALS_EVENT_LOG_TIME },
+        { "mainDisclaimer", IDS_adrbrowsiel_REWARDS_INTERNALS_MAIN_DISCLAIMER },             // NOLINT
+        { "rewardsTypeAuto", IDS_adrbrowsiel_REWARDS_INTERNALS_REWARDS_TYPE_AUTO },                    // NOLINT
+        { "rewardsTypeOneTimeTip", IDS_adrbrowsiel_REWARDS_INTERNALS_REWARDS_TYPE_ONE_TIME_TIP },      // NOLINT
+        { "rewardsTypeRecurringTip", IDS_adrbrowsiel_REWARDS_INTERNALS_REWARDS_TYPE_RECURRING_TIP },   // NOLINT
+        { "contributionType", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTION_TYPE },
+        { "contributions", IDS_adrbrowsiel_REWARDS_INTERNALS_CONTRIBUTIONS },
+        { "downloadButton", IDS_adrbrowsiel_REWARDS_INTERNALS_DOWNLOAD_BUTTON },
+        { "externalWallet", IDS_adrbrowsiel_REWARDS_INTERNALS_EXTERNAL_WALLET },
+        { "invalid", IDS_adrbrowsiel_REWARDS_INTERNALS_INVALID },
+        { "keyInfoSeed", IDS_adrbrowsiel_REWARDS_INTERNALS_KEY_INFO_SEED },
+        { "logNotice", IDS_adrbrowsiel_REWARDS_INTERNALS_LOG_NOTICE },
+        { "mainTitle", IDS_adrbrowsiel_REWARDS_INTERNALS_MAIN_TITLE },
+        { "personaId", IDS_adrbrowsiel_REWARDS_INTERNALS_PERSONA_ID },
+        { "processoradrbrowsielTokens", IDS_adrbrowsiel_UI_PROCESSOR_adrbrowsiel_TOKENS },
+        { "processorUphold", IDS_adrbrowsiel_UI_PROCESSOR_UPHOLD },
+        { "processorBitflyer", IDS_adrbrowsiel_UI_PROCESSOR_BITFLYER },
+        { "processoradrbrowsielUserFunds", IDS_adrbrowsiel_UI_PROCESSOR_adrbrowsiel_USER_FUNDS },
+        { "promotionAds", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_ADS },
+        { "promotionAmount", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_AMOUNT },
+        { "promotionClaimedAt", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_CLAIMED_AT },              // NOLINT
+        { "promotionClaimId", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_CLAIM_ID },
+        { "promotionExpiresAt", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_EXPIRES_AT },              // NOLINT
+        { "promotionId", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_ID },
+        { "promotionLegacyClaimed", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_LEGACY_CLAIMED },      // NOLINT
+        { "promotionLegacyNo", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_LEGACY_NO },                // NOLINT
+        { "promotionLegacyYes", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_LEGACY_YES },              // NOLINT
+        { "promotions", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTIONS },
+        { "promotionStatus", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_STATUS },
+        { "promotionStatusActive", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_STATUS_ACTIVE },        // NOLINT
+        { "promotionStatusAttested", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_STATUS_ATTESTED },    // NOLINT
+        { "promotionStatusFinished", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_STATUS_FINISHED },    // NOLINT
+        { "promotionStatusOver", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_STATUS_OVER },            // NOLINT
+        { "promotionType", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_TYPE },
+        { "promotionUGP", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_UGP },
+        { "promotionVersion", IDS_adrbrowsiel_REWARDS_INTERNALS_PROMOTION_VERSION },
+        { "refreshButton", IDS_adrbrowsiel_REWARDS_INTERNALS_REFRESH_BUTTON },
+        { "retryCount", IDS_adrbrowsiel_REWARDS_INTERNALS_RETRY_COUNT },
+        { "tabGeneralInfo", IDS_adrbrowsiel_REWARDS_INTERNALS_TAB_GENERAL_INFO },
+        { "tabLogs", IDS_adrbrowsiel_REWARDS_INTERNALS_TAB_LOGS },
+        { "tabPromotions", IDS_adrbrowsiel_REWARDS_INTERNALS_TAB_PROMOTIONS },
+        { "tabContributions", IDS_adrbrowsiel_REWARDS_INTERNALS_TAB_CONTRIBUTIONS },
+        { "tabEventLogs", IDS_adrbrowsiel_REWARDS_INTERNALS_TAB_EVENT_LOGS },
+        { "totalAmount", IDS_adrbrowsiel_REWARDS_INTERNALS_TOTAL_AMOUNT },
+        { "totalBalance", IDS_adrbrowsiel_REWARDS_INTERNALS_TOTAL_BALANCE },
+        { "userId", IDS_adrbrowsiel_REWARDS_INTERNALS_USER_ID },
+        { "valid", IDS_adrbrowsiel_REWARDS_INTERNALS_VALID },
+        { "walletAddress", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_ADDRESS },
+        { "walletInfo", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_INFO },
+        { "walletNotCreated", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_NOT_CREATED },
+        { "walletPaymentId", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_PAYMENT_ID },
+        { "walletStatus", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_STATUS },
+        { "walletStatusConnected", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_STATUS_CONNECTED },    // NOLINT
+        { "walletStatusNotConnected", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_STATUS_NOT_CONNECTED },    // NOLINT
+        { "walletStatusVerified", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_STATUS_VERIFIED },    // NOLINT
+        { "walletStatusDisconnectedNotVerified", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_STATUS_DISCONNECTED_NOT_VERIFIED },    // NOLINT
+        { "walletStatusDisconnectedVerified", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_STATUS_DISCONNECTED_VERIFIED },    // NOLINT
+        { "walletStatusPending", IDS_adrbrowsiel_REWARDS_INTERNALS_WALLET_STATUS_PENDING },    // NOLINT
       }
     }, {
 #if BUILDFLAG(ENABLE_TOR)
@@ -1135,15 +1135,15 @@ void CustomizeWebUIHTMLSource(const std::string &name,
 #endif
       std::string("webcompat"), {
         // Report modal
-        { "reportModalTitle", IDS_BRAVE_WEBCOMPATREPORTER_REPORT_MODAL_TITLE },
-        { "reportExplanation", IDS_BRAVE_WEBCOMPATREPORTER_REPORT_EXPLANATION },
-        { "reportDisclaimer", IDS_BRAVE_WEBCOMPATREPORTER_REPORT_DISCLAIMER },
-        { "cancel", IDS_BRAVE_WEBCOMPATREPORTER_CANCEL },
-        { "submit", IDS_BRAVE_WEBCOMPATREPORTER_SUBMIT },
+        { "reportModalTitle", IDS_adrbrowsiel_WEBCOMPATREPORTER_REPORT_MODAL_TITLE },
+        { "reportExplanation", IDS_adrbrowsiel_WEBCOMPATREPORTER_REPORT_EXPLANATION },
+        { "reportDisclaimer", IDS_adrbrowsiel_WEBCOMPATREPORTER_REPORT_DISCLAIMER },
+        { "cancel", IDS_adrbrowsiel_WEBCOMPATREPORTER_CANCEL },
+        { "submit", IDS_adrbrowsiel_WEBCOMPATREPORTER_SUBMIT },
         // Confirmation modal
-        { "thankYou", IDS_BRAVE_WEBCOMPATREPORTER_THANK_YOU },
+        { "thankYou", IDS_adrbrowsiel_WEBCOMPATREPORTER_THANK_YOU },
         { "confirmationNotice",
-            IDS_BRAVE_WEBCOMPATREPORTER_CONFIRMATION_NOTICE },
+            IDS_adrbrowsiel_WEBCOMPATREPORTER_CONFIRMATION_NOTICE },
       }
     }
   };
@@ -1158,9 +1158,9 @@ content::WebUIDataSource* CreateWebUIDataSource(
     int html_resource_id,
     bool disable_trusted_types_csp) {
   content::WebUIDataSource* source = content::WebUIDataSource::Create(name);
-  // Some parts of Brave's UI pages are not yet migrated to work without doing
+  // Some parts of adrbrowsiel's UI pages are not yet migrated to work without doing
   // assignments of strings directly into |innerHTML| elements (i.e. see usage
-  // of |dangerouslySetInnerHTML| in .tsx files). This will break Brave due to
+  // of |dangerouslySetInnerHTML| in .tsx files). This will break adrbrowsiel due to
   // committing a Trusted Types related violation now that Trusted Types are
   // enforced on WebUI pages (see crrev.com/c/2234238 and crrev.com/c/2353547).
   // We should migrate those pages not to require using |innerHTML|, but for now

@@ -1,22 +1,22 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_ads/android/brave_ads_native_helper.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/android/adrbrowsiel_ads_native_helper.h"
 
 #include <string>
 
 #include "base/android/jni_string.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/brave_ads/android/jni_headers/BraveAdsNativeHelper_jni.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/android/jni_headers/adrbrowsielAdsNativeHelper_jni.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
 #include "chrome/browser/profiles/profile_android.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 // static
-jboolean JNI_BraveAdsNativeHelper_IsBraveAdsEnabled(
+jboolean JNI_adrbrowsielAdsNativeHelper_IsadrbrowsielAdsEnabled(
     JNIEnv* env,
     const base::android::JavaParamRef<jobject>& j_profile_android) {
   Profile* profile = ProfileAndroid::FromProfileAndroid(j_profile_android);
@@ -29,12 +29,12 @@ jboolean JNI_BraveAdsNativeHelper_IsBraveAdsEnabled(
 }
 
 // static
-void JNI_BraveAdsNativeHelper_SetAdsEnabled(
+void JNI_adrbrowsielAdsNativeHelper_SetAdsEnabled(
     JNIEnv* env,
     const base::android::JavaParamRef<jobject>& j_profile_android) {
   Profile* profile = ProfileAndroid::FromProfileAndroid(j_profile_android);
-  brave_rewards::RewardsService* rewards_service =
-      brave_rewards::RewardsServiceFactory::GetForProfile(profile);
+  adrbrowsiel_rewards::RewardsService* rewards_service =
+      adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile);
   if (!rewards_service) {
     return;
   }
@@ -43,7 +43,7 @@ void JNI_BraveAdsNativeHelper_SetAdsEnabled(
 }
 
 // static
-jboolean JNI_BraveAdsNativeHelper_IsNewlySupportedLocale(
+jboolean JNI_adrbrowsielAdsNativeHelper_IsNewlySupportedLocale(
     JNIEnv* env,
     const base::android::JavaParamRef<jobject>& j_profile_android) {
   Profile* profile = ProfileAndroid::FromProfileAndroid(j_profile_android);
@@ -56,7 +56,7 @@ jboolean JNI_BraveAdsNativeHelper_IsNewlySupportedLocale(
 }
 
 // static
-jboolean JNI_BraveAdsNativeHelper_IsSupportedLocale(
+jboolean JNI_adrbrowsielAdsNativeHelper_IsSupportedLocale(
     JNIEnv* env,
     const base::android::JavaParamRef<jobject>& j_profile_android) {
   Profile* profile = ProfileAndroid::FromProfileAndroid(j_profile_android);
@@ -69,7 +69,7 @@ jboolean JNI_BraveAdsNativeHelper_IsSupportedLocale(
 }
 
 // static
-void JNI_BraveAdsNativeHelper_OnShowAdNotification(
+void JNI_adrbrowsielAdsNativeHelper_OnShowAdNotification(
     JNIEnv* env,
     const base::android::JavaParamRef<jobject>& j_profile_android,
     const base::android::JavaParamRef<jstring>& j_notification_id) {
@@ -85,7 +85,7 @@ void JNI_BraveAdsNativeHelper_OnShowAdNotification(
 }
 
 // static
-void JNI_BraveAdsNativeHelper_OnCloseAdNotification(
+void JNI_adrbrowsielAdsNativeHelper_OnCloseAdNotification(
     JNIEnv* env,
     const base::android::JavaParamRef<jobject>& j_profile_android,
     const base::android::JavaParamRef<jstring>& j_notification_id,
@@ -102,7 +102,7 @@ void JNI_BraveAdsNativeHelper_OnCloseAdNotification(
 }
 
 // static
-void JNI_BraveAdsNativeHelper_OnClickAdNotification(
+void JNI_adrbrowsielAdsNativeHelper_OnClickAdNotification(
     JNIEnv* env,
     const base::android::JavaParamRef<jobject>& j_profile_android,
     const base::android::JavaParamRef<jstring>& j_notification_id) {
@@ -117,4 +117,4 @@ void JNI_BraveAdsNativeHelper_OnClickAdNotification(
   ads_service->OnClickAdNotification(notification_id);
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

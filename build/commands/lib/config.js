@@ -23,7 +23,7 @@ const run = (cmd, args = []) => {
   return prog
 }
 
-// this is a huge hack because the npm config doesn't get passed through from brave-browser .npmrc/package.json
+// this is a huge hack because the npm config doesn't get passed through from adrbrowsiel-browser .npmrc/package.json
 var packageConfig = function(key){
   let packages = { config: {}}
   if (fs.existsSync(path.join(rootDir, 'package.json'))) {
@@ -67,31 +67,31 @@ const Config = function () {
   this.defaultBuildConfig = 'Component'
   this.buildConfig = this.defaultBuildConfig
   this.signTarget = 'sign_app'
-  this.buildTarget = 'brave'
+  this.buildTarget = 'adrbrowsiel'
   this.rootDir = rootDir
   this.isUniversalBinary = false
   this.scriptDir = path.join(this.rootDir, 'scripts')
   this.srcDir = path.join(this.rootDir, 'src')
   this.chromeVersion = this.getProjectVersion('chrome')
   this.chromiumRepo = getNPMConfig(['projects', 'chrome', 'repository', 'url'])
-  this.braveCoreDir = path.join(this.srcDir, 'brave')
-  this.braveCoreRepo = getNPMConfig(['projects', 'brave-core', 'repository', 'url'])
+  this.adrbrowsielCoreDir = path.join(this.srcDir, 'adrbrowsiel')
+  this.adrbrowsielCoreRepo = getNPMConfig(['projects', 'adrbrowsiel-core', 'repository', 'url'])
   this.buildToolsDir = path.join(this.srcDir, 'build')
   this.resourcesDir = path.join(this.rootDir, 'resources')
-  this.depotToolsDir = path.join(this.braveCoreDir, 'vendor', 'depot_tools')
+  this.depotToolsDir = path.join(this.adrbrowsielCoreDir, 'vendor', 'depot_tools')
   this.defaultGClientFile = path.join(this.rootDir, '.gclient')
-  this.gClientFile = process.env.BRAVE_GCLIENT_FILE || this.defaultGClientFile
+  this.gClientFile = process.env.adrbrowsiel_GCLIENT_FILE || this.defaultGClientFile
   this.gClientVerbose = getNPMConfig(['gclient_verbose']) || false
   this.targetArch = getNPMConfig(['target_arch']) || 'x64'
   this.targetOS = getNPMConfig(['target_os'])
   this.gypTargetArch = 'x64'
   this.targetAndroidBase ='classic'
-  this.braveGoogleApiKey = getNPMConfig(['brave_google_api_key']) || 'AIzaSyAQfxPJiounkhOjODEO5ZieffeBv6yft2Q'
-  this.googleApiEndpoint = getNPMConfig(['brave_google_api_endpoint']) || 'https://www.googleapis.com/geolocation/v1/geolocate?key='
+  this.adrbrowsielGoogleApiKey = getNPMConfig(['adrbrowsiel_google_api_key']) || 'AIzaSyAQfxPJiounkhOjODEO5ZieffeBv6yft2Q'
+  this.googleApiEndpoint = getNPMConfig(['adrbrowsiel_google_api_endpoint']) || 'https://www.googleapis.com/geolocation/v1/geolocate?key='
   this.googleDefaultClientId = getNPMConfig(['google_default_client_id']) || ''
   this.googleDefaultClientSecret = getNPMConfig(['google_default_client_secret']) || ''
-  this.braveServicesKey = getNPMConfig(['brave_services_key']) || ''
-  this.infuraProjectId = getNPMConfig(['brave_infura_project_id']) || ''
+  this.adrbrowsielServicesKey = getNPMConfig(['adrbrowsiel_services_key']) || ''
+  this.infuraProjectId = getNPMConfig(['adrbrowsiel_infura_project_id']) || ''
   this.binanceClientId = getNPMConfig(['binance_client_id']) || ''
   this.ftxClientId = getNPMConfig(['ftx_client_id']) || ''
   this.ftxClientSecret = getNPMConfig(['ftx_client_secret']) || ''
@@ -106,16 +106,16 @@ const Config = function () {
   this.upholdClientSecret = getNPMConfig(['uphold_client_secret']) || ''
   this.upholdStagingClientId = getNPMConfig(['uphold_staging_client_id']) || ''
   this.upholdStagingClientSecret = getNPMConfig(['uphold_staging_client_secret']) || ''
-  this.braveSyncEndpoint = getNPMConfig(['brave_sync_endpoint']) || ''
+  this.adrbrowsielSyncEndpoint = getNPMConfig(['adrbrowsiel_sync_endpoint']) || ''
   this.safeBrowsingApiEndpoint = getNPMConfig(['safebrowsing_api_endpoint']) || ''
   this.updaterProdEndpoint = getNPMConfig(['updater_prod_endpoint']) || ''
   this.updaterDevEndpoint = getNPMConfig(['updater_dev_endpoint']) || ''
-  this.webcompatReportApiEndpoint = getNPMConfig(['webcompat_report_api_endpoint']) || 'https://webcompat.brave.com/1/webcompat'
+  this.webcompatReportApiEndpoint = getNPMConfig(['webcompat_report_api_endpoint']) || 'https://webcompat.adrbrowsiel.com/1/webcompat'
   this.chromePgoPhase = 0
   // this.buildProjects()
-  this.braveVersion = getNPMConfig(['version']) || '0.0.0'
-  this.androidOverrideVersionName = this.braveVersion
-  this.releaseTag = this.braveVersion.split('+')[0]
+  this.adrbrowsielVersion = getNPMConfig(['version']) || '0.0.0'
+  this.androidOverrideVersionName = this.adrbrowsielVersion
+  this.releaseTag = this.adrbrowsielVersion.split('+')[0]
   this.mac_signing_identifier = getNPMConfig(['mac_signing_identifier'])
   this.mac_installer_signing_identifier = getNPMConfig(['mac_installer_signing_identifier']) || ''
   this.mac_signing_keychain = getNPMConfig(['mac_signing_keychain']) || 'login'
@@ -129,8 +129,8 @@ const Config = function () {
   this.sccache = getNPMConfig(['sccache'])
   this.gomaServerHost = getNPMConfig(['goma_server_host'])
   this.gomaJValue = (os.cpus().length + 1) * 3
-  this.braveStatsApiKey = getNPMConfig(['brave_stats_api_key']) || ''
-  this.braveStatsUpdaterUrl = getNPMConfig(['brave_stats_updater_url']) || ''
+  this.adrbrowsielStatsApiKey = getNPMConfig(['adrbrowsiel_stats_api_key']) || ''
+  this.adrbrowsielStatsUpdaterUrl = getNPMConfig(['adrbrowsiel_stats_updater_url']) || ''
   this.ignore_compile_failure = false
   this.enable_hangout_services_extension = true
   this.enable_pseudolocales = false
@@ -140,13 +140,13 @@ const Config = function () {
   this.signature_generator = path.join(this.srcDir, 'third_party', 'widevine', 'scripts', 'signature_generator.py') || ''
   this.extraGnArgs = {}
   this.extraNinjaOpts = []
-  this.braveSafetyNetApiKey = getNPMConfig(['brave_safetynet_api_key']) || ''
-  this.braveAndroidDeveloperOptionsCode = getNPMConfig(['brave_android_developer_options_code']) || ''
-  this.braveAndroidKeystorePath = getNPMConfig(['brave_android_keystore_path'])
-  this.braveAndroidKeystoreName = getNPMConfig(['brave_android_keystore_name'])
-  this.braveAndroidKeystorePassword = getNPMConfig(['brave_android_keystore_password'])
-  this.braveAndroidKeyPassword = getNPMConfig(['brave_android_key_password'])
-  this.braveVariationsServerUrl = getNPMConfig(['brave_variations_server_url']) || ''
+  this.adrbrowsielSafetyNetApiKey = getNPMConfig(['adrbrowsiel_safetynet_api_key']) || ''
+  this.adrbrowsielAndroidDeveloperOptionsCode = getNPMConfig(['adrbrowsiel_android_developer_options_code']) || ''
+  this.adrbrowsielAndroidKeystorePath = getNPMConfig(['adrbrowsiel_android_keystore_path'])
+  this.adrbrowsielAndroidKeystoreName = getNPMConfig(['adrbrowsiel_android_keystore_name'])
+  this.adrbrowsielAndroidKeystorePassword = getNPMConfig(['adrbrowsiel_android_keystore_password'])
+  this.adrbrowsielAndroidKeyPassword = getNPMConfig(['adrbrowsiel_android_key_password'])
+  this.adrbrowsielVariationsServerUrl = getNPMConfig(['adrbrowsiel_variations_server_url']) || ''
 }
 
 Config.prototype.isOfficialBuild = function () {
@@ -184,7 +184,7 @@ Config.prototype.isAsan = function () {
 }
 
 Config.prototype.buildArgs = function () {
-  const version = this.braveVersion
+  const version = this.adrbrowsielVersion
   let version_parts = version.split('+')[0]
   version_parts = version_parts.split('.')
 
@@ -196,8 +196,8 @@ Config.prototype.buildArgs = function () {
     v8_enable_verify_heap: this.isAsan(),
     fieldtrial_testing_like_official_build: true,
     safe_browsing_mode: 1,
-    brave_services_key: this.braveServicesKey,
-    root_extra_deps: ["//brave"],
+    adrbrowsiel_services_key: this.adrbrowsielServicesKey,
+    root_extra_deps: ["//adrbrowsiel"],
     // TODO: Re-enable when chromium_src overrides work for files in relative
     // paths like widevine_cmdm_compoennt_installer.cc
     // use_jumbo_build: !this.officialBuild,
@@ -205,19 +205,19 @@ Config.prototype.buildArgs = function () {
     is_universal_binary: this.isUniversalBinary,
     proprietary_codecs: true,
     ffmpeg_branding: "Chrome",
-    branding_path_component: "brave",
+    branding_path_component: "adrbrowsiel",
     enable_nacl: false,
     enable_widevine: true,
     target_cpu: this.targetArch,
     is_official_build: this.isOfficialBuild() && !this.isAsan(),
     is_debug: this.isDebug(),
     dcheck_always_on: getNPMConfig(['dcheck_always_on']) || this.buildConfig !== 'Release',
-    brave_channel: this.channel,
-    brave_google_api_key: this.braveGoogleApiKey,
-    brave_google_api_endpoint: this.googleApiEndpoint,
+    adrbrowsiel_channel: this.channel,
+    adrbrowsiel_google_api_key: this.adrbrowsielGoogleApiKey,
+    adrbrowsiel_google_api_endpoint: this.googleApiEndpoint,
     google_default_client_id: this.googleDefaultClientId,
     google_default_client_secret: this.googleDefaultClientSecret,
-    brave_infura_project_id: this.infuraProjectId,
+    adrbrowsiel_infura_project_id: this.infuraProjectId,
     binance_client_id: this.binanceClientId,
     ftx_client_id: this.ftxClientId,
     ftx_client_secret: this.ftxClientSecret,
@@ -232,21 +232,21 @@ Config.prototype.buildArgs = function () {
     uphold_client_secret: this.upholdClientSecret,
     uphold_staging_client_id: this.upholdStagingClientId,
     uphold_staging_client_secret: this.upholdStagingClientSecret,
-    brave_product_name: getNPMConfig(['brave_product_name']) || "brave-core",
-    brave_project_name: getNPMConfig(['brave_project_name']) || "brave-core",
-    brave_version_major: version_parts[0],
-    brave_version_minor: version_parts[1],
-    brave_version_build: version_parts[2],
+    adrbrowsiel_product_name: getNPMConfig(['adrbrowsiel_product_name']) || "adrbrowsiel-core",
+    adrbrowsiel_project_name: getNPMConfig(['adrbrowsiel_project_name']) || "adrbrowsiel-core",
+    adrbrowsiel_version_major: version_parts[0],
+    adrbrowsiel_version_minor: version_parts[1],
+    adrbrowsiel_version_build: version_parts[2],
     chrome_version_string: this.chromeVersion,
     chrome_version_major: chrome_version_parts[0],
-    brave_sync_endpoint: this.braveSyncEndpoint,
+    adrbrowsiel_sync_endpoint: this.adrbrowsielSyncEndpoint,
     safebrowsing_api_endpoint: this.safeBrowsingApiEndpoint,
-    brave_variations_server_url: this.braveVariationsServerUrl,
+    adrbrowsiel_variations_server_url: this.adrbrowsielVariationsServerUrl,
     updater_prod_endpoint: this.updaterProdEndpoint,
     updater_dev_endpoint: this.updaterDevEndpoint,
     webcompat_report_api_endpoint: this.webcompatReportApiEndpoint,
-    brave_stats_api_key: this.braveStatsApiKey,
-    brave_stats_updater_url: this.braveStatsUpdaterUrl,
+    adrbrowsiel_stats_api_key: this.adrbrowsielStatsApiKey,
+    adrbrowsiel_stats_updater_url: this.adrbrowsielStatsUpdaterUrl,
     enable_hangout_services_extension: this.enable_hangout_services_extension,
     enable_cdm_host_verification: this.enableCDMHostVerification(),
     enable_pseudolocales: this.enable_pseudolocales,
@@ -269,10 +269,10 @@ Config.prototype.buildArgs = function () {
         args.notary_password = this.notary_password
       }
     } else if (this.targetOS === 'android') {
-      args.brave_android_keystore_path = this.braveAndroidKeystorePath
-      args.brave_android_keystore_name = this.braveAndroidKeystoreName
-      args.brave_android_keystore_password = this.braveAndroidKeystorePassword
-      args.brave_android_key_password = this.braveAndroidKeyPassword
+      args.adrbrowsiel_android_keystore_path = this.adrbrowsielAndroidKeystorePath
+      args.adrbrowsiel_android_keystore_name = this.adrbrowsielAndroidKeystoreName
+      args.adrbrowsiel_android_keystore_password = this.adrbrowsielAndroidKeystorePassword
+      args.adrbrowsiel_android_key_password = this.adrbrowsielAndroidKeyPassword
     }
   }
 
@@ -320,18 +320,18 @@ Config.prototype.buildArgs = function () {
     args.android_channel = this.channel
     if (!this.isOfficialBuild()) {
       args.android_channel = 'default'
-      args.chrome_public_manifest_package = 'com.brave.browser_default'
+      args.chrome_public_manifest_package = 'com.adrbrowsiel.browser_default'
     } else if (this.channel === '') {
       args.android_channel = 'stable'
-      args.chrome_public_manifest_package = 'com.brave.browser'
+      args.chrome_public_manifest_package = 'com.adrbrowsiel.browser'
     } else if (this.channel === 'beta') {
-      args.chrome_public_manifest_package = 'com.brave.browser_beta'
+      args.chrome_public_manifest_package = 'com.adrbrowsiel.browser_beta'
       args.exclude_unwind_tables = false
     } else if (this.channel === 'dev') {
-      args.chrome_public_manifest_package = 'com.brave.browser_dev'
+      args.chrome_public_manifest_package = 'com.adrbrowsiel.browser_dev'
     } else if (this.channel === 'nightly') {
       args.android_channel = 'canary'
-      args.chrome_public_manifest_package = 'com.brave.browser_nightly'
+      args.chrome_public_manifest_package = 'com.adrbrowsiel.browser_nightly'
       args.exclude_unwind_tables = false
     }
 
@@ -340,8 +340,8 @@ Config.prototype.buildArgs = function () {
         this.targetAndroidOutputFormat || (this.buildConfig === 'Release' ? 'aab' : 'apk')
     args.android_override_version_name = this.androidOverrideVersionName
 
-    args.brave_android_developer_options_code = this.braveAndroidDeveloperOptionsCode
-    args.brave_safetynet_api_key = this.braveSafetyNetApiKey
+    args.adrbrowsiel_android_developer_options_code = this.adrbrowsielAndroidDeveloperOptionsCode
+    args.adrbrowsiel_safetynet_api_key = this.adrbrowsielSafetyNetApiKey
     args.enable_widevine = false
     args.safe_browsing_mode = 2
 
@@ -354,7 +354,7 @@ Config.prototype.buildArgs = function () {
       args.symbol_level = 1
     }
 
-    // Feed is not used in Brave
+    // Feed is not used in adrbrowsiel
     args.enable_feed_v2 = false
 
     // TODO(fixme)
@@ -391,7 +391,7 @@ Config.prototype.buildArgs = function () {
     args.fatal_linker_warnings = !this.isComponentBuild()
     // DCHECK's crash on Static builds without allowing the debugger to continue
     // Can be removed when approprioate DCHECK's have been fixed:
-    // https://github.com/brave/brave-browser/issues/10334
+    // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10334
     args.dcheck_always_on = this.isDebug()
 
     args.ios_enable_content_widget_extension = false
@@ -411,11 +411,11 @@ Config.prototype.buildArgs = function () {
     delete args.branding_path_component
     delete args.enable_widevine
     delete args.enable_hangout_services_extension
-    delete args.brave_google_api_endpoint
-    delete args.brave_google_api_key
-    delete args.brave_stats_api_key
-    delete args.brave_stats_updater_url
-    delete args.brave_infura_project_id
+    delete args.adrbrowsiel_google_api_endpoint
+    delete args.adrbrowsiel_google_api_key
+    delete args.adrbrowsiel_stats_api_key
+    delete args.adrbrowsiel_stats_updater_url
+    delete args.adrbrowsiel_infura_project_id
     delete args.binance_client_id
     delete args.ftx_client_id
     delete args.ftx_client_secret
@@ -433,13 +433,13 @@ Config.prototype.buildArgs = function () {
     delete args.webcompat_report_api_endpoint
     delete args.use_blink_v8_binding_new_idl_interface
     delete args.v8_enable_verify_heap
-    delete args.brave_variations_server_url
+    delete args.adrbrowsiel_variations_server_url
   }
 
   if (process.platform === 'win32') {
-    args.cc_wrapper = path.join(this.srcDir, 'brave', 'buildtools', 'win', 'redirect-cc', 'bin', 'redirect-cc.exe')
+    args.cc_wrapper = path.join(this.srcDir, 'adrbrowsiel', 'buildtools', 'win', 'redirect-cc', 'bin', 'redirect-cc.exe')
   } else {
-    args.cc_wrapper = path.join(this.srcDir, 'brave', 'script', 'redirect-cc.py')
+    args.cc_wrapper = path.join(this.srcDir, 'adrbrowsiel', 'script', 'redirect-cc.py')
   }
   return args
 }
@@ -452,7 +452,7 @@ Config.prototype.shouldSign = function () {
   }
 
   if (this.targetOS === 'android') {
-    return this.braveAndroidKeystorePath !== undefined
+    return this.adrbrowsielAndroidKeystorePath !== undefined
   }
 
   if (process.platform === 'darwin') {
@@ -565,19 +565,19 @@ Config.prototype.update = function (options) {
     this.gClientFile = options.gclient_file
   }
 
-  if (options.brave_google_api_key) {
-    this.braveGoogleApiKey = options.brave_google_api_key
+  if (options.adrbrowsiel_google_api_key) {
+    this.adrbrowsielGoogleApiKey = options.adrbrowsiel_google_api_key
   }
 
-  if (options.brave_safetynet_api_key) {
-    this.braveSafetyNetApiKey = options.brave_safetynet_api_key
+  if (options.adrbrowsiel_safetynet_api_key) {
+    this.adrbrowsielSafetyNetApiKey = options.adrbrowsiel_safetynet_api_key
   }
 
-  if (options.brave_google_api_endpoint) {
-    this.googleApiEndpoint = options.brave_google_api_endpoint
+  if (options.adrbrowsiel_google_api_endpoint) {
+    this.googleApiEndpoint = options.adrbrowsiel_google_api_endpoint
   }
 
-  if (options.brave_infura_project_id) {
+  if (options.adrbrowsiel_infura_project_id) {
     this.infuraProjectId = options.infura_project_id
   }
 
@@ -653,12 +653,12 @@ Config.prototype.update = function (options) {
     this.webcompatReportApiEndpoint = options.webcompat_report_api_endpoint
   }
 
-  if (options.brave_stats_api_key) {
-    this.braveStatsApiKey = options.brave_stats_api_key
+  if (options.adrbrowsiel_stats_api_key) {
+    this.adrbrowsielStatsApiKey = options.adrbrowsiel_stats_api_key
   }
 
-  if (options.brave_stats_updater_url) {
-    this.braveStatsUpdaterUrl = options.brave_stats_updater_url
+  if (options.adrbrowsiel_stats_updater_url) {
+    this.adrbrowsielStatsUpdaterUrl = options.adrbrowsiel_stats_updater_url
   }
 
   if (options.channel) {
@@ -707,7 +707,7 @@ Config.prototype.update = function (options) {
   if (options.xcode_gen) {
     assert(process.platform === 'darwin' || options.target_os === 'ios')
     if (options.xcode_gen === 'ios') {
-      this.xcode_gen_target = '//brave/vendor/brave-ios:*'
+      this.xcode_gen_target = '//adrbrowsiel/vendor/adrbrowsiel-ios:*'
     } else {
       this.xcode_gen_target = options.xcode_gen
     }
@@ -740,19 +740,19 @@ Object.defineProperty(Config.prototype, 'defaultOptions', {
   get: function () {
     let env = Object.assign({}, process.env)
     env = this.addPathToEnv(env, this.depotToolsDir, true)
-    env = this.addPythonPathToEnv(env, path.join(this.srcDir, 'brave', 'chromium_src', 'python_modules'))
-    env = this.addPythonPathToEnv(env, path.join(this.srcDir, 'brave', 'script'))
+    env = this.addPythonPathToEnv(env, path.join(this.srcDir, 'adrbrowsiel', 'chromium_src', 'python_modules'))
+    env = this.addPythonPathToEnv(env, path.join(this.srcDir, 'adrbrowsiel', 'script'))
     env = this.addPythonPathToEnv(env, path.join(this.srcDir, 'tools', 'grit', 'grit', 'extern'))
-    env = this.addPythonPathToEnv(env, path.join(this.srcDir, 'brave', 'vendor', 'requests'))
+    env = this.addPythonPathToEnv(env, path.join(this.srcDir, 'adrbrowsiel', 'vendor', 'requests'))
     env = this.addPythonPathToEnv(env, path.join(this.srcDir, 'build'))
     env = this.addPythonPathToEnv(env, path.join(this.srcDir, 'third_party', 'depot_tools'))
     env.GCLIENT_FILE = this.gClientFile
     env.DEPOT_TOOLS_WIN_TOOLCHAIN = '0'
     env.PYTHONUNBUFFERED = '1'
-    env.TARGET_ARCH = this.gypTargetArch // for brave scripts
+    env.TARGET_ARCH = this.gypTargetArch // for adrbrowsiel scripts
     env.GYP_MSVS_VERSION = env.GYP_MSVS_VERSION || '2017' // enable 2017
     if (this.channel != "") {
-      env.BRAVE_CHANNEL = this.channel
+      env.adrbrowsiel_CHANNEL = this.channel
     }
 
     if (this.getCachePath()) {

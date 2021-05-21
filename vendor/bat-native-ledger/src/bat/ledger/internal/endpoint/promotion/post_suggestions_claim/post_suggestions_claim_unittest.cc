@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -16,7 +16,7 @@
 #include "net/http/http_status_code.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=PostSuggestionsClaimTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=PostSuggestionsClaimTest.*
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -49,9 +49,9 @@ class PostSuggestionsClaimTest : public testing::Test {
         "6";  // NOLINT
     token.public_key = "dvpysTSiJdZUPihius7pvGOfngRWfDiIbrowykgMi1I=";
     redeem_ = std::make_unique<credential::CredentialsRedeem>();
-    redeem_->publisher_key = "brave.com";
+    redeem_->publisher_key = "adrbrowsiel.com";
     redeem_->type = type::RewardsType::ONE_TIME_TIP;
-    redeem_->processor = type::ContributionProcessor::BRAVE_TOKENS;
+    redeem_->processor = type::ContributionProcessor::adrbrowsiel_TOKENS;
     redeem_->token_list = {token};
     redeem_->order_id = "c4645786-052f-402f-8593-56af2f7a21ce";
     redeem_->contribution_id = "83b3b77b-e7c3-455b-adda-e476fa0656d2";
@@ -62,7 +62,7 @@ class PostSuggestionsClaimTest : public testing::Test {
       "payment_id":"fa5dea51-6af4-44ca-801b-07b6df3dcfe4",
       "recovery_seed":"AN6DLuI2iZzzDxpzywf+IKmK1nzFRarNswbaIDI3pQg="
     })";
-    ON_CALL(*mock_ledger_client_, GetEncryptedStringState(state::kWalletBrave))
+    ON_CALL(*mock_ledger_client_, GetEncryptedStringState(state::kWalletadrbrowsiel))
         .WillByDefault(testing::Return(wallet));
   }
 };

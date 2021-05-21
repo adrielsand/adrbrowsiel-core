@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_ad_block_tp_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_ad_block_tp_network_delegate_helper.h"
 
 #include <memory>
 #include <string>
@@ -13,15 +13,15 @@
 #include "base/base64url.h"
 #include "base/feature_list.h"
 #include "base/strings/string_util.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/brave_shields/brave_shields_web_contents_observer.h"
-#include "brave/browser/net/url_context.h"
-#include "brave/common/network_constants.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
-#include "brave/components/brave_shields/common/features.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer.h"
+#include "adrbrowsiel/browser/net/url_context.h"
+#include "adrbrowsiel/common/network_constants.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/features.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/net/secure_dns_config.h"
 #include "chrome/browser/net/system_network_context_manager.h"
 #include "content/public/browser/browser_context.h"
@@ -37,7 +37,7 @@
 #include "ui/base/resource/resource_bundle.h"
 #include "url/url_canon.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 network::HostResolver* g_testing_host_resolver;
 
@@ -56,7 +56,7 @@ struct EngineFlags {
 
 void UseCnameResult(scoped_refptr<base::SequencedTaskRunner> task_runner,
                     const ResponseCallback& next_callback,
-                    std::shared_ptr<BraveRequestInfo> ctx,
+                    std::shared_ptr<adrbrowsielRequestInfo> ctx,
                     EngineFlags previous_result,
                     base::Optional<std::string> cname);
 
@@ -70,7 +70,7 @@ class AdblockCnameResolveHostClient : public network::mojom::ResolveHostClient {
   AdblockCnameResolveHostClient(
       const ResponseCallback& next_callback,
       scoped_refptr<base::SequencedTaskRunner> task_runner,
-      std::shared_ptr<BraveRequestInfo> ctx,
+      std::shared_ptr<adrbrowsielRequestInfo> ctx,
       EngineFlags previous_result) {
     DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
     cb_ = base::BindOnce(&UseCnameResult, task_runner, std::move(next_callback),
@@ -118,7 +118,7 @@ class AdblockCnameResolveHostClient : public network::mojom::ResolveHostClient {
       int32_t result,
       const net::ResolveErrorInfo& resolve_error_info,
       const base::Optional<net::AddressList>& resolved_addresses) override {
-    UMA_HISTOGRAM_TIMES("Brave.ShieldsCNAMEBlocking.TotalResolutionTime",
+    UMA_HISTOGRAM_TIMES("adrbrowsiel.ShieldsCNAMEBlocking.TotalResolutionTime",
                         base::TimeTicks::Now() - start_time_);
     if (result == net::OK && resolved_addresses) {
       DCHECK(resolved_addresses.has_value() && !resolved_addresses->empty());
@@ -146,7 +146,7 @@ class AdblockCnameResolveHostClient : public network::mojom::ResolveHostClient {
 // response should be blocked. Otherwise, it will run the check for the
 // original request URL.
 EngineFlags ShouldBlockRequestOnTaskRunner(
-    std::shared_ptr<BraveRequestInfo> ctx,
+    std::shared_ptr<adrbrowsielRequestInfo> ctx,
     EngineFlags previous_result,
     base::Optional<GURL> canonical_url) {
   if (!ctx->initiator_url.is_valid()) {
@@ -161,7 +161,7 @@ EngineFlags ShouldBlockRequestOnTaskRunner(
     url_to_check = ctx->request_url;
   }
 
-  g_brave_browser_process->ad_block_service()->ShouldStartRequest(
+  g_adrbrowsiel_browser_process->ad_block_service()->ShouldStartRequest(
       url_to_check, ctx->resource_type, source_host,
       &previous_result.did_match_rule, &previous_result.did_match_exception,
       &previous_result.did_match_important, &ctx->mock_data_url);
@@ -179,12 +179,12 @@ void OnShouldBlockRequestResult(
     bool then_check_uncloaked,
     scoped_refptr<base::SequencedTaskRunner> task_runner,
     const ResponseCallback& next_callback,
-    std::shared_ptr<BraveRequestInfo> ctx,
+    std::shared_ptr<adrbrowsielRequestInfo> ctx,
     EngineFlags result) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   if (ctx->blocked_by == kAdBlocked) {
-    brave_shields::BraveShieldsWebContentsObserver::DispatchBlockedEvent(
-        ctx->request_url, ctx->frame_tree_node_id, brave_shields::kAds);
+    adrbrowsiel_shields::adrbrowsielShieldsWebContentsObserver::DispatchBlockedEvent(
+        ctx->request_url, ctx->frame_tree_node_id, adrbrowsiel_shields::kAds);
   } else if (then_check_uncloaked) {
     // This will be deleted by `AdblockCnameResolveHostClient::OnComplete`.
     new AdblockCnameResolveHostClient(std::move(next_callback), task_runner,
@@ -196,7 +196,7 @@ void OnShouldBlockRequestResult(
 
 void UseCnameResult(scoped_refptr<base::SequencedTaskRunner> task_runner,
                     const ResponseCallback& next_callback,
-                    std::shared_ptr<BraveRequestInfo> ctx,
+                    std::shared_ptr<adrbrowsielRequestInfo> ctx,
                     EngineFlags previous_result,
                     base::Optional<std::string> cname) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
@@ -220,14 +220,14 @@ void UseCnameResult(scoped_refptr<base::SequencedTaskRunner> task_runner,
 }
 
 void OnBeforeURLRequestAdBlockTP(const ResponseCallback& next_callback,
-                                 std::shared_ptr<BraveRequestInfo> ctx) {
+                                 std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   DCHECK_NE(ctx->request_identifier, 0UL);
   DCHECK(!ctx->request_url.is_empty());
   DCHECK(!ctx->initiator_url.is_empty());
 
   scoped_refptr<base::SequencedTaskRunner> task_runner =
-      g_brave_browser_process->ad_block_service()->GetTaskRunner();
+      g_adrbrowsiel_browser_process->ad_block_service()->GetTaskRunner();
 
   DCHECK(ctx->browser_context);
 
@@ -244,14 +244,14 @@ void OnBeforeURLRequestAdBlockTP(const ResponseCallback& next_callback,
 }
 
 int OnBeforeURLRequest_AdBlockTPPreWork(const ResponseCallback& next_callback,
-                                        std::shared_ptr<BraveRequestInfo> ctx) {
+                                        std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   // If the following info isn't available, then proper content settings can't
   // be looked up, so do nothing.
   if (ctx->request_url.is_empty() ||
       ctx->request_url.SchemeIs(content::kChromeDevToolsScheme) ||
       ctx->initiator_url.is_empty() || !ctx->initiator_url.has_host() ||
-      !ctx->allow_brave_shields || ctx->allow_ads ||
-      ctx->resource_type == BraveRequestInfo::kInvalidResourceType) {
+      !ctx->allow_adrbrowsiel_shields || ctx->allow_ads ||
+      ctx->resource_type == adrbrowsielRequestInfo::kInvalidResourceType) {
     return net::OK;
   }
 
@@ -259,7 +259,7 @@ int OnBeforeURLRequest_AdBlockTPPreWork(const ResponseCallback& next_callback,
   // request from an extension.
   if (ctx->initiator_url.SchemeIs(kChromeExtensionScheme) &&
       !base::FeatureList::IsEnabled(
-          ::brave_shields::features::kBraveExtensionNetworkBlocking)) {
+          ::adrbrowsiel_shields::features::kadrbrowsielExtensionNetworkBlocking)) {
     return net::OK;
   }
 
@@ -275,4 +275,4 @@ int OnBeforeURLRequest_AdBlockTPPreWork(const ResponseCallback& next_callback,
   return net::ERR_IO_PENDING;
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -25,7 +25,7 @@
 #include "base/threading/thread_task_runner_handle.h"
 #include "base/time/time.h"
 #include "base/values.h"
-#include "brave/net/decentralized_dns/constants.h"
+#include "adrbrowsiel/net/decentralized_dns/constants.h"
 #include "net/base/ip_address.h"
 #include "net/base/port_util.h"
 #include "net/base/upload_bytes_element_reader.h"
@@ -944,14 +944,14 @@ static const uint8_t kTestEthResponseDatagram[] = {
     0x00, 0x01, 0x00, 0x01, 0xc0, 0x0c, 0x00, 0x01, 0x00, 0x01, 0x00,
     0x00, 0x00, 0xa2, 0x00, 0x04, 0x8e, 0xfa, 0x48, 0xc4};
 
-class BraveDnsTransactionTest : public DnsTransactionTestBase,
+class adrbrowsielDnsTransactionTest : public DnsTransactionTestBase,
                                 public WithTaskEnvironment {
  public:
-  BraveDnsTransactionTest() = default;
+  adrbrowsielDnsTransactionTest() = default;
 
-  ~BraveDnsTransactionTest() override = default;
+  ~adrbrowsielDnsTransactionTest() override = default;
 
-  void BraveConfigureDohServers(bool user_doh_server) {
+  void adrbrowsielConfigureDohServers(bool user_doh_server) {
     GURL url(decentralized_dns::kUnstoppableDomainsDoHResolver);
     URLRequestFilter* filter = URLRequestFilter::GetInstance();
     filter->AddHostnameInterceptor(url.scheme(), url.host(),
@@ -981,9 +981,9 @@ class BraveDnsTransactionTest : public DnsTransactionTestBase,
   }
 };
 
-TEST_F(BraveDnsTransactionTest,
+TEST_F(adrbrowsielDnsTransactionTest,
        SkipDecentralizedDNSResolversForNonTargetTLDsWithoutUserDoHServer) {
-  BraveConfigureDohServers(false);
+  adrbrowsielConfigureDohServers(false);
   EXPECT_TRUE(resolve_context_->GetDohServerAvailability(
       0u /* doh_server_index */, session_.get()));
   EXPECT_TRUE(resolve_context_->GetDohServerAvailability(
@@ -994,9 +994,9 @@ TEST_F(BraveDnsTransactionTest,
   helper0.RunUntilComplete();
 }
 
-TEST_F(BraveDnsTransactionTest,
+TEST_F(adrbrowsielDnsTransactionTest,
        SkipDecentralizedDNSResolversForNonTargetTLDsWithUserDoHServer) {
-  BraveConfigureDohServers(true);
+  adrbrowsielConfigureDohServers(true);
   AddQueryAndResponse(0, kT0HostName, kT0Qtype, kT0ResponseDatagram,
                       base::size(kT0ResponseDatagram), SYNCHRONOUS,
                       Transport::HTTPS, nullptr /* opt_rdata */,
@@ -1008,9 +1008,9 @@ TEST_F(BraveDnsTransactionTest,
   helper0.RunUntilComplete();
 }
 
-TEST_F(BraveDnsTransactionTest,
+TEST_F(adrbrowsielDnsTransactionTest,
        UseUDResolverForCryptoDomainsWithoutUserDoHServer) {
-  BraveConfigureDohServers(false);
+  adrbrowsielConfigureDohServers(false);
   AddQueryAndResponse(
       0, kTestCryptoHostName, dns_protocol::kTypeA, kTestCryptoResponseDatagram,
       base::size(kTestCryptoResponseDatagram), SYNCHRONOUS, Transport::HTTPS,
@@ -1023,9 +1023,9 @@ TEST_F(BraveDnsTransactionTest,
   helper0.RunUntilComplete();
 }
 
-TEST_F(BraveDnsTransactionTest,
+TEST_F(adrbrowsielDnsTransactionTest,
        UseUDResolverForCryptoDomainsWithUserDoHServer) {
-  BraveConfigureDohServers(true);
+  adrbrowsielConfigureDohServers(true);
   AddQueryAndResponse(
       0, kTestCryptoHostName, dns_protocol::kTypeA, kTestCryptoResponseDatagram,
       base::size(kTestCryptoResponseDatagram), SYNCHRONOUS, Transport::HTTPS,
@@ -1038,9 +1038,9 @@ TEST_F(BraveDnsTransactionTest,
   helper0.RunUntilComplete();
 }
 
-TEST_F(BraveDnsTransactionTest,
+TEST_F(adrbrowsielDnsTransactionTest,
        UseENSResolverForEthDomainsWithoutUserDoHServer) {
-  BraveConfigureDohServers(false);
+  adrbrowsielConfigureDohServers(false);
   AddQueryAndResponse(
       0, kTestEthHostName, dns_protocol::kTypeA, kTestEthResponseDatagram,
       base::size(kTestEthResponseDatagram), SYNCHRONOUS, Transport::HTTPS,
@@ -1053,8 +1053,8 @@ TEST_F(BraveDnsTransactionTest,
   helper0.RunUntilComplete();
 }
 
-TEST_F(BraveDnsTransactionTest, UseENSResolverForEthDomainsWithUserDoHServer) {
-  BraveConfigureDohServers(false);
+TEST_F(adrbrowsielDnsTransactionTest, UseENSResolverForEthDomainsWithUserDoHServer) {
+  adrbrowsielConfigureDohServers(false);
   AddQueryAndResponse(
       0, kTestEthHostName, dns_protocol::kTypeA, kTestEthResponseDatagram,
       base::size(kTestEthResponseDatagram), SYNCHRONOUS, Transport::HTTPS,

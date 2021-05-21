@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,8 +12,8 @@ namespace p2a {
 
 namespace {
 const char kOpportunityQuestionPrefix[] =
-    "Brave.P2A.AdOpportunitiesPerSegment.";
-const char kImpressionQuestionPrefix[] = "Brave.P2A.AdImpressionsPerSegment.";
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.";
+const char kImpressionQuestionPrefix[] = "adrbrowsiel.P2A.AdImpressionsPerSegment.";
 }  // namespace
 
 std::vector<std::string> CreateAdOpportunityQuestionList(
@@ -33,7 +33,7 @@ std::vector<std::string> CreateAdOpportunityQuestionList(
     questions.push_back(question);
   }
 
-  questions.push_back("Brave.P2A.TotalAdOpportunities");
+  questions.push_back("adrbrowsiel.P2A.TotalAdOpportunities");
 
   return questions;
 }
@@ -54,7 +54,7 @@ std::vector<std::string> CreateAdImpressionQuestionList(
     questions.push_back(question);
   }
 
-  questions.push_back("Brave.P2A.TotalAdImpressions");
+  questions.push_back("adrbrowsiel.P2A.TotalAdImpressions");
 
   return questions;
 }

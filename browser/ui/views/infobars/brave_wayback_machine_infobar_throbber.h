@@ -1,25 +1,25 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_INFOBARS_BRAVE_WAYBACK_MACHINE_INFOBAR_THROBBER_H_
-#define BRAVE_BROWSER_UI_VIEWS_INFOBARS_BRAVE_WAYBACK_MACHINE_INFOBAR_THROBBER_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_INFOBARS_adrbrowsiel_WAYBACK_MACHINE_INFOBAR_THROBBER_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_INFOBARS_adrbrowsiel_WAYBACK_MACHINE_INFOBAR_THROBBER_H_
 
 #include "base/time/time.h"
 #include "base/timer/timer.h"
 #include "ui/views/view.h"
 
 // White throbber. Most of codes are copied from views::Throbber.
-class BraveWaybackMachineInfoBarThrobber : public views::View {
+class adrbrowsielWaybackMachineInfoBarThrobber : public views::View {
  public:
-  BraveWaybackMachineInfoBarThrobber();
-  ~BraveWaybackMachineInfoBarThrobber() override;
+  adrbrowsielWaybackMachineInfoBarThrobber();
+  ~adrbrowsielWaybackMachineInfoBarThrobber() override;
 
-  BraveWaybackMachineInfoBarThrobber(
-      const BraveWaybackMachineInfoBarThrobber&) = delete;
-  BraveWaybackMachineInfoBarThrobber& operator=(
-      const BraveWaybackMachineInfoBarThrobber&) = delete;
+  adrbrowsielWaybackMachineInfoBarThrobber(
+      const adrbrowsielWaybackMachineInfoBarThrobber&) = delete;
+  adrbrowsielWaybackMachineInfoBarThrobber& operator=(
+      const adrbrowsielWaybackMachineInfoBarThrobber&) = delete;
 
   // Start and stop the throbber animation.
   void Start();
@@ -36,4 +36,4 @@ class BraveWaybackMachineInfoBarThrobber : public views::View {
   base::RepeatingTimer timer_;  // Used to schedule Run calls.
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_INFOBARS_BRAVE_WAYBACK_MACHINE_INFOBAR_THROBBER_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_INFOBARS_adrbrowsiel_WAYBACK_MACHINE_INFOBAR_THROBBER_H_

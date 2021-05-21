@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/bookmark/brave_bookmark_tab_helper.h"
+#include "adrbrowsiel/browser/ui/bookmark/adrbrowsiel_bookmark_tab_helper.h"
 
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/search/search.h"
 #include "chrome/browser/ui/webui/new_tab_page/new_tab_page_ui.h"
@@ -33,24 +33,24 @@ bool IsNTP(content::WebContents* web_contents) {
 
 }  // namespace
 
-BraveBookmarkTabHelper::BraveBookmarkTabHelper(
+adrbrowsielBookmarkTabHelper::adrbrowsielBookmarkTabHelper(
     content::WebContents* web_contents)
     : web_contents_(web_contents) {
 }
 
-BraveBookmarkTabHelper::~BraveBookmarkTabHelper() {
+adrbrowsielBookmarkTabHelper::~adrbrowsielBookmarkTabHelper() {
 }
 
-void BraveBookmarkTabHelper::AddObserver(BookmarkTabHelperObserver* observer) {
+void adrbrowsielBookmarkTabHelper::AddObserver(BookmarkTabHelperObserver* observer) {
   BookmarkTabHelper::FromWebContents(web_contents_)->AddObserver(observer);
 }
 
-void BraveBookmarkTabHelper::RemoveObserver(
+void adrbrowsielBookmarkTabHelper::RemoveObserver(
     BookmarkTabHelperObserver* observer) {
   BookmarkTabHelper::FromWebContents(web_contents_)->RemoveObserver(observer);
 }
 
-bool BraveBookmarkTabHelper::ShouldShowBookmarkBar() {
+bool adrbrowsielBookmarkTabHelper::ShouldShowBookmarkBar() {
   BookmarkTabHelper* helper =
       BookmarkTabHelper::FromWebContents(web_contents_);
   if (!helper)
@@ -74,4 +74,4 @@ bool BraveBookmarkTabHelper::ShouldShowBookmarkBar() {
   return helper->ShouldShowBookmarkBar();
 }
 
-WEB_CONTENTS_USER_DATA_KEY_IMPL(BraveBookmarkTabHelper)
+WEB_CONTENTS_USER_DATA_KEY_IMPL(adrbrowsielBookmarkTabHelper)

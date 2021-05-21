@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--* Copyright (c) 2019 The Brave Authors. All rights reserved.
+<!--* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -9,14 +9,14 @@
 
     <org.chromium.components.browser_ui.settings.ChromeSwitchPreference
         android:key="ads_switch"
-        android:title="@string/show_ads_when_brave_is_not_in_use"
+        android:title="@string/show_ads_when_adrbrowsiel_is_not_in_use"
         android:summaryOn="@string/text_on"
         android:summaryOff="@string/text_off" />
 
-    <org.chromium.chrome.browser.settings.BraveRewardsResetPreference
+    <org.chromium.chrome.browser.settings.adrbrowsielRewardsResetPreference
         android:key="reset_rewards"
-        android:title="@string/reset_brave_rewards_option"
-        android:positiveButtonText="@string/brave_sync_confirm_code_words_text"
+        android:title="@string/reset_adrbrowsiel_rewards_option"
+        android:positiveButtonText="@string/adrbrowsiel_sync_confirm_code_words_text"
         android:negativeButtonText="@string/cancel"  />
 
 </PreferenceScreen>

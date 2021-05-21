@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/search_engines/search_engine_tracker.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_tracker.h"
 
 #include "base/metrics/histogram_macros.h"
 #include "base/strings/string_util.h"
@@ -14,7 +14,7 @@
 namespace {
 
 // Deduces the search engine from |type|, if nothing is found - from |url|.
-// Not all engines added by Brave are present in |SearchEngineType| enumeration.
+// Not all engines added by adrbrowsiel are present in |SearchEngineType| enumeration.
 void RecordSearchEngineP3A(const GURL& search_engine_url,
                            SearchEngineType type) {
   SearchEngineP3A answer = SearchEngineP3A::kOther;

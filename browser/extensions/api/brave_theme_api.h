@@ -1,42 +1,42 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_API_BRAVE_THEME_API_H_
-#define BRAVE_BROWSER_EXTENSIONS_API_BRAVE_THEME_API_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_THEME_API_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_THEME_API_H_
 
 #include "extensions/browser/extension_function.h"
 
 namespace extensions {
 namespace api {
 
-class BraveThemeGetBraveThemeListFunction : public ExtensionFunction {
+class adrbrowsielThemeGetadrbrowsielThemeListFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveTheme.getBraveThemeList", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielTheme.getadrbrowsielThemeList", UNKNOWN)
 
  protected:
-  ~BraveThemeGetBraveThemeListFunction() override {}
+  ~adrbrowsielThemeGetadrbrowsielThemeListFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveThemeGetBraveThemeTypeFunction : public ExtensionFunction {
+class adrbrowsielThemeGetadrbrowsielThemeTypeFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveTheme.getBraveThemeType", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielTheme.getadrbrowsielThemeType", UNKNOWN)
 
  protected:
-  ~BraveThemeGetBraveThemeTypeFunction() override {}
+  ~adrbrowsielThemeGetadrbrowsielThemeTypeFunction() override {}
 
   ResponseAction Run() override;
 };
 
-class BraveThemeSetBraveThemeTypeFunction : public ExtensionFunction {
+class adrbrowsielThemeSetadrbrowsielThemeTypeFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveTheme.setBraveThemeType", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielTheme.setadrbrowsielThemeType", UNKNOWN)
 
  protected:
-  ~BraveThemeSetBraveThemeTypeFunction() override {}
+  ~adrbrowsielThemeSetadrbrowsielThemeTypeFunction() override {}
 
   ResponseAction Run() override;
 };
@@ -44,4 +44,4 @@ class BraveThemeSetBraveThemeTypeFunction : public ExtensionFunction {
 }  // namespace api
 }  // namespace extensions
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_API_BRAVE_THEME_API_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_THEME_API_H_

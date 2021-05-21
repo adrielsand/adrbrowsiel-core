@@ -1,9 +1,9 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/ftx/ftx_protocol_handler.h"
+#include "adrbrowsiel/browser/ftx/ftx_protocol_handler.h"
 
 #include <map>
 #include <string>
@@ -12,9 +12,9 @@
 #include "base/strings/strcat.h"
 #include "base/strings/string_util.h"
 #include "base/task/post_task.h"
-#include "brave/browser/ftx/ftx_service_factory.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/ftx/browser/ftx_service.h"
+#include "adrbrowsiel/browser/ftx/ftx_service_factory.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/ftx/browser/ftx_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "components/user_prefs/user_prefs.h"
 #include "content/public/browser/browser_task_traits.h"

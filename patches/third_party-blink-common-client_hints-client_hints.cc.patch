@@ -6,7 +6,7 @@ index 06b3138bfcd167651c01b2782e1a4df7f411f297..cd913c6e36fea67b1da5c8a9695129b6
  }
  
  bool IsClientHintSentByDefault(network::mojom::WebClientHintsType type) {
-+  BRAVE_CLIENT_HINTS_IS_CLIENT_HINT_SENT_BY_DEFAULT
++  adrbrowsiel_CLIENT_HINTS_IS_CLIENT_HINT_SENT_BY_DEFAULT
    return (type == network::mojom::WebClientHintsType::kUA ||
            type == network::mojom::WebClientHintsType::kUAMobile);
  }

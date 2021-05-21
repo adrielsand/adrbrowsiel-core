@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
- * 'settings-social-blocking-page' is the settings page containing brave's
+ * 'settings-social-blocking-page' is the settings page containing adrbrowsiel's
  * social blocking options
  */
 Polymer({

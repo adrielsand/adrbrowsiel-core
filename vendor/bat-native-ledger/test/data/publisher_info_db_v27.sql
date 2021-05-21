@@ -199,10 +199,10 @@ INSERT INTO "publisher_info" VALUES ('laurenwags.github.io',0,'laurenwags.github
 INSERT INTO "server_publisher_info" VALUES ('laurenwags.github.io',2,0,'096f1756-9406-4d9b-94c8-5bb566c2ea5f');
 INSERT INTO "server_publisher_info" VALUES ('wikipedia.org',0,0,'');
 INSERT INTO "server_publisher_info" VALUES ('site1.com',1,0,'');
-INSERT INTO "server_publisher_banner" VALUES ('laurenwags.github.io','Staging Banner Test','Lorem ipsum dolor sit amet, sale homero neglegentur ei vix, quo no tacimates vituperatoribus. Per elit luptatum temporibus ad, cibo minimum quaerendum no nec, atqui corpora complectitur te sed. Per ne vulputate neglegentur, id nec alia affert aperiri. Ea melius deserunt pro. Officiis sadipscing at nam, adhuc populo atomorum est.','chrome://rewards-image/https://rewards-stg.bravesoftware.com/xrEJASVGN9nQ5zJUnmoCxjEE','chrome://rewards-image/https://rewards-stg.bravesoftware.com/8eT9LXcpK3D795YHxvDdhrmg');
+INSERT INTO "server_publisher_banner" VALUES ('laurenwags.github.io','Staging Banner Test','Lorem ipsum dolor sit amet, sale homero neglegentur ei vix, quo no tacimates vituperatoribus. Per elit luptatum temporibus ad, cibo minimum quaerendum no nec, atqui corpora complectitur te sed. Per ne vulputate neglegentur, id nec alia affert aperiri. Ea melius deserunt pro. Officiis sadipscing at nam, adhuc populo atomorum est.','chrome://rewards-image/https://rewards-stg.adrbrowsielsoftware.com/xrEJASVGN9nQ5zJUnmoCxjEE','chrome://rewards-image/https://rewards-stg.adrbrowsielsoftware.com/8eT9LXcpK3D795YHxvDdhrmg');
 INSERT INTO "server_publisher_banner" VALUES ('site1.com','Site 1 Banner','Banner test','','');
 INSERT INTO "server_publisher_links" VALUES ('laurenwags.github.io','twitch','https://www.twitch.tv/laurenwags');
-INSERT INTO "server_publisher_links" VALUES ('laurenwags.github.io','twitter','https://twitter.com/bravelaurenwags');
+INSERT INTO "server_publisher_links" VALUES ('laurenwags.github.io','twitter','https://twitter.com/adrbrowsiellaurenwags');
 INSERT INTO "server_publisher_links" VALUES ('laurenwags.github.io','youtube','https://www.youtube.com/channel/UCCs7AQEDwrHEc86r0NNXE_A/videos');
 INSERT INTO "server_publisher_links" VALUES ('site1.com','twitter','https://twitter.com/site1');
 INSERT INTO "server_publisher_amounts" VALUES ('laurenwags.github.io',5.0);

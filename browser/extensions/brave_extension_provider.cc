@@ -1,19 +1,19 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/brave_extension_provider.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_extension_provider.h"
 
 #include <algorithm>
 #include <string>
 #include <vector>
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/components/brave_component_updater/browser/extension_whitelist_service.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/extension_whitelist_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "extensions/common/constants.h"
 #include "ui/base/l10n/l10n_util.h"
 
@@ -25,7 +25,7 @@ bool IsBlacklisted(const extensions::Extension* extension) {
   // the files managed by the extension whitelist service.
   static std::vector<std::string> blacklisted_extensions(
       {// Used for tests, corresponds to
-       // brave/test/data/should-be-blocked-extension.
+       // adrbrowsiel/test/data/should-be-blocked-extension.
        "mlklomjnahgiddgfdgjhibinlfibfffc",
      });
 
@@ -33,7 +33,7 @@ bool IsBlacklisted(const extensions::Extension* extension) {
                 extension->id()) != blacklisted_extensions.end())
     return true;
 
-  return g_brave_browser_process->extension_whitelist_service()->IsBlacklisted(
+  return g_adrbrowsiel_browser_process->extension_whitelist_service()->IsBlacklisted(
       extension->id());
 }
 
@@ -41,24 +41,24 @@ bool IsBlacklisted(const extensions::Extension* extension) {
 
 namespace extensions {
 
-BraveExtensionProvider::BraveExtensionProvider() {}
+adrbrowsielExtensionProvider::adrbrowsielExtensionProvider() {}
 
-BraveExtensionProvider::~BraveExtensionProvider() {}
+adrbrowsielExtensionProvider::~adrbrowsielExtensionProvider() {}
 
-std::string BraveExtensionProvider::GetDebugPolicyProviderName() const {
+std::string adrbrowsielExtensionProvider::GetDebugPolicyProviderName() const {
 #if defined(NDEBUG)
   NOTREACHED();
   return std::string();
 #else
-  return "Brave Extension Provider";
+  return "adrbrowsiel Extension Provider";
 #endif
 }
 
-bool BraveExtensionProvider::UserMayLoad(const Extension* extension,
+bool adrbrowsielExtensionProvider::UserMayLoad(const Extension* extension,
                                          std::u16string* error) const {
   if (IsBlacklisted(extension)) {
     if (error) {
-      *error = l10n_util::GetStringFUTF16(IDS_EXTENSION_CANT_INSTALL_ON_BRAVE,
+      *error = l10n_util::GetStringFUTF16(IDS_EXTENSION_CANT_INSTALL_ON_adrbrowsiel,
                                           base::UTF8ToUTF16(extension->name()),
                                           base::UTF8ToUTF16(extension->id()));
     }
@@ -70,10 +70,10 @@ bool BraveExtensionProvider::UserMayLoad(const Extension* extension,
   return true;
 }
 
-bool BraveExtensionProvider::MustRemainInstalled(const Extension* extension,
+bool adrbrowsielExtensionProvider::MustRemainInstalled(const Extension* extension,
                                                  std::u16string* error) const {
-  return extension->id() == brave_extension_id ||
-         extension->id() == brave_rewards_extension_id;
+  return extension->id() == adrbrowsiel_extension_id ||
+         extension->id() == adrbrowsiel_rewards_extension_id;
 }
 
 }  // namespace extensions

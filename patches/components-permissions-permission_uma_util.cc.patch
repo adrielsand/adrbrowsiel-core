@@ -6,7 +6,7 @@ index e7f4572d2992fce8f72e23ce89c22bdaea49cf59..1ad45ad5c0949add8f817b1eead6a6d7
      case RequestType::kWindowPlacement:
        return RequestTypeForUma::PERMISSION_WINDOW_PLACEMENT;
  #endif
-+    BRAVE_GET_UMA_VALUE_FOR_REQUEST_TYPE
++    adrbrowsiel_GET_UMA_VALUE_FOR_REQUEST_TYPE
    }
  }
  

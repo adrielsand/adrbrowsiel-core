@@ -6,7 +6,7 @@ index 5c150b1b020eeabe061e4837a95e772cd70b5372..661ece94ac23347c29793f7b595aabea
      "//ui/webui/resources/cr_components/customize_themes:mojom",
      "//v8:v8_version",
    ]
-+  deps+= [ "//brave/browser/ui" ]
++  deps+= [ "//adrbrowsiel/browser/ui" ]
  
    # TODO(crbug/925153): Remove this circular dependency.
    allow_circular_includes_from = [
@@ -19,7 +19,7 @@ index 5c150b1b020eeabe061e4837a95e772cd70b5372..661ece94ac23347c29793f7b595aabea
 -        "webui/help/version_updater_basic.h",
 -      ]
 +      if (!is_official_build) {
-+        # In official build, //brave/browser/ui handles.
++        # In official build, //adrbrowsiel/browser/ui handles.
 +        sources += [
 +          "webui/help/version_updater_basic.cc",
 +          "webui/help/version_updater_basic.h",

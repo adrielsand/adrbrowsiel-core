@@ -6,7 +6,7 @@
 #import "ledger.mojom.objc.h"
 #import "Enums.h"
 
-@class BATBraveLedger, BATRewardsNotification;
+@class BATadrbrowsielLedger, BATRewardsNotification;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,11 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// screen
 OBJC_EXPORT 
 NS_SWIFT_NAME(LedgerObserver)
-@interface BATBraveLedgerObserver : NSObject
+@interface BATadrbrowsielLedgerObserver : NSObject
 
-@property (nonatomic, readonly, weak) BATBraveLedger *ledger;
+@property (nonatomic, readonly, weak) BATadrbrowsielLedger *ledger;
 
-- (instancetype)initWithLedger:(BATBraveLedger *)ledger;
+- (instancetype)initWithLedger:(BATadrbrowsielLedger *)ledger;
 
 /// Executed when the wallet is first initialized
 @property (nonatomic, copy, nullable) void (^walletInitalized)(BATResult result);

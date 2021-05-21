@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,7 +10,7 @@
 #include "bat/ads/internal/unittest_util.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 
@@ -95,12 +95,12 @@ TEST_F(BatAdsRequestSignedTokensUrlRequestBuilderTest, BuildUrlForRPill) {
   // Assert
   UrlRequestPtr expected_url_request = UrlRequest::New();
   expected_url_request->url =
-      R"(https://ads-serve.brave.software/v1/confirmation/token/d4ed0af0-bfa9-464b-abd7-67b29d891b8b)";
+      R"(https://ads-serve.adrbrowsiel.software/v1/confirmation/token/d4ed0af0-bfa9-464b-abd7-67b29d891b8b)";
   expected_url_request->headers = {
       R"(digest: SHA-256=Sxq6H/YDThn/m2RSXsTzewSzKfAuGLh09w7m59VBYwU=)",
       R"(signature: keyId="primary",algorithm="ed25519",headers="digest",signature="zImEsG3U2K2jROcUOerWMgzA+LyEoDqqYcr9svpnaEDNOYLzGn67qiz+HIFlqSjzy6Q9RPdU+h3VaFrIspsfCQ==")",
       R"(content-type: application/json)",
-      R"(Via: 1.1 brave, 1.1 ads-serve.brave.com (Apache/1.1))",
+      R"(Via: 1.1 adrbrowsiel, 1.1 ads-serve.adrbrowsiel.com (Apache/1.1))",
       R"(accept: application/json)"};
   expected_url_request->content =
       R"({"blindedTokens":["iEK4BXJINfAa0kzgpnnukGUAHvH5303+Y/msR5+u/nY=","eAAv7FNH2twpELsYf3glHLlOhnnlIMovIeEgEmcjgyo=","1G0+8546Y6jCIUXG0cKJq0qpkd6NsnG+4w9oSVW3gH8="]})";
@@ -134,12 +134,12 @@ TEST_F(BatAdsRequestSignedTokensUrlRequestBuilderTest, BuildUrlForBPill) {
   // Assert
   UrlRequestPtr expected_url_request = UrlRequest::New();
   expected_url_request->url =
-      R"(https://ads-serve.brave.software/v1/confirmation/token/d4ed0af0-bfa9-464b-abd7-67b29d891b8b)";
+      R"(https://ads-serve.adrbrowsiel.software/v1/confirmation/token/d4ed0af0-bfa9-464b-abd7-67b29d891b8b)";
   expected_url_request->headers = {
       R"(digest: SHA-256=Sxq6H/YDThn/m2RSXsTzewSzKfAuGLh09w7m59VBYwU=)",
       R"(signature: keyId="primary",algorithm="ed25519",headers="digest",signature="zImEsG3U2K2jROcUOerWMgzA+LyEoDqqYcr9svpnaEDNOYLzGn67qiz+HIFlqSjzy6Q9RPdU+h3VaFrIspsfCQ==")",
       R"(content-type: application/json)",
-      R"(Via: 1.0 brave, 1.1 ads-serve.brave.com (Apache/1.1))",
+      R"(Via: 1.0 adrbrowsiel, 1.1 ads-serve.adrbrowsiel.com (Apache/1.1))",
       R"(accept: application/json)"};
   expected_url_request->content =
       R"({"blindedTokens":["iEK4BXJINfAa0kzgpnnukGUAHvH5303+Y/msR5+u/nY=","eAAv7FNH2twpELsYf3glHLlOhnnlIMovIeEgEmcjgyo=","1G0+8546Y6jCIUXG0cKJq0qpkd6NsnG+4w9oSVW3gH8="]})";

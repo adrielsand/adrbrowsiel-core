@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_VENDOR_BAT_NATIVE_LEDGER_SRC_BAT_LEDGER_INTERNAL_LEDGER_IMPL_H_
-#define BRAVE_VENDOR_BAT_NATIVE_LEDGER_SRC_BAT_LEDGER_INTERNAL_LEDGER_IMPL_H_
+#ifndef adrbrowsiel_VENDOR_BAT_NATIVE_LEDGER_SRC_BAT_LEDGER_INTERNAL_LEDGER_IMPL_H_
+#define adrbrowsiel_VENDOR_BAT_NATIVE_LEDGER_SRC_BAT_LEDGER_INTERNAL_LEDGER_IMPL_H_
 
 #include <stdint.h>
 
@@ -62,7 +62,7 @@ class LedgerImpl : public ledger::Ledger {
 
   publisher::Publisher* publisher() const;
 
-  braveledger_media::Media* media() const;
+  adrbrowsielledger_media::Media* media() const;
 
   contribution::Contribution* contribution() const;
 
@@ -354,11 +354,11 @@ class LedgerImpl : public ledger::Ledger {
 
   void GetEventLogs(ledger::GetEventLogsCallback callback) override;
 
-  void GetBraveWallet(GetBraveWalletCallback callback) override;
+  void GetadrbrowsielWallet(GetadrbrowsielWalletCallback callback) override;
 
   std::string GetWalletPassphrase() const override;
 
-  void LinkBraveWallet(const std::string& destination_payment_id,
+  void LinkadrbrowsielWallet(const std::string& destination_payment_id,
                        PostSuggestionsClaimCallback callback) override;
 
   void GetTransferableAmount(GetTransferableAmountCallback callback) override;
@@ -374,7 +374,7 @@ class LedgerImpl : public ledger::Ledger {
   std::unique_ptr<BATLedgerContext> context_;
   std::unique_ptr<promotion::Promotion> promotion_;
   std::unique_ptr<publisher::Publisher> publisher_;
-  std::unique_ptr<braveledger_media::Media> media_;
+  std::unique_ptr<adrbrowsielledger_media::Media> media_;
   std::unique_ptr<contribution::Contribution> contribution_;
   std::unique_ptr<wallet::Wallet> wallet_;
   std::unique_ptr<database::Database> database_;
@@ -398,4 +398,4 @@ class LedgerImpl : public ledger::Ledger {
 
 }  // namespace ledger
 
-#endif  // BRAVE_VENDOR_BAT_NATIVE_LEDGER_SRC_BAT_LEDGER_INTERNAL_LEDGER_IMPL_H_
+#endif  // adrbrowsiel_VENDOR_BAT_NATIVE_LEDGER_SRC_BAT_LEDGER_INTERNAL_LEDGER_IMPL_H_

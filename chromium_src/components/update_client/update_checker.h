@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_CHROMIUM_SRC_COMPONENTS_UPDATE_CLIENT_UPDATE_CHECKER_H_
-#define BRAVE_CHROMIUM_SRC_COMPONENTS_UPDATE_CLIENT_UPDATE_CHECKER_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_COMPONENTS_UPDATE_CLIENT_UPDATE_CHECKER_H_
+#define adrbrowsiel_CHROMIUM_SRC_COMPONENTS_UPDATE_CLIENT_UPDATE_CHECKER_H_
 
 #include "../../../../components/update_client/update_checker.h"
 
@@ -27,12 +27,12 @@ namespace update_client {
 // update request for each component, instead of one request for all components.
 // We do for the following reason:
 // Google's ToS do not allow distributing all components. In particular, the
-// Widevine plugin must be fetched from Google servers. Brave's update server
+// Widevine plugin must be fetched from Google servers. adrbrowsiel's update server
 // for components handles this as follows: When an update for a Google
 // component is requested, the server responds with a HTTP redirect to
 // Google's server. The problem is that this only works for update requests
 // for single components. But Chromium's default implementation sends a list of
-// components in one request, which in Brave's case is a mix of Google and Brave
+// components in one request, which in adrbrowsiel's case is a mix of Google and adrbrowsiel
 // components. To solve this, we overwrite Chromium's implementation to perform
 // separate update requests instead.
 class SequentialUpdateChecker : public UpdateChecker {
@@ -92,4 +92,4 @@ class SequentialUpdateChecker : public UpdateChecker {
 
 }  // namespace update_client
 
-#endif  // BRAVE_CHROMIUM_SRC_COMPONENTS_UPDATE_CLIENT_UPDATE_CHECKER_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_COMPONENTS_UPDATE_CLIENT_UPDATE_CHECKER_H_

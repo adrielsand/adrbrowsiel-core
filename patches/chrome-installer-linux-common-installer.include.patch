@@ -14,8 +14,8 @@ index 64f7e3b68b1ce58ed9f104f88362be9946a3f3b5..8a0f61d23693660bd40de9355e2a71bd
      install -m 644 "${OUTPUTDIR}/ui_resources_100_percent.pak" "${STAGEDIR}/${INSTALLDIR}/"
    fi
  
-+  source "${OUTPUTDIR}/installer/common/brave_installer.include"
-+  brave_stage_install_common
++  source "${OUTPUTDIR}/installer/common/adrbrowsiel_installer.include"
++  adrbrowsiel_stage_install_common
    # ICU data file; Necessary when the GN icu_use_data_file flag is true.
    install -m 644 "${OUTPUTDIR}/icudtl.dat" "${STAGEDIR}/${INSTALLDIR}/"
  
@@ -24,7 +24,7 @@ index 64f7e3b68b1ce58ed9f104f88362be9946a3f3b5..8a0f61d23693660bd40de9355e2a71bd
    # app icons
    local icon_regex=".*product_logo_[0-9]\+\."
 -  if [ "$BRANDING" = "google_chrome" ]; then
-+  if [ "$BRANDING" = "brave" ]; then
++  if [ "$BRANDING" = "adrbrowsiel" ]; then
      if [ "$CHANNEL" = "beta" ]; then
        icon_regex=".*product_logo_[0-9]\+_beta\."
 -    elif [ "$CHANNEL" = "unstable" ]; then

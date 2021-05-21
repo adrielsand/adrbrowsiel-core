@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,11 +6,11 @@
 #include <vector>
 
 #include "base/feature_list.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/permissions/permission_lifetime_utils.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_utils.h"
 #include "chrome/browser/ui/browser_tabstrip.h"
 #include "chrome/common/webui_url_constants.h"
-#include "components/grit/brave_components_strings.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/permissions/features.h"
 #include "components/permissions/permission_prompt.h"
 #include "components/permissions/permission_request.h"
@@ -24,8 +24,8 @@
 #include "ui/views/window/dialog_delegate.h"
 
 #if BUILDFLAG(ENABLE_WIDEVINE)
-#include "brave/browser/widevine/widevine_permission_request.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/widevine/widevine_permission_request.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/ui/views/chrome_layout_provider.h"
 #include "components/permissions/request_type.h"
 #include "ui/base/l10n/l10n_util.h"
@@ -215,10 +215,10 @@ void AddFootnoteViewIfNeeded(
 
 }  // namespace
 
-#define BRAVE_PERMISSION_PROMPT_BUBBLE_VIEW                               \
+#define adrbrowsiel_PERMISSION_PROMPT_BUBBLE_VIEW                               \
   AddAdditionalWidevineViewControlsIfNeeded(this, delegate_->Requests()); \
   AddPermissionLifetimeComboboxIfNeeded(this, delegate_);                 \
   AddFootnoteViewIfNeeded(this, browser_);
 
 #include "../../../../../../../chrome/browser/ui/views/permission_bubble/permission_prompt_bubble_view.cc"
-#undef BRAVE_PERMISSION_PROMPT_BUBBLE_VIEW
+#undef adrbrowsiel_PERMISSION_PROMPT_BUBBLE_VIEW

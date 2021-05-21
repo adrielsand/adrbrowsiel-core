@@ -7,7 +7,7 @@ index 6fa03b06448fb2d363de61c7ae047b1c732b92d1..03db9e7d01ecbf5219d555b9f93356b0
  }
  
 -GURL GetSettingsUrl(const std::string& sub_page) {
-+BRAVE_GET_SETTINGS_URL
++adrbrowsiel_GET_SETTINGS_URL
    return GURL(std::string(kChromeUISettingsURL) + sub_page);
  }
  

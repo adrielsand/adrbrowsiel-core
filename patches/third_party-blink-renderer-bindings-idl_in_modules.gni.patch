@@ -6,7 +6,7 @@ index 5a4684cc6bf438ab5b975da71c60df99cfb7e30c..b3b39c3d25e268c148f56c5eaf8d8825
            "//third_party/blink/renderer/modules/xr/xr_webgl_layer_init.idl",
          ],
          "abspath")
-+static_idl_files_in_modules += get_path_info(brave_static_idl_files_in_modules, "abspath")
++static_idl_files_in_modules += get_path_info(adrbrowsiel_static_idl_files_in_modules, "abspath")
  
  # Direct Sockets
  if (!is_android) {

@@ -1,14 +1,14 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
 #include "base/scoped_observer.h"
-#include "brave/browser/brave_wallet/brave_wallet_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_wallet/adrbrowsiel_wallet_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -22,7 +22,7 @@
 #include "net/test/embedded_test_server/http_request.h"
 #include "net/test/embedded_test_server/http_response.h"
 
-// npm run test -- brave_browser_tests --filter=EthJsonRpcBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=EthJsonRpcBrowserTest.*
 
 namespace {
 
@@ -83,9 +83,9 @@ class EthJsonRpcBrowserTest : public InProcessBrowserTest {
 
     ResetHTTPSServer(base::BindRepeating(&HandleRequest));
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
   }
 
   ~EthJsonRpcBrowserTest() override {}
@@ -156,16 +156,16 @@ class EthJsonRpcBrowserTest : public InProcessBrowserTest {
     return browser()->tab_strip_model()->GetActiveWebContents();
   }
 
-  BraveWalletService* GetBraveWalletService() {
-    BraveWalletService* service =
-        BraveWalletServiceFactory::GetInstance()->GetForContext(
+  adrbrowsielWalletService* GetadrbrowsielWalletService() {
+    adrbrowsielWalletService* service =
+        adrbrowsielWalletServiceFactory::GetInstance()->GetForContext(
             browser()->profile());
     EXPECT_TRUE(service);
     return service;
   }
 
-  brave_wallet::EthJsonRpcController* GetEthJsonRpcController() {
-    return GetBraveWalletService()->controller();
+  adrbrowsiel_wallet::EthJsonRpcController* GetEthJsonRpcController() {
+    return GetadrbrowsielWalletService()->controller();
   }
 
  private:
@@ -245,7 +245,7 @@ IN_PROC_BROWSER_TEST_F(EthJsonRpcBrowserTest,
   auto* controller = GetEthJsonRpcController();
   controller->UnstoppableDomainsProxyReaderGetMany(
       "0xa6E7cEf2EDDEA66352Fd68E5915b60BDbb7309f5" /* contract_address */,
-      "brave.crypto" /* domain */,
+      "adrbrowsiel.crypto" /* domain */,
       {"dweb.ipfs.hash", "ipfs.html.value", "browser.redirect_url",
        "ipfs.redirect_domain.value"} /* keys */,
       base::BindOnce(
@@ -274,7 +274,7 @@ IN_PROC_BROWSER_TEST_F(EthJsonRpcBrowserTest,
   auto* controller = GetEthJsonRpcController();
   controller->UnstoppableDomainsProxyReaderGetMany(
       "0xa6E7cEf2EDDEA66352Fd68E5915b60BDbb7309f5" /* contract_address */,
-      "brave.crypto" /* domain */,
+      "adrbrowsiel.crypto" /* domain */,
       {"dweb.ipfs.hash", "ipfs.html.value", "browser.redirect_url",
        "ipfs.redirect_domain.value"} /* keys */,
       base::BindOnce(

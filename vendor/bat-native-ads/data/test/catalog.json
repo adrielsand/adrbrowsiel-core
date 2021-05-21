@@ -27,7 +27,7 @@
               "payload": {
                 "body": "Test Ad 1 Campaign 1 Body",
                 "title": "Test Ad 1 Campaign 1 Title",
-                "targetUrl": "https://brave.com/1"
+                "targetUrl": "https://adrbrowsiel.com/1"
               }
             },
             {
@@ -41,7 +41,7 @@
               "payload": {
                 "body": "Test Ad 2 Campaign 1 Body",
                 "title": "Test Ad 2 Campaign 1 Title",
-                "targetUrl": "https://brave.com/2"
+                "targetUrl": "https://adrbrowsiel.com/2"
               }
             },
             {
@@ -53,7 +53,7 @@
                 "version": 1
               },
               "payload": {
-                "feed": "https://brave.com/3",
+                "feed": "https://adrbrowsiel.com/3",
                 "title": "Test Ad 3 Campaign 1 Title",
                 "domain": "Domain",
                 "category": "Category",
@@ -74,7 +74,7 @@
           "conversions": [
             {
               "observationWindow": 30,
-              "urlPattern": "https://www.brave.com/*",
+              "urlPattern": "https://www.adrbrowsiel.com/*",
               "type": "postview"
             }
           ],
@@ -119,9 +119,9 @@
               "payload": {
                 "logo": {
                   "alt": "This is a test NTP creative",
-                  "imageUrl": "https://brave.com/test.jpg",
-                  "companyName": "Brave",
-                  "destinationUrl": "https://brave.com"
+                  "imageUrl": "https://adrbrowsiel.com/test.jpg",
+                  "companyName": "adrbrowsiel",
+                  "destinationUrl": "https://adrbrowsiel.com"
                 },
                 "wallpapers": [
                   {
@@ -129,14 +129,14 @@
                       "x": 1200,
                       "y": 1400
                     },
-                    "imageUrl": "https://brave.com/test2.jpg"
+                    "imageUrl": "https://adrbrowsiel.com/test2.jpg"
                   },
                   {
                     "focalPoint": {
                       "x": 1200,
                       "y": 1400
                     },
-                    "imageUrl": "https://brave.com/test3.jpg"
+                    "imageUrl": "https://adrbrowsiel.com/test3.jpg"
                   }
                 ]
               }
@@ -193,7 +193,7 @@
               "payload": {
                 "body": "Test Ad 1 Campaign 2 Body",
                 "title": "Test Ad 1 Campaign 2 Title",
-                "targetUrl": "https://brave.com/1"
+                "targetUrl": "https://adrbrowsiel.com/1"
               }
             }
           ],
@@ -208,7 +208,7 @@
           "conversions": [
             {
               "observationWindow": 7,
-              "urlPattern": "https://www.brave.com/*",
+              "urlPattern": "https://www.adrbrowsiel.com/*",
               "type": "postclick"
             }
           ],

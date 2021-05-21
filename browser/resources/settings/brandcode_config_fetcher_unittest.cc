@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -43,7 +43,7 @@ TEST_F(BrandcodeConfigFetcherTest, NoFetch) {
   BrandcodeConfigFetcher* uploader = new BrandcodeConfigFetcher(
       test_url_loader_factory(),
       base::BindLambdaForTesting([&]() { callback_called = true; }),
-      GURL("https://www.brave.com/"), "BRAV");
+      GURL("https://www.adrbrowsiel.com/"), "BRAV");
   base::RunLoop().RunUntilIdle();
   EXPECT_FALSE(uploader->IsActive());
   EXPECT_FALSE(network_access_occurred);

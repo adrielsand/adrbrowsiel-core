@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,23 +10,23 @@
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
 #include "third_party/blink/renderer/platform/graphics/image_data_buffer.h"
 
-#define BRAVE_GET_IMAGE_DATA                                              \
+#define adrbrowsiel_GET_IMAGE_DATA                                              \
   if (ExecutionContext* context = ExecutionContext::From(script_state)) { \
     if (WebContentSettingsClient* settings =                              \
-            brave::GetContentSettingsClientFor(context)) {                \
-      brave::BraveSessionCache::From(*context).PerturbPixels(             \
+            adrbrowsiel::GetContentSettingsClientFor(context)) {                \
+      adrbrowsiel::adrbrowsielSessionCache::From(*context).PerturbPixels(             \
           settings,                                                       \
           static_cast<const unsigned char*>(data_array->BaseAddress()),   \
           data_array->byteLength());                                      \
     }                                                                     \
   }
 
-#define BRAVE_GET_IMAGE_DATA_PARAMS ScriptState *script_state,
+#define adrbrowsiel_GET_IMAGE_DATA_PARAMS ScriptState *script_state,
 #define getImageData getImageData_Unused
 #include "../../../../../../../../third_party/blink/renderer/modules/canvas/canvas2d/base_rendering_context_2d.cc"
 #undef getImageData
-#undef BRAVE_GET_IMAGE_DATA_PARAMS
-#undef BRAVE_GET_IMAGE_DATA
+#undef adrbrowsiel_GET_IMAGE_DATA_PARAMS
+#undef adrbrowsiel_GET_IMAGE_DATA
 
 namespace {
 
@@ -34,7 +34,7 @@ bool AllowFingerprintingFromScriptState(blink::ScriptState* script_state) {
   blink::ExecutionContext* context =
       blink::ExecutionContext::From(script_state);
   blink::WebContentSettingsClient* settings =
-      brave::GetContentSettingsClientFor(context);
+      adrbrowsiel::GetContentSettingsClientFor(context);
   return !settings || settings->AllowFingerprinting(true);
 }
 

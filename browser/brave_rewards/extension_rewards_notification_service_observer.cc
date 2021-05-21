@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,13 +7,13 @@
 #include <utility>
 #include <vector>
 
-#include "brave/browser/brave_rewards/extension_rewards_notification_service_observer.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/extension_rewards_notification_service_observer.h"
 
-#include "brave/common/extensions/api/rewards_notifications.h"
+#include "adrbrowsiel/common/extensions/api/rewards_notifications.h"
 #include "chrome/browser/profiles/profile.h"
 #include "extensions/browser/event_router.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 ExtensionRewardsNotificationServiceObserver::
 ExtensionRewardsNotificationServiceObserver(Profile* profile)
@@ -40,7 +40,7 @@ void ExtensionRewardsNotificationServiceObserver::OnNotificationAdded(
           rewards_notification.timestamp_, rewards_notification.args_)
           .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_REWARDS_NOTIFICATION_ADDED,
+      extensions::events::adrbrowsiel_REWARDS_NOTIFICATION_ADDED,
       extensions::api::rewards_notifications::OnNotificationAdded::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
@@ -62,7 +62,7 @@ void ExtensionRewardsNotificationServiceObserver::OnNotificationDeleted(
           rewards_notification.timestamp_)
           .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_REWARDS_NOTIFICATION_DELETED,
+      extensions::events::adrbrowsiel_REWARDS_NOTIFICATION_DELETED,
       extensions::api::rewards_notifications::OnNotificationDeleted::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
@@ -81,7 +81,7 @@ void ExtensionRewardsNotificationServiceObserver::
     extensions::api::rewards_notifications::OnAllNotificationsDeleted::Create()
         .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_REWARDS_ALL_NOTIFICATIONS_DELETED,
+      extensions::events::adrbrowsiel_REWARDS_ALL_NOTIFICATIONS_DELETED,
       extensions::api::rewards_notifications::OnAllNotificationsDeleted::
           kEventName,
       std::move(args)));
@@ -104,7 +104,7 @@ void ExtensionRewardsNotificationServiceObserver::OnGetNotification(
           rewards_notification.timestamp_, rewards_notification.args_)
           .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_REWARDS_GET_NOTIFICATION,
+      extensions::events::adrbrowsiel_REWARDS_GET_NOTIFICATION,
       extensions::api::rewards_notifications::OnGetNotification::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
@@ -139,10 +139,10 @@ void ExtensionRewardsNotificationServiceObserver::OnGetAllNotifications(
           notifications_list)
           .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_REWARDS_GET_ALL_NOTIFICATIONS,
+      extensions::events::adrbrowsiel_REWARDS_GET_ALL_NOTIFICATIONS,
       extensions::api::rewards_notifications::OnGetAllNotifications::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

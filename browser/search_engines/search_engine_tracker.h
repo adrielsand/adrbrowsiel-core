@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_SEARCH_ENGINES_SEARCH_ENGINE_TRACKER_H_
-#define BRAVE_BROWSER_SEARCH_ENGINES_SEARCH_ENGINE_TRACKER_H_
+#ifndef adrbrowsiel_BROWSER_SEARCH_ENGINES_SEARCH_ENGINE_TRACKER_H_
+#define adrbrowsiel_BROWSER_SEARCH_ENGINES_SEARCH_ENGINE_TRACKER_H_
 
 #include "base/memory/singleton.h"
 #include "base/scoped_observer.h"
@@ -16,7 +16,7 @@
 #include "url/gurl.h"
 
 // Exposed for tests.
-constexpr char kDefaultSearchEngineMetric[] = "Brave.Search.DefaultEngine.4";
+constexpr char kDefaultSearchEngineMetric[] = "adrbrowsiel.Search.DefaultEngine.4";
 
 // Note: append-only enumeration! Never remove any existing values, as this enum
 // is used to bucket a UMA histogram, and removing values breaks that.
@@ -74,4 +74,4 @@ class SearchEngineTracker : public KeyedService,
   TemplateURLService* template_url_service_;
 };
 
-#endif  // BRAVE_BROWSER_SEARCH_ENGINES_SEARCH_ENGINE_TRACKER_H_
+#endif  // adrbrowsiel_BROWSER_SEARCH_ENGINES_SEARCH_ENGINE_TRACKER_H_

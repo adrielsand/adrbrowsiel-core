@@ -1,21 +1,21 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_GEOLOCATION_BRAVE_GEOLOCATION_PERMISSION_CONTEXT_DELEGATE_H_
-#define BRAVE_BROWSER_GEOLOCATION_BRAVE_GEOLOCATION_PERMISSION_CONTEXT_DELEGATE_H_
+#ifndef adrbrowsiel_BROWSER_GEOLOCATION_adrbrowsiel_GEOLOCATION_PERMISSION_CONTEXT_DELEGATE_H_
+#define adrbrowsiel_BROWSER_GEOLOCATION_adrbrowsiel_GEOLOCATION_PERMISSION_CONTEXT_DELEGATE_H_
 
 #include "chrome/browser/geolocation/geolocation_permission_context_delegate.h"
 
 class Profile;
 
-class BraveGeolocationPermissionContextDelegate
+class adrbrowsielGeolocationPermissionContextDelegate
     : public GeolocationPermissionContextDelegate {
  public:
-  explicit BraveGeolocationPermissionContextDelegate(
+  explicit adrbrowsielGeolocationPermissionContextDelegate(
       content::BrowserContext* browser_context);
-  ~BraveGeolocationPermissionContextDelegate() override;
+  ~adrbrowsielGeolocationPermissionContextDelegate() override;
 
   bool DecidePermission(
       content::WebContents* web_contents,
@@ -27,7 +27,7 @@ class BraveGeolocationPermissionContextDelegate
 
  private:
   Profile* profile_;
-  DISALLOW_COPY_AND_ASSIGN(BraveGeolocationPermissionContextDelegate);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielGeolocationPermissionContextDelegate);
 };
 
-#endif  // BRAVE_BROWSER_GEOLOCATION_BRAVE_GEOLOCATION_PERMISSION_CONTEXT_DELEGATE_H_
+#endif  // adrbrowsiel_BROWSER_GEOLOCATION_adrbrowsiel_GEOLOCATION_PERMISSION_CONTEXT_DELEGATE_H_

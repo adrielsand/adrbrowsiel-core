@@ -6,7 +6,7 @@ index d6d2ad0e41581c001d1364a9833ca46dee0d0668..171ac72ca757a9cc55b23afda22a467d
    void NotifyImportItemEnded(importer::ImportItem item);
    void NotifyImportEnded();
  
-+  BRAVE_EXTERNAL_PROCESS_IMPORTER_HOST_H
++  adrbrowsiel_EXTERNAL_PROCESS_IMPORTER_HOST_H
   private:
    // ExternalProcessImporterHost deletes itself in OnImportEnded().
    ~ExternalProcessImporterHost() override;

@@ -4,7 +4,7 @@ const updatePatches = require('../lib/updatePatches')
 
 const chromiumPathFilter = (s) => s.length > 0 &&
   !s.startsWith('chrome/app/theme/default') &&
-  !s.startsWith('chrome/app/theme/brave') &&
+  !s.startsWith('chrome/app/theme/adrbrowsiel') &&
   !s.startsWith('chrome/app/theme/chromium') &&
   !s.endsWith('.png') && !s.endsWith('.xtb') &&
   !s.endsWith('.grd') && !s.endsWith('.grdp') &&
@@ -19,7 +19,7 @@ module.exports = function RunCommand (options) {
 
   const chromiumDir = config.srcDir
   const v8Dir = path.join(config.srcDir, 'v8')
-  const patchDir = path.join(config.braveCoreDir, 'patches')
+  const patchDir = path.join(config.adrbrowsielCoreDir, 'patches')
   const v8PatchDir = path.join(patchDir, 'v8')
 
   Promise.all([

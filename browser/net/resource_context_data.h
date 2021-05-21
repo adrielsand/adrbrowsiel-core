@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_NET_RESOURCE_CONTEXT_DATA_H_
-#define BRAVE_BROWSER_NET_RESOURCE_CONTEXT_DATA_H_
+#ifndef adrbrowsiel_BROWSER_NET_RESOURCE_CONTEXT_DATA_H_
+#define adrbrowsiel_BROWSER_NET_RESOURCE_CONTEXT_DATA_H_
 
 #include <cstdint>
 #include <memory>
@@ -20,9 +20,9 @@
 #include "services/network/public/mojom/url_loader_factory.mojom.h"
 #include "services/network/public/mojom/websocket.mojom.h"
 
-class BraveProxyingURLLoaderFactory;
-class BraveProxyingWebSocket;
-class BraveRequestHandler;
+class adrbrowsielProxyingURLLoaderFactory;
+class adrbrowsielProxyingWebSocket;
+class adrbrowsielRequestHandler;
 
 namespace content {
 class BrowserContext;
@@ -62,7 +62,7 @@ class ResourceContextData : public base::SupportsUserData::Data {
       network::mojom::URLLoaderFactoryRequest request,
       network::mojom::URLLoaderFactoryPtrInfo target_factory);
 
-  static BraveProxyingWebSocket* StartProxyingWebSocket(
+  static adrbrowsielProxyingWebSocket* StartProxyingWebSocket(
       content::ContentBrowserClient::WebSocketFactory factory,
       const GURL& url,
       const net::SiteForCookies& site_for_cookies,
@@ -75,20 +75,20 @@ class ResourceContextData : public base::SupportsUserData::Data {
       int frame_tree_node_id,
       const url::Origin& origin);
 
-  void RemoveProxy(BraveProxyingURLLoaderFactory* proxy);
-  void RemoveProxyWebSocket(BraveProxyingWebSocket* proxy);
+  void RemoveProxy(adrbrowsielProxyingURLLoaderFactory* proxy);
+  void RemoveProxyWebSocket(adrbrowsielProxyingWebSocket* proxy);
 
  private:
   ResourceContextData();
 
-  std::unique_ptr<BraveRequestHandler> request_handler_;
+  std::unique_ptr<adrbrowsielRequestHandler> request_handler_;
   scoped_refptr<RequestIDGenerator> request_id_generator_;
 
-  std::set<std::unique_ptr<BraveProxyingURLLoaderFactory>,
+  std::set<std::unique_ptr<adrbrowsielProxyingURLLoaderFactory>,
            base::UniquePtrComparator>
       proxies_;
 
-  std::set<std::unique_ptr<BraveProxyingWebSocket>,
+  std::set<std::unique_ptr<adrbrowsielProxyingWebSocket>,
            base::UniquePtrComparator>
       websocket_proxies_;
 
@@ -97,4 +97,4 @@ class ResourceContextData : public base::SupportsUserData::Data {
   DISALLOW_COPY_AND_ASSIGN(ResourceContextData);
 };
 
-#endif  // BRAVE_BROWSER_NET_RESOURCE_CONTEXT_DATA_H_
+#endif  // adrbrowsiel_BROWSER_NET_RESOURCE_CONTEXT_DATA_H_

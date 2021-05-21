@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_BRAVE_EXTENSION_PROVIDER_H_
-#define BRAVE_BROWSER_EXTENSIONS_BRAVE_EXTENSION_PROVIDER_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_adrbrowsiel_EXTENSION_PROVIDER_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_adrbrowsiel_EXTENSION_PROVIDER_H_
 
 #include <string>
 
@@ -12,10 +12,10 @@
 
 namespace extensions {
 
-class BraveExtensionProvider : public ManagementPolicy::Provider {
+class adrbrowsielExtensionProvider : public ManagementPolicy::Provider {
  public:
-  BraveExtensionProvider();
-  ~BraveExtensionProvider() override;
+  adrbrowsielExtensionProvider();
+  ~adrbrowsielExtensionProvider() override;
   std::string GetDebugPolicyProviderName() const override;
   bool UserMayLoad(const Extension* extension,
                    std::u16string* error) const override;
@@ -23,9 +23,9 @@ class BraveExtensionProvider : public ManagementPolicy::Provider {
                            std::u16string* error) const override;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveExtensionProvider);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielExtensionProvider);
 };
 
 }  // namespace extensions
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_BRAVE_EXTENSION_PROVIDER_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_adrbrowsiel_EXTENSION_PROVIDER_H_

@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/notifications/ads_notification_handler.h"
+#include "adrbrowsiel/browser/notifications/ads_notification_handler.h"
 
 #include <memory>
 
-#include "brave/browser/brave_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
 #include "url/gurl.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 const void* const kUserDataKey = &kUserDataKey;
 
@@ -71,4 +71,4 @@ void AdsNotificationHandler::OpenSettings(Profile* profile,
   ads_service->OnClickAdNotification(id);
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

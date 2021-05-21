@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/tor/tor_profile_service_factory.h"
-#include "brave/browser/ui/browser_commands.h"
-#include "brave/browser/ui/views/location_bar/brave_location_bar_view.h"
-#include "brave/browser/ui/views/location_bar/onion_location_view.h"
-#include "brave/components/tor/onion_location_tab_helper.h"
-#include "brave/components/tor/pref_names.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/browser/ui/browser_commands.h"
+#include "adrbrowsiel/browser/ui/views/location_bar/adrbrowsiel_location_bar_view.h"
+#include "adrbrowsiel/browser/ui/views/location_bar/onion_location_view.h"
+#include "adrbrowsiel/components/tor/onion_location_tab_helper.h"
+#include "adrbrowsiel/components/tor/pref_names.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/chrome_notification_types.h"
 #include "chrome/browser/ui/browser_list.h"
 #include "chrome/browser/ui/browser_list_observer.h"
@@ -31,11 +31,11 @@
 namespace {
 
 constexpr char kTestOnionPath[] = "/onion";
-constexpr char kTestOnionURL[] = "https://brave.onion";
+constexpr char kTestOnionURL[] = "https://adrbrowsiel.onion";
 constexpr char kTestInvalidScheme[] = "/invalid_scheme";
-constexpr char kTestInvalidSchemeURL[] = "brave://brave.onion";
+constexpr char kTestInvalidSchemeURL[] = "adrbrowsiel://adrbrowsiel.onion";
 constexpr char kTestNotOnion[] = "/not_onion";
-constexpr char kTestNotOnionURL[] = "https://brave.com";
+constexpr char kTestNotOnionURL[] = "https://adrbrowsiel.com";
 
 std::unique_ptr<net::test_server::HttpResponse> HandleOnionLocation(
     const net::test_server::HttpRequest& request) {
@@ -81,11 +81,11 @@ class OnionLocationNavigationThrottleBrowserTest : public InProcessBrowserTest {
   void CheckOnionLocationLabel(Browser* browser, const GURL& url) {
     BrowserView* browser_view = BrowserView::GetBrowserViewForBrowser(browser);
     ASSERT_NE(browser_view, nullptr);
-    BraveLocationBarView* brave_location_bar_view =
-        static_cast<BraveLocationBarView*>(browser_view->GetLocationBarView());
-    ASSERT_NE(brave_location_bar_view, nullptr);
+    adrbrowsielLocationBarView* adrbrowsiel_location_bar_view =
+        static_cast<adrbrowsielLocationBarView*>(browser_view->GetLocationBarView());
+    ASSERT_NE(adrbrowsiel_location_bar_view, nullptr);
     views::LabelButton* onion_button =
-        brave_location_bar_view->GetOnionLocationView()->GetButton();
+        adrbrowsiel_location_bar_view->GetOnionLocationView()->GetButton();
     EXPECT_TRUE(onion_button->GetVisible());
     EXPECT_EQ(onion_button->GetText(),
               l10n_util::GetStringUTF16((IDS_LOCATION_BAR_OPEN_IN_TOR)));
@@ -169,7 +169,7 @@ IN_PROC_BROWSER_TEST_F(OnionLocationNavigationThrottleBrowserTest,
   browser()->profile()->GetPrefs()->SetBoolean(tor::prefs::kAutoOnionRedirect,
                                                true);
   BrowserList* browser_list = BrowserList::GetInstance();
-  ui_test_utils::NavigateToURL(browser(), GURL("https://brave.com"));
+  ui_test_utils::NavigateToURL(browser(), GURL("https://adrbrowsiel.com"));
   EXPECT_EQ(1U, browser_list->size());
   ASSERT_FALSE(browser_list->get(0)->profile()->IsTor());
   ASSERT_EQ(browser(), browser_list->get(0));
@@ -199,7 +199,7 @@ IN_PROC_BROWSER_TEST_F(OnionLocationNavigationThrottleBrowserTest,
 IN_PROC_BROWSER_TEST_F(OnionLocationNavigationThrottleBrowserTest,
                        OnionDomain_AutoOnionRedirect_OffByDefault) {
   BrowserList* browser_list = BrowserList::GetInstance();
-  ui_test_utils::NavigateToURL(browser(), GURL("https://brave.com"));
+  ui_test_utils::NavigateToURL(browser(), GURL("https://adrbrowsiel.com"));
 
   ui_test_utils::NavigateToURL(browser(), GURL(kTestOnionURL));
   EXPECT_EQ(1U, browser_list->size());

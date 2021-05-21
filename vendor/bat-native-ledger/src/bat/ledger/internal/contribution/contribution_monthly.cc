@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -59,7 +59,7 @@ void ContributionMonthly::PrepareTipList(
         [](const type::Result _){});
   }
 
-  // TODO(https://github.com/brave/brave-browser/issues/8804):
+  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/8804):
   // we should change this logic and do batch insert with callback
   ledger_->contribution()->CheckContributionQueue();
   callback(type::Result::LEDGER_OK);

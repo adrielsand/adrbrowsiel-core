@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/app/brave_command_line_helper.h"
+#include "adrbrowsiel/app/adrbrowsiel_command_line_helper.h"
 
 #include <sstream>
 #include <vector>
@@ -12,22 +12,22 @@
 #include "base/command_line.h"
 #include "base/strings/string_split.h"
 
-BraveCommandLineHelper::BraveCommandLineHelper(base::CommandLine* command_line)
+adrbrowsielCommandLineHelper::adrbrowsielCommandLineHelper(base::CommandLine* command_line)
     : command_line_(*command_line) {
   Parse();
 }
 
 const std::unordered_set<std::string>&
-BraveCommandLineHelper::enabled_features() const {
+adrbrowsielCommandLineHelper::enabled_features() const {
   return enabled_features_;
 }
 
 const std::unordered_set<std::string>&
-BraveCommandLineHelper::disabled_features() const {
+adrbrowsielCommandLineHelper::disabled_features() const {
   return disabled_features_;
 }
 
-void BraveCommandLineHelper::ParseCSV(
+void adrbrowsielCommandLineHelper::ParseCSV(
     const std::string& value,
     std::unordered_set<std::string>* dest) const {
   DCHECK(dest);
@@ -39,7 +39,7 @@ void BraveCommandLineHelper::ParseCSV(
                std::make_move_iterator(values.end()));
 }
 
-void BraveCommandLineHelper::Parse() {
+void adrbrowsielCommandLineHelper::Parse() {
   ParseCSV(command_line_.GetSwitchValueASCII(switches::kEnableFeatures),
            &enabled_features_);
   ParseCSV(command_line_.GetSwitchValueASCII(switches::kDisableFeatures),
@@ -56,12 +56,12 @@ void BraveCommandLineHelper::Parse() {
   }
 }
 
-void BraveCommandLineHelper::AppendSwitch(const char* switch_key) {
+void adrbrowsielCommandLineHelper::AppendSwitch(const char* switch_key) {
   if (!command_line_.HasSwitch(switch_key))
     command_line_.AppendSwitch(switch_key);
 }
 
-void BraveCommandLineHelper::AppendFeatures(
+void adrbrowsielCommandLineHelper::AppendFeatures(
     const std::unordered_set<const char*>& enabled,
     const std::unordered_set<const char*>& disabled) {
   // Assuming that the two passed in sets do not intersect, but in case they do
@@ -82,7 +82,7 @@ void BraveCommandLineHelper::AppendFeatures(
     AppendCSV(switches::kDisableFeatures, disabled_features_);
 }
 
-void BraveCommandLineHelper::AppendCSV(
+void adrbrowsielCommandLineHelper::AppendCSV(
     const char* switch_key,
     const std::unordered_set<std::string>& values) {
   std::stringstream ss;
@@ -94,7 +94,7 @@ void BraveCommandLineHelper::AppendCSV(
   command_line_.AppendSwitchASCII(switch_key, ss.str());
 }
 
-void BraveCommandLineHelper::AppendSwitchASCII(const char* switch_key,
+void adrbrowsielCommandLineHelper::AppendSwitchASCII(const char* switch_key,
                                                const char* value) {
   if (!command_line_.HasSwitch(switch_key))
     command_line_.AppendSwitchASCII(switch_key, value);

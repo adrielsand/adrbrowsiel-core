@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_STATS_BRAVE_STATS_UPDATER_H_
-#define BRAVE_BROWSER_BRAVE_STATS_BRAVE_STATS_UPDATER_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_STATS_adrbrowsiel_STATS_UPDATER_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_STATS_adrbrowsiel_STATS_UPDATER_H_
 
 #include <memory>
 #include <string>
@@ -12,11 +12,11 @@
 #include "base/callback.h"
 #include "base/macros.h"
 #include "base/memory/scoped_refptr.h"
-#include "brave/components/brave_stats/browser/brave_stats_updater_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_stats/browser/adrbrowsiel_stats_updater_util.h"
 #include "chrome/browser/profiles/profile_manager_observer.h"
 #include "url/gurl.h"
 
-class BraveStatsUpdaterBrowserTest;
+class adrbrowsielStatsUpdaterBrowserTest;
 class PrefChangeRegistrar;
 class PrefRegistrySimple;
 class PrefService;
@@ -35,14 +35,14 @@ namespace network {
 class SimpleURLLoader;
 }
 
-namespace brave_stats {
+namespace adrbrowsiel_stats {
 
-class BraveStatsUpdaterParams;
+class adrbrowsielStatsUpdaterParams;
 
-class BraveStatsUpdater : public ProfileManagerObserver {
+class adrbrowsielStatsUpdater : public ProfileManagerObserver {
  public:
-  explicit BraveStatsUpdater(PrefService* pref_service);
-  ~BraveStatsUpdater() override;
+  explicit adrbrowsielStatsUpdater(PrefService* pref_service);
+  ~adrbrowsielStatsUpdater() override;
 
   void Start();
   void Stop();
@@ -63,7 +63,7 @@ class BraveStatsUpdater : public ProfileManagerObserver {
   void OnThresholdLoaderComplete(scoped_refptr<net::HttpResponseHeaders>);
   // Invoked from SimpleURLLoader after download is complete.
   void OnSimpleLoaderComplete(
-      std::unique_ptr<brave_stats::BraveStatsUpdaterParams>
+      std::unique_ptr<adrbrowsiel_stats::adrbrowsielStatsUpdaterParams>
           stats_updater_params,
       scoped_refptr<net::HttpResponseHeaders> headers);
 
@@ -73,7 +73,7 @@ class BraveStatsUpdater : public ProfileManagerObserver {
   // Invoked after browser has initialized with referral server.
   void OnReferralInitialization();
 
-  // Invoked after brave ads initializes
+  // Invoked after adrbrowsiel ads initializes
   void OnDetectUncertainFuture(const bool is_uncertain_future);
 
   void DetectUncertainFuture();
@@ -87,7 +87,7 @@ class BraveStatsUpdater : public ProfileManagerObserver {
   bool HasDoneThresholdPing();
   void DisableThresholdPing();
 
-  friend class ::BraveStatsUpdaterBrowserTest;
+  friend class ::adrbrowsielStatsUpdaterBrowserTest;
 
   int threshold_score_ = 0;
   ProcessArch arch_ = ProcessArch::kArchSkip;
@@ -100,12 +100,12 @@ class BraveStatsUpdater : public ProfileManagerObserver {
   std::unique_ptr<PrefChangeRegistrar> pref_change_registrar_;
   base::RepeatingClosure stats_preconditions_barrier_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveStatsUpdater);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielStatsUpdater);
 };
 
-// Registers the preferences used by BraveStatsUpdater
+// Registers the preferences used by adrbrowsielStatsUpdater
 void RegisterLocalStatePrefs(PrefRegistrySimple* registry);
 
-}  // namespace brave_stats
+}  // namespace adrbrowsiel_stats
 
-#endif  // BRAVE_BROWSER_BRAVE_STATS_BRAVE_STATS_UPDATER_H_
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_STATS_adrbrowsiel_STATS_UPDATER_H_

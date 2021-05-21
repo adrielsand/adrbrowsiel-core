@@ -12,6 +12,6 @@ include_rules = [
 # Existing exceptions
 specific_include_rules = {
   "translate_url_fetcher(\.cc|\.h)": [
-    "+brave/browser/translate/buildflags/buildflags.h",
+    "+adrbrowsiel/browser/translate/buildflags/buildflags.h",
   ],
 }

@@ -1,16 +1,16 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/components/sync_device_info/brave_device_info.h"
+#include "adrbrowsiel/components/sync_device_info/adrbrowsiel_device_info.h"
 
-#define BRAVE_MAKE_LOCAL_DEVICE_SPECIFICS \
-  specifics->mutable_brave_fields()->set_is_self_delete_supported(true);
+#define adrbrowsiel_MAKE_LOCAL_DEVICE_SPECIFICS \
+  specifics->mutable_adrbrowsiel_fields()->set_is_self_delete_supported(true);
 
 #include "../../../../components/sync_device_info/device_info_sync_bridge.cc"
 
-#undef BRAVE_MAKE_LOCAL_DEVICE_SPECIFICS
+#undef adrbrowsiel_MAKE_LOCAL_DEVICE_SPECIFICS
 
 #include "base/threading/sequenced_task_runner_handle.h"
 
@@ -18,7 +18,7 @@ namespace syncer {
 
 namespace {
 
-std::unique_ptr<BraveDeviceInfo> BraveSpecificsToModel(
+std::unique_ptr<adrbrowsielDeviceInfo> adrbrowsielSpecificsToModel(
     const DeviceInfoSpecifics& specifics) {
   ModelTypeSet data_types;
   for (const int field_number :
@@ -32,7 +32,7 @@ std::unique_ptr<BraveDeviceInfo> BraveSpecificsToModel(
   }
   // The code is duplicated from SpecificsToModel by intent to avoid use of
   // extra patch
-  return std::make_unique<BraveDeviceInfo>(
+  return std::make_unique<adrbrowsielDeviceInfo>(
       specifics.cache_guid(), specifics.client_name(),
       specifics.chrome_version(), specifics.sync_user_agent(),
       specifics.device_type(), specifics.signin_scoped_device_id(),
@@ -43,9 +43,9 @@ std::unique_ptr<BraveDeviceInfo> BraveSpecificsToModel(
       SpecificsToSharingInfo(specifics),
       SpecificsToPhoneAsASecurityKeyInfo(specifics),
       specifics.invalidation_fields().instance_id_token(), data_types,
-      specifics.has_brave_fields() &&
-          specifics.brave_fields().has_is_self_delete_supported() &&
-          specifics.brave_fields().is_self_delete_supported());
+      specifics.has_adrbrowsiel_fields() &&
+          specifics.adrbrowsiel_fields().has_is_self_delete_supported() &&
+          specifics.adrbrowsiel_fields().is_self_delete_supported());
 }
 
 }  // namespace
@@ -80,11 +80,11 @@ void DeviceInfoSyncBridge::OnDeviceInfoDeleted(const std::string& client_id,
   }
 }
 
-std::vector<std::unique_ptr<BraveDeviceInfo>>
-DeviceInfoSyncBridge::GetAllBraveDeviceInfo() const {
-  std::vector<std::unique_ptr<BraveDeviceInfo>> list;
+std::vector<std::unique_ptr<adrbrowsielDeviceInfo>>
+DeviceInfoSyncBridge::GetAlladrbrowsielDeviceInfo() const {
+  std::vector<std::unique_ptr<adrbrowsielDeviceInfo>> list;
   for (auto iter = all_data_.begin(); iter != all_data_.end(); ++iter) {
-    list.push_back(BraveSpecificsToModel(*iter->second));
+    list.push_back(adrbrowsielSpecificsToModel(*iter->second));
   }
   return list;
 }

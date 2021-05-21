@@ -3,13 +3,13 @@
 
 <link rel="import" href="chrome://resources/html/i18n_behavior.html">
 <link rel="import" href="chrome://resources/html/web_ui_listener_behavior.html">
-<link rel="import" href="brave_wallet_browser_proxy.html">
+<link rel="import" href="adrbrowsiel_wallet_browser_proxy.html">
 <script type="module" src="../settings_page/settings_section.js"></script>
 <script type="module" src="../settings_shared_css.js"></script>
 <script type="module" src="../settings_vars_css.js"></script>
 <script type="module" src="chrome://resources/cr_elements/cr_link_row/cr_link_row.js"></script>
 
-<dom-module id="settings-brave-wallet-page">
+<dom-module id="settings-adrbrowsiel-wallet-page">
   <template>
   <style include="settings-shared md-select iron-flex">
       .settings-row:not(:first-child) {
@@ -26,32 +26,32 @@
       }
   </style>
   <div class="settings-box first">
-    <div class="start">$i18n{braveWeb3ProviderDesc}</div>
-      <settings-dropdown-menu id="braveWeb3ProvidersType"
-                              pref="{{prefs.brave.wallet.web3_provider}}"
-                              menu-options="[[braveWeb3Providers_]]">
+    <div class="start">$i18n{adrbrowsielWeb3ProviderDesc}</div>
+      <settings-dropdown-menu id="adrbrowsielWeb3ProvidersType"
+                              pref="{{prefs.adrbrowsiel.wallet.web3_provider}}"
+                              menu-options="[[adrbrowsielWeb3Providers_]]">
       </settings-dropdown-menu>
     </div>
 <template is="dom-if" if="[[isNativeWalletEnabled_]]" restamp>
-    <settings-toggle-button id="braveWalletEnabled"
+    <settings-toggle-button id="adrbrowsielWalletEnabled"
         class="cr-row"
-        pref="{{prefs.brave.wallet.load_on_startup}}"
+        pref="{{prefs.adrbrowsiel.wallet.load_on_startup}}"
         label="$i18n{loadCryptoWalletsOnStartupDescDeprecated}">
 </template>
 <template is="dom-if" if="[[!isNativeWalletEnabled_]]" restamp>
-    <settings-toggle-button id="braveWalletEnabled"
+    <settings-toggle-button id="adrbrowsielWalletEnabled"
         class="cr-row"
-        pref="{{prefs.brave.wallet.load_on_startup}}"
+        pref="{{prefs.adrbrowsiel.wallet.load_on_startup}}"
         label="$i18n{loadCryptoWalletsOnStartupDesc}">
 </template>
 <template is="dom-if" if="[[isNativeWalletEnabled_]]" restamp>
-    <settings-toggle-button id="showBraveWalletIconOnToolbar"
+    <settings-toggle-button id="showadrbrowsielWalletIconOnToolbar"
         class="cr-row"
-        pref="{{prefs.brave.wallet.show_wallet_icon_on_toolbar}}"
-        label="$i18n{showBravewalletIconOnToolbar}">
+        pref="{{prefs.adrbrowsiel.wallet.show_wallet_icon_on_toolbar}}"
+        label="$i18n{showadrbrowsielwalletIconOnToolbar}">
 </template>
 
     </settings-toggle-button>
   </template>
-  <script src="brave_wallet_page.js"></script>
+  <script src="adrbrowsiel_wallet_page.js"></script>
 </dom-module>

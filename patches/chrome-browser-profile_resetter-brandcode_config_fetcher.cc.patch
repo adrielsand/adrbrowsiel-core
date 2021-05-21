@@ -7,7 +7,7 @@ index 9fc57181497917f6c5ce5a559f08d65cc7e6e55a..c8731b421332986a45944de1c8fffe2e
      const std::string& brandcode)
      : fetch_callback_(std::move(callback)), weak_ptr_factory_(this) {
 +  std::move(fetch_callback_).Run(); // tell caller we're done
-+  return; // but don't actually do anything (this feature is disabled in Brave)
++  return; // but don't actually do anything (this feature is disabled in adrbrowsiel)
    DCHECK(!brandcode.empty());
    net::NetworkTrafficAnnotationTag traffic_annotation =
        net::DefineNetworkTrafficAnnotation("brandcode_config", R"(

@@ -7,7 +7,7 @@ index 3a3019fddf6168107ffa121edb892e1ea4b7e1ae..60ca66002e28e3e5731ed9afe4afdb5b
   */
  public class SiteSettings
 -        extends SiteSettingsPreferenceFragment implements Preference.OnPreferenceClickListener {
-+        extends BraveSiteSettingsPreferencesBase implements Preference.OnPreferenceClickListener {
++        extends adrbrowsielSiteSettingsPreferencesBase implements Preference.OnPreferenceClickListener {
      // The keys for each category shown on the Site Settings page
      // are defined in the SiteSettingsCategory.
  

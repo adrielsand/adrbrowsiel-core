@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<declare-styleable name="brave_list_preference">
+	<declare-styleable name="adrbrowsiel_list_preference">
         <attr name="dialog_subtitle" format="string"/>
         <attr name="dialog_entries" format="string"/>
         <attr name="dialog_default_index" format="integer"/>

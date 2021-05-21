@@ -1,21 +1,21 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_rewards/extension_rewards_service_observer.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/extension_rewards_service_observer.h"
 
 #include <utility>
 #include <string>
 #include <vector>
 
 #include "base/base64.h"
-#include "brave/common/extensions/api/brave_rewards.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/common/extensions/api/adrbrowsiel_rewards.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "extensions/browser/event_router.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 ExtensionRewardsServiceObserver::ExtensionRewardsServiceObserver(
     Profile* profile)
@@ -33,11 +33,11 @@ void ExtensionRewardsServiceObserver::OnRewardsInitialized(
   }
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::Initialized::Create(0).release());
+      extensions::api::adrbrowsiel_rewards::Initialized::Create(0).release());
 
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::Initialized::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::Initialized::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -52,7 +52,7 @@ void ExtensionRewardsServiceObserver::OnPanelPublisherInfo(
     return;
   }
 
-  extensions::api::brave_rewards::OnPublisherData::Publisher publisher;
+  extensions::api::adrbrowsiel_rewards::OnPublisherData::Publisher publisher;
 
   publisher.percentage = info->percent;
   publisher.status = static_cast<int>(info->status);
@@ -64,13 +64,13 @@ void ExtensionRewardsServiceObserver::OnPanelPublisherInfo(
   publisher.fav_icon_url = info->favicon_url;
   publisher.publisher_key = info->id;
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnPublisherData::Create(windowId,
+      extensions::api::adrbrowsiel_rewards::OnPublisherData::Create(windowId,
                                                               publisher)
           .release());
 
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_ON_PUBLISHER_DATA,
-      extensions::api::brave_rewards::OnPublisherData::kEventName,
+      extensions::events::adrbrowsiel_ON_PUBLISHER_DATA,
+      extensions::api::adrbrowsiel_rewards::OnPublisherData::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -84,12 +84,12 @@ void ExtensionRewardsServiceObserver::OnFetchPromotions(
     return;
   }
 
-  std::vector<extensions::api::brave_rewards::OnPromotions::
+  std::vector<extensions::api::adrbrowsiel_rewards::OnPromotions::
         PromotionsType> promotions;
 
   for (const auto& item : list) {
     promotions.push_back(
-        extensions::api::brave_rewards::OnPromotions::PromotionsType());
+        extensions::api::adrbrowsiel_rewards::OnPromotions::PromotionsType());
 
     auto& promotion = promotions[promotions.size() -1];
 
@@ -101,12 +101,12 @@ void ExtensionRewardsServiceObserver::OnFetchPromotions(
   }
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnPromotions::Create(
+      extensions::api::adrbrowsiel_rewards::OnPromotions::Create(
           static_cast<int>(result), promotions)
             .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnPromotions::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnPromotions::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -120,7 +120,7 @@ void ExtensionRewardsServiceObserver::OnPromotionFinished(
     return;
   }
 
-  extensions::api::brave_rewards::OnPromotionFinish::
+  extensions::api::adrbrowsiel_rewards::OnPromotionFinish::
         Promotion promotion_api;
 
   promotion_api.promotion_id = promotion->id;
@@ -130,11 +130,11 @@ void ExtensionRewardsServiceObserver::OnPromotionFinished(
   promotion_api.amount = promotion->approximate_value;
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnPromotionFinish::Create
+      extensions::api::adrbrowsiel_rewards::OnPromotionFinish::Create
       (static_cast<int>(result), promotion_api).release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnPromotionFinish::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnPromotionFinish::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -148,11 +148,11 @@ void ExtensionRewardsServiceObserver::OnAdsEnabled(
   }
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnAdsEnabled::Create(
+      extensions::api::adrbrowsiel_rewards::OnAdsEnabled::Create(
           ads_enabled).release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnAdsEnabled::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnAdsEnabled::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -166,11 +166,11 @@ void ExtensionRewardsServiceObserver::OnPendingContributionSaved(
   }
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnPendingContributionSaved::Create(
+      extensions::api::adrbrowsiel_rewards::OnPendingContributionSaved::Create(
           static_cast<int>(result)).release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnPendingContributionSaved::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnPendingContributionSaved::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -183,12 +183,12 @@ void ExtensionRewardsServiceObserver::OnPublisherListNormalized(
     return;
   }
 
-  std::vector<extensions::api::brave_rewards::OnPublisherListNormalized::
+  std::vector<extensions::api::adrbrowsiel_rewards::OnPublisherListNormalized::
         PublishersType> publishers;
 
   for (const auto& item : list) {
     publishers.push_back(
-        extensions::api::brave_rewards::OnPublisherListNormalized::
+        extensions::api::adrbrowsiel_rewards::OnPublisherListNormalized::
         PublishersType());
 
     auto& publisher = publishers[publishers.size() -1];
@@ -199,13 +199,13 @@ void ExtensionRewardsServiceObserver::OnPublisherListNormalized(
   }
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::
+      extensions::api::adrbrowsiel_rewards::
       OnPublisherListNormalized::Create(publishers)
           .release());
 
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnPublisherListNormalized::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnPublisherListNormalized::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -219,16 +219,16 @@ void ExtensionRewardsServiceObserver::OnExcludedSitesChanged(
     return;
   }
 
-  extensions::api::brave_rewards::OnExcludedSitesChanged::Properties result;
+  extensions::api::adrbrowsiel_rewards::OnExcludedSitesChanged::Properties result;
   result.publisher_key = publisher_key;
   result.excluded = excluded;
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnExcludedSitesChanged::Create(result)
+      extensions::api::adrbrowsiel_rewards::OnExcludedSitesChanged::Create(result)
           .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnExcludedSitesChanged::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnExcludedSitesChanged::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -242,11 +242,11 @@ void ExtensionRewardsServiceObserver::OnRecurringTipSaved(
   }
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnRecurringTipSaved::Create(
+      extensions::api::adrbrowsiel_rewards::OnRecurringTipSaved::Create(
           success).release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnRecurringTipSaved::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnRecurringTipSaved::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -260,11 +260,11 @@ void ExtensionRewardsServiceObserver::OnRecurringTipRemoved(
   }
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnRecurringTipRemoved::Create(
+      extensions::api::adrbrowsiel_rewards::OnRecurringTipRemoved::Create(
           success).release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnRecurringTipRemoved::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnRecurringTipRemoved::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -279,11 +279,11 @@ void ExtensionRewardsServiceObserver::OnPendingContributionRemoved(
   }
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnPendingContributionRemoved::Create(
+      extensions::api::adrbrowsiel_rewards::OnPendingContributionRemoved::Create(
           static_cast<int>(result)).release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnPendingContributionRemoved::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnPendingContributionRemoved::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -300,22 +300,22 @@ void ExtensionRewardsServiceObserver::OnReconcileComplete(
     return;
   }
 
-  extensions::api::brave_rewards::OnReconcileComplete::Properties properties;
+  extensions::api::adrbrowsiel_rewards::OnReconcileComplete::Properties properties;
   properties.result = static_cast<int>(result);
   properties.type = static_cast<int>(type);
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnReconcileComplete::Create(properties)
+      extensions::api::adrbrowsiel_rewards::OnReconcileComplete::Create(properties)
           .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnReconcileComplete::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnReconcileComplete::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
 
 void ExtensionRewardsServiceObserver::OnDisconnectWallet(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       const ledger::type::Result result,
       const std::string& wallet_type) {
   auto* event_router = extensions::EventRouter::Get(profile_);
@@ -323,22 +323,22 @@ void ExtensionRewardsServiceObserver::OnDisconnectWallet(
     return;
   }
 
-  extensions::api::brave_rewards::OnDisconnectWallet::Properties properties;
+  extensions::api::adrbrowsiel_rewards::OnDisconnectWallet::Properties properties;
   properties.result = static_cast<int>(result);
   properties.wallet_type = wallet_type;
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnDisconnectWallet::Create(properties)
+      extensions::api::adrbrowsiel_rewards::OnDisconnectWallet::Create(properties)
           .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnDisconnectWallet::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnDisconnectWallet::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
 
 void ExtensionRewardsServiceObserver::OnUnblindedTokensReady(
-      brave_rewards::RewardsService* rewards_service) {
+      adrbrowsiel_rewards::RewardsService* rewards_service) {
   auto* event_router = extensions::EventRouter::Get(profile_);
   if (!event_router) {
     return;
@@ -346,8 +346,8 @@ void ExtensionRewardsServiceObserver::OnUnblindedTokensReady(
 
   auto args = std::make_unique<base::ListValue>();
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnUnblindedTokensReady::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnUnblindedTokensReady::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
@@ -358,17 +358,17 @@ void ExtensionRewardsServiceObserver::OnCompleteReset(const bool success) {
     return;
   }
 
-  extensions::api::brave_rewards::OnCompleteReset::Properties properties;
+  extensions::api::adrbrowsiel_rewards::OnCompleteReset::Properties properties;
   properties.success = success;
 
   std::unique_ptr<base::ListValue> args(
-      extensions::api::brave_rewards::OnCompleteReset::Create(properties)
+      extensions::api::adrbrowsiel_rewards::OnCompleteReset::Create(properties)
           .release());
   std::unique_ptr<extensions::Event> event(new extensions::Event(
-      extensions::events::BRAVE_START,
-      extensions::api::brave_rewards::OnCompleteReset::kEventName,
+      extensions::events::adrbrowsiel_START,
+      extensions::api::adrbrowsiel_rewards::OnCompleteReset::kEventName,
       std::move(args)));
   event_router->BroadcastEvent(std::move(event));
 }
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

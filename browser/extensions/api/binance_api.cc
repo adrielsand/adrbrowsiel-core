@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/api/binance_api.h"
+#include "adrbrowsiel/browser/extensions/api/binance_api.h"
 
 #include <memory>
 #include <string>
@@ -12,10 +12,10 @@
 
 #include "base/environment.h"
 
-#include "brave/common/extensions/api/binance.h"
-#include "brave/common/pref_names.h"
-#include "brave/browser/binance/binance_service_factory.h"
-#include "brave/components/binance/browser/binance_service.h"
+#include "adrbrowsiel/common/extensions/api/binance.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/browser/binance/binance_service_factory.h"
+#include "adrbrowsiel/components/binance/browser/binance_service.h"
 #include "chrome/browser/extensions/api/tabs/tabs_constants.h"
 #include "chrome/browser/extensions/extension_tab_util.h"
 #include "chrome/browser/infobars/infobar_service.h"

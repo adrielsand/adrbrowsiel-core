@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -22,7 +22,7 @@ import org.chromium.content_public.browser.WebContents;
 // This is subclass of SimpleConfirmInfoBarBuilder which allows to pass
 // drawableId of vector drawable resource
 
-public class BraveSimpleConfirmInfoBarBuilder extends SimpleConfirmInfoBarBuilder {
+public class adrbrowsielSimpleConfirmInfoBarBuilder extends SimpleConfirmInfoBarBuilder {
     public static void createInfobarWithDrawable(WebContents webContents, SimpleConfirmInfoBarBuilder.Listener listener,
             int infobarTypeIdentifier,
             Context context, int drawableId, String message, String primaryText,

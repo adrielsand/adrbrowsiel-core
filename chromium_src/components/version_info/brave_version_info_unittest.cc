@@ -10,7 +10,7 @@ using version_info::GetChannelString;
 using version_info::Channel;
 
 // We use |nightly| instead of |canary|.
-TEST(BraveVersionInfoTest, ChannelStringTest) {
+TEST(adrbrowsielVersionInfoTest, ChannelStringTest) {
   EXPECT_EQ("stable", GetChannelString(Channel::STABLE));
   EXPECT_EQ("beta", GetChannelString(Channel::BETA));
   EXPECT_EQ("dev", GetChannelString(Channel::DEV));

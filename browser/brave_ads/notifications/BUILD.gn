@@ -9,13 +9,13 @@ source_set("notifications") {
 
   deps = [
     "//base",
-    "//brave/browser/brave_ads",
-    "//brave/browser/profiles:util",
-    "//brave/browser/ui/brave_ads",
+    "//adrbrowsiel/browser/adrbrowsiel_ads",
+    "//adrbrowsiel/browser/profiles:util",
+    "//adrbrowsiel/browser/ui/adrbrowsiel_ads",
     "//skia",
   ]
 
   if (is_android) {
-    deps += [ "//brave/browser/brave_ads/android:jni_headers" ]
+    deps += [ "//adrbrowsiel/browser/adrbrowsiel_ads/android:jni_headers" ]
   }
 }

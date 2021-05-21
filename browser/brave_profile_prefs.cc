@@ -1,39 +1,39 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_profile_prefs.h"
+#include "adrbrowsiel/browser/adrbrowsiel_profile_prefs.h"
 
 #include <string>
 
-#include "brave/browser/new_tab/new_tab_shows_options.h"
+#include "adrbrowsiel/browser/new_tab/new_tab_shows_options.h"
 
-#include "brave/browser/brave_shields/brave_shields_web_contents_observer.h"
-#include "brave/browser/search/ntp_utils.h"
-#include "brave/browser/themes/brave_dark_mode_utils.h"
-#include "brave/browser/ui/omnibox/brave_omnibox_client_impl.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/binance/browser/buildflags/buildflags.h"
-#include "brave/components/brave_ads/browser/ads_p2a.h"
-#include "brave/components/brave_perf_predictor/browser/buildflags.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
-#include "brave/components/brave_shields/common/pref_names.h"
-#include "brave/components/brave_sync/brave_sync_prefs.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/brave_wayback_machine/buildflags.h"
-#include "brave/components/brave_webtorrent/browser/buildflags/buildflags.h"
-#include "brave/components/crypto_dot_com/browser/buildflags/buildflags.h"
-#include "brave/components/ftx/browser/buildflags/buildflags.h"
-#include "brave/components/gemini/browser/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/l10n/browser/locale_helper.h"
-#include "brave/components/l10n/common/locale_util.h"
-#include "brave/components/search_engines/brave_prepopulated_engines.h"
-#include "brave/components/sidebar/buildflags/buildflags.h"
-#include "brave/components/speedreader/buildflags.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer.h"
+#include "adrbrowsiel/browser/search/ntp_utils.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_dark_mode_utils.h"
+#include "adrbrowsiel/browser/ui/omnibox/adrbrowsiel_omnibox_client_impl.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/binance/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_p2a.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/adrbrowsiel_sync_prefs.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/crypto_dot_com/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ftx/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/gemini/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper.h"
+#include "adrbrowsiel/components/l10n/common/locale_util.h"
+#include "adrbrowsiel/components/search_engines/adrbrowsiel_prepopulated_engines.h"
+#include "adrbrowsiel/components/sidebar/buildflags/buildflags.h"
+#include "adrbrowsiel/components/speedreader/buildflags.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/net/prediction_options.h"
 #include "chrome/browser/prefs/session_startup_pref.h"
 #include "chrome/common/pref_names.h"
@@ -49,55 +49,55 @@
 #include "extensions/buildflags/buildflags.h"
 #include "third_party/widevine/cdm/buildflags.h"
 
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
-#include "brave/components/brave_webtorrent/browser/webtorrent_util.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/webtorrent_util.h"
 #endif
 
 #if BUILDFLAG(ENABLE_WIDEVINE)
-#include "brave/browser/widevine/widevine_utils.h"
+#include "adrbrowsiel/browser/widevine/widevine_utils.h"
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_WAYBACK_MACHINE)
-#include "brave/components/brave_wayback_machine/pref_names.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_WAYBACK_MACHINE)
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/pref_names.h"
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
-#include "brave/components/brave_wallet/browser/pref_names.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/pref_names.h"
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
 #endif
 
 #if BUILDFLAG(GEMINI_ENABLED)
-#include "brave/components/gemini/browser/pref_names.h"
+#include "adrbrowsiel/components/gemini/browser/pref_names.h"
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_PERF_PREDICTOR)
-#include "brave/components/brave_perf_predictor/browser/p3a_bandwidth_savings_tracker.h"
-#include "brave/components/brave_perf_predictor/browser/perf_predictor_tab_helper.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_PERF_PREDICTOR)
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/p3a_bandwidth_savings_tracker.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/perf_predictor_tab_helper.h"
 #endif
 
 #if !BUILDFLAG(USE_GCM_FROM_PLATFORM)
-#include "brave/browser/gcm_driver/brave_gcm_utils.h"
+#include "adrbrowsiel/browser/gcm_driver/adrbrowsiel_gcm_utils.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SPEEDREADER)
-#include "brave/components/speedreader/speedreader_service.h"
+#include "adrbrowsiel/components/speedreader/speedreader_service.h"
 #endif
 
 #if BUILDFLAG(CRYPTO_DOT_COM_ENABLED)
-#include "brave/components/crypto_dot_com/browser/crypto_dot_com_pref_utils.h"
-#include "brave/components/crypto_dot_com/common/pref_names.h"
+#include "adrbrowsiel/components/crypto_dot_com/browser/crypto_dot_com_pref_utils.h"
+#include "adrbrowsiel/components/crypto_dot_com/common/pref_names.h"
 #endif
 
 #if BUILDFLAG(ENABLE_FTX)
-#include "brave/components/ftx/browser/ftx_pref_utils.h"
+#include "adrbrowsiel/components/ftx/browser/ftx_pref_utils.h"
 #endif
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/components/tor/tor_profile_service.h"
+#include "adrbrowsiel/components/tor/tor_profile_service.h"
 #endif
 
 #if defined(OS_ANDROID)
@@ -107,11 +107,11 @@
 #endif
 
 #if !defined(OS_ANDROID)
-#include "brave/browser/ui/startup/default_brave_browser_prompt.h"
+#include "adrbrowsiel/browser/ui/startup/default_adrbrowsiel_browser_prompt.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 #endif
 
 #if BUILDFLAG(ENABLE_EXTENSIONS)
@@ -119,7 +119,7 @@
 using extensions::FeatureSwitch;
 #endif
 
-namespace brave {
+namespace adrbrowsiel {
 
 void RegisterProfilePrefsForMigration(
     user_prefs::PrefRegistrySyncable* registry) {
@@ -127,7 +127,7 @@ void RegisterProfilePrefsForMigration(
   RegisterWidevineProfilePrefsForMigration(registry);
 #endif
 
-  dark_mode::RegisterBraveDarkModePrefsForMigration(registry);
+  dark_mode::RegisteradrbrowsielDarkModePrefsForMigration(registry);
 #if !defined(OS_ANDROID)
   new_tab_page::RegisterNewTabPagePrefsForMigration(registry);
 #endif
@@ -140,32 +140,32 @@ void RegisterProfilePrefsForMigration(
       kAlternativeSearchEngineProviderInTor,
       TemplateURLPrepopulateData::PREPOPULATED_ENGINE_ID_INVALID);
   // Added 05/2021
-  registry->RegisterBooleanPref(kBraveTodayIntroDismissed, false);
+  registry->RegisterBooleanPref(kadrbrowsielTodayIntroDismissed, false);
 }
 
 void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
-  brave_shields::BraveShieldsWebContentsObserver::RegisterProfilePrefs(
+  adrbrowsiel_shields::adrbrowsielShieldsWebContentsObserver::RegisterProfilePrefs(
       registry);
 
-#if BUILDFLAG(ENABLE_BRAVE_PERF_PREDICTOR)
-  brave_perf_predictor::PerfPredictorTabHelper::RegisterProfilePrefs(registry);
-  brave_perf_predictor::P3ABandwidthSavingsTracker::RegisterPrefs(registry);
+#if BUILDFLAG(ENABLE_adrbrowsiel_PERF_PREDICTOR)
+  adrbrowsiel_perf_predictor::PerfPredictorTabHelper::RegisterProfilePrefs(registry);
+  adrbrowsiel_perf_predictor::P3ABandwidthSavingsTracker::RegisterPrefs(registry);
 #endif
 
   // appearance
   registry->RegisterBooleanPref(kLocationBarIsWide, false);
-  registry->RegisterBooleanPref(brave_rewards::prefs::kHideButton, false);
+  registry->RegisterBooleanPref(adrbrowsiel_rewards::prefs::kHideButton, false);
   registry->RegisterBooleanPref(kMRUCyclingEnabled, false);
 
-  brave_sync::Prefs::RegisterProfilePrefs(registry);
+  adrbrowsiel_sync::Prefs::RegisterProfilePrefs(registry);
 
   // TODO(shong): Migrate this to local state also and guard in ENABLE_WIDEVINE.
   // We don't need to display "don't ask widevine prompt option" in settings
   // if widevine is disabled.
-  // F/u issue: https://github.com/brave/brave-browser/issues/7000
+  // F/u issue: https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7000
   registry->RegisterBooleanPref(kAskWidevineInstall, true);
 
-  // Default Brave shields
+  // Default adrbrowsiel shields
   registry->RegisterBooleanPref(kHTTPSEVerywhereControlType, true);
   registry->RegisterBooleanPref(kNoScriptControlType, false);
   registry->RegisterBooleanPref(kAdControlType, true);
@@ -178,11 +178,11 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
 
   registry->RegisterBooleanPref(kShieldsStatsBadgeVisible, true);
   registry->RegisterBooleanPref(kGoogleLoginControlType, true);
-  registry->RegisterBooleanPref(brave_shields::prefs::kFBEmbedControlType,
+  registry->RegisterBooleanPref(adrbrowsiel_shields::prefs::kFBEmbedControlType,
                                 true);
-  registry->RegisterBooleanPref(brave_shields::prefs::kTwitterEmbedControlType,
+  registry->RegisterBooleanPref(adrbrowsiel_shields::prefs::kTwitterEmbedControlType,
                                 true);
-  registry->RegisterBooleanPref(brave_shields::prefs::kLinkedInEmbedControlType,
+  registry->RegisterBooleanPref(adrbrowsiel_shields::prefs::kLinkedInEmbedControlType,
                                 false);
 
 #if BUILDFLAG(IPFS_ENABLED)
@@ -190,13 +190,13 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
 #endif
 
   // WebTorrent
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
   webtorrent::RegisterProfilePrefs(registry);
 #endif
 
   // wayback machine
-#if BUILDFLAG(ENABLE_BRAVE_WAYBACK_MACHINE)
-  registry->RegisterBooleanPref(kBraveWaybackMachineEnabled, true);
+#if BUILDFLAG(ENABLE_adrbrowsiel_WAYBACK_MACHINE)
+  registry->RegisterBooleanPref(kadrbrowsielWaybackMachineEnabled, true);
 #endif
 
 #if defined(OS_ANDROID)
@@ -233,7 +233,7 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
   // be set correctly, so we use feature switch to set the initial value
 #if BUILDFLAG(ENABLE_EXTENSIONS)
   registry->RegisterBooleanPref(
-      kBraveEnabledMediaRouter,
+      kadrbrowsielEnabledMediaRouter,
       FeatureSwitch::load_media_router_component_extension()->IsEnabled());
 #endif
 
@@ -285,17 +285,17 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
   registry->RegisterStringPref(kNewTabPageClockFormat, "");
   registry->RegisterBooleanPref(kNewTabPageShowStats, true);
 
-  // Only default brave today to enabled for
+  // Only default adrbrowsiel today to enabled for
   // english-language on browser startup.
   const std::string locale =
-      brave_l10n::LocaleHelper::GetInstance()->GetLocale();
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+      adrbrowsiel_l10n::LocaleHelper::GetInstance()->GetLocale();
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
   const bool is_english_language = language_code == "en";
   const bool is_japanese_language = language_code == "ja";
-  const bool brave_today_enabled_default = is_english_language ||
+  const bool adrbrowsiel_today_enabled_default = is_english_language ||
       is_japanese_language;
   registry->RegisterBooleanPref(kNewTabPageShowToday,
-      brave_today_enabled_default);
+      adrbrowsiel_today_enabled_default);
   registry->RegisterBooleanPref(kNewTabPageShowRewards, true);
   registry->RegisterBooleanPref(kNewTabPageShowBinance, true);
   registry->RegisterBooleanPref(kNewTabPageShowTogether, false);
@@ -304,29 +304,29 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
       kNewTabPageShowsOptions,
       static_cast<int>(NewTabPageShowsOptions::kDashboard));
 
-  // Brave Today
-  registry->RegisterDictionaryPref(kBraveTodaySources);
-  registry->RegisterBooleanPref(kBraveTodayOptedIn, false);
-  registry->RegisterListPref(kBraveTodayWeeklySessionCount);
-  registry->RegisterListPref(kBraveTodayWeeklyCardViewsCount);
-  registry->RegisterListPref(kBraveTodayWeeklyCardVisitsCount);
+  // adrbrowsiel Today
+  registry->RegisterDictionaryPref(kadrbrowsielTodaySources);
+  registry->RegisterBooleanPref(kadrbrowsielTodayOptedIn, false);
+  registry->RegisterListPref(kadrbrowsielTodayWeeklySessionCount);
+  registry->RegisterListPref(kadrbrowsielTodayWeeklyCardViewsCount);
+  registry->RegisterListPref(kadrbrowsielTodayWeeklyCardVisitsCount);
 
-  // Brave Wallet
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-  registry->RegisterIntegerPref(kBraveWalletPrefVersion, 0);
-  registry->RegisterStringPref(kBraveWalletAES256GCMSivNonce, "");
-  registry->RegisterStringPref(kBraveWalletEncryptedSeed, "");
+  // adrbrowsiel Wallet
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+  registry->RegisterIntegerPref(kadrbrowsielWalletPrefVersion, 0);
+  registry->RegisterStringPref(kadrbrowsielWalletAES256GCMSivNonce, "");
+  registry->RegisterStringPref(kadrbrowsielWalletEncryptedSeed, "");
   registry->RegisterIntegerPref(
-      kBraveWalletWeb3Provider,
-      static_cast<int>(brave_wallet::IsNativeWalletEnabled()
-                           ? BraveWalletWeb3ProviderTypes::BRAVE_WALLET
-                           : BraveWalletWeb3ProviderTypes::ASK));
+      kadrbrowsielWalletWeb3Provider,
+      static_cast<int>(adrbrowsiel_wallet::IsNativeWalletEnabled()
+                           ? adrbrowsielWalletWeb3ProviderTypes::adrbrowsiel_WALLET
+                           : adrbrowsielWalletWeb3ProviderTypes::ASK));
   registry->RegisterBooleanPref(kLoadCryptoWalletsOnStartup, false);
   registry->RegisterBooleanPref(kOptedIntoCryptoWallets, false);
-  registry->RegisterStringPref(kBraveWalletPasswordEncryptorSalt, "");
-  registry->RegisterStringPref(kBraveWalletPasswordEncryptorNonce, "");
-  registry->RegisterStringPref(kBraveWalletEncryptedMnemonic, "");
-  registry->RegisterIntegerPref(kBraveWalletDefaultKeyringAccountNum, 0);
+  registry->RegisterStringPref(kadrbrowsielWalletPasswordEncryptorSalt, "");
+  registry->RegisterStringPref(kadrbrowsielWalletPasswordEncryptorNonce, "");
+  registry->RegisterStringPref(kadrbrowsielWalletEncryptedMnemonic, "");
+  registry->RegisterIntegerPref(kadrbrowsielWalletDefaultKeyringAccountNum, 0);
   registry->RegisterBooleanPref(kShowWalletIconOnToolbar, true);
 #endif
 
@@ -345,7 +345,7 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
   // Autocomplete in address bar
   registry->RegisterBooleanPref(kAutocompleteEnabled, true);
   registry->RegisterBooleanPref(kTopSiteSuggestionsEnabled, true);
-  registry->RegisterBooleanPref(kBraveSuggestedSiteSuggestionsEnabled, false);
+  registry->RegisterBooleanPref(kadrbrowsielSuggestedSiteSuggestionsEnabled, false);
 
   // Password leak detection should be disabled
   registry->SetDefaultPrefValue(
@@ -356,8 +356,8 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
 
   // Default search engine version
   registry->RegisterIntegerPref(
-      kBraveDefaultSearchVersion,
-      TemplateURLPrepopulateData::kBraveCurrentDataVersion);
+      kadrbrowsielDefaultSearchVersion,
+      TemplateURLPrepopulateData::kadrbrowsielCurrentDataVersion);
 
 #if BUILDFLAG(ENABLE_SPEEDREADER)
   speedreader::SpeedreaderService::RegisterPrefs(registry);
@@ -380,11 +380,11 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
 #endif
 
 #if !defined(OS_ANDROID)
-  BraveOmniboxClientImpl::RegisterPrefs(registry);
+  adrbrowsielOmniboxClientImpl::RegisterPrefs(registry);
 #endif
 
 #if !defined(OS_ANDROID)
-  brave_ads::RegisterP2APrefs(registry);
+  adrbrowsiel_ads::RegisterP2APrefs(registry);
 #endif
 
 #if !defined(OS_ANDROID)
@@ -392,10 +392,10 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
   // We can turn customization mode on when we have add-shortcut feature.
   registry->SetDefaultPrefValue(prefs::kNtpUseMostVisitedTiles,
                                 base::Value(true));
-  RegisterDefaultBraveBrowserPromptPrefs(registry);
+  RegisterDefaultadrbrowsielBrowserPromptPrefs(registry);
 #endif
 
   RegisterProfilePrefsForMigration(registry);
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

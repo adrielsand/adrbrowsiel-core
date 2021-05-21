@@ -6,7 +6,7 @@ index f91ffe61dba5ae8abf52fdc87f92bb5bd5e47f69..ca48e85afd1282743c995f2b98ab8454
    delete_info.name = std::move(filter->cookie_name);
    delete_info.url = std::move(filter->url);
    delete_info.host = std::move(filter->host_name);
-+  BRAVE_DELETIONFILTERTOINFO
++  adrbrowsiel_DELETIONFILTERTOINFO
  
    switch (filter->session_control) {
      case mojom::CookieDeletionSessionControl::IGNORE_CONTROL:

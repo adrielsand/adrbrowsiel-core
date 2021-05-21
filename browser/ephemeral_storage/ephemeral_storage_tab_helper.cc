@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ephemeral_storage/ephemeral_storage_tab_helper.h"
+#include "adrbrowsiel/browser/ephemeral_storage/ephemeral_storage_tab_helper.h"
 
 #include <map>
 #include <set>
@@ -51,10 +51,10 @@ std::string StringToSessionStorageId(const std::string& string,
 // EphemeralStorageTabHelper helps to manage the lifetime of ephemeral storage.
 // For more information about the design of ephemeral storage please see the
 // design document at:
-// https://github.com/brave/brave-browser/wiki/Ephemeral-Storage-Design
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki/Ephemeral-Storage-Design
 EphemeralStorageTabHelper::EphemeralStorageTabHelper(WebContents* web_contents)
     : WebContentsObserver(web_contents) {
-  DCHECK(base::FeatureList::IsEnabled(net::features::kBraveEphemeralStorage));
+  DCHECK(base::FeatureList::IsEnabled(net::features::kadrbrowsielEphemeralStorage));
 
   // The URL might not be empty if this is a restored WebContents, for instance.
   // In that case we want to make sure it has valid ephemeral storage.
@@ -123,7 +123,7 @@ void EphemeralStorageTabHelper::CreateEphemeralStorageAreasForDomainAndURL(
       BrowserContext::GetStoragePartition(browser_context, site_instance.get());
 
   if (base::FeatureList::IsEnabled(
-          net::features::kBraveEphemeralStorageKeepAlive) &&
+          net::features::kadrbrowsielEphemeralStorageKeepAlive) &&
       tld_ephemeral_lifetime_) {
     keep_alive_tld_ephemeral_lifetime_list_.push_back(tld_ephemeral_lifetime_);
     keep_alive_local_storage_list_.push_back(local_storage_namespace_);
@@ -138,7 +138,7 @@ void EphemeralStorageTabHelper::CreateEphemeralStorageAreasForDomainAndURL(
             weak_factory_.GetWeakPtr(), tld_ephemeral_lifetime_->key()),
         g_storage_keep_alive_for_testing.is_min()
             ? base::TimeDelta::FromSeconds(
-                  net::features::kBraveEphemeralStorageKeepAliveTimeInSeconds
+                  net::features::kadrbrowsielEphemeralStorageKeepAliveTimeInSeconds
                       .Get())
             : g_storage_keep_alive_for_testing);
   }

@@ -6,7 +6,7 @@ index 86d85e2c9d08ef14264c9bc4f075d95350685af0..808846c86714dc528ace2665aeab694b
      "//components/navigation_interception",
      "//content/public/browser",
    ]
-+  deps += [ "//brave/components/external_intents/android" ]
++  deps += [ "//adrbrowsiel/components/external_intents/android" ]
  }
  
  android_library("javatests") {

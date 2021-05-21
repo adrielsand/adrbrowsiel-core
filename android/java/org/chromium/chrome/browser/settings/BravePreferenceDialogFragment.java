@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -22,11 +22,11 @@ import androidx.preference.PreferenceDialogFragmentCompat;
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
 
-public class BravePreferenceDialogFragment extends PreferenceDialogFragmentCompat {
-    public static final String TAG = "BravePreferenceDialogFragment";
+public class adrbrowsielPreferenceDialogFragment extends PreferenceDialogFragmentCompat {
+    public static final String TAG = "adrbrowsielPreferenceDialogFragment";
     private RadioGroup mRadioGroup;
     private CharSequence[] mDialogEntries;
-    private BraveDialogPreference dialogPreference;
+    private adrbrowsielDialogPreference dialogPreference;
     private Preference.OnPreferenceChangeListener onPreferenceChangeListener;
     private int newValue;
 
@@ -34,8 +34,8 @@ public class BravePreferenceDialogFragment extends PreferenceDialogFragmentCompa
         this.onPreferenceChangeListener = listener;
     }
 
-    public static BravePreferenceDialogFragment newInstance(BraveDialogPreference preference) {
-        BravePreferenceDialogFragment fragment = new BravePreferenceDialogFragment();
+    public static adrbrowsielPreferenceDialogFragment newInstance(adrbrowsielDialogPreference preference) {
+        adrbrowsielPreferenceDialogFragment fragment = new adrbrowsielPreferenceDialogFragment();
         Bundle bundle = new Bundle(1);
         bundle.putString(PreferenceDialogFragmentCompat.ARG_KEY, preference.getKey());
         fragment.setArguments(bundle);
@@ -45,7 +45,7 @@ public class BravePreferenceDialogFragment extends PreferenceDialogFragmentCompa
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dialogPreference = (BraveDialogPreference) getPreference();
+        dialogPreference = (adrbrowsielDialogPreference) getPreference();
     }
 
     @Override
@@ -69,7 +69,7 @@ public class BravePreferenceDialogFragment extends PreferenceDialogFragmentCompa
         }
 
         builder.setPositiveButton(null, null);
-        builder.setNegativeButton(getResources().getString(R.string.brave_sync_btn_done), null);
+        builder.setNegativeButton(getResources().getString(R.string.adrbrowsiel_sync_btn_done), null);
     }
 
     @Override

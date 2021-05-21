@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/browsing_data/brave_clear_browsing_data.h"
+#include "adrbrowsiel/browser/browsing_data/adrbrowsiel_clear_browsing_data.h"
 
 #include <vector>
 
@@ -25,7 +25,7 @@ namespace content {
 
 namespace {
 
-using content::BraveClearBrowsingData;
+using content::adrbrowsielClearBrowsingData;
 
 class BrowsingDataRemovalWatcher
     : public content::BrowsingDataRemover::Observer {
@@ -33,7 +33,7 @@ class BrowsingDataRemovalWatcher
   BrowsingDataRemovalWatcher() : observer_(this) {}
 
   void ClearBrowsingDataForLoadedProfiles(
-      BraveClearBrowsingData::OnExitTestingCallback* testing_callback);
+      adrbrowsielClearBrowsingData::OnExitTestingCallback* testing_callback);
 
   // BrowsingDataRemover::Observer implementation.
   void OnBrowsingDataRemoverDone(uint64_t failed_data_types) override;
@@ -98,7 +98,7 @@ bool BrowsingDataRemovalWatcher::GetClearBrowsingDataOnExitSettings(
     *origin_mask |= content::BrowsingDataRemover::ORIGIN_TYPE_PROTECTED_WEB;
   }
 
-  // Note: this will also delete Brave Shields site-specific settings.
+  // Note: this will also delete adrbrowsiel Shields site-specific settings.
   // Corresponds to "Content settings" checkbox in the Clear Browsing Data
   // dialog.
   if (prefs->GetBoolean(browsing_data::prefs::kDeleteSiteSettingsOnExit))
@@ -121,7 +121,7 @@ bool BrowsingDataRemovalWatcher::GetClearBrowsingDataOnExitSettings(
 // need to be cleared. Once the counter reaches 0 we exit the RunLoop and let
 // shutdown proceed.
 void BrowsingDataRemovalWatcher::ClearBrowsingDataForLoadedProfiles(
-    BraveClearBrowsingData::OnExitTestingCallback* testing_callback) {
+    adrbrowsielClearBrowsingData::OnExitTestingCallback* testing_callback) {
   ProfileManager* profile_manager = g_browser_process->profile_manager();
   DCHECK(profile_manager);
 
@@ -164,12 +164,12 @@ void BrowsingDataRemovalWatcher::OnBrowsingDataRemoverDone(
 
 }  // namespace
 
-BraveClearBrowsingData::OnExitTestingCallback*
-    BraveClearBrowsingData::on_exit_testing_callback_ = nullptr;
+adrbrowsielClearBrowsingData::OnExitTestingCallback*
+    adrbrowsielClearBrowsingData::on_exit_testing_callback_ = nullptr;
 
 // static
-void BraveClearBrowsingData::ClearOnExit() {
-  TRACE_EVENT0("browser", "BraveClearBrowsingData::ClearOnExit");
+void adrbrowsielClearBrowsingData::ClearOnExit() {
+  TRACE_EVENT0("browser", "adrbrowsielClearBrowsingData::ClearOnExit");
   // Do not clear browsing data when the OS is ending session (logout/reboot/
   // shutdown) to avoid corrupting data if the process is killed.
   if (browser_shutdown::GetShutdownType() ==
@@ -182,7 +182,7 @@ void BraveClearBrowsingData::ClearOnExit() {
 }
 
 // static
-void BraveClearBrowsingData::SetOnExitTestingCallback(
+void adrbrowsielClearBrowsingData::SetOnExitTestingCallback(
     OnExitTestingCallback* callback) {
   on_exit_testing_callback_ = callback;
 }

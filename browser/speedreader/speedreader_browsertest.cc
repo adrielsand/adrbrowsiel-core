@@ -1,14 +1,14 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/bind.h"
 #include "base/path_service.h"
-#include "brave/app/brave_command_ids.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/speedreader/features.h"
-#include "brave/components/speedreader/speedreader_switches.h"
+#include "adrbrowsiel/app/adrbrowsiel_command_ids.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/speedreader/features.h"
+#include "adrbrowsiel/components/speedreader/speedreader_switches.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_commands.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -25,19 +25,19 @@ const base::FilePath::StringPieceType kTestWhitelist =
     FILE_PATH_LITERAL("speedreader_whitelist.json");
 
 constexpr char kSpeedreaderToggleUMAHistogramName[] =
-    "Brave.SpeedReader.ToggleCount";
+    "adrbrowsiel.SpeedReader.ToggleCount";
 
 constexpr char kSpeedreaderEnabledUMAHistogramName[] =
-    "Brave.SpeedReader.Enabled";
+    "adrbrowsiel.SpeedReader.Enabled";
 
 class SpeedReaderBrowserTest : public InProcessBrowserTest {
  public:
   SpeedReaderBrowserTest()
       : https_server_(net::EmbeddedTestServer::TYPE_HTTPS) {
     feature_list_.InitAndEnableFeature(speedreader::kSpeedreaderFeature);
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     https_server_.SetSSLConfig(net::EmbeddedTestServer::CERT_OK);
     https_server_.ServeFilesFromDirectory(test_data_dir);
     EXPECT_TRUE(https_server_.Start());
@@ -50,7 +50,7 @@ class SpeedReaderBrowserTest : public InProcessBrowserTest {
 
   void SetUpCommandLine(base::CommandLine* command_line) override {
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     base::FilePath whitelist_path = test_data_dir.Append(kTestWhitelist);
     command_line->AppendSwitchPath(speedreader::kSpeedreaderWhitelistPath,
                                    whitelist_path);
@@ -68,7 +68,7 @@ class SpeedReaderBrowserTest : public InProcessBrowserTest {
   net::EmbeddedTestServer https_server_;
 };
 
-// disabled in https://github.com/brave/brave-browser/issues/11328
+// disabled in https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/11328
 IN_PROC_BROWSER_TEST_F(SpeedReaderBrowserTest, DISABLED_SmokeTest) {
   chrome::ExecuteCommand(browser(), IDC_TOGGLE_SPEEDREADER);
   const GURL url = https_server_.GetURL(kTestHost, kTestPage);
@@ -78,7 +78,7 @@ IN_PROC_BROWSER_TEST_F(SpeedReaderBrowserTest, DISABLED_SmokeTest) {
   content::RenderFrameHost* rfh = contents->GetMainFrame();
 
   const char kGetStyleLength[] =
-      "document.getElementById(\"brave_speedreader_style\").innerHTML.length";
+      "document.getElementById(\"adrbrowsiel_speedreader_style\").innerHTML.length";
 
   const char kGetContentLength[] = "document.body.innerHTML.length";
 

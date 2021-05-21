@@ -6,7 +6,7 @@ index 29d0321fae4ca79a40cc77b2a48c3464c4fdcc69..0f54549e4ec3b59c31832a47d64bb760
  // static
  Browser* Browser::Create(const CreateParams& params) {
    CHECK_EQ(CreationStatus::kOk, GetCreationStatusForProfile(params.profile));
-+  BRAVE_BROWSER_CREATE
++  adrbrowsiel_BROWSER_CREATE
    return new Browser(params);
  }
  
@@ -15,7 +15,7 @@ index 29d0321fae4ca79a40cc77b2a48c3464c4fdcc69..0f54549e4ec3b59c31832a47d64bb760
            std::make_unique<chrome::BrowserTabStripModelDelegate>(this)),
        tab_strip_model_(
 -          std::make_unique<TabStripModel>(tab_strip_model_delegate_.get(),
-+          std::make_unique<BraveTabStripModel>(tab_strip_model_delegate_.get(),
++          std::make_unique<adrbrowsielTabStripModel>(tab_strip_model_delegate_.get(),
                                            params.profile)),
        app_name_(params.app_name),
        is_trusted_source_(params.trusted_source),

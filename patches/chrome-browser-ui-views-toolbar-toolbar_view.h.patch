@@ -29,7 +29,7 @@ index 99358217419a6a418ea2f455b9e584b536782f74..897e4f17bebe92cb8daaeb44ae3639e4
    friend class AvatarToolbarButtonBrowserTest;
  
   protected:
-+  friend class BraveToolbarView;
++  friend class adrbrowsielToolbarView;
    // This controls Toolbar, LocationBar and CustomTabBar visibility.
    // If we don't set all three, tab navigation from the app menu breaks
    // on Chrome OS.

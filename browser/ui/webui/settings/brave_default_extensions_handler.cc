@@ -1,20 +1,20 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/settings/brave_default_extensions_handler.h"
+#include "adrbrowsiel/browser/ui/webui/settings/adrbrowsiel_default_extensions_handler.h"
 
 #include <memory>
 #include <string>
 
 #include "base/bind.h"
 #include "base/values.h"
-#include "brave/browser/extensions/brave_component_loader.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_webtorrent/grit/brave_webtorrent_resources.h"
-#include "brave/components/decentralized_dns/buildflags/buildflags.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_component_loader.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/grit/adrbrowsiel_webtorrent_resources.h"
+#include "adrbrowsiel/components/decentralized_dns/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
 #include "chrome/browser/about_flags.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/extensions/component_loader.h"
@@ -39,40 +39,40 @@
 #include "extensions/common/feature_switch.h"
 
 #if BUILDFLAG(ENABLE_TOR)
-#include "brave/browser/tor/tor_profile_service_factory.h"
-#include "brave/components/tor/pref_names.h"
+#include "adrbrowsiel/browser/tor/tor_profile_service_factory.h"
+#include "adrbrowsiel/components/tor/pref_names.h"
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
 #endif
 
 #if BUILDFLAG(ENABLE_WIDEVINE)
-#include "brave/browser/widevine/widevine_utils.h"
+#include "adrbrowsiel/browser/widevine/widevine_utils.h"
 #endif
 
 #if BUILDFLAG(DECENTRALIZED_DNS_ENABLED)
-#include "brave/components/decentralized_dns/constants.h"
-#include "brave/components/decentralized_dns/utils.h"
+#include "adrbrowsiel/components/decentralized_dns/constants.h"
+#include "adrbrowsiel/components/decentralized_dns/utils.h"
 #endif
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/keys/ipns_keys_manager.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/keys/ipns_keys_manager.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #endif
 
-BraveDefaultExtensionsHandler::BraveDefaultExtensionsHandler()
+adrbrowsielDefaultExtensionsHandler::adrbrowsielDefaultExtensionsHandler()
     : weak_ptr_factory_(this) {
 #if BUILDFLAG(ENABLE_WIDEVINE)
   was_widevine_enabled_ = IsWidevineOptedIn();
 #endif
 }
 
-BraveDefaultExtensionsHandler::~BraveDefaultExtensionsHandler() {}
+adrbrowsielDefaultExtensionsHandler::~adrbrowsielDefaultExtensionsHandler() {}
 
-void BraveDefaultExtensionsHandler::RegisterMessages() {
+void adrbrowsielDefaultExtensionsHandler::RegisterMessages() {
   profile_ = Profile::FromWebUI(web_ui());
 #if BUILDFLAG(IPFS_ENABLED)
   ipfs::IpfsService* service =
@@ -82,127 +82,127 @@ void BraveDefaultExtensionsHandler::RegisterMessages() {
   }
   web_ui()->RegisterMessageCallback(
       "notifyIpfsNodeStatus",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::CheckIpfsNodeStatus,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::CheckIpfsNodeStatus,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "setIPFSStorageMax",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::SetIPFSStorageMax,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::SetIPFSStorageMax,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "importIpnsKey",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::ImportIpnsKey,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::ImportIpnsKey,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "launchIPFSService",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::LaunchIPFSService,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::LaunchIPFSService,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "shutdownIPFSService",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::ShutdownIPFSService,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::ShutdownIPFSService,
                           base::Unretained(this)));
 #endif
 
   web_ui()->RegisterMessageCallback(
       "setWebTorrentEnabled",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::SetWebTorrentEnabled,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::SetWebTorrentEnabled,
                           base::Unretained(this)));
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
   web_ui()->RegisterMessageCallback(
-      "setBraveWalletEnabled",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::SetBraveWalletEnabled,
+      "setadrbrowsielWalletEnabled",
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::SetadrbrowsielWalletEnabled,
                           base::Unretained(this)));
 #endif
   web_ui()->RegisterMessageCallback(
       "setHangoutsEnabled",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::SetHangoutsEnabled,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::SetHangoutsEnabled,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "setIPFSCompanionEnabled",
       base::BindRepeating(
-          &BraveDefaultExtensionsHandler::SetIPFSCompanionEnabled,
+          &adrbrowsielDefaultExtensionsHandler::SetIPFSCompanionEnabled,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "setMediaRouterEnabled",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::SetMediaRouterEnabled,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::SetMediaRouterEnabled,
                           base::Unretained(this)));
   // TODO(petemill): If anything outside this handler is responsible for causing
   // restart-neccessary actions, then this should be moved to a generic handler
   // and the flag should be moved to somewhere more static / singleton-like.
   web_ui()->RegisterMessageCallback(
       "getRestartNeeded",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::GetRestartNeeded,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::GetRestartNeeded,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "setTorEnabled",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::SetTorEnabled,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::SetTorEnabled,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "isTorEnabled",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::IsTorEnabled,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::IsTorEnabled,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "isTorManaged",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::IsTorManaged,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::IsTorManaged,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "setWidevineEnabled",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::SetWidevineEnabled,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::SetWidevineEnabled,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "isWidevineEnabled",
-      base::BindRepeating(&BraveDefaultExtensionsHandler::IsWidevineEnabled,
+      base::BindRepeating(&adrbrowsielDefaultExtensionsHandler::IsWidevineEnabled,
                           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "isDecentralizedDnsEnabled",
       base::BindRepeating(
-          &BraveDefaultExtensionsHandler::IsDecentralizedDnsEnabled,
+          &adrbrowsielDefaultExtensionsHandler::IsDecentralizedDnsEnabled,
           base::Unretained(this)));
   web_ui()->RegisterMessageCallback(
       "getDecentralizedDnsResolveMethodList",
       base::BindRepeating(
-          &BraveDefaultExtensionsHandler::GetDecentralizedDnsResolveMethodList,
+          &adrbrowsielDefaultExtensionsHandler::GetDecentralizedDnsResolveMethodList,
           base::Unretained(this)));
 
   // Can't call this in ctor because it needs to access web_ui().
   InitializePrefCallbacks();
 }
 
-void BraveDefaultExtensionsHandler::InitializePrefCallbacks() {
+void adrbrowsielDefaultExtensionsHandler::InitializePrefCallbacks() {
   PrefService* prefs = Profile::FromWebUI(web_ui())->GetPrefs();
   pref_change_registrar_.Init(prefs);
   pref_change_registrar_.Add(
-      kBraveEnabledMediaRouter,
-      base::Bind(&BraveDefaultExtensionsHandler::OnMediaRouterEnabledChanged,
+      kadrbrowsielEnabledMediaRouter,
+      base::Bind(&adrbrowsielDefaultExtensionsHandler::OnMediaRouterEnabledChanged,
                  base::Unretained(this)));
   pref_change_registrar_.Add(
       prefs::kEnableMediaRouter,
-      base::Bind(&BraveDefaultExtensionsHandler::OnMediaRouterEnabledChanged,
+      base::Bind(&adrbrowsielDefaultExtensionsHandler::OnMediaRouterEnabledChanged,
                  base::Unretained(this)));
   local_state_change_registrar_.Init(g_browser_process->local_state());
 #if BUILDFLAG(ENABLE_TOR)
   local_state_change_registrar_.Add(
       tor::prefs::kTorDisabled,
-      base::Bind(&BraveDefaultExtensionsHandler::OnTorEnabledChanged,
+      base::Bind(&adrbrowsielDefaultExtensionsHandler::OnTorEnabledChanged,
                  base::Unretained(this)));
 #endif
 
 #if BUILDFLAG(ENABLE_WIDEVINE)
   local_state_change_registrar_.Add(
       kWidevineOptedIn,
-      base::Bind(&BraveDefaultExtensionsHandler::OnWidevineEnabledChanged,
+      base::Bind(&adrbrowsielDefaultExtensionsHandler::OnWidevineEnabledChanged,
                  base::Unretained(this)));
 #endif
 }
 
-void BraveDefaultExtensionsHandler::OnMediaRouterEnabledChanged() {
+void adrbrowsielDefaultExtensionsHandler::OnMediaRouterEnabledChanged() {
   OnRestartNeededChanged();
 }
 
-bool BraveDefaultExtensionsHandler::IsRestartNeeded() {
+bool adrbrowsielDefaultExtensionsHandler::IsRestartNeeded() {
   bool media_router_current_pref =
       profile_->GetPrefs()->GetBoolean(prefs::kEnableMediaRouter);
   bool media_router_new_pref =
-      profile_->GetPrefs()->GetBoolean(kBraveEnabledMediaRouter);
+      profile_->GetPrefs()->GetBoolean(kadrbrowsielEnabledMediaRouter);
 
   if (media_router_current_pref != media_router_new_pref)
     return true;
@@ -215,7 +215,7 @@ bool BraveDefaultExtensionsHandler::IsRestartNeeded() {
   return false;
 }
 
-void BraveDefaultExtensionsHandler::GetRestartNeeded(
+void adrbrowsielDefaultExtensionsHandler::GetRestartNeeded(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
 
@@ -223,7 +223,7 @@ void BraveDefaultExtensionsHandler::GetRestartNeeded(
   ResolveJavascriptCallback(args->GetList()[0], base::Value(IsRestartNeeded()));
 }
 
-void BraveDefaultExtensionsHandler::SetWebTorrentEnabled(
+void adrbrowsielDefaultExtensionsHandler::SetWebTorrentEnabled(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   CHECK(profile_);
@@ -235,21 +235,21 @@ void BraveDefaultExtensionsHandler::SetWebTorrentEnabled(
   extensions::ComponentLoader* loader = service->component_loader();
 
   if (enabled) {
-    if (!loader->Exists(brave_webtorrent_extension_id)) {
-      base::FilePath brave_webtorrent_path(FILE_PATH_LITERAL(""));
-      brave_webtorrent_path =
-          brave_webtorrent_path.Append(FILE_PATH_LITERAL("brave_webtorrent"));
-      loader->Add(IDR_BRAVE_WEBTORRENT, brave_webtorrent_path);
+    if (!loader->Exists(adrbrowsiel_webtorrent_extension_id)) {
+      base::FilePath adrbrowsiel_webtorrent_path(FILE_PATH_LITERAL(""));
+      adrbrowsiel_webtorrent_path =
+          adrbrowsiel_webtorrent_path.Append(FILE_PATH_LITERAL("adrbrowsiel_webtorrent"));
+      loader->Add(IDR_adrbrowsiel_WEBTORRENT, adrbrowsiel_webtorrent_path);
     }
-    service->EnableExtension(brave_webtorrent_extension_id);
+    service->EnableExtension(adrbrowsiel_webtorrent_extension_id);
   } else {
     service->DisableExtension(
-        brave_webtorrent_extension_id,
+        adrbrowsiel_webtorrent_extension_id,
         extensions::disable_reason::DisableReason::DISABLE_BLOCKED_BY_POLICY);
   }
 }
 
-void BraveDefaultExtensionsHandler::SetHangoutsEnabled(
+void adrbrowsielDefaultExtensionsHandler::SetHangoutsEnabled(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   CHECK(profile_);
@@ -262,7 +262,7 @@ void BraveDefaultExtensionsHandler::SetHangoutsEnabled(
   if (enabled) {
     extensions::ComponentLoader* loader = service->component_loader();
     if (!loader->Exists(hangouts_extension_id)) {
-      static_cast<extensions::BraveComponentLoader*>(loader)
+      static_cast<extensions::adrbrowsielComponentLoader*>(loader)
           ->ForceAddHangoutServicesExtension();
     }
     service->EnableExtension(hangouts_extension_id);
@@ -273,14 +273,14 @@ void BraveDefaultExtensionsHandler::SetHangoutsEnabled(
   }
 }
 
-bool BraveDefaultExtensionsHandler::IsExtensionInstalled(
+bool adrbrowsielDefaultExtensionsHandler::IsExtensionInstalled(
     const std::string& extension_id) const {
   extensions::ExtensionRegistry* registry = extensions::ExtensionRegistry::Get(
       static_cast<content::BrowserContext*>(profile_));
   return registry && registry->GetInstalledExtension(extension_id);
 }
 
-void BraveDefaultExtensionsHandler::OnInstallResult(
+void adrbrowsielDefaultExtensionsHandler::OnInstallResult(
     const std::string& pref_name,
     bool success,
     const std::string& error,
@@ -291,14 +291,14 @@ void BraveDefaultExtensionsHandler::OnInstallResult(
   }
 }
 
-void BraveDefaultExtensionsHandler::OnRestartNeededChanged() {
+void adrbrowsielDefaultExtensionsHandler::OnRestartNeededChanged() {
   if (IsJavascriptAllowed()) {
-    FireWebUIListener("brave-needs-restart-changed",
+    FireWebUIListener("adrbrowsiel-needs-restart-changed",
                       base::Value(IsRestartNeeded()));
   }
 }
 
-void BraveDefaultExtensionsHandler::SetMediaRouterEnabled(
+void adrbrowsielDefaultExtensionsHandler::SetMediaRouterEnabled(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   CHECK(profile_);
@@ -312,7 +312,7 @@ void BraveDefaultExtensionsHandler::SetMediaRouterEnabled(
   about_flags::SetFeatureEntryEnabled(&flags_storage, feature_name, true);
 }
 
-void BraveDefaultExtensionsHandler::SetTorEnabled(const base::ListValue* args) {
+void adrbrowsielDefaultExtensionsHandler::SetTorEnabled(const base::ListValue* args) {
 #if BUILDFLAG(ENABLE_TOR)
   CHECK_EQ(args->GetSize(), 1U);
   bool enabled;
@@ -322,7 +322,7 @@ void BraveDefaultExtensionsHandler::SetTorEnabled(const base::ListValue* args) {
 #endif
 }
 
-void BraveDefaultExtensionsHandler::IsTorEnabled(const base::ListValue* args) {
+void adrbrowsielDefaultExtensionsHandler::IsTorEnabled(const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   AllowJavascript();
   ResolveJavascriptCallback(
@@ -334,7 +334,7 @@ void BraveDefaultExtensionsHandler::IsTorEnabled(const base::ListValue* args) {
 #endif
 }
 
-void BraveDefaultExtensionsHandler::OnTorEnabledChanged() {
+void adrbrowsielDefaultExtensionsHandler::OnTorEnabledChanged() {
   if (IsJavascriptAllowed()) {
     FireWebUIListener("tor-enabled-changed",
 #if BUILDFLAG(ENABLE_TOR)
@@ -345,7 +345,7 @@ void BraveDefaultExtensionsHandler::OnTorEnabledChanged() {
   }
 }
 
-void BraveDefaultExtensionsHandler::IsTorManaged(const base::ListValue* args) {
+void adrbrowsielDefaultExtensionsHandler::IsTorManaged(const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
 
 #if BUILDFLAG(ENABLE_TOR)
@@ -360,7 +360,7 @@ void BraveDefaultExtensionsHandler::IsTorManaged(const base::ListValue* args) {
   ResolveJavascriptCallback(args->GetList()[0], base::Value(is_managed));
 }
 
-void BraveDefaultExtensionsHandler::SetWidevineEnabled(
+void adrbrowsielDefaultExtensionsHandler::SetWidevineEnabled(
     const base::ListValue* args) {
 #if BUILDFLAG(ENABLE_WIDEVINE)
   CHECK_EQ(args->GetSize(), 1U);
@@ -371,7 +371,7 @@ void BraveDefaultExtensionsHandler::SetWidevineEnabled(
 #endif
 }
 
-void BraveDefaultExtensionsHandler::IsWidevineEnabled(
+void adrbrowsielDefaultExtensionsHandler::IsWidevineEnabled(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   AllowJavascript();
@@ -383,7 +383,7 @@ void BraveDefaultExtensionsHandler::IsWidevineEnabled(
 #endif
 }
 
-void BraveDefaultExtensionsHandler::OnWidevineEnabledChanged() {
+void adrbrowsielDefaultExtensionsHandler::OnWidevineEnabledChanged() {
   if (IsJavascriptAllowed()) {
     FireWebUIListener("widevine-enabled-changed",
 #if BUILDFLAG(ENABLE_WIDEVINE)
@@ -395,7 +395,7 @@ void BraveDefaultExtensionsHandler::OnWidevineEnabledChanged() {
   }
 }
 
-void BraveDefaultExtensionsHandler::ShutdownIPFSService(
+void adrbrowsielDefaultExtensionsHandler::ShutdownIPFSService(
     const base::ListValue* args) {
   ipfs::IpfsService* service =
       ipfs::IpfsServiceFactory::GetForContext(profile_);
@@ -406,7 +406,7 @@ void BraveDefaultExtensionsHandler::ShutdownIPFSService(
     service->ShutdownDaemon(base::NullCallback());
 }
 
-void BraveDefaultExtensionsHandler::LaunchIPFSService(
+void adrbrowsielDefaultExtensionsHandler::LaunchIPFSService(
     const base::ListValue* args) {
   ipfs::IpfsService* service =
       ipfs::IpfsServiceFactory::GetForContext(profile_);
@@ -417,7 +417,7 @@ void BraveDefaultExtensionsHandler::LaunchIPFSService(
     service->LaunchDaemon(base::NullCallback());
 }
 
-void BraveDefaultExtensionsHandler::SetIPFSStorageMax(
+void adrbrowsielDefaultExtensionsHandler::SetIPFSStorageMax(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   CHECK(profile_);
@@ -435,7 +435,7 @@ void BraveDefaultExtensionsHandler::SetIPFSStorageMax(
   }
 }
 
-void BraveDefaultExtensionsHandler::SetIPFSCompanionEnabled(
+void adrbrowsielDefaultExtensionsHandler::SetIPFSCompanionEnabled(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   CHECK(profile_);
@@ -456,7 +456,7 @@ void BraveDefaultExtensionsHandler::SetIPFSCompanionEnabled(
               chrome::FindLastActiveWithProfile(profile_)
                   ->window()
                   ->GetNativeWindow(),
-              base::BindOnce(&BraveDefaultExtensionsHandler::OnInstallResult,
+              base::BindOnce(&adrbrowsielDefaultExtensionsHandler::OnInstallResult,
                              weak_ptr_factory_.GetWeakPtr(),
                              kIPFSCompanionEnabled));
       installer->BeginInstall();
@@ -469,8 +469,8 @@ void BraveDefaultExtensionsHandler::SetIPFSCompanionEnabled(
   }
 }
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED)
-void BraveDefaultExtensionsHandler::SetBraveWalletEnabled(
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED)
+void adrbrowsielDefaultExtensionsHandler::SetadrbrowsielWalletEnabled(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   CHECK(profile_);
@@ -489,7 +489,7 @@ void BraveDefaultExtensionsHandler::SetBraveWalletEnabled(
 }
 #endif
 
-void BraveDefaultExtensionsHandler::IsDecentralizedDnsEnabled(
+void adrbrowsielDefaultExtensionsHandler::IsDecentralizedDnsEnabled(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   AllowJavascript();
@@ -502,7 +502,7 @@ void BraveDefaultExtensionsHandler::IsDecentralizedDnsEnabled(
 #endif
 }
 
-void BraveDefaultExtensionsHandler::GetDecentralizedDnsResolveMethodList(
+void adrbrowsielDefaultExtensionsHandler::GetDecentralizedDnsResolveMethodList(
     const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 2U);
   AllowJavascript();
@@ -519,7 +519,7 @@ void BraveDefaultExtensionsHandler::GetDecentralizedDnsResolveMethodList(
 }
 
 #if BUILDFLAG(IPFS_ENABLED)
-void BraveDefaultExtensionsHandler::FileSelected(const base::FilePath& path,
+void adrbrowsielDefaultExtensionsHandler::FileSelected(const base::FilePath& path,
                                                  int index,
                                                  void* params) {
   ipfs::IpfsService* service =
@@ -528,25 +528,25 @@ void BraveDefaultExtensionsHandler::FileSelected(const base::FilePath& path,
     return;
   service->GetIpnsKeysManager()->ImportKey(
       path, dialog_key_,
-      base::BindOnce(&BraveDefaultExtensionsHandler::OnKeyImported,
+      base::BindOnce(&adrbrowsielDefaultExtensionsHandler::OnKeyImported,
                      weak_ptr_factory_.GetWeakPtr()));
   select_file_dialog_.reset();
   dialog_key_.clear();
 }
 
-void BraveDefaultExtensionsHandler::OnKeyImported(const std::string& key,
+void adrbrowsielDefaultExtensionsHandler::OnKeyImported(const std::string& key,
                                                   const std::string& value,
                                                   bool success) {
-  FireWebUIListener("brave-ipfs-key-imported", base::Value(key),
+  FireWebUIListener("adrbrowsiel-ipfs-key-imported", base::Value(key),
                     base::Value(value), base::Value(success));
 }
 
-void BraveDefaultExtensionsHandler::FileSelectionCanceled(void* params) {
+void adrbrowsielDefaultExtensionsHandler::FileSelectionCanceled(void* params) {
   select_file_dialog_.reset();
   dialog_key_.clear();
 }
 
-void BraveDefaultExtensionsHandler::ImportIpnsKey(const base::ListValue* args) {
+void adrbrowsielDefaultExtensionsHandler::ImportIpnsKey(const base::ListValue* args) {
   CHECK_EQ(args->GetSize(), 1U);
   CHECK(profile_);
   std::string key_name;
@@ -570,32 +570,32 @@ void BraveDefaultExtensionsHandler::ImportIpnsKey(const base::ListValue* args) {
       &file_types, 0, FILE_PATH_LITERAL("key"), parent_window, nullptr);
 }
 
-void BraveDefaultExtensionsHandler::CheckIpfsNodeStatus(
+void adrbrowsielDefaultExtensionsHandler::CheckIpfsNodeStatus(
     const base::ListValue* args) {
   NotifyNodeStatus();
 }
 
-void BraveDefaultExtensionsHandler::NotifyNodeStatus() {
+void adrbrowsielDefaultExtensionsHandler::NotifyNodeStatus() {
   ipfs::IpfsService* service =
       ipfs::IpfsServiceFactory::GetForContext(profile_);
   bool launched = service && service->IsDaemonLaunched();
-  FireWebUIListener("brave-ipfs-node-status-changed", base::Value(launched));
+  FireWebUIListener("adrbrowsiel-ipfs-node-status-changed", base::Value(launched));
 }
 
-void BraveDefaultExtensionsHandler::OnIpfsLaunched(bool result, int64_t pid) {
+void adrbrowsielDefaultExtensionsHandler::OnIpfsLaunched(bool result, int64_t pid) {
   if (!IsJavascriptAllowed())
     return;
   NotifyNodeStatus();
 }
 
-void BraveDefaultExtensionsHandler::OnIpfsShutdown() {
+void adrbrowsielDefaultExtensionsHandler::OnIpfsShutdown() {
   if (!IsJavascriptAllowed())
     return;
   NotifyNodeStatus();
 }
-void BraveDefaultExtensionsHandler::OnIpnsKeysLoaded(bool success) {
+void adrbrowsielDefaultExtensionsHandler::OnIpnsKeysLoaded(bool success) {
   if (!IsJavascriptAllowed())
     return;
-  FireWebUIListener("brave-ipfs-keys-loaded", base::Value(success));
+  FireWebUIListener("adrbrowsiel-ipfs-keys-loaded", base::Value(success));
 }
 #endif

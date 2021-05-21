@@ -6,7 +6,7 @@ index bd9d36beddbde98d349fd121fe3a95d11f5e68f3..fc4e94967a1f68ee168226497bb88316
    "offline_enabled": true,
    "incognito": "split",
    "permissions": [
-+    "chrome://brave-resources/",
++    "chrome://adrbrowsiel-resources/",
      "chrome://resources/",
      "contentSettings",
      "metricsPrivate",
@@ -15,6 +15,6 @@ index bd9d36beddbde98d349fd121fe3a95d11f5e68f3..fc4e94967a1f68ee168226497bb88316
      "application/pdf"
    ],
 -  "content_security_policy": "script-src 'self' 'wasm-eval' blob: filesystem: chrome://resources; object-src * blob: externalfile: file: filesystem: data:",
-+  "content_security_policy": "script-src 'self' 'wasm-eval' blob: filesystem: chrome://brave-resources chrome://resources; object-src * blob: externalfile: file: filesystem: data:",
++  "content_security_policy": "script-src 'self' 'wasm-eval' blob: filesystem: chrome://adrbrowsiel-resources chrome://resources; object-src * blob: externalfile: file: filesystem: data:",
    "mime_types_handler": "index.html"
  }

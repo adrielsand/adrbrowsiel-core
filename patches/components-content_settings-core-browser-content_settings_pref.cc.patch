@@ -6,7 +6,7 @@ index dcfb882f82c9734aaa629c65d60f0382d65f2b2c..c8b5a71c38dc3a9f5b508b3752f7379f
    DCHECK(thread_checker_.CalledOnValidThread());
    DCHECK(prefs_);
    DCHECK(primary_pattern != ContentSettingsPattern::Wildcard() ||
-+         BRAVE_SET_WEBSITE_SETTING
++         adrbrowsiel_SET_WEBSITE_SETTING
           secondary_pattern != ContentSettingsPattern::Wildcard());
  
    // At this point take the ownership of the |in_value|.

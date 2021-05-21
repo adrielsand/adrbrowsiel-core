@@ -6,7 +6,7 @@ index e3ba31ed2d9869397ad48738a845890408c7a466..e7d50704b60b6e91bc0027228b7f9507
  }
  
  visibility = [ "//third_party/blink/renderer/*" ]
-+visibility += brave_blink_renderer_modules_visibility
++visibility += adrbrowsiel_blink_renderer_modules_visibility
  
  config("modules_implementation") {
    defines = [ "BLINK_MODULES_IMPLEMENTATION=1" ]
@@ -14,7 +14,7 @@ index e3ba31ed2d9869397ad48738a845890408c7a466..e7d50704b60b6e91bc0027228b7f9507
      "//third_party/blink/renderer/modules/xr",
    ]
  
-+  sub_modules += brave_blink_sub_modules
++  sub_modules += adrbrowsiel_blink_sub_modules
    if (is_android) {
      sub_modules += [ "//third_party/blink/renderer/modules/remote_objects" ]
    } else {

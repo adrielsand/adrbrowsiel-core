@@ -2,41 +2,41 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-#import "BATBraveRewards.h"
+#import "BATadrbrowsielRewards.h"
 #import "DataController.h"
 #import "RewardsLogging.h"
-#import "BATBraveAds+Private.h"
+#import "BATadrbrowsielAds+Private.h"
 
 #include "base/task/current_thread.h"
 #include "base/task/single_thread_task_executor.h"
 
 base::SingleThreadTaskExecutor* g_task_executor = nullptr;
 
-@implementation BATBraveRewardsConfiguration
+@implementation BATadrbrowsielRewardsConfiguration
 
-+ (BATBraveRewardsConfiguration *)defaultConfiguration
++ (BATadrbrowsielRewardsConfiguration *)defaultConfiguration
 {
-  __auto_type config = [[BATBraveRewardsConfiguration alloc] init];
+  __auto_type config = [[BATadrbrowsielRewardsConfiguration alloc] init];
   config.environment = BATEnvironmentDevelopment;
   config.stateStoragePath = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES).firstObject;
   return config;
 }
 
-+ (BATBraveRewardsConfiguration *)stagingConfiguration
++ (BATadrbrowsielRewardsConfiguration *)stagingConfiguration
 {
   __auto_type config = [self defaultConfiguration];
   config.environment = BATEnvironmentStaging;
   return config;
 }
 
-+ (BATBraveRewardsConfiguration *)productionConfiguration
++ (BATadrbrowsielRewardsConfiguration *)productionConfiguration
 {
   __auto_type config = [self defaultConfiguration];
   config.environment = BATEnvironmentProduction;
   return config;
 }
 
-+ (BATBraveRewardsConfiguration *)testingConfiguration
++ (BATadrbrowsielRewardsConfiguration *)testingConfiguration
 {
   __auto_type config = [self defaultConfiguration];
   config.stateStoragePath = NSTemporaryDirectory();
@@ -48,7 +48,7 @@ base::SingleThreadTaskExecutor* g_task_executor = nullptr;
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  __auto_type config = [[BATBraveRewardsConfiguration alloc] init];
+  __auto_type config = [[BATadrbrowsielRewardsConfiguration alloc] init];
   config.stateStoragePath = self.stateStoragePath;
   config.environment = self.environment;
   config.testing = self.testing;
@@ -59,15 +59,15 @@ base::SingleThreadTaskExecutor* g_task_executor = nullptr;
 
 @end
 
-@interface BATBraveRewards ()
-@property (nonatomic) BATBraveAds *ads;
-@property (nonatomic, nullable) BATBraveLedger *ledger;
-@property (nonatomic, copy) BATBraveRewardsConfiguration *configuration;
+@interface BATadrbrowsielRewards ()
+@property (nonatomic) BATadrbrowsielAds *ads;
+@property (nonatomic, nullable) BATadrbrowsielLedger *ledger;
+@property (nonatomic, copy) BATadrbrowsielRewardsConfiguration *configuration;
 @property (nonatomic, assign) Class ledgerClass;
 @property (nonatomic, assign) Class adsClass;
 @end
 
-@implementation BATBraveRewards
+@implementation BATadrbrowsielRewards
 
 - (void)reset
 {
@@ -81,13 +81,13 @@ base::SingleThreadTaskExecutor* g_task_executor = nullptr;
   [self startAdsService];
 }
 
-- (instancetype)initWithConfiguration:(BATBraveRewardsConfiguration *)configuration
+- (instancetype)initWithConfiguration:(BATadrbrowsielRewardsConfiguration *)configuration
 {
   return [self initWithConfiguration:configuration delegate:nil ledgerClass:nil adsClass:nil];
 }
 
-- (instancetype)initWithConfiguration:(BATBraveRewardsConfiguration *)configuration
-                             delegate:(nullable id<BATBraveRewardsDelegate>)delegate
+- (instancetype)initWithConfiguration:(BATadrbrowsielRewardsConfiguration *)configuration
+                             delegate:(nullable id<BATadrbrowsielRewardsDelegate>)delegate
                           ledgerClass:(nullable Class)ledgerClass
                              adsClass:(nullable Class)adsClass
 {
@@ -100,20 +100,20 @@ base::SingleThreadTaskExecutor* g_task_executor = nullptr;
     
     self.configuration = configuration;
     self.delegate = delegate;
-    self.ledgerClass = ledgerClass ?: BATBraveLedger.class;
-    self.adsClass = adsClass ?: BATBraveAds.class;
+    self.ledgerClass = ledgerClass ?: BATadrbrowsielLedger.class;
+    self.adsClass = adsClass ?: BATadrbrowsielAds.class;
 
-    BATBraveAds.debug = configuration.environment != BATEnvironmentProduction;
-    BATBraveAds.environment = configuration.environment;
+    BATadrbrowsielAds.debug = configuration.environment != BATEnvironmentProduction;
+    BATadrbrowsielAds.environment = configuration.environment;
     if (configuration.buildChannel != nil) {
-      BATBraveAds.buildChannel = configuration.buildChannel;
+      BATadrbrowsielAds.buildChannel = configuration.buildChannel;
     }
 
-    BATBraveLedger.debug = configuration.environment != BATEnvironmentProduction;
-    BATBraveLedger.environment = configuration.environment;
-    BATBraveLedger.testing = configuration.testing;
-    BATBraveLedger.useShortRetries = configuration.useShortRetries;
-    BATBraveLedger.reconcileInterval = configuration.overridenNumberOfSecondsBetweenReconcile;
+    BATadrbrowsielLedger.debug = configuration.environment != BATEnvironmentProduction;
+    BATadrbrowsielLedger.environment = configuration.environment;
+    BATadrbrowsielLedger.testing = configuration.testing;
+    BATadrbrowsielLedger.useShortRetries = configuration.useShortRetries;
+    BATadrbrowsielLedger.reconcileInterval = configuration.overridenNumberOfSecondsBetweenReconcile;
     
     [self startAdsService];
   }
@@ -185,7 +185,7 @@ base::SingleThreadTaskExecutor* g_task_executor = nullptr;
 
 @end
 
-@implementation BATBraveRewards (Reporting)
+@implementation BATadrbrowsielRewards (Reporting)
 
 - (void)reportTabUpdated:(NSInteger)tabId
                      url:(NSURL *)url

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,14 +9,14 @@
 #include "base/strings/strcat.h"
 #include "base/test/mock_callback.h"
 #include "base/test/scoped_feature_list.h"
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/ipfs/features.h"
-#include "brave/components/ipfs/import/imported_data.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/ipfs_utils.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/ipfs/features.h"
+#include "adrbrowsiel/components/ipfs/import/imported_data.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/common/channel_info.h"
@@ -46,7 +46,7 @@ std::string GetFileNameForText(const std::string& text,
 class FakeIpfsService : public ipfs::IpfsService {
  public:
   FakeIpfsService(content::BrowserContext* context,
-                  ipfs::BraveIpfsClientUpdater* updater,
+                  ipfs::adrbrowsielIpfsClientUpdater* updater,
                   const base::FilePath& user_dir,
                   version_info::Channel channel)
       : ipfs::IpfsService(context, updater, user_dir, channel) {}
@@ -1022,7 +1022,7 @@ IN_PROC_BROWSER_TEST_F(IpfsServiceBrowserTest, ImportFileToIpfsSuccess) {
       base::BindRepeating(&IpfsServiceBrowserTest::HandleImportRequests,
                           base::Unretained(this), expected_response));
   auto file_to_upload = embedded_test_server()->GetFullPathFromSourceDirectory(
-      base::FilePath(FILE_PATH_LITERAL("brave/test/data/adbanner.js")));
+      base::FilePath(FILE_PATH_LITERAL("adrbrowsiel/test/data/adbanner.js")));
   ipfs_service()->ImportFileToIpfs(
       file_to_upload, std::string(),
       base::BindOnce(&IpfsServiceBrowserTest::OnImportCompletedSuccess,
@@ -1036,7 +1036,7 @@ IN_PROC_BROWSER_TEST_F(IpfsServiceBrowserTest, ImportDirectoryToIpfsSuccess) {
   ResetTestServer(
       base::BindRepeating(&IpfsServiceBrowserTest::HandleImportRequests,
                           base::Unretained(this), expected_response));
-  auto* folder = FILE_PATH_LITERAL("brave/test/data/autoplay-whitelist-data");
+  auto* folder = FILE_PATH_LITERAL("adrbrowsiel/test/data/autoplay-whitelist-data");
   auto test_path = embedded_test_server()->GetFullPathFromSourceDirectory(
       base::FilePath(folder));
   ipfs_service()->ImportDirectoryToIpfs(
@@ -1052,7 +1052,7 @@ IN_PROC_BROWSER_TEST_F(IpfsServiceBrowserTest, ImportAndPinDirectorySuccess) {
   ResetTestServer(
       base::BindRepeating(&IpfsServiceBrowserTest::HandleImportRequests,
                           base::Unretained(this), expected_response));
-  auto* folder = FILE_PATH_LITERAL("brave/test/data/autoplay-whitelist-data");
+  auto* folder = FILE_PATH_LITERAL("adrbrowsiel/test/data/autoplay-whitelist-data");
   auto test_path = embedded_test_server()->GetFullPathFromSourceDirectory(
       base::FilePath(folder));
   ipfs_service()->ImportDirectoryToIpfs(
@@ -1069,7 +1069,7 @@ IN_PROC_BROWSER_TEST_F(IpfsServiceBrowserTest, ImportFileAndPinToIpfsSuccess) {
       base::BindRepeating(&IpfsServiceBrowserTest::HandleImportRequests,
                           base::Unretained(this), expected_response));
   auto file_to_upload = embedded_test_server()->GetFullPathFromSourceDirectory(
-      base::FilePath(FILE_PATH_LITERAL("brave/test/data/adbanner.js")));
+      base::FilePath(FILE_PATH_LITERAL("adrbrowsiel/test/data/adbanner.js")));
   ipfs_service()->ImportFileToIpfs(
       file_to_upload, std::string("test_key"),
       base::BindOnce(&IpfsServiceBrowserTest::OnPublishCompletedSuccess,

@@ -1,35 +1,35 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/toolbar/brave_app_menu_model.h"
+#include "adrbrowsiel/browser/ui/toolbar/adrbrowsiel_app_menu_model.h"
 
 #include <string>
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
 #include "chrome/app/chrome_command_ids.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/grit/generated_resources.h"
 
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/browser/ipfs/import/ipfs_import_controller.h"
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/browser/ipfs/ipfs_tab_helper.h"
-#include "brave/components/ipfs/ipfs_utils.h"
-#include "brave/components/ipfs/keys/ipns_keys_manager.h"
-#include "brave/grit/brave_generated_resources.h"
-#include "brave/grit/brave_theme_resources.h"
+#include "adrbrowsiel/browser/ipfs/import/ipfs_import_controller.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_tab_helper.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/keys/ipns_keys_manager.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
+#include "adrbrowsiel/grit/adrbrowsiel_theme_resources.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "ui/gfx/image/image_skia.h"
 #include "ui/gfx/paint_vector_icon.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
-#include "brave/browser/ui/sidebar/sidebar_service_factory.h"
-#include "brave/browser/ui/sidebar/sidebar_utils.h"
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_service_factory.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_utils.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 #include "chrome/browser/ui/browser.h"
 #include "ui/base/l10n/l10n_util.h"
 #endif
@@ -131,7 +131,7 @@ bool IpnsKeysAvailable(content::BrowserContext* browser_context) {
 #endif
 
 }  // namespace
-BraveAppMenuModel::BraveAppMenuModel(
+adrbrowsielAppMenuModel::adrbrowsielAppMenuModel(
     ui::AcceleratorProvider* provider,
     Browser* browser,
     AppMenuIconController* app_menu_icon_controller)
@@ -143,19 +143,19 @@ BraveAppMenuModel::BraveAppMenuModel(
 {
 }
 
-BraveAppMenuModel::~BraveAppMenuModel() = default;
+adrbrowsielAppMenuModel::~adrbrowsielAppMenuModel() = default;
 
-void BraveAppMenuModel::Build() {
-  // Insert brave items after build chromium items.
+void adrbrowsielAppMenuModel::Build() {
+  // Insert adrbrowsiel items after build chromium items.
   AppMenuModel::Build();
-  InsertBraveMenuItems();
+  InsertadrbrowsielMenuItems();
   InsertAlternateProfileItems();
 }
 
-void BraveAppMenuModel::InsertBraveMenuItems() {
-  // Insert & reorder brave menus based on corresponding commands enable status.
+void adrbrowsielAppMenuModel::InsertadrbrowsielMenuItems() {
+  // Insert & reorder adrbrowsiel menus based on corresponding commands enable status.
   // If we you want to add/remove from app menu, adjust commands enable status
-  // at BraveBrowserCommandController.
+  // at adrbrowsielBrowserCommandController.
 
   // Step 1. Configure tab & windows section.
   if (IsCommandIdEnabled(IDC_NEW_TOR_CONNECTION_FOR_SITE)) {
@@ -171,7 +171,7 @@ void BraveAppMenuModel::InsertBraveMenuItems() {
   }
 
   // Step 2. Configure second section that includes history, downloads and
-  // bookmark. Then, insert brave items.
+  // bookmark. Then, insert adrbrowsiel items.
 
   // First, reorder original menus We want to move them in order of bookmark,
   // download and extensions.
@@ -199,45 +199,45 @@ void BraveAppMenuModel::InsertBraveMenuItems() {
                              IDS_SHOW_EXTENSIONS);
   }
 
-  if (IsCommandIdEnabled(IDC_SHOW_BRAVE_REWARDS)) {
-    InsertItemWithStringIdAt(GetIndexOfBraveRewardsItem(),
-                             IDC_SHOW_BRAVE_REWARDS,
-                             IDS_SHOW_BRAVE_REWARDS);
+  if (IsCommandIdEnabled(IDC_SHOW_adrbrowsiel_REWARDS)) {
+    InsertItemWithStringIdAt(GetIndexOfadrbrowsielRewardsItem(),
+                             IDC_SHOW_adrbrowsiel_REWARDS,
+                             IDS_SHOW_adrbrowsiel_REWARDS);
   }
 
   // Insert wallet menu after download menu.
-  if (IsCommandIdEnabled(IDC_SHOW_BRAVE_WALLET)) {
+  if (IsCommandIdEnabled(IDC_SHOW_adrbrowsiel_WALLET)) {
     InsertItemWithStringIdAt(GetIndexOfCommandId(IDC_SHOW_DOWNLOADS) + 1,
-                             IDC_SHOW_BRAVE_WALLET,
-                             IDS_SHOW_BRAVE_WALLET);
+                             IDC_SHOW_adrbrowsiel_WALLET,
+                             IDS_SHOW_adrbrowsiel_WALLET);
   }
 
   // Insert sync menu
-  if (IsCommandIdEnabled(IDC_SHOW_BRAVE_SYNC)) {
-    InsertItemWithStringIdAt(GetIndexOfBraveSyncItem(),
-                             IDC_SHOW_BRAVE_SYNC,
-                             IDS_SHOW_BRAVE_SYNC);
+  if (IsCommandIdEnabled(IDC_SHOW_adrbrowsiel_SYNC)) {
+    InsertItemWithStringIdAt(GetIndexOfadrbrowsielSyncItem(),
+                             IDC_SHOW_adrbrowsiel_SYNC,
+                             IDS_SHOW_adrbrowsiel_SYNC);
   }
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
   if (sidebar::CanUseSidebar(browser()->profile())) {
     sub_menus_.push_back(std::make_unique<SidebarMenuModel>(browser()));
     InsertSubMenuWithStringIdAt(
-        GetIndexOfBraveSidebarItem(), IDC_SIDEBAR_SHOW_OPTION_MENU,
+        GetIndexOfadrbrowsielSidebarItem(), IDC_SIDEBAR_SHOW_OPTION_MENU,
         IDS_SIDEBAR_SHOW_OPTION_TITLE, sub_menus_.back().get());
   }
 #endif
 
   // Insert adblock menu at last. Assumed this is always enabled.
-  DCHECK(IsCommandIdEnabled(IDC_SHOW_BRAVE_ADBLOCK));
-  InsertItemWithStringIdAt(GetIndexOfBraveAdBlockItem(),
-                           IDC_SHOW_BRAVE_ADBLOCK,
-                           IDS_SHOW_BRAVE_ADBLOCK);
+  DCHECK(IsCommandIdEnabled(IDC_SHOW_adrbrowsiel_ADBLOCK));
+  InsertItemWithStringIdAt(GetIndexOfadrbrowsielAdBlockItem(),
+                           IDC_SHOW_adrbrowsiel_ADBLOCK,
+                           IDS_SHOW_adrbrowsiel_ADBLOCK);
 
   // Insert webcompat reporter item.
   InsertItemWithStringIdAt(GetIndexOfCommandId(IDC_ABOUT),
-                           IDC_SHOW_BRAVE_WEBCOMPAT_REPORTER,
-                           IDS_SHOW_BRAVE_WEBCOMPAT_REPORTER);
+                           IDC_SHOW_adrbrowsiel_WEBCOMPAT_REPORTER,
+                           IDS_SHOW_adrbrowsiel_WEBCOMPAT_REPORTER);
 
 #if BUILDFLAG(IPFS_ENABLED)
   if (IsCommandIdEnabled(IDC_APP_MENU_IPFS)) {
@@ -248,20 +248,20 @@ void BraveAppMenuModel::InsertBraveMenuItems() {
     keys_command_index += AddIpfsImportMenuItem(
         IDC_APP_MENU_IPFS_IMPORT_LOCAL_FOLDER,
         IDS_APP_MENU_IPFS_IMPORT_LOCAL_FOLDER, keys_command_index);
-    int index = IsCommandIdEnabled(IDC_SHOW_BRAVE_SYNC)
-                    ? GetIndexOfBraveSyncItem() + 1
-                    : GetIndexOfBraveAdBlockItem();
+    int index = IsCommandIdEnabled(IDC_SHOW_adrbrowsiel_SYNC)
+                    ? GetIndexOfadrbrowsielSyncItem() + 1
+                    : GetIndexOfadrbrowsielAdBlockItem();
     InsertSubMenuWithStringIdAt(index, IDC_APP_MENU_IPFS, IDS_APP_MENU_IPFS,
                                 &ipfs_submenu_model_);
     auto& bundle = ui::ResourceBundle::GetSharedInstance();
-    const auto& ipfs_logo = *bundle.GetImageSkiaNamed(IDR_BRAVE_IPFS_LOGO);
+    const auto& ipfs_logo = *bundle.GetImageSkiaNamed(IDR_adrbrowsiel_IPFS_LOGO);
     ui::ImageModel model = ui::ImageModel::FromImageSkia(ipfs_logo);
     SetIcon(index, model);
   }
 #endif
 }
 
-void BraveAppMenuModel::ExecuteCommand(int id, int event_flags) {
+void adrbrowsielAppMenuModel::ExecuteCommand(int id, int event_flags) {
 #if BUILDFLAG(IPFS_ENABLED)
   if (id >= IDC_CONTENT_CONTEXT_IMPORT_IPNS_KEYS_START &&
       id <= IDC_CONTENT_CONTEXT_IMPORT_IPNS_KEYS_END) {
@@ -281,7 +281,7 @@ void BraveAppMenuModel::ExecuteCommand(int id, int event_flags) {
   return AppMenuModel::ExecuteCommand(id, event_flags);
 }
 
-bool BraveAppMenuModel::IsCommandIdEnabled(int id) const {
+bool adrbrowsielAppMenuModel::IsCommandIdEnabled(int id) const {
 #if BUILDFLAG(IPFS_ENABLED)
   content::BrowserContext* browser_context =
       static_cast<content::BrowserContext*>(browser()->profile());
@@ -308,7 +308,7 @@ bool BraveAppMenuModel::IsCommandIdEnabled(int id) const {
 }
 
 #if BUILDFLAG(IPFS_ENABLED)
-int BraveAppMenuModel::AddIpnsKeysToSubMenu(ui::SimpleMenuModel* submenu,
+int adrbrowsielAppMenuModel::AddIpnsKeysToSubMenu(ui::SimpleMenuModel* submenu,
                                             ipfs::IpnsKeysManager* manager,
                                             int key_command_id) {
   if (!manager)
@@ -339,7 +339,7 @@ int BraveAppMenuModel::AddIpnsKeysToSubMenu(ui::SimpleMenuModel* submenu,
   return command_id - key_command_id;
 }
 
-int BraveAppMenuModel::FindCommandIndex(int command_id) const {
+int adrbrowsielAppMenuModel::FindCommandIndex(int command_id) const {
   for (const auto& it : ipns_submenu_models_) {
     int index = it.second->GetIndexOfCommandId(command_id);
     if (index == -1)
@@ -349,7 +349,7 @@ int BraveAppMenuModel::FindCommandIndex(int command_id) const {
   return -1;
 }
 
-void BraveAppMenuModel::ExecuteIPFSCommand(int id, const std::string& key) {
+void adrbrowsielAppMenuModel::ExecuteIPFSCommand(int id, const std::string& key) {
   auto* active_content = browser()->tab_strip_model()->GetActiveWebContents();
   ipfs::IPFSTabHelper* helper =
       ipfs::IPFSTabHelper::FromWebContents(active_content);
@@ -366,7 +366,7 @@ void BraveAppMenuModel::ExecuteIPFSCommand(int id, const std::string& key) {
   }
 }
 
-int BraveAppMenuModel::GetSelectedIPFSCommandId(int id) const {
+int adrbrowsielAppMenuModel::GetSelectedIPFSCommandId(int id) const {
   for (const auto& it : ipns_submenu_models_) {
     auto index = it.second->GetIndexOfCommandId(id);
     if (index == -1)
@@ -375,7 +375,7 @@ int BraveAppMenuModel::GetSelectedIPFSCommandId(int id) const {
   }
   return -1;
 }
-int BraveAppMenuModel::AddIpfsImportMenuItem(int action_command_id,
+int adrbrowsielAppMenuModel::AddIpfsImportMenuItem(int action_command_id,
                                              int string_id,
                                              int keys_command_id) {
   content::BrowserContext* browser_context =
@@ -398,7 +398,7 @@ int BraveAppMenuModel::AddIpfsImportMenuItem(int action_command_id,
   return 0;
 }
 #endif
-void BraveAppMenuModel::InsertAlternateProfileItems() {
+void adrbrowsielAppMenuModel::InsertAlternateProfileItems() {
   // Insert Open Guest Window and Create New Profile items just above
   // the zoom item unless these items are disabled.
 
@@ -420,7 +420,7 @@ void BraveAppMenuModel::InsertAlternateProfileItems() {
     InsertSeparatorAt(index, ui::NORMAL_SEPARATOR);
 }
 
-int BraveAppMenuModel::GetIndexOfBraveAdBlockItem() const {
+int adrbrowsielAppMenuModel::GetIndexOfadrbrowsielAdBlockItem() const {
   // Insert as a last item in second section.
   int adblock_item_index = -1;
 
@@ -430,7 +430,7 @@ int BraveAppMenuModel::GetIndexOfBraveAdBlockItem() const {
     return adblock_item_index + 1;
 #endif
 
-  adblock_item_index = GetIndexOfCommandId(IDC_SHOW_BRAVE_SYNC);
+  adblock_item_index = GetIndexOfCommandId(IDC_SHOW_adrbrowsiel_SYNC);
   if (adblock_item_index != -1)
     return adblock_item_index + 1;
 
@@ -438,7 +438,7 @@ int BraveAppMenuModel::GetIndexOfBraveAdBlockItem() const {
   if (adblock_item_index != -1)
     return adblock_item_index + 1;
 
-  adblock_item_index = GetIndexOfCommandId(IDC_SHOW_BRAVE_WALLET);
+  adblock_item_index = GetIndexOfCommandId(IDC_SHOW_adrbrowsiel_WALLET);
   if (adblock_item_index != -1)
     return adblock_item_index + 1;
 
@@ -447,7 +447,7 @@ int BraveAppMenuModel::GetIndexOfBraveAdBlockItem() const {
   return adblock_item_index + 1;
 }
 
-int BraveAppMenuModel::GetIndexOfBraveRewardsItem() const {
+int adrbrowsielAppMenuModel::GetIndexOfadrbrowsielRewardsItem() const {
   // Insert rewards menu at first of this section. If history menu is not
   // available, check below items.
   int rewards_index = -1;
@@ -464,7 +464,7 @@ int BraveAppMenuModel::GetIndexOfBraveRewardsItem() const {
   return rewards_index;
 }
 
-int BraveAppMenuModel::GetIndexOfBraveSyncItem() const {
+int adrbrowsielAppMenuModel::GetIndexOfadrbrowsielSyncItem() const {
   // Insert sync menu under extensions menu. If extensions menu is not
   // available, check above items.
   int sync_index = -1;
@@ -472,7 +472,7 @@ int BraveAppMenuModel::GetIndexOfBraveSyncItem() const {
   if (sync_index != -1)
     return sync_index + 1;
 
-  sync_index = GetIndexOfCommandId(IDC_SHOW_BRAVE_WALLET);
+  sync_index = GetIndexOfCommandId(IDC_SHOW_adrbrowsiel_WALLET);
   if (sync_index != -1)
     return sync_index + 1;
 
@@ -482,10 +482,10 @@ int BraveAppMenuModel::GetIndexOfBraveSyncItem() const {
 }
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
-int BraveAppMenuModel::GetIndexOfBraveSidebarItem() const {
+int adrbrowsielAppMenuModel::GetIndexOfadrbrowsielSidebarItem() const {
   // Insert as a last item in second section.
   int sidebar_item_index = -1;
-  sidebar_item_index = GetIndexOfCommandId(IDC_SHOW_BRAVE_SYNC);
+  sidebar_item_index = GetIndexOfCommandId(IDC_SHOW_adrbrowsiel_SYNC);
   if (sidebar_item_index != -1)
     return sidebar_item_index + 1;
 
@@ -493,7 +493,7 @@ int BraveAppMenuModel::GetIndexOfBraveSidebarItem() const {
   if (sidebar_item_index != -1)
     return sidebar_item_index + 1;
 
-  sidebar_item_index = GetIndexOfCommandId(IDC_SHOW_BRAVE_WALLET);
+  sidebar_item_index = GetIndexOfCommandId(IDC_SHOW_adrbrowsiel_WALLET);
   if (sidebar_item_index != -1)
     return sidebar_item_index + 1;
 

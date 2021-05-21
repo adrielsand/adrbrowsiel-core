@@ -1,11 +1,11 @@
-# Copyright (c) 2021 The Brave Authors. All rights reserved.
+# Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-brave_webui_deps = [ "//brave/ui/webui/resources:modulize" ]
+adrbrowsiel_webui_deps = [ "//adrbrowsiel/ui/webui/resources:modulize" ]
 
-brave_resources_path =
-    rebase_path("$root_gen_dir/brave/ui/webui/resources/", root_build_dir)
-brave_webui_external_paths =
-    [ "chrome://brave-resources/|$brave_resources_path" ]
+adrbrowsiel_resources_path =
+    rebase_path("$root_gen_dir/adrbrowsiel/ui/webui/resources/", root_build_dir)
+adrbrowsiel_webui_external_paths =
+    [ "chrome://adrbrowsiel-resources/|$adrbrowsiel_resources_path" ]

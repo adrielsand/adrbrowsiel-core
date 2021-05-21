@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_ads/ad_notification_background_painter.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_ads/ad_notification_background_painter.h"
 
 #include "third_party/skia/include/core/SkPath.h"
 #include "ui/gfx/canvas.h"
@@ -11,7 +11,7 @@
 #include "ui/gfx/geometry/size.h"
 #include "ui/gfx/skia_util.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 AdNotificationBackgroundPainter::AdNotificationBackgroundPainter(
     const int top_radius,
@@ -49,4 +49,4 @@ void AdNotificationBackgroundPainter::Paint(gfx::Canvas* canvas,
   canvas->DrawPath(path, flags);
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

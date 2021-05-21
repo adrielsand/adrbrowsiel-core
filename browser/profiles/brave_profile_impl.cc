@@ -1,13 +1,13 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/profiles/brave_profile_impl.h"
+#include "adrbrowsiel/browser/profiles/adrbrowsiel_profile_impl.h"
 
 #include "base/task/post_task.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/chrome_notification_types.h"
 #include "chrome/browser/profiles/profile_manager.h"
@@ -15,7 +15,7 @@
 #include "content/public/browser/browser_thread.h"
 #include "content/public/browser/notification_source.h"
 
-BraveProfileImpl::BraveProfileImpl(
+adrbrowsielProfileImpl::adrbrowsielProfileImpl(
     const base::FilePath& path,
     Delegate* delegate,
     CreateMode create_mode,
@@ -36,9 +36,9 @@ BraveProfileImpl::BraveProfileImpl(
   // before OnPrefsLoaded is called, otherwise we would hit a DCHECK in
   // ProfileManager::OnProfileCreated which is called inside OnPrefsLoaded and
   // is expecting the profile_info is already added then.
-  if (brave::IsSessionProfilePath(path) &&
+  if (adrbrowsiel::IsSessionProfilePath(path) &&
       create_mode == CREATE_MODE_ASYNCHRONOUS) {
-    auto* parent_profile = brave::CreateParentProfileData(this);
+    auto* parent_profile = adrbrowsiel::CreateParentProfileData(this);
     parent_observation_.Observe(parent_profile);
 
     content::GetUIThreadTaskRunner({})->PostTaskAndReply(
@@ -48,9 +48,9 @@ BraveProfileImpl::BraveProfileImpl(
   }
 }
 
-BraveProfileImpl::~BraveProfileImpl() {}
+adrbrowsielProfileImpl::~adrbrowsielProfileImpl() {}
 
-void BraveProfileImpl::OnProfileWillBeDestroyed(Profile* profile) {
+void adrbrowsielProfileImpl::OnProfileWillBeDestroyed(Profile* profile) {
   // this only happens when a profile is deleted because the profile manager
   // ensures that session profiles are destroyed before their parents
   // passing false for `success` removes the profile from the info cache

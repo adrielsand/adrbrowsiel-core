@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -29,9 +29,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
-public class BraveShieldsUtils {
+public class adrbrowsielShieldsUtils {
 	private static final String TAG = "Shields";
-	private static final String httpUrl = "https://laptop-updates.brave.com/1/webcompat";
+	private static final String httpUrl = "https://laptop-updates.adrbrowsiel.com/1/webcompat";
         public static final String PREF_SHIELDS_TOOLTIP = "shields_tooltip";
         public static final String PREF_SHIELDS_VIDEO_ADS_BLOCKED_TOOLTIP =
                 "shields_video_ads_blocked_tooltip";
@@ -59,22 +59,22 @@ public class BraveShieldsUtils {
         public static final List<String> videoSitesListJp =
                 Arrays.asList("nicovideo.jp", "tiktok.com", "instagram.com");
 
-        public static final int BRAVE_BLOCKED_TIER1 = 1000;
-        public static final int BRAVE_BLOCKED_TIER2 = 5000;
-        public static final int BRAVE_BLOCKED_TIER3 = 10000;
-        public static final int BRAVE_BLOCKED_TIER4 = 25000;
-        public static final int BRAVE_BLOCKED_TIER5 = 75000;
-        public static final int BRAVE_BLOCKED_TIER6 = 100000;
-        public static final int BRAVE_BLOCKED_TIER7 = 250000;
-        public static final int BRAVE_BLOCKED_TIER8 = 500000;
-        public static final int BRAVE_BLOCKED_TIER9 = 1000000;
+        public static final int adrbrowsiel_BLOCKED_TIER1 = 1000;
+        public static final int adrbrowsiel_BLOCKED_TIER2 = 5000;
+        public static final int adrbrowsiel_BLOCKED_TIER3 = 10000;
+        public static final int adrbrowsiel_BLOCKED_TIER4 = 25000;
+        public static final int adrbrowsiel_BLOCKED_TIER5 = 75000;
+        public static final int adrbrowsiel_BLOCKED_TIER6 = 100000;
+        public static final int adrbrowsiel_BLOCKED_TIER7 = 250000;
+        public static final int adrbrowsiel_BLOCKED_TIER8 = 500000;
+        public static final int adrbrowsiel_BLOCKED_TIER9 = 1000000;
 
-        public static final int BRAVE_BLOCKED_SHOW_DIFF = 20;
+        public static final int adrbrowsiel_BLOCKED_SHOW_DIFF = 20;
 
         public static boolean isTooltipShown;
 
-        public interface BraveShieldsCallback {
-            void braveShieldsSubmitted();
+        public interface adrbrowsielShieldsCallback {
+            void adrbrowsielShieldsSubmitted();
         }
 
         public static boolean hasShieldsTooltipShown(String tooltipType) {
@@ -89,16 +89,16 @@ public class BraveShieldsUtils {
             sharedPreferencesEditor.apply();
         }
 
-        public static class BraveShieldsWorkerTask extends AsyncTask<Void> {
+        public static class adrbrowsielShieldsWorkerTask extends AsyncTask<Void> {
             private String mDomain;
 
-            public BraveShieldsWorkerTask(String domain) {
+            public adrbrowsielShieldsWorkerTask(String domain) {
                 mDomain = domain;
             }
 
             @Override
             protected Void doInBackground() {
-                sendBraveShieldsFeedback(mDomain);
+                sendadrbrowsielShieldsFeedback(mDomain);
                 return null;
             }
 
@@ -110,7 +110,7 @@ public class BraveShieldsUtils {
             }
         }
 
-        private static void sendBraveShieldsFeedback(String domain) {
+        private static void sendadrbrowsielShieldsFeedback(String domain) {
             Context context = ContextUtils.getApplicationContext();
             StringBuilder sb = new StringBuilder();
 

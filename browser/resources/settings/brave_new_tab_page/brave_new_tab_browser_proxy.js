@@ -8,7 +8,7 @@
 
 cr.define('settings', function() {
   /** @interface */
-  /* #export */ class BraveNewTabBrowserProxy {
+  /* #export */ class adrbrowsielNewTabBrowserProxy {
     /**
      * @return {!Promise<Array>}
      */
@@ -21,9 +21,9 @@ cr.define('settings', function() {
   }
 
   /**
-   * @implements {settings.BraveNewTabBrowserProxy}
+   * @implements {settings.adrbrowsielNewTabBrowserProxy}
    */
-  /* #export */ class BraveNewTabBrowserProxyImpl {
+  /* #export */ class adrbrowsielNewTabBrowserProxyImpl {
     /** @override */
     getNewTabShowsOptionsList() {
       return cr.sendWithPromise('getNewTabShowsOptionsList')
@@ -35,11 +35,11 @@ cr.define('settings', function() {
     }
   }
 
-  cr.addSingletonGetter(BraveNewTabBrowserProxyImpl);
+  cr.addSingletonGetter(adrbrowsielNewTabBrowserProxyImpl);
 
   // #cr_define_end
   return {
-    BraveNewTabBrowserProxy,
-    BraveNewTabBrowserProxyImpl
+    adrbrowsielNewTabBrowserProxy,
+    adrbrowsielNewTabBrowserProxyImpl
   };
 });

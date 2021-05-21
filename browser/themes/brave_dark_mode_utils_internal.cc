@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/themes/brave_dark_mode_utils_internal.h"
+#include "adrbrowsiel/browser/themes/adrbrowsiel_dark_mode_utils_internal.h"
 
 #include "ui/native_theme/native_theme.h"
 
@@ -11,7 +11,7 @@
 // Below two methods call protected methods of ui::NativeTheme.
 // They are protected methods that called by platform specific subclasses
 // whenever system os theme is changed.
-// We also want to call whenever brave theme is changed for updating webui/base
+// We also want to call whenever adrbrowsiel theme is changed for updating webui/base
 // ui modules theme.
 namespace ui {
 

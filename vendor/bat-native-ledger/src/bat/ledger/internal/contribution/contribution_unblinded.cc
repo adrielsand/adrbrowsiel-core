@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,7 +12,7 @@
 #include "bat/ledger/internal/contribution/contribution_unblinded.h"
 #include "bat/ledger/internal/contribution/contribution_util.h"
 #include "bat/ledger/internal/ledger_impl.h"
-#include "brave_base/random.h"
+#include "adrbrowsiel_base/random.h"
 
 using std::placeholders::_1;
 using std::placeholders::_2;
@@ -67,7 +67,7 @@ void GetStatisticalVotingWinners(
   }
 
   while (total_votes > 0) {
-    const double dart = brave_base::random::Uniform_01();
+    const double dart = adrbrowsiel_base::random::Uniform_01();
     const std::string publisher_key =
         GetStatisticalVotingWinner(dart, amount, publisher_list);
     if (publisher_key.empty()) {
@@ -480,7 +480,7 @@ void Unblinded::OnProcessTokens(
     redeem.contribution_id = contribution->contribution_id;
 
     if (redeem.processor == type::ContributionProcessor::UPHOLD ||
-        redeem.processor == type::ContributionProcessor::BRAVE_USER_FUNDS) {
+        redeem.processor == type::ContributionProcessor::adrbrowsiel_USER_FUNDS) {
       credentials_sku_->RedeemTokens(redeem, redeem_callback);
       return;
     }
@@ -542,7 +542,7 @@ void Unblinded::Retry(
   }
 
   const bool is_not_tokens =
-      contribution->processor != type::ContributionProcessor::BRAVE_TOKENS;
+      contribution->processor != type::ContributionProcessor::adrbrowsiel_TOKENS;
 
   const bool is_not_uphold_ac =
       contribution->processor == type::ContributionProcessor::UPHOLD &&

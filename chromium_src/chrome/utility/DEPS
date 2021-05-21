@@ -1,6 +1,6 @@
 include_rules = [
   "+../../../../../chrome/utility/importer",
-  "+brave/common",
+  "+adrbrowsiel/common",
   "+chrome/common",
   "+chrome/utility",
 ]

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -21,8 +21,8 @@
 #include "bat/ads/internal/server/ads_server_util.h"
 #include "bat/ads/internal/time_formatting_util.h"
 #include "bat/ads/pref_names.h"
-#include "brave/components/l10n/browser/locale_helper.h"
-#include "brave/components/l10n/common/locale_util.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper.h"
+#include "adrbrowsiel/components/l10n/common/locale_util.h"
 
 namespace ads {
 namespace ad_targeting {
@@ -48,7 +48,7 @@ bool SubdivisionTargeting::ShouldAllowForLocale(
     return false;
   }
 
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   const std::string subdivision_targeting_code =
       GetAdsSubdivisionTargetingCode();
@@ -113,7 +113,7 @@ void SubdivisionTargeting::MaybeFetchForLocale(const std::string& locale) {
 
 void SubdivisionTargeting::MaybeFetchForCurrentLocale() {
   const std::string locale =
-      brave_l10n::LocaleHelper::GetInstance()->GetLocale();
+      adrbrowsiel_l10n::LocaleHelper::GetInstance()->GetLocale();
 
   MaybeFetchForLocale(locale);
 }
@@ -131,7 +131,7 @@ std::string SubdivisionTargeting::GetAdsSubdivisionTargetingCode() const {
 ///////////////////////////////////////////////////////////////////////////////
 
 bool SubdivisionTargeting::IsSupportedLocale(const std::string& locale) const {
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   const auto iter = kSupportedSubdivisionCodes.find(country_code);
   if (iter == kSupportedSubdivisionCodes.end()) {
@@ -205,7 +205,7 @@ void SubdivisionTargeting::OnFetch(const UrlResponse& url_response) {
               << subdivision_targeting_code);
 
   const std::string locale =
-      brave_l10n::LocaleHelper::GetInstance()->GetLocale();
+      adrbrowsiel_l10n::LocaleHelper::GetInstance()->GetLocale();
   MaybeAllowForLocale(locale);
 
   FetchAfterDelay();

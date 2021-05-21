@@ -6,7 +6,7 @@ index 05d3cfc4fae1acc172ef86aa8caad47b04079657..868e2e6281d9ef6574e23a7dd31a0c85
    base::Time expires = options->hasExpiresNonNull()
                             ? base::Time::FromJavaTime(options->expiresNonNull())
                             : base::Time();
-+  BRAVE_TO_CANONICAL_COOKIE
++  adrbrowsiel_TO_CANONICAL_COOKIE
  
    String cookie_url_host = cookie_url.Host();
    String domain;

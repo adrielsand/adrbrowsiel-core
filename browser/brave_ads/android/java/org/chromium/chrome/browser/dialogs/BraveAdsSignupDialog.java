@@ -1,4 +1,4 @@
-/** Copyright (c) 2019 The Brave Authors. All rights reserved.
+/** Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
   * This Source Code Form is subject to the terms of the Mozilla Public
   * License, v. 2.0. If a copy of the MPL was not distributed with this file,
   * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -20,22 +20,22 @@ import android.widget.ImageView;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveAdsNativeHelper;
-import org.chromium.chrome.browser.BraveFeatureList;
-import org.chromium.chrome.browser.BraveRewardsNativeWorker;
-import org.chromium.chrome.browser.BraveRewardsPanelPopup;
+import org.chromium.chrome.browser.adrbrowsielAdsNativeHelper;
+import org.chromium.chrome.browser.adrbrowsielFeatureList;
+import org.chromium.chrome.browser.adrbrowsielRewardsNativeWorker;
+import org.chromium.chrome.browser.adrbrowsielRewardsPanelPopup;
 import org.chromium.chrome.browser.flags.ChromeFeatureList;
-import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
+import org.chromium.chrome.browser.notifications.adrbrowsielOnboardingNotification;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.browser.profiles.Profile;
-import org.chromium.chrome.browser.settings.BraveRewardsPreferences;
-import org.chromium.chrome.browser.preferences.BravePref;
+import org.chromium.chrome.browser.settings.adrbrowsielRewardsPreferences;
+import org.chromium.chrome.browser.preferences.adrbrowsielPref;
 import org.chromium.components.user_prefs.UserPrefs;
 import org.chromium.chrome.browser.util.PackageUtils;
 
 import java.lang.System;
 
-public class BraveAdsSignupDialog {
+public class adrbrowsielAdsSignupDialog {
 
     private static String SHOULD_SHOW_ONBOARDING_DIALOG_VIEW_COUNTER = "should_show_onboarding_dialog_view_counter";
     private static String SHOULD_SHOW_ONBOARDING_DIALOG = "should_show_onboarding_dialog";
@@ -45,10 +45,10 @@ public class BraveAdsSignupDialog {
 
     public static boolean shouldShowNewUserDialog(Context context) {
         boolean shouldShow = shouldShowOnboardingDialog() && PackageUtils.isFirstInstall(context)
-                && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(
+                && !adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(
                         Profile.getLastUsedRegularProfile())
                 && hasElapsed24Hours(context)
-                && ChromeFeatureList.isEnabled(BraveFeatureList.BRAVE_REWARDS);
+                && ChromeFeatureList.isEnabled(adrbrowsielFeatureList.adrbrowsiel_REWARDS);
 
         boolean shouldShowForViewCount = shouldShowForViewCount();
         if (shouldShow) updateViewCount();
@@ -58,9 +58,9 @@ public class BraveAdsSignupDialog {
 
     public static boolean shouldShowNewUserDialogIfRewardsIsSwitchedOff(Context context) {
         boolean shouldShow = shouldShowOnboardingDialog() && !PackageUtils.isFirstInstall(context)
-                && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(
+                && !adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(
                         Profile.getLastUsedRegularProfile())
-                && ChromeFeatureList.isEnabled(BraveFeatureList.BRAVE_REWARDS);
+                && ChromeFeatureList.isEnabled(adrbrowsielFeatureList.adrbrowsiel_REWARDS);
 
         boolean shouldShowForViewCount = shouldShowForViewCount();
         if (shouldShow) updateViewCount();
@@ -70,10 +70,10 @@ public class BraveAdsSignupDialog {
 
     public static boolean shouldShowExistingUserDialog(Context context) {
         boolean shouldShow = shouldShowOnboardingDialog() && !PackageUtils.isFirstInstall(context)
-                && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(
+                && !adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(
                         Profile.getLastUsedRegularProfile())
-                && BraveAdsNativeHelper.nativeIsSupportedLocale(Profile.getLastUsedRegularProfile())
-                && ChromeFeatureList.isEnabled(BraveFeatureList.BRAVE_REWARDS);
+                && adrbrowsielAdsNativeHelper.nativeIsSupportedLocale(Profile.getLastUsedRegularProfile())
+                && ChromeFeatureList.isEnabled(adrbrowsielFeatureList.adrbrowsiel_REWARDS);
 
         boolean shouldShowForViewCount = shouldShowForViewCount();
         if (shouldShow) updateViewCount();
@@ -88,14 +88,14 @@ public class BraveAdsSignupDialog {
 
     @CalledByNative
     public static boolean showAdsInBackground() {
-        return BraveRewardsPreferences.getPrefAdsInBackgroundEnabled();
+        return adrbrowsielRewardsPreferences.getPrefAdsInBackgroundEnabled();
     }
 
     private static void enqueueOnboardingNotification(Context context, boolean useCustomNotification) {
         if(!OnboardingPrefManager.getInstance().isOnboardingNotificationShown()) {
             AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            Intent intent = new Intent(context, BraveOnboardingNotification.class);
-            intent.putExtra(BraveOnboardingNotification.USE_CUSTOM_NOTIFICATION, useCustomNotification);
+            Intent intent = new Intent(context, adrbrowsielOnboardingNotification.class);
+            intent.putExtra(adrbrowsielOnboardingNotification.USE_CUSTOM_NOTIFICATION, useCustomNotification);
             am.set(
                 AlarmManager.RTC_WAKEUP,
                 System.currentTimeMillis() + MOMENT_LATER,
@@ -105,9 +105,9 @@ public class BraveAdsSignupDialog {
     }
 
     public static void showNewUserDialog(Context context) {
-        AlertDialog alertDialog = new AlertDialog.Builder(context, R.style.BraveDialogTheme)
-        .setView(R.layout.brave_ads_new_user_dialog_layout)
-        .setPositiveButton(R.string.brave_ads_offer_positive, new DialogInterface.OnClickListener() {
+        AlertDialog alertDialog = new AlertDialog.Builder(context, R.style.adrbrowsielDialogTheme)
+        .setView(R.layout.adrbrowsiel_ads_new_user_dialog_layout)
+        .setPositiveButton(R.string.adrbrowsiel_ads_offer_positive, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -115,10 +115,10 @@ public class BraveAdsSignupDialog {
 
                 neverShowOnboardingDialogAgain();
 
-                BraveRewardsNativeWorker braveRewardsNativeWorker = BraveRewardsNativeWorker.getInstance();
+                adrbrowsielRewardsNativeWorker adrbrowsielRewardsNativeWorker = adrbrowsielRewardsNativeWorker.getInstance();
 
                 // Enable ads
-                BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
+                adrbrowsielAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
             }
         }).create();
         alertDialog.show();
@@ -133,15 +133,15 @@ public class BraveAdsSignupDialog {
     }
 
     public static void showExistingUserDialog(Context context) {
-        AlertDialog alertDialog = new AlertDialog.Builder(context, R.style.BraveDialogTheme)
-        .setView(R.layout.brave_ads_existing_user_dialog_layout)
-        .setPositiveButton(R.string.brave_ads_offer_positive, new DialogInterface.OnClickListener() {
+        AlertDialog alertDialog = new AlertDialog.Builder(context, R.style.adrbrowsielDialogTheme)
+        .setView(R.layout.adrbrowsiel_ads_existing_user_dialog_layout)
+        .setPositiveButton(R.string.adrbrowsiel_ads_offer_positive, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // Enable ads
                 neverShowOnboardingDialogAgain();
 
-                BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
+                adrbrowsielAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
             }
         }).create();
         alertDialog.show();

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE translationbundle>
 <translationbundle lang="sk">
-<translation id="7307834434086582547">Povoliť/zakázať Brave štíty</translation>
+<translation id="7307834434086582547">Povoliť/zakázať adrbrowsiel štíty</translation>
 <translation id="3570081523466826008">Inovujte pripojenia na HTTPS</translation>
 <translation id="94154759592465111">Blokovať skripty</translation>
 <translation id="5709627087332022422">Blokovať cross-site trackery</translation>
@@ -10,7 +10,7 @@
 <translation id="863171915776379000">Povoliť prihlasovanie Facebook a embedované príspevky</translation>
 <translation id="5165042248369837294">Povoliť embedované tweety pre Twitter</translation>
 <translation id="958971637207126733">Povoliť vložené príspevky z LinkedIn</translation>
-<translation id="6302422639282249274">Spravovať Brave odmeny</translation>
+<translation id="6302422639282249274">Spravovať adrbrowsiel odmeny</translation>
 <translation id="1506061864768559482">Vyhľadávač</translation>
 <translation id="1468415711258933398">Štandardná karta</translation>
 <translation id="3377025655491224618">Karta inkognito</translation>
@@ -32,8 +32,8 @@
 <translation id="5787084571334399599">Zabraňuje prehliadaču získať odtlačky prstov</translation>
 <translation id="7459000603787995422">Zatvoriť karty pri ukončení prehliadania</translation>
 <translation id="1680858055899097121">Neotvárajte karty medzi prehliadanými reláciami</translation>
-<translation id="6469509880167172749">Automatické odosielanie výlučne vlastných produktových analýz do Brave</translation>
-<translation id="7090566321964540749">Táto anonymná informácia umožní Brave len odhadnúť celkové využívanie určitých funkcií .</translation>
+<translation id="6469509880167172749">Automatické odosielanie výlučne vlastných produktových analýz do adrbrowsiel</translation>
+<translation id="7090566321964540749">Táto anonymná informácia umožní adrbrowsiel len odhadnúť celkové využívanie určitých funkcií .</translation>
 <translation id="7977176350719484850">Odhad. dáta\nUšetrené</translation>
 <translation id="9008534313521214777">Predpokladaný čas\nUšetrený</translation>
 <translation id="6572660632052512096">Desktop mód</translation>
@@ -41,48 +41,48 @@
 <translation id="7924540991929826186">Použiť mobilné verzie stránok v nových kartách (odporúčané)</translation>
 <translation id="807636106793708118">Preferovať mobilnú verziu stránok</translation>
 <translation id="4479934682648362332">Preferovať verziu stránok pre počítače</translation>
-<translation id="1842747674580016420">Prehrávanie videa v prehliadači Brave</translation>
-<translation id="5368992950177874750">Ak je povolené, videá sa budú prehrávať v prehliadači Brave namiesto zodpovedajúcej aplikácie</translation>
+<translation id="1842747674580016420">Prehrávanie videa v prehliadači adrbrowsiel</translation>
+<translation id="5368992950177874750">Ak je povolené, videá sa budú prehrávať v prehliadači adrbrowsiel namiesto zodpovedajúcej aplikácie</translation>
 <translation id="2645380101799517405">Kontroly</translation>
 <translation id="5965081608816406060">Prehrávanie videa na pozadí</translation>
-<translation id="6332924730165919598">Zatvorením všetkých kariet sa zavrie prehliadač Brave</translation>
+<translation id="6332924730165919598">Zatvorením všetkých kariet sa zavrie prehliadač adrbrowsiel</translation>
 <translation id="1580125697191336644">Experimentálny. Umožňuje prehrávanie zvuku z videa na pozadí, keď karta nie je aktívna alebo obrazovka zariadenia je vypnutá. Ak táto funkcia nefunguje, skúste prepnúť do desktop módu.</translation>
 <translation id="59174027418879706">Povolené</translation>
 <translation id="4150201353443180367">Displej</translation>
 <translation id="2433507940547922241">Vzhľad</translation>
-<translation id="2804710924397009224">Skryť ikonu Brave odmeny</translation>
-<translation id="7289740269305509613">Skryje ikonu Odmeny Brave</translation>
+<translation id="2804710924397009224">Skryť ikonu adrbrowsiel odmeny</translation>
+<translation id="7289740269305509613">Skryje ikonu Odmeny adrbrowsiel</translation>
 <translation id="8495235435594442882">Povoliť spodný panel nástrojov</translation>
-<translation id="6587448235155023666">Zmeny vašich nastavení sa prejavia pri ďalšom spustení prehliadača Brave</translation>
+<translation id="6587448235155023666">Zmeny vašich nastavení sa prejavia pri ďalšom spustení prehliadača adrbrowsiel</translation>
 <translation id="8701563696941209024">SPUSTIŤ ZNOVA TERAZ</translation>
 <translation id="834487290629916192">NESKÔR</translation>
 <translation id="8281886186245836920">Preskočiť</translation>
 <translation id="986879628471635371">Riešenie problémov pri prvotnom nastavení</translation>
 <translation id="5808759341041733958">Vyberte predvolený vyhľadávací nástroj</translation>
 <translation id="1331593888918588693">Svoje predvoľby môžete kedykoľvek zmeniť v nastaveniach aplikácie.</translation>
-<translation id="5806601733251372221">Brave štíty</translation>
+<translation id="5806601733251372221">adrbrowsiel štíty</translation>
 <translation id="8537217141725709400">Zarábať <ph name="TOKEN"/>s</translation>
-<translation id="3333887201479867589">Odmeny Brave</translation>
+<translation id="3333887201479867589">Odmeny adrbrowsiel</translation>
 <translation id="5870330605209713397">prezeraním reklám rešpektujúcich súkromie a podporujete predvolene svoje obľúbené stránky a tvorcov.</translation>
-<translation id="5302488867897327287">Klepnutím na Začať používať Odmeny Brave vyjadrujete súhlas s</translation>
+<translation id="5302488867897327287">Klepnutím na Začať používať Odmeny adrbrowsiel vyjadrujete súhlas s</translation>
 <translation id="4281844954008187215">Podmienky služby</translation>
 <translation id="6871397658902960384">Spustiť prehliadač</translation>
 <translation id="454386012157232640">Nevidel/a som reklamu</translation>
-<translation id="1448877943847791441">Prehliadač Brave zobrazí vašu prvú reklamu za</translation>
-<translation id="4410793187232041318">Teraz budete dostávať žetóny z reklám Brave.</translation>
-<translation id="6511854390690723657">Toto je vaša prvá Brave reklama. Kliknutím zistíte viac.</translation>
-<translation id="2070991379950719711">Začnite používať Odmeny Brave</translation>
+<translation id="1448877943847791441">Prehliadač adrbrowsiel zobrazí vašu prvú reklamu za</translation>
+<translation id="4410793187232041318">Teraz budete dostávať žetóny z reklám adrbrowsiel.</translation>
+<translation id="6511854390690723657">Toto je vaša prvá adrbrowsiel reklama. Kliknutím zistíte viac.</translation>
+<translation id="2070991379950719711">Začnite používať Odmeny adrbrowsiel</translation>
 <translation id="48520986898237073">Pokračujte do peňaženky</translation>
 <translation id="3570367516044491911">Nastaviť ako predvolený prehliadač</translation>
-<translation id="19715420010996093">Zvoľte si Prehliadač Brave a klepnite na „Vždy“</translation>
-<translation id="3546439402724649282">Brave je už nastavený ako váš predvolený prehliadač.</translation>
+<translation id="19715420010996093">Zvoľte si Prehliadač adrbrowsiel a klepnite na „Vždy“</translation>
+<translation id="3546439402724649282">adrbrowsiel je už nastavený ako váš predvolený prehliadač.</translation>
 <translation id="8389661903259423907">Už ste nastavili predvolený prehliadač. Môžete ho zmeniť v nastaveniach aplikácie.</translation>
-<translation id="7091885296442320770">Prehliadač Brave je rýchly ako blesk</translation>
-<translation id="2171928016777725844">Urobiť z Brave predvolený prehliadač!</translation>
+<translation id="7091885296442320770">Prehliadač adrbrowsiel je rýchly ako blesk</translation>
+<translation id="2171928016777725844">Urobiť z adrbrowsiel predvolený prehliadač!</translation>
 <translation id="7136694880210472378">Nastaviť ako predvolený</translation>
 <translation id="4250680216510889253">Nie</translation>
 <translation id="4501702055016678577">Súkromné prehliadanie s DuckDuckGo</translation>
-<translation id="910419239800579753">Pri súkromnom vyhľadávaní použije prehliadač Brave službu DuckDuckGo na zodpovedanie vašich vyhľadávaní, zatiaľ čo máte otvorenú súkromnú kartu. DuckDuckGo je vyhľadávací nástroj, ktorý nesleduje vašu históriu vyhľadávania a umožňuje vám súkromné vyhľadávanie.</translation>
+<translation id="910419239800579753">Pri súkromnom vyhľadávaní použije prehliadač adrbrowsiel službu DuckDuckGo na zodpovedanie vašich vyhľadávaní, zatiaľ čo máte otvorenú súkromnú kartu. DuckDuckGo je vyhľadávací nástroj, ktorý nesleduje vašu históriu vyhľadávania a umožňuje vám súkromné vyhľadávanie.</translation>
 <translation id="1426410128494586442">Áno</translation>
 <translation id="5628466560184522265">Zistite viac o súkromnom prehliadaní s DuckDuckGo</translation>
 <translation id="8826007068782654809">Ďakujeme</translation>
@@ -90,7 +90,7 @@
 <translation id="5441565662498481293">Príspevok odosielate automaticky na:</translation>
 <translation id="1166682575529520472">Mesačne</translation>
 <translation id="1628742278973105368">Váš prvý mesačný príspevok bude odoslaný na:</translation>
-<translation id="298349922412901215">POZNÁMKA: Tento tvorca sa ešte neprihlásil na prijímanie príspevkov od používateľov Brave. Budeme sa snažiť prispievať, kým nebudú overení alebo kým neuplynie 90 dní.</translation>
+<translation id="298349922412901215">POZNÁMKA: Tento tvorca sa ešte neprihlásil na prijímanie príspevkov od používateľov adrbrowsiel. Budeme sa snažiť prispievať, kým nebudú overení alebo kým neuplynie 90 dní.</translation>
 <translation id="1910721550319506122">Vitajte!</translation>
 <translation id="3165726837666415756">Túto stránku môžete podporiť zaslaním finančného príspevku. Je to spôsob ako sa poďakovať jej tvorcom za skvelý obsah. Overení tvorcovia obsahu dostávajú zaplatené z finančných príspevkov počas prvého týždňa v mesiaci.</translation>
 <translation id="1704859330137112950">Ak chcete, môžete naplánovať pravidelné mesačné príspevky na podporu tejto stránky.</translation>
@@ -115,9 +115,9 @@
 <translation id="3826081199286264109">USD</translation>
 <translation id="1165667598801520610">Pridať finančný príspevok</translation>
 <translation id="8428213095426709021">Nastavení</translation>
-<translation id="8772672608371898774">Overený vydavateľ Brave</translation>
+<translation id="8772672608371898774">Overený vydavateľ adrbrowsiel</translation>
 <translation id="1397683270551078781">Ešte nie je overené</translation>
-<translation id="5727208111992260840">Tento tvorca sa zatiaľ neprihlásil na prijímanie finančných príspevkov od používateľov prehliadača Brave.
+<translation id="5727208111992260840">Tento tvorca sa zatiaľ neprihlásil na prijímanie finančných príspevkov od používateľov prehliadača adrbrowsiel.
         Všetky peniaze, ktoré odošlete, zostanú vo vašej peňaženke, kým nebudú overené.</translation>
 <translation id="8918760045046434238">Poslať finančný príspevok ...</translation>
 <translation id="1978261665418056203">Zatiaľ žiadne aktivity za tento mesiac ...</translation>
@@ -137,15 +137,15 @@
 <translation id="5306913077198665897">Pri spracovaní vášho finančného príspevku sa vyskytol problém. Skúste to znova.</translation>
 <translation id="2429828319207652823">Pri spracovávaní vášho príspevku vznikol problém.</translation>
 <translation id="3453206261112715431">Bezplatný grant kupónov</translation>
-<translation id="6417420737057016607">Reklamy Brave</translation>
+<translation id="6417420737057016607">Reklamy adrbrowsiel</translation>
 <translation id="5497435273900537730">Bezplatný <ph name="TOKEN"/> grant je k dispozícii.</translation>
 <translation id="8689997599821157251">Získali ste</translation>
 <translation id="7550470870580166294">Nedostatok prostriedkov</translation>
-<translation id="2775064702681588061">Na vašom účte Brave odmeny sa očakáva vklad.</translation>
+<translation id="2775064702681588061">Na vašom účte adrbrowsiel odmeny sa očakáva vklad.</translation>
 <translation id="765834632354589737">Zálohovať peňaženku</translation>
-<translation id="1713542052890184975">Prosím, zálohujte svoju peňaženku Brave.</translation>
+<translation id="1713542052890184975">Prosím, zálohujte svoju peňaženku adrbrowsiel.</translation>
 <translation id="2323069945529668668">Ou!</translation>
-<translation id="7510166204621526816">Server odmien Brave neodpovedá. Opravíme to čo najskôr.</translation>
+<translation id="7510166204621526816">Server odmien adrbrowsiel neodpovedá. Opravíme to čo najskôr.</translation>
 <translation id="683765328936486920">na YouTube</translation>
 <translation id="8969049974285901797">na Twitch.tv</translation>
 <translation id="3692362746128814480">Určili ste <ph name="BAT_VALUE"/> žetón pozornosti (BAT) pre tvorcov, ktorí zatiaľ nepožiadali o získanie finančných príspevkov. Váš prehliadač sa bude naďalej snažiť prispieť, kým nebudú overení 
@@ -154,7 +154,7 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="6940273954212603510">prosím</translation>
 <translation id="1036277985068412734">pridať peniaze</translation>
 <translation id="3492491948683276944">nastaviť mesačný finančný príspevok</translation>
-<translation id="8038539967102225446">Brave reklamy sú tu!</translation>
+<translation id="8038539967102225446">adrbrowsiel reklamy sú tu!</translation>
 <translation id="222883304157347087">(toto zariadenie)</translation>
 <translation id="4157741509680155021">ZARIADENIA V REŤAZCI SYNC</translation>
 <translation id="279635009973773843">NAČÍTANIE ZARIADENÍ ...</translation>
@@ -163,10 +163,10 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="4282642752844565114">Nesprávny počet slov</translation>
 <translation id="7507533586185621084">Zlý synchronizačný kód</translation>
 <translation id="8284063834901328650">Zlý synchronizačný QR kód</translation>
-<translation id="3149880132460839085">Synchronizácia Brave</translation>
-<translation id="3680755684186855422">Synchronizácia Brave vám umožňuje súkromne synchronizovať údaje medzi prehliadačmi Brave na rôznych zariadeniach.</translation>
+<translation id="3149880132460839085">Synchronizácia adrbrowsiel</translation>
+<translation id="3680755684186855422">Synchronizácia adrbrowsiel vám umožňuje súkromne synchronizovať údaje medzi prehliadačmi adrbrowsiel na rôznych zariadeniach.</translation>
 <translation id="3735228155296883311">Jednoducho naskenujte kód zo synchronizačného reťazca, ktorý ste vytvorili na inom zariadení alebo spustite nový synchronizačný reťazec.</translation>
-<translation id="2614069607859982576">Pomocou existujúceho zosynchronizovaného zariadenia otvorte nastavenia Brave a choďte do nastavení &gt; Sync. Vyberte "Pridať nové zariadenie" a naskenujte QR kód, ktorý sa vám zobrazí na obrazovke.</translation>
+<translation id="2614069607859982576">Pomocou existujúceho zosynchronizovaného zariadenia otvorte nastavenia adrbrowsiel a choďte do nastavení &gt; Sync. Vyberte "Pridať nové zariadenie" a naskenujte QR kód, ktorý sa vám zobrazí na obrazovke.</translation>
 <translation id="5241263629636958324">Zkopírováno do schránky</translation>
 <translation id="5817918615728894473">Párovať</translation>
 <translation id="7090325819305486658">Dátové preferencie</translation>
@@ -176,12 +176,12 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="1602067095281698985">Spustiť nový synchronizačný reťazec</translation>
 <translation id="1475223680121592371">Pridať mobilné zariadenie</translation>
 <translation id="2965377893636908578">Pridať počítač</translation>
-<translation id="6604289897677913048">Pomocou druhého telefónu alebo tabletu prejdite do Nastavení Brave &gt; Sync &gt; Scan.</translation>
-<translation id="8508856434435157945">Na vašom mobilnom zariadení prejdite v paneli Nastavenia na položku Synchronizácia Brave a kliknite na tlačidlo „Naskenovať synchronizačný kód“. Pomocou fotoaparátu naskenujte QR kód uvedený nižšie.</translation>
-<translation id="2590683710114839102">V počítači prejdite na položku Nastavenia Brave &gt; Sync. Vyberte možnosť "Zadať kód synchronizačného reťazca."</translation>
+<translation id="6604289897677913048">Pomocou druhého telefónu alebo tabletu prejdite do Nastavení adrbrowsiel &gt; Sync &gt; Scan.</translation>
+<translation id="8508856434435157945">Na vašom mobilnom zariadení prejdite v paneli Nastavenia na položku Synchronizácia adrbrowsiel a kliknite na tlačidlo „Naskenovať synchronizačný kód“. Pomocou fotoaparátu naskenujte QR kód uvedený nižšie.</translation>
+<translation id="2590683710114839102">V počítači prejdite na položku Nastavenia adrbrowsiel &gt; Sync. Vyberte možnosť "Zadať kód synchronizačného reťazca."</translation>
 <translation id="65315202420929965">Naskenujte tento synchronizačný kód</translation>
 <translation id="6764016175302339802">Zaobchádzajte s týmto kódom ako s heslom. Ak ho niekto získa, môže si prečítať a upraviť vaše synchronizované údaje.</translation>
-<translation id="6707003343517029414">Na cieľovom počítači prejdite v nastaveniach na možnosť Synchronizácia Brave a kliknite na tlačidlo „Mám synchronizačný kód“.\nZadajte nižšie uvedený kód synchronizačného reťazca.</translation>
+<translation id="6707003343517029414">Na cieľovom počítači prejdite v nastaveniach na možnosť Synchronizácia adrbrowsiel a kliknite na tlačidlo „Mám synchronizačný kód“.\nZadajte nižšie uvedený kód synchronizačného reťazca.</translation>
 <translation id="2731921493694251495">Zadajte kód synchronizačného reťazca</translation>
 <translation id="2175927920773552910">QR kód</translation>
 <translation id="8653433343015102968">Kódy</translation>
@@ -191,36 +191,36 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="6776430845975754238">Zmena nastavení ovplyvní iba údaje, ktoré toto zariadenie zdieľa s ostatnými zariadeniami.</translation>
 <translation id="1061533051865606843">Pridať nové zariadenie</translation>
 <translation id="7539985410310934287">Zadajte kódy</translation>
-<translation id="2886391679017857869">Pomocou existujúceho zosynchronizovaného zariadenia otvorte nastavenia Brave a choďte do nastavení &gt; Sync. Vyberte "Pridať nové zariadenie" potom "Zobraziť kódové slová namiesto toho".</translation>
+<translation id="2886391679017857869">Pomocou existujúceho zosynchronizovaného zariadenia otvorte nastavenia adrbrowsiel a choďte do nastavení &gt; Sync. Vyberte "Pridať nové zariadenie" potom "Zobraziť kódové slová namiesto toho".</translation>
 <translation id="8131740175452115882">Potvrdit</translation>
 <translation id="4973653569293835178">Použijem svoj fotoaparát ...</translation>
 <translation id="326454632686131209">Synchronizovať zariadenie</translation>
 <translation id="327726072512457161">Ukončiť nastavenia</translation>
-<translation id="8050847734948770789">Povoliť odmeny Brave</translation>
+<translation id="8050847734948770789">Povoliť odmeny adrbrowsiel</translation>
 <translation id="9187185473011056079">Chcem sa zapojiť!</translation>
-<translation id="8185825081026121627">Získajte základný token pozornosti za zobrazovanie reklám rešpektujúcich ochranu súkromia pre Odmeny Brave.</translation>
+<translation id="8185825081026121627">Získajte základný token pozornosti za zobrazovanie reklám rešpektujúcich ochranu súkromia pre Odmeny adrbrowsiel.</translation>
 <translation id="5321518976657560663">Resetovať chybu</translation>
-<translation id="4114170343590425996">Pri resetovaní Brave odmien sa vyskytla chyba. Znova spustite prehliadač Brave a skúste to znova.</translation>
-<translation id="6393502589311632553">Zobraziť reklamy, keď sa prehliadač Brave nepoužíva</translation>
-<translation id="3349204812119681938">Obnovte Brave odmeny</translation>
-<translation id="8782039523249932839">Týmto vymažete svoju Brave peňaženku a vynulujete všetky vaše údaje v Brave odmenách.</translation>
+<translation id="4114170343590425996">Pri resetovaní adrbrowsiel odmien sa vyskytla chyba. Znova spustite prehliadač adrbrowsiel a skúste to znova.</translation>
+<translation id="6393502589311632553">Zobraziť reklamy, keď sa prehliadač adrbrowsiel nepoužíva</translation>
+<translation id="3349204812119681938">Obnovte adrbrowsiel odmeny</translation>
+<translation id="8782039523249932839">Týmto vymažete svoju adrbrowsiel peňaženku a vynulujete všetky vaše údaje v adrbrowsiel odmenách.</translation>
 <translation id="6810078320346589989">Vytvoriť záložku</translation>
-<translation id="3396347744975515056">Synchronizácia aplikácie Brave bola vylepšená a potrebuje inštaláciu</translation>
+<translation id="3396347744975515056">Synchronizácia aplikácie adrbrowsiel bola vylepšená a potrebuje inštaláciu</translation>
 <translation id="7473245612074035141">Začať inštaláciu</translation>
 <translation id="8985635554450124959">Synchronizáciu nebolo možné nastaviť</translation>
-<translation id="2514300153301737214">Zistili sme, že máte povolenú synchronizáciu Brave, avšak vaša systémová synchronizácia je vypnutá a neumožňuje synchronizáciu Brave. Stlačením otvoríte nastavenia</translation>
+<translation id="2514300153301737214">Zistili sme, že máte povolenú synchronizáciu adrbrowsiel, avšak vaša systémová synchronizácia je vypnutá a neumožňuje synchronizáciu adrbrowsiel. Stlačením otvoríte nastavenia</translation>
 <translation id="7173114856073700355">Otvoriť Nastavenia</translation>
 <translation id="6965382102122355670">OK</translation>
 <translation id="4450893287417543264">Už nezobrazovať</translation>
-<translation id="597993392929850353">Licencia Brave</translation>
+<translation id="597993392929850353">Licencia adrbrowsiel</translation>
 <translation id="6336451774241870485">Nová súkromná karta</translation>
 <translation id="6199596294742117349">Toto je súkromná karta</translation>
 <translation id="5858455511731621847">Aj keď sa stránky, ktoré navštevujete na súkromných kartách, neukladajú lokálne, neurobia vás anonymnými alebo neviditeľnými pre vášho poskytovateľa internetových služieb, pre vášho zamestnávateľa alebo pre tie navštevované stránky.</translation>
-<translation id="5789441016350810005">Reklamy Brave odoslané, keď je prehliadač na pozadí</translation>
+<translation id="5789441016350810005">Reklamy adrbrowsiel odoslané, keď je prehliadač na pozadí</translation>
 <translation id="3690140184638701871">Príspevky &amp; Dary</translation>
 <translation id="844921671123185605">Vaše mesačné príspevky boli spracované!</translation>
 <translation id="3124090095880236567">Zapnite reklamy</translation>
-<translation id="2975780980638932742">Brave reklamy sú k dispozícii!</translation>
+<translation id="2975780980638932742">adrbrowsiel reklamy sú k dispozícii!</translation>
 <translation id="7541582550122501404">Čakajúci príspevok</translation>
 <translation id="8520059774736886747">Tvorca <ph name="PUBLISHER_NAME"/> bol nedávno verifikovaný</translation>
 <translation id="7924320838799747606">Váš zostatok</translation>
@@ -232,7 +232,7 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="8522669544471808198">Zobraziť obrázky na pozadí</translation>
 <translation id="3870475560794762985">Zobraziť sponzorované obrázky</translation>
 <translation id="8297488609722895137">Fotografia od <ph name="PHOTO_BY"/></translation>
-<translation id="4761229094276239865">Klepnutím na Začať používať Odmeny Brave vyjadrujete súhlas s <ph name="TERMS_OF_SERVICE"/>.</translation>
+<translation id="4761229094276239865">Klepnutím na Začať používať Odmeny adrbrowsiel vyjadrujete súhlas s <ph name="TERMS_OF_SERVICE"/>.</translation>
 <translation id="3794079107601824147">Dostaňte zaplatené za zobrazenie tohto obrázka na pozadí.</translation>
 <translation id="7136586167396205364">Skryť sponzorované obrázky</translation>
 <translation id="2927095357213611519">Tvorcov webových stránok môžete podporovať pomocou tokenov.\nZískajte tokeny za prehliadanie reklám rešpektujúcich súkromie.</translation>
@@ -244,15 +244,15 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="8558636200953226885">Ale po overení, môžete...</translation>
 <translation id="8697510149346635496">Stiahnuť BATy, ktoré ste získali za zobrazenie reklám rešpektujúcich súkromie</translation>
 <translation id="1481480653609649134">Kúpte si ďalšie BATy pomocou kreditnej karty a z iných zdrojov</translation>
-<translation id="9096003370755878766">Stiahnuť BATy, ktoré ste si predtým mohli pridať do peňaženky Brave Rewards</translation>
+<translation id="9096003370755878766">Stiahnuť BATy, ktoré ste si predtým mohli pridať do peňaženky adrbrowsiel Rewards</translation>
 <translation id="1554282356558968486">Službu peňaženka pre nás zabezpečuje</translation>
 <translation id="6569877533335686968">Podporovať</translation>
 <translation id="8465442795593991224">Ak požiadate o nejaké služby, Uphold vás môže požiadať o potvrdenie identity.</translation>
-<translation id="723054503945711909">Brave Software Inc. nespracováva, neukladá a nesnaží sa dostať k žiadnym osobným údajom, ktoré Upholdu poskytujete pri zakladaní účtu.</translation>
+<translation id="723054503945711909">adrbrowsiel Software Inc. nespracováva, neukladá a nesnaží sa dostať k žiadnym osobným údajom, ktoré Upholdu poskytujete pri zakladaní účtu.</translation>
 <translation id="3699674790322420653">Dokončiť verifikáciu peňaženky</translation>
 <translation id="2193391216824305230">Peňaženka používateľa</translation>
 <translation id="7591798679868259510">Prejsť na účet Uphold</translation>
-<translation id="9200453331904391567">Odpojiť sa od Brave Rewards</translation>
+<translation id="9200453331904391567">Odpojiť sa od adrbrowsiel Rewards</translation>
 <translation id="6239274080752256452">Vybrať prostriedky</translation>
 <translation id="8874184842967597500">Nepripojené</translation>
 <translation id="3368922792935385530">Pripojené</translation>
@@ -264,14 +264,14 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="4190454391025419535">Región nie je podporovaný</translation>
 <translation id="6830703472632069884">Pri overovaní vašej peňaženky sa vyskytol problém. Skúste to znova neskôr.</translation>
 <translation id="3512533646933434345">Chyba overenia peňaženky</translation>
-<translation id="2260513517001048012">POZNÁMKA: Tento Brave overený tvorca si ešte nenakonfiguroval svoj účet na prijímanie príspevkov od používateľov Brave. Váš prehliadač sa bude naďalej snažiť prispievať, až kým sa neoverí alebo kým neuplynie 90 dní.</translation>
-<translation id="4488355059795908907">Tento Brave overený tvorca si ešte nenakonfiguroval svoj účet na prijímanie príspevkov od používateľov Brave. Všetky dary, ktoré odošlete, zostanú vo vašej peňaženke, kým si tento proces nedokončia.</translation>
-<translation id="2495032782748793764">Brave prednastavené</translation>
-<translation id="9132378787893584761">Zdieľajte Brave so svojimi priateľmi!</translation>
+<translation id="2260513517001048012">POZNÁMKA: Tento adrbrowsiel overený tvorca si ešte nenakonfiguroval svoj účet na prijímanie príspevkov od používateľov adrbrowsiel. Váš prehliadač sa bude naďalej snažiť prispievať, až kým sa neoverí alebo kým neuplynie 90 dní.</translation>
+<translation id="4488355059795908907">Tento adrbrowsiel overený tvorca si ešte nenakonfiguroval svoj účet na prijímanie príspevkov od používateľov adrbrowsiel. Všetky dary, ktoré odošlete, zostanú vo vašej peňaženke, kým si tento proces nedokončia.</translation>
+<translation id="2495032782748793764">adrbrowsiel prednastavené</translation>
+<translation id="9132378787893584761">Zdieľajte adrbrowsiel so svojimi priateľmi!</translation>
 <translation id="717952606991220586">Och, niečo sa pokazilo. Prosím, skúste to znova.</translation>
-<translation id="2524310205387880526">Ohodnotiť Brave</translation>
+<translation id="2524310205387880526">Ohodnotiť adrbrowsiel</translation>
 <translation id="6680650203439190394">Kurz</translation>
-<translation id="2635089463885398597">Ako by ste ohodnotili svoje skúsenosti s Brave?</translation>
+<translation id="2635089463885398597">Ako by ste ohodnotili svoje skúsenosti s adrbrowsiel?</translation>
 <translation id="141901961143729572">Zdieľajte svoje myšlienky</translation>
 <translation id="7961015016161918242">Nikdy</translation>
 <translation id="1275213816424141989">Možno neskôr</translation>
@@ -279,11 +279,11 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="8851456134224363571">Super! Mohli by ste nás ohodnotiť v Play Store?</translation>
 <translation id="8668962040900592974">Dajte nám vedieť, ako by sme mohli zlepšiť</translation>
 <translation id="4406937629441301400">Získanie tokenov za prezeranie tohto obrázka a ich vyplatenie tvorcom.  <ph name="LEARN_MORE"/></translation>
-<translation id="1992363542751124282">Zarobte žetóny za prezeranie tohto obrázka. Klepnutím na Začať používať Odmeny Brave získajte svoj podiel.</translation>
+<translation id="1992363542751124282">Zarobte žetóny za prezeranie tohto obrázka. Klepnutím na Začať používať Odmeny adrbrowsiel získajte svoj podiel.</translation>
 <translation id="6632345639591919543">Získavate tokeny za prezeranie tohto obrázka.\n<ph name="LEARN_MORE"/></translation>
 <translation id="1465733111003593696">Zarábate tokeny za prezeranie tohto obrázka.</translation>
 <translation id="7877201489035217175">Viac informácií o sponzorovaných obrázkoch</translation>
-<translation id="828092975561478703">Za každý sponzorovaný obrázok, ktorý ste si pozerali, dostanete 70 % z príjmu v tokenoch. Pomocou Brave reklamy máte vždy kontrolu nad zobrazenými reklamami.</translation>
+<translation id="828092975561478703">Za každý sponzorovaný obrázok, ktorý ste si pozerali, dostanete 70 % z príjmu v tokenoch. Pomocou adrbrowsiel reklamy máte vždy kontrolu nad zobrazenými reklamami.</translation>
 <translation id="4941539331405513605">Blokovať súbory cookie viacerých stránok</translation>
 <translation id="3763681089644577874">Blokovať súbory cookie</translation>
 <translation id="614747795780742163">Zabraňuje webovým stránkam ukladať informácie o vašich predchádzajúcich návštevách</translation>
@@ -296,34 +296,34 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="769702552748212954">Povoliť všetky odtlačky prstov</translation>
 <translation id="876424292214881779">Blokovanie reklám a ďalších nechutných záležitostí</translation>
 <translation id="5142293891785304489">Sledovacie zariadenia, reklamy a blokované</translation>
-<translation id="6930134873084561197">Webové stránky často obsahujú súbory cookie a skripty, ktoré sa snažia identifikovať vás a vaše zariadenie. Chcú zistiť, kto ste, a sledovať čo robíte na každej stránke naprieč webom.\n\nBrave tieto veci blokuje, takže môžete prehliadať bez toho, aby ste boli všade prenasledovaní.</translation>
-<translation id="8553998445606452168">O Brave štítoch</translation>
+<translation id="6930134873084561197">Webové stránky často obsahujú súbory cookie a skripty, ktoré sa snažia identifikovať vás a vaše zariadenie. Chcú zistiť, kto ste, a sledovať čo robíte na každej stránke naprieč webom.\n\nadrbrowsiel tieto veci blokuje, takže môžete prehliadať bez toho, aby ste boli všade prenasledovaní.</translation>
+<translation id="8553998445606452168">O adrbrowsiel štítoch</translation>
 <translation id="8912304686498704084">HORE</translation>
 <translation id="4963218453264888510">DOLE</translation>
-<translation id="7474113515179313724">Túto stránku si prezeráte bez ochrany súkromia Brave. Nefunguje to správne, keď sú štíty hore?</translation>
+<translation id="7474113515179313724">Túto stránku si prezeráte bez ochrany súkromia adrbrowsiel. Nefunguje to správne, keď sú štíty hore?</translation>
 <translation id="9055546041146396417">Ak sa táto stránka javí ako poškodená, skúste štíty nadol.</translation>
 <translation id="1209739344687072997">Nahlásiť nefunkčnú stránku</translation>
-<translation id="8510478288840333677">Oznámte vývojárom Brave, ak táto stránka nefunguje správne so Štítmi:</translation>
-<translation id="5429200298326665264">Poznámka: Táto adresa stránky sa odošle s vaším číslom verzie Brave a vašou IP adresou (neuloží sa).</translation>
+<translation id="8510478288840333677">Oznámte vývojárom adrbrowsiel, ak táto stránka nefunguje správne so Štítmi:</translation>
+<translation id="5429200298326665264">Poznámka: Táto adresa stránky sa odošle s vaším číslom verzie adrbrowsiel a vašou IP adresou (neuloží sa).</translation>
 <translation id="5299848999918506028">Ďakujeme!</translation>
-<translation id="76550953340008122">Ďakujeme, že ste vývojárom Brave oznámili, že na tejto stránke je niečo chybné. Urobíme všetko pre to, aby sme to napravili!</translation>
+<translation id="76550953340008122">Ďakujeme, že ste vývojárom adrbrowsiel oznámili, že na tejto stránke je niečo chybné. Urobíme všetko pre to, aby sme to napravili!</translation>
 <translation id="650318023204990401">Pokročilé ovládanie</translation>
 <translation id="7182293319417450928">Na overenie sa vyžaduje minimálny zostatok 25 BAT.</translation>
 <translation id="1275664486910646411">Zobraziť najlepšie stránky v automatickom dopĺňaní</translation>
 <translation id="5516010970279932133">Zobraziť navrhované stránky v automatickom dopĺňaní</translation>
 <translation id="5370478469168390143">Uložiť dáta online</translation>
-<translation id="1118508688433541158">Prehliadajte rýchlejšie a blokujte reklamy pomocou služby Brave</translation>
+<translation id="1118508688433541158">Prehliadajte rýchlejšie a blokujte reklamy pomocou služby adrbrowsiel</translation>
 <translation id="6589609065569680305">Sledovače &amp; blokované reklamy na tejto stránke.</translation>
-<translation id="1283922192221545319">Brave Shields práve ochránil vaše súkromie.</translation>
+<translation id="1283922192221545319">adrbrowsiel Shields práve ochránil vaše súkromie.</translation>
 <translation id="3286927551967858325">Nazrieť</translation>
 <translation id="6227291358910554399">Počas sledovania videí na tomto webe sú blokované reklamy.</translation>
 <translation id="7802980684512102010">Videá bez reklám spotrebujú menej dát.</translation>
 <translation id="2046475855484346614">Viac ako 10 sledovačov &amp; blokované reklamy na tejto stránke.</translation>
-<translation id="5806208250835099572">Brave Shields chráni vaše online súkromie na každej stránke.</translation>
+<translation id="5806208250835099572">adrbrowsiel Shields chráni vaše online súkromie na každej stránke.</translation>
 <translation id="5617673581653540121">Vaše pripojenie je teraz šifrované.</translation>
-<translation id="4055107796760496928">Brave vykoná automatické aktualizácie na zabezpečené pripojenie v prípade, že sú dostupné.</translation>
+<translation id="4055107796760496928">adrbrowsiel vykoná automatické aktualizácie na zabezpečené pripojenie v prípade, že sú dostupné.</translation>
 <translation id="8869714780588464835">Zdieľať novinky</translation>
-<translation id="7888588008014907646">Každý deň šetrím dáta tým, že web prehliadam pomocou prehliadača Brave.</translation>
+<translation id="7888588008014907646">Každý deň šetrím dáta tým, že web prehliadam pomocou prehliadača adrbrowsiel.</translation>
 <translation id="5372054974373489308">1000 blokovaných sledovačov &amp; reklám!</translation>
 <translation id="2338952568654182692">5000 blokovaných sledovačov &amp; reklám!</translation>
 <translation id="5289711064670408815">10 000 blokovaných sledovačov &amp; reklám!</translation>
@@ -339,16 +339,16 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="4625546020186631261">Blahoželáme. Ste majstrom.</translation>
 <translation id="4288835546846020774">Blahoželáme. Ste veľmajstrom.</translation>
 <translation id="6863752373888328811">Blahoželáme. Ste legendou.</translation>
-<translation id="4776948189086901857">Brave funguje všade</translation>
-<translation id="1606322780901645965">Stiahnite si prehliadač Brave na brave.com na svoj notebook alebo tablet a získajte rýchlejší a súkromnejší web</translation>
+<translation id="4776948189086901857">adrbrowsiel funguje všade</translation>
+<translation id="1606322780901645965">Stiahnite si prehliadač adrbrowsiel na adrbrowsiel.com na svoj notebook alebo tablet a získajte rýchlejší a súkromnejší web</translation>
 <translation id="8374242949413616101">Ochrana súkromia</translation>
-<translation id="4955406228638026265">Prehliadač Brave zabraňuje reklamám a sledovačom zhromažďovať informácie o vás bez vášho súhlasu.</translation>
+<translation id="4955406228638026265">Prehliadač adrbrowsiel zabraňuje reklamám a sledovačom zhromažďovať informácie o vás bez vášho súhlasu.</translation>
 <translation id="752842701893882688">Šetrite dáta a batériu</translation>
 <translation id="1685837926613452362">Bez reklám a sledovačov, webové stránky používajú menej dát a menej využívajú batériu. Môžete dokonca ušetriť na poplatkoch operátorov.</translation>
 <translation id="5440744330377972191">Webové stránky sa načítajú rýchlejšie</translation>
-<translation id="3000738865641747653">Načítanie menšieho počtu dát znamená, že webové stránky sa v prehliadači Brave načítajú rýchlejšie - až 8x rýchlejšie než v iných prehliadačoch.</translation>
+<translation id="3000738865641747653">Načítanie menšieho počtu dát znamená, že webové stránky sa v prehliadači adrbrowsiel načítajú rýchlejšie - až 8x rýchlejšie než v iných prehliadačoch.</translation>
 <translation id="8903462729414407077">Získajte týždenné aktualizácie</translation>
-<translation id="8029219208182772618">Buďte informovaní o tom, ktoré najnavštevovanejšie webové stránky najviac ohrozujú vaše súkromie.\n\nTieto štatistiky o súkromí sa zobrazujú iba vám. Prehliadač Brave na vašom zariadení nikdy nevypustí žiadne osobné údaje či históriu prehliadania.</translation>
+<translation id="8029219208182772618">Buďte informovaní o tom, ktoré najnavštevovanejšie webové stránky najviac ohrozujú vaše súkromie.\n\nTieto štatistiky o súkromí sa zobrazujú iba vám. Prehliadač adrbrowsiel na vašom zariadení nikdy nevypustí žiadne osobné údaje či históriu prehliadania.</translation>
 <translation id="6170159749517116894">Zapnúť hlásenia o súkromí</translation>
 <translation id="5966707198760109579">Týždeň</translation>
 <translation id="8987927404178983737">Mesiac</translation>
@@ -364,20 +364,20 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="3694122362646626770">Webové stránky</translation>
 <translation id="2225863440766607138">Sledovače</translation>
 <translation id="2993367530362078067"><ph name="COUNT"/><ph name="COUNT_TEXT"/></translation>
-<translation id="6737820963776538947">Za posledné 3 hodiny ste pomocou prehliadača Brave zablokovali <ph name="COUNT"/> trackers &amp; reklám.</translation>
-<translation id="3621193901658023971">Prehliadajte až 6x rýchlejšie na hlavných spravodajských stránkach v Brave pomocou blokovania sledovačov a reklám.</translation>
+<translation id="6737820963776538947">Za posledné 3 hodiny ste pomocou prehliadača adrbrowsiel zablokovali <ph name="COUNT"/> trackers &amp; reklám.</translation>
+<translation id="3621193901658023971">Prehliadajte až 6x rýchlejšie na hlavných spravodajských stránkach v adrbrowsiel pomocou blokovania sledovačov a reklám.</translation>
 <translation id="7427567994475794038">Zapnite si Hlásenia o súkromí a zistite, koľko sledovačov a reklám bolo za posledné 3 hodiny zablokovaných.</translation>
-<translation id="2053891538879944400">Pomocou prehliadača Brave ste ušetrili <ph name="DATA"/> <ph name="DATA_TEXT"/> dát.</translation>
+<translation id="2053891538879944400">Pomocou prehliadača adrbrowsiel ste ušetrili <ph name="DATA"/> <ph name="DATA_TEXT"/> dát.</translation>
 <translation id="8640064498452534195">Na zobrazenie množstva údajov, ktoré ste ušetrili, zapnite Hlásenia o súkromí.</translation>
-<translation id="2252497442547961651">Prehliadač Brave používa v priemere o 40 % menej batérie.&#128267;</translation>
-<translation id="1945330434665345785">Za posledný týždeň ste pomocou prehliadača Brave zablokovali <ph name="COUNT"/> trackers &amp; reklám.</translation>
+<translation id="2252497442547961651">Prehliadač adrbrowsiel používa v priemere o 40 % menej batérie.&#128267;</translation>
+<translation id="1945330434665345785">Za posledný týždeň ste pomocou prehliadača adrbrowsiel zablokovali <ph name="COUNT"/> trackers &amp; reklám.</translation>
 <translation id="2883868922264431515">Získajte tokeny sledovaním reklám rešpektujúcich súkromie a podporte svoje obľúbené webové stránky.</translation>
-<translation id="5678925890616256956">Super! Zablokovali ste 250 sledovačov a reklám pomocou prehliadača Brave.&#128293;</translation>
-<translation id="9199047775708635708">Super! Pomocou Brave ste ušetrili 10 MB.&#128267;</translation>
-<translation id="1880168210969863408">Super! V Brave ste ušetrili 10 minút času načítavania.&#128168;&#128168;</translation>
+<translation id="5678925890616256956">Super! Zablokovali ste 250 sledovačov a reklám pomocou prehliadača adrbrowsiel.&#128293;</translation>
+<translation id="9199047775708635708">Super! Pomocou adrbrowsiel ste ušetrili 10 MB.&#128267;</translation>
+<translation id="1880168210969863408">Super! V adrbrowsiel ste ušetrili 10 minút času načítavania.&#128168;&#128168;</translation>
 <translation id="7408493389591475748">Na zobrazenie hlásenia o súkromí začnite prehliadať</translation>
-<translation id="9080777565335515917">Nastaviť Brave ako predvolený prehliadač pre súkromné a zabezpečené prehliadanie.</translation>
-<translation id="1390943217516275883">Povoľte prehliadaču Brave, aby vám zobrazil údaje o súkromí</translation>
+<translation id="9080777565335515917">Nastaviť adrbrowsiel ako predvolený prehliadač pre súkromné a zabezpečené prehliadanie.</translation>
+<translation id="1390943217516275883">Povoľte prehliadaču adrbrowsiel, aby vám zobrazil údaje o súkromí</translation>
 <translation id="1763352720905582220">Posiela týždenné hlásenie o súkromí</translation>
 <translation id="1811691435325545066">Vymazať všetky údaje Hlásení o súkromí</translation>
 <translation id="8089997572759938512">Vynulovať vaše hlásenia o súkromí</translation>
@@ -427,16 +427,16 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="1627064138060308910">Prevod zlyhal. Prosím, skúste to znova.</translation>
 <translation id="1449790603979388000"><ph name="COUNT"/> <ph name="COUNT_TEXT"/></translation>
 <translation id="7465614181960492526">Zarábajte žetóny &amp; Vrátiť</translation>
-<translation id="244362569344671266">Zarábajte žetóny zobrazením súkromných reklám Brave a automaticky podporujte tvorcov obsahu.</translation>
+<translation id="244362569344671266">Zarábajte žetóny zobrazením súkromných reklám adrbrowsiel a automaticky podporujte tvorcov obsahu.</translation>
 <translation id="631124996535890460">Pokračovaním vyjadrujete súhlas s <ph name="TERMS_OF_SERVICE"/> and <ph name="PRIVACY_POLICY"/>.</translation>
 <translation id="8804164990146287819">Zásady ochrany osobních údajů</translation>
 <translation id="6318696841371191107">Urobte si rýchlu prehliadku</translation>
-<translation id="7930505144430343145">Vitajte v Odmenách Brave!</translation>
-<translation id="3477340970981564961">Súkromné reklamy Brave vás odmenia žetónmi na podporu tvorcov obsahu na rozdiel od tradičných reklám, a to všetko pri zachovaní súkromia vašich osobných údajov.</translation>
+<translation id="7930505144430343145">Vitajte v Odmenách adrbrowsiel!</translation>
+<translation id="3477340970981564961">Súkromné reklamy adrbrowsiel vás odmenia žetónmi na podporu tvorcov obsahu na rozdiel od tradičných reklám, a to všetko pri zachovaní súkromia vašich osobných údajov.</translation>
 <translation id="6973095375773523904">Kde sa zobrazujú reklamy?</translation>
-<translation id="7556325460112047619">Súkromné reklamy Brave sa zobrazia ako bežné upozornenie. V nastaveniach môžete určiť, ako často sa tieto reklamy zobrazia.</translation>
+<translation id="7556325460112047619">Súkromné reklamy adrbrowsiel sa zobrazia ako bežné upozornenie. V nastaveniach môžete určiť, ako často sa tieto reklamy zobrazia.</translation>
 <translation id="5816125157889950051">Kedy dostávate odmeny</translation>
-<translation id="310863932297733723">Vaše získané žetóny zo služby Súkromné reklamy Brave za celý aktuálny mesiac dorazia 5. deň nasledujúceho mesiaca.</translation>
+<translation id="310863932297733723">Vaše získané žetóny zo služby Súkromné reklamy adrbrowsiel za celý aktuálny mesiac dorazia 5. deň nasledujúceho mesiaca.</translation>
 <translation id="7712287524451429139">Dávajte naspäť bez akejkoľvek námahy</translation>
 <translation id="105037569026952831">Autori dostávajú vaše tokenové príspevky automaticky na základe vašich úrovní zapojenia, ktoré meriame ako ‘pozornosť’.</translation>
 <translation id="5323267338679539010">Poďakujte sa tringeltami</translation>
@@ -450,7 +450,7 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="66599604460581068">Akú podporu chcete dať svojim obľúbeným tvorcom?</translation>
 <translation id="3164498053837913829">(z vašich príjmov za reklamu)</translation>
 <translation id="827315274423079662">Juchúúú, všetko je hotové!</translation>
-<translation id="3895246934788932488">Používaním služby Odmeny Brave chránite svoje súkromie a pomáhate robiť z webu lepšie miesto pre všetkých. A to je úžasné!</translation>
+<translation id="3895246934788932488">Používaním služby Odmeny adrbrowsiel chránite svoje súkromie a pomáhate robiť z webu lepšie miesto pre všetkých. A to je úžasné!</translation>
 <translation id="5705882733397021510">Ísť naspäť</translation>
 <translation id="5140321319944305531">Poďme na rýchlu prehliadku</translation>
 <translation id="2434574859640694129">Keď dostanete prvé platby za reklamy, môžete sa vrátiť a upozorniť tohto tvorcu!</translation>
@@ -471,18 +471,18 @@ alebo kým neuplynie 90 dní.</translation>
 <translation id="8295049095570748497">Popredný vyhľadávač v Rusku</translation>
 <translation id="2642661895835126239">Zasaďte stromy, so sídlom v Berlíne</translation>
 <translation id="1410130669636877548">Niektoré vyhľadávače pri prehliadaní webu chránia vaše súkromie lepšie ako iné.</translation>
-<translation id="1078265935778232285">Vitajte v prehliadači Brave</translation>
+<translation id="1078265935778232285">Vitajte v prehliadači adrbrowsiel</translation>
 <translation id="6824713633331856331">Pomôžte nám učiť sa anonymne</translation>
-<translation id="6116685031674149112">Brave chráni vaše súkromie a oceňuje váš súhlas s nasledovným:</translation>
-<translation id="3971666849661839619">Pomôžte vylepšiť Brave zasielaním správ o zlyhaní a úplne anonymizovanou, <ph name="PRIVATE_PRODUCT_ANALYSIS"/></translation>
+<translation id="6116685031674149112">adrbrowsiel chráni vaše súkromie a oceňuje váš súhlas s nasledovným:</translation>
+<translation id="3971666849661839619">Pomôžte vylepšiť adrbrowsiel zasielaním správ o zlyhaní a úplne anonymizovanou, <ph name="PRIVATE_PRODUCT_ANALYSIS"/></translation>
 <translation id="6478996494082389936">súkromné analýzy produktov.</translation>
 <translation id="5187052478998910855">Potrebujete obnovenia na Odmeny?</translation>
 <translation id="8622329973403382303">Urobte si krátku prehliadku, aby ste si osvojili, ako funguje vstup do histórie ako rocková hviezda Odmien!</translation>
-<translation id="8401711613788729448">Pre ochranu svojho súkromia otvorte všetky odkazy s programom Brave</translation>
-<translation id="3184805785843994538">Brave Shields blokuje sledovače &amp; reklamy, šetrí dáta a šetrí váš čas na každej stránke, ktorú navštívite.</translation>
-<translation id="8722651357687610395">Nastaviť Brave ako predvolené</translation>
+<translation id="8401711613788729448">Pre ochranu svojho súkromia otvorte všetky odkazy s programom adrbrowsiel</translation>
+<translation id="3184805785843994538">adrbrowsiel Shields blokuje sledovače &amp; reklamy, šetrí dáta a šetrí váš čas na každej stránke, ktorú navštívite.</translation>
+<translation id="8722651357687610395">Nastaviť adrbrowsiel ako predvolené</translation>
 <translation id="3479552764303398839">Teraz nie</translation>
-<translation id="6232491755501685494">Brave Rewards v Japonsku prechádza na nový systém!</translation>
+<translation id="6232491755501685494">adrbrowsiel Rewards v Japonsku prechádza na nový systém!</translation>
 <translation id="7444515017164572362">Od 13. marca nebudete môcť používať svoj BAP. Ale keď si už
         v apríli inovujete nový systém, začnete s novými tokenmi!</translation>
 <translation id="8587285254008006694">V rámci tohto prechodu budú funkcie na poskytnutie príspevkov a darov

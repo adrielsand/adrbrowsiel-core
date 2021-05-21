@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -66,7 +66,7 @@ SkColor ChromeTypographyProvider::GetColor(const views::View& view,
         // color is selected. This case matches style == style::STYLE_LINK and
         // context == style::CONTEXT_BUTTON_MD.
         return native_theme->ShouldUseDarkColors() ? SK_ColorWHITE
-                                                   : gfx::kBraveGrey800;
+                                                   : gfx::kadrbrowsielGrey800;
     }
   }
 

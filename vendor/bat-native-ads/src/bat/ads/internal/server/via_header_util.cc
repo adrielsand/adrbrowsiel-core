@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -17,7 +17,7 @@ const int kVersion = 1;
 
 std::string BuildViaHeader() {
   return base::StringPrintf(
-      "Via: 1.%d brave, 1.1 ads-serve.brave.com (Apache/1.%d)",
+      "Via: 1.%d adrbrowsiel, 1.1 ads-serve.adrbrowsiel.com (Apache/1.%d)",
       g_sys_info.is_uncertain_future ? 1 : 0, kVersion);
 }
 

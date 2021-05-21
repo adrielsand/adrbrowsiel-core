@@ -6,7 +6,7 @@ index 42d9f6962b717495a19227adde74edbff75e0552..397109f7e1d20cda6df47828b2adfa4b
    gfx::ImageSkiaRep rep = skia.GetRepresentation(canvas->image_scale());
    if (rep.scale() != canvas->image_scale()) {
      skia.AddRepresentation(
-+        BRAVE_ICON_WITH_BADGE_IMAGE_SOURCE_DRAW_1
++        adrbrowsiel_ICON_WITH_BADGE_IMAGE_SOURCE_DRAW_1
          ScaleImageSkiaRep(rep, extensions::ExtensionAction::ActionIconSize(),
                            canvas->image_scale()));
    }
@@ -14,7 +14,7 @@ index 42d9f6962b717495a19227adde74edbff75e0552..397109f7e1d20cda6df47828b2adfa4b
        (size().width() - extensions::ExtensionAction::ActionIconSize()) / 2.0);
    int y_offset = std::floor(
        (size().height() - extensions::ExtensionAction::ActionIconSize()) / 2.0);
-+  BRAVE_ICON_WITH_BADGE_IMAGE_SOURCE_DRAW_2
++  adrbrowsiel_ICON_WITH_BADGE_IMAGE_SOURCE_DRAW_2
    canvas->DrawImageInt(skia, x_offset, y_offset);
  
    // Draw a badge on the provided browser action icon's canvas.

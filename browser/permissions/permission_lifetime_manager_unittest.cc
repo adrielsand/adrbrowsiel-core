@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/permissions/permission_lifetime_manager.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_manager.h"
 
 #include "base/run_loop.h"
 #include "base/stl_util.h"
@@ -12,7 +12,7 @@
 #include "base/test/bind.h"
 #include "base/test/task_environment.h"
 #include "base/test/values_test_util.h"
-#include "brave/components/permissions/permission_lifetime_pref_names.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_pref_names.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/test/base/testing_browser_process.h"
 #include "chrome/test/base/testing_profile.h"
@@ -228,7 +228,7 @@ class PermissionLifetimeManagerTest : public testing::Test {
 
  protected:
   const GURL kOrigin{"https://example.com"};
-  const GURL kOrigin2{"https://brave.com"};
+  const GURL kOrigin2{"https://adrbrowsiel.com"};
   const base::TimeDelta kLifetime{base::TimeDelta::FromSeconds(5)};
   const base::TimeDelta kOneSecond{base::TimeDelta::FromSeconds(1)};
 

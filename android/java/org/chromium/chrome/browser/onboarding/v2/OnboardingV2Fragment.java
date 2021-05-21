@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -192,7 +192,7 @@ public class OnboardingV2Fragment extends Fragment {
 
 	private void updateActionText() {
 		if (mAction != null) {
-			if (OnboardingPrefManager.getInstance().isBraveStatsEnabled()) {
+			if (OnboardingPrefManager.getInstance().isadrbrowsielStatsEnabled()) {
 				mAction.setText(mContext.getResources().getString(R.string.next));
 				if (mIndicator4 != null)
 					mIndicator4.setVisibility(View.GONE);

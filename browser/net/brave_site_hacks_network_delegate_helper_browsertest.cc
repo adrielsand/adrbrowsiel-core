@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
@@ -6,8 +6,8 @@
 #include "base/base64url.h"
 #include "base/path_service.h"
 #include "base/strings/stringprintf.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -21,9 +21,9 @@
 #include "net/dns/mock_host_resolver.h"
 #include "net/test/embedded_test_server/default_handlers.h"
 
-class BraveSiteHacksNetworkDelegateBrowserTest : public InProcessBrowserTest {
+class adrbrowsielSiteHacksNetworkDelegateBrowserTest : public InProcessBrowserTest {
  public:
-  BraveSiteHacksNetworkDelegateBrowserTest()
+  adrbrowsielSiteHacksNetworkDelegateBrowserTest()
       : https_server_(net::EmbeddedTestServer::TYPE_HTTPS) {}
 
   void SetUpOnMainThread() override {
@@ -31,8 +31,8 @@ class BraveSiteHacksNetworkDelegateBrowserTest : public InProcessBrowserTest {
 
     host_resolver()->AddRule("*", "127.0.0.1");
 
-    brave::RegisterPathProvider();
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir_);
+    adrbrowsiel::RegisterPathProvider();
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir_);
     https_server_.ServeFilesFromDirectory(test_data_dir_);
     https_server_.AddDefaultHandlers(GetChromeTestDataDir());
     content::SetupCrossSiteRedirector(&https_server_);
@@ -123,7 +123,7 @@ class BraveSiteHacksNetworkDelegateBrowserTest : public InProcessBrowserTest {
   net::test_server::EmbeddedTestServer https_server_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielSiteHacksNetworkDelegateBrowserTest,
                        QueryStringFilterCrossSite) {
   const std::string inputs[] = {
       "", "foo=bar", "fbclid=1", "fbclid=2&key=value", "key=value&fbclid=3",
@@ -149,7 +149,7 @@ IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielSiteHacksNetworkDelegateBrowserTest,
                        QueryStringFilterShieldsDown) {
   const std::string inputs[] = {
       "", "foo=bar", "fbclid=1", "fbclid=2&key=value", "key=value&fbclid=3",
@@ -159,12 +159,12 @@ IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
 
   for (size_t i = 0; i < input_count; i++) {
     const GURL dest_url = landing_url(inputs[i], simple_landing_url());
-    brave_shields::SetBraveShieldsEnabled(content_settings(), false, dest_url);
+    adrbrowsiel_shields::SetadrbrowsielShieldsEnabled(content_settings(), false, dest_url);
     NavigateToURLAndWaitForRedirects(url(dest_url, cross_site_url()), dest_url);
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielSiteHacksNetworkDelegateBrowserTest,
                        QueryStringFilterSameSite) {
   const std::string inputs[] = {
       "fbclid=1",
@@ -182,7 +182,7 @@ IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielSiteHacksNetworkDelegateBrowserTest,
                        QueryStringFilterCrossSiteRedirect) {
   const std::string inputs[] = {
       "",
@@ -209,7 +209,7 @@ IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielSiteHacksNetworkDelegateBrowserTest,
                        QueryStringFilterSameSiteRedirect) {
   const std::string inputs[] = {
       "",
@@ -228,7 +228,7 @@ IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveSiteHacksNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielSiteHacksNetworkDelegateBrowserTest,
                        QueryStringFilterDirectNavigation) {
   const std::string inputs[] = {
       "",

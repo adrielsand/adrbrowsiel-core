@@ -6,7 +6,7 @@ index 9811da88b00f9f730c7635972b591140d50314b5..9d995f1e5821cd03537f64bb0ec41384
        x = next_x;
      }
    }
-+  BRAVE_LAYOUT
++  adrbrowsiel_LAYOUT
  
    // Layout the right side buttons.
    x = max_x + bookmark_bar_button_padding;

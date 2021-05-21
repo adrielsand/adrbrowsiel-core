@@ -7,7 +7,7 @@ index db579beab66e7f2ab22d53a8273c7df5b611f1a0..af4d2e3c97ae982dce0a1cc90c6dbf46
          android:orientation="horizontal" />
  
 -
-+    <include layout="@layout/brave_custom_tabs_toolbar" android:layout_height="wrap_content" android:layout_width="match_parent" />
++    <include layout="@layout/adrbrowsiel_custom_tabs_toolbar" android:layout_height="wrap_content" android:layout_width="match_parent" />
      <org.chromium.chrome.browser.toolbar.menu_button.MenuButton
          android:layout_height="wrap_content"
          android:layout_gravity="center_vertical|end"

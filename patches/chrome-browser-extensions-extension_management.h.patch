@@ -6,7 +6,7 @@ index e27bce4f659380f015f6a15ef531ab751200d355..c7d4702e6a7e431f7f7a4a7b2ede3802
    bool is_child() const { return is_child_; }
  
   private:
-+  friend class BraveExtensionManagement;
++  friend class adrbrowsielExtensionManagement;
    using SettingsIdMap =
        std::unordered_map<ExtensionId,
                           std::unique_ptr<internal::IndividualSettings>>;

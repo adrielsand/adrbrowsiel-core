@@ -6,7 +6,7 @@ index 364fef52f0e8ade9a9099cc879de0e0db132204e..b0f781db92edca41ec6275bd65f10ddd
    View* GetTooltipHandlerForPoint(const gfx::Point& point) override;
  
   private:
-+  friend class BraveAlertIndicator;
++  friend class adrbrowsielAlertIndicator;
    friend class AlertIndicatorTest;
    friend class TabTest;
    class FadeAnimationDelegate;

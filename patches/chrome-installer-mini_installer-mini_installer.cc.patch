@@ -6,7 +6,7 @@ index b1e1c09ffe2717c70e0e532bee1c902b207316cd..74b1ffcd36abe8c127cada8022d6bcd8
    // on to setup.exe
    AppendCommandLineFlags(configuration.command_line(), &cmd_line);
  
-+  BRAVE_RUN_SETUP
++  adrbrowsiel_RUN_SETUP
    return RunProcessAndWait(setup_exe.get(), cmd_line.get(),
                             RUN_SETUP_FAILED_FILE_NOT_FOUND,
                             RUN_SETUP_FAILED_PATH_NOT_FOUND,

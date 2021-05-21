@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_ENDPOINT_PROMOTION_POST_WALLET_BRAVE_POST_WALLET_BRAVE_H_
-#define BRAVELEDGER_ENDPOINT_PROMOTION_POST_WALLET_BRAVE_POST_WALLET_BRAVE_H_
+#ifndef adrbrowsielLEDGER_ENDPOINT_PROMOTION_POST_WALLET_adrbrowsiel_POST_WALLET_adrbrowsiel_H_
+#define adrbrowsielLEDGER_ENDPOINT_PROMOTION_POST_WALLET_adrbrowsiel_POST_WALLET_adrbrowsiel_H_
 
 #include <string>
 
 #include "bat/ledger/ledger.h"
 
-// POST /v3/wallet/brave
+// POST /v3/wallet/adrbrowsiel
 //
 // Request body:
 // {Empty}
@@ -33,16 +33,16 @@ class LedgerImpl;
 namespace endpoint {
 namespace promotion {
 
-using PostWalletBraveCallback = std::function<void(
+using PostWalletadrbrowsielCallback = std::function<void(
     const type::Result result,
     const std::string& payment_id)>;
 
-class PostWalletBrave {
+class PostWalletadrbrowsiel {
  public:
-  explicit PostWalletBrave(LedgerImpl* ledger);
-  ~PostWalletBrave();
+  explicit PostWalletadrbrowsiel(LedgerImpl* ledger);
+  ~PostWalletadrbrowsiel();
 
-  void Request(PostWalletBraveCallback callback);
+  void Request(PostWalletadrbrowsielCallback callback);
 
  private:
   std::string GetUrl();
@@ -55,7 +55,7 @@ class PostWalletBrave {
 
   void OnRequest(
       const type::UrlResponse& response,
-      PostWalletBraveCallback callback);
+      PostWalletadrbrowsielCallback callback);
 
   LedgerImpl* ledger_;  // NOT OWNED
 };
@@ -64,4 +64,4 @@ class PostWalletBrave {
 }  // namespace endpoint
 }  // namespace ledger
 
-#endif  // BRAVELEDGER_ENDPOINT_PROMOTION_POST_WALLET_BRAVE_POST_WALLET_BRAVE_H_
+#endif  // adrbrowsielLEDGER_ENDPOINT_PROMOTION_POST_WALLET_adrbrowsiel_POST_WALLET_adrbrowsiel_H_

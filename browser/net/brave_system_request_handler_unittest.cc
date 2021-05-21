@@ -1,47 +1,47 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_system_request_handler.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_system_request_handler.h"
 
 #include <string>
 
 #include "services/network/public/cpp/resource_request.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
-TEST(BraveSystemRequestHandlerTest, AddBraveServiceKeyHeaderForBrave) {
-  GURL url("https://demo.brave.com");
+TEST(adrbrowsielSystemRequestHandlerTest, AddadrbrowsielServiceKeyHeaderForadrbrowsiel) {
+  GURL url("https://demo.adrbrowsiel.com");
   network::ResourceRequest request;
 
   request.url = url;
-  brave::AddBraveServicesKeyHeader(&request);
+  adrbrowsiel::AddadrbrowsielServicesKeyHeader(&request);
   std::string key;
-  EXPECT_TRUE(request.headers.GetHeader(kBraveServicesKeyHeader, &key));
-  EXPECT_EQ(key, BraveServicesKeyForTesting());
+  EXPECT_TRUE(request.headers.GetHeader(kadrbrowsielServicesKeyHeader, &key));
+  EXPECT_EQ(key, adrbrowsielServicesKeyForTesting());
 }
 
-TEST(BraveSystemRequestHandlerTest, AddBraveServiceKeyHeaderForBraveSoftware) {
-  GURL url("https://demo.bravesoftware.com");
+TEST(adrbrowsielSystemRequestHandlerTest, AddadrbrowsielServiceKeyHeaderForadrbrowsielSoftware) {
+  GURL url("https://demo.adrbrowsielsoftware.com");
   network::ResourceRequest request;
 
   request.url = url;
-  brave::AddBraveServicesKeyHeader(&request);
+  adrbrowsiel::AddadrbrowsielServicesKeyHeader(&request);
   std::string key;
-  EXPECT_TRUE(request.headers.GetHeader(kBraveServicesKeyHeader, &key));
-  EXPECT_EQ(key, BraveServicesKeyForTesting());
+  EXPECT_TRUE(request.headers.GetHeader(kadrbrowsielServicesKeyHeader, &key));
+  EXPECT_EQ(key, adrbrowsielServicesKeyForTesting());
 }
 
-TEST(BraveSystemRequestHandlerTest, DontAddBraveServiceKeyHeader) {
+TEST(adrbrowsielSystemRequestHandlerTest, DontAddadrbrowsielServiceKeyHeader) {
   GURL url("https://demo.example.com");
   network::ResourceRequest request;
 
   request.url = url;
-  brave::AddBraveServicesKeyHeader(&request);
+  adrbrowsiel::AddadrbrowsielServicesKeyHeader(&request);
   std::string key;
-  EXPECT_FALSE(request.headers.GetHeader(kBraveServicesKeyHeader, &key));
+  EXPECT_FALSE(request.headers.GetHeader(kadrbrowsielServicesKeyHeader, &key));
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

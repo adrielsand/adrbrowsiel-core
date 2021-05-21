@@ -1,14 +1,14 @@
-import("//brave/browser/translate/buildflags/buildflags.gni")
-import("//brave/build/config.gni")
-import("//brave/components/brave_rewards/browser/buildflags/buildflags.gni")
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
-import("//brave/components/brave_wayback_machine/buildflags/buildflags.gni")
-import("//brave/components/decentralized_dns/buildflags/buildflags.gni")
-import("//brave/components/ftx/browser/buildflags/buildflags.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
-import("//brave/components/sidebar/buildflags/buildflags.gni")
-import("//brave/components/speedreader/buildflags.gni")
-import("//brave/components/tor/buildflags/buildflags.gni")
+import("//adrbrowsiel/browser/translate/buildflags/buildflags.gni")
+import("//adrbrowsiel/build/config.gni")
+import("//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wayback_machine/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/decentralized_dns/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ftx/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/sidebar/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/speedreader/buildflags.gni")
+import("//adrbrowsiel/components/tor/buildflags/buildflags.gni")
 import("//build/config/features.gni")
 import("//chrome/common/features.gni")
 import("//components/gcm_driver/config.gni")
@@ -16,7 +16,7 @@ import("//mojo/public/tools/bindings/mojom.gni")
 import("//third_party/widevine/cdm/widevine.gni")
 
 source_set("favicon_source") {
-  # Remove when https://github.com/brave/brave-browser/issues/10614 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10614 is resolved
   check_includes = false
   sources = [
     "//chrome/browser/ui/webui/favicon_source.cc",
@@ -34,15 +34,15 @@ source_set("favicon_source") {
 }
 
 source_set("ui") {
-  # Remove when https://github.com/brave/brave-browser/issues/10614 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10614 is resolved
   check_includes = false
   sources = [
-    "webui/brave_adblock_ui.cc",
-    "webui/brave_adblock_ui.h",
-    "webui/brave_web_ui_controller_factory.cc",
-    "webui/brave_web_ui_controller_factory.h",
-    "webui/brave_webui_source.cc",
-    "webui/brave_webui_source.h",
+    "webui/adrbrowsiel_adblock_ui.cc",
+    "webui/adrbrowsiel_adblock_ui.h",
+    "webui/adrbrowsiel_web_ui_controller_factory.cc",
+    "webui/adrbrowsiel_web_ui_controller_factory.h",
+    "webui/adrbrowsiel_webui_source.cc",
+    "webui/adrbrowsiel_webui_source.h",
     "webui/webcompat_reporter_ui.cc",
     "webui/webcompat_reporter_ui.h",
   ]
@@ -56,69 +56,69 @@ source_set("ui") {
 
   if (!is_android) {
     sources += [
-      "brave_browser.cc",
-      "brave_browser.h",
-      "brave_browser_command_controller.cc",
-      "brave_browser_command_controller.h",
-      "brave_browser_content_setting_bubble_model_delegate.cc",
-      "brave_browser_content_setting_bubble_model_delegate.h",
-      "brave_browser_window.h",
-      "brave_layout_constants.cc",
-      "brave_layout_constants.h",
-      "brave_pages.cc",
-      "brave_pages.h",
-      "brave_view_ids.h",
+      "adrbrowsiel_browser.cc",
+      "adrbrowsiel_browser.h",
+      "adrbrowsiel_browser_command_controller.cc",
+      "adrbrowsiel_browser_command_controller.h",
+      "adrbrowsiel_browser_content_setting_bubble_model_delegate.cc",
+      "adrbrowsiel_browser_content_setting_bubble_model_delegate.h",
+      "adrbrowsiel_browser_window.h",
+      "adrbrowsiel_layout_constants.cc",
+      "adrbrowsiel_layout_constants.h",
+      "adrbrowsiel_pages.cc",
+      "adrbrowsiel_pages.h",
+      "adrbrowsiel_view_ids.h",
       "browser_commands.cc",
       "browser_commands.h",
       "browser_dialogs.h",
-      "content_settings/brave_autoplay_blocked_image_model.cc",
-      "content_settings/brave_autoplay_blocked_image_model.h",
-      "content_settings/brave_autoplay_content_setting_bubble_model.cc",
-      "content_settings/brave_autoplay_content_setting_bubble_model.h",
-      "content_settings/brave_content_setting_image_models.cc",
-      "content_settings/brave_content_setting_image_models.h",
-      "omnibox/brave_omnibox_client_impl.cc",
-      "omnibox/brave_omnibox_client_impl.h",
-      "startup/default_brave_browser_prompt.cc",
-      "startup/default_brave_browser_prompt.h",
-      "toolbar/brave_app_menu_model.cc",
-      "toolbar/brave_app_menu_model.h",
-      "toolbar/brave_recent_tabs_sub_menu_model.h",
-      "webui/brave_settings_ui.cc",
-      "webui/brave_settings_ui.h",
-      "webui/brave_welcome_ui.cc",
-      "webui/brave_welcome_ui.h",
+      "content_settings/adrbrowsiel_autoplay_blocked_image_model.cc",
+      "content_settings/adrbrowsiel_autoplay_blocked_image_model.h",
+      "content_settings/adrbrowsiel_autoplay_content_setting_bubble_model.cc",
+      "content_settings/adrbrowsiel_autoplay_content_setting_bubble_model.h",
+      "content_settings/adrbrowsiel_content_setting_image_models.cc",
+      "content_settings/adrbrowsiel_content_setting_image_models.h",
+      "omnibox/adrbrowsiel_omnibox_client_impl.cc",
+      "omnibox/adrbrowsiel_omnibox_client_impl.h",
+      "startup/default_adrbrowsiel_browser_prompt.cc",
+      "startup/default_adrbrowsiel_browser_prompt.h",
+      "toolbar/adrbrowsiel_app_menu_model.cc",
+      "toolbar/adrbrowsiel_app_menu_model.h",
+      "toolbar/adrbrowsiel_recent_tabs_sub_menu_model.h",
+      "webui/adrbrowsiel_settings_ui.cc",
+      "webui/adrbrowsiel_settings_ui.h",
+      "webui/adrbrowsiel_welcome_ui.cc",
+      "webui/adrbrowsiel_welcome_ui.h",
       "webui/navigation_bar_data_provider.cc",
       "webui/navigation_bar_data_provider.h",
-      "webui/new_tab_page/brave_new_tab_message_handler.cc",
-      "webui/new_tab_page/brave_new_tab_message_handler.h",
-      "webui/new_tab_page/brave_new_tab_ui.cc",
-      "webui/new_tab_page/brave_new_tab_ui.h",
-      "webui/new_tab_page/brave_new_tab_ui_utils.cc",
-      "webui/new_tab_page/brave_new_tab_ui_utils.h",
+      "webui/new_tab_page/adrbrowsiel_new_tab_message_handler.cc",
+      "webui/new_tab_page/adrbrowsiel_new_tab_message_handler.h",
+      "webui/new_tab_page/adrbrowsiel_new_tab_ui.cc",
+      "webui/new_tab_page/adrbrowsiel_new_tab_ui.h",
+      "webui/new_tab_page/adrbrowsiel_new_tab_ui_utils.cc",
+      "webui/new_tab_page/adrbrowsiel_new_tab_ui_utils.h",
       "webui/new_tab_page/instant_service_message_handler.cc",
       "webui/new_tab_page/instant_service_message_handler.h",
-      "webui/settings/brave_appearance_handler.cc",
-      "webui/settings/brave_appearance_handler.h",
-      "webui/settings/brave_import_data_handler.h",
-      "webui/settings/brave_privacy_handler.cc",
-      "webui/settings/brave_privacy_handler.h",
-      "webui/settings/brave_sync_handler.cc",
-      "webui/settings/brave_sync_handler.h",
-      "webui/settings/default_brave_shields_handler.cc",
-      "webui/settings/default_brave_shields_handler.h",
+      "webui/settings/adrbrowsiel_appearance_handler.cc",
+      "webui/settings/adrbrowsiel_appearance_handler.h",
+      "webui/settings/adrbrowsiel_import_data_handler.h",
+      "webui/settings/adrbrowsiel_privacy_handler.cc",
+      "webui/settings/adrbrowsiel_privacy_handler.h",
+      "webui/settings/adrbrowsiel_sync_handler.cc",
+      "webui/settings/adrbrowsiel_sync_handler.h",
+      "webui/settings/default_adrbrowsiel_shields_handler.cc",
+      "webui/settings/default_adrbrowsiel_shields_handler.h",
     ]
 
     if (is_mac) {
-      sources += [ "webui/settings/brave_import_data_handler_mac.mm" ]
+      sources += [ "webui/settings/adrbrowsiel_import_data_handler_mac.mm" ]
     } else {
-      sources += [ "webui/settings/brave_import_data_handler.cc" ]
+      sources += [ "webui/settings/adrbrowsiel_import_data_handler.cc" ]
     }
 
     if (enable_sparkle) {
       sources += [
-        "webui/settings/brave_relaunch_handler_mac.h",
-        "webui/settings/brave_relaunch_handler_mac.mm",
+        "webui/settings/adrbrowsiel_relaunch_handler_mac.h",
+        "webui/settings/adrbrowsiel_relaunch_handler_mac.mm",
       ]
     }
   }
@@ -127,28 +127,28 @@ source_set("ui") {
     sources += [
       "views/bookmarks/bookmark_bar_instructions_view.cc",
       "views/bookmarks/bookmark_bar_instructions_view.h",
-      "views/brave_default_browser_dialog_view.cc",
-      "views/brave_default_browser_dialog_view.h",
-      "views/brave_layout_provider.cc",
-      "views/brave_layout_provider.h",
-      "views/download/brave_download_item_view.cc",
-      "views/download/brave_download_item_view.h",
-      "views/frame/brave_browser_view.cc",
-      "views/frame/brave_browser_view.h",
-      "views/frame/brave_opaque_browser_frame_view.cc",
-      "views/frame/brave_opaque_browser_frame_view.h",
-      "views/frame/brave_window_frame_graphic.cc",
-      "views/frame/brave_window_frame_graphic.h",
-      "views/reader_mode/brave_reader_mode_icon_view.cc",
-      "views/reader_mode/brave_reader_mode_icon_view.h",
+      "views/adrbrowsiel_default_browser_dialog_view.cc",
+      "views/adrbrowsiel_default_browser_dialog_view.h",
+      "views/adrbrowsiel_layout_provider.cc",
+      "views/adrbrowsiel_layout_provider.h",
+      "views/download/adrbrowsiel_download_item_view.cc",
+      "views/download/adrbrowsiel_download_item_view.h",
+      "views/frame/adrbrowsiel_browser_view.cc",
+      "views/frame/adrbrowsiel_browser_view.h",
+      "views/frame/adrbrowsiel_opaque_browser_frame_view.cc",
+      "views/frame/adrbrowsiel_opaque_browser_frame_view.h",
+      "views/frame/adrbrowsiel_window_frame_graphic.cc",
+      "views/frame/adrbrowsiel_window_frame_graphic.h",
+      "views/reader_mode/adrbrowsiel_reader_mode_icon_view.cc",
+      "views/reader_mode/adrbrowsiel_reader_mode_icon_view.h",
       "views/rounded_separator.cc",
       "views/rounded_separator.h",
-      "views/tabs/brave_browser_tab_strip_controller.cc",
-      "views/tabs/brave_browser_tab_strip_controller.h",
-      "views/tabs/brave_tab_context_menu_contents.cc",
-      "views/tabs/brave_tab_context_menu_contents.h",
-      "views/tabs/brave_tab_strip.cc",
-      "views/tabs/brave_tab_strip.h",
+      "views/tabs/adrbrowsiel_browser_tab_strip_controller.cc",
+      "views/tabs/adrbrowsiel_browser_tab_strip_controller.h",
+      "views/tabs/adrbrowsiel_tab_context_menu_contents.cc",
+      "views/tabs/adrbrowsiel_tab_context_menu_contents.h",
+      "views/tabs/adrbrowsiel_tab_strip.cc",
+      "views/tabs/adrbrowsiel_tab_strip.h",
       "views/toolbar/bookmark_button.cc",
       "views/toolbar/bookmark_button.h",
     ]
@@ -160,96 +160,96 @@ source_set("ui") {
       ]
     }
 
-    if (enable_brave_translate_extension) {
+    if (enable_adrbrowsiel_translate_extension) {
       sources += [
-        "views/translate/brave_translate_bubble_view.cc",
-        "views/translate/brave_translate_bubble_view.h",
-        "views/translate/brave_translate_icon_view.cc",
-        "views/translate/brave_translate_icon_view.h",
+        "views/translate/adrbrowsiel_translate_bubble_view.cc",
+        "views/translate/adrbrowsiel_translate_bubble_view.h",
+        "views/translate/adrbrowsiel_translate_icon_view.cc",
+        "views/translate/adrbrowsiel_translate_icon_view.h",
       ]
     }
 
     if (is_win) {
       sources += [
-        "views/frame/brave_glass_browser_frame_view.cc",
-        "views/frame/brave_glass_browser_frame_view.h",
+        "views/frame/adrbrowsiel_glass_browser_frame_view.cc",
+        "views/frame/adrbrowsiel_glass_browser_frame_view.h",
       ]
     }
 
     if (is_mac) {
       sources += [
-        "views/frame/brave_browser_non_client_frame_view_mac.h",
-        "views/frame/brave_browser_non_client_frame_view_mac.mm",
+        "views/frame/adrbrowsiel_browser_non_client_frame_view_mac.h",
+        "views/frame/adrbrowsiel_browser_non_client_frame_view_mac.mm",
       ]
     }
   }
 
   if (is_win || is_mac || is_linux) {
     sources += [
-      "views/profiles/brave_incognito_menu_view.cc",
-      "views/profiles/brave_incognito_menu_view.h",
-      "views/profiles/brave_profile_menu_view.cc",
-      "views/profiles/brave_profile_menu_view.h",
+      "views/profiles/adrbrowsiel_incognito_menu_view.cc",
+      "views/profiles/adrbrowsiel_incognito_menu_view.h",
+      "views/profiles/adrbrowsiel_profile_menu_view.cc",
+      "views/profiles/adrbrowsiel_profile_menu_view.h",
     ]
   }
 
   if (is_win || is_mac) {
     sources += [
-      "views/frame/brave_browser_frame.cc",
-      "views/frame/brave_browser_frame.h",
+      "views/frame/adrbrowsiel_browser_frame.cc",
+      "views/frame/adrbrowsiel_browser_frame.h",
     ]
   }
 
   if (is_linux) {
     sources += [
-      "views/brave_views_delegate_linux.cc",
-      "views/brave_views_delegate_linux.h",
+      "views/adrbrowsiel_views_delegate_linux.cc",
+      "views/adrbrowsiel_views_delegate_linux.h",
     ]
   }
 
   deps = [
     "tabs",
     "//base",
-    "//brave/app:command_ids",
-    "//brave/app/theme:brave_theme_resources",
-    "//brave/app/theme:brave_unscaled_resources",
-    "//brave/app/vector_icons:vector_icons",
-    "//brave/browser:sparkle_buildflags",
-    "//brave/browser/brave_ads",
-    "//brave/browser/devtools",
-    "//brave/browser/gcm_driver",
-    "//brave/browser/profiles",
-    "//brave/browser/tor",
+    "//adrbrowsiel/app:command_ids",
+    "//adrbrowsiel/app/theme:adrbrowsiel_theme_resources",
+    "//adrbrowsiel/app/theme:adrbrowsiel_unscaled_resources",
+    "//adrbrowsiel/app/vector_icons:vector_icons",
+    "//adrbrowsiel/browser:sparkle_buildflags",
+    "//adrbrowsiel/browser/adrbrowsiel_ads",
+    "//adrbrowsiel/browser/devtools",
+    "//adrbrowsiel/browser/gcm_driver",
+    "//adrbrowsiel/browser/profiles",
+    "//adrbrowsiel/browser/tor",
 
-    # //chrome/browser/ui depends on //brave/browser/ui, add this target here
+    # //chrome/browser/ui depends on //adrbrowsiel/browser/ui, add this target here
     # to pull in dependencies needed for the overwrite codes in chromium_src.
-    "//brave/browser/ui/brave_ads",
-    "//brave/chromium_src/chrome/browser/ui",
-    "//brave/common",
-    "//brave/common:pref_names",
-    "//brave/components/brave_adblock_ui:generated_resources",
-    "//brave/components/brave_ads/browser",
-    "//brave/components/brave_rewards/browser",
-    "//brave/components/brave_rewards/resources",
-    "//brave/components/brave_shields/browser",
-    "//brave/components/brave_wallet/common/buildflags",
-    "//brave/components/brave_wayback_machine:buildflags",
-    "//brave/components/cosmetic_filters/resources/data:generated_resources",
-    "//brave/components/crypto_dot_com/browser/buildflags:buildflags",
-    "//brave/components/decentralized_dns/buildflags",
-    "//brave/components/ftx/browser/buildflags:buildflags",
-    "//brave/components/l10n/browser",
-    "//brave/components/l10n/common",
-    "//brave/components/ntp_background_images/browser",
-    "//brave/components/ntp_background_images/common",
-    "//brave/components/ntp_widget_utils/browser",
-    "//brave/components/p3a:buildflags",
-    "//brave/components/sidebar/buildflags",
-    "//brave/components/tor:pref_names",
-    "//brave/components/vector_icons",
-    "//brave/components/webcompat_reporter/browser",
-    "//brave/components/webcompat_reporter/ui:generated_resources",
-    "//brave/components/weekly_storage",
+    "//adrbrowsiel/browser/ui/adrbrowsiel_ads",
+    "//adrbrowsiel/chromium_src/chrome/browser/ui",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/common:pref_names",
+    "//adrbrowsiel/components/adrbrowsiel_adblock_ui:generated_resources",
+    "//adrbrowsiel/components/adrbrowsiel_ads/browser",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/browser",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/resources",
+    "//adrbrowsiel/components/adrbrowsiel_shields/browser",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags",
+    "//adrbrowsiel/components/adrbrowsiel_wayback_machine:buildflags",
+    "//adrbrowsiel/components/cosmetic_filters/resources/data:generated_resources",
+    "//adrbrowsiel/components/crypto_dot_com/browser/buildflags:buildflags",
+    "//adrbrowsiel/components/decentralized_dns/buildflags",
+    "//adrbrowsiel/components/ftx/browser/buildflags:buildflags",
+    "//adrbrowsiel/components/l10n/browser",
+    "//adrbrowsiel/components/l10n/common",
+    "//adrbrowsiel/components/ntp_background_images/browser",
+    "//adrbrowsiel/components/ntp_background_images/common",
+    "//adrbrowsiel/components/ntp_widget_utils/browser",
+    "//adrbrowsiel/components/p3a:buildflags",
+    "//adrbrowsiel/components/sidebar/buildflags",
+    "//adrbrowsiel/components/tor:pref_names",
+    "//adrbrowsiel/components/vector_icons",
+    "//adrbrowsiel/components/webcompat_reporter/browser",
+    "//adrbrowsiel/components/webcompat_reporter/ui:generated_resources",
+    "//adrbrowsiel/components/weekly_storage",
     "//chrome/app:command_ids",
     "//chrome/app/vector_icons:vector_icons",
     "//chrome/browser:browser_process",
@@ -276,30 +276,30 @@ source_set("ui") {
     deps += [ ":favicon_source" ]
   }
 
-  if (enable_brave_wayback_machine) {
-    deps += [ "//brave/components/brave_wayback_machine" ]
+  if (enable_adrbrowsiel_wayback_machine) {
+    deps += [ "//adrbrowsiel/components/adrbrowsiel_wayback_machine" ]
 
     if (toolkit_views) {
-      deps += [ "//brave/browser/ui/views/infobars:brave_wayback_machine" ]
+      deps += [ "//adrbrowsiel/browser/ui/views/infobars:adrbrowsiel_wayback_machine" ]
     }
   }
 
   if (ipfs_enabled) {
     deps += [
-      "//brave/components/ipfs",
-      "//brave/components/ipfs_ui:generated_resources",
+      "//adrbrowsiel/components/ipfs",
+      "//adrbrowsiel/components/ipfs_ui:generated_resources",
     ]
   }
 
   if (enable_sidebar) {
     deps += [
-      "//brave/browser/ui/sidebar",
-      "//brave/components/sidebar",
+      "//adrbrowsiel/browser/ui/sidebar",
+      "//adrbrowsiel/components/sidebar",
     ]
 
     sources += [
-      "views/frame/brave_contents_layout_manager.cc",
-      "views/frame/brave_contents_layout_manager.h",
+      "views/frame/adrbrowsiel_contents_layout_manager.cc",
+      "views/frame/adrbrowsiel_contents_layout_manager.h",
       "views/sidebar/bubble_border_with_arrow.cc",
       "views/sidebar/bubble_border_with_arrow.h",
       "views/sidebar/sidebar_add_item_bubble_delegate_view.cc",
@@ -331,15 +331,15 @@ source_set("ui") {
 
   if (!is_android) {
     deps += [
-      "//brave/app:brave_generated_resources_grit",
-      "//brave/browser/resources/settings:resources",
-      "//brave/browser/ui/bookmark",
-      "//brave/components/brave_new_tab_ui:generated_resources",
-      "//brave/components/brave_perf_predictor/browser:buildflags",
-      "//brave/components/brave_sync",
-      "//brave/components/brave_sync:profile_sync_service_helper",
-      "//brave/components/brave_welcome_ui:generated_resources",
-      "//brave/components/version_info",
+      "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+      "//adrbrowsiel/browser/resources/settings:resources",
+      "//adrbrowsiel/browser/ui/bookmark",
+      "//adrbrowsiel/components/adrbrowsiel_new_tab_ui:generated_resources",
+      "//adrbrowsiel/components/adrbrowsiel_perf_predictor/browser:buildflags",
+      "//adrbrowsiel/components/adrbrowsiel_sync",
+      "//adrbrowsiel/components/adrbrowsiel_sync:profile_sync_service_helper",
+      "//adrbrowsiel/components/adrbrowsiel_welcome_ui:generated_resources",
+      "//adrbrowsiel/components/version_info",
       "//chrome/app:chromium_strings",
       "//components/sync_device_info",
       "//third_party/blink/public/common",
@@ -348,58 +348,58 @@ source_set("ui") {
 
   if (enable_extensions && toolkit_views) {
     sources += [
-      "brave_actions/brave_action_icon_with_badge_image_source.cc",
-      "brave_actions/brave_action_icon_with_badge_image_source.h",
-      "brave_actions/brave_action_view_controller.cc",
-      "brave_actions/brave_action_view_controller.h",
-      "toolbar/brave_location_bar_model_delegate.cc",
-      "toolbar/brave_location_bar_model_delegate.h",
-      "toolbar/brave_toolbar_actions_model.cc",
-      "toolbar/brave_toolbar_actions_model.h",
-      "views/brave_actions/brave_action_view.cc",
-      "views/brave_actions/brave_action_view.h",
-      "views/brave_actions/brave_actions_container.cc",
-      "views/brave_actions/brave_actions_container.h",
-      "views/location_bar/brave_location_bar_view.cc",
-      "views/location_bar/brave_location_bar_view.h",
-      "views/location_bar/brave_star_view.cc",
-      "views/location_bar/brave_star_view.h",
-      "views/profiles/brave_avatar_toolbar_button.cc",
-      "views/profiles/brave_avatar_toolbar_button.h",
-      "views/tabs/brave_alert_indicator.cc",
-      "views/tabs/brave_alert_indicator.h",
-      "views/tabs/brave_new_tab_button.cc",
-      "views/tabs/brave_new_tab_button.h",
-      "views/tabs/brave_tab_search_button.cc",
-      "views/tabs/brave_tab_search_button.h",
-      "views/toolbar/brave_toolbar_view.cc",
-      "views/toolbar/brave_toolbar_view.h",
+      "adrbrowsiel_actions/adrbrowsiel_action_icon_with_badge_image_source.cc",
+      "adrbrowsiel_actions/adrbrowsiel_action_icon_with_badge_image_source.h",
+      "adrbrowsiel_actions/adrbrowsiel_action_view_controller.cc",
+      "adrbrowsiel_actions/adrbrowsiel_action_view_controller.h",
+      "toolbar/adrbrowsiel_location_bar_model_delegate.cc",
+      "toolbar/adrbrowsiel_location_bar_model_delegate.h",
+      "toolbar/adrbrowsiel_toolbar_actions_model.cc",
+      "toolbar/adrbrowsiel_toolbar_actions_model.h",
+      "views/adrbrowsiel_actions/adrbrowsiel_action_view.cc",
+      "views/adrbrowsiel_actions/adrbrowsiel_action_view.h",
+      "views/adrbrowsiel_actions/adrbrowsiel_actions_container.cc",
+      "views/adrbrowsiel_actions/adrbrowsiel_actions_container.h",
+      "views/location_bar/adrbrowsiel_location_bar_view.cc",
+      "views/location_bar/adrbrowsiel_location_bar_view.h",
+      "views/location_bar/adrbrowsiel_star_view.cc",
+      "views/location_bar/adrbrowsiel_star_view.h",
+      "views/profiles/adrbrowsiel_avatar_toolbar_button.cc",
+      "views/profiles/adrbrowsiel_avatar_toolbar_button.h",
+      "views/tabs/adrbrowsiel_alert_indicator.cc",
+      "views/tabs/adrbrowsiel_alert_indicator.h",
+      "views/tabs/adrbrowsiel_new_tab_button.cc",
+      "views/tabs/adrbrowsiel_new_tab_button.h",
+      "views/tabs/adrbrowsiel_tab_search_button.cc",
+      "views/tabs/adrbrowsiel_tab_search_button.h",
+      "views/toolbar/adrbrowsiel_toolbar_view.cc",
+      "views/toolbar/adrbrowsiel_toolbar_view.h",
     ]
 
     if (enable_extensions) {
       sources += [
-        "webui/settings/brave_default_extensions_handler.cc",
-        "webui/settings/brave_default_extensions_handler.h",
+        "webui/settings/adrbrowsiel_default_extensions_handler.cc",
+        "webui/settings/adrbrowsiel_default_extensions_handler.h",
       ]
 
       deps += [
-        "//brave/components/ipfs/buildflags",
+        "//adrbrowsiel/components/ipfs/buildflags",
         "//third_party/widevine/cdm:buildflags",
       ]
 
       if (enable_widevine) {
-        deps += [ "//brave/browser/widevine" ]
+        deps += [ "//adrbrowsiel/browser/widevine" ]
       }
     }
 
     if (decentralized_dns_enabled) {
-      deps += [ "//brave/components/decentralized_dns" ]
+      deps += [ "//adrbrowsiel/components/decentralized_dns" ]
     }
 
-    if (brave_rewards_enabled) {
+    if (adrbrowsiel_rewards_enabled) {
       sources += [
-        "views/brave_actions/brave_rewards_action_stub_view.cc",
-        "views/brave_actions/brave_rewards_action_stub_view.h",
+        "views/adrbrowsiel_actions/adrbrowsiel_rewards_action_stub_view.cc",
+        "views/adrbrowsiel_actions/adrbrowsiel_rewards_action_stub_view.h",
       ]
     }
 
@@ -418,11 +418,11 @@ source_set("ui") {
     }
 
     deps += [
-      "//brave/browser/extensions",
-      "//brave/browser/resources/extensions:resources",
-      "//brave/components/brave_extension:generated_resources",
-      "//brave/components/brave_extension:static_resources",
-      "//brave/components/resources:static_resources",
+      "//adrbrowsiel/browser/extensions",
+      "//adrbrowsiel/browser/resources/extensions:resources",
+      "//adrbrowsiel/components/adrbrowsiel_extension:generated_resources",
+      "//adrbrowsiel/components/adrbrowsiel_extension:static_resources",
+      "//adrbrowsiel/components/resources:static_resources",
       "//chrome/browser/extensions",
       "//components/sessions",
       "//extensions/browser",
@@ -439,30 +439,30 @@ source_set("ui") {
     deps += [ "//google_update" ]
   }
 
-  if (brave_rewards_enabled) {
+  if (adrbrowsiel_rewards_enabled) {
     sources += [
-      "webui/brave_rewards_internals_ui.cc",
-      "webui/brave_rewards_internals_ui.h",
-      "webui/brave_rewards_page_ui.cc",
-      "webui/brave_rewards_page_ui.h",
-      "webui/brave_rewards_source.cc",
-      "webui/brave_rewards_source.h",
+      "webui/adrbrowsiel_rewards_internals_ui.cc",
+      "webui/adrbrowsiel_rewards_internals_ui.h",
+      "webui/adrbrowsiel_rewards_page_ui.cc",
+      "webui/adrbrowsiel_rewards_page_ui.h",
+      "webui/adrbrowsiel_rewards_source.cc",
+      "webui/adrbrowsiel_rewards_source.h",
     ]
 
     if (!is_android) {
       sources += [
-        "webui/brave_tip_ui.cc",
-        "webui/brave_tip_ui.h",
+        "webui/adrbrowsiel_tip_ui.cc",
+        "webui/adrbrowsiel_tip_ui.h",
       ]
     }
 
     deps += [
-      "//brave/browser/brave_ads",
-      "//brave/components/brave_ads/browser",
-      "//brave/components/brave_rewards/resources:internals_generated_resources",
-      "//brave/components/brave_rewards/resources:page_generated_resources",
-      "//brave/components/brave_rewards/resources:tip_generated_resources",
-      "//brave/vendor/bat-native-ledger:headers",
+      "//adrbrowsiel/browser/adrbrowsiel_ads",
+      "//adrbrowsiel/components/adrbrowsiel_ads/browser",
+      "//adrbrowsiel/components/adrbrowsiel_rewards/resources:internals_generated_resources",
+      "//adrbrowsiel/components/adrbrowsiel_rewards/resources:page_generated_resources",
+      "//adrbrowsiel/components/adrbrowsiel_rewards/resources:tip_generated_resources",
+      "//adrbrowsiel/vendor/bat-native-ledger:headers",
     ]
   }
 
@@ -472,29 +472,29 @@ source_set("ui") {
       "webui/tor_internals_ui.h",
     ]
 
-    deps += [ "//brave/components/tor/resources:internals_generated_resources" ]
+    deps += [ "//adrbrowsiel/components/tor/resources:internals_generated_resources" ]
   }
 
-  if (brave_wallet_enabled && !is_android) {
+  if (adrbrowsiel_wallet_enabled && !is_android) {
     sources += [
       "views/toolbar/wallet_button.cc",
       "views/toolbar/wallet_button.h",
-      "webui/brave_wallet/wallet_panel_ui.cc",
-      "webui/brave_wallet/wallet_panel_ui.h",
-      "webui/brave_wallet_ui.cc",
-      "webui/brave_wallet_ui.h",
+      "webui/adrbrowsiel_wallet/wallet_panel_ui.cc",
+      "webui/adrbrowsiel_wallet/wallet_panel_ui.h",
+      "webui/adrbrowsiel_wallet_ui.cc",
+      "webui/adrbrowsiel_wallet_ui.h",
     ]
     deps += [
-      "webui/brave_wallet/page_handler",
-      "//brave/components/brave_wallet_ui:brave_wallet_page_generated",
-      "//brave/components/brave_wallet_ui:brave_wallet_panel_generated",
-      "//brave/components/brave_wallet_ui:mojo_bindings",
-      "//brave/components/brave_wallet_ui:resources",
+      "webui/adrbrowsiel_wallet/page_handler",
+      "//adrbrowsiel/components/adrbrowsiel_wallet_ui:adrbrowsiel_wallet_page_generated",
+      "//adrbrowsiel/components/adrbrowsiel_wallet_ui:adrbrowsiel_wallet_panel_generated",
+      "//adrbrowsiel/components/adrbrowsiel_wallet_ui:mojo_bindings",
+      "//adrbrowsiel/components/adrbrowsiel_wallet_ui:resources",
     ]
   }
 
   if (enable_ftx) {
-    deps += [ "//brave/components/ftx/common" ]
+    deps += [ "//adrbrowsiel/components/ftx/common" ]
   }
 
   if (toolkit_views) {
@@ -503,7 +503,7 @@ source_set("ui") {
       "//ui/views",
     ]
 
-    if (enable_brave_translate_extension) {
+    if (enable_adrbrowsiel_translate_extension) {
       deps += [ "//components/translate/core/browser" ]
     }
 
@@ -513,8 +513,8 @@ source_set("ui") {
         "views/toolbar/speedreader_button.h",
       ]
       deps += [
-        "//brave/components/speedreader",
-        "//brave/components/speedreader:buildflags",
+        "//adrbrowsiel/components/speedreader",
+        "//adrbrowsiel/components/speedreader:buildflags",
       ]
     }
   }

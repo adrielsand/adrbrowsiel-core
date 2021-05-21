@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ntp_background_images/android/ntp_background_images_bridge.h"
+#include "adrbrowsiel/browser/ntp_background_images/android/ntp_background_images_bridge.h"
 
 #include <stddef.h>
 #include <stdint.h>
@@ -18,14 +18,14 @@
 #include "base/files/file_util.h"
 #include "base/guid.h"
 #include "base/task/post_task.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/ntp_background_images/view_counter_service_factory.h"
-#include "brave/build/android/jni_headers/NTPBackgroundImagesBridge_jni.h"
-#include "brave/components/brave_referrals/browser/brave_referrals_service.h"
-#include "brave/components/brave_stats/browser/brave_stats_updater_util.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_data.h"
-#include "brave/components/ntp_background_images/browser/url_constants.h"
-#include "brave/components/ntp_background_images/browser/view_counter_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/ntp_background_images/view_counter_service_factory.h"
+#include "adrbrowsiel/build/android/jni_headers/NTPBackgroundImagesBridge_jni.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_stats/browser/adrbrowsiel_stats_updater_util.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/url_constants.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/view_counter_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/profiles/profile_android.h"
 #include "components/keyed_service/content/browser_context_dependency_manager.h"
@@ -77,7 +77,7 @@ NTPBackgroundImagesBridge::NTPBackgroundImagesBridge(Profile* profile)
     : profile_(profile),
       view_counter_service_(ViewCounterServiceFactory::GetForProfile(profile_)),
       background_images_service_(
-          g_brave_browser_process->ntp_background_images_service()) {
+          g_adrbrowsiel_browser_process->ntp_background_images_service()) {
   DCHECK_CURRENTLY_ON(BrowserThread::UI);
 
   java_object_.Reset(Java_NTPBackgroundImagesBridge_create(
@@ -222,7 +222,7 @@ base::android::ScopedJavaLocalRef<jstring>
 NTPBackgroundImagesBridge::GetReferralApiKey(
   JNIEnv* env, const JavaParamRef<jobject>& obj) {
   return ConvertUTF8ToJavaString(env,
-      brave_stats::GetAPIKey());
+      adrbrowsiel_stats::GetAPIKey());
 }
 
 base::android::ScopedJavaLocalRef<jobject>

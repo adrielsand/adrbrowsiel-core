@@ -1,12 +1,12 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_wallet/brave_wallet_context_utils.h"
+#include "adrbrowsiel/browser/adrbrowsiel_wallet/adrbrowsiel_wallet_context_utils.h"
 #include "content/public/browser/browser_context.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 bool IsAllowedForContext(content::BrowserContext* context) {
   if (context && context->IsTor())
@@ -15,4 +15,4 @@ bool IsAllowedForContext(content::BrowserContext* context) {
   return true;
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

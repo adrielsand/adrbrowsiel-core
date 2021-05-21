@@ -1,8 +1,8 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-#include "bat/ledger/internal/endpoint/promotion/post_claim_brave/post_claim_brave.h"
+#include "bat/ledger/internal/endpoint/promotion/post_claim_adrbrowsiel/post_claim_adrbrowsiel.h"
 
 #include <utility>
 
@@ -19,7 +19,7 @@ namespace {
 
 std::string GetPath(const std::string& payment_id) {
   return base::StringPrintf(
-      "/v3/wallet/brave/%s/claim",
+      "/v3/wallet/adrbrowsiel/%s/claim",
       payment_id.c_str());
 }
 
@@ -29,13 +29,13 @@ namespace ledger {
 namespace endpoint {
 namespace promotion {
 
-PostClaimBrave::PostClaimBrave(LedgerImpl* ledger) : ledger_(ledger) {
+PostClaimadrbrowsiel::PostClaimadrbrowsiel(LedgerImpl* ledger) : ledger_(ledger) {
   DCHECK(ledger_);
 }
 
-PostClaimBrave::~PostClaimBrave() = default;
+PostClaimadrbrowsiel::~PostClaimadrbrowsiel() = default;
 
-std::string PostClaimBrave::GetUrl() {
+std::string PostClaimadrbrowsiel::GetUrl() {
   const auto wallet = ledger_->wallet()->GetWallet();
   if (!wallet) {
     BLOG(0, "Wallet is null");
@@ -47,7 +47,7 @@ std::string PostClaimBrave::GetUrl() {
   return GetServerUrl(path);
 }
 
-std::string PostClaimBrave::GeneratePayload(
+std::string PostClaimadrbrowsiel::GeneratePayload(
     const std::string& destination_payment_id) {
   base::Value payload(base::Value::Type::DICTIONARY);
   payload.SetStringKey("depositDestination", destination_payment_id);
@@ -57,7 +57,7 @@ std::string PostClaimBrave::GeneratePayload(
   return json;
 }
 
-type::Result PostClaimBrave::CheckStatusCode(const int status_code) {
+type::Result PostClaimadrbrowsiel::CheckStatusCode(const int status_code) {
   if (status_code == net::HTTP_BAD_REQUEST) {
     BLOG(0, "Invalid request");
     return type::Result::LEDGER_ERROR;
@@ -86,10 +86,10 @@ type::Result PostClaimBrave::CheckStatusCode(const int status_code) {
   return type::Result::LEDGER_OK;
 }
 
-void PostClaimBrave::Request(
+void PostClaimadrbrowsiel::Request(
     const std::string& destination_payment_id,
-    PostClaimBraveCallback callback) {
-  auto url_callback = std::bind(&PostClaimBrave::OnRequest,
+    PostClaimadrbrowsielCallback callback) {
+  auto url_callback = std::bind(&PostClaimadrbrowsiel::OnRequest,
       this,
       _1,
       callback);
@@ -120,9 +120,9 @@ void PostClaimBrave::Request(
   ledger_->LoadURL(std::move(request), url_callback);
 }
 
-void PostClaimBrave::OnRequest(
+void PostClaimadrbrowsiel::OnRequest(
     const type::UrlResponse& response,
-    PostClaimBraveCallback callback) {
+    PostClaimadrbrowsielCallback callback) {
   ledger::LogUrlResponse(__func__, response);
   callback(CheckStatusCode(response.status_code));
 }

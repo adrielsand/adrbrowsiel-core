@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_BAT_STATE_STATE_MIGRATION_V2_H_
-#define BRAVELEDGER_BAT_STATE_STATE_MIGRATION_V2_H_
+#ifndef adrbrowsielLEDGER_BAT_STATE_STATE_MIGRATION_V2_H_
+#define adrbrowsielLEDGER_BAT_STATE_STATE_MIGRATION_V2_H_
 
 #include <memory>
 #include <string>
@@ -29,11 +29,11 @@ class StateMigrationV2 {
       const type::Result result,
       ledger::ResultCallback callback);
 
-  std::unique_ptr<braveledger_bat_state::LegacyBatState> legacy_state_;
+  std::unique_ptr<adrbrowsielledger_bat_state::LegacyBatState> legacy_state_;
   LedgerImpl* ledger_;  // NOT OWNED
 };
 
 }  // namespace state
 }  // namespace ledger
 
-#endif  // BRAVELEDGER_BAT_STATE_STATE_MIGRATION_V2_H_
+#endif  // adrbrowsielLEDGER_BAT_STATE_STATE_MIGRATION_V2_H_

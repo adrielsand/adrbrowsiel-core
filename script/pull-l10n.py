@@ -8,7 +8,7 @@ from lib.transifex import (pull_source_files_from_transifex, should_use_transife
                            pull_xtb_without_transifex, combine_override_xtb_into_original)
 from lib.grd_string_replacements import get_override_file_path
 
-BRAVE_SOURCE_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+adrbrowsiel_SOURCE_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 
 def parse_args():
@@ -29,7 +29,7 @@ def check_args():
 def main():
     args = parse_args()
     check_args()
-    source_string_path = os.path.join(BRAVE_SOURCE_ROOT, args.source_string_path[0])
+    source_string_path = os.path.join(adrbrowsiel_SOURCE_ROOT, args.source_string_path[0])
     filename = os.path.basename(source_string_path).split('.')[0]
     if should_use_transifex(source_string_path, filename):
         print('Transifex: ', source_string_path)
@@ -42,7 +42,7 @@ def main():
         override_exists = os.path.exists(override_path)
         if override_exists:
             pull_source_files_from_transifex(override_path, override_filename)
-        pull_xtb_without_transifex(source_string_path, BRAVE_SOURCE_ROOT)
+        pull_xtb_without_transifex(source_string_path, adrbrowsiel_SOURCE_ROOT)
         if override_exists:
             combine_override_xtb_into_original(source_string_path)
 

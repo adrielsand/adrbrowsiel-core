@@ -1,22 +1,22 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/sync/brave_profile_sync_service_delegate.h"
+#include "adrbrowsiel/browser/sync/adrbrowsiel_profile_sync_service_delegate.h"
 
 #include <utility>
 
 #include "base/task/post_task.h"
 #include "base/threading/thread_task_runner_handle.h"
-#include "brave/components/sync/driver/brave_sync_profile_sync_service.h"
+#include "adrbrowsiel/components/sync/driver/adrbrowsiel_sync_profile_sync_service.h"
 #include "components/sync_device_info/device_info_sync_service.h"
 #include "components/sync_device_info/device_info_tracker.h"
 #include "components/sync_device_info/local_device_info_provider.h"
 
 namespace syncer {
 
-BraveProfileSyncServiceDelegate::BraveProfileSyncServiceDelegate(
+adrbrowsielProfileSyncServiceDelegate::adrbrowsielProfileSyncServiceDelegate(
     DeviceInfoSyncService* device_info_sync_service)
     : device_info_sync_service_(device_info_sync_service),
       weak_ptr_factory_(this) {
@@ -31,9 +31,9 @@ BraveProfileSyncServiceDelegate::BraveProfileSyncServiceDelegate(
   device_info_observer_.Add(device_info_tracker_);
 }
 
-BraveProfileSyncServiceDelegate::~BraveProfileSyncServiceDelegate() {}
+adrbrowsielProfileSyncServiceDelegate::~adrbrowsielProfileSyncServiceDelegate() {}
 
-void BraveProfileSyncServiceDelegate::OnDeviceInfoChange() {
+void adrbrowsielProfileSyncServiceDelegate::OnDeviceInfoChange() {
   DCHECK(profile_sync_service_);
 
   const syncer::DeviceInfo* local_device_info =
@@ -56,22 +56,22 @@ void BraveProfileSyncServiceDelegate::OnDeviceInfoChange() {
     base::ThreadTaskRunnerHandle::Get()->PostTask(
         FROM_HERE,
         base::BindOnce(
-            &BraveProfileSyncServiceDelegate::OnSelfDeviceInfoDeleted,
+            &adrbrowsielProfileSyncServiceDelegate::OnSelfDeviceInfoDeleted,
             weak_ptr_factory_.GetWeakPtr()));
   }
 }
 
-void BraveProfileSyncServiceDelegate::OnSelfDeviceInfoDeleted() {
+void adrbrowsielProfileSyncServiceDelegate::OnSelfDeviceInfoDeleted() {
   profile_sync_service_->OnSelfDeviceInfoDeleted(base::DoNothing::Once());
 }
 
-void BraveProfileSyncServiceDelegate::SuspendDeviceObserverForOwnReset() {
+void adrbrowsielProfileSyncServiceDelegate::SuspendDeviceObserverForOwnReset() {
   if (device_info_observer_.IsObserving(device_info_tracker_)) {
     device_info_observer_.Remove(device_info_tracker_);
   }
 }
 
-void BraveProfileSyncServiceDelegate::ResumeDeviceObserver() {
+void adrbrowsielProfileSyncServiceDelegate::ResumeDeviceObserver() {
   if (!device_info_observer_.IsObserving(device_info_tracker_)) {
     device_info_observer_.Add(device_info_tracker_);
   }

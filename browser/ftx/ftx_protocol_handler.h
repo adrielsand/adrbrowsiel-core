@@ -1,10 +1,10 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_FTX_FTX_PROTOCOL_HANDLER_H_
-#define BRAVE_BROWSER_FTX_FTX_PROTOCOL_HANDLER_H_
+#ifndef adrbrowsiel_BROWSER_FTX_FTX_PROTOCOL_HANDLER_H_
+#define adrbrowsiel_BROWSER_FTX_FTX_PROTOCOL_HANDLER_H_
 
 #include <string>
 
@@ -25,4 +25,4 @@ bool IsFTXProtocol(const GURL& url);
 
 }  // namespace ftx
 
-#endif  // BRAVE_BROWSER_FTX_FTX_PROTOCOL_HANDLER_H_
+#endif  // adrbrowsiel_BROWSER_FTX_FTX_PROTOCOL_HANDLER_H_

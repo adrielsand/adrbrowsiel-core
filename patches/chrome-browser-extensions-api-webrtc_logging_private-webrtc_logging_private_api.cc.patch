@@ -6,7 +6,7 @@ index 840bf97407c772243837fd5070202d9ab5fc3b4b..683a8d653e0a651835c5996d3d0b67f5
      const api::webrtc_logging_private::RequestInfo& request,
      const std::string& security_origin,
      std::string* error) {
-+  BRAVE_DISABLE_RPH_FROM_REQUEST //feature disabled in Brave
++  adrbrowsiel_DISABLE_RPH_FROM_REQUEST //feature disabled in adrbrowsiel
    // There are 2 ways these API functions can get called.
    //
    //  1. From an allowlisted component extension on behalf of a page with the

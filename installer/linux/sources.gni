@@ -1,14 +1,14 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 common_packaging_files_sources = [
-  "//brave/chromium_src/chrome/app/resources/manpage.1.in",
-  "//brave/chromium_src/chrome/installer/linux/common/brave-browser/chromium-browser.appdata.xml",
-  "//brave/chromium_src/chrome/installer/linux/common/brave-browser/chromium-browser.info",
-  "//brave/installer/linux/common/brave_installer.include",
-  "//brave/LICENSE",
+  "//adrbrowsiel/chromium_src/chrome/app/resources/manpage.1.in",
+  "//adrbrowsiel/chromium_src/chrome/installer/linux/common/adrbrowsiel-browser/chromium-browser.appdata.xml",
+  "//adrbrowsiel/chromium_src/chrome/installer/linux/common/adrbrowsiel-browser/chromium-browser.info",
+  "//adrbrowsiel/installer/linux/common/adrbrowsiel_installer.include",
+  "//adrbrowsiel/LICENSE",
 ]
 
 common_packaging_files_excluded_sources = [
@@ -17,9 +17,9 @@ common_packaging_files_excluded_sources = [
   "common/chromium-browser/chromium-browser.info",
 ]
 
-brave_packaging_files_executables = [
-  "$root_out_dir/brave",
-  "$root_out_dir/brave_sandbox",
+adrbrowsiel_packaging_files_executables = [
+  "$root_out_dir/adrbrowsiel",
+  "$root_out_dir/adrbrowsiel_sandbox",
 ]
 
 excluded_packaging_files_executables = [
@@ -27,11 +27,11 @@ excluded_packaging_files_executables = [
   "$root_out_dir/chrome_sandbox",
 ]
 
-brave_installer_deps = [
-  "//brave/build/linux:copy_exe",
-  "//brave/build/linux:copy_sandbox",
+adrbrowsiel_installer_deps = [
+  "//adrbrowsiel/build/linux:copy_exe",
+  "//adrbrowsiel/build/linux:copy_sandbox",
 ]
 
 strip_chrome_binary_deps = [
-  "//brave/build/linux:copy_exe",
+  "//adrbrowsiel/build/linux:copy_exe",
 ]

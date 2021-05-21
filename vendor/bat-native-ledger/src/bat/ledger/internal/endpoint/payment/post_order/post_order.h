@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_ENDPOINT_PAYMENT_POST_ORDER_POST_ORDER_H_
-#define BRAVELEDGER_ENDPOINT_PAYMENT_POST_ORDER_POST_ORDER_H_
+#ifndef adrbrowsielLEDGER_ENDPOINT_PAYMENT_POST_ORDER_POST_ORDER_H_
+#define adrbrowsielLEDGER_ENDPOINT_PAYMENT_POST_ORDER_POST_ORDER_H_
 
 #include <string>
 #include <vector>
@@ -37,7 +37,7 @@
 //   "currency": "BAT",
 //   "updatedAt": "2020-06-10T18:58:21.378752Z",
 //   "totalPrice": "1",
-//   "location": "brave.com",
+//   "location": "adrbrowsiel.com",
 //   "status": "pending",
 //   "items": [
 //     {
@@ -50,7 +50,7 @@
 //       "quantity": 4,
 //       "price": "0.25",
 //       "subtotal": "1",
-//       "location": "brave.com",
+//       "location": "adrbrowsiel.com",
 //       "description": ""
 //     }
 //   ]
@@ -99,4 +99,4 @@ class PostOrder {
 }  // namespace endpoint
 }  // namespace ledger
 
-#endif  // BRAVELEDGER_ENDPOINT_PAYMENT_POST_ORDER_POST_ORDER_H_
+#endif  // adrbrowsielLEDGER_ENDPOINT_PAYMENT_POST_ORDER_POST_ORDER_H_

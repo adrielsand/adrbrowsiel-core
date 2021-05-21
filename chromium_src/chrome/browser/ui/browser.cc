@@ -1,40 +1,40 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_browser.h"
-#include "brave/browser/ui/brave_browser_command_controller.h"
-#include "brave/browser/ui/brave_browser_content_setting_bubble_model_delegate.h"
-#include "brave/browser/ui/tabs/brave_tab_strip_model.h"
-#include "brave/browser/ui/toolbar/brave_location_bar_model_delegate.h"
-#include "brave/components/sidebar/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser_command_controller.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser_content_setting_bubble_model_delegate.h"
+#include "adrbrowsiel/browser/ui/tabs/adrbrowsiel_tab_strip_model.h"
+#include "adrbrowsiel/browser/ui/toolbar/adrbrowsiel_location_bar_model_delegate.h"
+#include "adrbrowsiel/components/sidebar/buildflags/buildflags.h"
 #include "chrome/browser/ui/browser_command_controller.h"
 #include "chrome/browser/ui/browser_content_setting_bubble_model_delegate.h"
 
 #if !defined(OS_ANDROID)
-#include "brave/browser/ui/bookmark/brave_bookmark_tab_helper.h"
+#include "adrbrowsiel/browser/ui/bookmark/adrbrowsiel_bookmark_tab_helper.h"
 #endif
 
 #if BUILDFLAG(ENABLE_SIDEBAR)
 #include "base/feature_list.h"
-#include "brave/components/sidebar/features.h"
+#include "adrbrowsiel/components/sidebar/features.h"
 #endif
 
-#define BRAVE_BROWSER_CREATE return new BraveBrowser(params);
+#define adrbrowsiel_BROWSER_CREATE return new adrbrowsielBrowser(params);
 #define BrowserContentSettingBubbleModelDelegate \
-  BraveBrowserContentSettingBubbleModelDelegate
-#define BrowserCommandController BraveBrowserCommandController
-#define BrowserLocationBarModelDelegate BraveLocationBarModelDelegate
+  adrbrowsielBrowserContentSettingBubbleModelDelegate
+#define BrowserCommandController adrbrowsielBrowserCommandController
+#define BrowserLocationBarModelDelegate adrbrowsielLocationBarModelDelegate
 #if !defined(OS_ANDROID)
-#define BookmarkTabHelper BraveBookmarkTabHelper
+#define BookmarkTabHelper adrbrowsielBookmarkTabHelper
 #endif
 
 #include "../../../../../chrome/browser/ui/browser.cc"  // NOLINT
 #undef BrowserLocationBarModelDelegate
 #undef BrowserContentSettingBubbleModelDelegate
 #undef BrowserCommandController
-#undef BRAVE_BROWSER_CREATE
+#undef adrbrowsiel_BROWSER_CREATE
 
 #if !defined(OS_ANDROID)
 #undef BookmarkTabHelper

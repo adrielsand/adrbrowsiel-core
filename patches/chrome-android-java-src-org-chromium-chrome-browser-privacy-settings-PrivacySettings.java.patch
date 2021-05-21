@@ -7,7 +7,7 @@ index f337e39e4addeaf7e75f1f5cdcccb310bf1d7baa..6da893faea1a5746ef83d61679b85872
   */
  public class PrivacySettings
 -        extends PreferenceFragmentCompat implements Preference.OnPreferenceChangeListener {
-+        extends org.chromium.chrome.browser.settings.BravePreferenceFragment implements Preference.OnPreferenceChangeListener {
++        extends org.chromium.chrome.browser.settings.adrbrowsielPreferenceFragment implements Preference.OnPreferenceChangeListener {
      private static final String PREF_CAN_MAKE_PAYMENT = "can_make_payment";
      private static final String PREF_NETWORK_PREDICTIONS = "preload_pages";
      private static final String PREF_SECURE_DNS = "secure_dns";

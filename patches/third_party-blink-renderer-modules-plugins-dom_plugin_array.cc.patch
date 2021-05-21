@@ -6,7 +6,7 @@ index 53c24628f1d406375413ab2d78272383594b4d57..458bfb2ff359e5e6b1bd8c667443a784
      dom_plugins_.clear();
      return;
    }
-+  BRAVE_DOM_PLUGINS_UPDATE_PLUGIN_DATA__RESET_PLUGIN_DATA
++  adrbrowsiel_DOM_PLUGINS_UPDATE_PLUGIN_DATA__RESET_PLUGIN_DATA
    PluginData* data = GetPluginData();
    if (!data) {
      dom_plugins_.clear();
@@ -14,7 +14,7 @@ index 53c24628f1d406375413ab2d78272383594b4d57..458bfb2ff359e5e6b1bd8c667443a784
        }
      }
    }
-+  BRAVE_DOM_PLUGINS_UPDATE_PLUGIN_DATA__FARBLE_PLUGIN_DATA
++  adrbrowsiel_DOM_PLUGINS_UPDATE_PLUGIN_DATA__FARBLE_PLUGIN_DATA
  }
  
  void DOMPluginArray::ContextDestroyed() {

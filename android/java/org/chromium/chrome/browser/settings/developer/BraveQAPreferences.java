@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -30,15 +30,15 @@ import org.chromium.base.FileUtils;
 import org.chromium.base.Log;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveConfig;
-import org.chromium.chrome.browser.BraveRelaunchUtils;
-import org.chromium.chrome.browser.BraveRewardsHelper;
-import org.chromium.chrome.browser.BraveRewardsNativeWorker;
-import org.chromium.chrome.browser.BraveRewardsObserver;
-import org.chromium.chrome.browser.BraveRewardsPanelPopup;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
-import org.chromium.chrome.browser.settings.BravePreferenceFragment;
-import org.chromium.chrome.browser.util.BraveDbUtil;
+import org.chromium.chrome.browser.adrbrowsielConfig;
+import org.chromium.chrome.browser.adrbrowsielRelaunchUtils;
+import org.chromium.chrome.browser.adrbrowsielRewardsHelper;
+import org.chromium.chrome.browser.adrbrowsielRewardsNativeWorker;
+import org.chromium.chrome.browser.adrbrowsielRewardsObserver;
+import org.chromium.chrome.browser.adrbrowsielRewardsPanelPopup;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
+import org.chromium.chrome.browser.settings.adrbrowsielPreferenceFragment;
+import org.chromium.chrome.browser.util.adrbrowsielDbUtil;
 import org.chromium.components.browser_ui.settings.ChromeSwitchPreference;
 import org.chromium.components.browser_ui.settings.SettingsUtils;
 
@@ -49,8 +49,8 @@ import java.io.InputStream;
 /**
  * Settings fragment containing preferences for QA team.
  */
-public class BraveQAPreferences extends BravePreferenceFragment
-    implements OnPreferenceChangeListener, BraveRewardsObserver {
+public class adrbrowsielQAPreferences extends adrbrowsielPreferenceFragment
+    implements OnPreferenceChangeListener, adrbrowsielRewardsObserver {
     private static final String PREF_USE_REWARDS_STAGING_SERVER = "use_rewards_staging_server";
     private static final String PREF_USE_SYNC_STAGING_SERVER = "use_sync_staging_server";
     private static final String PREF_QA_MAXIMIZE_INITIAL_ADS_NUMBER =
@@ -79,7 +79,7 @@ public class BraveQAPreferences extends BravePreferenceFragment
 
     private Preference mImportRewardsDb;
     private Preference mExportRewardsDb;
-    private BraveDbUtil mDbUtil;
+    private adrbrowsielDbUtil mDbUtil;
     private String mFileToImport;
     private boolean mUseRewardsStagingServer;
 
@@ -118,7 +118,7 @@ public class BraveQAPreferences extends BravePreferenceFragment
             mVlogRewards.setChecked(shouldVlogRewards());
         }
 
-        mDbUtil = BraveDbUtil.getInstance();
+        mDbUtil = adrbrowsielDbUtil.getInstance();
 
         mImportRewardsDb = findPreference(QA_IMPORT_REWARDS_DB);
         mExportRewardsDb = findPreference(QA_EXPORT_REWARDS_DB);
@@ -149,7 +149,7 @@ public class BraveQAPreferences extends BravePreferenceFragment
                         if (button == AlertDialog.BUTTON_POSITIVE) {
                             String restorePhrase = input.getText().toString();
                             if (!restorePhrase.isEmpty()) {
-                                BraveRewardsNativeWorker.getInstance().RecoverWallet(
+                                adrbrowsielRewardsNativeWorker.getInstance().RecoverWallet(
                                     restorePhrase);
                             }
                         }
@@ -215,7 +215,7 @@ public class BraveQAPreferences extends BravePreferenceFragment
                                 // OK was pressed
                                 String newCommandLine = input.getText().toString();
                                 setPreferenceString(PREF_QA_COMMAND_LINE, newCommandLine);
-                                BraveRelaunchUtils.askForRelaunch(getActivity());
+                                adrbrowsielRelaunchUtils.askForRelaunch(getActivity());
                             }
                         }
                     };
@@ -258,20 +258,20 @@ public class BraveQAPreferences extends BravePreferenceFragment
 
     @Override
     public void onStart() {
-        BraveRewardsNativeWorker.getInstance().AddObserver(this);
+        adrbrowsielRewardsNativeWorker.getInstance().AddObserver(this);
         super.onStart();
     }
 
     @Override
     public void onStop() {
-        BraveRewardsNativeWorker.getInstance().RemoveObserver(this);
+        adrbrowsielRewardsNativeWorker.getInstance().RemoveObserver(this);
         super.onStop();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (PREF_USE_REWARDS_STAGING_SERVER.equals(preference.getKey())) {
-            BraveRewardsNativeWorker.getInstance().ResetTheWholeState();
+            adrbrowsielRewardsNativeWorker.getInstance().ResetTheWholeState();
             mUseRewardsStagingServer = (boolean) newValue;
             mMaximizeAdsNumber.setEnabled((boolean) newValue);
             enableMaximumAdsNumber(((boolean) newValue) && mMaximizeAdsNumber.isChecked());
@@ -281,7 +281,7 @@ public class BraveQAPreferences extends BravePreferenceFragment
                 || PREF_USE_SYNC_STAGING_SERVER.equals(preference.getKey())
                 || PREF_QA_VLOG_REWARDS.equals(preference.getKey())) {
             setOnPreferenceValue(preference.getKey(), (boolean)newValue);
-            BraveRelaunchUtils.askForRelaunch(getActivity());
+            adrbrowsielRelaunchUtils.askForRelaunch(getActivity());
         }
         return true;
     }
@@ -329,7 +329,7 @@ public class BraveQAPreferences extends BravePreferenceFragment
             @Override
             public void onClick(DialogInterface dialog, int button) {
                 if (button != AlertDialog.BUTTON_POSITIVE
-                        || !input.getText().toString().equals(BraveConfig.DEVELOPER_OPTIONS_CODE)) {
+                        || !input.getText().toString().equals(adrbrowsielConfig.DEVELOPER_OPTIONS_CODE)) {
                     getActivity().finish();
                 }
             }
@@ -370,19 +370,19 @@ public class BraveQAPreferences extends BravePreferenceFragment
     private void enableMaximumAdsNumber(boolean enable) {
         if (enable) {
             // Save current values
-            int adsPerHour = BraveRewardsNativeWorker.getInstance().GetAdsPerHour();
+            int adsPerHour = adrbrowsielRewardsNativeWorker.getInstance().GetAdsPerHour();
             SharedPreferences sharedPreferences = ContextUtils.getAppSharedPreferences();
             SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
             sharedPreferencesEditor.putInt(QA_ADS_PER_HOUR, adsPerHour);
             sharedPreferencesEditor.apply();
             // Set max value
-            BraveRewardsNativeWorker.getInstance().SetAdsPerHour(MAX_ADS);
+            adrbrowsielRewardsNativeWorker.getInstance().SetAdsPerHour(MAX_ADS);
             return;
         }
         // Set saved values
         int adsPerHour = ContextUtils.getAppSharedPreferences().getInt(
                              QA_ADS_PER_HOUR, DEFAULT_ADS_PER_HOUR);
-        BraveRewardsNativeWorker.getInstance().SetAdsPerHour(adsPerHour);
+        adrbrowsielRewardsNativeWorker.getInstance().SetAdsPerHour(adsPerHour);
     }
 
     @Override
@@ -390,17 +390,17 @@ public class BraveQAPreferences extends BravePreferenceFragment
         if (success) {
             SharedPreferences sharedPreferences = ContextUtils.getAppSharedPreferences();
             SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
-            sharedPreferencesEditor.putBoolean(BraveRewardsPanelPopup.PREF_GRANTS_NOTIFICATION_RECEIVED, false);
-            sharedPreferencesEditor.putBoolean(BraveRewardsPanelPopup.PREF_WAS_BRAVE_REWARDS_TURNED_ON, false);
+            sharedPreferencesEditor.putBoolean(adrbrowsielRewardsPanelPopup.PREF_GRANTS_NOTIFICATION_RECEIVED, false);
+            sharedPreferencesEditor.putBoolean(adrbrowsielRewardsPanelPopup.PREF_WAS_adrbrowsiel_REWARDS_TURNED_ON, false);
             sharedPreferencesEditor.apply();
 
-            BravePrefServiceBridge.getInstance().setSafetynetCheckFailed(false);
-            BravePrefServiceBridge.getInstance().setUseRewardsStagingServer(mUseRewardsStagingServer);
-            BraveRewardsHelper.setRewardsEnvChange(true);
+            adrbrowsielPrefServiceBridge.getInstance().setSafetynetCheckFailed(false);
+            adrbrowsielPrefServiceBridge.getInstance().setUseRewardsStagingServer(mUseRewardsStagingServer);
+            adrbrowsielRewardsHelper.setRewardsEnvChange(true);
 
-            BraveRelaunchUtils.askForRelaunch(getActivity());
+            adrbrowsielRelaunchUtils.askForRelaunch(getActivity());
         } else {
-            BraveRelaunchUtils.askForRelaunchCustom(getActivity());
+            adrbrowsielRelaunchUtils.askForRelaunchCustom(getActivity());
         }
     }
 
@@ -440,7 +440,7 @@ public class BraveQAPreferences extends BravePreferenceFragment
                 FileUtils.copyStreamToFile(in, new File(mFileToImport));
                 in.close();
             } catch (IOException e) {
-                Log.e(BraveDbUtil.getTag(), "Error on preparing database file: " + e);
+                Log.e(adrbrowsielDbUtil.getTag(), "Error on preparing database file: " + e);
                 return;
             }
             requestRestart(true);
@@ -458,7 +458,7 @@ public class BraveQAPreferences extends BravePreferenceFragment
                     } else {
                         mDbUtil.setPerformDbExportOnStart(true);
                     }
-                    BraveRelaunchUtils.restart();
+                    adrbrowsielRelaunchUtils.restart();
                 } else {
                     mDbUtil.cleanUpDbOperationRequest();
                 }

@@ -3,13 +3,13 @@
 
 <link rel="import" href="chrome://resources/html/i18n_behavior.html">
 <link rel="import" href="chrome://resources/html/web_ui_listener_behavior.html">
-<link rel="import" href="brave_default_extensions_browser_proxy.html">
+<link rel="import" href="adrbrowsiel_default_extensions_browser_proxy.html">
 <script type="module" src="../settings_page/settings_section.js"></script>
 <script type="module" src="../settings_shared_css.js"></script>
 <script type="module" src="../settings_vars_css.js"></script>
 <script type="module" src="chrome://resources/cr_elements/cr_link_row/cr_link_row.js"></script>
 
-<dom-module id="settings-brave-default-extensions-page">
+<dom-module id="settings-adrbrowsiel-default-extensions-page">
   <template>
     <style include="settings-shared md-select iron-flex">
       .settings-row:not(:first-child) {
@@ -80,7 +80,7 @@
     </settings-toggle-button>
     <settings-toggle-button id="hangoutsEnabled"
         class="cr-row"
-        pref="{{prefs.brave.hangouts_enabled}}"
+        pref="{{prefs.adrbrowsiel.hangouts_enabled}}"
         label="Hangouts"
         sub-label="$i18n{hangoutsEnabledDesc}"
         on-settings-boolean-control-change="onHangoutsEnabledChange_">
@@ -92,19 +92,19 @@
           <div class="secondary">$i18nRaw{resolveUnstoppableDomainsSubDesc}</div>
         </div>
         <settings-dropdown-menu id="unstoppableDomainsResolveMethodType"
-                                pref="{{prefs.brave.unstoppable_domains.resolve_method}}"
+                                pref="{{prefs.adrbrowsiel.unstoppable_domains.resolve_method}}"
                                 menu-options="[[unstoppableDomainsResolveMethod_]]">
       </div>
       <div class="settings-box">
         <div class="start">$i18n{resolveENSDesc}</div>
         <settings-dropdown-menu id="ensResolveMethodType"
-                                pref="{{prefs.brave.ens.resolve_method}}"
+                                pref="{{prefs.adrbrowsiel.ens.resolve_method}}"
                                 menu-options="[[ensResolveMethod_]]">
       </div>
     </template>
     <settings-toggle-button id="mediaRouterEnabled"
         class="cr-row"
-        pref="{{prefs.brave.enable_media_router}}"
+        pref="{{prefs.adrbrowsiel.enable_media_router}}"
         label="Media Router"
         sub-label="$i18n{mediaRouterEnabledDesc}"
         on-settings-boolean-control-change="onMediaRouterEnabledChange_">
@@ -129,7 +129,7 @@
     </if>
     <settings-toggle-button id="webTorrentEnabled"
         class="cr-row"
-        pref="{{prefs.brave.webtorrent_enabled}}"
+        pref="{{prefs.adrbrowsiel.webtorrent_enabled}}"
         label="WebTorrent"
         sub-label="$i18n{webTorrentEnabledDesc}"
         on-settings-boolean-control-change="onWebTorrentEnabledChange_">
@@ -174,5 +174,5 @@
     </div>
   </template>
   </template>
-  <script src="brave_default_extensions_page.js"></script>
+  <script src="adrbrowsiel_default_extensions_page.js"></script>
 </dom-module>

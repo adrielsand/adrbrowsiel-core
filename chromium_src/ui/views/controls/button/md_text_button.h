@@ -1,22 +1,22 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_CHROMIUM_SRC_UI_VIEWS_CONTROLS_BUTTON_MD_TEXT_BUTTON_H_
-#define BRAVE_CHROMIUM_SRC_UI_VIEWS_CONTROLS_BUTTON_MD_TEXT_BUTTON_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_UI_VIEWS_CONTROLS_BUTTON_MD_TEXT_BUTTON_H_
+#define adrbrowsiel_CHROMIUM_SRC_UI_VIEWS_CONTROLS_BUTTON_MD_TEXT_BUTTON_H_
 
 // Rename MdTextButton to MdTextButtonBase
 #define MdTextButton MdTextButtonBase
 
-// Define a Brave-specific method we can get called from UpdateColors() to
+// Define a adrbrowsiel-specific method we can get called from UpdateColors() to
 // extend its functionality instead of defining UpdateColors() "virtual" and
 // overriding it in our version of the MdTextButton class because there are some
 // subclasses that define their own UpdateColors() method (OmniboxChipButton)
 // now, which would not work with the virtual + override approach.
 #define UpdateColors \
   UpdateColors();    \
-  void UpdateColorsForBrave
+  void UpdateColorsForadrbrowsiel
 
 #include "../../../../../../ui/views/controls/button/md_text_button.h"
 
@@ -25,7 +25,7 @@
 
 namespace views {
 
-// Make visual changes to MdTextButton in line with Brave visual style:
+// Make visual changes to MdTextButton in line with adrbrowsiel visual style:
 //  - More rounded rectangle (for regular border, focus ring and ink drop)
 //  - Different hover text and boder color for non-prominent button
 //  - Differenet hover bg color for prominent background
@@ -56,4 +56,4 @@ class VIEWS_EXPORT MdTextButton : public MdTextButtonBase {
 
 DEFINE_VIEW_BUILDER(VIEWS_EXPORT, MdTextButton)
 
-#endif  // BRAVE_CHROMIUM_SRC_UI_VIEWS_CONTROLS_BUTTON_MD_TEXT_BUTTON_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_UI_VIEWS_CONTROLS_BUTTON_MD_TEXT_BUTTON_H_

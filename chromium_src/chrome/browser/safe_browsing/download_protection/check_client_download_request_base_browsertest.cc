@@ -1,11 +1,11 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
 #include "base/strings/stringprintf.h"
-#include "brave/common/brave_paths.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/common/pref_names.h"
@@ -26,10 +26,10 @@
 #include "net/test/embedded_test_server/http_request.h"
 #include "ui/base/window_open_disposition.h"
 
-class BraveCheckClientDownloadRequestBaseBrowserTest
+class adrbrowsielCheckClientDownloadRequestBaseBrowserTest
     : public InProcessBrowserTest {
  public:
-  BraveCheckClientDownloadRequestBaseBrowserTest()
+  adrbrowsielCheckClientDownloadRequestBaseBrowserTest()
       : https_server_(net::EmbeddedTestServer::TYPE_HTTPS) {}
 
   void SetUpOnMainThread() override {
@@ -40,8 +40,8 @@ class BraveCheckClientDownloadRequestBaseBrowserTest
     browser()->profile()->GetPrefs()->SetBoolean(prefs::kPromptForDownload,
                                                  false);
 
-    brave::RegisterPathProvider();
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir_);
+    adrbrowsiel::RegisterPathProvider();
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir_);
     https_server_.ServeFilesFromDirectory(test_data_dir_);
     https_server_.AddDefaultHandlers(GetChromeTestDataDir());
     safe_browsing::WebUIInfoSingleton::GetInstance()->AddListenerForTesting();
@@ -67,7 +67,7 @@ class BraveCheckClientDownloadRequestBaseBrowserTest
   net::test_server::EmbeddedTestServer https_server_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveCheckClientDownloadRequestBaseBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielCheckClientDownloadRequestBaseBrowserTest,
                        FilterRequest) {
   ui_test_utils::DownloadURL(browser(), download_url());
 

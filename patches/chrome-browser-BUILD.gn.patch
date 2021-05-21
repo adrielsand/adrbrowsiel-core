@@ -6,7 +6,7 @@ index 9fedd83307439aa6a6780de63e6be73ccea101af..fe9ccfc1803bd718d0eeb74a274b0184
        "performance_monitor/metric_evaluator_helper_posix.h",
      ]
    }
-+  import("//brave/browser/sources.gni") sources += brave_chrome_browser_sources deps += brave_chrome_browser_deps public_deps += brave_chrome_browser_public_deps
++  import("//adrbrowsiel/browser/sources.gni") sources += adrbrowsiel_chrome_browser_sources deps += adrbrowsiel_chrome_browser_deps public_deps += adrbrowsiel_chrome_browser_public_deps
  
    if (is_android) {
      sources += [

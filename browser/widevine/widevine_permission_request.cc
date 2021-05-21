@@ -1,12 +1,12 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/widevine/widevine_permission_request.h"
+#include "adrbrowsiel/browser/widevine/widevine_permission_request.h"
 
-#include "brave/browser/widevine/widevine_utils.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/widevine/widevine_utils.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/lifetime/application_lifetime.h"
 #include "components/permissions/request_type.h"
 #include "components/vector_icons/vector_icons.h"

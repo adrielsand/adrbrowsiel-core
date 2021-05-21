@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,7 +10,7 @@
 #include "bat/ledger/internal/contribution/contribution_sku.h"
 #include "bat/ledger/internal/contribution/contribution_util.h"
 #include "bat/ledger/internal/ledger_impl.h"
-#include "bat/ledger/internal/sku/sku_brave.h"
+#include "bat/ledger/internal/sku/sku_adrbrowsiel.h"
 #include "bat/ledger/internal/constants.h"
 
 using std::placeholders::_1;
@@ -93,7 +93,7 @@ ContributionSKU::ContributionSKU(LedgerImpl* ledger) :
   DCHECK(credentials_);
   sku_ = sku::SKUFactory::Create(
       ledger_,
-      sku::SKUType::kBrave);
+      sku::SKUType::kadrbrowsiel);
   DCHECK(sku_);
 }
 
@@ -321,7 +321,7 @@ void ContributionSKU::GetUnblindedTokens(
 
   credential::CredentialsRedeem redeem;
   redeem.type = type::RewardsType::PAYMENT;
-  redeem.processor = type::ContributionProcessor::BRAVE_TOKENS;
+  redeem.processor = type::ContributionProcessor::adrbrowsiel_TOKENS;
   redeem.token_list = token_list;
   redeem.order_id = transaction.order_id;
 

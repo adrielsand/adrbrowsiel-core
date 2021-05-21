@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_MEDIA_VIMEO_H_
-#define BRAVELEDGER_MEDIA_VIMEO_H_
+#ifndef adrbrowsielLEDGER_MEDIA_VIMEO_H_
+#define adrbrowsielLEDGER_MEDIA_VIMEO_H_
 
 #include <stdint.h>
 
@@ -20,7 +20,7 @@ namespace ledger {
 class LedgerImpl;
 }
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 class Vimeo {
  public:
@@ -147,6 +147,6 @@ class Vimeo {
   FRIEND_TEST_ALL_PREFIXES(VimeoTest, GetVideoIdFromVideoPage);
 };
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media
 
-#endif  // BRAVELEDGER_MEDIA_VIMEO_H_
+#endif  // adrbrowsielLEDGER_MEDIA_VIMEO_H_

@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_CHROMIUM_SRC_NET_SOCKET_SOCKS5_CLIENT_SOCKET_H_
-#define BRAVE_CHROMIUM_SRC_NET_SOCKET_SOCKS5_CLIENT_SOCKET_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_NET_SOCKET_SOCKS5_CLIENT_SOCKET_H_
+#define adrbrowsiel_CHROMIUM_SRC_NET_SOCKET_SOCKS5_CLIENT_SOCKET_H_
 
 #include "../../../../net/socket/socks5_client_socket.h"
 
@@ -48,4 +48,4 @@ class NET_EXPORT_PRIVATE SOCKS5ClientSocketAuth : public SOCKS5ClientSocket {
 
 }  // namespace net
 
-#endif  // BRAVE_CHROMIUM_SRC_NET_SOCKET_SOCKS5_CLIENT_SOCKET_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_NET_SOCKET_SOCKS5_CLIENT_SOCKET_H_

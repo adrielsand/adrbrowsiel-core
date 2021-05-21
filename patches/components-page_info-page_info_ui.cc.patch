@@ -6,7 +6,7 @@ index 79430dce8b2faed47e2a13ae0205b25a7ace9750..930cf68c3682706cc05838952a4b3242
      SkColor related_text_color) {
    const gfx::VectorIcon* icon = &gfx::kNoneIcon;
    switch (info.type) {
-+    BRAVE_PAGE_INFO_UI_GET_PERMISSION_ICON
++    adrbrowsiel_PAGE_INFO_UI_GET_PERMISSION_ICON
      case ContentSettingsType::COOKIES:
        icon = &vector_icons::kCookieIcon;
        break;

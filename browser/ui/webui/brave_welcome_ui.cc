@@ -1,20 +1,20 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/webui/brave_welcome_ui.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_welcome_ui.h"
 
 #include <algorithm>
 #include <memory>
 #include <string>
 
 #include "base/metrics/histogram_macros.h"
-#include "brave/browser/ui/webui/brave_webui_source.h"
-#include "brave/browser/ui/webui/settings/brave_import_data_handler.h"
-#include "brave/common/pref_names.h"
-#include "brave/common/webui_url_constants.h"
-#include "brave/components/brave_welcome/resources/grit/brave_welcome_generated_map.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_webui_source.h"
+#include "adrbrowsiel/browser/ui/webui/settings/adrbrowsiel_import_data_handler.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/common/webui_url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_welcome/resources/grit/adrbrowsiel_welcome_generated_map.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser_finder.h"
 #include "chrome/browser/ui/chrome_pages.h"
@@ -22,7 +22,7 @@
 #include "chrome/common/pref_names.h"
 #include "chrome/common/webui_url_constants.h"
 #include "components/country_codes/country_codes.h"
-#include "components/grit/brave_components_resources.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
 #include "components/prefs/pref_change_registrar.h"
 #include "components/prefs/pref_service.h"
 #include "content/public/browser/web_ui_message_handler.h"
@@ -36,7 +36,7 @@ void OpenJapanWelcomePage(Profile* profile) {
   Browser* browser = chrome::FindBrowserWithProfile(profile);
   if (browser) {
     content::OpenURLParams open_params(
-        GURL("https://brave.com/ja/users-bitflyer/"), content::Referrer(),
+        GURL("https://adrbrowsiel.com/ja/users-bitflyer/"), content::Referrer(),
         WindowOpenDisposition::NEW_BACKGROUND_TAB,
         ui::PAGE_TRANSITION_AUTO_TOPLEVEL, false);
     browser->OpenURL(open_params);
@@ -50,7 +50,7 @@ void RecordP3AHistogram(int screen_number, bool finished) {
   } else {
     answer = std::min(screen_number, 2);
   }
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Welcome.InteractionStatus", answer, 3);
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Welcome.InteractionStatus", answer, 3);
 }
 
 // The handler for Javascript messages for the chrome://welcome page
@@ -115,16 +115,16 @@ void WelcomeDOMHandler::HandleRecordP3A(const base::ListValue* args) {
 
 }  // namespace
 
-BraveWelcomeUI::BraveWelcomeUI(content::WebUI* web_ui, const std::string& name)
+adrbrowsielWelcomeUI::adrbrowsielWelcomeUI(content::WebUI* web_ui, const std::string& name)
     : WebUIController(web_ui) {
-  CreateAndAddWebUIDataSource(web_ui, name, kBraveWelcomeGenerated,
-                              kBraveWelcomeGeneratedSize,
-                              IDR_BRAVE_WELCOME_HTML,
+  CreateAndAddWebUIDataSource(web_ui, name, kadrbrowsielWelcomeGenerated,
+                              kadrbrowsielWelcomeGeneratedSize,
+                              IDR_adrbrowsiel_WELCOME_HTML,
                               /*disable_trusted_types_csp=*/true);
 
   web_ui->AddMessageHandler(std::make_unique<WelcomeDOMHandler>());
   web_ui->AddMessageHandler(
-      std::make_unique<settings::BraveImportDataHandler>());
+      std::make_unique<settings::adrbrowsielImportDataHandler>());
 
   Profile* profile = Profile::FromWebUI(web_ui);
   // added to allow front end to read/modify default search engine
@@ -144,5 +144,5 @@ BraveWelcomeUI::BraveWelcomeUI(content::WebUI* web_ui, const std::string& name)
   profile->GetPrefs()->SetBoolean(prefs::kHasSeenWelcomePage, true);
 }
 
-BraveWelcomeUI::~BraveWelcomeUI() {
+adrbrowsielWelcomeUI::~adrbrowsielWelcomeUI() {
 }

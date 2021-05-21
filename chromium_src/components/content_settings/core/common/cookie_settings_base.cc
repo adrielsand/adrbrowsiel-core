@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -31,7 +31,7 @@ constexpr char kGoogleusercontent[] = "https://[*.]googleusercontent.com/*";
 constexpr char kFacebook[] = "https://[*.]facebook.com/*";
 constexpr char kInstagram[] = "https://[*.]instagram.com/*";
 
-bool BraveIsAllowedThirdParty(const GURL& url,
+bool adrbrowsielIsAllowedThirdParty(const GURL& url,
                               const GURL& first_party_url,
                               const CookieSettingsBase* const cookie_settings) {
   static const base::NoDestructor<
@@ -92,7 +92,7 @@ bool CookieSettingsBase::ShouldUseEphemeralStorage(
     const GURL& url,
     const GURL& site_for_cookies,
     const base::Optional<url::Origin>& top_frame_origin) const {
-  if (!base::FeatureList::IsEnabled(net::features::kBraveEphemeralStorage))
+  if (!base::FeatureList::IsEnabled(net::features::kadrbrowsielEphemeralStorage))
     return false;
 
   const GURL first_party_url =
@@ -152,7 +152,7 @@ bool CookieSettingsBase::IsCookieAccessAllowed(
   if (!IsFirstPartyAccessAllowed(first_party_url, this))
     return false;
 
-  if (BraveIsAllowedThirdParty(url, first_party_url, this))
+  if (adrbrowsielIsAllowedThirdParty(url, first_party_url, this))
     return true;
 
   return false;

@@ -1,49 +1,49 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_EXTENSIONS_API_BRAVE_REWARDS_API_H_
-#define BRAVE_BROWSER_EXTENSIONS_API_BRAVE_REWARDS_API_H_
+#ifndef adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_REWARDS_API_H_
+#define adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_REWARDS_API_H_
 
 #include <map>
 #include <memory>
 #include <string>
 
 #include "base/memory/weak_ptr.h"
-#include "brave/vendor/bat-native-ledger/include/bat/ledger/mojom_structs.h"
+#include "adrbrowsiel/vendor/bat-native-ledger/include/bat/ledger/mojom_structs.h"
 #include "extensions/browser/extension_function.h"
 
 namespace extensions {
 namespace api {
 
-class BraveRewardsOpenBrowserActionUIFunction :
+class adrbrowsielRewardsOpenBrowserActionUIFunction :
     public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.openBrowserActionUI", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.openBrowserActionUI", UNKNOWN)
 
  protected:
-  ~BraveRewardsOpenBrowserActionUIFunction() override;
+  ~adrbrowsielRewardsOpenBrowserActionUIFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsUpdateMediaDurationFunction : public ExtensionFunction {
+class adrbrowsielRewardsUpdateMediaDurationFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.updateMediaDuration", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.updateMediaDuration", UNKNOWN)
 
  protected:
-  ~BraveRewardsUpdateMediaDurationFunction() override;
+  ~adrbrowsielRewardsUpdateMediaDurationFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsGetPublisherInfoFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetPublisherInfoFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getPublisherInfo", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getPublisherInfo", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetPublisherInfoFunction() override;
+  ~adrbrowsielRewardsGetPublisherInfoFunction() override;
 
   ResponseAction Run() override;
 
@@ -53,12 +53,12 @@ class BraveRewardsGetPublisherInfoFunction : public ExtensionFunction {
       ledger::type::PublisherInfoPtr info);
 };
 
-class BraveRewardsGetPublisherPanelInfoFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetPublisherPanelInfoFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getPublisherPanelInfo", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getPublisherPanelInfo", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetPublisherPanelInfoFunction() override;
+  ~adrbrowsielRewardsGetPublisherPanelInfoFunction() override;
 
   ResponseAction Run() override;
 
@@ -68,12 +68,12 @@ class BraveRewardsGetPublisherPanelInfoFunction : public ExtensionFunction {
       ledger::type::PublisherInfoPtr info);
 };
 
-class BraveRewardsSavePublisherInfoFunction : public ExtensionFunction {
+class adrbrowsielRewardsSavePublisherInfoFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.savePublisherInfo", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.savePublisherInfo", UNKNOWN)
 
  protected:
-  ~BraveRewardsSavePublisherInfoFunction() override;
+  ~adrbrowsielRewardsSavePublisherInfoFunction() override;
 
   ResponseAction Run() override;
 
@@ -81,23 +81,23 @@ class BraveRewardsSavePublisherInfoFunction : public ExtensionFunction {
   void OnSavePublisherInfo(const ledger::type::Result result);
 };
 
-class BraveRewardsTipSiteFunction : public ExtensionFunction {
+class adrbrowsielRewardsTipSiteFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.tipSite", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.tipSite", UNKNOWN)
 
  protected:
-  ~BraveRewardsTipSiteFunction() override;
+  ~adrbrowsielRewardsTipSiteFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsTipUserFunction : public ExtensionFunction {
+class adrbrowsielRewardsTipUserFunction : public ExtensionFunction {
  public:
-  BraveRewardsTipUserFunction();
-  DECLARE_EXTENSION_FUNCTION("braveRewards.tipUser", UNKNOWN)
+  adrbrowsielRewardsTipUserFunction();
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.tipUser", UNKNOWN)
 
  protected:
-  ~BraveRewardsTipUserFunction() override;
+  ~adrbrowsielRewardsTipUserFunction() override;
 
   ResponseAction Run() override;
 
@@ -109,25 +109,25 @@ class BraveRewardsTipUserFunction : public ExtensionFunction {
   void OnTipUserSavePublisherInfo(const ledger::type::Result result);
   void ShowTipDialog();
 
-  base::WeakPtrFactory<BraveRewardsTipUserFunction> weak_factory_;
+  base::WeakPtrFactory<adrbrowsielRewardsTipUserFunction> weak_factory_;
 };
 
-class BraveRewardsGetPublisherDataFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetPublisherDataFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getPublisherData", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getPublisherData", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetPublisherDataFunction() override;
+  ~adrbrowsielRewardsGetPublisherDataFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsGetRewardsParametersFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetRewardsParametersFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getRewardsParameters", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getRewardsParameters", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetRewardsParametersFunction() override;
+  ~adrbrowsielRewardsGetRewardsParametersFunction() override;
 
   ResponseAction Run() override;
 
@@ -135,12 +135,12 @@ class BraveRewardsGetRewardsParametersFunction : public ExtensionFunction {
   void OnGet(ledger::type::RewardsParametersPtr parameters);
 };
 
-class BraveRewardsGetBalanceReportFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetBalanceReportFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getBalanceReport", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getBalanceReport", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetBalanceReportFunction() override;
+  ~adrbrowsielRewardsGetBalanceReportFunction() override;
 
   ResponseAction Run() override;
 
@@ -150,32 +150,32 @@ class BraveRewardsGetBalanceReportFunction : public ExtensionFunction {
       ledger::type::BalanceReportInfoPtr report);
 };
 
-class BraveRewardsIncludeInAutoContributionFunction : public ExtensionFunction {
+class adrbrowsielRewardsIncludeInAutoContributionFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.includeInAutoContribution", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.includeInAutoContribution", UNKNOWN)
 
  protected:
-  ~BraveRewardsIncludeInAutoContributionFunction() override;
+  ~adrbrowsielRewardsIncludeInAutoContributionFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsFetchPromotionsFunction : public ExtensionFunction {
+class adrbrowsielRewardsFetchPromotionsFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.fetchPromotions", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.fetchPromotions", UNKNOWN)
 
  protected:
-  ~BraveRewardsFetchPromotionsFunction() override;
+  ~adrbrowsielRewardsFetchPromotionsFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsClaimPromotionFunction : public ExtensionFunction {
+class adrbrowsielRewardsClaimPromotionFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.claimPromotion", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.claimPromotion", UNKNOWN)
 
  protected:
-  ~BraveRewardsClaimPromotionFunction() override;
+  ~adrbrowsielRewardsClaimPromotionFunction() override;
 
   ResponseAction Run() override;
 
@@ -188,12 +188,12 @@ class BraveRewardsClaimPromotionFunction : public ExtensionFunction {
       const std::string& captcha_id);
 };
 
-class BraveRewardsAttestPromotionFunction : public ExtensionFunction {
+class adrbrowsielRewardsAttestPromotionFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.attestPromotion", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.attestPromotion", UNKNOWN)
 
  protected:
-  ~BraveRewardsAttestPromotionFunction() override;
+  ~adrbrowsielRewardsAttestPromotionFunction() override;
 
   ResponseAction Run() override;
 
@@ -204,14 +204,14 @@ class BraveRewardsAttestPromotionFunction : public ExtensionFunction {
       ledger::type::PromotionPtr promotion);
 };
 
-class BraveRewardsGetPendingContributionsTotalFunction
+class adrbrowsielRewardsGetPendingContributionsTotalFunction
     : public ExtensionFunction {
  public:
   DECLARE_EXTENSION_FUNCTION(
-      "braveRewards.getPendingContributionsTotal", UNKNOWN)
+      "adrbrowsielRewards.getPendingContributionsTotal", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetPendingContributionsTotalFunction() override;
+  ~adrbrowsielRewardsGetPendingContributionsTotalFunction() override;
 
   ResponseAction Run() override;
 
@@ -219,32 +219,32 @@ class BraveRewardsGetPendingContributionsTotalFunction
   void OnGetPendingTotal(double amount);
 };
 
-class BraveRewardsSaveAdsSettingFunction : public ExtensionFunction {
+class adrbrowsielRewardsSaveAdsSettingFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.saveAdsSetting", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.saveAdsSetting", UNKNOWN)
 
  protected:
-  ~BraveRewardsSaveAdsSettingFunction() override;
+  ~adrbrowsielRewardsSaveAdsSettingFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsSetAutoContributeEnabledFunction : public ExtensionFunction {
+class adrbrowsielRewardsSetAutoContributeEnabledFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.setAutoContributeEnabled", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.setAutoContributeEnabled", UNKNOWN)
 
  protected:
-  ~BraveRewardsSetAutoContributeEnabledFunction() override;
+  ~adrbrowsielRewardsSetAutoContributeEnabledFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsGetACEnabledFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetACEnabledFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getACEnabled", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getACEnabled", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetACEnabledFunction() override;
+  ~adrbrowsielRewardsGetACEnabledFunction() override;
 
   ResponseAction Run() override;
 
@@ -252,12 +252,12 @@ class BraveRewardsGetACEnabledFunction : public ExtensionFunction {
   void OnGetACEnabled(bool enabled);
 };
 
-class BraveRewardsSaveRecurringTipFunction : public ExtensionFunction {
+class adrbrowsielRewardsSaveRecurringTipFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.saveRecurringTip", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.saveRecurringTip", UNKNOWN)
 
  protected:
-  ~BraveRewardsSaveRecurringTipFunction() override;
+  ~adrbrowsielRewardsSaveRecurringTipFunction() override;
 
   ResponseAction Run() override;
 
@@ -265,23 +265,23 @@ class BraveRewardsSaveRecurringTipFunction : public ExtensionFunction {
   void OnSaveRecurringTip(bool success);
 };
 
-class BraveRewardsRemoveRecurringTipFunction :
+class adrbrowsielRewardsRemoveRecurringTipFunction :
   public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.removeRecurringTip", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.removeRecurringTip", UNKNOWN)
 
  protected:
-  ~BraveRewardsRemoveRecurringTipFunction() override;
+  ~adrbrowsielRewardsRemoveRecurringTipFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsGetRecurringTipsFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetRecurringTipsFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getRecurringTips", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getRecurringTips", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetRecurringTipsFunction() override;
+  ~adrbrowsielRewardsGetRecurringTipsFunction() override;
 
   ResponseAction Run() override;
 
@@ -289,13 +289,13 @@ class BraveRewardsGetRecurringTipsFunction : public ExtensionFunction {
     void OnGetRecurringTips(ledger::type::PublisherInfoList list);
 };
 
-class BraveRewardsGetPublisherBannerFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetPublisherBannerFunction : public ExtensionFunction {
  public:
   DECLARE_EXTENSION_FUNCTION(
-      "braveRewards.getPublisherBanner", UNKNOWN)
+      "adrbrowsielRewards.getPublisherBanner", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetPublisherBannerFunction() override;
+  ~adrbrowsielRewardsGetPublisherBannerFunction() override;
 
   ResponseAction Run() override;
 
@@ -303,12 +303,12 @@ class BraveRewardsGetPublisherBannerFunction : public ExtensionFunction {
   void OnPublisherBanner(ledger::type::PublisherBannerPtr banner);
 };
 
-class BraveRewardsRefreshPublisherFunction : public ExtensionFunction {
+class adrbrowsielRewardsRefreshPublisherFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.refreshPublisher", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.refreshPublisher", UNKNOWN)
 
  protected:
-  ~BraveRewardsRefreshPublisherFunction() override;
+  ~adrbrowsielRewardsRefreshPublisherFunction() override;
 
   ResponseAction Run() override;
 
@@ -318,25 +318,25 @@ class BraveRewardsRefreshPublisherFunction : public ExtensionFunction {
       const std::string& publisher_key);
 };
 
-class BraveRewardsGetAllNotificationsFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetAllNotificationsFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getAllNotifications", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getAllNotifications", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetAllNotificationsFunction() override;
+  ~adrbrowsielRewardsGetAllNotificationsFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsGetInlineTippingPlatformEnabledFunction :
+class adrbrowsielRewardsGetInlineTippingPlatformEnabledFunction :
     public ExtensionFunction {
  public:
   DECLARE_EXTENSION_FUNCTION(
-      "braveRewards.getInlineTippingPlatformEnabled",
+      "adrbrowsielRewards.getInlineTippingPlatformEnabled",
       UNKNOWN)
 
  protected:
-  ~BraveRewardsGetInlineTippingPlatformEnabledFunction() override;
+  ~adrbrowsielRewardsGetInlineTippingPlatformEnabledFunction() override;
 
   ResponseAction Run() override;
 
@@ -344,12 +344,12 @@ class BraveRewardsGetInlineTippingPlatformEnabledFunction :
   void OnInlineTipSetting(bool value);
 };
 
-class BraveRewardsFetchBalanceFunction : public ExtensionFunction {
+class adrbrowsielRewardsFetchBalanceFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.fetchBalance", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.fetchBalance", UNKNOWN)
 
  protected:
-  ~BraveRewardsFetchBalanceFunction() override;
+  ~adrbrowsielRewardsFetchBalanceFunction() override;
 
   ResponseAction Run() override;
 
@@ -359,12 +359,12 @@ class BraveRewardsFetchBalanceFunction : public ExtensionFunction {
       ledger::type::BalancePtr balance);
 };
 
-class BraveRewardsGetExternalWalletFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetExternalWalletFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getExternalWallet", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getExternalWallet", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetExternalWalletFunction() override;
+  ~adrbrowsielRewardsGetExternalWalletFunction() override;
 
   ResponseAction Run() override;
 
@@ -373,42 +373,42 @@ class BraveRewardsGetExternalWalletFunction : public ExtensionFunction {
                            ledger::type::ExternalWalletPtr wallet);
 };
 
-class BraveRewardsDisconnectWalletFunction : public ExtensionFunction {
+class adrbrowsielRewardsDisconnectWalletFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.disconnectWallet", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.disconnectWallet", UNKNOWN)
 
  protected:
-  ~BraveRewardsDisconnectWalletFunction() override;
+  ~adrbrowsielRewardsDisconnectWalletFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsOnlyAnonWalletFunction : public ExtensionFunction {
+class adrbrowsielRewardsOnlyAnonWalletFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.onlyAnonWallet", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.onlyAnonWallet", UNKNOWN)
 
  protected:
-  ~BraveRewardsOnlyAnonWalletFunction() override;
+  ~adrbrowsielRewardsOnlyAnonWalletFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsGetAdsEnabledFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetAdsEnabledFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getAdsEnabled", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getAdsEnabled", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetAdsEnabledFunction() override;
+  ~adrbrowsielRewardsGetAdsEnabledFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsGetAdsAccountStatementFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetAdsAccountStatementFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getAdsAccountStatement", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getAdsAccountStatement", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetAdsAccountStatementFunction() override;
+  ~adrbrowsielRewardsGetAdsAccountStatementFunction() override;
 
   ResponseAction Run() override;
 
@@ -421,23 +421,23 @@ class BraveRewardsGetAdsAccountStatementFunction : public ExtensionFunction {
                                 const double earnings_last_month);
 };
 
-class BraveRewardsGetAdsSupportedFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetAdsSupportedFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getAdsSupported", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getAdsSupported", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetAdsSupportedFunction() override;
+  ~adrbrowsielRewardsGetAdsSupportedFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsGetAnonWalletStatusFunction
+class adrbrowsielRewardsGetAnonWalletStatusFunction
     : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getAnonWalletStatus", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getAnonWalletStatus", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetAnonWalletStatusFunction() override;
+  ~adrbrowsielRewardsGetAnonWalletStatusFunction() override;
 
   ResponseAction Run() override;
 
@@ -445,42 +445,42 @@ class BraveRewardsGetAnonWalletStatusFunction
   void OnGetAnonWalletStatus(const ledger::type::Result result);
 };
 
-class BraveRewardsIsInitializedFunction : public ExtensionFunction {
+class adrbrowsielRewardsIsInitializedFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.isInitialized", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.isInitialized", UNKNOWN)
 
  protected:
-  ~BraveRewardsIsInitializedFunction() override;
+  ~adrbrowsielRewardsIsInitializedFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsShouldShowOnboardingFunction : public ExtensionFunction {
+class adrbrowsielRewardsShouldShowOnboardingFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.shouldShowOnboarding", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.shouldShowOnboarding", UNKNOWN)
 
  protected:
-  ~BraveRewardsShouldShowOnboardingFunction() override;
+  ~adrbrowsielRewardsShouldShowOnboardingFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsEnableRewardsFunction : public ExtensionFunction {
+class adrbrowsielRewardsEnableRewardsFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.enableRewards", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.enableRewards", UNKNOWN)
 
  protected:
-  ~BraveRewardsEnableRewardsFunction() override;
+  ~adrbrowsielRewardsEnableRewardsFunction() override;
 
   ResponseAction Run() override;
 };
 
-class BraveRewardsGetPrefsFunction : public ExtensionFunction {
+class adrbrowsielRewardsGetPrefsFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.getPrefs", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.getPrefs", UNKNOWN)
 
  protected:
-  ~BraveRewardsGetPrefsFunction() override;
+  ~adrbrowsielRewardsGetPrefsFunction() override;
 
   ResponseAction Run() override;
 
@@ -489,12 +489,12 @@ class BraveRewardsGetPrefsFunction : public ExtensionFunction {
       ledger::type::AutoContributePropertiesPtr properties);
 };
 
-class BraveRewardsUpdatePrefsFunction : public ExtensionFunction {
+class adrbrowsielRewardsUpdatePrefsFunction : public ExtensionFunction {
  public:
-  DECLARE_EXTENSION_FUNCTION("braveRewards.updatePrefs", UNKNOWN)
+  DECLARE_EXTENSION_FUNCTION("adrbrowsielRewards.updatePrefs", UNKNOWN)
 
  protected:
-  ~BraveRewardsUpdatePrefsFunction() override;
+  ~adrbrowsielRewardsUpdatePrefsFunction() override;
 
   ResponseAction Run() override;
 };
@@ -502,4 +502,4 @@ class BraveRewardsUpdatePrefsFunction : public ExtensionFunction {
 }  // namespace api
 }  // namespace extensions
 
-#endif  // BRAVE_BROWSER_EXTENSIONS_API_BRAVE_REWARDS_API_H_
+#endif  // adrbrowsiel_BROWSER_EXTENSIONS_API_adrbrowsiel_REWARDS_API_H_

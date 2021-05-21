@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/profiles/brave_profile_manager.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/browser/search_engines/guest_window_search_engine_provider_service.h"
-#include "brave/browser/search_engines/search_engine_provider_service_factory.h"
-#include "brave/browser/search_engines/search_engine_provider_util.h"
-#include "brave/browser/ui/browser_commands.h"
-#include "brave/components/search_engines/brave_prepopulated_engines.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/profiles/adrbrowsiel_profile_manager.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/search_engines/guest_window_search_engine_provider_service.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_provider_service_factory.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_provider_util.h"
+#include "adrbrowsiel/browser/ui/browser_commands.h"
+#include "adrbrowsiel/components/search_engines/adrbrowsiel_prepopulated_engines.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/profiles/profile_window.h"
 #include "chrome/browser/search_engines/template_url_service_factory.h"
@@ -53,7 +53,7 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
   Profile* incognito_profile = profile->GetPrimaryOTRProfile();
 
   // This test case is only for non-qwant region.
-  if (brave::IsRegionForQwant(profile))
+  if (adrbrowsiel::IsRegionForQwant(profile))
     return;
 
   auto* service = TemplateURLServiceFactory::GetForProfile(profile);
@@ -61,7 +61,7 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
       TemplateURLServiceFactory::GetForProfile(incognito_profile);
 
   // Test pref is initially disabled.
-  EXPECT_FALSE(brave::UseAlternativeSearchEngineProviderEnabled(profile));
+  EXPECT_FALSE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(profile));
 
   // Both mode should use same search engine if alternate pref is disabled.
   std::u16string normal_search_engine =
@@ -71,16 +71,16 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
 
   // Toggle pref and check incognito_service uses duckduckgo search engine and
   // normal mode service uses existing one.
-  brave::ToggleUseAlternativeSearchEngineProvider(profile);
-  EXPECT_TRUE(brave::UseAlternativeSearchEngineProviderEnabled(profile));
+  adrbrowsiel::ToggleUseAlternativeSearchEngineProvider(profile);
+  EXPECT_TRUE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(profile));
   EXPECT_EQ(incognito_service->GetDefaultSearchProvider()->data().short_name(),
             u"DuckDuckGo");
   EXPECT_EQ(service->GetDefaultSearchProvider()->data().short_name(),
             normal_search_engine);
 
   // Toggle pref again and check both mode uses same search engine.
-  brave::ToggleUseAlternativeSearchEngineProvider(profile);
-  EXPECT_FALSE(brave::UseAlternativeSearchEngineProviderEnabled(profile));
+  adrbrowsiel::ToggleUseAlternativeSearchEngineProvider(profile);
+  EXPECT_FALSE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(profile));
   EXPECT_EQ(service->GetDefaultSearchProvider()->data().short_name(),
             normal_search_engine);
   EXPECT_EQ(incognito_service->GetDefaultSearchProvider()->data().short_name(),
@@ -102,7 +102,7 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
   Profile* incognito_profile = profile->GetPrimaryOTRProfile();
 
   // This test case is only for qwant region.
-  if (!brave::IsRegionForQwant(profile))
+  if (!adrbrowsiel::IsRegionForQwant(profile))
     return;
 
   auto* service = TemplateURLServiceFactory::GetForProfile(profile);
@@ -110,11 +110,11 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
       TemplateURLServiceFactory::GetForProfile(incognito_profile);
 
   // Test pref is initially disabled.
-  EXPECT_FALSE(brave::UseAlternativeSearchEngineProviderEnabled(profile));
+  EXPECT_FALSE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(profile));
 
   // Toggling doesn't work in qwant region.
-  brave::ToggleUseAlternativeSearchEngineProvider(profile);
-  EXPECT_FALSE(brave::UseAlternativeSearchEngineProviderEnabled(profile));
+  adrbrowsiel::ToggleUseAlternativeSearchEngineProvider(profile);
+  EXPECT_FALSE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(profile));
 
   // Both mode should use same search engine.
   std::u16string normal_search_engine =
@@ -132,21 +132,21 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
 }
 
 // Check crash isn't happened with multiple private window is used.
-// https://github.com/brave/brave-browser/issues/1452
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/1452
 IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
                        MultiplePrivateWindowTest) {
   Browser* private_window_1 = CreateIncognitoBrowser();
   CloseBrowserSynchronously(private_window_1);
 
   Browser* private_window_2 = CreateIncognitoBrowser();
-  brave::ToggleUseAlternativeSearchEngineProvider(private_window_2->profile());
+  adrbrowsiel::ToggleUseAlternativeSearchEngineProvider(private_window_2->profile());
 }
 
 #if BUILDFLAG(ENABLE_TOR)
 // Checks the default search engine of the tor profile.
 IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
                        PRE_CheckDefaultTorProfileSearchProviderTest) {
-  brave::NewOffTheRecordWindowTor(browser());
+  adrbrowsiel::NewOffTheRecordWindowTor(browser());
   content::RunAllTasksUntilIdle();
 
   Profile* tor_profile = BrowserList::GetInstance()->GetLastActive()->profile();
@@ -154,7 +154,7 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
 
   auto* service = TemplateURLServiceFactory::GetForProfile(tor_profile);
 
-  int default_provider_id = brave::IsRegionForQwant(tor_profile) ?
+  int default_provider_id = adrbrowsiel::IsRegionForQwant(tor_profile) ?
       TemplateURLPrepopulateData::PREPOPULATED_ENGINE_ID_QWANT :
       TemplateURLPrepopulateData::PREPOPULATED_ENGINE_ID_DUCKDUCKGO;
 
@@ -174,14 +174,14 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
 // sessions.
 IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
                        CheckDefaultTorProfileSearchProviderTest) {
-  brave::NewOffTheRecordWindowTor(browser());
+  adrbrowsiel::NewOffTheRecordWindowTor(browser());
   content::RunAllTasksUntilIdle();
 
   Profile* tor_profile = BrowserList::GetInstance()->GetLastActive()->profile();
   EXPECT_TRUE(tor_profile->IsTor());
 
   int default_provider_id =
-      brave::IsRegionForQwant(tor_profile)
+      adrbrowsiel::IsRegionForQwant(tor_profile)
           ? TemplateURLPrepopulateData::PREPOPULATED_ENGINE_ID_QWANT
           : TemplateURLPrepopulateData::PREPOPULATED_ENGINE_ID_DUCKDUCKGO;
   auto* service = TemplateURLServiceFactory::GetForProfile(tor_profile);
@@ -201,17 +201,17 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
   EXPECT_TRUE(guest_profile->IsGuestSession());
 
   // Guest window controller is only used in non Qwant region.
-  if (brave::IsRegionForQwant(guest_profile))
+  if (adrbrowsiel::IsRegionForQwant(guest_profile))
     return;
 
   auto* template_service =
       TemplateURLServiceFactory::GetForProfile(guest_profile);
 
   // alternative pref is initially disabled.
-  EXPECT_FALSE(brave::UseAlternativeSearchEngineProviderEnabled(guest_profile));
+  EXPECT_FALSE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(guest_profile));
 
-  brave::ToggleUseAlternativeSearchEngineProvider(guest_profile);
-  EXPECT_TRUE(brave::UseAlternativeSearchEngineProviderEnabled(guest_profile));
+  adrbrowsiel::ToggleUseAlternativeSearchEngineProvider(guest_profile);
+  EXPECT_TRUE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(guest_profile));
   int provider_id =
       TemplateURLPrepopulateData::PREPOPULATED_ENGINE_ID_DUCKDUCKGO;
 
@@ -231,7 +231,7 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
   search_engine_provider_service->OnTemplateURLServiceChanged();
 
   // Check alternative pref is turned off.
-  EXPECT_FALSE(brave::UseAlternativeSearchEngineProviderEnabled(guest_profile));
+  EXPECT_FALSE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(guest_profile));
 
   auto ddg_data = TemplateURLPrepopulateData::GetPrepopulatedEngine(
       guest_profile->GetPrefs(),
@@ -240,7 +240,7 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
 
   template_service->SetUserSelectedDefaultSearchProvider(&ddg_url);
   search_engine_provider_service->OnTemplateURLServiceChanged();
-  EXPECT_TRUE(brave::UseAlternativeSearchEngineProviderEnabled(guest_profile));
+  EXPECT_TRUE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(guest_profile));
 }
 
 #if BUILDFLAG(ENABLE_EXTENSIONS)
@@ -320,13 +320,13 @@ IN_PROC_BROWSER_TEST_F(ExtensionBrowserTest,
   EXPECT_EQ(TemplateURL::NORMAL_CONTROLLED_BY_EXTENSION,
             current_incognito_dse->type());
 
-  if (!brave::IsRegionForQwant(profile())) {
+  if (!adrbrowsiel::IsRegionForQwant(profile())) {
     // DDG toggle button is on and its preference is stored.
     // but search provider is not changed. still extension search provider is
     // used.
-    EXPECT_FALSE(brave::UseAlternativeSearchEngineProviderEnabled(profile()));
-    brave::ToggleUseAlternativeSearchEngineProvider(profile());
-    EXPECT_TRUE(brave::UseAlternativeSearchEngineProviderEnabled(profile()));
+    EXPECT_FALSE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(profile()));
+    adrbrowsiel::ToggleUseAlternativeSearchEngineProvider(profile());
+    EXPECT_TRUE(adrbrowsiel::UseAlternativeSearchEngineProviderEnabled(profile()));
     current_incognito_dse = incognito_url_service->GetDefaultSearchProvider();
     EXPECT_EQ(TemplateURL::NORMAL_CONTROLLED_BY_EXTENSION,
               current_incognito_dse->type());

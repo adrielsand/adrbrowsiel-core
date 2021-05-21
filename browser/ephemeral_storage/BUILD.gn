@@ -24,8 +24,8 @@ if (!is_android) {
     deps = [
       ":ephemeral_storage",
       "//base",
-      "//brave/components/brave_shields/browser:browser",
-      "//brave/components/brave_shields/common:common",
+      "//adrbrowsiel/components/adrbrowsiel_shields/browser:browser",
+      "//adrbrowsiel/components/adrbrowsiel_shields/common:common",
       "//chrome/browser",
       "//chrome/browser/profiles:profile",
       "//chrome/browser/ui",

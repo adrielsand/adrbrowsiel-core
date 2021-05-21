@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,12 +9,12 @@ import org.chromium.components.external_intents.ExternalNavigationDelegate;
 import org.chromium.components.external_intents.ExternalNavigationHandler;
 import org.chromium.components.external_intents.ExternalNavigationParams;
 import org.chromium.components.external_intents.ExternalNavigationHandler.OverrideUrlLoadingResult;
-import org.chromium.chrome.browser.BraveUphold;
+import org.chromium.chrome.browser.adrbrowsielUphold;
 
-public class BraveExternalNavigationHandler extends ExternalNavigationHandler {
-    private BraveUphold mBraveUphold;
+public class adrbrowsielExternalNavigationHandler extends ExternalNavigationHandler {
+    private adrbrowsielUphold madrbrowsielUphold;
 
-    public BraveExternalNavigationHandler(ExternalNavigationDelegate delegate) {
+    public adrbrowsielExternalNavigationHandler(ExternalNavigationDelegate delegate) {
         super(delegate);
     }
 
@@ -28,13 +28,13 @@ public class BraveExternalNavigationHandler extends ExternalNavigationHandler {
     }
 
     private boolean isUpholdOverride(ExternalNavigationParams params) {
-        if (!params.getUrl().startsWith(BraveUphold.UPHOLD_REDIRECT_URL)) return false;
+        if (!params.getUrl().startsWith(adrbrowsielUphold.UPHOLD_REDIRECT_URL)) return false;
         return true;
     }
 
     private void CompleteUpholdVerification(ExternalNavigationParams params) {
-        mBraveUphold = new BraveUphold();
-        mBraveUphold.CompleteUpholdVerification(params, this);
+        madrbrowsielUphold = new adrbrowsielUphold();
+        madrbrowsielUphold.CompleteUpholdVerification(params, this);
     }
 
     public OverrideUrlLoadingResult clobberCurrentTabWithFallbackUrl(

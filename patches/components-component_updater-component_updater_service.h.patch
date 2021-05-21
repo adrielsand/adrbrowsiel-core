@@ -6,7 +6,7 @@ index b4693bbeaf5987ffad8786be2ed6c6b7c981634d..6470314aa0b1a0654c46ce5b485eb644
  
    friend class speech::SodaInstallerImpl;
    friend class ::ComponentsHandler;
-+  BRAVE_COMPONENT_UPDATER_SERVICE_H_
++  adrbrowsiel_COMPONENT_UPDATER_SERVICE_H_
    FRIEND_TEST_ALL_PREFIXES(ComponentInstallerTest, RegisterComponent);
  };
  
@@ -14,7 +14,7 @@ index b4693bbeaf5987ffad8786be2ed6c6b7c981634d..6470314aa0b1a0654c46ce5b485eb644
    enum class Priority { BACKGROUND = 0, FOREGROUND = 1 };
  
    virtual ~OnDemandUpdater() = default;
-+  BRAVE_COMPONENT_UPDATER_SERVICE_H_ON_DEMAND_UPDATER
++  adrbrowsiel_COMPONENT_UPDATER_SERVICE_H_ON_DEMAND_UPDATER
  
   private:
    friend class OnDemandTester;

@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_stats/brave_stats_updater.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/adrbrowsiel_stats_updater.h"
 
 #include <utility>
 
@@ -11,15 +11,15 @@
 #include "base/command_line.h"
 #include "base/system/sys_info.h"
 #include "bat/ads/pref_names.h"
-#include "brave/browser/brave_stats/brave_stats_updater_params.h"
-#include "brave/browser/brave_stats/switches.h"
-#include "brave/common/brave_channel_info.h"
-#include "brave/common/network_constants.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_referrals/buildflags/buildflags.h"
-#include "brave/components/brave_stats/browser/brave_stats_updater_util.h"
-#include "brave/components/rpill/common/rpill.h"
-#include "brave/components/version_info/version_info.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/adrbrowsiel_stats_updater_params.h"
+#include "adrbrowsiel/browser/adrbrowsiel_stats/switches.h"
+#include "adrbrowsiel/common/adrbrowsiel_channel_info.h"
+#include "adrbrowsiel/common/network_constants.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_stats/browser/adrbrowsiel_stats_updater_util.h"
+#include "adrbrowsiel/components/rpill/common/rpill.h"
+#include "adrbrowsiel/components/version_info/version_info.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/net/system_network_context_manager.h"
 #include "chrome/browser/profiles/profile_manager.h"
@@ -36,16 +36,16 @@
 #include "services/network/public/cpp/simple_url_loader.h"
 #include "services/network/public/mojom/fetch_api.mojom-shared.h"
 
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
-#include "brave/components/brave_referrals/common/pref_names.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
+#include "adrbrowsiel/components/adrbrowsiel_referrals/common/pref_names.h"
 #endif
 
-namespace brave_stats {
+namespace adrbrowsiel_stats {
 
 namespace {
 
-BraveStatsUpdater::StatsUpdatedCallback g_testing_stats_updated_callback;
-BraveStatsUpdater::StatsUpdatedCallback g_testing_stats_threshold_callback;
+adrbrowsielStatsUpdater::StatsUpdatedCallback g_testing_stats_updated_callback;
+adrbrowsielStatsUpdater::StatsUpdatedCallback g_testing_stats_threshold_callback;
 
 // Ping the update server shortly after startup.
 static constexpr int kUpdateServerStartupPingDelaySeconds = 3;
@@ -58,15 +58,15 @@ static constexpr int kMinimumUsageThreshold = 3;
 
 GURL GetUpdateURL(
     const GURL& base_update_url,
-    const brave_stats::BraveStatsUpdaterParams& stats_updater_params) {
+    const adrbrowsiel_stats::adrbrowsielStatsUpdaterParams& stats_updater_params) {
   GURL update_url(base_update_url);
   update_url = net::AppendQueryParameter(update_url, "platform",
-                                         brave_stats::GetPlatformIdentifier());
+                                         adrbrowsiel_stats::GetPlatformIdentifier());
   update_url =
-      net::AppendQueryParameter(update_url, "channel", brave::GetChannelName());
+      net::AppendQueryParameter(update_url, "channel", adrbrowsiel::GetChannelName());
   update_url = net::AppendQueryParameter(
       update_url, "version",
-      version_info::GetBraveVersionWithoutChromiumMajorVersion());
+      version_info::GetadrbrowsielVersionWithoutChromiumMajorVersion());
   update_url = net::AppendQueryParameter(update_url, "daily",
                                          stats_updater_params.GetDailyParam());
   update_url = net::AppendQueryParameter(update_url, "weekly",
@@ -89,14 +89,14 @@ GURL GetUpdateURL(
 }
 
 net::NetworkTrafficAnnotationTag AnonymousStatsAnnotation() {
-  return net::DefineNetworkTrafficAnnotation("brave_stats_updater", R"(
+  return net::DefineNetworkTrafficAnnotation("adrbrowsiel_stats_updater", R"(
     semantics {
       sender:
-        "Brave Stats Updater"
+        "adrbrowsiel Stats Updater"
       description:
-        "This service sends anonymous usage statistics to Brave."
+        "This service sends anonymous usage statistics to adrbrowsiel."
       trigger:
-        "Stats are automatically sent at intervals while Brave "
+        "Stats are automatically sent at intervals while adrbrowsiel "
         "is running."
       data: "Anonymous usage statistics."
       destination: WEBSITE
@@ -111,17 +111,17 @@ net::NetworkTrafficAnnotationTag AnonymousStatsAnnotation() {
 }
 }  // anonymous namespace
 
-BraveStatsUpdater::BraveStatsUpdater(PrefService* pref_service)
+adrbrowsielStatsUpdater::adrbrowsielStatsUpdater(PrefService* pref_service)
     : pref_service_(pref_service) {
   const base::CommandLine& command_line =
       *base::CommandLine::ForCurrentProcess();
-  if (command_line.HasSwitch(switches::kBraveStatsUpdaterServer)) {
+  if (command_line.HasSwitch(switches::kadrbrowsielStatsUpdaterServer)) {
     usage_server_ =
-        command_line.GetSwitchValueASCII(switches::kBraveStatsUpdaterServer);
+        command_line.GetSwitchValueASCII(switches::kadrbrowsielStatsUpdaterServer);
     if (!GURL(usage_server_).is_valid())
       LOG(ERROR) << "bad url given as stats updater url: " << usage_server_;
   } else {
-    usage_server_ = BRAVE_USAGE_SERVER;
+    usage_server_ = adrbrowsiel_USAGE_SERVER;
   }
 
   // Track initial profile creation
@@ -132,16 +132,16 @@ BraveStatsUpdater::BraveStatsUpdater(PrefService* pref_service)
   }
 }
 
-BraveStatsUpdater::~BraveStatsUpdater() {}
+adrbrowsielStatsUpdater::~adrbrowsielStatsUpdater() {}
 
-void BraveStatsUpdater::OnProfileAdded(Profile* profile) {
+void adrbrowsielStatsUpdater::OnProfileAdded(Profile* profile) {
   if (profile == ProfileManager::GetPrimaryUserProfile()) {
     g_browser_process->profile_manager()->RemoveObserver(this);
     Start();
   }
 }
 
-void BraveStatsUpdater::Start() {
+void adrbrowsielStatsUpdater::Start() {
   // Startup timer, only initiated once we've checked for a promo
   // code.
   DCHECK(!server_ping_startup_timer_);
@@ -155,15 +155,15 @@ void BraveStatsUpdater::Start() {
   server_ping_periodic_timer_->Start(
       FROM_HERE,
       base::TimeDelta::FromSeconds(kUpdateServerPeriodicPingFrequencySeconds),
-      this, &BraveStatsUpdater::OnServerPingTimerFired);
+      this, &adrbrowsielStatsUpdater::OnServerPingTimerFired);
 }
 
-void BraveStatsUpdater::Stop() {
+void adrbrowsielStatsUpdater::Stop() {
   server_ping_startup_timer_.reset();
   server_ping_periodic_timer_.reset();
 }
 
-bool BraveStatsUpdater::MaybeDoThresholdPing(int score) {
+bool adrbrowsielStatsUpdater::MaybeDoThresholdPing(int score) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   threshold_score_ += score;
 
@@ -186,23 +186,23 @@ bool BraveStatsUpdater::MaybeDoThresholdPing(int score) {
 }
 
 // static
-void BraveStatsUpdater::SetStatsUpdatedCallbackForTesting(
+void adrbrowsielStatsUpdater::SetStatsUpdatedCallbackForTesting(
     StatsUpdatedCallback stats_updated_callback) {
   g_testing_stats_updated_callback = stats_updated_callback;
 }
 
 // static
-void BraveStatsUpdater::SetStatsThresholdCallbackForTesting(
+void adrbrowsielStatsUpdater::SetStatsThresholdCallbackForTesting(
     StatsUpdatedCallback stats_threshold_callback) {
   g_testing_stats_threshold_callback = stats_threshold_callback;
 }
 
-GURL BraveStatsUpdater::BuildStatsEndpoint(const std::string& path) {
+GURL adrbrowsielStatsUpdater::BuildStatsEndpoint(const std::string& path) {
   return GURL(usage_server_ + path);
 }
 
-void BraveStatsUpdater::OnSimpleLoaderComplete(
-    std::unique_ptr<brave_stats::BraveStatsUpdaterParams> stats_updater_params,
+void adrbrowsielStatsUpdater::OnSimpleLoaderComplete(
+    std::unique_ptr<adrbrowsiel_stats::adrbrowsielStatsUpdaterParams> stats_updater_params,
     scoped_refptr<net::HttpResponseHeaders> headers) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   GURL final_url = simple_url_loader_->GetFinalURL();
@@ -222,7 +222,7 @@ void BraveStatsUpdater::OnSimpleLoaderComplete(
 
   // We need to set this *before* params are saved.
   if (!first_check_made && !HasDoneThresholdPing()) {
-    auto endpoint = BuildStatsEndpoint(kBraveUsageThresholdPath);
+    auto endpoint = BuildStatsEndpoint(kadrbrowsielUsageThresholdPath);
     auto threshold_query = GetUpdateURL(endpoint, *stats_updater_params);
     // Unfortunately we need to serialize this in case the user starts
     // the browser, stats ping goes, then we lose the original params.
@@ -241,10 +241,10 @@ void BraveStatsUpdater::OnSimpleLoaderComplete(
   (void)MaybeDoThresholdPing(0);
 
   // Log the full URL of the stats ping.
-  VLOG(1) << "Brave stats ping, url: " << final_url.spec();
+  VLOG(1) << "adrbrowsiel stats ping, url: " << final_url.spec();
 }
 
-void BraveStatsUpdater::OnThresholdLoaderComplete(
+void adrbrowsielStatsUpdater::OnThresholdLoaderComplete(
     scoped_refptr<net::HttpResponseHeaders> headers) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   GURL final_url = simple_url_loader_->GetFinalURL();
@@ -268,12 +268,12 @@ void BraveStatsUpdater::OnThresholdLoaderComplete(
   DisableThresholdPing();
 
   // Log the full URL of the stats ping.
-  VLOG(1) << "Brave stats ping, url: " << final_url.spec();
+  VLOG(1) << "adrbrowsiel stats ping, url: " << final_url.spec();
 }
 
-void BraveStatsUpdater::OnServerPingTimerFired() {
+void adrbrowsielStatsUpdater::OnServerPingTimerFired() {
   // If we already pinged the stats server today, then we're done.
-  std::string today_ymd = brave_stats::GetDateAsYMD(base::Time::Now());
+  std::string today_ymd = adrbrowsiel_stats::GetDateAsYMD(base::Time::Now());
   std::string last_check_ymd = pref_service_->GetString(kLastCheckYMD);
   if (base::CompareCaseInsensitiveASCII(today_ymd, last_check_ymd) == 0)
     return;
@@ -281,8 +281,8 @@ void BraveStatsUpdater::OnServerPingTimerFired() {
   SendServerPing();
 }
 
-bool BraveStatsUpdater::IsReferralInitialized() {
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
+bool adrbrowsielStatsUpdater::IsReferralInitialized() {
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
   return pref_service_->GetBoolean(kReferralInitialization) ||
          pref_service_->GetBoolean(kReferralCheckedForPromoCodeFile);
 #else
@@ -290,21 +290,21 @@ bool BraveStatsUpdater::IsReferralInitialized() {
 #endif
 }
 
-bool BraveStatsUpdater::IsAdsEnabled() {
+bool adrbrowsielStatsUpdater::IsAdsEnabled() {
   return ProfileManager::GetPrimaryUserProfile()->GetPrefs()->GetBoolean(
       ads::prefs::kEnabled);
 }
 
-bool BraveStatsUpdater::HasDoneThresholdPing() {
+bool adrbrowsielStatsUpdater::HasDoneThresholdPing() {
   return pref_service_->GetBoolean(kThresholdCheckMade);
 }
 
-void BraveStatsUpdater::DisableThresholdPing() {
+void adrbrowsielStatsUpdater::DisableThresholdPing() {
   pref_service_->SetBoolean(kThresholdCheckMade, true);
   pref_service_->ClearPref(kThresholdQuery);
 }
 
-void BraveStatsUpdater::QueueServerPing() {
+void adrbrowsielStatsUpdater::QueueServerPing() {
   const bool referrals_initialized = IsReferralInitialized();
   const bool ads_enabled = IsAdsEnabled();
   int num_closures = 0;
@@ -322,14 +322,14 @@ void BraveStatsUpdater::QueueServerPing() {
   // Note: If num_closures == 0, the callback runs immediately
   stats_preconditions_barrier_ = base::BarrierClosure(
       num_closures,
-      base::BindOnce(&BraveStatsUpdater::StartServerPingStartupTimer,
+      base::BindOnce(&adrbrowsielStatsUpdater::StartServerPingStartupTimer,
                      base::Unretained(this)));
   if (!referrals_initialized) {
     pref_change_registrar_.reset(new PrefChangeRegistrar());
     pref_change_registrar_->Init(pref_service_);
     pref_change_registrar_->Add(
         kReferralInitialization,
-        base::Bind(&BraveStatsUpdater::OnReferralInitialization,
+        base::Bind(&adrbrowsielStatsUpdater::OnReferralInitialization,
                    base::Unretained(this)));
   }
   if (ads_enabled) {
@@ -337,17 +337,17 @@ void BraveStatsUpdater::QueueServerPing() {
   }
 }
 
-void BraveStatsUpdater::DetectUncertainFuture() {
-  auto callback = base::BindOnce(&BraveStatsUpdater::OnDetectUncertainFuture,
+void adrbrowsielStatsUpdater::DetectUncertainFuture() {
+  auto callback = base::BindOnce(&adrbrowsielStatsUpdater::OnDetectUncertainFuture,
                                  base::Unretained(this));
-  brave_rpill::DetectUncertainFuture(base::BindOnce(std::move(callback)));
+  adrbrowsiel_rpill::DetectUncertainFuture(base::BindOnce(std::move(callback)));
 }
 
-void BraveStatsUpdater::OnReferralInitialization() {
+void adrbrowsielStatsUpdater::OnReferralInitialization() {
   stats_preconditions_barrier_.Run();
 }
 
-void BraveStatsUpdater::OnDetectUncertainFuture(
+void adrbrowsielStatsUpdater::OnDetectUncertainFuture(
     const bool is_uncertain_future) {
   if (is_uncertain_future) {
     arch_ = ProcessArch::kArchVirt;
@@ -357,32 +357,32 @@ void BraveStatsUpdater::OnDetectUncertainFuture(
   stats_preconditions_barrier_.Run();
 }
 
-void BraveStatsUpdater::StartServerPingStartupTimer() {
+void adrbrowsielStatsUpdater::StartServerPingStartupTimer() {
   stats_startup_complete_ = true;
   server_ping_startup_timer_->Start(
       FROM_HERE,
       base::TimeDelta::FromSeconds(kUpdateServerStartupPingDelaySeconds), this,
-      &BraveStatsUpdater::OnServerPingTimerFired);
+      &adrbrowsielStatsUpdater::OnServerPingTimerFired);
 }
 
-void BraveStatsUpdater::SendServerPing() {
+void adrbrowsielStatsUpdater::SendServerPing() {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   auto traffic_annotation = AnonymousStatsAnnotation();
   auto resource_request = std::make_unique<network::ResourceRequest>();
   auto* profile_pref_service =
       ProfileManager::GetPrimaryUserProfile()->GetPrefs();
   auto stats_updater_params =
-      std::make_unique<brave_stats::BraveStatsUpdaterParams>(
+      std::make_unique<adrbrowsiel_stats::adrbrowsielStatsUpdaterParams>(
           pref_service_, profile_pref_service, arch_);
 
-  auto endpoint = BuildStatsEndpoint(kBraveUsageStandardPath);
+  auto endpoint = BuildStatsEndpoint(kadrbrowsielUsageStandardPath);
   resource_request->url = GetUpdateURL(endpoint, *stats_updater_params);
   resource_request->credentials_mode = network::mojom::CredentialsMode::kOmit;
   resource_request->load_flags = net::LOAD_DO_NOT_SAVE_COOKIES |
                                  net::LOAD_BYPASS_CACHE |
                                  net::LOAD_DISABLE_CACHE;
-  resource_request->headers.SetHeader("X-Brave-API-Key",
-                                      brave_stats::GetAPIKey());
+  resource_request->headers.SetHeader("X-adrbrowsiel-API-Key",
+                                      adrbrowsiel_stats::GetAPIKey());
   network::mojom::URLLoaderFactory* loader_factory =
       g_browser_process->system_network_context_manager()
           ->GetURLLoaderFactory();
@@ -392,11 +392,11 @@ void BraveStatsUpdater::SendServerPing() {
       1, network::SimpleURLLoader::RETRY_ON_NETWORK_CHANGE);
   simple_url_loader_->DownloadHeadersOnly(
       loader_factory,
-      base::BindOnce(&BraveStatsUpdater::OnSimpleLoaderComplete,
+      base::BindOnce(&adrbrowsielStatsUpdater::OnSimpleLoaderComplete,
                      base::Unretained(this), std::move(stats_updater_params)));
 }
 
-void BraveStatsUpdater::SendUserTriggeredPing() {
+void adrbrowsielStatsUpdater::SendUserTriggeredPing() {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   auto traffic_annotation = AnonymousStatsAnnotation();
   auto resource_request = std::make_unique<network::ResourceRequest>();
@@ -413,8 +413,8 @@ void BraveStatsUpdater::SendUserTriggeredPing() {
   resource_request->load_flags = net::LOAD_DO_NOT_SAVE_COOKIES |
                                  net::LOAD_BYPASS_CACHE |
                                  net::LOAD_DISABLE_CACHE;
-  resource_request->headers.SetHeader("X-Brave-API-Key",
-                                      brave_stats::GetAPIKey());
+  resource_request->headers.SetHeader("X-adrbrowsiel-API-Key",
+                                      adrbrowsiel_stats::GetAPIKey());
   network::mojom::URLLoaderFactory* loader_factory =
       g_browser_process->system_network_context_manager()
           ->GetURLLoaderFactory();
@@ -424,7 +424,7 @@ void BraveStatsUpdater::SendUserTriggeredPing() {
       1, network::SimpleURLLoader::RETRY_ON_NETWORK_CHANGE);
   simple_url_loader_->DownloadHeadersOnly(
       loader_factory,
-      base::BindOnce(&BraveStatsUpdater::OnThresholdLoaderComplete,
+      base::BindOnce(&adrbrowsielStatsUpdater::OnThresholdLoaderComplete,
                      base::Unretained(this)));
 }
 
@@ -439,4 +439,4 @@ void RegisterLocalStatePrefs(PrefRegistrySimple* registry) {
   registry->RegisterStringPref(kLastCheckYMD, std::string());
   registry->RegisterStringPref(kWeekOfInstallation, std::string());
 }
-}  // namespace brave_stats
+}  // namespace adrbrowsiel_stats

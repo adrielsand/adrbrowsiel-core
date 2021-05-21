@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.chromium.base.ContextUtils;
-import org.chromium.chrome.browser.preferences.BravePreferenceKeys;
+import org.chromium.chrome.browser.preferences.adrbrowsielPreferenceKeys;
 import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 
 public class RateUtils {
@@ -102,7 +102,7 @@ public class RateUtils {
     }
 
     public boolean shouldShowRateDialog() {
-        int appOpenCount = SharedPreferencesManager.getInstance().readInt(BravePreferenceKeys.BRAVE_APP_OPEN_COUNT);
+        int appOpenCount = SharedPreferencesManager.getInstance().readInt(adrbrowsielPreferenceKeys.adrbrowsiel_APP_OPEN_COUNT);
 
         return (System.currentTimeMillis() > getPrefNextRateDate()
                 && appOpenCount >= getPrefNextAppOpenCount()

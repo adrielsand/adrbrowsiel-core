@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -22,10 +22,10 @@ import org.chromium.components.signin.identitymanager.IdentityMutator;
 import org.chromium.components.signin.metrics.SigninAccessPoint;
 import org.chromium.components.signin.metrics.SignoutReason;
 
-public class BraveSigninManager implements SigninManager {
+public class adrbrowsielSigninManager implements SigninManager {
     private final IdentityManager mIdentityManager;
 
-    BraveSigninManager(IdentityManager identityManager) {
+    adrbrowsielSigninManager(IdentityManager identityManager) {
         mIdentityManager = identityManager;
     }
 
@@ -107,7 +107,7 @@ public class BraveSigninManager implements SigninManager {
             AccountTrackerService accountTrackerService, IdentityManager identityManager,
             IdentityMutator identityMutator) {
         AccountInfoService.init(identityManager);
-        return new BraveSigninManager(identityManager);
+        return new adrbrowsielSigninManager(identityManager);
     }
 
     @CalledByNative

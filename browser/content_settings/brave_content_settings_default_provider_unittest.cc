@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/content_settings/core/browser/brave_content_settings_default_provider.h"
+#include "adrbrowsiel/components/content_settings/core/browser/adrbrowsiel_content_settings_default_provider.h"
 #include "chrome/test/base/testing_profile.h"
 #include "components/content_settings/core/browser/website_settings_registry.h"
 #include "components/prefs/pref_service.h"
@@ -13,21 +13,21 @@
 
 namespace content_settings {
 
-class BraveContentSettingsDefaultProviderTest : public testing::Test {
+class adrbrowsielContentSettingsDefaultProviderTest : public testing::Test {
  public:
-  BraveContentSettingsDefaultProviderTest()
+  adrbrowsielContentSettingsDefaultProviderTest()
       : provider_(profile_.GetPrefs(), false) {}
-  ~BraveContentSettingsDefaultProviderTest() override {
+  ~adrbrowsielContentSettingsDefaultProviderTest() override {
     provider_.ShutdownOnUIThread();
   }
 
  protected:
   content::BrowserTaskEnvironment task_environment_;
   TestingProfile profile_;
-  BraveDefaultProvider provider_;
+  adrbrowsielDefaultProvider provider_;
 };
 
-TEST_F(BraveContentSettingsDefaultProviderTest, DiscardObsoleteAutoplayAsk) {
+TEST_F(adrbrowsielContentSettingsDefaultProviderTest, DiscardObsoleteAutoplayAsk) {
   PrefService* prefs = profile_.GetPrefs();
   const std::string& autoplay_pref_path =
       WebsiteSettingsRegistry::GetInstance()
@@ -37,21 +37,21 @@ TEST_F(BraveContentSettingsDefaultProviderTest, DiscardObsoleteAutoplayAsk) {
   // The ASK value of the autoplay content setting should be discarded.
   {
     prefs->SetInteger(autoplay_pref_path, CONTENT_SETTING_ASK);
-    BraveDefaultProvider provider(prefs, false);
+    adrbrowsielDefaultProvider provider(prefs, false);
     EXPECT_FALSE(prefs->HasPrefPath(autoplay_pref_path));
   }
 
   // Other values of the autoplay content setting should be preserved.
   {
     prefs->SetInteger(autoplay_pref_path, CONTENT_SETTING_ALLOW);
-    BraveDefaultProvider provider(prefs, false);
+    adrbrowsielDefaultProvider provider(prefs, false);
     EXPECT_TRUE(prefs->HasPrefPath(autoplay_pref_path));
     EXPECT_EQ(CONTENT_SETTING_ALLOW, prefs->GetInteger(autoplay_pref_path));
   }
 
   {
     prefs->SetInteger(autoplay_pref_path, CONTENT_SETTING_BLOCK);
-    BraveDefaultProvider provider(prefs, false);
+    adrbrowsielDefaultProvider provider(prefs, false);
 
     EXPECT_TRUE(prefs->HasPrefPath(autoplay_pref_path));
     EXPECT_EQ(CONTENT_SETTING_BLOCK, prefs->GetInteger(autoplay_pref_path));

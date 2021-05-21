@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_NET_BRAVE_PROXYING_URL_LOADER_FACTORY_H_
-#define BRAVE_BROWSER_NET_BRAVE_PROXYING_URL_LOADER_FACTORY_H_
+#ifndef adrbrowsiel_BROWSER_NET_adrbrowsiel_PROXYING_URL_LOADER_FACTORY_H_
+#define adrbrowsiel_BROWSER_NET_adrbrowsiel_PROXYING_URL_LOADER_FACTORY_H_
 
 #include <cstdint>
 #include <map>
@@ -21,8 +21,8 @@
 #include "base/memory/weak_ptr.h"
 #include "base/optional.h"
 #include "base/time/time.h"
-#include "brave/browser/net/resource_context_data.h"
-#include "brave/browser/net/url_context.h"
+#include "adrbrowsiel/browser/net/resource_context_data.h"
+#include "adrbrowsiel/browser/net/url_context.h"
 #include "mojo/public/cpp/bindings/pending_receiver.h"
 #include "mojo/public/cpp/bindings/pending_remote.h"
 #include "mojo/public/cpp/bindings/receiver_set.h"
@@ -41,17 +41,17 @@ class RenderFrameHost;
 
 // Cargoculted from WebRequestProxyingURLLoaderFactory and
 // signin::ProxyingURLLoaderFactory
-class BraveProxyingURLLoaderFactory
+class adrbrowsielProxyingURLLoaderFactory
     : public network::mojom::URLLoaderFactory {
  public:
   using DisconnectCallback =
-      base::OnceCallback<void(BraveProxyingURLLoaderFactory*)>;
+      base::OnceCallback<void(adrbrowsielProxyingURLLoaderFactory*)>;
 
   class InProgressRequest : public network::mojom::URLLoader,
                             public network::mojom::URLLoaderClient {
    public:
     InProgressRequest(
-        BraveProxyingURLLoaderFactory* factory,
+        adrbrowsielProxyingURLLoaderFactory* factory,
         uint64_t request_id,
         int32_t network_service_request_id,
         int render_process_id,
@@ -113,8 +113,8 @@ class BraveProxyingURLLoaderFactory
     base::TimeTicks start_time_;
 
     // TODO(iefremov): Get rid of shared_ptr, we should clearly own the pointer.
-    std::shared_ptr<brave::BraveRequestInfo> ctx_;
-    BraveProxyingURLLoaderFactory* const factory_;
+    std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx_;
+    adrbrowsielProxyingURLLoaderFactory* const factory_;
     network::ResourceRequest request_;
     const uint64_t request_id_;
     const int32_t network_service_request_id_;
@@ -172,8 +172,8 @@ class BraveProxyingURLLoaderFactory
 
   // Constructor public for testing purposes. New instances should be created
   // by calling MaybeProxyRequest().
-  BraveProxyingURLLoaderFactory(
-      BraveRequestHandler* request_handler,
+  adrbrowsielProxyingURLLoaderFactory(
+      adrbrowsielRequestHandler* request_handler,
       content::BrowserContext* browser_context,
       int render_process_id,
       int frame_tree_node_id,
@@ -182,7 +182,7 @@ class BraveProxyingURLLoaderFactory
       scoped_refptr<RequestIDGenerator> request_id_generator,
       DisconnectCallback on_disconnect);
 
-  ~BraveProxyingURLLoaderFactory() override;
+  ~adrbrowsielProxyingURLLoaderFactory() override;
 
   static bool MaybeProxyRequest(
       content::BrowserContext* browser_context,
@@ -204,8 +204,8 @@ class BraveProxyingURLLoaderFactory
                  loader_receiver) override;
 
  private:
-  friend class base::DeleteHelper<BraveProxyingURLLoaderFactory>;
-  friend class base::RefCountedDeleteOnSequence<BraveProxyingURLLoaderFactory>;
+  friend class base::DeleteHelper<adrbrowsielProxyingURLLoaderFactory>;
+  friend class base::RefCountedDeleteOnSequence<adrbrowsielProxyingURLLoaderFactory>;
 
   void OnTargetFactoryError();
   void OnProxyBindingError();
@@ -213,7 +213,7 @@ class BraveProxyingURLLoaderFactory
 
   void MaybeRemoveProxy();
 
-  BraveRequestHandler* const request_handler_;
+  adrbrowsielRequestHandler* const request_handler_;
   content::BrowserContext* browser_context_;
   const int render_process_id_;
   const int frame_tree_node_id_;
@@ -228,9 +228,9 @@ class BraveProxyingURLLoaderFactory
 
   DisconnectCallback disconnect_callback_;
 
-  base::WeakPtrFactory<BraveProxyingURLLoaderFactory> weak_factory_;
+  base::WeakPtrFactory<adrbrowsielProxyingURLLoaderFactory> weak_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveProxyingURLLoaderFactory);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielProxyingURLLoaderFactory);
 };
 
-#endif  // BRAVE_BROWSER_NET_BRAVE_PROXYING_URL_LOADER_FACTORY_H_
+#endif  // adrbrowsiel_BROWSER_NET_adrbrowsiel_PROXYING_URL_LOADER_FACTORY_H_

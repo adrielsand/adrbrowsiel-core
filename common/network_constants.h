@@ -1,25 +1,25 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMMON_NETWORK_CONSTANTS_H_
-#define BRAVE_COMMON_NETWORK_CONSTANTS_H_
+#ifndef adrbrowsiel_COMMON_NETWORK_CONSTANTS_H_
+#define adrbrowsiel_COMMON_NETWORK_CONSTANTS_H_
 
-extern const char kBraveProxyPattern[];
-extern const char kBraveSoftwareProxyPattern[];
+extern const char kadrbrowsielProxyPattern[];
+extern const char kadrbrowsielSoftwareProxyPattern[];
 
-extern const char kBraveUsageStandardPath[];
-extern const char kBraveUsageThresholdPath[];
-extern const char kBraveReferralsServer[];
-extern const char kBraveReferralsHeadersPath[];
-extern const char kBraveReferralsInitPath[];
-extern const char kBraveReferralsActivityPath[];
-extern const char kBraveSafeBrowsing2Proxy[];
-extern const char kBraveSafeBrowsingSslProxy[];
-extern const char kBraveRedirectorProxy[];
-extern const char kBraveClients4Proxy[];
-extern const char kBraveStaticProxy[];
+extern const char kadrbrowsielUsageStandardPath[];
+extern const char kadrbrowsielUsageThresholdPath[];
+extern const char kadrbrowsielReferralsServer[];
+extern const char kadrbrowsielReferralsHeadersPath[];
+extern const char kadrbrowsielReferralsInitPath[];
+extern const char kadrbrowsielReferralsActivityPath[];
+extern const char kadrbrowsielSafeBrowsing2Proxy[];
+extern const char kadrbrowsielSafeBrowsingSslProxy[];
+extern const char kadrbrowsielRedirectorProxy[];
+extern const char kadrbrowsielClients4Proxy[];
+extern const char kadrbrowsielStaticProxy[];
 
 extern const char kAutofillPrefix[];
 extern const char kClients4Prefix[];
@@ -40,11 +40,11 @@ extern const char kWidevineGvt1Prefix[];
 extern const char kWidevineGoogleDlPrefix[];
 
 extern const char kUserAgentHeader[];
-extern const char kBravePartnerHeader[];
-extern const char kBraveServicesKeyHeader[];
+extern const char kadrbrowsielPartnerHeader[];
+extern const char kadrbrowsielServicesKeyHeader[];
 
 extern const char kBittorrentMimeType[];
 extern const char kOctetStreamMimeType[];
 
 extern const char kSecGpcHeader[];
-#endif  // BRAVE_COMMON_NETWORK_CONSTANTS_H_
+#endif  // adrbrowsiel_COMMON_NETWORK_CONSTANTS_H_

@@ -2,20 +2,20 @@
 + * License, v. 2.0. If a copy of the MPL was not distributed with this file,
 + * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_BRAVE_VIEWS_DELEGATE_LINUX_H_
-#define BRAVE_BROWSER_UI_VIEWS_BRAVE_VIEWS_DELEGATE_LINUX_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_VIEWS_DELEGATE_LINUX_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_VIEWS_DELEGATE_LINUX_H_
 
 #include "chrome/browser/ui/views/chrome_views_delegate.h"
 
-class BraveViewsDelegateLinux : public ChromeViewsDelegate {
+class adrbrowsielViewsDelegateLinux : public ChromeViewsDelegate {
  public:
-  BraveViewsDelegateLinux() = default;
-  ~BraveViewsDelegateLinux() override = default;
+  adrbrowsielViewsDelegateLinux() = default;
+  ~adrbrowsielViewsDelegateLinux() override = default;
  private:
   // ChromeViewsDelegate overrides:
   gfx::ImageSkia* GetDefaultWindowIcon() const override;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveViewsDelegateLinux);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielViewsDelegateLinux);
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_BRAVE_VIEWS_DELEGATE_LINUX_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_VIEWS_DELEGATE_LINUX_H_

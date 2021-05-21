@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,7 +13,7 @@
 #include "bat/ledger/internal/endpoint/private_cdn/private_cdn_util.h"
 #include "bat/ledger/internal/ledger_impl.h"
 #include "bat/ledger/internal/publisher/protos/channel_response.pb.h"
-#include "brave/components/brave_private_cdn/private_cdn_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_private_cdn/private_cdn_helper.h"
 #include "net/base/load_flags.h"
 #include "net/http/http_status_code.h"
 
@@ -182,7 +182,7 @@ type::Result GetPublisher::ParseBody(
   }
 
   base::StringPiece body_payload(body.data(), body.size());
-  if (!brave::PrivateCdnHelper::GetInstance()->RemovePadding(&body_payload)) {
+  if (!adrbrowsiel::PrivateCdnHelper::GetInstance()->RemovePadding(&body_payload)) {
     BLOG(0, "Publisher data response has invalid padding");
     return type::Result::LEDGER_ERROR;
   }

@@ -6,7 +6,7 @@ index e72b6b67b1ab02dec9d79973dc5ec472af0bdbde..1912ae8ba6550f3df057712c94893a44
    void OnLogin() override;
    void InitChromeOSPreferences() override;
  #endif  // BUILDFLAG(IS_CHROMEOS_ASH)
-+  BRAVE_PROFILE_IMPL_H_
++  adrbrowsiel_PROFILE_IMPL_H_
  
    bool IsNewProfile() const override;
  

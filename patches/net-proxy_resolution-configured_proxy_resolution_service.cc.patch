@@ -6,7 +6,7 @@ index a987dc1cfe8bdf6c9e43574a3d96c05a84f17acd..b1f8f53be5ca4f2144770be53f01073e
    config_->value().proxy_rules().Apply(url, result);
    result->set_traffic_annotation(
        MutableNetworkTrafficAnnotationTag(config_->traffic_annotation()));
-+  BRAVE_TRY_TO_COMPLETE_SYNCHRONOUSLY
++  adrbrowsiel_TRY_TO_COMPLETE_SYNCHRONOUSLY
  
    return OK;
  }

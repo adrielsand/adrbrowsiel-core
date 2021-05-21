@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.chromium.chrome.browser.brave_stats;
+package org.chromium.chrome.browser.adrbrowsiel_stats;
 
 import android.Manifest;
 import android.app.Activity;
@@ -30,13 +30,13 @@ import org.chromium.base.Log;
 import org.chromium.base.ThreadUtils;
 import org.chromium.base.task.AsyncTask;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.app.BraveActivity;
-import org.chromium.chrome.browser.brave_stats.BraveStatsBottomSheetDialogFragment;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
+import org.chromium.chrome.browser.adrbrowsiel_stats.adrbrowsielStatsBottomSheetDialogFragment;
 import org.chromium.chrome.browser.local_database.DatabaseHelper;
-import org.chromium.chrome.browser.preferences.BravePref;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
+import org.chromium.chrome.browser.preferences.adrbrowsielPref;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
 import org.chromium.chrome.browser.profiles.Profile;
-import org.chromium.chrome.browser.shields.BraveShieldsUtils;
+import org.chromium.chrome.browser.shields.adrbrowsielShieldsUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -50,14 +50,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class BraveStatsUtil {
+public class adrbrowsielStatsUtil {
     public static final short MILLISECONDS_PER_ITEM = 50;
     public static final int SHARE_STATS_WRITE_EXTERNAL_STORAGE_PERM = 3867;
-    public static final String TAG = "BraveStatsUtil";
+    public static final String TAG = "adrbrowsielStatsUtil";
     /*
-     * Gets string view of specific time in seconds for Brave stats
+     * Gets string view of specific time in seconds for adrbrowsiel stats
      */
-    public static Pair<String, String> getBraveStatsStringFromTime(long seconds) {
+    public static Pair<String, String> getadrbrowsielStatsStringFromTime(long seconds) {
         String result = "";
         String suffix = "";
         if (seconds > 24 * 60 * 60) {
@@ -76,7 +76,7 @@ public class BraveStatsUtil {
         return new Pair<>(result, suffix);
     }
 
-    public static Pair<String, String> getBraveStatsStringFormNumberPair(
+    public static Pair<String, String> getadrbrowsielStatsStringFormNumberPair(
             long number, boolean isBytes) {
         String result = "";
         String suffix = isBytes ? "KB" : "";
@@ -108,13 +108,13 @@ public class BraveStatsUtil {
         return new Pair<>(result, suffix);
     }
 
-    public static void showBraveStats() {
-        if (BraveActivity.getBraveActivity() != null) {
-            BraveStatsBottomSheetDialogFragment braveStatsBottomSheetDialogFragment =
-                    BraveStatsBottomSheetDialogFragment.newInstance();
-            braveStatsBottomSheetDialogFragment.show(
-                    BraveActivity.getBraveActivity().getSupportFragmentManager(),
-                    "brave_stats_bottom_sheet_dialog_fragment");
+    public static void showadrbrowsielStats() {
+        if (adrbrowsielActivity.getadrbrowsielActivity() != null) {
+            adrbrowsielStatsBottomSheetDialogFragment adrbrowsielStatsBottomSheetDialogFragment =
+                    adrbrowsielStatsBottomSheetDialogFragment.newInstance();
+            adrbrowsielStatsBottomSheetDialogFragment.show(
+                    adrbrowsielActivity.getadrbrowsielActivity().getSupportFragmentManager(),
+                    "adrbrowsiel_stats_bottom_sheet_dialog_fragment");
         }
     }
 
@@ -125,19 +125,19 @@ public class BraveStatsUtil {
         return s.format(new Date(cal.getTimeInMillis()));
     }
 
-    public static void updateBraveStatsLayout(View view) {
+    public static void updateadrbrowsielStatsLayout(View view) {
         TextView mAdsBlockedCountTextView =
-                (TextView) view.findViewById(R.id.brave_stats_text_ads_count);
+                (TextView) view.findViewById(R.id.adrbrowsiel_stats_text_ads_count);
         TextView mDataSavedValueTextView =
-                (TextView) view.findViewById(R.id.brave_stats_data_saved_value);
+                (TextView) view.findViewById(R.id.adrbrowsiel_stats_data_saved_value);
         TextView mEstTimeSavedCountTextView =
-                (TextView) view.findViewById(R.id.brave_stats_text_time_count);
+                (TextView) view.findViewById(R.id.adrbrowsiel_stats_text_time_count);
         TextView mAdsBlockedCountTextTextView =
-                (TextView) view.findViewById(R.id.brave_stats_text_ads_count_text);
+                (TextView) view.findViewById(R.id.adrbrowsiel_stats_text_ads_count_text);
         TextView mDataSavedValueTextTextView =
-                (TextView) view.findViewById(R.id.brave_stats_data_saved_value_text);
+                (TextView) view.findViewById(R.id.adrbrowsiel_stats_data_saved_value_text);
         TextView mEstTimeSavedCountTextTextView =
-                (TextView) view.findViewById(R.id.brave_stats_text_time_count_text);
+                (TextView) view.findViewById(R.id.adrbrowsiel_stats_text_time_count_text);
 
         List<Pair<String, String>> statsPairs = getStatsPairs();
 
@@ -149,7 +149,7 @@ public class BraveStatsUtil {
         mEstTimeSavedCountTextTextView.setText(statsPairs.get(2).second);
     }
 
-    public static void updateBraveShareStatsLayoutAndShare(View view) {
+    public static void updateadrbrowsielShareStatsLayoutAndShare(View view) {
         TextView mAdsBlockedCountTextView = (TextView) view.findViewById(R.id.stats_trackers_no);
         TextView mDataSavedValueTextView = (TextView) view.findViewById(R.id.stats_saved_data_no);
         TextView mEstTimeSavedCountTextView = (TextView) view.findViewById(R.id.stats_timed_no);
@@ -186,7 +186,7 @@ public class BraveStatsUtil {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT,
-                    context.getResources().getString(R.string.brave_stats_share_text));
+                    context.getResources().getString(R.string.adrbrowsiel_stats_share_text));
             sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
             sendIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             sendIntent.setType("image/text");
@@ -270,25 +270,25 @@ public class BraveStatsUtil {
 
     public static void shareStats(int layout) {
         View shareStatsLayout = getLayout(layout);
-        updateBraveShareStatsLayoutAndShare(shareStatsLayout);
+        updateadrbrowsielShareStatsLayoutAndShare(shareStatsLayout);
     }
 
     private static List<Pair<String, String>> getStatsPairs() {
         List<Pair<String, String>> statsPair = new ArrayList<>();
         Profile mProfile = Profile.getLastUsedRegularProfile();
         long trackersBlockedCount =
-                BravePrefServiceBridge.getInstance().getTrackersBlockedCount(mProfile);
-        long adsBlockedCount = BravePrefServiceBridge.getInstance().getAdsBlockedCount(mProfile);
+                adrbrowsielPrefServiceBridge.getInstance().getTrackersBlockedCount(mProfile);
+        long adsBlockedCount = adrbrowsielPrefServiceBridge.getInstance().getAdsBlockedCount(mProfile);
         long adsTrackersBlockedCount = trackersBlockedCount + adsBlockedCount;
-        long dataSaved = BravePrefServiceBridge.getInstance().getDataSaved(mProfile);
+        long dataSaved = adrbrowsielPrefServiceBridge.getInstance().getDataSaved(mProfile);
         long estimatedMillisecondsSaved =
                 (trackersBlockedCount + adsBlockedCount) * MILLISECONDS_PER_ITEM;
 
         Pair<String, String> adsTrackersPair =
-                getBraveStatsStringFormNumberPair(adsTrackersBlockedCount, false);
-        Pair<String, String> dataSavedPair = getBraveStatsStringFormNumberPair(dataSaved, true);
+                getadrbrowsielStatsStringFormNumberPair(adsTrackersBlockedCount, false);
+        Pair<String, String> dataSavedPair = getadrbrowsielStatsStringFormNumberPair(dataSaved, true);
         Pair<String, String> timeSavedPair =
-                getBraveStatsStringFromTime(estimatedMillisecondsSaved / 1000);
+                getadrbrowsielStatsStringFromTime(estimatedMillisecondsSaved / 1000);
         statsPair.add(adsTrackersPair);
         statsPair.add(dataSavedPair);
         statsPair.add(timeSavedPair);
@@ -299,10 +299,10 @@ public class BraveStatsUtil {
     public static Pair<String, String> getAdsTrackersBlocked() {
         Profile mProfile = Profile.getLastUsedRegularProfile();
         long trackersBlockedCount =
-                BravePrefServiceBridge.getInstance().getTrackersBlockedCount(mProfile);
-        long adsBlockedCount = BravePrefServiceBridge.getInstance().getAdsBlockedCount(mProfile);
+                adrbrowsielPrefServiceBridge.getInstance().getTrackersBlockedCount(mProfile);
+        long adsBlockedCount = adrbrowsielPrefServiceBridge.getInstance().getAdsBlockedCount(mProfile);
         long adsTrackersBlockedCount = trackersBlockedCount + adsBlockedCount;
 
-        return getBraveStatsStringFormNumberPair(adsTrackersBlockedCount, false);
+        return getadrbrowsielStatsStringFormNumberPair(adsTrackersBlockedCount, false);
     }
 }

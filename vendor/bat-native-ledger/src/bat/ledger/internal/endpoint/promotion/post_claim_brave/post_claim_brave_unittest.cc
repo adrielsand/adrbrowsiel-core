@@ -1,8 +1,8 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-#include "bat/ledger/internal/endpoint/promotion/post_claim_brave/post_claim_brave.h"
+#include "bat/ledger/internal/endpoint/promotion/post_claim_adrbrowsiel/post_claim_adrbrowsiel.h"
 
 #include <memory>
 #include <string>
@@ -16,7 +16,7 @@
 #include "net/http/http_status_code.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=PostClaimBraveTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=PostClaimadrbrowsielTest.*
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -25,20 +25,20 @@ namespace ledger {
 namespace endpoint {
 namespace promotion {
 
-class PostClaimBraveTest : public testing::Test {
+class PostClaimadrbrowsielTest : public testing::Test {
  private:
   base::test::TaskEnvironment scoped_task_environment_;
 
  protected:
   std::unique_ptr<ledger::MockLedgerClient> mock_ledger_client_;
   std::unique_ptr<ledger::MockLedgerImpl> mock_ledger_impl_;
-  std::unique_ptr<PostClaimBrave> claim_;
+  std::unique_ptr<PostClaimadrbrowsiel> claim_;
 
-  PostClaimBraveTest() {
+  PostClaimadrbrowsielTest() {
     mock_ledger_client_ = std::make_unique<ledger::MockLedgerClient>();
     mock_ledger_impl_ =
         std::make_unique<ledger::MockLedgerImpl>(mock_ledger_client_.get());
-    claim_ = std::make_unique<PostClaimBrave>(mock_ledger_impl_.get());
+    claim_ = std::make_unique<PostClaimadrbrowsiel>(mock_ledger_impl_.get());
   }
 
   void SetUp() override {
@@ -46,12 +46,12 @@ class PostClaimBraveTest : public testing::Test {
       "payment_id":"fa5dea51-6af4-44ca-801b-07b6df3dcfe4",
       "recovery_seed":"AN6DLuI2iZzzDxpzywf+IKmK1nzFRarNswbaIDI3pQg="
     })";
-    ON_CALL(*mock_ledger_client_, GetEncryptedStringState(state::kWalletBrave))
+    ON_CALL(*mock_ledger_client_, GetEncryptedStringState(state::kWalletadrbrowsiel))
       .WillByDefault(testing::Return(wallet));
   }
 };
 
-TEST_F(PostClaimBraveTest, ServerOK) {
+TEST_F(PostClaimadrbrowsielTest, ServerOK) {
   ON_CALL(*mock_ledger_client_, LoadURL(_, _))
       .WillByDefault(
           Invoke([](
@@ -71,7 +71,7 @@ TEST_F(PostClaimBraveTest, ServerOK) {
       });
 }
 
-TEST_F(PostClaimBraveTest, ServerError400) {
+TEST_F(PostClaimadrbrowsielTest, ServerError400) {
   ON_CALL(*mock_ledger_client_, LoadURL(_, _))
       .WillByDefault(
           Invoke([](
@@ -91,7 +91,7 @@ TEST_F(PostClaimBraveTest, ServerError400) {
       });
 }
 
-TEST_F(PostClaimBraveTest, ServerError404) {
+TEST_F(PostClaimadrbrowsielTest, ServerError404) {
   ON_CALL(*mock_ledger_client_, LoadURL(_, _))
       .WillByDefault(
           Invoke([](
@@ -111,7 +111,7 @@ TEST_F(PostClaimBraveTest, ServerError404) {
       });
 }
 
-TEST_F(PostClaimBraveTest, ServerError409) {
+TEST_F(PostClaimadrbrowsielTest, ServerError409) {
   ON_CALL(*mock_ledger_client_, LoadURL(_, _))
       .WillByDefault(
           Invoke([](
@@ -131,7 +131,7 @@ TEST_F(PostClaimBraveTest, ServerError409) {
       });
 }
 
-TEST_F(PostClaimBraveTest, ServerError500) {
+TEST_F(PostClaimadrbrowsielTest, ServerError500) {
   ON_CALL(*mock_ledger_client_, LoadURL(_, _))
       .WillByDefault(
           Invoke([](
@@ -151,7 +151,7 @@ TEST_F(PostClaimBraveTest, ServerError500) {
       });
 }
 
-TEST_F(PostClaimBraveTest, ServerErrorRandom) {
+TEST_F(PostClaimadrbrowsielTest, ServerErrorRandom) {
   ON_CALL(*mock_ledger_client_, LoadURL(_, _))
       .WillByDefault(
           Invoke([](

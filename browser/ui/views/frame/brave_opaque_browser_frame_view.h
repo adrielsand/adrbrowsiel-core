@@ -1,33 +1,33 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_FRAME_BRAVE_OPAQUE_BROWSER_FRAME_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_FRAME_BRAVE_OPAQUE_BROWSER_FRAME_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_FRAME_adrbrowsiel_OPAQUE_BROWSER_FRAME_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_FRAME_adrbrowsiel_OPAQUE_BROWSER_FRAME_VIEW_H_
 
 #include <memory>
 
 #include "chrome/browser/ui/views/frame/opaque_browser_frame_view.h"
 
-class BraveWindowFrameGraphic;
+class adrbrowsielWindowFrameGraphic;
 
-class BraveOpaqueBrowserFrameView : public OpaqueBrowserFrameView {
+class adrbrowsielOpaqueBrowserFrameView : public OpaqueBrowserFrameView {
  public:
-  BraveOpaqueBrowserFrameView(BrowserFrame* frame,
+  adrbrowsielOpaqueBrowserFrameView(BrowserFrame* frame,
                               BrowserView* browser_view,
                               OpaqueBrowserFrameViewLayout* layout);
-  ~BraveOpaqueBrowserFrameView() override;
+  ~adrbrowsielOpaqueBrowserFrameView() override;
 
-  BraveOpaqueBrowserFrameView(const BraveOpaqueBrowserFrameView&) = delete;
-  BraveOpaqueBrowserFrameView& operator=(
-      const BraveOpaqueBrowserFrameView&) = delete;
+  adrbrowsielOpaqueBrowserFrameView(const adrbrowsielOpaqueBrowserFrameView&) = delete;
+  adrbrowsielOpaqueBrowserFrameView& operator=(
+      const adrbrowsielOpaqueBrowserFrameView&) = delete;
 
-  // BraveOpaqueBrowserFrameView overrides:
+  // adrbrowsielOpaqueBrowserFrameView overrides:
   void OnPaint(gfx::Canvas* canvas) override;
 
  private:
-  std::unique_ptr<BraveWindowFrameGraphic> frame_graphic_;
+  std::unique_ptr<adrbrowsielWindowFrameGraphic> frame_graphic_;
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_FRAME_BRAVE_OPAQUE_BROWSER_FRAME_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_FRAME_adrbrowsiel_OPAQUE_BROWSER_FRAME_VIEW_H_

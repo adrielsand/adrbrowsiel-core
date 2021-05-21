@@ -1,15 +1,15 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/net/dns/brave_resolve_context.h"
+#include "adrbrowsiel/net/dns/adrbrowsiel_resolve_context.h"
 
 #include <memory>
 
 #include "base/bind.h"
 #include "base/test/task_environment.h"
-#include "brave/net/decentralized_dns/constants.h"
+#include "adrbrowsiel/net/decentralized_dns/constants.h"
 #include "net/base/net_errors.h"
 #include "net/dns/dns_config.h"
 #include "net/dns/dns_server_iterator.h"
@@ -34,9 +34,9 @@ DnsConfig CreateDnsConfig() {
   return config;
 }
 
-class BraveResolveContextTest : public testing::Test {
+class adrbrowsielResolveContextTest : public testing::Test {
  public:
-  BraveResolveContextTest() = default;
+  adrbrowsielResolveContextTest() = default;
 
   scoped_refptr<DnsSession> CreateDnsSession(const DnsConfig& config) {
     // Session not expected to be used for anything that will actually
@@ -53,12 +53,12 @@ class BraveResolveContextTest : public testing::Test {
   base::test::TaskEnvironment task_environment_;
 };
 
-TEST_F(BraveResolveContextTest, DohServerAvailability_InitialAvailability) {
+TEST_F(adrbrowsielResolveContextTest, DohServerAvailability_InitialAvailability) {
   DnsConfig config = CreateDnsConfig();
   scoped_refptr<DnsSession> session = CreateDnsSession(config);
 
   URLRequestContext request_context;
-  BraveResolveContext context(&request_context, true /* enable_caching */);
+  adrbrowsielResolveContext context(&request_context, true /* enable_caching */);
   context.InvalidateCachesAndPerSessionData(session.get(),
                                             false /* network_change */);
 
@@ -71,11 +71,11 @@ TEST_F(BraveResolveContextTest, DohServerAvailability_InitialAvailability) {
   EXPECT_TRUE(doh_itr->AttemptAvailable());
 }
 
-TEST_F(BraveResolveContextTest, DohServerAvailability_RecordServerFailure) {
+TEST_F(adrbrowsielResolveContextTest, DohServerAvailability_RecordServerFailure) {
   scoped_refptr<DnsSession> session = CreateDnsSession(CreateDnsConfig());
 
   URLRequestContext request_context;
-  BraveResolveContext context(&request_context, true /* enable_caching */);
+  adrbrowsielResolveContext context(&request_context, true /* enable_caching */);
   context.InvalidateCachesAndPerSessionData(session.get(),
                                             false /* network_change */);
 
@@ -97,11 +97,11 @@ TEST_F(BraveResolveContextTest, DohServerAvailability_RecordServerFailure) {
   EXPECT_FALSE(doh_itr->AttemptAvailable());
 }
 
-TEST_F(BraveResolveContextTest, DohServerAvailability_RecordServerSuccess) {
+TEST_F(adrbrowsielResolveContextTest, DohServerAvailability_RecordServerSuccess) {
   scoped_refptr<DnsSession> session = CreateDnsSession(CreateDnsConfig());
 
   URLRequestContext request_context;
-  BraveResolveContext context(&request_context, true /* enable_caching */);
+  adrbrowsielResolveContext context(&request_context, true /* enable_caching */);
   context.InvalidateCachesAndPerSessionData(session.get(),
                                             false /* network_change */);
 

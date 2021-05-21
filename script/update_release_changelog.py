@@ -21,7 +21,7 @@ if os.environ.get('DEBUG_HTTP_HEADERS') == 'true':
 def main():
 
     """
-    Download the brave-browser/CHANGELOG.md file, parse it and
+    Download the adrbrowsiel-browser/CHANGELOG.md file, parse it and
     convert to markdown, then update the release notes for the
     release specified.
 
@@ -63,8 +63,8 @@ def main():
 
     tag_changelog_txt = render_markdown(changelog_txt, version, logging)
 
-    # BRAVE_REPO is defined in lib/helpers.py
-    repo = GitHub(get_env_var('GITHUB_TOKEN')).repos(BRAVE_REPO)
+    # adrbrowsiel_REPO is defined in lib/helpers.py
+    repo = GitHub(get_env_var('GITHUB_TOKEN')).repos(adrbrowsiel_REPO)
     release = get_release(repo, tag, allow_published_release_updates=True)
 
     logging.debug("Release body before update: \n\'{}\'".format(release['body']))
@@ -106,18 +106,18 @@ def debug_requests_off():
 
 
 def parse_args():
-    desc = "Parse Brave Browser changelog and add markdown to release notes for tag" \
+    desc = "Parse adrbrowsiel Browser changelog and add markdown to release notes for tag" \
         "\n\nRequires the following ENVIRONMENT VARIABLES be set:" \
-        "\n\nBRAVE_GITHUB_TOKEN: Github token to update draft release if not published yet. "
+        "\n\nadrbrowsiel_GITHUB_TOKEN: Github token to update draft release if not published yet. "
 
     parser = argparse.ArgumentParser(
         description=desc, formatter_class=RawTextHelpFormatter)
     parser.add_argument('-d', '--debug', action='store_true',
                         help='Print debug statements')
     parser.add_argument('-t', '--tag',
-                        help='Brave version tag (allowed format: "v1.5.45" or "refs/tags/v1.5.45") (required)',
+                        help='adrbrowsiel version tag (allowed format: "v1.5.45" or "refs/tags/v1.5.45") (required)',
                         required=True)
-    parser.add_argument('-u', '--url', help='URL for Brave Browser raw markdown file (required)', required=True)
+    parser.add_argument('-u', '--url', help='URL for adrbrowsiel Browser raw markdown file (required)', required=True)
     return parser.parse_args()
 
 

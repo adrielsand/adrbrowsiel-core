@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -25,7 +25,7 @@
 #include "bat/ads/internal/time_formatting_util.h"
 #include "bat/ads/internal/url_util.h"
 #include "bat/ads/pref_names.h"
-#include "brave_base/random.h"
+#include "adrbrowsiel_base/random.h"
 #include "third_party/re2/src/re2/re2.h"
 
 namespace ads {
@@ -382,7 +382,7 @@ void Conversions::AddItemToQueue(
   conversion_queue_item.conversion_id = verifiable_conversion.id;
   conversion_queue_item.advertiser_public_key =
       verifiable_conversion.public_key;
-  const int64_t rand_delay = brave_base::random::Geometric(
+  const int64_t rand_delay = adrbrowsiel_base::random::Geometric(
       g_is_debug ? kDebugConvertAfterSeconds : kConvertAfterSeconds);
   conversion_queue_item.timestamp =
       base::Time::Now() + base::TimeDelta::FromSeconds(rand_delay);
@@ -480,7 +480,7 @@ void Conversions::StartTimer(
     delay = conversion_queue_item.timestamp - now;
   } else {
     const int64_t rand_delay =
-        brave_base::random::Geometric(kExpiredConvertAfterSeconds);
+        adrbrowsiel_base::random::Geometric(kExpiredConvertAfterSeconds);
     delay = base::TimeDelta::FromSeconds(rand_delay);
   }
 

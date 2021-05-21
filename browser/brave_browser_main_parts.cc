@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/brave_browser_main_parts.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_main_parts.h"
 
 #include "base/command_line.h"
-#include "brave/browser/browsing_data/brave_clear_browsing_data.h"
-#include "brave/common/brave_constants.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_sync/buildflags/buildflags.h"
-#include "brave/components/brave_sync/features.h"
-#include "brave/components/brave_wallet/common/buildflags/buildflags.h"
-#include "brave/components/tor/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/browsing_data/adrbrowsiel_clear_browsing_data.h"
+#include "adrbrowsiel/common/adrbrowsiel_constants.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.h"
+#include "adrbrowsiel/components/tor/buildflags/buildflags.h"
 #include "chrome/common/chrome_features.h"
 #include "components/prefs/pref_service.h"
 #include "components/sync/driver/sync_driver_switches.h"
@@ -23,7 +23,7 @@
 #if BUILDFLAG(ENABLE_TOR)
 #include <string>
 #include "base/files/file_util.h"
-#include "brave/components/tor/tor_constants.h"
+#include "adrbrowsiel/components/tor/tor_constants.h"
 #include "chrome/browser/browser_process_impl.h"
 #include "chrome/browser/profiles/profile_attributes_storage.h"
 #include "chrome/browser/profiles/profile_manager.h"
@@ -32,8 +32,8 @@
 #endif
 
 #if !defined(OS_ANDROID)
-#include "brave/browser/infobars/brave_confirm_p3a_infobar_delegate.h"
-#include "brave/browser/infobars/crypto_wallets_infobar_delegate.h"
+#include "adrbrowsiel/browser/infobars/adrbrowsiel_confirm_p3a_infobar_delegate.h"
+#include "adrbrowsiel/browser/infobars/crypto_wallets_infobar_delegate.h"
 #include "chrome/browser/infobars/infobar_service.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_finder.h"
@@ -44,20 +44,20 @@
 #include "chrome/browser/browser_process.h"
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_SYNC) && !defined(OS_ANDROID)
-#include "brave/browser/infobars/sync_v2_migrate_infobar_delegate.h"
+#if BUILDFLAG(ENABLE_adrbrowsiel_SYNC) && !defined(OS_ANDROID)
+#include "adrbrowsiel/browser/infobars/sync_v2_migrate_infobar_delegate.h"
 #include "chrome/browser/sync/profile_sync_service_factory.h"
 #include "components/sync/driver/sync_service.h"
 #include "components/sync/driver/sync_user_settings.h"
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED) && BUILDFLAG(ENABLE_EXTENSIONS)
-#include "brave/browser/extensions/brave_component_loader.h"
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED) && BUILDFLAG(ENABLE_EXTENSIONS)
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_component_loader.h"
 #include "chrome/browser/extensions/extension_service.h"
 #include "extensions/browser/extension_system.h"
 #endif
 
-void BraveBrowserMainParts::PostBrowserStart() {
+void adrbrowsielBrowserMainParts::PostBrowserStart() {
   ChromeBrowserMainParts::PostBrowserStart();
 
 #if BUILDFLAG(ENABLE_TOR)
@@ -89,7 +89,7 @@ void BraveBrowserMainParts::PostBrowserStart() {
   for (Profile* profile : profile_manager->GetLoadedProfiles()) {
     const base::FilePath tor_legacy_session_path =
         profile->GetPath()
-            .Append(brave::kSessionProfileDir)
+            .Append(adrbrowsiel::kSessionProfileDir)
             .Append(tor::kTorProfileDir);
     if (base::PathExists(tor_legacy_session_path)) {
       profile_manager->MaybeScheduleProfileForDeletion(
@@ -111,9 +111,9 @@ void BraveBrowserMainParts::PostBrowserStart() {
           InfoBarService::FromWebContents(active_web_contents);
 
       if (infobar_service) {
-        BraveConfirmP3AInfoBarDelegate::Create(
+        adrbrowsielConfirmP3AInfoBarDelegate::Create(
             infobar_service, g_browser_process->local_state());
-#if BUILDFLAG(ENABLE_BRAVE_SYNC)
+#if BUILDFLAG(ENABLE_adrbrowsiel_SYNC)
         auto* sync_service =
             ProfileSyncServiceFactory::IsSyncAllowed(profile())
                 ? ProfileSyncServiceFactory::GetForProfile(profile())
@@ -123,22 +123,22 @@ void BraveBrowserMainParts::PostBrowserStart() {
             sync_service->GetUserSettings()->IsFirstSetupComplete();
         SyncV2MigrateInfoBarDelegate::Create(infobar_service, is_v2_user,
                                              profile(), browser);
-#endif  // BUILDFLAG(ENABLE_BRAVE_SYNC)
+#endif  // BUILDFLAG(ENABLE_adrbrowsiel_SYNC)
       }
     }
   }
 #endif  // !defined(OS_ANDROID)
 }
 
-void BraveBrowserMainParts::PreShutdown() {
-  content::BraveClearBrowsingData::ClearOnExit();
+void adrbrowsielBrowserMainParts::PreShutdown() {
+  content::adrbrowsielClearBrowsingData::ClearOnExit();
 }
 
-void BraveBrowserMainParts::PreProfileInit() {
+void adrbrowsielBrowserMainParts::PreProfileInit() {
   ChromeBrowserMainParts::PreProfileInit();
 #if !defined(OS_ANDROID)
   auto* command_line = base::CommandLine::ForCurrentProcess();
-  if (!base::FeatureList::IsEnabled(brave_sync::features::kBraveSync)) {
+  if (!base::FeatureList::IsEnabled(adrbrowsiel_sync::features::kadrbrowsielSync)) {
     // Disable sync temporarily
     if (!command_line->HasSwitch(switches::kDisableSync))
       command_line->AppendSwitch(switches::kDisableSync);
@@ -150,7 +150,7 @@ void BraveBrowserMainParts::PreProfileInit() {
 #endif
 }
 
-void BraveBrowserMainParts::PostProfileInit() {
+void adrbrowsielBrowserMainParts::PostProfileInit() {
   ChromeBrowserMainParts::PostProfileInit();
 
 #if defined(OS_ANDROID)
@@ -161,12 +161,12 @@ void BraveBrowserMainParts::PostProfileInit() {
   }
 #endif
 
-#if BUILDFLAG(BRAVE_WALLET_ENABLED) && BUILDFLAG(ENABLE_EXTENSIONS)
+#if BUILDFLAG(adrbrowsiel_WALLET_ENABLED) && BUILDFLAG(ENABLE_EXTENSIONS)
   extensions::ExtensionService* service =
       extensions::ExtensionSystem::Get(profile())->extension_service();
   if (service) {
     extensions::ComponentLoader* loader = service->component_loader();
-    static_cast<extensions::BraveComponentLoader*>(loader)
+    static_cast<extensions::adrbrowsielComponentLoader*>(loader)
         ->AddEthereumRemoteClientExtensionOnStartup();
   }
 #endif

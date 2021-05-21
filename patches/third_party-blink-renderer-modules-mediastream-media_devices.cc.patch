@@ -6,7 +6,7 @@ index ff0c464ba4df27fb0cc0ecbf9df0bba4dc834646..5b85c2950d6e2a4a97371231f8995042
      }
    }
  
-+  BRAVE_MEDIA_DEVICES_DEVICES_ENUMERATED
++  adrbrowsiel_MEDIA_DEVICES_DEVICES_ENUMERATED
 +
    RecordEnumeratedDevices(resolver, media_devices);
  

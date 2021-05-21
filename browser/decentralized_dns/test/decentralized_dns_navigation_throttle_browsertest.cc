@@ -1,13 +1,13 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/test/scoped_feature_list.h"
-#include "brave/components/decentralized_dns/constants.h"
-#include "brave/components/decentralized_dns/decentralized_dns_opt_in_page.h"
-#include "brave/components/decentralized_dns/features.h"
-#include "brave/components/decentralized_dns/pref_names.h"
+#include "adrbrowsiel/components/decentralized_dns/constants.h"
+#include "adrbrowsiel/components/decentralized_dns/decentralized_dns_opt_in_page.h"
+#include "adrbrowsiel/components/decentralized_dns/features.h"
+#include "adrbrowsiel/components/decentralized_dns/pref_names.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/tabs/tab_strip_model.h"

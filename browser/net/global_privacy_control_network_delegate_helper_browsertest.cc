@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-#include "brave/common/network_constants.h"
+#include "adrbrowsiel/common/network_constants.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "chrome/test/base/ui_test_utils.h"
@@ -84,7 +84,7 @@ IN_PROC_BROWSER_TEST_F(GlobalPrivacyControlNetworkDelegateBrowserTest,
 }
 
 // The Global Privacy Control spec also defines the
-// `navigator.globalPrivacyControl` JS property, which is read-only. In Brave
+// `navigator.globalPrivacyControl` JS property, which is read-only. In adrbrowsiel
 // it will always return `true`.
 IN_PROC_BROWSER_TEST_F(GlobalPrivacyControlNetworkDelegateBrowserTest,
                        NavigatorGlobalPrivacyAPI) {

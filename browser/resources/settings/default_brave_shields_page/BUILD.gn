@@ -1,4 +1,4 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -12,12 +12,12 @@ import("../settings.gni")
 
 js_type_check("closure_compile") {
   deps = [
-    ":default_brave_shields_browser_proxy",
-    ":default_brave_shields_page",
+    ":default_adrbrowsiel_shields_browser_proxy",
+    ":default_adrbrowsiel_shields_page",
   ]
 }
 
-js_library("default_brave_shields_browser_proxy") {
+js_library("default_adrbrowsiel_shields_browser_proxy") {
   deps = [
     "//ui/webui/resources/js:cr",
   ]
@@ -26,9 +26,9 @@ js_library("default_brave_shields_browser_proxy") {
   ]
 }
 
-js_library("default_brave_shields_page") {
+js_library("default_adrbrowsiel_shields_page") {
   deps = [
-    ":default_brave_shields_browser_proxy",
+    ":default_adrbrowsiel_shields_browser_proxy",
     "//ui/webui/resources/js:cr",
     "//ui/webui/resources/js:load_time_data",
   ]
@@ -42,12 +42,12 @@ js_library("default_brave_shields_page") {
 js_type_check("closure_compile_module") {
   is_polymer3 = true
   deps = [
-    ":default_brave_shields_browser_proxy.m",
-    ":default_brave_shields_page.m",
+    ":default_adrbrowsiel_shields_browser_proxy.m",
+    ":default_adrbrowsiel_shields_page.m",
   ]
 }
 
-js_library("default_brave_shields_browser_proxy.m") {
+js_library("default_adrbrowsiel_shields_browser_proxy.m") {
   deps = [
     "//ui/webui/resources/js:cr.m",
   ]
@@ -55,13 +55,13 @@ js_library("default_brave_shields_browser_proxy.m") {
     "$externs_path/chrome_send.js",
   ]
   extra_deps = [
-    ":default_brave_shields_browser_proxy_module",
+    ":default_adrbrowsiel_shields_browser_proxy_module",
   ]
 }
 
-js_library("default_brave_shields_page.m") {
+js_library("default_adrbrowsiel_shields_page.m") {
   deps = [
-    ":default_brave_shields_browser_proxy.m",
+    ":default_adrbrowsiel_shields_browser_proxy.m",
     "//ui/webui/resources/js:cr.m",
     "//ui/webui/resources/js:load_time_data.m",
   ]
@@ -69,7 +69,7 @@ js_library("default_brave_shields_page.m") {
     "$externs_path/settings_private.js",
   ]
   extra_deps = [
-    ":default_brave_shields_page_module",
+    ":default_adrbrowsiel_shields_page_module",
   ]
 }
 
@@ -77,24 +77,24 @@ js_library("default_brave_shields_page.m") {
 
 group("web_modules") {
   public_deps = [
-    ":default_brave_shields_page_module",
-    ":default_brave_shields_browser_proxy_module",
+    ":default_adrbrowsiel_shields_page_module",
+    ":default_adrbrowsiel_shields_browser_proxy_module",
   ]
 }
 
-polymer_modulizer("default_brave_shields_page") {
-  js_file = "default_brave_shields_page.js"
-  html_file = "default_brave_shields_page.html"
+polymer_modulizer("default_adrbrowsiel_shields_page") {
+  js_file = "default_adrbrowsiel_shields_page.js"
+  html_file = "default_adrbrowsiel_shields_page.html"
   html_type = "dom-module"
   auto_imports = settings_auto_imports + [
-                   "brave/browser/resources/settings/default_brave_shields_page/default_brave_shields_browser_proxy.html|DefaultBraveShieldsBrowserProxy, DefaultBraveShieldsBrowserProxyImpl",
+                   "adrbrowsiel/browser/resources/settings/default_adrbrowsiel_shields_page/default_adrbrowsiel_shields_browser_proxy.html|DefaultadrbrowsielShieldsBrowserProxy, DefaultadrbrowsielShieldsBrowserProxyImpl",
                  ]
   namespace_rewrites = settings_namespace_rewrites
 }
 
-js_modulizer("default_brave_shields_browser_proxy_module") {
+js_modulizer("default_adrbrowsiel_shields_browser_proxy_module") {
   input_files = [
-    "default_brave_shields_browser_proxy.js",
+    "default_adrbrowsiel_shields_browser_proxy.js",
   ]
   namespace_rewrites = settings_namespace_rewrites
 }

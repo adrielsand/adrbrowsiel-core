@@ -7,7 +7,7 @@ index 2fd51c5ad015ee86b23272e64bd00fbf3de103cc..0a81f8bb6d3b3dea0e3d374e9c6b4d85
              android:layout_weight="1"
              android:layout_gravity="center_vertical"
 -            android:background="@drawable/modern_toolbar_text_box_background"
-+            android:background="@drawable/brave_modern_toolbar_text_box_background"
++            android:background="@drawable/adrbrowsiel_modern_toolbar_text_box_background"
              android:paddingEnd="@dimen/location_bar_lateral_padding" />
  
          <ViewStub
@@ -15,7 +15,7 @@ index 2fd51c5ad015ee86b23272e64bd00fbf3de103cc..0a81f8bb6d3b3dea0e3d374e9c6b4d85
              style="@style/ToolbarButton"
              android:contentDescription="@string/accessibility_toolbar_btn_tabswitcher_toggle_default"
              android:visibility="gone" />
-+        <include layout="@layout/brave_toolbar" android:layout_height="wrap_content" android:layout_width="wrap_content" />
++        <include layout="@layout/adrbrowsiel_toolbar" android:layout_height="wrap_content" android:layout_width="wrap_content" />
  
          <org.chromium.chrome.browser.toolbar.menu_button.MenuButton
              android:layout_width="wrap_content"

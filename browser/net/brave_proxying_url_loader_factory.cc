@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_proxying_url_loader_factory.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_proxying_url_loader_factory.h"
 
 #include <utility>
 
@@ -12,8 +12,8 @@
 #include "base/metrics/histogram_macros.h"
 #include "base/strings/stringprintf.h"
 #include "base/task/post_task.h"
-#include "brave/browser/net/brave_request_handler.h"
-#include "brave/components/brave_shields/browser/adblock_stub_response.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_request_handler.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adblock_stub_response.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/browser_task_traits.h"
 #include "content/public/browser/browser_thread.h"
@@ -80,13 +80,13 @@ net::RedirectInfo CreateRedirectInfo(
 
 }  // namespace
 
-BraveProxyingURLLoaderFactory::InProgressRequest::FollowRedirectParams::
+adrbrowsielProxyingURLLoaderFactory::InProgressRequest::FollowRedirectParams::
     FollowRedirectParams() = default;
-BraveProxyingURLLoaderFactory::InProgressRequest::FollowRedirectParams::
+adrbrowsielProxyingURLLoaderFactory::InProgressRequest::FollowRedirectParams::
     ~FollowRedirectParams() = default;
 
-BraveProxyingURLLoaderFactory::InProgressRequest::InProgressRequest(
-    BraveProxyingURLLoaderFactory* factory,
+adrbrowsielProxyingURLLoaderFactory::InProgressRequest::InProgressRequest(
+    adrbrowsielProxyingURLLoaderFactory* factory,
     uint64_t request_id,
     int32_t network_service_request_id,
     int render_process_id,
@@ -112,28 +112,28 @@ BraveProxyingURLLoaderFactory::InProgressRequest::InProgressRequest(
       weak_factory_(this) {
   // If there is a client error, clean up the request.
   target_client_.set_disconnect_handler(base::BindOnce(
-      &BraveProxyingURLLoaderFactory::InProgressRequest::OnRequestError,
+      &adrbrowsielProxyingURLLoaderFactory::InProgressRequest::OnRequestError,
       weak_factory_.GetWeakPtr(),
       network::URLLoaderCompletionStatus(net::ERR_ABORTED)));
 }
 
-BraveProxyingURLLoaderFactory::InProgressRequest::~InProgressRequest() {
+adrbrowsielProxyingURLLoaderFactory::InProgressRequest::~InProgressRequest() {
   if (ctx_) {
     factory_->request_handler_->OnURLRequestDestroyed(ctx_);
   }
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::Restart() {
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::Restart() {
   UpdateRequestInfo();
   RestartInternal();
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::UpdateRequestInfo() {
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::UpdateRequestInfo() {
   // TODO(iefremov): Update |ctx_| here and get rid of multiple spots where
   // it is refilled.
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::RestartInternal() {
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::RestartInternal() {
   request_completed_ = false;
   start_time_ = base::TimeTicks::Now();
 
@@ -141,7 +141,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::RestartInternal() {
       base::BindRepeating(&InProgressRequest::ContinueToBeforeSendHeaders,
                           weak_factory_.GetWeakPtr());
   redirect_url_ = GURL();
-  ctx_ = brave::BraveRequestInfo::MakeCTX(request_, render_process_id_,
+  ctx_ = adrbrowsiel::adrbrowsielRequestInfo::MakeCTX(request_, render_process_id_,
                                           frame_tree_node_id_, request_id_,
                                           browser_context_, ctx_);
   int result = factory_->request_handler_->OnBeforeURLRequest(
@@ -171,7 +171,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::RestartInternal() {
   continuation.Run(net::OK);
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::FollowRedirect(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::FollowRedirect(
     const std::vector<std::string>& removed_headers,
     const net::HttpRequestHeaders& modified_headers,
     const net::HttpRequestHeaders& modified_cors_exempt_headers,
@@ -197,29 +197,29 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::FollowRedirect(
   RestartInternal();
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::SetPriority(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::SetPriority(
     net::RequestPriority priority,
     int32_t intra_priority_value) {
   if (target_loader_.is_bound())
     target_loader_->SetPriority(priority, intra_priority_value);
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::
     PauseReadingBodyFromNet() {
   if (target_loader_.is_bound())
     target_loader_->PauseReadingBodyFromNet();
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::
     ResumeReadingBodyFromNet() {
   if (target_loader_.is_bound())
     target_loader_->ResumeReadingBodyFromNet();
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::OnReceiveEarlyHints(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::OnReceiveEarlyHints(
     network::mojom::EarlyHintsPtr early_hints) {}
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::OnReceiveResponse(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::OnReceiveResponse(
     network::mojom::URLResponseHeadPtr head) {
   current_response_ = std::move(head);
   ctx_->internal_redirect = false;
@@ -228,7 +228,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::OnReceiveResponse(
                           weak_factory_.GetWeakPtr()));
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::OnReceiveRedirect(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::OnReceiveRedirect(
     const net::RedirectInfo& redirect_info,
     network::mojom::URLResponseHeadPtr head) {
   current_response_ = std::move(head);
@@ -239,7 +239,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::OnReceiveRedirect(
                           weak_factory_.GetWeakPtr(), redirect_info));
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::OnUploadProgress(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::OnUploadProgress(
     int64_t current_position,
     int64_t total_size,
     OnUploadProgressCallback callback) {
@@ -247,24 +247,24 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::OnUploadProgress(
                                    std::move(callback));
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::OnReceiveCachedMetadata(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::OnReceiveCachedMetadata(
     mojo_base::BigBuffer data) {
   target_client_->OnReceiveCachedMetadata(std::move(data));
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::OnTransferSizeUpdated(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::OnTransferSizeUpdated(
     int32_t transfer_size_diff) {
   target_client_->OnTransferSizeUpdated(transfer_size_diff);
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::
     OnStartLoadingResponseBody(mojo::ScopedDataPipeConsumerHandle body) {
   target_client_->OnStartLoadingResponseBody(std::move(body));
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::OnComplete(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::OnComplete(
     const network::URLLoaderCompletionStatus& status) {
-  UMA_HISTOGRAM_TIMES("Brave.ProxyingURLLoader.TotalRequestTime",
+  UMA_HISTOGRAM_TIMES("adrbrowsiel.ProxyingURLLoader.TotalRequestTime",
                       base::TimeTicks::Now() - start_time_);
   if (status.error_code != net::OK) {
     OnRequestError(status);
@@ -276,7 +276,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::OnComplete(
   factory_->RemoveRequest(this);
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::
     HandleBeforeRequestRedirect() {
   // The listener requested a redirect. Close the connection with the current
   // URLLoader and inform the URLLoaderClient redirect was generated.
@@ -327,7 +327,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::
   ContinueToBeforeRedirect(redirect_info, net::OK);
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::
     ContinueToBeforeSendHeaders(int error_code) {
   if (error_code != net::OK) {
     OnRequestError(network::URLLoaderCompletionStatus(error_code));
@@ -348,7 +348,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::
     proxied_client_receiver_.Resume();
 
   // TODO(iefremov): Shorten
-  if (ctx_->blocked_by != brave::kNotBlocked) {
+  if (ctx_->blocked_by != adrbrowsiel::kNotBlocked) {
     if (!ctx_->ShouldMockRequest()) {
       OnRequestError(
           network::URLLoaderCompletionStatus(net::ERR_BLOCKED_BY_CLIENT));
@@ -357,7 +357,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::
 
     auto response = network::mojom::URLResponseHead::New();
     std::string response_data;
-    brave_shields::MakeStubResponse(ctx_->mock_data_url, request_, &response,
+    adrbrowsiel_shields::MakeStubResponse(ctx_->mock_data_url, request_, &response,
                                     &response_data);
 
     target_client_->OnReceiveResponse(std::move(response));
@@ -393,7 +393,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::
     auto continuation = base::BindRepeating(
         &InProgressRequest::ContinueToSendHeaders, weak_factory_.GetWeakPtr());
 
-    ctx_ = brave::BraveRequestInfo::MakeCTX(request_, render_process_id_,
+    ctx_ = adrbrowsiel::adrbrowsielRequestInfo::MakeCTX(request_, render_process_id_,
                                             frame_tree_node_id_, request_id_,
                                             browser_context_, ctx_);
     int result = factory_->request_handler_->OnBeforeStartTransaction(
@@ -422,7 +422,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::
   ContinueToSendHeaders(net::OK);
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::ContinueToStartRequest(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::ContinueToStartRequest(
     int error_code) {
   if (error_code != net::OK) {
     OnRequestError(network::URLLoaderCompletionStatus(error_code));
@@ -447,7 +447,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::ContinueToStartRequest(
   // either |proxied_loader_receiver_|, |proxied_client_receiver_|.
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::ContinueToSendHeaders(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::ContinueToSendHeaders(
     int error_code) {
   if (error_code != net::OK) {
     OnRequestError(network::URLLoaderCompletionStatus(error_code));
@@ -487,7 +487,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::ContinueToSendHeaders(
   ContinueToStartRequest(net::OK);
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::
     ContinueToResponseStarted(int error_code) {
   if (error_code != net::OK) {
     OnRequestError(network::URLLoaderCompletionStatus(error_code));
@@ -533,7 +533,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::
   target_client_->OnReceiveResponse(std::move(current_response_));
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::ContinueToBeforeRedirect(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::ContinueToBeforeRedirect(
     const net::RedirectInfo& redirect_info,
     int error_code) {
   if (error_code != net::OK) {
@@ -571,7 +571,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::ContinueToBeforeRedirect(
   request_completed_ = true;
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::
     HandleResponseOrRedirectHeaders(net::CompletionOnceCallback continuation) {
   override_headers_ = nullptr;
   redirect_url_ = GURL();
@@ -579,7 +579,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::
   net::CompletionRepeatingCallback copyable_callback =
       base::AdaptCallbackForRepeating(std::move(continuation));
   if (request_.url.SchemeIsHTTPOrHTTPS()) {
-    ctx_ = brave::BraveRequestInfo::MakeCTX(request_, render_process_id_,
+    ctx_ = adrbrowsiel::adrbrowsielRequestInfo::MakeCTX(request_, render_process_id_,
                                             frame_tree_node_id_, request_id_,
                                             browser_context_, ctx_);
     int result = factory_->request_handler_->OnHeadersReceived(
@@ -607,7 +607,7 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::
   copyable_callback.Run(net::OK);
 }
 
-void BraveProxyingURLLoaderFactory::InProgressRequest::OnRequestError(
+void adrbrowsielProxyingURLLoaderFactory::InProgressRequest::OnRequestError(
     const network::URLLoaderCompletionStatus& status) {
   if (!request_completed_) {
     target_client_->OnComplete(status);
@@ -617,8 +617,8 @@ void BraveProxyingURLLoaderFactory::InProgressRequest::OnRequestError(
   factory_->RemoveRequest(this);
 }
 
-BraveProxyingURLLoaderFactory::BraveProxyingURLLoaderFactory(
-    BraveRequestHandler* request_handler,
+adrbrowsielProxyingURLLoaderFactory::adrbrowsielProxyingURLLoaderFactory(
+    adrbrowsielRequestHandler* request_handler,
     content::BrowserContext* browser_context,
     int render_process_id,
     int frame_tree_node_id,
@@ -639,19 +639,19 @@ BraveProxyingURLLoaderFactory::BraveProxyingURLLoaderFactory(
 
   target_factory_.Bind(std::move(target_factory));
   target_factory_.set_connection_error_handler(
-      base::BindOnce(&BraveProxyingURLLoaderFactory::OnTargetFactoryError,
+      base::BindOnce(&adrbrowsielProxyingURLLoaderFactory::OnTargetFactoryError,
                      base::Unretained(this)));
 
   proxy_receivers_.Add(this, std::move(receiver));
   proxy_receivers_.set_disconnect_handler(
-      base::BindRepeating(&BraveProxyingURLLoaderFactory::OnProxyBindingError,
+      base::BindRepeating(&adrbrowsielProxyingURLLoaderFactory::OnProxyBindingError,
                           base::Unretained(this)));
 }
 
-BraveProxyingURLLoaderFactory::~BraveProxyingURLLoaderFactory() = default;
+adrbrowsielProxyingURLLoaderFactory::~adrbrowsielProxyingURLLoaderFactory() = default;
 
 // static
-bool BraveProxyingURLLoaderFactory::MaybeProxyRequest(
+bool adrbrowsielProxyingURLLoaderFactory::MaybeProxyRequest(
     content::BrowserContext* browser_context,
     content::RenderFrameHost* render_frame_host,
     int render_process_id,
@@ -668,7 +668,7 @@ bool BraveProxyingURLLoaderFactory::MaybeProxyRequest(
   return true;
 }
 
-void BraveProxyingURLLoaderFactory::CreateLoaderAndStart(
+void adrbrowsielProxyingURLLoaderFactory::CreateLoaderAndStart(
     mojo::PendingReceiver<network::mojom::URLLoader> loader_receiver,
     int32_t request_id,
     uint32_t options,
@@ -681,35 +681,35 @@ void BraveProxyingURLLoaderFactory::CreateLoaderAndStart(
   // needs to be unique per-BrowserContext so request handlers can make sense of
   // it. Note that |network_service_request_id_| by contrast is not necessarily
   // unique, so we don't use it for identity here.
-  const uint64_t brave_request_id = request_id_generator_->Generate();
+  const uint64_t adrbrowsiel_request_id = request_id_generator_->Generate();
 
   auto result = requests_.emplace(std::make_unique<InProgressRequest>(
-      this, brave_request_id, request_id, render_process_id_,
+      this, adrbrowsiel_request_id, request_id, render_process_id_,
       frame_tree_node_id_, options, request, browser_context_,
       traffic_annotation, std::move(loader_receiver), std::move(client)));
   (*result.first)->Restart();
 }
 
-void BraveProxyingURLLoaderFactory::Clone(
+void adrbrowsielProxyingURLLoaderFactory::Clone(
     mojo::PendingReceiver<network::mojom::URLLoaderFactory> loader_receiver) {
   proxy_receivers_.Add(this, std::move(loader_receiver));
 }
 
-void BraveProxyingURLLoaderFactory::OnTargetFactoryError() {
+void adrbrowsielProxyingURLLoaderFactory::OnTargetFactoryError() {
   // Stop calls to CreateLoaderAndStart() when |target_factory_| is invalid.
   target_factory_.reset();
   proxy_receivers_.Clear();
   MaybeRemoveProxy();
 }
 
-void BraveProxyingURLLoaderFactory::OnProxyBindingError() {
+void adrbrowsielProxyingURLLoaderFactory::OnProxyBindingError() {
   if (proxy_receivers_.empty())
     target_factory_.reset();
 
   MaybeRemoveProxy();
 }
 
-void BraveProxyingURLLoaderFactory::RemoveRequest(InProgressRequest* request) {
+void adrbrowsielProxyingURLLoaderFactory::RemoveRequest(InProgressRequest* request) {
   auto it = requests_.find(request);
   DCHECK(it != requests_.end());
   requests_.erase(it);
@@ -717,7 +717,7 @@ void BraveProxyingURLLoaderFactory::RemoveRequest(InProgressRequest* request) {
   MaybeRemoveProxy();
 }
 
-void BraveProxyingURLLoaderFactory::MaybeRemoveProxy() {
+void adrbrowsielProxyingURLLoaderFactory::MaybeRemoveProxy() {
   // Even if all URLLoaderFactory pipes connected to this object have been
   // closed it has to stay alive until all active requests have completed.
   if (target_factory_.is_bound() || !requests_.empty())

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_NET_URL_CONTEXT_H_
-#define BRAVE_BROWSER_NET_URL_CONTEXT_H_
+#ifndef adrbrowsiel_BROWSER_NET_URL_CONTEXT_H_
+#define adrbrowsiel_BROWSER_NET_URL_CONTEXT_H_
 
 #include <memory>
 #include <set>
@@ -17,7 +17,7 @@
 #include "third_party/blink/public/mojom/loader/resource_load_info.mojom-shared.h"
 #include "url/gurl.h"
 
-class BraveRequestHandler;
+class adrbrowsielRequestHandler;
 
 namespace content {
 class BrowserContext;
@@ -27,19 +27,19 @@ namespace network {
 struct ResourceRequest;
 }
 
-namespace brave {
-struct BraveRequestInfo;
+namespace adrbrowsiel {
+struct adrbrowsielRequestInfo;
 using ResponseCallback = base::Callback<void()>;
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-namespace brave_rewards {
-int OnBeforeURLRequest(const brave::ResponseCallback& next_callback,
-                       std::shared_ptr<brave::BraveRequestInfo> ctx);
-}  // namespace brave_rewards
+namespace adrbrowsiel_rewards {
+int OnBeforeURLRequest(const adrbrowsiel::ResponseCallback& next_callback,
+                       std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx);
+}  // namespace adrbrowsiel_rewards
 
-namespace brave {
+namespace adrbrowsiel {
 
-enum BraveNetworkDelegateEventType {
+enum adrbrowsielNetworkDelegateEventType {
   kOnBeforeRequest,
   kOnBeforeStartTransaction,
   kOnHeadersReceived,
@@ -50,13 +50,13 @@ enum BraveNetworkDelegateEventType {
 
 enum BlockedBy { kNotBlocked, kAdBlocked, kOtherBlocked };
 
-struct BraveRequestInfo {
-  BraveRequestInfo();
+struct adrbrowsielRequestInfo {
+  adrbrowsielRequestInfo();
 
   // For tests, should not be used directly.
-  explicit BraveRequestInfo(const GURL& url);
+  explicit adrbrowsielRequestInfo(const GURL& url);
 
-  ~BraveRequestInfo();
+  ~adrbrowsielRequestInfo();
   std::string method;
   GURL request_url;
   GURL tab_origin;
@@ -73,7 +73,7 @@ struct BraveRequestInfo {
 
   std::string new_url_spec;
   // TODO(iefremov): rename to shields_up.
-  bool allow_brave_shields = true;
+  bool allow_adrbrowsiel_shields = true;
   bool allow_ads = false;
   bool allow_http_upgradable_resource = false;
   bool allow_referrers = false;
@@ -92,7 +92,7 @@ struct BraveRequestInfo {
   scoped_refptr<net::HttpResponseHeaders>* override_response_headers = nullptr;
 
   GURL* allowed_unsafe_redirect_url = nullptr;
-  BraveNetworkDelegateEventType event_type = kUnknownEventType;
+  adrbrowsielNetworkDelegateEventType event_type = kUnknownEventType;
   const base::ListValue* referral_headers_list = nullptr;
   BlockedBy blocked_by = kNotBlocked;
   std::string mock_data_url;
@@ -113,39 +113,39 @@ struct BraveRequestInfo {
 
   std::string upload_data;
 
-  static std::shared_ptr<brave::BraveRequestInfo> MakeCTX(
+  static std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> MakeCTX(
       const network::ResourceRequest& request,
       int render_process_id,
       int frame_tree_node_id,
       uint64_t request_identifier,
       content::BrowserContext* browser_context,
-      std::shared_ptr<brave::BraveRequestInfo> old_ctx);
+      std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> old_ctx);
 
  private:
   // Please don't add any more friends here if it can be avoided.
   // We should also remove the one below.
-  friend class ::BraveRequestHandler;
+  friend class ::adrbrowsielRequestHandler;
 
   GURL* new_url = nullptr;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveRequestInfo);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielRequestInfo);
 };
 
 // ResponseListener
 using OnBeforeURLRequestCallback =
     base::Callback<int(const ResponseCallback& next_callback,
-                       std::shared_ptr<BraveRequestInfo> ctx)>;
+                       std::shared_ptr<adrbrowsielRequestInfo> ctx)>;
 using OnBeforeStartTransactionCallback =
     base::Callback<int(net::HttpRequestHeaders* headers,
                        const ResponseCallback& next_callback,
-                       std::shared_ptr<BraveRequestInfo> ctx)>;
+                       std::shared_ptr<adrbrowsielRequestInfo> ctx)>;
 using OnHeadersReceivedCallback = base::Callback<int(
     const net::HttpResponseHeaders* original_response_headers,
     scoped_refptr<net::HttpResponseHeaders>* override_response_headers,
     GURL* allowed_unsafe_redirect_url,
     const ResponseCallback& next_callback,
-    std::shared_ptr<BraveRequestInfo> ctx)>;
+    std::shared_ptr<adrbrowsielRequestInfo> ctx)>;
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_BROWSER_NET_URL_CONTEXT_H_
+#endif  // adrbrowsiel_BROWSER_NET_URL_CONTEXT_H_

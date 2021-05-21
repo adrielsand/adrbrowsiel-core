@@ -25,7 +25,7 @@ index f9aea40901ea3172c34b0a62800a6d5350198502..d7bb2c5119cce22422f66d44b30e6a0d
      // "LoginCustomFlags" in tools/metrics/histograms/enums.xml. See "Flag
      // Histograms" in tools/metrics/histograms/README.md (run the
      // AboutFlagsHistogramTest unit test to verify this process).
-+    BRAVE_FEATURE_ENTRIES
++    adrbrowsiel_FEATURE_ENTRIES
  };
  
  class FlagsStateSingleton : public flags_ui::FlagsState::Delegate {

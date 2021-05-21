@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_actions/brave_action_view_controller.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_actions/adrbrowsiel_action_view_controller.h"
 
 #include <memory>
 #include <string>
 #include <utility>
 
-#include "brave/browser/ui/brave_actions/brave_action_icon_with_badge_image_source.h"
-#include "brave/browser/profiles/profile_util.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_actions/adrbrowsiel_action_icon_with_badge_image_source.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
 #include "chrome/browser/extensions/extension_view_host.h"
 #include "chrome/browser/extensions/extension_view_host_factory.h"
 #include "chrome/browser/profiles/profile.h"
@@ -28,26 +28,26 @@
 #include "ui/gfx/paint_vector_icon.h"
 #include "ui/gfx/scoped_canvas.h"
 
-bool BraveActionViewController::IsEnabled(
+bool adrbrowsielActionViewController::IsEnabled(
     content::WebContents* web_contents) const {
   bool is_enabled = ExtensionActionViewController::IsEnabled(web_contents);
-  if (is_enabled && extension_->id() == brave_rewards_extension_id &&
-      !brave::IsRegularProfile(browser_->profile()))
+  if (is_enabled && extension_->id() == adrbrowsiel_rewards_extension_id &&
+      !adrbrowsiel::IsRegularProfile(browser_->profile()))
     is_enabled = false;
   return is_enabled;
 }
 
-bool BraveActionViewController::DisabledClickOpensMenu() const {
+bool adrbrowsielActionViewController::DisabledClickOpensMenu() const {
   // disabled is a per-tab state
   return false;
 }
 
-ui::MenuModel* BraveActionViewController::GetContextMenu() {
-  // no context menu for brave actions button
+ui::MenuModel* adrbrowsielActionViewController::GetContextMenu() {
+  // no context menu for adrbrowsiel actions button
   return nullptr;
 }
 
-bool BraveActionViewController::ExecuteActionUI(
+bool adrbrowsielActionViewController::ExecuteActionUI(
     std::string relative_path) {
   return TriggerPopupWithUrl(PopupShowAction::SHOW_POPUP,
       extension()->GetResourceURL(relative_path),
@@ -55,11 +55,11 @@ bool BraveActionViewController::ExecuteActionUI(
 }
 
 ExtensionActionViewController*
-BraveActionViewController::GetPreferredPopupViewController() {
+adrbrowsielActionViewController::GetPreferredPopupViewController() {
   return this;
 }
 
-bool BraveActionViewController::TriggerPopupWithUrl(
+bool adrbrowsielActionViewController::TriggerPopupWithUrl(
     PopupShowAction show_action,
     const GURL& popup_url,
     bool grant_tab_permissions) {
@@ -80,26 +80,26 @@ bool BraveActionViewController::TriggerPopupWithUrl(
   return true;
 }
 
-void BraveActionViewController::OnPopupClosed() {
+void adrbrowsielActionViewController::OnPopupClosed() {
   popup_host_observer_.Remove(popup_host_);
   popup_host_ = nullptr;
   view_delegate_->OnPopupClosed();
 }
 
-gfx::Image BraveActionViewController::GetIcon(
+gfx::Image adrbrowsielActionViewController::GetIcon(
     content::WebContents* web_contents,
     const gfx::Size& size) {
   return gfx::Image(
       gfx::ImageSkia(GetIconImageSource(web_contents, size), size));
 }
 
-std::unique_ptr<BraveActionIconWithBadgeImageSource>
-BraveActionViewController::GetIconImageSource(
+std::unique_ptr<adrbrowsielActionIconWithBadgeImageSource>
+adrbrowsielActionViewController::GetIconImageSource(
   content::WebContents* web_contents, const gfx::Size& size) {
   int tab_id = sessions::SessionTabHelper::IdForTab(web_contents).id();
   // generate icon
-  std::unique_ptr<BraveActionIconWithBadgeImageSource> image_source(
-      new BraveActionIconWithBadgeImageSource(size));
+  std::unique_ptr<adrbrowsielActionIconWithBadgeImageSource> image_source(
+      new adrbrowsielActionIconWithBadgeImageSource(size));
   image_source->SetIcon(icon_factory_.GetIcon(tab_id));
   // set text
   std::unique_ptr<IconWithBadgeImageSource::Badge> badge;

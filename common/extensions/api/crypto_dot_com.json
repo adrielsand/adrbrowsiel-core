@@ -7,7 +7,7 @@
     "namespace": "cryptoDotCom",
     "description": "Use the <code>chrome.cryptoDotCom</code> to interact with crypto.com services.",
     "compiler_options": {
-      "implemented_in": "brave/browser/extensions/api/crypto_dot_com_api.h"
+      "implemented_in": "adrbrowsiel/browser/extensions/api/crypto_dot_com_api.h"
     },
     "events": [
     ],

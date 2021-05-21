@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -37,11 +37,11 @@ import androidx.cardview.widget.CardView;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveAdsNativeHelper;
-import org.chromium.chrome.browser.BraveRewardsHelper;
-import org.chromium.chrome.browser.BraveRewardsNativeWorker;
-import org.chromium.chrome.browser.BraveRewardsPanelPopup;
-import org.chromium.chrome.browser.app.BraveActivity;
+import org.chromium.chrome.browser.adrbrowsielAdsNativeHelper;
+import org.chromium.chrome.browser.adrbrowsielRewardsHelper;
+import org.chromium.chrome.browser.adrbrowsielRewardsNativeWorker;
+import org.chromium.chrome.browser.adrbrowsielRewardsPanelPopup;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
 import org.chromium.chrome.browser.app.ChromeActivity;
 import org.chromium.chrome.browser.ntp_background_images.NTPBackgroundImagesBridge;
 import org.chromium.chrome.browser.ntp_background_images.RewardsBottomSheetDialogFragment;
@@ -50,8 +50,8 @@ import org.chromium.chrome.browser.ntp_background_images.model.NTPImage;
 import org.chromium.chrome.browser.ntp_background_images.model.SponsoredTab;
 import org.chromium.chrome.browser.ntp_background_images.model.Wallpaper;
 import org.chromium.chrome.browser.ntp_background_images.util.SponsoredImageUtil;
-import org.chromium.chrome.browser.preferences.BravePref;
-import org.chromium.chrome.browser.preferences.BravePreferenceKeys;
+import org.chromium.chrome.browser.preferences.adrbrowsielPref;
+import org.chromium.chrome.browser.preferences.adrbrowsielPreferenceKeys;
 import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.settings.BackgroundImagesPreferences;
@@ -78,8 +78,8 @@ public class NTPUtil {
         new HashMap<String, SoftReference<Bitmap>>();
 
     public static void turnOnAds() {
-        BraveAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
-        BraveRewardsNativeWorker.getInstance().SetAutoContributeEnabled(true);
+        adrbrowsielAdsNativeHelper.nativeSetAdsEnabled(Profile.getLastUsedRegularProfile());
+        adrbrowsielRewardsNativeWorker.getInstance().SetAutoContributeEnabled(true);
     }
 
     public static void updateOrientedUI(Context context, ViewGroup view, Point size) {
@@ -129,10 +129,10 @@ public class NTPUtil {
         if(sponsoredTab.shouldShowBanner()) {
             if(PackageUtils.isFirstInstall(context)
                 && ntpImage instanceof Wallpaper
-                && !BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedRegularProfile())) {
+                && !adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(Profile.getLastUsedRegularProfile())) {
                 return SponsoredImageUtil.BR_ON_ADS_OFF ;
             } else if (ntpImage instanceof Wallpaper
-                    && BraveAdsNativeHelper.nativeIsBraveAdsEnabled(
+                    && adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(
                             Profile.getLastUsedRegularProfile())) {
                 return SponsoredImageUtil.BR_ON_ADS_ON;
             }
@@ -143,7 +143,7 @@ public class NTPUtil {
     public static void showBREBottomBanner(View view) {
         Context context = ContextUtils.getApplicationContext();
         if (!PackageUtils.isFirstInstall(context)
-                && BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedRegularProfile())
+                && adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(Profile.getLastUsedRegularProfile())
                 && ContextUtils.getAppSharedPreferences().getBoolean(
                         BackgroundImagesPreferences.PREF_SHOW_BRE_BANNER, true)) {
             final ViewGroup breBottomBannerLayout = (ViewGroup) view.findViewById(R.id.bre_banner);
@@ -162,9 +162,9 @@ public class NTPUtil {
             takeTourButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (BraveActivity.getBraveActivity() != null) {
-                        BraveRewardsHelper.setShowBraveRewardsOnboardingOnce(true);
-                        BraveActivity.getBraveActivity().openRewardsPanel();
+                    if (adrbrowsielActivity.getadrbrowsielActivity() != null) {
+                        adrbrowsielRewardsHelper.setShowadrbrowsielRewardsOnboardingOnce(true);
+                        adrbrowsielActivity.getadrbrowsielActivity().openRewardsPanel();
                     }
                     breBottomBannerLayout.setVisibility(View.GONE);
                 }
@@ -177,14 +177,14 @@ public class NTPUtil {
         nonDisruptiveBannerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (BraveAdsNativeHelper.nativeIsBraveAdsEnabled(
+                if (adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(
                             Profile.getLastUsedRegularProfile())) {
                     clickOnBottomBanner(chromeActivity, ntpType, nonDisruptiveBannerLayout,
                             sponsoredTab, newTabPageListener);
                 } else {
-                    if (BraveActivity.getBraveActivity() != null) {
+                    if (adrbrowsielActivity.getadrbrowsielActivity() != null) {
                         nonDisruptiveBannerLayout.setVisibility(View.GONE);
-                        BraveActivity.getBraveActivity().openRewardsPanel();
+                        adrbrowsielActivity.getadrbrowsielActivity().openRewardsPanel();
                     }
                 }
                 sponsoredTab.updateBannerPref();
@@ -262,10 +262,10 @@ public class NTPUtil {
                                        chromeActivity.getResources().getString(R.string.learn_more));
         }
         int learnMoreIndex = bannerText.indexOf(chromeActivity.getResources().getString(R.string.learn_more));
-        Spanned learnMoreSpanned = BraveRewardsHelper.spannedFromHtmlString(bannerText);
+        Spanned learnMoreSpanned = adrbrowsielRewardsHelper.spannedFromHtmlString(bannerText);
         SpannableString learnMoreTextSS = new SpannableString(learnMoreSpanned.toString());
 
-        ForegroundColorSpan brOffForegroundSpan = new ForegroundColorSpan(chromeActivity.getResources().getColor(R.color.brave_theme_color));
+        ForegroundColorSpan brOffForegroundSpan = new ForegroundColorSpan(chromeActivity.getResources().getColor(R.color.adrbrowsiel_theme_color));
         learnMoreTextSS.setSpan(brOffForegroundSpan, learnMoreIndex, learnMoreIndex + chromeActivity.getResources().getString(R.string.learn_more).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return learnMoreTextSS;
     }
@@ -476,7 +476,7 @@ public class NTPUtil {
     public static boolean isReferralEnabled() {
         Profile mProfile = Profile.getLastUsedRegularProfile();
         NTPBackgroundImagesBridge mNTPBackgroundImagesBridge = NTPBackgroundImagesBridge.getInstance(mProfile);
-        boolean isReferralEnabled = UserPrefs.get(Profile.getLastUsedRegularProfile()).getInteger(BravePref.NEW_TAB_PAGE_SUPER_REFERRAL_THEMES_OPTION) == 1 ? true : false;
+        boolean isReferralEnabled = UserPrefs.get(Profile.getLastUsedRegularProfile()).getInteger(adrbrowsielPref.NEW_TAB_PAGE_SUPER_REFERRAL_THEMES_OPTION) == 1 ? true : false;
         return mNTPBackgroundImagesBridge.isSuperReferral() && isReferralEnabled;
     }
 }

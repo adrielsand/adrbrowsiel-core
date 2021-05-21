@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_httpse_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_httpse_network_delegate_helper.h"
 
 #include <algorithm>
 #include <memory>
@@ -11,36 +11,36 @@
 
 #include "base/task/post_task.h"
 #include "base/threading/scoped_blocking_call.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/brave_shields/brave_shields_web_contents_observer.h"
-#include "brave/components/brave_shields/browser/https_everywhere_service.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/https_everywhere_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 #include "content/public/browser/browser_thread.h"
 #include "net/base/net_errors.h"
 
-using brave_shields::BraveShieldsWebContentsObserver;
+using adrbrowsiel_shields::adrbrowsielShieldsWebContentsObserver;
 using content::BrowserThread;
 
-namespace brave {
+namespace adrbrowsiel {
 
-void OnBeforeURLRequest_HttpseFileWork(std::shared_ptr<BraveRequestInfo> ctx) {
+void OnBeforeURLRequest_HttpseFileWork(std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   base::ScopedBlockingCall scoped_blocking_call(FROM_HERE,
                                                 base::BlockingType::WILL_BLOCK);
   DCHECK_NE(ctx->request_identifier, 0U);
-  g_brave_browser_process->https_everywhere_service()->GetHTTPSURL(
+  g_adrbrowsiel_browser_process->https_everywhere_service()->GetHTTPSURL(
       &ctx->request_url, ctx->request_identifier, &ctx->new_url_spec);
 }
 
 void OnBeforeURLRequest_HttpsePostFileWork(
     const ResponseCallback& next_callback,
-    std::shared_ptr<BraveRequestInfo> ctx) {
+    std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   DCHECK_CURRENTLY_ON(BrowserThread::UI);
 
   if (!ctx->new_url_spec.empty() &&
     ctx->new_url_spec != ctx->request_url.spec()) {
-    brave_shields::BraveShieldsWebContentsObserver::DispatchBlockedEvent(
+    adrbrowsiel_shields::adrbrowsielShieldsWebContentsObserver::DispatchBlockedEvent(
         ctx->request_url, ctx->frame_tree_node_id,
-        brave_shields::kHTTPUpgradableResources);
+        adrbrowsiel_shields::kHTTPUpgradableResources);
   }
 
   next_callback.Run();
@@ -48,7 +48,7 @@ void OnBeforeURLRequest_HttpsePostFileWork(
 
 int OnBeforeURLRequest_HttpsePreFileWork(
     const ResponseCallback& next_callback,
-    std::shared_ptr<BraveRequestInfo> ctx) {
+    std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   DCHECK_CURRENTLY_ON(BrowserThread::UI);
 
   // Don't try to overwrite an already set URL by another delegate (adblock/tp)
@@ -57,7 +57,7 @@ int OnBeforeURLRequest_HttpsePreFileWork(
   }
 
   if (ctx->tab_origin.is_empty() || ctx->allow_http_upgradable_resource ||
-      !ctx->allow_brave_shields) {
+      !ctx->allow_adrbrowsiel_shields) {
     return net::OK;
   }
 
@@ -72,11 +72,11 @@ int OnBeforeURLRequest_HttpsePreFileWork(
   }
 
   if (is_valid_url) {
-    if (!g_brave_browser_process->https_everywhere_service()
+    if (!g_adrbrowsiel_browser_process->https_everywhere_service()
              ->GetHTTPSURLFromCacheOnly(&ctx->request_url,
                                         ctx->request_identifier,
                                         &ctx->new_url_spec)) {
-      g_brave_browser_process->https_everywhere_service()
+      g_adrbrowsiel_browser_process->https_everywhere_service()
           ->GetTaskRunner()
           ->PostTaskAndReply(
               FROM_HERE, base::Bind(OnBeforeURLRequest_HttpseFileWork, ctx),
@@ -86,9 +86,9 @@ int OnBeforeURLRequest_HttpsePreFileWork(
       return net::ERR_IO_PENDING;
     } else {
       if (!ctx->new_url_spec.empty()) {
-        brave_shields::BraveShieldsWebContentsObserver::DispatchBlockedEvent(
+        adrbrowsiel_shields::adrbrowsielShieldsWebContentsObserver::DispatchBlockedEvent(
             ctx->request_url, ctx->frame_tree_node_id,
-            brave_shields::kHTTPUpgradableResources);
+            adrbrowsiel_shields::kHTTPUpgradableResources);
       }
     }
   }
@@ -96,4 +96,4 @@ int OnBeforeURLRequest_HttpsePreFileWork(
   return net::OK;
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

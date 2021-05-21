@@ -6,7 +6,7 @@ index 3c1179fbed54a57f3bcc1fdbe1382adc3d9a0679..42e0e60b2de66d9ac7a679d0cc8d3beb
  #include "base/metrics/histogram_macros.h"
  #include "base/strings/string_util.h"
  #include "base/values.h"
-+#include "brave/common/extensions/brave_extensions_api_provider.h"
++#include "adrbrowsiel/common/extensions/adrbrowsiel_extensions_api_provider.h"
  #include "chrome/common/chrome_resource_request_blocked_reason.h"
  #include "chrome/common/chrome_switches.h"
  #include "chrome/common/extensions/chrome_extensions_api_provider.h"
@@ -14,7 +14,7 @@ index 3c1179fbed54a57f3bcc1fdbe1382adc3d9a0679..42e0e60b2de66d9ac7a679d0cc8d3beb
  ChromeExtensionsClient::ChromeExtensionsClient() {
    AddAPIProvider(std::make_unique<ChromeExtensionsAPIProvider>());
    AddAPIProvider(std::make_unique<CoreExtensionsAPIProvider>());
-+  AddAPIProvider(std::make_unique<BraveExtensionsAPIProvider>());
++  AddAPIProvider(std::make_unique<adrbrowsielExtensionsAPIProvider>());
  }
  
  ChromeExtensionsClient::~ChromeExtensionsClient() {

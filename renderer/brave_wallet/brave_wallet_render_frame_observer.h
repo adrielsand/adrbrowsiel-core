@@ -1,29 +1,29 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_RENDERER_BRAVE_WALLET_BRAVE_WALLET_RENDER_FRAME_OBSERVER_H_
-#define BRAVE_RENDERER_BRAVE_WALLET_BRAVE_WALLET_RENDER_FRAME_OBSERVER_H_
+#ifndef adrbrowsiel_RENDERER_adrbrowsiel_WALLET_adrbrowsiel_WALLET_RENDER_FRAME_OBSERVER_H_
+#define adrbrowsiel_RENDERER_adrbrowsiel_WALLET_adrbrowsiel_WALLET_RENDER_FRAME_OBSERVER_H_
 
 #include <memory>
 
-#include "brave/common/brave_renderer_configuration.mojom.h"
-#include "brave/components/brave_wallet/renderer/brave_wallet_js_handler.h"
+#include "adrbrowsiel/common/adrbrowsiel_renderer_configuration.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/renderer/adrbrowsiel_wallet_js_handler.h"
 #include "content/public/renderer/render_frame.h"
 #include "content/public/renderer/render_frame_observer.h"
 #include "third_party/blink/public/web/web_navigation_type.h"
 #include "url/gurl.h"
 #include "v8/include/v8.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
-class BraveWalletRenderFrameObserver : public content::RenderFrameObserver {
+class adrbrowsielWalletRenderFrameObserver : public content::RenderFrameObserver {
  public:
-  explicit BraveWalletRenderFrameObserver(
+  explicit adrbrowsielWalletRenderFrameObserver(
       content::RenderFrame* render_frame,
-      brave::mojom::DynamicParams dynamic_params);
-  ~BraveWalletRenderFrameObserver() override;
+      adrbrowsiel::mojom::DynamicParams dynamic_params);
+  ~adrbrowsielWalletRenderFrameObserver() override;
 
   // RenderFrameObserver implementation.
   void DidStartNavigation(
@@ -37,12 +37,12 @@ class BraveWalletRenderFrameObserver : public content::RenderFrameObserver {
   void OnDestruct() override;
 
   // Handle to "handler" JavaScript object functionality.
-  std::unique_ptr<BraveWalletJSHandler> native_javascript_handle_;
+  std::unique_ptr<adrbrowsielWalletJSHandler> native_javascript_handle_;
 
   GURL url_;
-  const brave::mojom::DynamicParams dynamic_params_;
+  const adrbrowsiel::mojom::DynamicParams dynamic_params_;
 };
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet
 
-#endif  // BRAVE_RENDERER_BRAVE_WALLET_BRAVE_WALLET_RENDER_FRAME_OBSERVER_H_
+#endif  // adrbrowsiel_RENDERER_adrbrowsiel_WALLET_adrbrowsiel_WALLET_RENDER_FRAME_OBSERVER_H_

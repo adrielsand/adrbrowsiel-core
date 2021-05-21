@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_ENDPOINT_UPHOLD_POST_TRANSACTION_POST_TRANSACTION_H_
-#define BRAVELEDGER_ENDPOINT_UPHOLD_POST_TRANSACTION_POST_TRANSACTION_H_
+#ifndef adrbrowsielLEDGER_ENDPOINT_UPHOLD_POST_TRANSACTION_POST_TRANSACTION_H_
+#define adrbrowsielLEDGER_ENDPOINT_UPHOLD_POST_TRANSACTION_POST_TRANSACTION_H_
 
 #include <string>
 
@@ -67,7 +67,7 @@
 //     "base": "1.00",
 //     "commission": "0.00",
 //     "currency": "BAT",
-//     "description": "Brave Software International",
+//     "description": "adrbrowsiel Software International",
 //     "fee": "0.00",
 //     "isMember": true,
 //     "node": {
@@ -75,12 +75,12 @@
 //       "type": "card",
 //       "user": {
 //         "id": "f5e37294-68f1-49ae-89e2-b24b64aedd37",
-//         "username": "braveintl"
+//         "username": "adrbrowsielintl"
 //       }
 //     },
 //     "rate": "1.00",
 //     "type": "card",
-//     "username": "braveintl"
+//     "username": "adrbrowsielintl"
 //   },
 //   "origin": {
 //     "amount": "1.00",
@@ -148,4 +148,4 @@ class PostTransaction {
 }  // namespace endpoint
 }  // namespace ledger
 
-#endif  // BRAVELEDGER_ENDPOINT_UPHOLD_POST_TRANSACTION_POST_TRANSACTION_H_
+#endif  // adrbrowsielLEDGER_ENDPOINT_UPHOLD_POST_TRANSACTION_POST_TRANSACTION_H_

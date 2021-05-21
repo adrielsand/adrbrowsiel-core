@@ -1,21 +1,21 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/sidebar/sidebar_items_scroll_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_items_scroll_view.h"
 
 #include "base/threading/sequenced_task_runner_handle.h"
 #include "base/time/time.h"
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/browser/themes/theme_properties.h"
-#include "brave/browser/ui/brave_browser.h"
-#include "brave/browser/ui/sidebar/sidebar_controller.h"
-#include "brave/browser/ui/sidebar/sidebar_service_factory.h"
-#include "brave/browser/ui/views/sidebar/sidebar_item_drag_context.h"
-#include "brave/browser/ui/views/sidebar/sidebar_item_view.h"
-#include "brave/browser/ui/views/sidebar/sidebar_items_contents_view.h"
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_controller.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_service_factory.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_item_drag_context.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_item_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_items_contents_view.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 #include "cc/paint/paint_flags.h"
 #include "chrome/browser/ui/browser_list.h"
 #include "ui/base/clipboard/clipboard.h"
@@ -33,7 +33,7 @@
 
 namespace {
 
-constexpr char kSidebarItemDragType[] = "brave/sidebar-item";
+constexpr char kSidebarItemDragType[] = "adrbrowsiel/sidebar-item";
 
 class SidebarItemsArrowView : public views::ImageButton {
  public:
@@ -41,7 +41,7 @@ class SidebarItemsArrowView : public views::ImageButton {
     SetImageHorizontalAlignment(views::ImageButton::ALIGN_CENTER);
     SetImageVerticalAlignment(views::ImageButton::ALIGN_MIDDLE);
     DCHECK(GetInstallFocusRingOnFocus());
-    focus_ring()->SetColor(gfx::kBraveBlurple300);
+    focus_ring()->SetColor(gfx::kadrbrowsielBlurple300);
   }
 
   ~SidebarItemsArrowView() override = default;
@@ -54,14 +54,14 @@ class SidebarItemsArrowView : public views::ImageButton {
   void OnPaintBackground(gfx::Canvas* canvas) override {
     if (const ui::ThemeProvider* theme_provider = GetThemeProvider()) {
       const SkColor background_color = theme_provider->GetColor(
-          BraveThemeProperties::COLOR_SIDEBAR_BACKGROUND);
+          adrbrowsielThemeProperties::COLOR_SIDEBAR_BACKGROUND);
       gfx::Rect bounds = GetContentsBounds();
       canvas->FillRect(bounds, background_color);
 
       // Draw additional rounded rect over background for hover effect.
       if (GetState() == STATE_HOVERED) {
         const SkColor hovered_bg_color = theme_provider->GetColor(
-            BraveThemeProperties::COLOR_SIDEBAR_ARROW_BACKGROUND_HOVERED);
+            adrbrowsielThemeProperties::COLOR_SIDEBAR_ARROW_BACKGROUND_HOVERED);
         cc::PaintFlags flags;
         flags.setColor(hovered_bg_color);
         flags.setStyle(cc::PaintFlags::kFill_Style);
@@ -76,7 +76,7 @@ class SidebarItemsArrowView : public views::ImageButton {
 
 }  // namespace
 
-SidebarItemsScrollView::SidebarItemsScrollView(BraveBrowser* browser)
+SidebarItemsScrollView::SidebarItemsScrollView(adrbrowsielBrowser* browser)
     : browser_(browser),
       drag_context_(std::make_unique<SidebarItemDragContext>()),
       scroll_animator_for_new_item_(
@@ -225,9 +225,9 @@ void SidebarItemsScrollView::OnFaviconUpdatedForItem(
 void SidebarItemsScrollView::UpdateArrowViewsTheme() {
   if (const ui::ThemeProvider* theme_provider = GetThemeProvider()) {
     const SkColor arrow_normal = theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_ARROW_NORMAL);
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_ARROW_NORMAL);
     const SkColor arrow_disabled = theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_ARROW_DISABLED);
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_ARROW_DISABLED);
 
     up_arrow_->SetImage(
         views::Button::STATE_NORMAL,

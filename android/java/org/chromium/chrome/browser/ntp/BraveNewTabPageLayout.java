@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -57,13 +57,13 @@ import org.chromium.base.TraceEvent;
 import org.chromium.base.supplier.Supplier;
 import org.chromium.base.task.AsyncTask;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveAdsNativeHelper;
-import org.chromium.chrome.browser.BraveRewardsHelper;
+import org.chromium.chrome.browser.adrbrowsielAdsNativeHelper;
+import org.chromium.chrome.browser.adrbrowsielRewardsHelper;
 import org.chromium.chrome.browser.ChromeTabbedActivity;
 import org.chromium.chrome.browser.InternetConnection;
 import org.chromium.chrome.browser.QRCodeShareDialogFragment;
-import org.chromium.chrome.browser.app.BraveActivity;
-import org.chromium.chrome.browser.brave_stats.BraveStatsUtil;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
+import org.chromium.chrome.browser.adrbrowsiel_stats.adrbrowsielStatsUtil;
 import org.chromium.chrome.browser.compositor.layouts.OverviewModeBehavior;
 import org.chromium.chrome.browser.custom_layout.VerticalViewPager;
 import org.chromium.chrome.browser.explore_sites.ExploreSitesBridge;
@@ -91,8 +91,8 @@ import org.chromium.chrome.browser.offlinepages.DownloadUiActionFlags;
 import org.chromium.chrome.browser.offlinepages.OfflinePageBridge;
 import org.chromium.chrome.browser.offlinepages.RequestCoordinatorBridge;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
-import org.chromium.chrome.browser.preferences.BravePref;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
+import org.chromium.chrome.browser.preferences.adrbrowsielPref;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.suggestions.tile.SiteSection;
 import org.chromium.chrome.browser.suggestions.tile.TileGroup;
@@ -122,14 +122,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.TreeMap;
 
-public class BraveNewTabPageLayout
+public class adrbrowsielNewTabPageLayout
         extends NewTabPageLayout implements CryptoWidgetBottomSheetDialogFragment
                                                     .CryptoWidgetBottomSheetDialogDismissListener {
-    private static final String TAG = "BraveNewTabPageView";
-    private static final String BRAVE_BINANCE = "https://brave.com/binance/";
-    private static final String BRAVE_REF_URL = "https://brave.com/r/";
+    private static final String TAG = "adrbrowsielNewTabPageView";
+    private static final String adrbrowsiel_BINANCE = "https://adrbrowsiel.com/binance/";
+    private static final String adrbrowsiel_REF_URL = "https://adrbrowsiel.com/r/";
 
-    private View mBraveStatsViewFallBackLayout;
+    private View madrbrowsielStatsViewFallBackLayout;
 
     private ImageView bgImageView;
     private Profile mProfile;
@@ -166,7 +166,7 @@ public class BraveNewTabPageLayout
     private List<NTPWidgetItem> widgetList = new ArrayList<NTPWidgetItem>();
     public static final int NTP_WIDGET_STACK_CODE = 3333;
 
-    public BraveNewTabPageLayout(Context context, AttributeSet attrs) {
+    public adrbrowsielNewTabPageLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         mProfile = Profile.getLastUsedRegularProfile();
         mNTPBackgroundImagesBridge = NTPBackgroundImagesBridge.getInstance(mProfile);
@@ -208,46 +208,46 @@ public class BraveNewTabPageLayout
     }
 
     private void showFallBackNTPLayout() {
-        if (mBraveStatsViewFallBackLayout != null
-                && mBraveStatsViewFallBackLayout.getParent() != null) {
-            ((ViewGroup) mBraveStatsViewFallBackLayout.getParent())
-                    .removeView(mBraveStatsViewFallBackLayout);
+        if (madrbrowsielStatsViewFallBackLayout != null
+                && madrbrowsielStatsViewFallBackLayout.getParent() != null) {
+            ((ViewGroup) madrbrowsielStatsViewFallBackLayout.getParent())
+                    .removeView(madrbrowsielStatsViewFallBackLayout);
         }
         LayoutInflater inflater =
                 (LayoutInflater) mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mBraveStatsViewFallBackLayout = inflater.inflate(R.layout.brave_stats_layout, null);
+        madrbrowsielStatsViewFallBackLayout = inflater.inflate(R.layout.adrbrowsiel_stats_layout, null);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
             new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
         layoutParams.setMargins(0, dpToPx(mActivity, 16), 0, dpToPx(mActivity, 16));
-        mBraveStatsViewFallBackLayout.setLayoutParams(layoutParams);
-        mBraveStatsViewFallBackLayout.requestLayout();
+        madrbrowsielStatsViewFallBackLayout.setLayoutParams(layoutParams);
+        madrbrowsielStatsViewFallBackLayout.requestLayout();
 
-        mBraveStatsViewFallBackLayout.findViewById(R.id.brave_stats_title_layout)
+        madrbrowsielStatsViewFallBackLayout.findViewById(R.id.adrbrowsiel_stats_title_layout)
                 .setVisibility(View.GONE);
-        ((TextView) mBraveStatsViewFallBackLayout.findViewById(R.id.brave_stats_text_ads))
+        ((TextView) madrbrowsielStatsViewFallBackLayout.findViewById(R.id.adrbrowsiel_stats_text_ads))
                 .setTextColor(mActivity.getResources().getColor(R.color.shield_text_color));
-        ((TextView) mBraveStatsViewFallBackLayout.findViewById(R.id.brave_stats_data_saved_text))
+        ((TextView) madrbrowsielStatsViewFallBackLayout.findViewById(R.id.adrbrowsiel_stats_data_saved_text))
                 .setTextColor(mActivity.getResources().getColor(R.color.shield_text_color));
-        ((TextView) mBraveStatsViewFallBackLayout.findViewById(R.id.brave_stats_text_time))
+        ((TextView) madrbrowsielStatsViewFallBackLayout.findViewById(R.id.adrbrowsiel_stats_text_time))
                 .setTextColor(mActivity.getResources().getColor(R.color.shield_text_color));
-        ((TextView) mBraveStatsViewFallBackLayout.findViewById(R.id.brave_stats_text_time_count))
+        ((TextView) madrbrowsielStatsViewFallBackLayout.findViewById(R.id.adrbrowsiel_stats_text_time_count))
                 .setTextColor(mActivity.getResources().getColor(R.color.shield_text_color));
-        ((TextView) mBraveStatsViewFallBackLayout.findViewById(
-                 R.id.brave_stats_text_time_count_text))
+        ((TextView) madrbrowsielStatsViewFallBackLayout.findViewById(
+                 R.id.adrbrowsiel_stats_text_time_count_text))
                 .setTextColor(mActivity.getResources().getColor(R.color.shield_text_color));
-        mBraveStatsViewFallBackLayout.setBackgroundColor(
+        madrbrowsielStatsViewFallBackLayout.setBackgroundColor(
                 mActivity.getResources().getColor(android.R.color.transparent));
-        mBraveStatsViewFallBackLayout.setOnClickListener(new View.OnClickListener() {
+        madrbrowsielStatsViewFallBackLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                checkForBraveStats();
+                checkForadrbrowsielStats();
             }
         });
-        BraveStatsUtil.updateBraveStatsLayout(mBraveStatsViewFallBackLayout);
-        mainLayout.addView(mBraveStatsViewFallBackLayout, 0);
+        adrbrowsielStatsUtil.updateadrbrowsielStatsLayout(madrbrowsielStatsViewFallBackLayout);
+        mainLayout.addView(madrbrowsielStatsViewFallBackLayout, 0);
 
         int insertionPoint = mainLayout.indexOfChild(findViewById(R.id.ntp_middle_spacer)) + 1;
         if (mSiteSectionView.getParent() != null) {
@@ -272,15 +272,15 @@ public class BraveNewTabPageLayout
         for (String widget : ntpWidgetManager.getUsedWidgets()) {
             NTPWidgetItem ntpWidgetItem = NTPWidgetManager.mWidgetsMap.get(widget);
             if (widget.equals(NTPWidgetManager.PREF_PRIVATE_STATS)) {
-                View mBraveStatsView = inflater.inflate(R.layout.brave_stats_layout, null);
-                mBraveStatsView.setOnClickListener(new View.OnClickListener() {
+                View madrbrowsielStatsView = inflater.inflate(R.layout.adrbrowsiel_stats_layout, null);
+                madrbrowsielStatsView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                        checkForBraveStats();
+                        checkForadrbrowsielStats();
                     }
                 });
-                ntpWidgetItem.setWidgetView(mBraveStatsView);
+                ntpWidgetItem.setWidgetView(madrbrowsielStatsView);
                 ntpWidgetMap.put(ntpWidgetManager.getPrivateStatsWidget(), ntpWidgetItem);
             } else if (widget.equals(NTPWidgetManager.PREF_FAVORITES)) {
                 View mTopSitesLayout = inflater.inflate(R.layout.top_sites_layout, null);
@@ -335,9 +335,9 @@ public class BraveNewTabPageLayout
                                         new CryptoWidgetBottomSheetDialogFragment();
                                 cryptoWidgetBottomSheetDialogFragment
                                         .setCryptoWidgetBottomSheetDialogDismissListener(
-                                                BraveNewTabPageLayout.this);
+                                                adrbrowsielNewTabPageLayout.this);
                                 cryptoWidgetBottomSheetDialogFragment.show(
-                                        ((BraveActivity) mActivity).getSupportFragmentManager(),
+                                        ((adrbrowsielActivity) mActivity).getSupportFragmentManager(),
                                         CryptoWidgetBottomSheetDialogFragment.TAG_FRAGMENT);
                             } else {
                                 TabUtils.openUrlInSameTab(mBinanceNativeWorker.getOAuthClientUrl());
@@ -388,15 +388,15 @@ public class BraveNewTabPageLayout
         List<NTPWidgetItem> tempList = setWidgetList();
         if (tempList.size() > 0) {
             ntpWidgetLayout.setVisibility(View.VISIBLE);
-            if (mBraveStatsViewFallBackLayout != null
-                    && mBraveStatsViewFallBackLayout.getParent() != null) {
-                ((ViewGroup) mBraveStatsViewFallBackLayout.getParent())
-                        .removeView(mBraveStatsViewFallBackLayout);
+            if (madrbrowsielStatsViewFallBackLayout != null
+                    && madrbrowsielStatsViewFallBackLayout.getParent() != null) {
+                ((ViewGroup) madrbrowsielStatsViewFallBackLayout.getParent())
+                        .removeView(madrbrowsielStatsViewFallBackLayout);
             }
         } else {
             ntpWidgetLayout.setVisibility(View.GONE);
             if (!UserPrefs.get(Profile.getLastUsedRegularProfile())
-                            .getBoolean(BravePref.NEW_TAB_PAGE_SHOW_BACKGROUND_IMAGE)) {
+                            .getBoolean(adrbrowsielPref.NEW_TAB_PAGE_SHOW_BACKGROUND_IMAGE)) {
                 showFallBackNTPLayout();
             }
         }
@@ -408,11 +408,11 @@ public class BraveNewTabPageLayout
         }
     }
 
-    private void checkForBraveStats() {
-        if (OnboardingPrefManager.getInstance().isBraveStatsEnabled()) {
-            BraveStatsUtil.showBraveStats();
+    private void checkForadrbrowsielStats() {
+        if (OnboardingPrefManager.getInstance().isadrbrowsielStatsEnabled()) {
+            adrbrowsielStatsUtil.showadrbrowsielStats();
         } else {
-            ((BraveActivity)mActivity).showOnboardingV2(true);
+            ((adrbrowsielActivity)mActivity).showOnboardingV2(true);
         }
     }
 
@@ -443,10 +443,10 @@ public class BraveNewTabPageLayout
         if (PackageUtils.isFirstInstall(mActivity)
                 && !OnboardingPrefManager.getInstance().isNewOnboardingShown()
                 && OnboardingPrefManager.getInstance().isP3aOnboardingShown()) {
-            ((BraveActivity)mActivity).showOnboardingV2(false);
+            ((adrbrowsielActivity)mActivity).showOnboardingV2(false);
         }
         if (OnboardingPrefManager.getInstance().isFromNotification() ) {
-            ((BraveActivity)mActivity).showOnboardingV2(false);
+            ((adrbrowsielActivity)mActivity).showOnboardingV2(false);
             OnboardingPrefManager.getInstance().setFromNotification(false);
         }
         if (mBadgeAnimationView != null
@@ -518,9 +518,9 @@ public class BraveNewTabPageLayout
                 searchProviderIsGoogle, scrollDelegate, contextMenuManager, uiConfig, tabProvider,
                 lifecycleDispatcher, uma, isIncognito, windowAndroid);
 
-        assert (activity instanceof BraveActivity);
+        assert (activity instanceof adrbrowsielActivity);
         mActivity = activity;
-        ((BraveActivity) mActivity).dismissShieldsTooltip();
+        ((adrbrowsielActivity) mActivity).dismissShieldsTooltip();
     }
 
     private void showNTPImage(NTPImage ntpImage) {
@@ -548,14 +548,14 @@ public class BraveNewTabPageLayout
                     QRCodeShareDialogFragment mQRCodeShareDialogFragment =
                             new QRCodeShareDialogFragment();
                     mQRCodeShareDialogFragment.setQRCodeText(
-                            BRAVE_REF_URL + mNTPBackgroundImagesBridge.getSuperReferralCode());
+                            adrbrowsiel_REF_URL + mNTPBackgroundImagesBridge.getSuperReferralCode());
                     mQRCodeShareDialogFragment.show(
-                            ((BraveActivity) mActivity).getSupportFragmentManager(),
+                            ((adrbrowsielActivity) mActivity).getSupportFragmentManager(),
                             "QRCodeShareDialogFragment");
                 }
             });
         } else if (UserPrefs.get(Profile.getLastUsedRegularProfile()).getBoolean(
-                       BravePref.NEW_TAB_PAGE_SHOW_BACKGROUND_IMAGE)
+                       adrbrowsielPref.NEW_TAB_PAGE_SHOW_BACKGROUND_IMAGE)
                    && sponsoredTab != null
                    && NTPUtil.shouldEnableNTPFeature()) {
             setBackgroundImage(ntpImage);
@@ -608,12 +608,12 @@ public class BraveNewTabPageLayout
     private void checkForNonDisruptiveBanner(NTPImage ntpImage) {
         int brOption = NTPUtil.checkForNonDisruptiveBanner(ntpImage, sponsoredTab);
         if (SponsoredImageUtil.BR_INVALID_OPTION != brOption && !NTPUtil.isReferralEnabled()
-                && ((!BraveAdsNativeHelper.nativeIsBraveAdsEnabled(
+                && ((!adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(
                              Profile.getLastUsedRegularProfile())
-                            && BraveRewardsHelper.shouldShowBraveRewardsOnboardingModal())
-                        || BraveAdsNativeHelper.nativeIsBraveAdsEnabled(
+                            && adrbrowsielRewardsHelper.shouldShowadrbrowsielRewardsOnboardingModal())
+                        || adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(
                                 Profile.getLastUsedRegularProfile()))) {
-            NTPUtil.showNonDisruptiveBanner((BraveActivity) mActivity, this, brOption,
+            NTPUtil.showNonDisruptiveBanner((adrbrowsielActivity) mActivity, this, brOption,
                                              sponsoredTab, newTabPageListener);
         }
     }
@@ -850,12 +850,12 @@ public class BraveNewTabPageLayout
                         }
                     }
 
-                    if (BraveActivity.getBraveActivity() != null 
-                        && BraveActivity.getBraveActivity().getActivityTab() != null 
+                    if (adrbrowsielActivity.getadrbrowsielActivity() != null 
+                        && adrbrowsielActivity.getadrbrowsielActivity().getActivityTab() != null 
                         && !UserPrefs.get(Profile.getLastUsedRegularProfile())
-                            .getBoolean(BravePref.NEW_TAB_PAGE_SHOW_BACKGROUND_IMAGE)
+                            .getBoolean(adrbrowsielPref.NEW_TAB_PAGE_SHOW_BACKGROUND_IMAGE)
                         && NTPWidgetManager.getInstance().getUsedWidgets().size() <= 0) {
-                        BraveActivity.getBraveActivity().getActivityTab().reloadIgnoringCache();
+                        adrbrowsielActivity.getadrbrowsielActivity().getActivityTab().reloadIgnoringCache();
                     } else {
                         showWidgets();
                     }
@@ -863,7 +863,7 @@ public class BraveNewTabPageLayout
 
                 @Override
                 public void onMenuLearnMore() {
-                    TabUtils.openUrlInSameTab(BRAVE_BINANCE);
+                    TabUtils.openUrlInSameTab(adrbrowsiel_BINANCE);
                 }
 
                 @Override
@@ -956,7 +956,7 @@ public class BraveNewTabPageLayout
     }
 
     public void openWidgetStack() {
-        final FragmentManager fm = ((BraveActivity) mActivity).getSupportFragmentManager();
+        final FragmentManager fm = ((adrbrowsielActivity) mActivity).getSupportFragmentManager();
         Fragment auxiliary = new Fragment() {
             @Override
             public void onActivityResult(int requestCode, int resultCode, Intent data) {

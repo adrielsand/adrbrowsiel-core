@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/brave_site_hacks_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/adrbrowsiel_site_hacks_network_delegate_helper.h"
 
 #include <memory>
 #include <string>
@@ -13,9 +13,9 @@
 #include "base/metrics/histogram_macros.h"
 #include "base/no_destructor.h"
 #include "base/strings/string_util.h"
-#include "brave/common/network_constants.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
+#include "adrbrowsiel/common/network_constants.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
 #include "content/public/common/referrer.h"
 #include "extensions/common/url_pattern.h"
 #include "net/base/registry_controlled_domains/registry_controlled_domain.h"
@@ -24,7 +24,7 @@
 #include "third_party/blink/public/common/loader/referrer_utils.h"
 #include "third_party/re2/src/re2/re2.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 namespace {
 
@@ -41,23 +41,23 @@ bool IsUAWhitelisted(const GURL& gurl) {
 const std::string& GetQueryStringTrackers() {
   static const base::NoDestructor<std::string> trackers(base::JoinString(
       std::vector<std::string>(
-          {// https://github.com/brave/brave-browser/issues/4239
+          {// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/4239
            "fbclid", "gclid", "msclkid", "mc_eid",
-           // https://github.com/brave/brave-browser/issues/9879
+           // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/9879
            "dclid",
-           // https://github.com/brave/brave-browser/issues/13644
+           // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/13644
            "oly_anon_id", "oly_enc_id",
-           // https://github.com/brave/brave-browser/issues/11579
+           // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/11579
            "_openstat",
-           // https://github.com/brave/brave-browser/issues/11817
+           // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/11817
            "vero_conv", "vero_id",
-           // https://github.com/brave/brave-browser/issues/13647
+           // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/13647
            "wickedid",
-           // https://github.com/brave/brave-browser/issues/11578
+           // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/11578
            "yclid",
-           // https://github.com/brave/brave-browser/issues/8975
+           // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/8975
            "__s",
-           // https://github.com/brave/brave-browser/issues/9019
+           // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/9019
            "_hsenc", "__hssc", "__hstc", "__hsfp", "hsCtaTracking"}),
       "|"));
   return *trackers;
@@ -93,10 +93,10 @@ DECLARE_LAZY_MATCHER(tracker_appended_matcher,
 
 #undef DECLARE_LAZY_MATCHER
 
-void ApplyPotentialQueryStringFilter(std::shared_ptr<BraveRequestInfo> ctx) {
-  SCOPED_UMA_HISTOGRAM_TIMER("Brave.SiteHacks.QueryFilter");
+void ApplyPotentialQueryStringFilter(std::shared_ptr<adrbrowsielRequestInfo> ctx) {
+  SCOPED_UMA_HISTOGRAM_TIMER("adrbrowsiel.SiteHacks.QueryFilter");
 
-  if (!ctx->allow_brave_shields) {
+  if (!ctx->allow_adrbrowsiel_shields) {
     // Don't apply the filter if the destination URL has shields down.
     return;
   }
@@ -141,7 +141,7 @@ void ApplyPotentialQueryStringFilter(std::shared_ptr<BraveRequestInfo> ctx) {
   }
 }
 
-bool ApplyPotentialReferrerBlock(std::shared_ptr<BraveRequestInfo> ctx) {
+bool ApplyPotentialReferrerBlock(std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   if (ctx->tab_origin.SchemeIs(kChromeExtensionScheme)) {
     return false;
   }
@@ -153,8 +153,8 @@ bool ApplyPotentialReferrerBlock(std::shared_ptr<BraveRequestInfo> ctx) {
   }
 
   content::Referrer new_referrer;
-  if (brave_shields::MaybeChangeReferrer(
-          ctx->allow_referrers, ctx->allow_brave_shields, GURL(ctx->referrer),
+  if (adrbrowsiel_shields::MaybeChangeReferrer(
+          ctx->allow_referrers, ctx->allow_adrbrowsiel_shields, GURL(ctx->referrer),
           ctx->request_url, &new_referrer)) {
     ctx->new_referrer = new_referrer.url;
     return true;
@@ -165,7 +165,7 @@ bool ApplyPotentialReferrerBlock(std::shared_ptr<BraveRequestInfo> ctx) {
 }  // namespace
 
 int OnBeforeURLRequest_SiteHacksWork(const ResponseCallback& next_callback,
-                                     std::shared_ptr<BraveRequestInfo> ctx) {
+                                     std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   ApplyPotentialReferrerBlock(ctx);
   if (ctx->request_url.has_query()) {
     ApplyPotentialQueryStringFilter(ctx);
@@ -176,15 +176,15 @@ int OnBeforeURLRequest_SiteHacksWork(const ResponseCallback& next_callback,
 int OnBeforeStartTransaction_SiteHacksWork(
     net::HttpRequestHeaders* headers,
     const ResponseCallback& next_callback,
-    std::shared_ptr<BraveRequestInfo> ctx) {
+    std::shared_ptr<adrbrowsielRequestInfo> ctx) {
   if (IsUAWhitelisted(ctx->request_url)) {
     std::string user_agent;
     if (headers->GetHeader(kUserAgentHeader, &user_agent)) {
       // We do not want to modify the same UA multiple times - for instance,
       // during redirects.
-      if (std::string::npos == user_agent.find("Brave")) {
+      if (std::string::npos == user_agent.find("adrbrowsiel")) {
         base::ReplaceFirstSubstringAfterOffset(&user_agent, 0, "Chrome",
-                                               "Brave Chrome");
+                                               "adrbrowsiel Chrome");
         headers->SetHeader(kUserAgentHeader, user_agent);
         ctx->set_headers.insert(kUserAgentHeader);
       }
@@ -197,17 +197,17 @@ int OnBeforeStartTransaction_SiteHacksWork(
   // will affect performance).
   // Note that this code only affects "Referer" header sent via network - we
   // handle document.referer in content::NavigationRequest (see also
-  // |BraveContentBrowserClient::MaybeHideReferrer|).
-  if (!ctx->allow_referrers && ctx->allow_brave_shields &&
+  // |adrbrowsielContentBrowserClient::MaybeHideReferrer|).
+  if (!ctx->allow_referrers && ctx->allow_adrbrowsiel_shields &&
       ctx->redirect_source.is_valid() &&
       ctx->resource_type == blink::mojom::ResourceType::kMainFrame &&
-      !brave_shields::IsSameOriginNavigation(ctx->redirect_source,
+      !adrbrowsiel_shields::IsSameOriginNavigation(ctx->redirect_source,
                                              ctx->request_url)) {
     // This is a hack that notifies the network layer.
-    ctx->removed_headers.insert("X-Brave-Cap-Referrer");
+    ctx->removed_headers.insert("X-adrbrowsiel-Cap-Referrer");
   }
   return net::OK;
 }
 
 
-}  // namespace brave
+}  // namespace adrbrowsiel

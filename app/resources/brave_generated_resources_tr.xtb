@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
 <!DOCTYPE translationbundle>
 <translationbundle lang="tr">
-<translation id="3333887201479867589">Brave Ödülleri</translation>
-<translation id="7942180974165298215">Brave Reklam Engelleme</translation>
+<translation id="3333887201479867589">adrbrowsiel Ödülleri</translation>
+<translation id="7942180974165298215">adrbrowsiel Reklam Engelleme</translation>
 <translation id="4615489450165434530">Arızalı Bir Siteyi Bildir</translation>
 <translation id="6406506848690869874">Sync</translation>
 <translation id="1544192797660353713">Cüzdan</translation>
 <translation id="2445484935443597917">Yeni Profil Oluştur</translation>
 <translation id="2666990579225592931">Misafir Penceresi Aç</translation>
 <translation id="8275068909952022340">Daha fazlası</translation>
-<translation id="120759863357279975"><ph name="EXTENSION_NAME"/> (extension ID "<ph name="EXTENSION_ID"/>") Brave'de izin verilmiyor.</translation>
+<translation id="120759863357279975"><ph name="EXTENSION_NAME"/> (extension ID "<ph name="EXTENSION_ID"/>") adrbrowsiel'de izin verilmiyor.</translation>
 <translation id="6786747875388722282">Uzantılar</translation>
 <translation id="984275831282074731">Ödeme yöntemleri</translation>
 <translation id="3699882589215410581">Widevine'ı yükle ve çalıştır</translation>
@@ -18,30 +18,30 @@
 <translation id="6241402707160226266">Tor ile özel pencere</translation>
 <translation id="8762452230727230396">Tor ziyaret ettiğiniz sitelerden IP adresinizi gizler.</translation>
 <translation id="1369311132025451972">.onion sitelerini otomatik olarak yeniden yönlendir</translation>
-<translation id="81720820779436751">Brave kullanılabilir olduğunda web sitesinin onion servisini veya Tor penceresinde .onion etki alanını açacak</translation>
+<translation id="81720820779436751">adrbrowsiel kullanılabilir olduğunda web sitesinin onion servisini veya Tor penceresinde .onion etki alanını açacak</translation>
 <translation id="8053096063396012732">Widevine'ı yükle</translation>
 <translation id="4840334696217618631">Widevine’ı etkinleştirmek için tarayıcıyı yeniden başlatın</translation>
-<translation id="8410111618231938546">Google Widevine, Brave Yazılım'da sahibi olmadığımız ve denetlemediğimiz bir Digital Rights Management (DRM) kodu parçasıdır. Google Widevine kodu bizim sunucularımızdan değil Google sunucularından yüklenir. Sadece bu seçeneği etkinleştirdiğinizde yüklenir. DRM kullanımını teşvik etmiyoruz, fakat kullanıcı tercihlerine saygı duyuyor ve bazı Brave kullanıcılarının bunu gerektiren hizmetleri kullanmak isteyebileceğini biliyoruz.
+<translation id="8410111618231938546">Google Widevine, adrbrowsiel Yazılım'da sahibi olmadığımız ve denetlemediğimiz bir Digital Rights Management (DRM) kodu parçasıdır. Google Widevine kodu bizim sunucularımızdan değil Google sunucularından yüklenir. Sadece bu seçeneği etkinleştirdiğinizde yüklenir. DRM kullanımını teşvik etmiyoruz, fakat kullanıcı tercihlerine saygı duyuyor ve bazı adrbrowsiel kullanıcılarının bunu gerektiren hizmetleri kullanmak isteyebileceğini biliyoruz.
 
-Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş sayılırsınız. Brave'in, Google Widevine kullanımı ile oluşabilecek herhangi bir hasar ya da bağlantı kayıplarından sorumlu olmayacağını kabul etmiş sayılırsınız.</translation>
+Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş sayılırsınız. adrbrowsiel'in, Google Widevine kullanımı ile oluşabilecek herhangi bir hasar ya da bağlantı kayıplarından sorumlu olmayacağını kabul etmiş sayılırsınız.</translation>
 <translation id="410351446219883937">Otomatik oynat</translation>
 <translation id="3218385319396786393">Bu sayfada otomatik oynatma engellenmiş</translation>
 <translation id="4988333904713528597"><ph name="HOST"/> her zaman otomatik oynatmaya izin ver</translation>
 <translation id="4150684676757176434">Oto-Oynatmayı engellemeye devam et</translation>
-<translation id="8988939298652262600">Brave uzantıları güvenlik ve emniyet bakımından gözden geçirmez. Yalnızca geliştiricisine güvendiğiniz uzantıları yükleyin.</translation>
+<translation id="8988939298652262600">adrbrowsiel uzantıları güvenlik ve emniyet bakımından gözden geçirmez. Yalnızca geliştiricisine güvendiğiniz uzantıları yükleyin.</translation>
 <translation id="8081858229109418493">Profil adı ve simgesi</translation>
-<translation id="2044383478723007273">Brave renkleri</translation>
+<translation id="2044383478723007273">adrbrowsiel renkleri</translation>
 <translation id="1692470335103807198">Daha fazla tema al</translation>
-<translation id="2906510232093002459">Brave varsayılan görselleri</translation>
+<translation id="2906510232093002459">adrbrowsiel varsayılan görselleri</translation>
 <translation id="2814998458708016836">Geniş adres çubuğu kullan</translation>
-<translation id="6123134130710658846">Brave Ödülleri butonunu gizle</translation>
+<translation id="6123134130710658846">adrbrowsiel Ödülleri butonunu gizle</translation>
 <translation id="1811404036171336214">Yeni sekme sayfasında daima yer imleçlerini göster</translation>
 <translation id="1643029991199044105">Ctrl-Tab ile en son kullanılan sekmeler arasında gezinin</translation>
 <translation id="5802665280774361839">Adres çubuğunda otomatik tamamlamayı göster</translation>
 <translation id="597020512043916976">Otomatik tamamlamalı önerilerde en popüler siteleri göster</translation>
-<translation id="264150068416846820">Otomatik tamamlamalı önerilerde Brave'in önerdiği siteleri göster</translation>
+<translation id="264150068416846820">Otomatik tamamlamalı önerilerde adrbrowsiel'in önerdiği siteleri göster</translation>
 <translation id="6414370348346025511">Standart koruma açık.</translation>
-<translation id="814018970995616154">URL'leri Brave'de kayıtlı güvenli olmayan sitelerin listesine göre kontrol eder.</translation>
+<translation id="814018970995616154">URL'leri adrbrowsiel'de kayıtlı güvenli olmayan sitelerin listesine göre kontrol eder.</translation>
 <translation id="1144810021918451336">Sizi tehlikeli web siteleri, indirmeler ve uzantılardan korumaz.</translation>
 <translation id="7781069478569868053">Yeni Sekme Sayfası</translation>
 <translation id="1988804048511540801">Yeni sekme sayfası gösteriyor</translation>
@@ -72,12 +72,12 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="7691598647605453992">IPFS</translation>
 <translation id="1434416574322382019">Yeni Tor ile Özel Pencere</translation>
 <translation id="4703780849509456860">Bağlantıyı Tor içeren Özel Pencereyle Aç</translation>
-<translation id="3488584642074079080">Tor ile Brave Özel Pencere Açma Linki</translation>
+<translation id="3488584642074079080">Tor ile adrbrowsiel Özel Pencere Açma Linki</translation>
 <translation id="7475547933708221517">IPFS Kullanarak Yerel Dosya Paylaş</translation>
 <translation id="784573715436258741">IPFS kullanarak yerel dosya paylaş</translation>
 <translation id="6313675821927505581">Tor ile yeni özel pencere</translation>
 <translation id="2638041073279639246">Bağlantıyı Tor ile özel pencerede aç</translation>
-<translation id="3425600262621021599">Bağlantıyı Brave'de Tor ile özel pencerede aç</translation>
+<translation id="3425600262621021599">Bağlantıyı adrbrowsiel'de Tor ile özel pencerede aç</translation>
 <translation id="5410152065859052603">Tor</translation>
 <translation id="2515126961943087659">Bat Reklam Servisi</translation>
 <translation id="7924918279836988121">Bat Ledger Servisi</translation>
@@ -86,7 +86,7 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="6303294677342628402">Kalkanlar</translation>
 <translation id="7133511168130368997">İnternet üzerinde sizi takip eden iz sürücüleri ve reklamları engelleyin.</translation>
 <translation id="2761825942249694703">Bunlar varsayılan Shields ayarlarıdır. Belirli bir site için Shields panelinden bir şeyi değiştirmediğiniz sürece tüm websitelere uygulanırlar. Bu ayarları değiştirmek, herbir site için ayrı olarak yaptığınız mevcut ayarlarınızı değiştirmez.</translation>
-<translation id="8754605759692119662">Websitelerdeki çoğu reklam engellenecek; Brave özel reklamları engellenmeyecektir — bu reklamlar şuradan kontrol edilebilir:</translation>
+<translation id="8754605759692119662">Websitelerdeki çoğu reklam engellenecek; adrbrowsiel özel reklamları engellenmeyecektir — bu reklamlar şuradan kontrol edilebilir:</translation>
 <translation id="6388201778088078932">ayarlar.</translation>
 <translation id="9185018653595759199">Sosyal medya bloke etme</translation>
 <translation id="7390783310074170337">Varsayılan görünün</translation>
@@ -118,7 +118,7 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="3540231253392253941">Anında mesajlaşma için Google hizmetlerini kullanın</translation>
 <translation id="5565355416171743213">Eş zamanlamayı kullanmaya başla</translation>
 <translation id="4332558599726753990">Sync Kurulumu</translation>
-<translation id="2187778349654214731">Başlamak için, Brave'i eş zamanlanmak istediğiniz tüm cihazlarda kurmuş olmanız gerekir. Sonra, bir eş zamanlama koduyla onları birbirine güvenli bir şekilde bağlayabilirsiniz.</translation>
+<translation id="2187778349654214731">Başlamak için, adrbrowsiel'i eş zamanlanmak istediğiniz tüm cihazlarda kurmuş olmanız gerekir. Sonra, bir eş zamanlama koduyla onları birbirine güvenli bir şekilde bağlayabilirsiniz.</translation>
 <translation id="7530575064080939974">Eş zamanlanan cihazları yönetin</translation>
 <translation id="7575156386943878014">Eş Zamanlama Yöneticisi</translation>
 <translation id="1755198127524719638">Senkronizasyon Ayarları</translation>
@@ -133,18 +133,18 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="7885157704277298658">Kopyalandı!</translation>
 <translation id="8802630444265810662">Eş zamanlama kodunuzu aktarmak için bir mobil cihazla taranacak bir QR kodu</translation>
 <translation id="6221331245829088299">QR kodunu görüntülerken bir hata oluştu, lütfen yenileyip tekrar deneyin.</translation>
-<translation id="298546024891487702">Başlamak için, senkronize etmeyi planladığınız tüm cihazlarda Brave uygulamasının kurulu olması gerekir. Onları bir araya getirmek için, tüm cihazlarınızı birbirine güvenli bir şekilde bağlamak için kullanacağınız bir senkronizasyon zinciri başlatın.</translation>
+<translation id="298546024891487702">Başlamak için, senkronize etmeyi planladığınız tüm cihazlarda adrbrowsiel uygulamasının kurulu olması gerekir. Onları bir araya getirmek için, tüm cihazlarınızı birbirine güvenli bir şekilde bağlamak için kullanacağınız bir senkronizasyon zinciri başlatın.</translation>
 <translation id="6200528822592747640">Yeni bir Sync Chain başlat</translation>
 <translation id="5184726904895809379">Bir Sync Kodum var</translation>
 <translation id="8780295742023331191">Sync Kodunu Görüntüle</translation>
 <translation id="9017050385815017931">Telefon/Tablet</translation>
 <translation id="1736420071277903564">Bilgisayar</translation>
 <translation id="3407602902101449803">Sync Chain QR Kodu</translation>
-<translation id="8369686073965491869">Mobil cihazınızda, Ayarlar panelindeki Brave Sync'e gidin ve düğmeye tıklayın.</translation>
+<translation id="8369686073965491869">Mobil cihazınızda, Ayarlar panelindeki adrbrowsiel Sync'e gidin ve düğmeye tıklayın.</translation>
 <translation id="6527776448555649991">“Sync Kodunu Tara”.</translation>
 <translation id="1400862780574843709">Aşağıdaki QR Kodunu taramak için kameranızı kullanın.</translation>
 <translation id="5086223971958279691">Sync Chain Kodu</translation>
-<translation id="2899261497479389619">Hedef bilgisayarınızda, ayarlardan Brave Sync'e gidin ve düğmeye tıklayın.</translation>
+<translation id="2899261497479389619">Hedef bilgisayarınızda, ayarlardan adrbrowsiel Sync'e gidin ve düğmeye tıklayın.</translation>
 <translation id="4827439149833241990">“Bir Sync Kodum var”.</translation>
 <translation id="8299617838343103908">Aşağıda gösterilen senkronizasyon zinciri kodu kelimelerini girin.</translation>
 <translation id="4485276108749547761">Bu kodu bir parola gibi düşünün. Eğer birisi onu ele geçirirse, eşitlenen verinizi okuyabilir ve değiştirebilirler.</translation>
@@ -158,7 +158,7 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="2339730291919608488">Senkronizasyon Zincirinden Ayrıl</translation>
 <translation id="115699408012835975">Eş Zamanlamayı sıfırlarsanız, başka bir cihaza eş zamanlamada bulunmak için o cihazdan bir eş zamanlama kodunu tekrar girmeniz gerekecek. Devam etmek istediğinize emin misiniz?</translation>
 <translation id="6092564993102418148">Eşitleme zincirinden seçilen cihazı silmek istediğinizden emin misiniz?</translation>
-<translation id="3396347744975515056">Brave Eş Zamanlama güncellendi ve kurulması gerekli</translation>
+<translation id="3396347744975515056">adrbrowsiel Eş Zamanlama güncellendi ve kurulması gerekli</translation>
 <translation id="7473245612074035141">Kuruluma Başla</translation>
 <translation id="3411013544209536575">Yardım ipuçları</translation>
 <translation id="2775956301559569472">404 sayfalarda Wayback Machine istemini göster</translation>
@@ -168,7 +168,7 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="1336940801687497203">Windows ile aynı</translation>
 <translation id="8721331068159819483">macOS ile aynı</translation>
 <translation id="2896916411183256228">Torrentleri doğrudan tarayıcıda görüntülemek için WebTorrent'i kullanır. Torrent dosyalarını ve magnet bağlantılarını destekler.</translation>
-<translation id="8488282162676695335">Brave Cüzdan</translation>
+<translation id="8488282162676695335">adrbrowsiel Cüzdan</translation>
 <translation id="2356070529366658676">Sor</translation>
 <translation id="7701040980221191251">Yok</translation>
 <translation id="5655621391922317800">Kripto Cüzdanlar</translation>
@@ -200,14 +200,14 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="2233724520223030977">Mümkün olduğunda web sitenin IPFS versiyonuna gitmek için otomatik olarak DNSLink kullanır</translation>
 <translation id="6554397389149987360">Ekran paylaşımını ve tarayıcıdaki diğer özellikleri etkinleştirmek için Hangouts bileşenini kullanır.</translation>
 <translation id="1765684547504191670">Tarayıcıda Chromecast'i etkinleştirmek için Medya Yönlendiricisi bileşenini kullanır.</translation>
-<translation id="9156965752763025780">Değişiklikleriniz, Brave tekrar başlatıldığında geçerli olacak.</translation>
+<translation id="9156965752763025780">Değişiklikleriniz, adrbrowsiel tekrar başlatıldığında geçerli olacak.</translation>
 <translation id="7179921470347911571">Şimdi Tekrar Başlat</translation>
-<translation id="8068526464562249859">Tarayıcı çubuğunuzdan genel IPFS görevlerine erişim dahil, Brave'de gelişmiş IPFS desteği için IPFS Eşlikçisi uzantısını kullanır.</translation>
+<translation id="8068526464562249859">Tarayıcı çubuğunuzdan genel IPFS görevlerine erişim dahil, adrbrowsiel'de gelişmiş IPFS desteği için IPFS Eşlikçisi uzantısını kullanır.</translation>
 <translation id="8137559199583651773">Uzantıları yönet</translation>
 <translation id="7013485839273047434">Daha fazla uzatma edin</translation>
 <translation id="4928988318462976765">Web Uzantıları Mağazası</translation>
 <translation id="9181207987584064303">Web Uzantıları Mağazası'nda görüntüle</translation>
-<translation id="3161744659507801211">Uyarı: Brave uzantıların tarama geçmişinizi kaydetmesini engelleyemez.</translation>
+<translation id="3161744659507801211">Uyarı: adrbrowsiel uzantıların tarama geçmişinizi kaydetmesini engelleyemez.</translation>
 <translation id="2162109630536601963">Uzantı ağ istemlerinde bulunursa, Tor veya gizli mod kullanmayacak.</translation>
 <translation id="2725327089319971976">Bu uzantıyı gizli modda ve Tor modunda devre dışı bırakmak için, bu seçeneğin seçimini kaldırın.</translation>
 <translation id="4846154056248462491">Çıkışta</translation>
@@ -216,47 +216,47 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="3789841737615482174">Yükle</translation>
 <translation id="7658239707568436148">İptal</translation>
 <translation id="1307431692088049276">Bana tekrar sorma</translation>
-<translation id="3371343170427636147">Brave Browser Gece Uygulamaları</translation>
-<translation id="4097979995947147464">Brave Browser Beta Uygulamaları</translation>
-<translation id="8303432794159193481">Brave Tarayıcı Geliştirme Uygulamaları</translation>
-<translation id="8292967014767479012">Brave Browser Uygulamaları</translation>
-<translation id="4743468424889072281">Brave Browser Geliştirme Uygulamaları</translation>
+<translation id="3371343170427636147">adrbrowsiel Browser Gece Uygulamaları</translation>
+<translation id="4097979995947147464">adrbrowsiel Browser Beta Uygulamaları</translation>
+<translation id="8303432794159193481">adrbrowsiel Tarayıcı Geliştirme Uygulamaları</translation>
+<translation id="8292967014767479012">adrbrowsiel Browser Uygulamaları</translation>
+<translation id="4743468424889072281">adrbrowsiel Browser Geliştirme Uygulamaları</translation>
 <translation id="6624718837376802990">Avatar Belirgin Hatlı Ödüller</translation>
-<translation id="6617313057407561765">Avatar Belirgin Hatlı Brave</translation>
+<translation id="6617313057407561765">Avatar Belirgin Hatlı adrbrowsiel</translation>
 <translation id="6754445808455578019">Avatar Belirgin Hatlı Okyanus</translation>
 <translation id="1202230982786524987">Avatar Belirgin Hatlı Çimen</translation>
 <translation id="5795513892420634319">Avatar Belirgin Hatlı Mısır</translation>
 <translation id="3561521017993720050">Avatar Belirgin Hatlı Kraliyet</translation>
 <translation id="1235866128911626592">Avatar Belirgin Hatlı Ninja</translation>
 <translation id="2090755120827623384">Avatar Şövalye Ödülleri</translation>
-<translation id="2018119859356143702">Avatar Şövalye Brave</translation>
+<translation id="2018119859356143702">Avatar Şövalye adrbrowsiel</translation>
 <translation id="4740488466586929481">Avatar Şövalye Okyanus</translation>
 <translation id="5006207620676644913">Avatar Şövalye Çimen</translation>
 <translation id="3989232963815817109">Avatar Şövalye Mısır</translation>
 <translation id="4594102608669574640">Avatar Kraliyet Şövalyesi</translation>
 <translation id="2183738260538789532">Avatar Ninja Şövalye</translation>
 <translation id="1364533449989493534">Avatar Işıltılı Ödüller</translation>
-<translation id="7885078296101135895">Avatar Işıltılı Brave</translation>
+<translation id="7885078296101135895">Avatar Işıltılı adrbrowsiel</translation>
 <translation id="5569105529336093187">Avatar Işıltılı Okyanus</translation>
 <translation id="8905105122495847950">Avatar Işıltılı Çimen</translation>
 <translation id="5118043134512650846">Avatar Işıltılı Mısır</translation>
 <translation id="7054896317531348319">Avatar Işıltılı Kraliyet</translation>
 <translation id="5493441852328628982">Avatar Işıltılı Ninja</translation>
 <translation id="2752844432779340213">Avatar Oval Ödüller</translation>
-<translation id="3981340065784739675">Avatar Oval Brave</translation>
+<translation id="3981340065784739675">Avatar Oval adrbrowsiel</translation>
 <translation id="8950124663623888116">Avatar Oval Okyanus</translation>
 <translation id="1029136880675307651">Avatar Oval Çimen</translation>
 <translation id="3285059582709531888">Avatar Oval Mısır</translation>
 <translation id="8540390244071055918">Avatar Oval Kraliyet</translation>
 <translation id="3435440003463944104">Avatar Oval Ninja</translation>
 <translation id="4222150638283443362">Avatar Bonbon Ödüller</translation>
-<translation id="8888471219870198387">Avatar Bonbon Brave</translation>
+<translation id="8888471219870198387">Avatar Bonbon adrbrowsiel</translation>
 <translation id="2883756935342108947">Avatar Bonbon Okyanus</translation>
 <translation id="6280956561199400472">Avatar Şekerleme Çimen</translation>
 <translation id="5318548116565208315">Avatar Bonbon Mısır</translation>
 <translation id="1959966725083452288">Avatar Kraliyet Şekerlemesi</translation>
 <translation id="2039034364578911089">Avatar Bonbon Ninja</translation>
-<translation id="239760341987199724">Brave'u varsayılan tarayıcım olarak ayarla</translation>
+<translation id="239760341987199724">adrbrowsiel'u varsayılan tarayıcım olarak ayarla</translation>
 <translation id="1391855377994926460">Web'de daha hızlı gezinmeye devam edin. Başlıca haber sitelerinde 6 kata kadar daha hızlı gezinin.</translation>
 <translation id="9218430445555521422">Varsayılan olarak ayarla</translation>
 <translation id="3479552764303398839">Şimdi değil</translation>
@@ -269,11 +269,11 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="59174027418879706">Etkin</translation>
 <translation id="8258999165172757081">Eklendi</translation>
 <translation id="6959315322491671328">Kaldırmak için sağ tıklayın</translation>
-<translation id="1872784258300710671">Brave, belirli özelliklerin genel kullanımını tahmin etmek için tamamıyla gizli ürün analizi kullanır</translation>
+<translation id="1872784258300710671">adrbrowsiel, belirli özelliklerin genel kullanımını tahmin etmek için tamamıyla gizli ürün analizi kullanır</translation>
 <translation id="8712637175834984815">Anlaşıldı</translation>
 <translation id="4394049700291259645">Devre dışı bırak</translation>
-<translation id="6469509880167172749">Brave'e otomatik olarak tamamıyla gizli ürün analizi gönder</translation>
-<translation id="7090566321964540749">Bu anonim bilgi, yalnızca Brave'in belirli özelliklerin genel kullanımını tahmin etmesine olanak tanır.</translation>
+<translation id="6469509880167172749">adrbrowsiel'e otomatik olarak tamamıyla gizli ürün analizi gönder</translation>
+<translation id="7090566321964540749">Bu anonim bilgi, yalnızca adrbrowsiel'in belirli özelliklerin genel kullanımını tahmin etmesine olanak tanır.</translation>
 <translation id="1947672064022327074">Ethereum desteği için Crypto Wallets'ı başlatmak ister misiniz?</translation>
 <translation id="7583735190612229830">Bu ve bunun gibi uygulamalarla etkileşime geçebilmesi için Kripto Cüzdanları ayarla.</translation>
 <translation id="8731422418734770661">Kripto Cüzdanları ayarlayın</translation>
@@ -284,19 +284,19 @@ Bu eklentiyi yükleyerek, Google Widevine Kullanım Koşulları'nı kabul etmiş
 <translation id="2609895996619941644">Kayıtlı bir versiyonun Wayback Machine'de olup olmadığını kontrol etmek ister misiniz?</translation>
 <translation id="8053093028263274061">Üzgünüz, kaydedilmiş bir versiyon mevcut değil.</translation>
 <translation id="8517321676372639828">Kayıtlı versiyonu kontrol et</translation>
-<translation id="191143826155037518">Brave'i <ph name="BEGIN_LINK_MPL"/>Mozilla Kamu Lisansı 2.0<ph name="END_LINK_MPL"/> (MPL) altında ve <ph name="BEGIN_LINK_OSS"/>açık kaynak yazılım<ph name="END_LINK_OSS"/> dahil çeşitli diğer lisanslar altında kullanabilirsiniz.
+<translation id="191143826155037518">adrbrowsiel'i <ph name="BEGIN_LINK_MPL"/>Mozilla Kamu Lisansı 2.0<ph name="END_LINK_MPL"/> (MPL) altında ve <ph name="BEGIN_LINK_OSS"/>açık kaynak yazılım<ph name="END_LINK_OSS"/> dahil çeşitli diğer lisanslar altında kullanabilirsiniz.
         <ph name="BEGIN_LINK_SOURCE_CODE"/>Bu kopyayı oluşturmak için kullanılan kaynak kodunu<ph name="END_LINK_SOURCE_CODE"/> <ph name="BEGIN_LINK_BUILD_INSTRUCTIONS"/>indirmek ve inşa etmek için talimatları<ph name="END_LINK_BUILD_INSTRUCTIONS"/> okuyabilirsiniz.</translation>
 <translation id="4474155171896946103">Tüm sekmelere yer işareti koy...</translation>
 <translation id="2336228925368920074">Tüm Sekmelere Yer İşareti Koy...</translation>
 <translation id="796831669370432378">Bir yer işareti eklemek için, adres satırının yanında yer alan yer işareti butonuna tıklayın</translation>
 <translation id="4989337484121655457">Tam Disk Erişimi gereklidir</translation>
-<translation id="8025559074845816210">Safari'den Yer İmlerinizi aktarmak için Brave'in Tam Disk Erişimine ihtiyacı var.</translation>
+<translation id="8025559074845816210">Safari'den Yer İmlerinizi aktarmak için adrbrowsiel'in Tam Disk Erişimine ihtiyacı var.</translation>
 <translation id="8515328844674404333">Sistem Ayarlarınızdan nasıl Tam Disk Erişimi vereceğinizi öğrenin.</translation>
 <translation id="6414878884710400018">Sitem Tercihlerini Aç</translation>
 <translation id="5570470519803062774">Site ve Kalkan Ayarları</translation>
 <translation id="8487693399751278191">Yer imlerini şimdi içe aktar...</translation>
 <translation id="2557899542277210112">Hızlı erişim için, yer imlerinizi buradaki yer imi çubuğuna yerleştirin.</translation>
-<translation id="2808630562319398131">Brave Rewards verilerini yeniden ayarlayın...</translation>
-<translation id="1224064034972923114">Otomatik olarak çökme raporları göndererek Brave'in gelişmesine yardımcı olun</translation>
+<translation id="2808630562319398131">adrbrowsiel Rewards verilerini yeniden ayarlayın...</translation>
+<translation id="1224064034972923114">Otomatik olarak çökme raporları göndererek adrbrowsiel'in gelişmesine yardımcı olun</translation>
 <translation id="3738833060602717053">Otomatik olarak çökme raporları göndererek <ph name="PRODUCT_NAME"/> gelişmesine yardımcı olun.</translation>
 </translationbundle>

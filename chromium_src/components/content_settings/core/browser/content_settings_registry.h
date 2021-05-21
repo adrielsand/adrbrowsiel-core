@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_CHROMIUM_SRC_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_CONTENT_SETTINGS_REGISTRY_H_
-#define BRAVE_CHROMIUM_SRC_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_CONTENT_SETTINGS_REGISTRY_H_
+#ifndef adrbrowsiel_CHROMIUM_SRC_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_CONTENT_SETTINGS_REGISTRY_H_
+#define adrbrowsiel_CHROMIUM_SRC_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_CONTENT_SETTINGS_REGISTRY_H_
 
 // Pull in all includes from content_settings_registry.h because Init is too
 // common a name.
@@ -24,11 +24,11 @@
 
 #define Init                                                              \
   Init();                                                                 \
-  void RegisterBraveContentSettingsTypes(const ContentSettingsType& type, \
+  void RegisteradrbrowsielContentSettingsTypes(const ContentSettingsType& type, \
                                          const std::string& name);        \
-  void BraveInit
+  void adrbrowsielInit
 
 #include "../../../../../../components/content_settings/core/browser/content_settings_registry.h"
 #undef Init
 
-#endif  // BRAVE_CHROMIUM_SRC_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_CONTENT_SETTINGS_REGISTRY_H_
+#endif  // adrbrowsiel_CHROMIUM_SRC_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_CONTENT_SETTINGS_REGISTRY_H_

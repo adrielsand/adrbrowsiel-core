@@ -22,7 +22,7 @@ index f20833babe641c5d6211990de548546034c781af..bb01ec0c7a4e28fcf9731fc037639e09
        security_state::SecurityLevel security_level) const override;
    ui::ImageModel GetLocationIcon(LocationIconView::Delegate::IconFetchedCallback
                                       on_icon_fetched) const override;
-+  BRAVE_LOCATION_BAR_VIEW_H_
++  adrbrowsiel_LOCATION_BAR_VIEW_H_
  
   private:
    FRIEND_TEST_ALL_PREFIXES(SecurityIndicatorTest, CheckIndicatorText);

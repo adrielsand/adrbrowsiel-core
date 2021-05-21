@@ -6,7 +6,7 @@ index 72ea590d69681c030bc602b00c9b75ee5541c0a6..92f0c364b17858ef270b3ef4895446fa
        cflags += [ "-Wextra-semi" ]
      }
    }
-+  cflags -= brave_removed_chromium_code_cflags
++  cflags -= adrbrowsiel_removed_chromium_code_cflags
  
    configs = [ ":default_warnings" ]
  }

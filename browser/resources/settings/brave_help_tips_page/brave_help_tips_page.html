@@ -5,14 +5,14 @@
 <script type="module" src="../settings_shared_css.js"></script>
 <script type="module" src="../settings_vars_css.js"></script>
 
-<dom-module id="settings-brave-help-tips-page">
+<dom-module id="settings-adrbrowsiel-help-tips-page">
   <template>
-  <if expr="enable_brave_wayback_machine">
+  <if expr="enable_adrbrowsiel_wayback_machine">
     <settings-toggle-button class="cr-row"
-                            pref="{{prefs.brave.wayback_machine_enabled}}"
-                            label="$i18n{braveHelpTipsWaybackMachineLabel}">
+                            pref="{{prefs.adrbrowsiel.wayback_machine_enabled}}"
+                            label="$i18n{adrbrowsielHelpTipsWaybackMachineLabel}">
     </settings-toggle-button>
   </if>
   </template>
-  <script src="brave_help_tips_page.js"></script>
+  <script src="adrbrowsiel_help_tips_page.js"></script>
 </dom-module>

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_CONTENT_BROWSER_WEBUI_BRAVE_SHARED_RESOURCES_DATA_SOURCE_H_
-#define BRAVE_CONTENT_BROWSER_WEBUI_BRAVE_SHARED_RESOURCES_DATA_SOURCE_H_
+#ifndef adrbrowsiel_CONTENT_BROWSER_WEBUI_adrbrowsiel_SHARED_RESOURCES_DATA_SOURCE_H_
+#define adrbrowsiel_CONTENT_BROWSER_WEBUI_adrbrowsiel_SHARED_RESOURCES_DATA_SOURCE_H_
 
 #include <string>
 
@@ -13,13 +13,13 @@
 #include "base/single_thread_task_runner.h"
 #include "content/public/browser/url_data_source.h"
 
-namespace brave_content {
+namespace adrbrowsiel_content {
 
-// A DataSource for chrome://brave-resources/ URLs.
-class BraveSharedResourcesDataSource : public content::URLDataSource {
+// A DataSource for chrome://adrbrowsiel-resources/ URLs.
+class adrbrowsielSharedResourcesDataSource : public content::URLDataSource {
  public:
-  BraveSharedResourcesDataSource();
-  ~BraveSharedResourcesDataSource() override;
+  adrbrowsielSharedResourcesDataSource();
+  ~adrbrowsielSharedResourcesDataSource() override;
 
   // URLDataSource implementation.
   std::string GetSource() override;
@@ -34,9 +34,9 @@ class BraveSharedResourcesDataSource : public content::URLDataSource {
       const std::string& origin) override;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveSharedResourcesDataSource);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielSharedResourcesDataSource);
 };
 
-}  // namespace brave_content
+}  // namespace adrbrowsiel_content
 
-#endif  // BRAVE_CONTENT_BROWSER_WEBUI_BRAVE_SHARED_RESOURCES_DATA_SOURCE_H_
+#endif  // adrbrowsiel_CONTENT_BROWSER_WEBUI_adrbrowsiel_SHARED_RESOURCES_DATA_SOURCE_H_

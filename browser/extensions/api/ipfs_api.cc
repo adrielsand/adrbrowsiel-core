@@ -1,22 +1,22 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/api/ipfs_api.h"
+#include "adrbrowsiel/browser/extensions/api/ipfs_api.h"
 
 #include <memory>
 #include <string>
 
 #include "base/json/json_writer.h"
 #include "base/values.h"
-#include "brave/browser/ipfs/ipfs_service_factory.h"
-#include "brave/common/extensions/api/ipfs.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/ipfs_utils.h"
-#include "brave/components/ipfs/keys/ipns_keys_manager.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/ipfs/ipfs_service_factory.h"
+#include "adrbrowsiel/common/extensions/api/ipfs.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/keys/ipns_keys_manager.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/common/channel_info.h"
 #include "ui/base/l10n/l10n_util.h"
 

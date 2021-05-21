@@ -1,12 +1,12 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_BROWSER_UI_WEBUI_BRAVE_WALLET_PAGE_HANDLER_WALLET_PANEL_PAGE_HANDLER_H_
-#define BRAVE_BROWSER_UI_WEBUI_BRAVE_WALLET_PAGE_HANDLER_WALLET_PANEL_PAGE_HANDLER_H_
+#ifndef adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_WALLET_PAGE_HANDLER_WALLET_PANEL_PAGE_HANDLER_H_
+#define adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_WALLET_PAGE_HANDLER_WALLET_PANEL_PAGE_HANDLER_H_
 
-#include "brave/components/brave_wallet_ui/wallet_panel.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet_ui/wallet_panel.mojom.h"
 #include "content/public/browser/web_contents_observer.h"
 #include "mojo/public/cpp/bindings/pending_receiver.h"
 #include "mojo/public/cpp/bindings/pending_remote.h"
@@ -47,4 +47,4 @@ class WalletPanelPageHandler : public wallet_panel::mojom::PageHandler,
   ui::MojoBubbleWebUIController* const webui_controller_;
 };
 
-#endif  // BRAVE_BROWSER_UI_WEBUI_BRAVE_WALLET_PAGE_HANDLER_WALLET_PANEL_PAGE_HANDLER_H_
+#endif  // adrbrowsiel_BROWSER_UI_WEBUI_adrbrowsiel_WALLET_PAGE_HANDLER_WALLET_PANEL_PAGE_HANDLER_H_

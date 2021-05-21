@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -20,7 +20,7 @@ import org.chromium.chrome.test.ChromeJUnit4ClassRunner;
 import org.chromium.content_public.browser.test.util.TestThreadUtils;
 
 @RunWith(ChromeJUnit4ClassRunner.class)
-public class BraveSafeBrowsingSettingsFragmentTest {
+public class adrbrowsielSafeBrowsingSettingsFragmentTest {
     @Rule
     public SettingsActivityTestRule<SafeBrowsingSettingsFragment> mTestRule =
             new SettingsActivityTestRule<>(SafeBrowsingSettingsFragment.class);

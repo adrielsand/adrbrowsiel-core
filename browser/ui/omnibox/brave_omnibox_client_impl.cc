@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/omnibox/brave_omnibox_client_impl.h"
+#include "adrbrowsiel/browser/ui/omnibox/adrbrowsiel_omnibox_client_impl.h"
 
 #include <algorithm>
 
 #include "base/metrics/histogram_macros.h"
 #include "base/stl_util.h"
 #include "base/values.h"
-#include "brave/browser/autocomplete/brave_autocomplete_scheme_classifier.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/weekly_storage/weekly_storage.h"
+#include "adrbrowsiel/browser/autocomplete/adrbrowsiel_autocomplete_scheme_classifier.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/weekly_storage/weekly_storage.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/omnibox/chrome_omnibox_client.h"
 #include "chrome/browser/ui/omnibox/chrome_omnibox_edit_controller.h"
@@ -22,7 +22,7 @@
 
 namespace {
 
-constexpr char kSearchCountPrefName[] = "brave.weekly_storage.search_count";
+constexpr char kSearchCountPrefName[] = "adrbrowsiel.weekly_storage.search_count";
 
 bool IsSearchEvent(const AutocompleteMatch& match) {
   switch (match.type) {
@@ -46,13 +46,13 @@ void RecordSearchEventP3A(uint64_t number_of_searches) {
   const int* it =
       std::lower_bound(kIntervals, std::end(kIntervals), number_of_searches);
   const int answer = it - kIntervals;
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Omnibox.SearchCount", answer,
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Omnibox.SearchCount", answer,
                              base::size(kIntervals));
 }
 
 }  // namespace
 
-BraveOmniboxClientImpl::BraveOmniboxClientImpl(
+adrbrowsielOmniboxClientImpl::adrbrowsielOmniboxClientImpl(
     OmniboxEditController* controller,
     Profile* profile)
     : ChromeOmniboxClient(controller, profile),
@@ -66,22 +66,22 @@ BraveOmniboxClientImpl::BraveOmniboxClientImpl(
   }
 }
 
-BraveOmniboxClientImpl::~BraveOmniboxClientImpl() {}
+adrbrowsielOmniboxClientImpl::~adrbrowsielOmniboxClientImpl() {}
 
-void BraveOmniboxClientImpl::RegisterPrefs(PrefRegistrySimple* registry) {
+void adrbrowsielOmniboxClientImpl::RegisterPrefs(PrefRegistrySimple* registry) {
   registry->RegisterListPref(kSearchCountPrefName);
 }
 
 const AutocompleteSchemeClassifier&
-BraveOmniboxClientImpl::GetSchemeClassifier() const {
+adrbrowsielOmniboxClientImpl::GetSchemeClassifier() const {
   return scheme_classifier_;
 }
 
-bool BraveOmniboxClientImpl::IsAutocompleteEnabled() const {
+bool adrbrowsielOmniboxClientImpl::IsAutocompleteEnabled() const {
   return profile_->GetPrefs()->GetBoolean(kAutocompleteEnabled);
 }
 
-void BraveOmniboxClientImpl::OnInputAccepted(const AutocompleteMatch& match) {
+void adrbrowsielOmniboxClientImpl::OnInputAccepted(const AutocompleteMatch& match) {
   if (IsSearchEvent(match)) {
     // TODO(iefremov): Optimize this.
     WeeklyStorage storage(profile_->GetPrefs(), kSearchCountPrefName);

@@ -1,21 +1,21 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/extensions/api/ftx_api.h"
+#include "adrbrowsiel/browser/extensions/api/ftx_api.h"
 
 #include <memory>
 #include <string>
 #include <utility>
 
-#include "brave/browser/ftx/ftx_service_factory.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/common/extensions/api/ftx.h"
-#include "brave/components/ftx/browser/ftx_service.h"
-#include "brave/components/ftx/browser/regions.h"
-#include "brave/components/ftx/common/pref_names.h"
-#include "brave/components/ntp_widget_utils/browser/ntp_widget_utils_region.h"
+#include "adrbrowsiel/browser/ftx/ftx_service_factory.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/common/extensions/api/ftx.h"
+#include "adrbrowsiel/components/ftx/browser/ftx_service.h"
+#include "adrbrowsiel/components/ftx/browser/regions.h"
+#include "adrbrowsiel/components/ftx/common/pref_names.h"
+#include "adrbrowsiel/components/ntp_widget_utils/browser/ntp_widget_utils_region.h"
 #include "chrome/browser/extensions/api/tabs/tabs_constants.h"
 #include "chrome/browser/extensions/extension_tab_util.h"
 #include "chrome/browser/profiles/profile.h"

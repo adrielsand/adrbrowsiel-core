@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,10 +6,10 @@
 #include <memory>
 
 #include "base/test/bind.h"
-#include "brave/browser/tor/tor_profile_manager.h"
-#include "brave/browser/translate/buildflags/buildflags.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_webtorrent/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/tor/tor_profile_manager.h"
+#include "adrbrowsiel/browser/translate/buildflags/buildflags.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/buildflags/buildflags.h"
 #include "chrome/common/pref_names.h"
 #include "chrome/test/base/testing_browser_process.h"
 #include "chrome/test/base/testing_profile.h"
@@ -20,7 +20,7 @@
 #include "testing/gtest/include/gtest/gtest.h"
 #include "third_party/blink/public/common/peerconnection/webrtc_ip_handling_policy.h"
 
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_EXTENSION)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_EXTENSION)
 #include "components/translate/core/browser/translate_pref_names.h"
 #endif
 
@@ -71,11 +71,11 @@ TEST_F(TorProfileManagerUnitTest, InitTorProfileUserPrefs) {
   EXPECT_FALSE(
       tor_profile->GetPrefs()->GetBoolean(prefs::kSafeBrowsingEnabled));
 
-#if BUILDFLAG(ENABLE_BRAVE_WEBTORRENT)
+#if BUILDFLAG(ENABLE_adrbrowsiel_WEBTORRENT)
   EXPECT_FALSE(tor_profile->GetPrefs()->GetBoolean(kWebTorrentEnabled));
 #endif
 
-#if BUILDFLAG(ENABLE_BRAVE_TRANSLATE_EXTENSION)
+#if BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_EXTENSION)
   // Check translate.enabled for translate bubble.
   EXPECT_FALSE(
       tor_profile->GetPrefs()->GetBoolean(prefs::kOfferTranslateEnabled));

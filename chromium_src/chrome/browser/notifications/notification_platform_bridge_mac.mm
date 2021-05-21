@@ -1,4 +1,4 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -73,8 +73,8 @@ static NotificationTimeoutMac*
     g_notification_platform_bridge_notification_timeout =
         [[[NotificationTimeoutMac alloc] init] retain];
 
-#define BRAVE_DISPLAY_ \
+#define adrbrowsiel_DISPLAY_ \
   [g_notification_platform_bridge_notification_timeout startTimer:toast];
 
 #include "../../../../../chrome/browser/notifications/notification_platform_bridge_mac.mm"  // NOLINT
-#undef BRAVE_DISPLAY_
+#undef adrbrowsiel_DISPLAY_

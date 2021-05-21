@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,11 +7,11 @@
 
 #include "base/path_service.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/browser/brave_content_browser_client.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_rewards/browser/buildflags/buildflags.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/browser/adrbrowsiel_content_browser_client.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/extensions/component_loader.h"
 #include "chrome/browser/extensions/extension_service.h"
@@ -35,7 +35,7 @@
 #include "extensions/common/constants.h"
 #include "net/dns/mock_host_resolver.h"
 
-class BraveContentBrowserClientTest : public InProcessBrowserTest {
+class adrbrowsielContentBrowserClientTest : public InProcessBrowserTest {
  public:
   void SetUp() override {
     // This is needed because component extensions are not added by default
@@ -50,15 +50,15 @@ class BraveContentBrowserClientTest : public InProcessBrowserTest {
 
     content_client_.reset(new ChromeContentClient);
     content::SetContentClient(content_client_.get());
-    browser_content_client_.reset(new BraveContentBrowserClient());
+    browser_content_client_.reset(new adrbrowsielContentBrowserClient());
     content::SetBrowserClientForTesting(browser_content_client_.get());
 
     host_resolver()->AddRule("*", "127.0.0.1");
     content::SetupCrossSiteRedirector(embedded_test_server());
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
 
     ASSERT_TRUE(embedded_test_server()->Start());
@@ -75,7 +75,7 @@ class BraveContentBrowserClientTest : public InProcessBrowserTest {
         "https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fbig-buck-bunny.torrent");
     extension_url_ = GURL(
         "chrome-extension://lgjmpdmojkpocjcopdikifhejkkjglho/extension/"
-        "brave_webtorrent.html?magnet%3A%3Fxt%3Durn%3Abtih%"
+        "adrbrowsiel_webtorrent.html?magnet%3A%3Fxt%3Durn%3Abtih%"
         "3Add8255ecdc7ca55fb0bbf81323d87062db1f6d1c%26dn%3DBig%2BBuck%2BBunny%"
         "26tr%3Dudp%253A%252F%252Fexplodie.org%253A6969%26tr%3Dudp%253A%252F%"
         "252Ftracker.coppersurfer.tk%253A6969%26tr%3Dudp%253A%252F%252Ftracker."
@@ -89,11 +89,11 @@ class BraveContentBrowserClientTest : public InProcessBrowserTest {
     torrent_url_ = GURL("https://webtorrent.io/torrents/sintel.torrent#ix=5");
     torrent_extension_url_ = GURL(
         "chrome-extension://lgjmpdmojkpocjcopdikifhejkkjglho/extension/"
-        "brave_webtorrent.html?https://webtorrent.io/torrents/"
+        "adrbrowsiel_webtorrent.html?https://webtorrent.io/torrents/"
         "sintel.torrent#ix=5");
     torrent_invalid_query_extension_url_ = GURL(
         "chrome-extension://lgjmpdmojkpocjcopdikifhejkkjglho/extension/"
-        "brave_webtorrent.html?chrome://settings");
+        "adrbrowsiel_webtorrent.html?chrome://settings");
   }
 
   void TearDown() override {
@@ -122,16 +122,16 @@ class BraveContentBrowserClientTest : public InProcessBrowserTest {
   GURL torrent_extension_url_;
   GURL torrent_invalid_query_extension_url_;
   std::unique_ptr<ChromeContentClient> content_client_;
-  std::unique_ptr<BraveContentBrowserClient> browser_content_client_;
+  std::unique_ptr<adrbrowsielContentBrowserClient> browser_content_client_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, CanLoadChromeURL) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest, CanLoadChromeURL) {
   std::vector<std::string> pages{
       chrome::kChromeUIWelcomeHost,
   };
 
   std::vector<std::string> schemes{
-      "brave://",
+      "adrbrowsiel://",
       "chrome://",
   };
 
@@ -145,7 +145,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, CanLoadChromeURL) {
       EXPECT_STREQ(base::UTF16ToUTF8(
                        browser()->location_bar_model()->GetFormattedFullURL())
                        .c_str(),
-                   ("brave://" + page).c_str());
+                   ("adrbrowsiel://" + page).c_str());
       EXPECT_STREQ(contents->GetController()
                        .GetLastCommittedEntry()
                        ->GetVirtualURL()
@@ -162,16 +162,16 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, CanLoadChromeURL) {
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, CanLoadCustomBravePages) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest, CanLoadCustomadrbrowsielPages) {
   std::vector<std::string> pages {
     "adblock",
-#if BUILDFLAG(BRAVE_REWARDS_ENABLED)
+#if BUILDFLAG(adrbrowsiel_REWARDS_ENABLED)
         "rewards",
 #endif
   };
 
   std::vector<std::string> schemes{
-      "brave://",
+      "adrbrowsiel://",
       "chrome://",
   };
 
@@ -185,7 +185,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, CanLoadCustomBravePages) {
       EXPECT_STREQ(base::UTF16ToUTF8(
                        browser()->location_bar_model()->GetFormattedFullURL())
                        .c_str(),
-                   ("brave://" + page).c_str());
+                   ("adrbrowsiel://" + page).c_str());
       EXPECT_STREQ(contents->GetController()
                        .GetLastCommittedEntry()
                        ->GetVirtualURL()
@@ -202,10 +202,10 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, CanLoadCustomBravePages) {
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, CanLoadAboutHost) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest, CanLoadAboutHost) {
   std::vector<std::string> schemes{
       "chrome://",
-      "brave://",
+      "adrbrowsiel://",
   };
 
   for (const std::string& scheme : schemes) {
@@ -217,7 +217,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, CanLoadAboutHost) {
     EXPECT_STREQ(base::UTF16ToUTF8(
                      browser()->location_bar_model()->GetFormattedFullURL())
                      .c_str(),
-                 "brave://about");
+                 "adrbrowsiel://about");
     EXPECT_STREQ(contents->GetController()
                      .GetLastCommittedEntry()
                      ->GetVirtualURL()
@@ -232,9 +232,9 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, CanLoadAboutHost) {
                  "chrome://chrome-urls/");
   }
 }
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, RewriteChromeSync) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest, RewriteChromeSync) {
   std::vector<std::string> schemes{
-      "brave://",
+      "adrbrowsiel://",
       "chrome://",
   };
 
@@ -248,7 +248,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, RewriteChromeSync) {
     EXPECT_STREQ(base::UTF16ToUTF8(
                      browser()->location_bar_model()->GetFormattedFullURL())
                      .c_str(),
-                 "brave://sync");
+                 "adrbrowsiel://sync");
     EXPECT_STREQ(contents->GetController()
                      .GetLastCommittedEntry()
                      ->GetVirtualURL()
@@ -260,11 +260,11 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, RewriteChromeSync) {
                      ->GetURL()
                      .spec()
                      .c_str(),
-                 "chrome://settings/braveSync");
+                 "chrome://settings/adrbrowsielSync");
   }
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, RewriteMagnetURLURLBar) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest, RewriteMagnetURLURLBar) {
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
 
@@ -279,7 +279,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, RewriteMagnetURLURLBar) {
       << "Real URL should be extension URL";
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, RewriteMagnetURLLink) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest, RewriteMagnetURLLink) {
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
   ui_test_utils::NavigateToURL(browser(), magnet_html_url());
@@ -299,7 +299,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, RewriteMagnetURLLink) {
       << "Real URL should be extension URL";
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, TypedMagnetURL) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest, TypedMagnetURL) {
   content::WebContents* web_contents =
       browser()->tab_strip_model()->GetActiveWebContents();
   content::TestNavigationObserver observer(web_contents);
@@ -308,7 +308,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest, TypedMagnetURL) {
   EXPECT_EQ(magnet_url(), web_contents->GetLastCommittedURL().spec());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        ReverseRewriteTorrentURL) {
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
@@ -330,7 +330,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
       << "Real URL should be extension URL";
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        NoReverseRewriteTorrentURLForInvalidQuery) {
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
@@ -352,14 +352,14 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
       << "Real URL should be extension URL";
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        WebTorrentExtensionEnabledAfterLoad) {
   ASSERT_TRUE(browser()->profile()->GetPrefs()->GetBoolean(kWebTorrentEnabled));
 
   extensions::ExtensionRegistry* registry =
       extensions::ExtensionRegistry::Get(browser()->profile());
   ASSERT_FALSE(
-      registry->enabled_extensions().Contains(brave_webtorrent_extension_id));
+      registry->enabled_extensions().Contains(adrbrowsiel_webtorrent_extension_id));
 
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
@@ -367,22 +367,22 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
   WaitForLoadStop(contents);
 
   ASSERT_TRUE(
-      registry->enabled_extensions().Contains(brave_webtorrent_extension_id));
+      registry->enabled_extensions().Contains(adrbrowsiel_webtorrent_extension_id));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        PRE_NoRewriteMagnetURLURLBarWebTorrentDisabled) {
   browser()->profile()->GetPrefs()->SetBoolean(kWebTorrentEnabled, false);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        NoRewriteMagnetURLURLBarWebTorrentDisabled) {
   ASSERT_FALSE(
       browser()->profile()->GetPrefs()->GetBoolean(kWebTorrentEnabled));
   extensions::ExtensionRegistry* registry =
       extensions::ExtensionRegistry::Get(browser()->profile());
   ASSERT_FALSE(
-      registry->enabled_extensions().Contains(brave_webtorrent_extension_id));
+      registry->enabled_extensions().Contains(adrbrowsiel_webtorrent_extension_id));
 
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
@@ -394,19 +394,19 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
   EXPECT_STREQ(entry->GetURL().spec().c_str(), "about:blank");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        PRE_NoRewriteMagnetURLLinkWebTorrentDisabled) {
   browser()->profile()->GetPrefs()->SetBoolean(kWebTorrentEnabled, false);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        NoRewriteMagnetURLLinkWebTorrentDisabled) {
   ASSERT_FALSE(
       browser()->profile()->GetPrefs()->GetBoolean(kWebTorrentEnabled));
   extensions::ExtensionRegistry* registry =
       extensions::ExtensionRegistry::Get(browser()->profile());
   ASSERT_FALSE(
-      registry->enabled_extensions().Contains(brave_webtorrent_extension_id));
+      registry->enabled_extensions().Contains(adrbrowsiel_webtorrent_extension_id));
 
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
@@ -426,19 +426,19 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
                magnet_html_url().spec().c_str());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        PRE_NoReverseRewriteTorrentURLWebTorrentDisabled) {
   browser()->profile()->GetPrefs()->SetBoolean(kWebTorrentEnabled, false);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        NoReverseRewriteTorrentURLWebTorrentDisabled) {
   ASSERT_FALSE(
       browser()->profile()->GetPrefs()->GetBoolean(kWebTorrentEnabled));
   extensions::ExtensionRegistry* registry =
       extensions::ExtensionRegistry::Get(browser()->profile());
   ASSERT_FALSE(
-      registry->enabled_extensions().Contains(brave_webtorrent_extension_id));
+      registry->enabled_extensions().Contains(adrbrowsiel_webtorrent_extension_id));
 
   content::WebContents* contents =
       browser()->tab_strip_model()->GetActiveWebContents();
@@ -456,7 +456,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
 }
 
 #if BUILDFLAG(ENABLE_HANGOUT_SERVICES_EXTENSION)
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        HangoutsEnabledByDefault) {
   ASSERT_TRUE(browser()->profile()->GetPrefs()->GetBoolean(kHangoutsEnabled));
   extensions::ExtensionRegistry* registry =
@@ -464,12 +464,12 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
   ASSERT_TRUE(registry->enabled_extensions().Contains(hangouts_extension_id));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        PRE_HangoutsDisabledDoesNotLoadComponent) {
   browser()->profile()->GetPrefs()->SetBoolean(kHangoutsEnabled, false);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientTest,
                        HangoutsDisabledDoesNotLoadComponent) {
   ASSERT_FALSE(browser()->profile()->GetPrefs()->GetBoolean(kHangoutsEnabled));
   extensions::ExtensionRegistry* registry =
@@ -478,15 +478,15 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientTest,
 }
 #endif
 
-class BraveContentBrowserClientReferrerTest
-    : public BraveContentBrowserClientTest {
+class adrbrowsielContentBrowserClientReferrerTest
+    : public adrbrowsielContentBrowserClientTest {
  public:
   HostContentSettingsMap* content_settings() {
     return HostContentSettingsMapFactory::GetForProfile(browser()->profile());
   }
 };
 
-IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientReferrerTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentBrowserClientReferrerTest,
                        DefaultBehaviour) {
   const GURL kRequestUrl("http://request.com/path?query");
   const GURL kDocumentUrl("http://document.com/path?query");
@@ -537,7 +537,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentBrowserClientReferrerTest,
   // Allow referrers for certain URL.
   content_settings()->SetContentSettingCustomScope(
       ContentSettingsPattern::FromString(kDocumentUrl.GetOrigin().spec() + "*"),
-      ContentSettingsPattern::Wildcard(), ContentSettingsType::BRAVE_REFERRERS,
+      ContentSettingsPattern::Wildcard(), ContentSettingsType::adrbrowsiel_REFERRERS,
       CONTENT_SETTING_ALLOW);
   referrer = kReferrer.Clone();
   client()->MaybeHideReferrer(browser()->profile(), kRequestUrl, kDocumentUrl,

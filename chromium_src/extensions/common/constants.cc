@@ -1,22 +1,22 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "../../../../extensions/common/constants.cc"
 
-const int kBraveActionGraphicSize = 18;
-const int kBraveActionRightMargin = 2;
+const int kadrbrowsielActionGraphicSize = 18;
+const int kadrbrowsielActionRightMargin = 2;
 
-const char brave_extension_id[] = "mnojpmjdmbbfmejpflffifhffcmidifd";
-const char brave_rewards_extension_id[] = "jidkidbbcafjabdphckchenhfomhnfma";
+const char adrbrowsiel_extension_id[] = "mnojpmjdmbbfmejpflffifhffcmidifd";
+const char adrbrowsiel_rewards_extension_id[] = "jidkidbbcafjabdphckchenhfomhnfma";
 const char hangouts_extension_id[] = "nkeimhogjdpnpccoofpliimaahmaaome";
 const char widevine_extension_id[] = "oimompecagnajdejgnnjijobebaeigek";
 const char crl_set_extension_id[] = "hfnkpimlhhgieaddgfemjhofmfblmnib";
 
-const char brave_webtorrent_extension_id[] = "lgjmpdmojkpocjcopdikifhejkkjglho";
-const char brave_webtorrent_extension_filename[] = "brave_webtorrent.html";
-const char brave_webtorrent_extension_filename2[] = "brave_webtorrent2.html";
+const char adrbrowsiel_webtorrent_extension_id[] = "lgjmpdmojkpocjcopdikifhejkkjglho";
+const char adrbrowsiel_webtorrent_extension_filename[] = "adrbrowsiel_webtorrent.html";
+const char adrbrowsiel_webtorrent_extension_filename2[] = "adrbrowsiel_webtorrent2.html";
 
 const char ipfs_companion_extension_id[] = "nibjojkomfdiaoajekhjakgkdhaomnch";
 const char ipfs_companion_extension_name[] = "IPFS Companion";

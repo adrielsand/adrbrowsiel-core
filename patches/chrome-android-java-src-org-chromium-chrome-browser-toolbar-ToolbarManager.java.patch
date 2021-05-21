@@ -7,14 +7,14 @@ index 124d5762fc18f0c81b19b07ab652be023d3ff403..f501acc59acdae46b326365fb9a81435
          ThemeColorProvider menuButtonThemeColorProvider =
                  isCustomTab ? mCustomTabThemeColorProvider : browsingModeThemeColorProvider;
 -        mMenuButtonCoordinator = new MenuButtonCoordinator(appMenuCoordinatorSupplier,
-+        mMenuButtonCoordinator = new org.chromium.chrome.browser.toolbar.menu_button.BraveMenuButtonCoordinator(appMenuCoordinatorSupplier,
++        mMenuButtonCoordinator = new org.chromium.chrome.browser.toolbar.menu_button.adrbrowsielMenuButtonCoordinator(appMenuCoordinatorSupplier,
                  mControlsVisibilityDelegate, mWindowAndroid,
                  (focus, type)
                          -> setUrlBarFocus(focus, type),
                  requestFocusRunnable, shouldShowUpdateBadge, isInOverviewModeSupplier,
                  menuButtonThemeColorProvider, R.id.menu_button_wrapper);
 -        MenuButtonCoordinator startSurfaceMenuButtonCoordinator = new MenuButtonCoordinator(
-+        MenuButtonCoordinator startSurfaceMenuButtonCoordinator = new org.chromium.chrome.browser.toolbar.menu_button.BraveMenuButtonCoordinator(
++        MenuButtonCoordinator startSurfaceMenuButtonCoordinator = new org.chromium.chrome.browser.toolbar.menu_button.adrbrowsielMenuButtonCoordinator(
                  appMenuCoordinatorSupplier, mControlsVisibilityDelegate, mWindowAndroid,
                  (focus, type)
                          -> setUrlBarFocus(focus, type),
@@ -23,7 +23,7 @@ index 124d5762fc18f0c81b19b07ab652be023d3ff403..f501acc59acdae46b326365fb9a81435
              boolean isTabGroupsAndroidContinuationEnabled) {
          // clang-format off
 -        TopToolbarCoordinator toolbar = new TopToolbarCoordinator(controlContainer, toolbarLayout,
-+        TopToolbarCoordinator toolbar = new org.chromium.chrome.browser.toolbar.top.BraveTopToolbarCoordinator(controlContainer, toolbarLayout,
++        TopToolbarCoordinator toolbar = new org.chromium.chrome.browser.toolbar.top.adrbrowsielTopToolbarCoordinator(controlContainer, toolbarLayout,
                  mLocationBarModel, mToolbarTabController,
                  new UserEducationHelper(mActivity, mHandler),
                  buttonDataProviders, mLayoutStateProviderSupplier, browsingModeThemeColorProvider,

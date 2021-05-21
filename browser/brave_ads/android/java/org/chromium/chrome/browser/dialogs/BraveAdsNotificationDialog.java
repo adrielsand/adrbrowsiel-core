@@ -1,4 +1,4 @@
-/** Copyright (c) 2020 The Brave Authors. All rights reserved.
+/** Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
   * This Source Code Form is subject to the terms of the Mozilla Public
   * License, v. 2.0. If a copy of the MPL was not distributed with this file,
   * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -25,14 +25,14 @@ import android.widget.TextView;
 import org.chromium.base.ContextUtils;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.BraveAdsNativeHelper;
+import org.chromium.chrome.browser.adrbrowsielAdsNativeHelper;
 import org.chromium.chrome.browser.ChromeTabbedActivity;
-import org.chromium.chrome.browser.app.BraveActivity;
-import org.chromium.chrome.browser.notifications.BraveOnboardingNotification;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
+import org.chromium.chrome.browser.notifications.adrbrowsielOnboardingNotification;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.tab.TabLaunchType;
 
-public class BraveAdsNotificationDialog {
+public class adrbrowsielAdsNotificationDialog {
 
     static AlertDialog mAdsDialog;
     static String mNotificationId;
@@ -56,11 +56,11 @@ public class BraveAdsNotificationDialog {
         mNotificationId = notificationId;
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        b.setView(inflater.inflate(R.layout.brave_ads_custom_notification, null));
+        b.setView(inflater.inflate(R.layout.adrbrowsiel_ads_custom_notification, null));
         mAdsDialog = b.create();
 
         if (mNotificationId != null) {
-            BraveAdsNativeHelper.nativeOnShowAdNotification(
+            adrbrowsielAdsNativeHelper.nativeOnShowAdNotification(
                     Profile.getLastUsedRegularProfile(), mNotificationId);
         }
 
@@ -81,11 +81,11 @@ public class BraveAdsNotificationDialog {
         window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-        ((TextView) mAdsDialog.findViewById(R.id.brave_ads_custom_notification_header)).setText(title);
-        ((TextView) mAdsDialog.findViewById(R.id.brave_ads_custom_notification_body)).setText(body);
+        ((TextView) mAdsDialog.findViewById(R.id.adrbrowsiel_ads_custom_notification_header)).setText(title);
+        ((TextView) mAdsDialog.findViewById(R.id.adrbrowsiel_ads_custom_notification_body)).setText(body);
 
         mNotificationId = notificationId;
-        mAdsDialog.findViewById(R.id.brave_ads_custom_notification_popup)
+        mAdsDialog.findViewById(R.id.adrbrowsiel_ads_custom_notification_popup)
                 .setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
@@ -113,7 +113,7 @@ public class BraveAdsNotificationDialog {
                                 if (deltaYDp < -1 * MIN_DISTANCE_FOR_DISMISS) {
                                     mAdsDialog.dismiss();
                                     mAdsDialog = null;
-                                    BraveAdsNativeHelper.nativeOnCloseAdNotification(
+                                    adrbrowsielAdsNativeHelper.nativeOnCloseAdNotification(
                                             Profile.getLastUsedRegularProfile(), mNotificationId,
                                             false);
                                     mNotificationId = null;
@@ -131,10 +131,10 @@ public class BraveAdsNotificationDialog {
     }
 
     private static void adsDialogTapped(final String origin) {
-        if (mNotificationId.equals(BraveOnboardingNotification.BRAVE_ONBOARDING_NOTIFICATION_TAG)) {
+        if (mNotificationId.equals(adrbrowsielOnboardingNotification.adrbrowsiel_ONBOARDING_NOTIFICATION_TAG)) {
             mAdsDialog.dismiss();
             mAdsDialog = null;
-            ChromeTabbedActivity chromeTabbedActivity = BraveActivity.getChromeTabbedActivity();
+            ChromeTabbedActivity chromeTabbedActivity = adrbrowsielActivity.getChromeTabbedActivity();
             if (chromeTabbedActivity != null) {
                 chromeTabbedActivity.getTabCreator(false).launchUrl(
                         origin, TabLaunchType.FROM_CHROME_UI);
@@ -142,7 +142,7 @@ public class BraveAdsNotificationDialog {
         } else {
             mAdsDialog.dismiss();
             mAdsDialog = null;
-            BraveAdsNativeHelper.nativeOnClickAdNotification(
+            adrbrowsielAdsNativeHelper.nativeOnClickAdNotification(
                     Profile.getLastUsedRegularProfile(), mNotificationId);
         }
         mNotificationId = null;
@@ -151,8 +151,8 @@ public class BraveAdsNotificationDialog {
     @CalledByNative
     public static void showAdNotification(final String notificationId, final String origin,
             final String title, final String body) {
-        BraveAdsNotificationDialog.showAdNotification(
-                BraveActivity.getBraveActivity(), notificationId, origin, title, body);
+        adrbrowsielAdsNotificationDialog.showAdNotification(
+                adrbrowsielActivity.getadrbrowsielActivity(), notificationId, origin, title, body);
     }
 
     @CalledByNative
@@ -160,7 +160,7 @@ public class BraveAdsNotificationDialog {
         try {
             if (mNotificationId != null && mNotificationId.equals(notificationId) && mAdsDialog != null) {
                 mAdsDialog.dismiss();
-                BraveAdsNativeHelper.nativeOnCloseAdNotification(
+                adrbrowsielAdsNativeHelper.nativeOnCloseAdNotification(
                         Profile.getLastUsedRegularProfile(), mNotificationId, false);
                 mAdsDialog = null;
             }

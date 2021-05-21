@@ -1,13 +1,13 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -45,9 +45,9 @@ bool NavigateRenderFrameToURL(content::RenderFrameHost* frame,
   return result;
 }
 
-class BraveNetworkDelegateBrowserTest : public InProcessBrowserTest {
+class adrbrowsielNetworkDelegateBrowserTest : public InProcessBrowserTest {
  public:
-  BraveNetworkDelegateBrowserTest()
+  adrbrowsielNetworkDelegateBrowserTest()
       : https_server_(net::EmbeddedTestServer::TYPE_HTTPS) {}
 
   void SetUpOnMainThread() override {
@@ -55,9 +55,9 @@ class BraveNetworkDelegateBrowserTest : public InProcessBrowserTest {
 
     host_resolver()->AddRule("*", "127.0.0.1");
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
 
     https_server_.ServeFilesFromDirectory(test_data_dir);
     https_server_.AddDefaultHandlers(GetChromeTestDataDir());
@@ -126,38 +126,38 @@ class BraveNetworkDelegateBrowserTest : public InProcessBrowserTest {
   }
 
   void DefaultBlockAllCookies() {
-    brave_shields::SetCookieControlType(
-        content_settings(), brave_shields::ControlType::BLOCK, GURL());
+    adrbrowsiel_shields::SetCookieControlType(
+        content_settings(), adrbrowsiel_shields::ControlType::BLOCK, GURL());
   }
 
   void DefaultBlockThirdPartyCookies() {
-    brave_shields::SetCookieControlType(
-        content_settings(), brave_shields::ControlType::BLOCK_THIRD_PARTY,
+    adrbrowsiel_shields::SetCookieControlType(
+        content_settings(), adrbrowsiel_shields::ControlType::BLOCK_THIRD_PARTY,
         GURL());
   }
 
   void DefaultAllowAllCookies() {
-    brave_shields::SetCookieControlType(
-        content_settings(), brave_shields::ControlType::ALLOW, GURL());
+    adrbrowsiel_shields::SetCookieControlType(
+        content_settings(), adrbrowsiel_shields::ControlType::ALLOW, GURL());
   }
 
   void AllowCookies(const GURL url) {
-    brave_shields::SetCookieControlType(content_settings(),
-                                        brave_shields::ControlType::ALLOW, url);
+    adrbrowsiel_shields::SetCookieControlType(content_settings(),
+                                        adrbrowsiel_shields::ControlType::ALLOW, url);
   }
 
   void BlockThirdPartyCookies(const GURL url) {
-    brave_shields::SetCookieControlType(
-        content_settings(), brave_shields::ControlType::BLOCK_THIRD_PARTY, url);
+    adrbrowsiel_shields::SetCookieControlType(
+        content_settings(), adrbrowsiel_shields::ControlType::BLOCK_THIRD_PARTY, url);
   }
 
   void BlockCookies(const GURL url) {
-    brave_shields::SetCookieControlType(content_settings(),
-                                        brave_shields::ControlType::BLOCK, url);
+    adrbrowsiel_shields::SetCookieControlType(content_settings(),
+                                        adrbrowsiel_shields::ControlType::BLOCK, url);
   }
 
   void ShieldsDown(const GURL url) {
-    brave_shields::SetBraveShieldsEnabled(content_settings(), false, url);
+    adrbrowsiel_shields::SetadrbrowsielShieldsEnabled(content_settings(), false, url);
   }
 
   void NavigateToPageWithFrame(const GURL url) {
@@ -209,14 +209,14 @@ class BraveNetworkDelegateBrowserTest : public InProcessBrowserTest {
 
 // It is important that cookies in following tests are set by response headers,
 // not by javascript. Fetching such cookies is controlled by NetworkDelegate.
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest, Iframe3PCookieBlocked) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest, Iframe3PCookieBlocked) {
   ui_test_utils::NavigateToURL(browser(), url_);
   const std::string cookie = content::GetCookies(
       browser()->profile(), https_server_.GetURL("c.com", "/"));
   EXPECT_TRUE(cookie.empty()) << "Actual cookie: " << cookie;
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest, Iframe3PCookieAllowed) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest, Iframe3PCookieAllowed) {
   AllowCookies(top_level_page_url_);
   ui_test_utils::NavigateToURL(browser(), url_);
   const std::string cookie = content::GetCookies(
@@ -224,7 +224,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest, Iframe3PCookieAllowed) {
   EXPECT_FALSE(cookie.empty());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest, Iframe3PShieldsDown) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest, Iframe3PShieldsDown) {
   ShieldsDown(top_level_page_url_);
   ui_test_utils::NavigateToURL(browser(), url_);
   const std::string cookie =
@@ -232,7 +232,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest, Iframe3PShieldsDown) {
   EXPECT_FALSE(cookie.empty());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        Iframe3PShieldsDownOverridesCookieBlock) {
   // create an explicit override
   BlockCookies(top_level_page_url_);
@@ -248,7 +248,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
 }
 
 // Fetching not just a frame, but some other resource.
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        IframeJs3PCookieBlocked) {
   ui_test_utils::NavigateToURL(browser(), nested_iframe_script_url_);
   const std::string cookie =
@@ -256,7 +256,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   EXPECT_TRUE(cookie.empty()) << "Actual cookie: " << cookie;
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        IframeJs3PCookieAllowed) {
   AllowCookies(top_level_page_url_);
   ui_test_utils::NavigateToURL(browser(), nested_iframe_script_url_);
@@ -265,7 +265,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   EXPECT_FALSE(cookie.empty());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest, DefaultCookiesBlocked) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest, DefaultCookiesBlocked) {
   DefaultBlockAllCookies();
   ui_test_utils::NavigateToURL(browser(), nested_iframe_script_url_);
   std::string cookie =
@@ -276,7 +276,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest, DefaultCookiesBlocked) {
 }
 
 // 1stpartydomain.com -> 3rdpartydomain.com -> 1stpartydomain.com nested iframe
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyCookiesBlockedNestedFirstPartyIframe) {
   DefaultBlockThirdPartyCookies();
 
@@ -295,7 +295,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(subdomain_first_party_cookie_url_, "name=subdomainacom");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        PrefToggleBlockAllToBlockThirdParty) {
   DefaultBlockAllCookies();
   DefaultBlockThirdPartyCookies();
@@ -319,7 +319,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(subdomain_first_party_cookie_url_, "name=subdomainacom");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        PrefToggleBlockAllToAllowAll) {
   DefaultBlockAllCookies();
   DefaultAllowAllCookies();
@@ -339,7 +339,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://b.com"), "name=bcom");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        PrefToggleBlockThirdPartyToAllowAll) {
   DefaultBlockThirdPartyCookies();
   DefaultAllowAllCookies();
@@ -359,7 +359,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://b.com"), "name=bcom");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        PrefToggleBlockThirdPartyToBlockAll) {
   DefaultBlockThirdPartyCookies();
   DefaultBlockAllCookies();
@@ -379,7 +379,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://b.com"), "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        PrefToggleAllowAllToBlockThirdParty) {
   DefaultAllowAllCookies();
   DefaultBlockThirdPartyCookies();
@@ -399,7 +399,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://b.com"), "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        PrefToggleAllowAllToBlockAll) {
   DefaultAllowAllCookies();
   DefaultBlockAllCookies();
@@ -419,7 +419,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://b.com"), "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieAllowed) {
   NavigateToPageWithFrame(https_cookie_iframe_url_);
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "");
@@ -428,7 +428,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieDefaultAllowSiteOverride) {
   AllowCookies(https_top_level_page_url_);
   NavigateToPageWithFrame(https_cookie_iframe_url_);
@@ -438,7 +438,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieDefaultBlock3pSiteOverride) {
   BlockThirdPartyCookies(https_top_level_page_url_);
   NavigateToPageWithFrame(https_cookie_iframe_url_);
@@ -448,7 +448,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieDefaultBlockSiteOverride) {
   BlockCookies(https_top_level_page_url_);
   NavigateToPageWithFrame(https_cookie_iframe_url_);
@@ -460,7 +460,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieAllowAllAlowSiteOverride) {
   DefaultAllowAllCookies();
   AllowCookies(https_top_level_page_url_);
@@ -471,7 +471,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieAllowAllBlock3pSiteOverride) {
   DefaultAllowAllCookies();
   BlockThirdPartyCookies(https_top_level_page_url_);
@@ -482,7 +482,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieAllowAllBlockSiteOverride) {
   DefaultAllowAllCookies();
   BlockCookies(https_top_level_page_url_);
@@ -493,7 +493,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieBlockAllAllowSiteOverride) {
   DefaultBlockAllCookies();
   AllowCookies(https_top_level_page_url_);
@@ -505,7 +505,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieBlockAllBlock3pSiteOverride) {
   DefaultBlockAllCookies();
   BlockThirdPartyCookies(https_top_level_page_url_);
@@ -517,7 +517,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieBlockAllBlockSiteOverride) {
   DefaultBlockAllCookies();
   BlockCookies(https_top_level_page_url_);
@@ -529,7 +529,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "oauth=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyGoogleOauthCookieBlocked) {
   BlockGoogleOAuthCookies();
   NavigateToPageWithFrame(https_cookie_iframe_url_);
@@ -539,7 +539,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://accounts.google.com"), "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ShieldsToggleBlockThirdPartyWithDefaultAllowAll) {
   DefaultAllowAllCookies();
 
@@ -555,7 +555,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(first_party_cookie_url_, "name=acom");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ShieldsToggleBlockThirdPartyWithDefaultBlockAll) {
   DefaultBlockAllCookies();
 
@@ -571,7 +571,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(first_party_cookie_url_, "name=acom");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ShieldsToggleBlockThirdPartyAllowSubdomain) {
   DefaultBlockAllCookies();
 
@@ -583,7 +583,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(subdomain_first_party_cookie_url_, "name=subdomainacom");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ShieldsToggleBlockThirdPartyAllowDomainRegistry) {
   DefaultBlockAllCookies();
 
@@ -607,7 +607,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
 // wordpress.com | a.com         | no
 // wp.com        | wordpress.com | yes
 // wordpress.com | wp.com        | yes
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyNoCookiesWpComInACom) {
   NavigateToPageWithFrame(https_cookie_iframe_url_);
   ExpectCookiesOnHost(GURL("https://example.wp.com"), "");
@@ -616,7 +616,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://example.wp.com"), "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyNoCookiesWordpressComInACom) {
   NavigateToPageWithFrame(https_cookie_iframe_url_);
   ExpectCookiesOnHost(GURL("https://example.wordpress.com"), "");
@@ -625,7 +625,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://example.wordpress.com"), "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyNoCookiesAComInWpCom) {
   NavigateToPageWithFrame(wp_top_url_);
   ExpectCookiesOnHost(GURL("https://a.com"), "");
@@ -634,7 +634,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://a.com"), "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyNoCookiesAComInWordpressCom) {
   NavigateToPageWithFrame(wordpress_top_url_);
   ExpectCookiesOnHost(GURL("https://a.com"), "");
@@ -643,7 +643,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://a.com"), "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyYesCookiesWpComInWordpressCom) {
   NavigateToPageWithFrame(wordpress_top_url_);
   ExpectCookiesOnHost(GURL("https://example.wp.com"), "");
@@ -652,7 +652,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://example.wp.com"), "frame=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        ThirdPartyYesCookiesnWordpressComInWpCom) {
   NavigateToPageWithFrame(wp_top_url_);
   ExpectCookiesOnHost(GURL("https://example.wordpress.com"), "");
@@ -661,7 +661,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(GURL("https://example.wordpress.com"), "frame=true");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        BlockThirdPartyCookiesIPFSLocalhost) {
   DefaultBlockThirdPartyCookies();
 
@@ -671,7 +671,7 @@ IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
   ExpectCookiesOnHost(ipfs_cid2_frame_url_, "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveNetworkDelegateBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielNetworkDelegateBrowserTest,
                        AllowAllCookiesIPFSLocalhost) {
   DefaultAllowAllCookies();
 

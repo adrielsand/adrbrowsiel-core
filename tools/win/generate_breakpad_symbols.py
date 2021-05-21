@@ -19,7 +19,7 @@ import threading
 from datetime import datetime, timedelta
 
 CONCURRENT_TASKS=1
-BRAVE_ROOT=os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+adrbrowsiel_ROOT=os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 
 def GetCommandOutput(command):

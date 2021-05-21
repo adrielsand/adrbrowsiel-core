@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
@@ -32,7 +32,7 @@ const base::Time creation_time = base::Time::Now();
 constexpr base::TimeDelta kMaxCookieExpiration =
     base::TimeDelta::FromDays(30*6);  // 6 months
 
-TEST(BraveCanonicalCookieTest, SetMaxExpiration) {
+TEST(adrbrowsielCanonicalCookieTest, SetMaxExpiration) {
   GURL url("https://www.example.com/test");
 
   std::unique_ptr<CanonicalCookie> cookie(CanonicalCookie::Create(
@@ -51,7 +51,7 @@ TEST(BraveCanonicalCookieTest, SetMaxExpiration) {
   EXPECT_EQ(cookie->ExpiryDate(), creation_time + kMaxCookieExpiration);
 }
 
-TEST(BraveCanonicalCookieTest, AllowShorterThanMaxExpiration) {
+TEST(adrbrowsielCanonicalCookieTest, AllowShorterThanMaxExpiration) {
   GURL url("https://www.example.com/test");
   // Short-lived cookies get to keep their shorter expiration.
   std::unique_ptr<CanonicalCookie> cookie = CanonicalCookie::Create(
@@ -60,7 +60,7 @@ TEST(BraveCanonicalCookieTest, AllowShorterThanMaxExpiration) {
   EXPECT_EQ(cookie->ExpiryDate(), creation_time + TimeDelta::FromDays(2));
 }
 
-TEST(BraveCanonicalCookieTest, SetHTTPOnlyMaxExpiration) {
+TEST(adrbrowsielCanonicalCookieTest, SetHTTPOnlyMaxExpiration) {
   GURL url("https://www.example.com/test");
 
   // HTTP cookies with 'httponly' work as expected.
@@ -70,7 +70,7 @@ TEST(BraveCanonicalCookieTest, SetHTTPOnlyMaxExpiration) {
   EXPECT_EQ(cookie->ExpiryDate(), creation_time + kMaxCookieExpiration);
 }
 
-TEST(BraveCanonicalCookieTest, NoExpirationCookie) {
+TEST(adrbrowsielCanonicalCookieTest, NoExpirationCookie) {
   GURL url("https://www.example.com/test");
 
   base::Time creation_time = base::Time::Now();

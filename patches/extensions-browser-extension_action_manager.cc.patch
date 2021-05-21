@@ -6,7 +6,7 @@ index 4738e9bc0910a2c25d7c29cab33f21619a96a84a..891729feb4442d35e2ba2bcbcdfc39a9
    if (action->default_icon()) {
      action->SetDefaultIconImage(std::make_unique<IconImage>(
          browser_context_, &extension, *action->default_icon(),
-+        BRAVE_GET_EXTENSION_ACTION
++        adrbrowsiel_GET_EXTENSION_ACTION
          ExtensionAction::ActionIconSize(),
          ExtensionAction::FallbackIcon().AsImageSkia(), nullptr));
    }

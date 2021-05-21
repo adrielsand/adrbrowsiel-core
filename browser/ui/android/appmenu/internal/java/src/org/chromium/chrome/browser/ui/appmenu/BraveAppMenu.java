@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,8 +13,8 @@ import org.chromium.base.ContextUtils;
 import org.chromium.chrome.browser.ui.appmenu.internal.R;
 import org.chromium.ui.base.DeviceFormFactor;
 
-class BraveAppMenu {
-    private static final String BRAVE_IS_MENU_FROM_BOTTOM = "brave_is_menu_from_bottom";
+class adrbrowsielAppMenu {
+    private static final String adrbrowsiel_IS_MENU_FROM_BOTTOM = "adrbrowsiel_is_menu_from_bottom";
 
     public static int[] getPopupPosition(int[] tempLocation, boolean isByPermanentButton,
             int negativeSoftwareVerticalOffset, int negativeVerticalOffsetNotTopAnchored,
@@ -40,6 +40,6 @@ class BraveAppMenu {
 
     private static boolean isMenuFromBottom() {
         SharedPreferences sharedPreferences = ContextUtils.getAppSharedPreferences();
-        return sharedPreferences.getBoolean(BRAVE_IS_MENU_FROM_BOTTOM, false);
+        return sharedPreferences.getBoolean(adrbrowsiel_IS_MENU_FROM_BOTTOM, false);
     }
 }

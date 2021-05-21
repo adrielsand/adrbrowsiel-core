@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2019 The Brave Authors. All rights reserved.
+<!-- Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
      This Source Code Form is subject to the terms of the Mozilla Public
      License, v. 2.0. If a copy of the MPL was not distributed with this file,
      You can obtain one at http://mozilla.org/MPL/2.0/.
  -->
 
-<LinearLayout android:id="@+id/brave_sync_layout"
+<LinearLayout android:id="@+id/adrbrowsiel_sync_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
@@ -13,13 +13,13 @@
     android:layout_width="match_parent"
     android:layout_gravity="center"
     android:gravity="center"
-    android:background="@color/brave_sync_bg_color" >
+    android:background="@color/adrbrowsiel_sync_bg_color" >
 
     <ScrollView android:id="@+id/view_sync_initial"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:background="@drawable/brave_sync_cover_general" >
+        android:background="@drawable/adrbrowsiel_sync_cover_general" >
 
         <LinearLayout android:orientation="vertical"
             android:layout_height="wrap_content"
@@ -28,15 +28,15 @@
             android:paddingTop="2dip"
             android:paddingEnd="2dip" >
 
-            <ImageView android:id="@+id/brave_sync_image"
+            <ImageView android:id="@+id/adrbrowsiel_sync_image"
                android:layout_width="match_parent"
                android:layout_height="0px"
                android:layout_weight="2"
-               android:src="@drawable/brave_sync"
+               android:src="@drawable/adrbrowsiel_sync"
                android:scaleType="center"
                android:contentDescription="@null" />
 
-           <TextView android:id="@+id/brave_sync_text_initial"
+           <TextView android:id="@+id/adrbrowsiel_sync_text_initial"
                android:layout_width="match_parent"
                android:layout_height="0px"
                android:layout_weight="1.4"
@@ -44,17 +44,17 @@
                android:paddingStart="15dip"
                android:paddingEnd="15dip" />
 
-           <Button android:id="@+id/brave_sync_btn_scan_chain_code"
+           <Button android:id="@+id/adrbrowsiel_sync_btn_scan_chain_code"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:text="@string/brave_sync_scan_chain_code"
-               style="@style/BraveSyncButton" />
+               android:text="@string/adrbrowsiel_sync_scan_chain_code"
+               style="@style/adrbrowsielSyncButton" />
 
-           <Button android:id="@+id/brave_sync_btn_start_new_chain"
+           <Button android:id="@+id/adrbrowsiel_sync_btn_start_new_chain"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:text="@string/brave_sync_start_new_chain"
-               style="@style/BraveSyncBottomButton"
+               android:text="@string/adrbrowsiel_sync_start_new_chain"
+               style="@style/adrbrowsielSyncBottomButton"
                android:background="@android:color/transparent"
                android:textColor="@color/modern_grey_600" />
 
@@ -65,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:background="@drawable/brave_sync_cover_general" >
+        android:background="@drawable/adrbrowsiel_sync_cover_general" >
 
         <LinearLayout android:orientation="vertical"
             android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
 
             <include layout="@layout/menu_separator"/>
 
-           <TextView android:id="@+id/brave_sync_text_sync_chain_code"
+           <TextView android:id="@+id/adrbrowsiel_sync_text_sync_chain_code"
                android:layout_width="match_parent"
                android:layout_height="0px"
                android:layout_weight="1"
@@ -117,11 +117,11 @@
                android:paddingStart="15dip"
                android:paddingEnd="15dip" />
 
-           <Button android:id="@+id/brave_sync_btn_enter_code_words"
+           <Button android:id="@+id/adrbrowsiel_sync_btn_enter_code_words"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:text="@string/enter_code_words_sync"
-               style="@style/BraveSyncBottomButton"
+               style="@style/adrbrowsielSyncBottomButton"
                android:background="@android:color/transparent"
                android:textColor="@color/modern_grey_600" />
 
@@ -140,7 +140,7 @@
             android:layout_width="match_parent"
             android:baselineAligned="false" >
 
-            <FrameLayout android:id="@+id/brave_sync_frame_mobile"
+            <FrameLayout android:id="@+id/adrbrowsiel_sync_frame_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="0px"
                 android:layout_weight="1"
@@ -149,18 +149,18 @@
                 android:paddingBottom="10dip"
                 android:paddingEnd="15dip" >
 
-                <ImageButton android:id="@+id/brave_sync_btn_mobile"
+                <ImageButton android:id="@+id/adrbrowsiel_sync_btn_mobile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/brave_sync_btn_mobile"
-                    android:contentDescription="@string/brave_sync_btn_mobile"
-                    android:background="@drawable/brave_sync_image_btn" />
+                    android:src="@drawable/adrbrowsiel_sync_btn_mobile"
+                    android:contentDescription="@string/adrbrowsiel_sync_btn_mobile"
+                    android:background="@drawable/adrbrowsiel_sync_image_btn" />
 
                 <TextView android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center_horizontal"
                     android:clickable="false"
-                    android:text="@string/brave_sync_btn_mobile"
+                    android:text="@string/adrbrowsiel_sync_btn_mobile"
                     android:color="@color/black_alpha_65"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -168,7 +168,7 @@
 
             </FrameLayout>
 
-            <FrameLayout android:id="@+id/brave_sync_frame_laptop"
+            <FrameLayout android:id="@+id/adrbrowsiel_sync_frame_laptop"
                 android:layout_width="match_parent"
                 android:layout_height="0px"
                 android:layout_weight="1"
@@ -177,18 +177,18 @@
                 android:paddingBottom="10dip"
                 android:paddingEnd="15dip" >
 
-                <ImageButton android:id="@+id/brave_sync_btn_laptop"
+                <ImageButton android:id="@+id/adrbrowsiel_sync_btn_laptop"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/brave_sync_btn_laptop"
-                    android:contentDescription="@string/brave_sync_btn_laptop"
-                    android:background="@drawable/brave_sync_image_btn" />
+                    android:src="@drawable/adrbrowsiel_sync_btn_laptop"
+                    android:contentDescription="@string/adrbrowsiel_sync_btn_laptop"
+                    android:background="@drawable/adrbrowsiel_sync_image_btn" />
 
                 <TextView android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center_horizontal"
                     android:clickable="false"
-                    android:text="@string/brave_sync_btn_laptop"
+                    android:text="@string/adrbrowsiel_sync_btn_laptop"
                     android:color="@color/black_alpha_65"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -203,7 +203,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:background="@drawable/brave_sync_cover_general" >
+        android:background="@drawable/adrbrowsiel_sync_cover_general" >
 
         <LinearLayout android:orientation="vertical"
             android:layout_height="wrap_content"
@@ -219,9 +219,9 @@
                 android:inputType="text|textMultiLine"
                 android:singleLine="false"
                 android:gravity="top|start"
-                android:hint="@string/brave_sync_codewords_message"
+                android:hint="@string/adrbrowsiel_sync_codewords_message"
                 android:textSize="18sp"
-                android:background="@drawable/brave_sync_top_rounded"
+                android:background="@drawable/adrbrowsiel_sync_top_rounded"
                 android:paddingStart="15dip"
                 android:paddingTop="15dip"
                 android:paddingEnd="15dip"
@@ -234,39 +234,39 @@
                 android:paddingEnd="15dip"
                 android:paddingBottom="15dip" >
 
-                <TextView android:id="@+id/brave_sync_text_word_count"
+                <TextView android:id="@+id/adrbrowsiel_sync_text_word_count"
                     android:layout_width="0px"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/brave_sync_word_count_text"
+                    android:text="@string/adrbrowsiel_sync_word_count_text"
                     android:gravity="start|center"
                     android:textSize="16sp" />
 
-                <ImageButton android:id="@+id/brave_sync_paste_button"
+                <ImageButton android:id="@+id/adrbrowsiel_sync_paste_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/copy_paste"
                     app:tint="@color/default_icon_color_tint_list"
                     android:background="@android:color/transparent"
-                    android:contentDescription="@string/brave_sync_word_count_text"
+                    android:contentDescription="@string/adrbrowsiel_sync_word_count_text"
                     android:gravity="end|center" />
 
             </LinearLayout>
 
             <include layout="@layout/menu_separator"/>
 
-            <Button android:id="@+id/brave_sync_confirm_code_words"
+            <Button android:id="@+id/adrbrowsiel_sync_confirm_code_words"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/brave_sync_confirm_code_words_text"
-                style="@style/BraveSyncButton"
+                android:text="@string/adrbrowsiel_sync_confirm_code_words_text"
+                style="@style/adrbrowsielSyncButton"
                 android:layout_marginTop="15dip" />
 
-            <Button android:id="@+id/brave_sync_btn_use_camera"
+            <Button android:id="@+id/adrbrowsiel_sync_btn_use_camera"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/brave_sync_use_camera_text"
-                style="@style/BraveSyncBottomButton"
+                android:text="@string/adrbrowsiel_sync_use_camera_text"
+                style="@style/adrbrowsielSyncBottomButton"
                 android:background="@android:color/transparent"
                 android:textColor="@color/modern_grey_600" />
 
@@ -274,10 +274,10 @@
 
     </ScrollView>
 
-    <include layout="@layout/brave_sync_add_mobile" />
+    <include layout="@layout/adrbrowsiel_sync_add_mobile" />
 
-    <include layout="@layout/brave_sync_add_laptop" />
+    <include layout="@layout/adrbrowsiel_sync_add_laptop" />
 
-    <include layout="@layout/brave_sync_done" />
+    <include layout="@layout/adrbrowsiel_sync_done" />
 
 </LinearLayout>

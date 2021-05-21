@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2021 The Brave Authors. All rights reserved.
+<!-- Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
      This Source Code Form is subject to the terms of the Mozilla Public
      License, v. 2.0. If a copy of the MPL was not distributed with this file,
      You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:fontFamily="@font/poppins_light"
-            android:textColor="@color/brave_stats_share_trackers_ads_no"
+            android:textColor="@color/adrbrowsiel_stats_share_trackers_ads_no"
             android:textSize="26sp" />
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:fontFamily="@font/poppins_light"
-            android:textColor="@color/brave_stats_share_data_save_no"
+            android:textColor="@color/adrbrowsiel_stats_share_data_save_no"
             android:textSize="26sp" />
 
         <TextView
@@ -55,7 +55,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:fontFamily="@font/poppins_light"
-            android:textColor="@color/brave_stats_share_time_saved_no"
+            android:textColor="@color/adrbrowsiel_stats_share_time_saved_no"
             android:textSize="26sp" />
     </LinearLayout>
 
@@ -78,7 +78,7 @@
             android:fontFamily="@font/poppins_light"
             android:gravity="center"
             android:text="@string/trackers_and_ads"
-            android:textColor="@color/brave_stats_share_info"
+            android:textColor="@color/adrbrowsiel_stats_share_info"
             android:textSize="14sp"/>
 
         <TextView
@@ -88,8 +88,8 @@
             android:layout_weight="1"
             android:fontFamily="@font/poppins_light"
             android:gravity="center"
-            android:text="@string/brave_stats_text_data_saved"
-            android:textColor="@color/brave_stats_share_info"
+            android:text="@string/adrbrowsiel_stats_text_data_saved"
+            android:textColor="@color/adrbrowsiel_stats_share_info"
             android:textSize="14sp"/>
 
         <TextView
@@ -99,8 +99,8 @@
             android:layout_weight="1"
             android:fontFamily="@font/poppins_light"
             android:gravity="center"
-            android:text="@string/brave_stats_text_time"
-            android:textColor="@color/brave_stats_share_info"
+            android:text="@string/adrbrowsiel_stats_text_time"
+            android:textColor="@color/adrbrowsiel_stats_share_info"
             android:textSize="14sp" />
     </LinearLayout>
 

@@ -1,4 +1,4 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,7 +6,7 @@
 #include "../../../../../components/bookmarks/browser/bookmark_model_unittest.cc"
 namespace bookmarks {
 
-TEST_F(BookmarkModelTest, BraveMigrateOtherNodeFolder) {
+TEST_F(BookmarkModelTest, adrbrowsielMigrateOtherNodeFolder) {
   // -- Bookmarks
   // |-- A
   // |-- Other Bookmarks
@@ -31,7 +31,7 @@ TEST_F(BookmarkModelTest, BraveMigrateOtherNodeFolder) {
   // |-- B
   // |   |--B1.com
   // |-- C.com
-  BraveMigrateOtherNodeFolder(model_.get());
+  adrbrowsielMigrateOtherNodeFolder(model_.get());
   ASSERT_EQ(model_->other_node()->children().size(), 2u);
   ASSERT_EQ(model_->bookmark_bar_node()->children().size(), 1u);
   EXPECT_EQ(model_->bookmark_bar_node()->children()[0]->GetTitle(),
@@ -46,42 +46,42 @@ TEST_F(BookmarkModelTest, BraveMigrateOtherNodeFolder) {
   model_->AddFolder(model_->bookmark_bar_node(),
                     model_->bookmark_bar_node()->children().size(),
                     model_->other_node()->GetTitledUrlNodeTitle());
-  BraveMigrateOtherNodeFolder(model_.get());
+  adrbrowsielMigrateOtherNodeFolder(model_.get());
   ASSERT_EQ(model_->bookmark_bar_node()->children().size(), 1u);
   ASSERT_EQ(model_->other_node()->children().size(), 2u);
 }
 
-TEST_F(BookmarkModelTest, BraveMigrateOtherNodeFolderNotExist) {
+TEST_F(BookmarkModelTest, adrbrowsielMigrateOtherNodeFolderNotExist) {
   ASSERT_EQ(model_->bookmark_bar_node()->children().size(), 0u);
-  BraveMigrateOtherNodeFolder(model_.get());
+  adrbrowsielMigrateOtherNodeFolder(model_.get());
   ASSERT_EQ(model_->other_node()->children().size(), 0u);
 
   const BookmarkNode* folder = model_->AddFolder(model_->bookmark_bar_node(), 0,
                                                  ASCIIToUTF16("Other B"));
   model_->AddURL(folder, 0, ASCIIToUTF16("B1"), GURL("https://B1.com"));
-  BraveMigrateOtherNodeFolder(model_.get());
+  adrbrowsielMigrateOtherNodeFolder(model_.get());
   ASSERT_EQ(model_->bookmark_bar_node()->children().size(), 1u);
   ASSERT_EQ(model_->other_node()->children().size(), 0u);
 
   model_->AddURL(model_->bookmark_bar_node(), 1,
                  model_->other_node()->GetTitledUrlNodeTitle(),
                  GURL("https://other.bookmarks"));
-  BraveMigrateOtherNodeFolder(model_.get());
+  adrbrowsielMigrateOtherNodeFolder(model_.get());
   ASSERT_EQ(model_->bookmark_bar_node()->children().size(), 2u);
   ASSERT_EQ(model_->other_node()->children().size(), 0u);
 }
 
-TEST_F(BookmarkModelTest, BraveClearSyncV1MetaInfo_PermanentNodes) {
+TEST_F(BookmarkModelTest, adrbrowsielClearSyncV1MetaInfo_PermanentNodes) {
   AsMutable(model_->bookmark_bar_node())->SetMetaInfo("order", "1.0.1");
   AsMutable(model_->other_node())->SetMetaInfo("order", "1.0.2");
 
-  BraveClearSyncV1MetaInfo(model_.get());
+  adrbrowsielClearSyncV1MetaInfo(model_.get());
 
   ASSERT_EQ(model_->bookmark_bar_node()->GetMetaInfoMap(), nullptr);
   ASSERT_EQ(model_->other_node()->GetMetaInfoMap(), nullptr);
 }
 
-TEST_F(BookmarkModelTest, BraveClearSyncV1MetaInfo) {
+TEST_F(BookmarkModelTest, adrbrowsielClearSyncV1MetaInfo) {
   BookmarkNode::MetaInfoMap meta_info_map;
   meta_info_map["object_id"] = "object_id_value";
   meta_info_map["order"] = "order_value";
@@ -108,7 +108,7 @@ TEST_F(BookmarkModelTest, BraveClearSyncV1MetaInfo) {
       folder_A, 0, ASCIIToUTF16("A1"), GURL("https://A1.com"), &meta_info_map);
   const BookmarkNode* bookmark_C1 = model_->AddURL(
       folder_A, 1, ASCIIToUTF16("C1"), GURL("https://C1.com"), &meta_info_map);
-  model_->SetNodeMetaInfo(bookmark_C1, "brave_meta", "brave_meta_value");
+  model_->SetNodeMetaInfo(bookmark_C1, "adrbrowsiel_meta", "adrbrowsiel_meta_value");
   const BookmarkNode* folder_B = model_->AddFolder(
       model_->other_node(), 0, ASCIIToUTF16("B"), &meta_info_map);
   const BookmarkNode* bookmark_B1 = model_->AddURL(
@@ -119,7 +119,7 @@ TEST_F(BookmarkModelTest, BraveClearSyncV1MetaInfo) {
   ASSERT_NE(folder_B->GetMetaInfoMap(), nullptr);
   ASSERT_NE(bookmark_B1->GetMetaInfoMap(), nullptr);
 
-  BraveClearSyncV1MetaInfo(model_.get());
+  adrbrowsielClearSyncV1MetaInfo(model_.get());
 
   ASSERT_EQ(folder_A->GetMetaInfoMap(), nullptr);
   ASSERT_EQ(bookmark_A1->GetMetaInfoMap(), nullptr);
@@ -127,9 +127,9 @@ TEST_F(BookmarkModelTest, BraveClearSyncV1MetaInfo) {
   ASSERT_EQ(folder_B->GetMetaInfoMap(), nullptr);
   ASSERT_EQ(bookmark_B1->GetMetaInfoMap(), nullptr);
 
-  std::string brave_meta;
-  ASSERT_TRUE(bookmark_C1->GetMetaInfo("brave_meta", &brave_meta));
-  ASSERT_EQ(brave_meta, "brave_meta_value");
+  std::string adrbrowsiel_meta;
+  ASSERT_TRUE(bookmark_C1->GetMetaInfo("adrbrowsiel_meta", &adrbrowsiel_meta));
+  ASSERT_EQ(adrbrowsiel_meta, "adrbrowsiel_meta_value");
 }
 
 }  // namespace bookmarks

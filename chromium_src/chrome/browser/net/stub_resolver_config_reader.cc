@@ -1,15 +1,15 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/decentralized_dns/buildflags/buildflags.h"
+#include "adrbrowsiel/components/decentralized_dns/buildflags/buildflags.h"
 #include "components/prefs/pref_service.h"
 
 #if BUILDFLAG(DECENTRALIZED_DNS_ENABLED)
 #include "base/strings/strcat.h"
-#include "brave/components/decentralized_dns/utils.h"
-#include "brave/net/decentralized_dns/constants.h"
+#include "adrbrowsiel/components/decentralized_dns/utils.h"
+#include "adrbrowsiel/net/decentralized_dns/constants.h"
 #endif
 
 namespace {
@@ -48,9 +48,9 @@ void AddDoHServers(std::string* doh_templates,
 
 }  // namespace
 
-#define BRAVE_GET_AND_UPDATE_CONFIGURATION    \
+#define adrbrowsiel_GET_AND_UPDATE_CONFIGURATION    \
   AddDoHServers(&doh_templates, local_state_, \
                 force_check_parental_controls_for_automatic_mode);
 
 #include "../../../../../chrome/browser/net/stub_resolver_config_reader.cc"
-#undef BRAVE_GET_AND_UPDATE_CONFIGURATION
+#undef adrbrowsiel_GET_AND_UPDATE_CONFIGURATION

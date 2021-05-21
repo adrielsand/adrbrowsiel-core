@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -114,7 +114,7 @@ class ByteCodeProcessor {
         if (sShouldUseThreadAnnotations) {
             chain = new ThreadAssertionClassAdapter(chain);
         }
-        chain = org.brave.bytecode.BraveClassAdapter.createAdapter(chain);
+        chain = org.adrbrowsiel.bytecode.adrbrowsielClassAdapter.createAdapter(chain);
         reader.accept(chain, 0);
         byte[] patchedByteCode = writer.toByteArray();
         return EntryDataPair.create(entry.getName(), patchedByteCode);

@@ -1,4 +1,4 @@
-// Copyright 2019 The Brave Authors. All rights reserved.
+// Copyright 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -34,10 +34,10 @@ void OnUnblockOnProfileCreation(base::RunLoop* run_loop,
     run_loop->Quit();
 }
 
-class BraveToolbarViewTest : public InProcessBrowserTest {
+class adrbrowsielToolbarViewTest : public InProcessBrowserTest {
  public:
-  BraveToolbarViewTest() = default;
-  ~BraveToolbarViewTest() override = default;
+  adrbrowsielToolbarViewTest() = default;
+  ~adrbrowsielToolbarViewTest() override = default;
 
   void SetUpOnMainThread() override { Init(browser()); }
 
@@ -58,15 +58,15 @@ class BraveToolbarViewTest : public InProcessBrowserTest {
 
  private:
   ToolbarButtonProvider* toolbar_button_provider_;
-  DISALLOW_COPY_AND_ASSIGN(BraveToolbarViewTest);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielToolbarViewTest);
 };
 
-IN_PROC_BROWSER_TEST_F(BraveToolbarViewTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielToolbarViewTest,
                        AvatarButtonNotShownSingleProfile) {
   EXPECT_EQ(false, is_avatar_button_shown());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveToolbarViewTest, AvatarButtonIsShownGuestProfile) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielToolbarViewTest, AvatarButtonIsShownGuestProfile) {
   // Open a Guest window.
   EXPECT_EQ(1U, BrowserList::GetInstance()->size());
   ui_test_utils::BrowserChangeObserver browser_creation_observer(
@@ -87,7 +87,7 @@ IN_PROC_BROWSER_TEST_F(BraveToolbarViewTest, AvatarButtonIsShownGuestProfile) {
   EXPECT_EQ(true, is_avatar_button_shown());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveToolbarViewTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielToolbarViewTest,
                        AvatarButtonIsShownMultipleProfiles) {
   // Should not be shown in first profile, at first
   EXPECT_EQ(false, is_avatar_button_shown());

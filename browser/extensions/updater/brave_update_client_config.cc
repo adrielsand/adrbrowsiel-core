@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/browser/extensions/updater/brave_update_client_config.h"
+#include "adrbrowsiel/browser/extensions/updater/adrbrowsiel_update_client_config.h"
 
 #include <string>
 
@@ -30,12 +30,12 @@ static FactoryCallback& GetFactoryCallback() {
 
 }  // namespace
 
-std::string BraveUpdateClientConfig::GetChannel() const {
+std::string adrbrowsielUpdateClientConfig::GetChannel() const {
   return std::string("stable");
 }
 
 scoped_refptr<update_client::NetworkFetcherFactory>
-BraveUpdateClientConfig::GetNetworkFetcherFactory() {
+adrbrowsielUpdateClientConfig::GetNetworkFetcherFactory() {
   if (!network_fetcher_factory_) {
     network_fetcher_factory_ =
         base::MakeRefCounted<update_client::NetworkFetcherChromiumFactory>(
@@ -49,18 +49,18 @@ BraveUpdateClientConfig::GetNetworkFetcherFactory() {
 }
 
 // Disabling cup signing
-bool BraveUpdateClientConfig::EnabledCupSigning() const {
+bool adrbrowsielUpdateClientConfig::EnabledCupSigning() const {
   return false;
 }
 
-BraveUpdateClientConfig::~BraveUpdateClientConfig() = default;
+adrbrowsielUpdateClientConfig::~adrbrowsielUpdateClientConfig() = default;
 
 // static
-scoped_refptr<ChromeUpdateClientConfig> BraveUpdateClientConfig::Create(
+scoped_refptr<ChromeUpdateClientConfig> adrbrowsielUpdateClientConfig::Create(
     content::BrowserContext* context,
     base::Optional<GURL> update_url_override) {
   FactoryCallback& factory = GetFactoryCallback();
-  return factory.is_null() ? base::MakeRefCounted<BraveUpdateClientConfig>(
+  return factory.is_null() ? base::MakeRefCounted<adrbrowsielUpdateClientConfig>(
                                  context, update_url_override)
                            : factory.Run(context);
 }

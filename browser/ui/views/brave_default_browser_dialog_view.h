@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_BRAVE_DEFAULT_BROWSER_DIALOG_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_BRAVE_DEFAULT_BROWSER_DIALOG_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_DEFAULT_BROWSER_DIALOG_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_DEFAULT_BROWSER_DIALOG_VIEW_H_
 
 #include <memory>
 
@@ -15,14 +15,14 @@ class Checkbox;
 class Label;
 }  // namespace views
 
-class BraveDefaultBrowserDialogView : public views::DialogDelegateView {
+class adrbrowsielDefaultBrowserDialogView : public views::DialogDelegateView {
  public:
-  BraveDefaultBrowserDialogView();
-  ~BraveDefaultBrowserDialogView() override;
+  adrbrowsielDefaultBrowserDialogView();
+  ~adrbrowsielDefaultBrowserDialogView() override;
 
-  BraveDefaultBrowserDialogView(const BraveDefaultBrowserDialogView&) = delete;
-  BraveDefaultBrowserDialogView& operator=(
-      const BraveDefaultBrowserDialogView&) = delete;
+  adrbrowsielDefaultBrowserDialogView(const adrbrowsielDefaultBrowserDialogView&) = delete;
+  adrbrowsielDefaultBrowserDialogView& operator=(
+      const adrbrowsielDefaultBrowserDialogView&) = delete;
 
   // views::DialogDelegateView overrides:
   ui::ModalType GetModalType() const override;
@@ -41,4 +41,4 @@ class BraveDefaultBrowserDialogView : public views::DialogDelegateView {
   views::Checkbox* dont_ask_again_checkbox_ = nullptr;
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_BRAVE_DEFAULT_BROWSER_DIALOG_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_adrbrowsiel_DEFAULT_BROWSER_DIALOG_VIEW_H_

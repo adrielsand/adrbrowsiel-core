@@ -117,7 +117,7 @@
   .qr-viewer
   {
     padding-left: 50%;
-    background-image: url(chrome://settings/brave_sync_page/qr_scanning.svg);
+    background-image: url(chrome://settings/adrbrowsiel_sync_page/qr_scanning.svg);
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 40%;
@@ -206,17 +206,17 @@
     show-on-attach
   >
     <div slot="title">
-      <span clas="dialog-title">$i18n{braveSyncChooseDeviceTitle}</span>
-      <span class="dialog-subtitle">$i18n{braveSyncChooseDeviceDesc}</span>
+      <span clas="dialog-title">$i18n{adrbrowsielSyncChooseDeviceTitle}</span>
+      <span class="dialog-subtitle">$i18n{adrbrowsielSyncChooseDeviceDesc}</span>
     </div>
     <div slot="body" class="devices">
       <button class="device mobile" on-click="handleChooseMobile_">
-        <img alt="" class="device-image" src="chrome://settings/brave_sync_page/device_mobile.svg" />
-        <h2 class="device-title">$i18n{braveSyncChooseDeviceMobileTitle}</h2>
+        <img alt="" class="device-image" src="chrome://settings/adrbrowsiel_sync_page/device_mobile.svg" />
+        <h2 class="device-title">$i18n{adrbrowsielSyncChooseDeviceMobileTitle}</h2>
       </button>
       <button class="device computer" on-click="handleChooseComputer_">
-        <img alt="" class="device-image" src="chrome://settings/brave_sync_page/device_computer.svg" />
-        <h2 class="device-title">$i18n{braveSyncChooseDeviceComputerTitle}</h2>
+        <img alt="" class="device-image" src="chrome://settings/adrbrowsiel_sync_page/device_computer.svg" />
+        <h2 class="device-title">$i18n{adrbrowsielSyncChooseDeviceComputerTitle}</h2>
       </button>
     </div>
   </cr-dialog>
@@ -230,12 +230,12 @@
     show-on-attach
   >
     <div slot="title">
-      <span clas="dialog-title">$i18n{braveSyncScanCodeTitle}</span>
-      <span class="dialog-subtitle">$i18n{braveSyncScanCodeDesc1}
-        $i18n{braveSyncScanCodeDesc2}
-        $i18n{braveSyncScanCodeDesc3}
+      <span clas="dialog-title">$i18n{adrbrowsielSyncScanCodeTitle}</span>
+      <span class="dialog-subtitle">$i18n{adrbrowsielSyncScanCodeDesc1}
+        $i18n{adrbrowsielSyncScanCodeDesc2}
+        $i18n{adrbrowsielSyncScanCodeDesc3}
         <b>
-          $i18n{braveSyncCodeWarning}
+          $i18n{adrbrowsielSyncCodeWarning}
         </b>
       </span>
     </div>
@@ -245,12 +245,12 @@
             <img
               class="qr-image"
               src="[[qrCodeImageUrl_]]"
-              alt="$i18n{braveSyncQRCodeAlt}"
+              alt="$i18n{adrbrowsielSyncQRCodeAlt}"
             >
         </template>
         <template is="dom-if" if="[[!qrCodeImageUrl_]]">
           <p>
-            $i18n{braveSyncQRError}
+            $i18n{adrbrowsielSyncQRError}
           </p>
         </template>
       </div>
@@ -259,7 +259,7 @@
       <button class="tertiary-button"
         on-click="handleChooseComputer_"
       >
-        $i18n{braveSyncViewCodeButton}
+        $i18n{adrbrowsielSyncViewCodeButton}
       </button>
       <cr-button class="action-button" on-click="handleDone_">
         $i18n{ok}
@@ -276,26 +276,26 @@
     show-on-attach
   >
     <div slot="title">
-      <span clas="dialog-title">$i18n{braveSyncViewCodeTitle}</span>
-      <span class="dialog-subtitle">$i18n{braveSyncViewCodeDesc1}
-        $i18n{braveSyncViewCodeDesc2}
-        $i18n{braveSyncViewCodeDesc3}
+      <span clas="dialog-title">$i18n{adrbrowsielSyncViewCodeTitle}</span>
+      <span class="dialog-subtitle">$i18n{adrbrowsielSyncViewCodeDesc1}
+        $i18n{adrbrowsielSyncViewCodeDesc2}
+        $i18n{adrbrowsielSyncViewCodeDesc3}
         <b>
-          $i18n{braveSyncCodeWarning}
+          $i18n{adrbrowsielSyncCodeWarning}
         </b>
       </span>
     </div>
     <div slot="body" class="sync-code-widget">
       <textarea class="sync-code-text" readonly>[[syncCode]]</textarea>
       <div class="sync-code-footer">
-        [[i18n('braveSyncWordCount', syncCodeWordCount_)]]
+        [[i18n('adrbrowsielSyncWordCount', syncCodeWordCount_)]]
         <div class="sync-code-clipboard">
           <span class$="clipboard-success is-success-[[hasCopiedSyncCode_]]">
-            $i18n{braveSyncCopied}
+            $i18n{adrbrowsielSyncCopied}
           </span>
           <cr-icon-button
             class="clipboard-button"
-            iron-icon="brave_settings:clipboard"
+            iron-icon="adrbrowsiel_settings:clipboard"
             on-click="handleSyncCodeCopy_"
             aria-label="Copy sync words to clipboard" />
         </div>
@@ -305,7 +305,7 @@
       <button class="tertiary-button"
         on-click="handleChooseMobile_"
       >
-        $i18n{braveSyncViewCodeQRCodeButton}
+        $i18n{adrbrowsielSyncViewCodeQRCodeButton}
       </button>
       <cr-button class="action-button"
         on-click="handleDone_"
@@ -325,17 +325,17 @@
     show-on-attach
   >
     <div slot="title">
-      <span clas="dialog-title">$i18n{braveSyncEnterCodeTitle}</span>
-      <span class="dialog-subtitle">$i18n{braveSyncEnterCodeDesc}</span>
+      <span clas="dialog-title">$i18n{adrbrowsielSyncEnterCodeTitle}</span>
+      <span class="dialog-subtitle">$i18n{adrbrowsielSyncEnterCodeDesc}</span>
     </div>
 
     <div slot="body" class="sync-code-widget">
       <textarea autofocus class="sync-code-text" value="{{syncCode::input}}"></textarea>
       <div class="sync-code-footer">
-        [[i18n('braveSyncWordCount', syncCodeWordCount_)]]
+        [[i18n('adrbrowsielSyncWordCount', syncCodeWordCount_)]]
         <template is="dom-if" if="[[isInvalidSyncCode]]">
           <div class="invalid-sync-code">
-            $i18n{braveSyncInvalidSyncCodeTitle}
+            $i18n{adrbrowsielSyncInvalidSyncCodeTitle}
           </div>
         </template>
       </div>

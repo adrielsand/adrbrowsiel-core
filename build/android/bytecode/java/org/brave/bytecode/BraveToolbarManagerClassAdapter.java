@@ -1,101 +1,101 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-package org.brave.bytecode;
+package org.adrbrowsiel.bytecode;
 
 import org.objectweb.asm.ClassVisitor;
 
-public class BraveToolbarManagerClassAdapter extends BraveClassVisitor {
+public class adrbrowsielToolbarManagerClassAdapter extends adrbrowsielClassVisitor {
     static String sToolbarManagerClassName = "org/chromium/chrome/browser/toolbar/ToolbarManager";
-    static String sBraveToolbarManagerClassName =
-            "org/chromium/chrome/browser/toolbar/BraveToolbarManager";
+    static String sadrbrowsielToolbarManagerClassName =
+            "org/chromium/chrome/browser/toolbar/adrbrowsielToolbarManager";
 
-    public BraveToolbarManagerClassAdapter(ClassVisitor visitor) {
+    public adrbrowsielToolbarManagerClassAdapter(ClassVisitor visitor) {
         super(visitor);
 
-        redirectConstructor(sToolbarManagerClassName, sBraveToolbarManagerClassName);
+        redirectConstructor(sToolbarManagerClassName, sadrbrowsielToolbarManagerClassName);
 
-        deleteField(sBraveToolbarManagerClassName, "mBottomControlsCoordinatorSupplier");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mBottomControlsCoordinatorSupplier");
         makeProtectedField(sToolbarManagerClassName, "mBottomControlsCoordinatorSupplier");
 
-        deleteField(sBraveToolbarManagerClassName, "mCallbackController");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mCallbackController");
         makeProtectedField(sToolbarManagerClassName, "mCallbackController");
 
-        deleteField(sBraveToolbarManagerClassName, "mBrowserControlsSizer");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mBrowserControlsSizer");
         makeProtectedField(sToolbarManagerClassName, "mBrowserControlsSizer");
 
-        deleteField(sBraveToolbarManagerClassName, "mFullscreenManager");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mFullscreenManager");
         makeProtectedField(sToolbarManagerClassName, "mFullscreenManager");
 
-        deleteField(sBraveToolbarManagerClassName, "mActivityTabProvider");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mActivityTabProvider");
         makeProtectedField(sToolbarManagerClassName, "mActivityTabProvider");
 
-        deleteField(sBraveToolbarManagerClassName, "mAppThemeColorProvider");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mAppThemeColorProvider");
         makeProtectedField(sToolbarManagerClassName, "mAppThemeColorProvider");
 
-        deleteField(sBraveToolbarManagerClassName, "mShareDelegateSupplier");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mShareDelegateSupplier");
         makeProtectedField(sToolbarManagerClassName, "mShareDelegateSupplier");
 
-        deleteField(sBraveToolbarManagerClassName, "mScrimCoordinator");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mScrimCoordinator");
         makeProtectedField(sToolbarManagerClassName, "mScrimCoordinator");
 
-        deleteField(sBraveToolbarManagerClassName, "mShowStartSurfaceSupplier");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mShowStartSurfaceSupplier");
         makeProtectedField(sToolbarManagerClassName, "mShowStartSurfaceSupplier");
 
-        deleteField(sBraveToolbarManagerClassName, "mMenuButtonCoordinator");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mMenuButtonCoordinator");
         makeProtectedField(sToolbarManagerClassName, "mMenuButtonCoordinator");
 
-        deleteField(sBraveToolbarManagerClassName, "mToolbarTabController");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mToolbarTabController");
         makeProtectedField(sToolbarManagerClassName, "mToolbarTabController");
 
-        deleteField(sBraveToolbarManagerClassName, "mLocationBar");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mLocationBar");
         makeProtectedField(sToolbarManagerClassName, "mLocationBar");
 
-        deleteField(sBraveToolbarManagerClassName, "mActionModeController");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mActionModeController");
         makeProtectedField(sToolbarManagerClassName, "mActionModeController");
 
-        deleteField(sBraveToolbarManagerClassName, "mLocationBarModel");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mLocationBarModel");
         makeProtectedField(sToolbarManagerClassName, "mLocationBarModel");
 
-        deleteField(sBraveToolbarManagerClassName, "mToolbar");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mToolbar");
         makeProtectedField(sToolbarManagerClassName, "mToolbar");
 
-        deleteField(sBraveToolbarManagerClassName, "mBookmarkBridgeSupplier");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mBookmarkBridgeSupplier");
         makeProtectedField(sToolbarManagerClassName, "mBookmarkBridgeSupplier");
 
-        deleteField(sBraveToolbarManagerClassName, "mLayoutManager");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mLayoutManager");
         makeProtectedField(sToolbarManagerClassName, "mLayoutManager");
 
-        deleteField(sBraveToolbarManagerClassName, "mOverlayPanelVisibilitySupplier");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mOverlayPanelVisibilitySupplier");
         makeProtectedField(sToolbarManagerClassName, "mOverlayPanelVisibilitySupplier");
 
-        deleteField(sBraveToolbarManagerClassName, "mTabModelSelector");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mTabModelSelector");
         makeProtectedField(sToolbarManagerClassName, "mTabModelSelector");
 
-        deleteField(sBraveToolbarManagerClassName, "mIncognitoStateProvider");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mIncognitoStateProvider");
         makeProtectedField(sToolbarManagerClassName, "mIncognitoStateProvider");
 
-        deleteField(sBraveToolbarManagerClassName, "mTabCountProvider");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mTabCountProvider");
         makeProtectedField(sToolbarManagerClassName, "mTabCountProvider");
 
-        deleteField(sBraveToolbarManagerClassName, "mTabGroupUi");
+        deleteField(sadrbrowsielToolbarManagerClassName, "mTabGroupUi");
         makeProtectedField(sToolbarManagerClassName, "mTabGroupUi");
 
         makePublicMethod(sToolbarManagerClassName, "onOrientationChange");
         addMethodAnnotation(
-                sBraveToolbarManagerClassName, "onOrientationChange", "Ljava/lang/Override;");
+                sadrbrowsielToolbarManagerClassName, "onOrientationChange", "Ljava/lang/Override;");
 
         makePublicMethod(sToolbarManagerClassName, "updateButtonStatus");
         addMethodAnnotation(
-                sBraveToolbarManagerClassName, "updateButtonStatus", "Ljava/lang/Override;");
+                sadrbrowsielToolbarManagerClassName, "updateButtonStatus", "Ljava/lang/Override;");
 
         makePublicMethod(sToolbarManagerClassName, "updateBookmarkButtonStatus");
-        addMethodAnnotation(sBraveToolbarManagerClassName, "updateBookmarkButtonStatus",
+        addMethodAnnotation(sadrbrowsielToolbarManagerClassName, "updateBookmarkButtonStatus",
                 "Ljava/lang/Override;");
 
         makePublicMethod(sToolbarManagerClassName, "updateReloadState");
-        deleteMethod(sBraveToolbarManagerClassName, "updateReloadState");
+        deleteMethod(sadrbrowsielToolbarManagerClassName, "updateReloadState");
     }
 }

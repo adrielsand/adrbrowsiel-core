@@ -6,7 +6,7 @@ index 154b624322d49bb19d7ab81aca83e70d17d6b29b..c87b75dab6fb23cb60bafe60241ecc9a
      'chrome.win7': ['win']
  }
  
-+from policy_source_helper import AddBravePolicies, CHROMIUM_POLICY_KEY
++from policy_source_helper import AddadrbrowsielPolicies, CHROMIUM_POLICY_KEY
  
  class PolicyDetails:
    """Parses a policy template and caches all its details."""
@@ -14,7 +14,7 @@ index 154b624322d49bb19d7ab81aca83e70d17d6b29b..c87b75dab6fb23cb60bafe60241ecc9a
      chrome_major_version = ParseVersionFile(version_path)
  
    template_file_contents = _LoadJSONFile(template_file_name)
-+  AddBravePolicies(template_file_contents)
++  AddadrbrowsielPolicies(template_file_contents)
    risk_tags = RiskTags(template_file_contents)
    policy_details = [
        PolicyDetails(policy, chrome_major_version, target_platform,

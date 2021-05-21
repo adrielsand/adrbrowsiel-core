@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/download/brave_download_item_model.h"
+#include "adrbrowsiel/browser/download/adrbrowsiel_download_item_model.h"
 
 #include <string>
 
@@ -21,13 +21,13 @@
 
 using download::DownloadItem;
 
-BraveDownloadItemModel::BraveDownloadItemModel(DownloadUIModel* model)
+adrbrowsielDownloadItemModel::adrbrowsielDownloadItemModel(DownloadUIModel* model)
     : model_(model) {}
 
-BraveDownloadItemModel::~BraveDownloadItemModel() {}
+adrbrowsielDownloadItemModel::~adrbrowsielDownloadItemModel() {}
 
 // Adds origin url to the tooltip text and "Not secure", if needed.
-std::u16string BraveDownloadItemModel::GetTooltipText() {
+std::u16string adrbrowsielDownloadItemModel::GetTooltipText() {
   std::u16string tooltip = model_->GetTooltipText();
 
   bool is_secure;
@@ -46,7 +46,7 @@ std::u16string BraveDownloadItemModel::GetTooltipText() {
 }
 
 // Returns origin url text and sets |is_secure|.
-std::u16string BraveDownloadItemModel::GetOriginURLText(bool* is_secure) {
+std::u16string adrbrowsielDownloadItemModel::GetOriginURLText(bool* is_secure) {
   *is_secure = false;
   const GURL gurl = model_->download()->GetURL();
   if (gurl.is_empty()) {

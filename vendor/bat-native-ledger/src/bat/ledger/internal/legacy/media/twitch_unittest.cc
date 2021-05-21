@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,9 +9,9 @@
 #include "bat/ledger/ledger.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=MediaTwitchTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=MediaTwitchTest.*
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 class MediaTwitchTest : public testing::Test {
 };
@@ -29,15 +29,15 @@ const char profile_html[] =
     "class=\"channel-header__avatar-dropdown tw-relative\"><figure "
     "class=\"tw-avatar tw-avatar--size-36\"><div "
     "class=\"tw-border-radius-rounded tw-overflow-hidden\"><img "
-    "class=\"tw-avatar__img tw-image\" alt=\"bravesoftware\" "
+    "class=\"tw-avatar__img tw-image\" alt=\"adrbrowsielsoftware\" "
     "src=\"https://static-cdn.jtvnw.net/user-default-pictures/"
     "0ecbb6c3-fecb-4016-8115-aa467b7c36ed-profile_image-70x70.jpg\">"
-    "</div></figure></div></div></div><h5 class>bravesoftware</h5>"
+    "</div></figure></div></div></div><h5 class>adrbrowsielsoftware</h5>"
     "</div></div><a class=\"channel-header__item tw-align-items-center "
     "tw-flex-shrink-0 tw-interactive tw-link tw-link--hover-underline-none\" "
     "data-target=\"channel-header-item\" data-a-target=\"videos-channel-header"
     "-item\" data-a-target=\"videos-channel-header-item\" "
-    "href=\"/bravesoftware/videos\"><div class=\"tw-flex tw-pd-x-2 "
+    "href=\"/adrbrowsielsoftware/videos\"><div class=\"tw-flex tw-pd-x-2 "
     "tw-pd-y-05\"><span class=\"tw-font-size-5\">Videos</span><div "
     "class=\"channel-header__item-count tw-flex tw-mg-l-05\"><span "
     "class=\"tw-font-size-5\">0</span></div></div></a></div>";
@@ -86,36 +86,36 @@ TEST(MediaTwitchTest, GetMediaIdFromParts) {
   result = Twitch::GetMediaIdFromParts({
     {"event", "minute-watched"},
     {"properties", ""},
-    {"channel", "bravesoftware"}
+    {"channel", "adrbrowsielsoftware"}
   });
   media_id = result.first;
   user_id = result.second;
-  EXPECT_EQ(user_id, "bravesoftware");
-  ASSERT_EQ(media_id, "bravesoftware");
+  EXPECT_EQ(user_id, "adrbrowsielsoftware");
+  ASSERT_EQ(media_id, "adrbrowsielsoftware");
 
   // vod is missing leading v
   result = Twitch::GetMediaIdFromParts({
     {"event", "minute-watched"},
     {"properties", ""},
-    {"channel", "bravesoftware"},
+    {"channel", "adrbrowsielsoftware"},
     {"vod", "123312312"}
   });
   media_id = result.first;
   user_id = result.second;
-  EXPECT_EQ(user_id, "bravesoftware");
-  ASSERT_EQ(media_id, "bravesoftware");
+  EXPECT_EQ(user_id, "adrbrowsielsoftware");
+  ASSERT_EQ(media_id, "adrbrowsielsoftware");
 
   // vod is provided
   result = Twitch::GetMediaIdFromParts({
     {"event", "minute-watched"},
     {"properties", ""},
-    {"channel", "bravesoftware"},
+    {"channel", "adrbrowsielsoftware"},
     {"vod", "v123312312"}
   });
   media_id = result.first;
   user_id = result.second;
-  EXPECT_EQ(user_id, "bravesoftware");
-  ASSERT_EQ(media_id, "bravesoftware_vod_123312312");
+  EXPECT_EQ(user_id, "adrbrowsielsoftware");
+  ASSERT_EQ(media_id, "adrbrowsielsoftware_vod_123312312");
 
   // live stream username has '_'
   result = Twitch::GetMediaIdFromParts({
@@ -147,8 +147,8 @@ TEST(MediaTwitchTest, GetMediaURL) {
   ASSERT_EQ(result, "");
 
   // all ok
-  result = Twitch::GetMediaURL("bravesoftware");
-  ASSERT_EQ(result, "https://www.twitch.tv/bravesoftware");
+  result = Twitch::GetMediaURL("adrbrowsielsoftware");
+  ASSERT_EQ(result, "https://www.twitch.tv/adrbrowsielsoftware");
 }
 
 TEST(MediaTwitchTest, GetTwitchStatus) {
@@ -189,34 +189,34 @@ TEST(MediaTwitchTest, GetTwitchStatus) {
 TEST(MediaTwitchTest, GetMediaIdFromUrl) {
   // for live stream
   std::string result = Twitch::GetMediaIdFromUrl(
-      "https://www.twitch.tv/bravesoftware", profile_html);
+      "https://www.twitch.tv/adrbrowsielsoftware", profile_html);
 
-  ASSERT_EQ(result, "bravesoftware");
+  ASSERT_EQ(result, "adrbrowsielsoftware");
 
   // longer url
   result = Twitch::GetMediaIdFromUrl(
-      "https://www.twitch.tv/bravesoftware/clips", profile_html);
+      "https://www.twitch.tv/adrbrowsielsoftware/clips", profile_html);
 
-  ASSERT_EQ(result, "bravesoftware");
+  ASSERT_EQ(result, "adrbrowsielsoftware");
 
   // video
   result = Twitch::GetMediaIdFromUrl(
       "https://www.twitch.tv/videos/11111", profile_html);
 
-  ASSERT_EQ(result, "bravesoftware");
+  ASSERT_EQ(result, "adrbrowsielsoftware");
 }
 
 TEST(MediaTwitchTest, GetLinkType) {
   const std::string url("https://k8923479-sub.cdn.ttvnw.net/v1/segment/");
 
   // url is not correct
-  std::string result = Twitch::GetLinkType("https://brave.com",
+  std::string result = Twitch::GetLinkType("https://adrbrowsiel.com",
                                                 "https://www.twitch.tv",
                                                 "");
   ASSERT_EQ(result, "");
 
   // first party is off
-  result = Twitch::GetLinkType(url, "https://www.brave.com", "");
+  result = Twitch::GetLinkType(url, "https://www.adrbrowsiel.com", "");
   ASSERT_EQ(result, "");
 
   // regular page
@@ -229,7 +229,7 @@ TEST(MediaTwitchTest, GetLinkType) {
 
   // player page
   result = Twitch::GetLinkType(url,
-                                    "https://brave.com/",
+                                    "https://adrbrowsiel.com/",
                                     "https://player.twitch.tv/");
   ASSERT_EQ(result, "twitch");
 }
@@ -245,13 +245,13 @@ TEST(MediaTwitchTest, GetMediaKeyFromUrl) {
 
   // get vod id
   result = Twitch::GetMediaKeyFromUrl(
-      "bravesoftware",
+      "adrbrowsielsoftware",
       "https://www.twitch.tv/videos/411403500");
-  ASSERT_EQ(result, "twitch_bravesoftware_vod_411403500");
+  ASSERT_EQ(result, "twitch_adrbrowsielsoftware_vod_411403500");
 
   // regular id
-  result = Twitch::GetMediaKeyFromUrl("bravesoftware", "");
-  ASSERT_EQ(result, "twitch_bravesoftware");
+  result = Twitch::GetMediaKeyFromUrl("adrbrowsielsoftware", "");
+  ASSERT_EQ(result, "twitch_adrbrowsielsoftware");
 }
 
 TEST(MediaTwitchTest, GetPublisherKey) {
@@ -271,7 +271,7 @@ TEST(MediaTwitchTest, GetPublisherName) {
 
   // all ok
   result = Twitch::GetPublisherName(profile_html);
-  ASSERT_EQ(result, "bravesoftware");
+  ASSERT_EQ(result, "adrbrowsielsoftware");
 }
 
 TEST(MediaTwitchTest, GetFaviconUrl) {
@@ -280,11 +280,11 @@ TEST(MediaTwitchTest, GetFaviconUrl) {
   ASSERT_EQ(result, "");
 
   // blob is not correct
-  result = Twitch::GetFaviconUrl("dfsfsdfsdfds", "bravesoftware");
+  result = Twitch::GetFaviconUrl("dfsfsdfsdfds", "adrbrowsielsoftware");
   ASSERT_EQ(result, "");
 
   // all ok
-  result = Twitch::GetFaviconUrl(profile_html, "bravesoftware");
+  result = Twitch::GetFaviconUrl(profile_html, "adrbrowsielsoftware");
   ASSERT_EQ(result,
       "https://static-cdn.jtvnw.net/user-default-pictures/"
       "0ecbb6c3-fecb-4016-8115-aa467b7c36ed-profile_image-70x70.jpg");
@@ -308,10 +308,10 @@ TEST(MediaTwitchTest, UpdatePublisherData) {
       &favicon_url,
       profile_html);
 
-  ASSERT_EQ(name, "bravesoftware");
+  ASSERT_EQ(name, "adrbrowsielsoftware");
   ASSERT_EQ(favicon_url,
       "https://static-cdn.jtvnw.net/user-default-pictures/"
       "0ecbb6c3-fecb-4016-8115-aa467b7c36ed-profile_image-70x70.jpg");
 }
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

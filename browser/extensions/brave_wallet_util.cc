@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/brave_wallet_util.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_wallet_util.h"
 
 #include <memory>
 
@@ -19,31 +19,31 @@ bool HasInfuraProjectID() {
   }
 
   std::unique_ptr<base::Environment> env(base::Environment::Create());
-  bool has_project_id = env->HasVar("BRAVE_INFURA_PROJECT_ID");
+  bool has_project_id = env->HasVar("adrbrowsiel_INFURA_PROJECT_ID");
 
   return has_project_id;
 }
 
 std::string GetInfuraProjectID() {
-  std::string project_id(BRAVE_INFURA_PROJECT_ID);
+  std::string project_id(adrbrowsiel_INFURA_PROJECT_ID);
   std::unique_ptr<base::Environment> env(base::Environment::Create());
 
-  if (env->HasVar("BRAVE_INFURA_PROJECT_ID")) {
-    env->GetVar("BRAVE_INFURA_PROJECT_ID", &project_id);
+  if (env->HasVar("adrbrowsiel_INFURA_PROJECT_ID")) {
+    env->GetVar("adrbrowsiel_INFURA_PROJECT_ID", &project_id);
   }
 
   return project_id;
 }
 
-std::string GetBraveKey() {
-  std::string brave_key(BRAVE_SERVICES_KEY);
+std::string GetadrbrowsielKey() {
+  std::string adrbrowsiel_key(adrbrowsiel_SERVICES_KEY);
   std::unique_ptr<base::Environment> env(base::Environment::Create());
 
-  if (env->HasVar("BRAVE_SERVICES_KEY")) {
-    env->GetVar("BRAVE_SERVICES_KEY", &brave_key);
+  if (env->HasVar("adrbrowsiel_SERVICES_KEY")) {
+    env->GetVar("adrbrowsiel_SERVICES_KEY", &adrbrowsiel_key);
   }
 
-  return brave_key;
+  return adrbrowsiel_key;
 }
 
 }  // namespace extensions

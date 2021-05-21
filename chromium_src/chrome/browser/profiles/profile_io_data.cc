@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "chrome/browser/profiles/profile_io_data.h"
-#include "brave/common/url_constants.h"
+#include "adrbrowsiel/common/url_constants.h"
 
 #define IsHandledProtocol IsHandledProtocol_ChromiumImpl
 #define IsHandledURL IsHandledURL_ChromiumImpl
@@ -13,7 +13,7 @@
 #undef IsHandledProtocol
 
 bool ProfileIOData::IsHandledProtocol(const std::string& scheme) {
-  if (scheme == kBraveUIScheme)
+  if (scheme == kadrbrowsielUIScheme)
     return true;
   if (scheme == "ipfs" || scheme == "ipns")
     return true;

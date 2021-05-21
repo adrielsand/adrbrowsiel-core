@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -32,18 +32,18 @@ GURL GetTopDocumentGURL(content::FrameTreeNode* frame_tree_node) {
 
 }  // namespace
 
-#define BRAVE_ONREQUESTREDIRECTED_MAYBEHIDEREFERRER                   \
+#define adrbrowsiel_ONREQUESTREDIRECTED_MAYBEHIDEREFERRER                   \
   BrowserContext* browser_context =                                   \
       frame_tree_node_->navigator().controller().GetBrowserContext(); \
   GetContentClient()->browser()->MaybeHideReferrer(                   \
       browser_context, common_params_->url,                           \
       GetTopDocumentGURL(frame_tree_node_), &common_params_->referrer);
 
-#define BRAVE_ONSTARTCHECKSCOMPLETE_MAYBEHIDEREFERRER \
+#define adrbrowsiel_ONSTARTCHECKSCOMPLETE_MAYBEHIDEREFERRER \
   GetContentClient()->browser()->MaybeHideReferrer(   \
       browser_context, common_params_->url,           \
       GetTopDocumentGURL(frame_tree_node_), &common_params_->referrer);
 
 #include "../../../../../content/browser/renderer_host/navigation_request.cc"
 
-#undef BRAVE_ONSTARTCHECKSCOMPLETE_MAYBEHIDEREFERRER
+#undef adrbrowsiel_ONSTARTCHECKSCOMPLETE_MAYBEHIDEREFERRER

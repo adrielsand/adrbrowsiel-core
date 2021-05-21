@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -22,7 +22,7 @@ using std::placeholders::_1;
 using std::placeholders::_2;
 using std::placeholders::_3;
 
-namespace braveledger_media {
+namespace adrbrowsielledger_media {
 
 Vimeo::Vimeo(ledger::LedgerImpl* ledger):
   ledger_(ledger) {
@@ -81,7 +81,7 @@ std::string Vimeo::GetIdFromVideoPage(const std::string& data) {
     return "";
   }
 
-  return braveledger_media::ExtractData(data,
+  return adrbrowsielledger_media::ExtractData(data,
       "\"creator_id\":", ",");
 }
 
@@ -103,11 +103,11 @@ std::string Vimeo::GetNameFromVideoPage(const std::string& data) {
 
   std::string publisher_name;
   const std::string publisher_json_name =
-      braveledger_media::ExtractData(data, "\"display_name\":\"", "\"");
-  const std::string publisher_json = "{\"brave_publisher\":\"" +
+      adrbrowsielledger_media::ExtractData(data, "\"display_name\":\"", "\"");
+  const std::string publisher_json = "{\"adrbrowsiel_publisher\":\"" +
       publisher_json_name + "\"}";
-  braveledger_bat_helper::getJSONValue(
-      "brave_publisher", publisher_json, &publisher_name);
+  adrbrowsielledger_bat_helper::getJSONValue(
+      "adrbrowsiel_publisher", publisher_json, &publisher_name);
   return publisher_name;
 }
 
@@ -117,10 +117,10 @@ std::string Vimeo::GetUrlFromVideoPage(const std::string& data) {
     return "";
   }
 
-  const std::string wrapper = braveledger_media::ExtractData(data,
+  const std::string wrapper = adrbrowsielledger_media::ExtractData(data,
       "<span class=\"userlink userlink--md\">", "</span>");
 
-  const std::string name = braveledger_media::ExtractData(wrapper,
+  const std::string name = adrbrowsielledger_media::ExtractData(wrapper,
       "<a href=\"/", "\">");
 
   if (name.empty()) {
@@ -248,7 +248,7 @@ std::string Vimeo::GetIdFromPublisherPage(const std::string& data) {
     return "";
   }
 
-  return braveledger_media::ExtractData(
+  return adrbrowsielledger_media::ExtractData(
       data,
       "data-deep-link=\"users/",
       "\"");
@@ -261,7 +261,7 @@ std::string Vimeo::GetNameFromPublisherPage(const std::string& data) {
   }
   std::string publisher_name = GetNameFromVideoPage(data);
   if (publisher_name == "") {
-    return braveledger_media::ExtractData(data,
+    return adrbrowsielledger_media::ExtractData(data,
       "<meta property=\"og:title\" content=\"", "\"");
   }
   return publisher_name;
@@ -273,7 +273,7 @@ std::string Vimeo::GetVideoIdFromVideoPage(const std::string& data) {
     return "";
   }
 
-  return braveledger_media::ExtractData(
+  return adrbrowsielledger_media::ExtractData(
       data,
       "<link rel=\"canonical\" href=\"https://vimeo.com/",
       "\"");
@@ -685,4 +685,4 @@ void Vimeo::SavePublisherInfo(
   }
 }
 
-}  // namespace braveledger_media
+}  // namespace adrbrowsielledger_media

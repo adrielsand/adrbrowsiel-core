@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/notifications/brave_notification_platform_bridge_helper_android.h"
+#include "adrbrowsiel/browser/notifications/adrbrowsiel_notification_platform_bridge_helper_android.h"
 
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/notifications/notification_handler.h"
 #include "chrome/browser/notifications/notification_platform_bridge_android.h"
 
-void BraveNotificationPlatformBridgeHelperAndroid::MaybeRegenerateNotification(
+void adrbrowsielNotificationPlatformBridgeHelperAndroid::MaybeRegenerateNotification(
     const std::string& notification_id,
     const GURL& service_worker_scope) {
   NotificationPlatformBridgeAndroid* notification_platform_bridge =

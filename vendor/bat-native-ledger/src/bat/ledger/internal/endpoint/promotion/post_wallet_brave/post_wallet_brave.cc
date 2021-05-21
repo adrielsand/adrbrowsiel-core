@@ -1,8 +1,8 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-#include "bat/ledger/internal/endpoint/promotion/post_wallet_brave/post_wallet_brave.h"
+#include "bat/ledger/internal/endpoint/promotion/post_wallet_adrbrowsiel/post_wallet_adrbrowsiel.h"
 
 #include <utility>
 
@@ -20,18 +20,18 @@ namespace ledger {
 namespace endpoint {
 namespace promotion {
 
-PostWalletBrave::PostWalletBrave(LedgerImpl* ledger):
+PostWalletadrbrowsiel::PostWalletadrbrowsiel(LedgerImpl* ledger):
     ledger_(ledger) {
   DCHECK(ledger_);
 }
 
-PostWalletBrave::~PostWalletBrave() = default;
+PostWalletadrbrowsiel::~PostWalletadrbrowsiel() = default;
 
-std::string PostWalletBrave::GetUrl() {
-  return GetServerUrl("/v3/wallet/brave");
+std::string PostWalletadrbrowsiel::GetUrl() {
+  return GetServerUrl("/v3/wallet/adrbrowsiel");
 }
 
-type::Result PostWalletBrave::CheckStatusCode(const int status_code) {
+type::Result PostWalletadrbrowsiel::CheckStatusCode(const int status_code) {
   if (status_code == net::HTTP_BAD_REQUEST) {
     BLOG(0, "Invalid request");
     return type::Result::LEDGER_ERROR;
@@ -50,7 +50,7 @@ type::Result PostWalletBrave::CheckStatusCode(const int status_code) {
   return type::Result::LEDGER_OK;
 }
 
-type::Result PostWalletBrave::ParseBody(
+type::Result PostWalletadrbrowsiel::ParseBody(
     const std::string& body,
     std::string* payment_id) {
   DCHECK(payment_id);
@@ -78,8 +78,8 @@ type::Result PostWalletBrave::ParseBody(
   return type::Result::LEDGER_OK;
 }
 
-void PostWalletBrave::Request(
-    PostWalletBraveCallback callback) {
+void PostWalletadrbrowsiel::Request(
+    PostWalletadrbrowsielCallback callback) {
   const auto wallet = ledger_->wallet()->GetWallet();
   if (!wallet) {
     BLOG(0, "Wallet is null");
@@ -88,12 +88,12 @@ void PostWalletBrave::Request(
   }
 
   const auto headers = util::BuildSignHeaders(
-      "post /v3/wallet/brave",
+      "post /v3/wallet/adrbrowsiel",
       "",
       util::Security::GetPublicKeyHexFromSeed(wallet->recovery_seed),
       wallet->recovery_seed);
 
-  auto url_callback = std::bind(&PostWalletBrave::OnRequest,
+  auto url_callback = std::bind(&PostWalletadrbrowsiel::OnRequest,
       this,
       _1,
       callback);
@@ -105,9 +105,9 @@ void PostWalletBrave::Request(
   ledger_->LoadURL(std::move(request), url_callback);
 }
 
-void PostWalletBrave::OnRequest(
+void PostWalletadrbrowsiel::OnRequest(
     const type::UrlResponse& response,
-    PostWalletBraveCallback callback) {
+    PostWalletadrbrowsielCallback callback) {
   ledger::LogUrlResponse(__func__, response);
 
   std::string payment_id;

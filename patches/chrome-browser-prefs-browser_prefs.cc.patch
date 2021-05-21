@@ -6,7 +6,7 @@ index 2d724556541329b6d024e52a54097c18892e72d8..3f1b9abe41bc68178b94de7e1dfa7219
  #if defined(TOOLKIT_VIEWS)
    RegisterBrowserViewLocalPrefs(registry);
  #endif
-+  brave::RegisterLocalStatePrefs(registry);
++  adrbrowsiel::RegisterLocalStatePrefs(registry);
  
    // This is intentionally last.
    RegisterLocalStatePrefsForMigration(registry);
@@ -14,7 +14,7 @@ index 2d724556541329b6d024e52a54097c18892e72d8..3f1b9abe41bc68178b94de7e1dfa7219
  #endif
  
    RegisterProfilePrefsForMigration(registry);
-+  brave::RegisterProfilePrefs(registry);
++  adrbrowsiel::RegisterProfilePrefs(registry);
  }
  
  void RegisterUserProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {

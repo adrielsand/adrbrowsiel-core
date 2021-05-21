@@ -1,9 +1,9 @@
 import("//build/util/branding.gni")
-import("//brave/build/config.gni")
+import("//adrbrowsiel/build/config.gni")
 import("//media/cdm/library_cdm/cdm_paths.gni")
 
 action("generate_breakpad_symbols") {
-  symbols_dir = "$brave_dist_dir/$brave_project_name.breakpad.syms"
+  symbols_dir = "$adrbrowsiel_dist_dir/$adrbrowsiel_project_name.breakpad.syms"
   outputs = [
     symbols_dir
   ]
@@ -23,11 +23,11 @@ action("generate_breakpad_symbols") {
     rebase_path(root_out_dir)
   ]
 
-  script = "//brave/tools/win/generate_breakpad_symbols.py"
+  script = "//adrbrowsiel/tools/win/generate_breakpad_symbols.py"
 
   deps = [
     "//third_party/breakpad:dump_syms",
-    "//brave/build/win:copy_pdb",
+    "//adrbrowsiel/build/win:copy_pdb",
   ]
 }
 
@@ -41,7 +41,7 @@ copy("dist_resources") {
   ]
 
   outputs = [
-    "$brave_dist_dir/{{source_file_part}}",
+    "$adrbrowsiel_dist_dir/{{source_file_part}}",
   ]
 
   public_deps = [

@@ -1,39 +1,39 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/infobars/brave_wayback_machine_delegate_impl.h"
+#include "adrbrowsiel/browser/infobars/adrbrowsiel_wayback_machine_delegate_impl.h"
 
 #include "base/command_line.h"
-#include "brave/common/brave_switches.h"
-#include "brave/components/brave_wayback_machine/brave_wayback_machine_infobar_delegate.h"
-#include "brave/components/brave_wayback_machine/brave_wayback_machine_tab_helper.h"
+#include "adrbrowsiel/common/adrbrowsiel_switches.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/adrbrowsiel_wayback_machine_infobar_delegate.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/adrbrowsiel_wayback_machine_tab_helper.h"
 #include "components/infobars/core/infobar.h"
 #include "chrome/browser/infobars/infobar_service.h"
 
 // static
-void BraveWaybackMachineDelegateImpl::AttachTabHelperIfNeeded(
+void adrbrowsielWaybackMachineDelegateImpl::AttachTabHelperIfNeeded(
     content::WebContents* web_contents) {
   if (!base::CommandLine::ForCurrentProcess()->HasSwitch(
-          switches::kDisableBraveWaybackMachineExtension)) {
-    BraveWaybackMachineTabHelper::CreateForWebContents(web_contents);
+          switches::kDisableadrbrowsielWaybackMachineExtension)) {
+    adrbrowsielWaybackMachineTabHelper::CreateForWebContents(web_contents);
     auto* tab_helper =
-        BraveWaybackMachineTabHelper::FromWebContents(web_contents);
+        adrbrowsielWaybackMachineTabHelper::FromWebContents(web_contents);
     tab_helper->set_delegate(
-        std::make_unique<BraveWaybackMachineDelegateImpl>());
+        std::make_unique<adrbrowsielWaybackMachineDelegateImpl>());
   }
 }
 
-BraveWaybackMachineDelegateImpl::BraveWaybackMachineDelegateImpl() = default;
-BraveWaybackMachineDelegateImpl::~BraveWaybackMachineDelegateImpl() = default;
+adrbrowsielWaybackMachineDelegateImpl::adrbrowsielWaybackMachineDelegateImpl() = default;
+adrbrowsielWaybackMachineDelegateImpl::~adrbrowsielWaybackMachineDelegateImpl() = default;
 
 
-void BraveWaybackMachineDelegateImpl::CreateInfoBar(
+void adrbrowsielWaybackMachineDelegateImpl::CreateInfoBar(
     content::WebContents* web_contents) {
   InfoBarService::FromWebContents(web_contents)->AddInfoBar(
       CreateInfoBarView(
-          std::make_unique<BraveWaybackMachineInfoBarDelegate>(),
+          std::make_unique<adrbrowsielWaybackMachineInfoBarDelegate>(),
           web_contents),
       true);
 }

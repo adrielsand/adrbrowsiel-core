@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_BRAVE_CONTENT_BROWSER_CLIENT_H_
-#define BRAVE_BROWSER_BRAVE_CONTENT_BROWSER_CLIENT_H_
+#ifndef adrbrowsiel_BROWSER_adrbrowsiel_CONTENT_BROWSER_CLIENT_H_
+#define adrbrowsiel_BROWSER_adrbrowsiel_CONTENT_BROWSER_CLIENT_H_
 
 #include <memory>
 #include <string>
@@ -29,10 +29,10 @@ namespace blink {
 class AssociatedInterfaceRegistry;
 }  // namespace blink
 
-class BraveContentBrowserClient : public ChromeContentBrowserClient {
+class adrbrowsielContentBrowserClient : public ChromeContentBrowserClient {
  public:
-  BraveContentBrowserClient();
-  ~BraveContentBrowserClient() override;
+  adrbrowsielContentBrowserClient();
+  ~adrbrowsielContentBrowserClient() override;
 
   // Overridden from ChromeContentBrowserClient:
   std::unique_ptr<content::BrowserMainParts> CreateBrowserMainParts(
@@ -125,7 +125,7 @@ class BraveContentBrowserClient : public ChromeContentBrowserClient {
   std::unique_ptr<PrefChangeRegistrar, content::BrowserThread::DeleteOnUIThread>
       pref_change_registrar_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveContentBrowserClient);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielContentBrowserClient);
 };
 
-#endif  // BRAVE_BROWSER_BRAVE_CONTENT_BROWSER_CLIENT_H_
+#endif  // adrbrowsiel_BROWSER_adrbrowsiel_CONTENT_BROWSER_CLIENT_H_

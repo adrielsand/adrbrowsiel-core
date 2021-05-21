@@ -7,7 +7,7 @@ index 48bf3aa294f98b7cac941ecdd1005c5c80de61f6..06687cde6229bc6107f087c8930cbce9
  
          mHeaderProcessor = new HeaderProcessor(context, host, delegate);
 -        registerSuggestionProcessor(new EditUrlSuggestionProcessor(
-+        registerSuggestionProcessor(new org.chromium.chrome.browser.omnibox.suggestions.editurl.BraveEditUrlSuggestionProcessor(
++        registerSuggestionProcessor(new org.chromium.chrome.browser.omnibox.suggestions.editurl.adrbrowsielEditUrlSuggestionProcessor(
                  context, host, delegate, iconBridgeSupplier, mActivityTabSupplier, shareSupplier));
          registerSuggestionProcessor(
                  new AnswerSuggestionProcessor(context, host, textProvider, imageFetcherSupplier));

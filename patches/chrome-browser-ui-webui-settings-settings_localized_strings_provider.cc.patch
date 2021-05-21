@@ -6,7 +6,7 @@ index 5483a4d9f89287c073daf89b7ccc4df7ec7cb904..3fbf593c22c02399f4a3908d40580929
    policy_indicator::AddLocalizedStrings(html_source);
    AddSecurityKeysStrings(html_source);
  
-+  BraveAddLocalizedStrings(html_source, profile);
++  adrbrowsielAddLocalizedStrings(html_source, profile);
    html_source->UseStringsJs();
  }
  

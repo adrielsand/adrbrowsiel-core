@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2020 The Brave Authors. All rights reserved.
+ * Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -24,13 +24,13 @@ import androidx.viewpager.widget.ViewPager;
 
 import org.chromium.base.Log;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.app.BraveActivity;
-import org.chromium.chrome.browser.brave_stats.BraveStatsUtil;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
+import org.chromium.chrome.browser.adrbrowsiel_stats.adrbrowsielStatsUtil;
 import org.chromium.chrome.browser.notifications.retention.RetentionNotificationUtil;
 import org.chromium.chrome.browser.ntp.widget.NTPWidgetManager;
 import org.chromium.chrome.browser.onboarding.OnboardingPrefManager;
 import org.chromium.chrome.browser.onboarding.v2.OnboardingV2PagerAdapter;
-import org.chromium.chrome.browser.preferences.BravePref;
+import org.chromium.chrome.browser.preferences.adrbrowsielPref;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.components.user_prefs.UserPrefs;
 
@@ -45,8 +45,8 @@ public class HighlightDialogFragment extends DialogFragment {
         void onLearnMore();
     }
 
-    private static final List<Integer> highlightViews = Arrays.asList(R.id.brave_stats_ads,
-            R.id.brave_stats_data_saved, R.id.brave_stats_time, R.id.ntp_widget_cardview_layout);
+    private static final List<Integer> highlightViews = Arrays.asList(R.id.adrbrowsiel_stats_ads,
+            R.id.adrbrowsiel_stats_data_saved, R.id.adrbrowsiel_stats_time, R.id.ntp_widget_cardview_layout);
 
     private HighlightItem item;
     private HighlightView highlightView;
@@ -151,7 +151,7 @@ public class HighlightDialogFragment extends DialogFragment {
         int viewId;
         if (position == 3 && NTPWidgetManager.getInstance().getUsedWidgets().size() <= 0
                 && !UserPrefs.get(Profile.getLastUsedRegularProfile())
-                            .getBoolean(BravePref.NEW_TAB_PAGE_SHOW_BACKGROUND_IMAGE)) {
+                            .getBoolean(adrbrowsielPref.NEW_TAB_PAGE_SHOW_BACKGROUND_IMAGE)) {
             viewId = R.id.ntp_stats_layout;
         } else {
             viewId = highlightViews.get(position);
@@ -172,19 +172,19 @@ public class HighlightDialogFragment extends DialogFragment {
         @Override
         public void onNextPage() {
             if (viewpager != null) {
-                if (!OnboardingPrefManager.getInstance().isBraveStatsEnabled()) {
-                    OnboardingPrefManager.getInstance().setBraveStatsEnabled(true);
+                if (!OnboardingPrefManager.getInstance().isadrbrowsielStatsEnabled()) {
+                    OnboardingPrefManager.getInstance().setadrbrowsielStatsEnabled(true);
                     RetentionNotificationUtil.scheduleNotificationForEverySunday(getActivity(), RetentionNotificationUtil.EVERY_SUNDAY);
                     if (onboardingV2PagerAdapter != null) {
                         onboardingV2PagerAdapter.notifyDataSetChanged();
                     }
                 }
                 int currentPage = viewpager.getCurrentItem();
-                if ((OnboardingPrefManager.getInstance().isBraveStatsEnabled() && currentPage == 2)
+                if ((OnboardingPrefManager.getInstance().isadrbrowsielStatsEnabled() && currentPage == 2)
                         || currentPage == 3
                         || isFromStats) {
                     dismiss();
-                    BraveStatsUtil.showBraveStats();
+                    adrbrowsielStatsUtil.showadrbrowsielStats();
                 } else {
                     viewpager.setCurrentItem(currentPage + 1);
                 }
@@ -195,7 +195,7 @@ public class HighlightDialogFragment extends DialogFragment {
         public void onLearnMore() {
             dismiss();
             //Start from beginning
-            ((BraveActivity)getActivity()).showOnboardingV2(false);
+            ((adrbrowsielActivity)getActivity()).showOnboardingV2(false);
         }
     };
 }

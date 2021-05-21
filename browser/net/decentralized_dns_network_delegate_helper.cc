@@ -1,20 +1,20 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/net/decentralized_dns_network_delegate_helper.h"
+#include "adrbrowsiel/browser/net/decentralized_dns_network_delegate_helper.h"
 
 #include <vector>
 
 #include "net/base/net_errors.h"
 
-#include "brave/browser/brave_wallet/brave_wallet_service_factory.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_service.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/components/brave_wallet/browser/eth_json_rpc_controller.h"
-#include "brave/components/decentralized_dns/constants.h"
-#include "brave/components/decentralized_dns/utils.h"
+#include "adrbrowsiel/browser/adrbrowsiel_wallet/adrbrowsiel_wallet_service_factory.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_json_rpc_controller.h"
+#include "adrbrowsiel/components/decentralized_dns/constants.h"
+#include "adrbrowsiel/components/decentralized_dns/utils.h"
 #include "chrome/browser/browser_process.h"
 #include "content/public/browser/browser_context.h"
 
@@ -29,8 +29,8 @@ std::string GetValue(const std::vector<std::string>& arr, RecordKeys key) {
 }  // namespace
 
 int OnBeforeURLRequest_DecentralizedDnsPreRedirectWork(
-    const brave::ResponseCallback& next_callback,
-    std::shared_ptr<brave::BraveRequestInfo> ctx) {
+    const adrbrowsiel::ResponseCallback& next_callback,
+    std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx) {
   if (!ctx->browser_context || !IsDecentralizedDnsEnabled() ||
       ctx->browser_context->IsOffTheRecord() || !g_browser_process) {
     return net::OK;
@@ -39,7 +39,7 @@ int OnBeforeURLRequest_DecentralizedDnsPreRedirectWork(
   if (IsUnstoppableDomainsTLD(ctx->request_url) &&
       IsUnstoppableDomainsResolveMethodEthereum(
           g_browser_process->local_state())) {
-    auto* service = BraveWalletServiceFactory::GetInstance()->GetForContext(
+    auto* service = adrbrowsielWalletServiceFactory::GetInstance()->GetForContext(
         ctx->browser_context);
     if (!service) {
       return net::OK;
@@ -59,8 +59,8 @@ int OnBeforeURLRequest_DecentralizedDnsPreRedirectWork(
 }
 
 void OnBeforeURLRequest_DecentralizedDnsRedirectWork(
-    const brave::ResponseCallback& next_callback,
-    std::shared_ptr<brave::BraveRequestInfo> ctx,
+    const adrbrowsiel::ResponseCallback& next_callback,
+    std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx,
     bool success,
     const std::string& result) {
   if (!success) {
@@ -72,7 +72,7 @@ void OnBeforeURLRequest_DecentralizedDnsRedirectWork(
   std::vector<std::string> output;
   size_t offset = 2 /* len of "0x" */ + 64 /* len of offset to array */;
   if (offset > result.size() ||
-      !brave_wallet::DecodeStringArray(result.substr(offset), &output)) {
+      !adrbrowsiel_wallet::DecodeStringArray(result.substr(offset), &output)) {
     if (!next_callback.is_null())
       next_callback.Run();
     return;

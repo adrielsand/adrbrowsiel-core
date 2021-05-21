@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -14,16 +14,16 @@ import org.chromium.base.annotations.NativeMethods;
 import org.chromium.chrome.browser.profiles.Profile;
 
 @JNINamespace("chrome::android")
-public class BravePrefServiceBridge {
-    private BravePrefServiceBridge() {
+public class adrbrowsielPrefServiceBridge {
+    private adrbrowsielPrefServiceBridge() {
     }
 
-    private static BravePrefServiceBridge sInstance;
+    private static adrbrowsielPrefServiceBridge sInstance;
 
-    public static BravePrefServiceBridge getInstance() {
+    public static adrbrowsielPrefServiceBridge getInstance() {
         ThreadUtils.assertOnUiThread();
         if (sInstance == null) {
-            sInstance = new BravePrefServiceBridge();
+            sInstance = new adrbrowsielPrefServiceBridge();
         }
         return sInstance;
     }
@@ -32,65 +32,65 @@ public class BravePrefServiceBridge {
      * @param whether HTTPSE should be enabled.
      */
     public void setHTTPSEEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setHTTPSEEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setHTTPSEEnabled(enabled);
     }
 
     /**
      * @param whether the IPFS gateway should be enabled.
      */
     public void setIpfsGatewayEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setIpfsGatewayEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setIpfsGatewayEnabled(enabled);
     }
 
     /**
      * @param whether google login is enabled on third party sites.
      */
     public void setThirdPartyGoogleLoginEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setThirdPartyGoogleLoginEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setThirdPartyGoogleLoginEnabled(enabled);
     }
 
     /**
      * @param whether facebook embeds are allowed on third party sites.
      */
     public void setThirdPartyFacebookEmbedEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setThirdPartyFacebookEmbedEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setThirdPartyFacebookEmbedEnabled(enabled);
     }
 
     /**
      * @param whether twitter embeds are allowed on third party sites.
      */
     public void setThirdPartyTwitterEmbedEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setThirdPartyTwitterEmbedEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setThirdPartyTwitterEmbedEnabled(enabled);
     }
 
     /**
      * @param whether linkedin embeds are allowed on third party sites.
      */
     public void setThirdPartyLinkedinEmbedEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setThirdPartyLinkedinEmbedEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setThirdPartyLinkedinEmbedEnabled(enabled);
     }
 
     /**
      * @param whether AdBlock should be enabled.
      */
     public void setAdBlockEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setAdBlockEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setAdBlockEnabled(enabled);
     }
 
     public void setNoScriptControlType(String type) {
-        BravePrefServiceBridgeJni.get().setNoScriptControlType(type);
+        adrbrowsielPrefServiceBridgeJni.get().setNoScriptControlType(type);
     }
 
     public String getNoScriptControlType() {
-        return BravePrefServiceBridgeJni.get().getNoScriptControlType();
+        return adrbrowsielPrefServiceBridgeJni.get().getNoScriptControlType();
     }
 
     public void setCookiesBlockType(String type) {
-        BravePrefServiceBridgeJni.get().setCookiesBlockType(type);
+        adrbrowsielPrefServiceBridgeJni.get().setCookiesBlockType(type);
     }
 
     public String getCookiesBlockType() {
-        return BravePrefServiceBridgeJni.get().getCookiesBlockType();
+        return adrbrowsielPrefServiceBridgeJni.get().getCookiesBlockType();
     }
 
     /**
@@ -98,162 +98,162 @@ public class BravePrefServiceBridge {
      */
 
     public void setFingerprintingControlType(String type) {
-        BravePrefServiceBridgeJni.get().setFingerprintingControlType(type);
+        adrbrowsielPrefServiceBridgeJni.get().setFingerprintingControlType(type);
     }
 
     public String getFingerprintingControlType() {
-        return BravePrefServiceBridgeJni.get().getFingerprintingControlType();
+        return adrbrowsielPrefServiceBridgeJni.get().getFingerprintingControlType();
     }
 
     public void setCosmeticFilteringControlType(int type) {
-        BravePrefServiceBridgeJni.get().setCosmeticFilteringControlType(type);
+        adrbrowsielPrefServiceBridgeJni.get().setCosmeticFilteringControlType(type);
     }
 
     public String getCosmeticFilteringControlType() {
-        return BravePrefServiceBridgeJni.get().getCosmeticFilteringControlType();
+        return adrbrowsielPrefServiceBridgeJni.get().getCosmeticFilteringControlType();
     }
 
     public void setPlayYTVideoInBrowserEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setPlayYTVideoInBrowserEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setPlayYTVideoInBrowserEnabled(enabled);
     }
 
     public boolean getPlayYTVideoInBrowserEnabled() {
-        return BravePrefServiceBridgeJni.get().getPlayYTVideoInBrowserEnabled();
+        return adrbrowsielPrefServiceBridgeJni.get().getPlayYTVideoInBrowserEnabled();
     }
 
     public void setDesktopModeEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setDesktopModeEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setDesktopModeEnabled(enabled);
     }
 
     public boolean getDesktopModeEnabled() {
-        return BravePrefServiceBridgeJni.get().getDesktopModeEnabled();
+        return adrbrowsielPrefServiceBridgeJni.get().getDesktopModeEnabled();
     }
 
     public void setBackgroundVideoPlaybackEnabled(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setBackgroundVideoPlaybackEnabled(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setBackgroundVideoPlaybackEnabled(enabled);
     }
 
     public boolean getBackgroundVideoPlaybackEnabled() {
-        return BravePrefServiceBridgeJni.get().getBackgroundVideoPlaybackEnabled();
+        return adrbrowsielPrefServiceBridgeJni.get().getBackgroundVideoPlaybackEnabled();
     }
 
     public long getTrackersBlockedCount(Profile profile) {
-        return BravePrefServiceBridgeJni.get().getTrackersBlockedCount(profile);
+        return adrbrowsielPrefServiceBridgeJni.get().getTrackersBlockedCount(profile);
     }
 
     public long getAdsBlockedCount(Profile profile) {
-        return BravePrefServiceBridgeJni.get().getAdsBlockedCount(profile);
+        return adrbrowsielPrefServiceBridgeJni.get().getAdsBlockedCount(profile);
     }
 
     public long getDataSaved(Profile profile) {
-        return BravePrefServiceBridgeJni.get().getDataSaved(profile);
+        return adrbrowsielPrefServiceBridgeJni.get().getDataSaved(profile);
     }
 
     /**
      * @param whether SafetyNet check failed.
      */
     public void setSafetynetCheckFailed(boolean value) {
-        BravePrefServiceBridgeJni.get().setSafetynetCheckFailed(value);
+        adrbrowsielPrefServiceBridgeJni.get().setSafetynetCheckFailed(value);
     }
 
     public boolean getSafetynetCheckFailed() {
-        return BravePrefServiceBridgeJni.get().getSafetynetCheckFailed();
+        return adrbrowsielPrefServiceBridgeJni.get().getSafetynetCheckFailed();
     }
 
     public void setSafetynetStatus(String status) {
-        BravePrefServiceBridgeJni.get().setSafetynetStatus(status);
+        adrbrowsielPrefServiceBridgeJni.get().setSafetynetStatus(status);
     }
 
     public void setUseRewardsStagingServer(boolean enabled) {
-        BravePrefServiceBridgeJni.get().setUseRewardsStagingServer(enabled);
+        adrbrowsielPrefServiceBridgeJni.get().setUseRewardsStagingServer(enabled);
     }
 
     public void resetPromotionLastFetchStamp() {
-        BravePrefServiceBridgeJni.get().resetPromotionLastFetchStamp();
+        adrbrowsielPrefServiceBridgeJni.get().resetPromotionLastFetchStamp();
     }
 
     public boolean getUseRewardsStagingServer() {
-        return BravePrefServiceBridgeJni.get().getUseRewardsStagingServer();
+        return adrbrowsielPrefServiceBridgeJni.get().getUseRewardsStagingServer();
     }
 
     public void setOldTrackersBlockedCount(Profile profile, long count) {
-        BravePrefServiceBridgeJni.get().setOldTrackersBlockedCount(profile, count);
+        adrbrowsielPrefServiceBridgeJni.get().setOldTrackersBlockedCount(profile, count);
     }
 
     public void setOldAdsBlockedCount(Profile profile, long count) {
-        BravePrefServiceBridgeJni.get().setOldAdsBlockedCount(profile, count);
+        adrbrowsielPrefServiceBridgeJni.get().setOldAdsBlockedCount(profile, count);
     }
 
     public void setOldHttpsUpgradesCount(Profile profile, long count) {
-        BravePrefServiceBridgeJni.get().setOldHttpsUpgradesCount(profile, count);
+        adrbrowsielPrefServiceBridgeJni.get().setOldHttpsUpgradesCount(profile, count);
     }
 
     public boolean GetBooleanForContentSetting(int content_type) {
-        return BravePrefServiceBridgeJni.get().getBooleanForContentSetting(content_type);
+        return adrbrowsielPrefServiceBridgeJni.get().getBooleanForContentSetting(content_type);
     }
 
     public void setReferralAndroidFirstRunTimestamp(long time) {
-        BravePrefServiceBridgeJni.get().setReferralAndroidFirstRunTimestamp(time);
+        adrbrowsielPrefServiceBridgeJni.get().setReferralAndroidFirstRunTimestamp(time);
     }
 
     public void setReferralCheckedForPromoCodeFile(boolean value) {
-        BravePrefServiceBridgeJni.get().setReferralCheckedForPromoCodeFile(value);
+        adrbrowsielPrefServiceBridgeJni.get().setReferralCheckedForPromoCodeFile(value);
     }
 
     public void setReferralInitialization(boolean value) {
-        BravePrefServiceBridgeJni.get().setReferralInitialization(value);
+        adrbrowsielPrefServiceBridgeJni.get().setReferralInitialization(value);
     }
 
     public void setReferralPromoCode(String promoCode) {
-        BravePrefServiceBridgeJni.get().setReferralPromoCode(promoCode);
+        adrbrowsielPrefServiceBridgeJni.get().setReferralPromoCode(promoCode);
     }
 
     public void setReferralDownloadId(String downloadId) {
-        BravePrefServiceBridgeJni.get().setReferralDownloadId(downloadId);
+        adrbrowsielPrefServiceBridgeJni.get().setReferralDownloadId(downloadId);
     }
 
     public void setP3AEnabled(boolean value) {
-        BravePrefServiceBridgeJni.get().setP3AEnabled(value);
+        adrbrowsielPrefServiceBridgeJni.get().setP3AEnabled(value);
     }
 
     public boolean getP3AEnabled() {
-        return BravePrefServiceBridgeJni.get().getP3AEnabled();
+        return adrbrowsielPrefServiceBridgeJni.get().getP3AEnabled();
     }
 
     public boolean hasPathP3AEnabled() {
-        return BravePrefServiceBridgeJni.get().hasPathP3AEnabled();
+        return adrbrowsielPrefServiceBridgeJni.get().hasPathP3AEnabled();
     }
 
     public void setP3ANoticeAcknowledged(boolean value) {
-        BravePrefServiceBridgeJni.get().setP3ANoticeAcknowledged(value);
+        adrbrowsielPrefServiceBridgeJni.get().setP3ANoticeAcknowledged(value);
     }
 
     public boolean getP3ANoticeAcknowledged() {
-        return BravePrefServiceBridgeJni.get().getP3ANoticeAcknowledged();
+        return adrbrowsielPrefServiceBridgeJni.get().getP3ANoticeAcknowledged();
     }
 
     public void setUnstoppableDomainsResolveMethod(int method) {
-        BravePrefServiceBridgeJni.get().setUnstoppableDomainsResolveMethod(method);
+        adrbrowsielPrefServiceBridgeJni.get().setUnstoppableDomainsResolveMethod(method);
     }
 
     public int getUnstoppableDomainsResolveMethod() {
-        return BravePrefServiceBridgeJni.get().getUnstoppableDomainsResolveMethod();
+        return adrbrowsielPrefServiceBridgeJni.get().getUnstoppableDomainsResolveMethod();
     }
 
     public void setENSResolveMethod(int method) {
-        BravePrefServiceBridgeJni.get().setENSResolveMethod(method);
+        adrbrowsielPrefServiceBridgeJni.get().setENSResolveMethod(method);
     }
 
     public int getENSResolveMethod() {
-        return BravePrefServiceBridgeJni.get().getENSResolveMethod();
+        return adrbrowsielPrefServiceBridgeJni.get().getENSResolveMethod();
     }
 
     public void setWebrtcPolicy(int policy) {
-        BravePrefServiceBridgeJni.get().setWebrtcPolicy(policy);
+        adrbrowsielPrefServiceBridgeJni.get().setWebrtcPolicy(policy);
     }
 
     public int getWebrtcPolicy() {
-        return BravePrefServiceBridgeJni.get().getWebrtcPolicy();
+        return adrbrowsielPrefServiceBridgeJni.get().getWebrtcPolicy();
     }
 
     @NativeMethods

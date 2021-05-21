@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_CONTENTS_VIEW_H_
-#define BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_CONTENTS_VIEW_H_
+#ifndef adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_CONTENTS_VIEW_H_
+#define adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_CONTENTS_VIEW_H_
 
 #include <memory>
 
 #include "base/scoped_observation.h"
-#include "brave/browser/ui/sidebar/sidebar_model.h"
-#include "brave/browser/ui/views/sidebar/sidebar_button_view.h"
-#include "brave/components/sidebar/sidebar_item.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_model.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_button_view.h"
+#include "adrbrowsiel/components/sidebar/sidebar_item.h"
 #include "ui/base/models/simple_menu_model.h"
 #include "ui/views/context_menu_controller.h"
 #include "ui/views/view.h"
@@ -22,7 +22,7 @@ namespace views {
 class MenuRunner;
 }  // namespace views
 
-class BraveBrowser;
+class adrbrowsielBrowser;
 class SidebarItemView;
 
 class SidebarItemsContentsView : public views::View,
@@ -31,7 +31,7 @@ class SidebarItemsContentsView : public views::View,
                                  public views::WidgetObserver,
                                  public ui::SimpleMenuModel::Delegate {
  public:
-  SidebarItemsContentsView(BraveBrowser* browser,
+  SidebarItemsContentsView(adrbrowsielBrowser* browser,
                            views::DragController* drag_controller);
   ~SidebarItemsContentsView() override;
 
@@ -105,7 +105,7 @@ class SidebarItemsContentsView : public views::View,
   int CalculateTargetDragIndicatorIndex(const gfx::Point& screen_position);
   SidebarItemView* GetItemViewAt(int index);
 
-  BraveBrowser* browser_ = nullptr;
+  adrbrowsielBrowser* browser_ = nullptr;
   views::DragController* drag_controller_ = nullptr;
   views::View* view_for_context_menu_ = nullptr;
   sidebar::SidebarModel* sidebar_model_ = nullptr;
@@ -116,4 +116,4 @@ class SidebarItemsContentsView : public views::View,
       this};
 };
 
-#endif  // BRAVE_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_CONTENTS_VIEW_H_
+#endif  // adrbrowsiel_BROWSER_UI_VIEWS_SIDEBAR_SIDEBAR_ITEMS_CONTENTS_VIEW_H_

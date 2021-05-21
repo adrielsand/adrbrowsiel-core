@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/search_engines/search_engine_provider_service.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_provider_service.h"
 
 #include <utility>
 #include <vector>
 
-#include "brave/browser/search_engines/search_engine_provider_util.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/search_engines/brave_prepopulated_engines.h"
+#include "adrbrowsiel/browser/search_engines/search_engine_provider_util.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/search_engines/adrbrowsiel_prepopulated_engines.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/search_engines/template_url_service_factory.h"
 #include "components/prefs/pref_service.h"
@@ -39,7 +39,7 @@ SearchEngineProviderService::SearchEngineProviderService(
       base::Bind(&SearchEngineProviderService::OnPreferenceChanged,
                  base::Unretained(this)));
 
-  std::vector<TemplateURLPrepopulateData::BravePrepopulatedEngineID>
+  std::vector<TemplateURLPrepopulateData::adrbrowsielPrepopulatedEngineID>
       alt_search_providers = {
           TemplateURLPrepopulateData::PREPOPULATED_ENGINE_ID_DUCKDUCKGO,
           TemplateURLPrepopulateData::PREPOPULATED_ENGINE_ID_DUCKDUCKGO_DE,
@@ -65,7 +65,7 @@ SearchEngineProviderService::~SearchEngineProviderService() = default;
 void SearchEngineProviderService::OnPreferenceChanged(
     const std::string& pref_name) {
   DCHECK(pref_name == kUseAlternativeSearchEngineProvider);
-  DCHECK(!brave::IsRegionForQwant(otr_profile_));
+  DCHECK(!adrbrowsiel::IsRegionForQwant(otr_profile_));
 
   OnUseAlternativeSearchEngineProviderChanged();
 }

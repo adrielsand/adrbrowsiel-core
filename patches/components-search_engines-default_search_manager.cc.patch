@@ -6,7 +6,7 @@ index 4f89b1ca1c7c765a50e1b981107fbd4b08fe75c3..77133761c80b845640b5190d5c68beed
    // Check if default search preference is overriden by extension.
    if (pref->IsExtensionControlled()) {
      extension_default_search_ = std::move(turl_data);
-+  LOADDEFAULTSEARCHENGINEFROMPREFS_BRAVE
++  LOADDEFAULTSEARCHENGINEFROMPREFS_adrbrowsiel
    } else {
      prefs_default_search_ = std::move(turl_data);
      MergePrefsDataWithPrepopulated();

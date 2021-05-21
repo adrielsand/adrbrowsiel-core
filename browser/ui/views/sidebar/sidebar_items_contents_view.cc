@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/sidebar/sidebar_items_contents_view.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_items_contents_view.h"
 
 #include <string>
 
@@ -11,17 +11,17 @@
 #include "base/i18n/case_conversion.h"
 #include "base/notreached.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/app/vector_icons/vector_icons.h"
-#include "brave/browser/themes/theme_properties.h"
-#include "brave/browser/ui/brave_browser.h"
-#include "brave/browser/ui/sidebar/sidebar_controller.h"
-#include "brave/browser/ui/sidebar/sidebar_service_factory.h"
-#include "brave/browser/ui/views/sidebar/sidebar_item_added_feedback_bubble.h"
-#include "brave/browser/ui/views/sidebar/sidebar_item_view.h"
-#include "brave/components/sidebar/sidebar_item.h"
-#include "brave/components/sidebar/sidebar_service.h"
-#include "brave/grit/brave_generated_resources.h"
-#include "brave/grit/brave_theme_resources.h"
+#include "adrbrowsiel/app/vector_icons/vector_icons.h"
+#include "adrbrowsiel/browser/themes/theme_properties.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_browser.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_controller.h"
+#include "adrbrowsiel/browser/ui/sidebar/sidebar_service_factory.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_item_added_feedback_bubble.h"
+#include "adrbrowsiel/browser/ui/views/sidebar/sidebar_item_view.h"
+#include "adrbrowsiel/components/sidebar/sidebar_item.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
+#include "adrbrowsiel/grit/adrbrowsiel_theme_resources.h"
 #include "chrome/browser/ui/browser_list.h"
 #include "ui/base/default_style.h"
 #include "ui/base/l10n/l10n_util.h"
@@ -58,7 +58,7 @@ sidebar::SidebarService* GetSidebarService(Browser* browser) {
 }  // namespace
 
 SidebarItemsContentsView::SidebarItemsContentsView(
-    BraveBrowser* browser,
+    adrbrowsielBrowser* browser,
     views::DragController* drag_controller)
     : browser_(browser),
       drag_controller_(drag_controller),
@@ -131,7 +131,7 @@ void SidebarItemsContentsView::ShowContextMenuForViewImpl(
   SkColor icon_color = SK_ColorWHITE;
   if (const ui::ThemeProvider* theme_provider = GetThemeProvider()) {
     icon_color = theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_BUTTON_BASE);
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_BUTTON_BASE);
   }
   context_menu_model_->AddItemWithIcon(
       kItemRemove,
@@ -215,7 +215,7 @@ void SidebarItemsContentsView::SetDefaultImageAt(
   SkColor text_color = SK_ColorWHITE;
   if (const ui::ThemeProvider* theme_provider = GetThemeProvider()) {
     text_color = theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_BUTTON_BASE);
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_BUTTON_BASE);
   }
 
   const int scale = GetWidget()->GetCompositor()->device_scale_factor();
@@ -368,7 +368,7 @@ gfx::ImageSkia SidebarItemsContentsView::GetImageForBuiltInItems(
   SkColor base_button_color = SK_ColorWHITE;
   if (const ui::ThemeProvider* theme_provider = GetThemeProvider()) {
     base_button_color = theme_provider->GetColor(
-        BraveThemeProperties::COLOR_SIDEBAR_BUTTON_BASE);
+        adrbrowsielThemeProperties::COLOR_SIDEBAR_BUTTON_BASE);
   }
   auto& bundle = ui::ResourceBundle::GetSharedInstance();
   if (item_url == GURL("chrome://wallet/")) {
@@ -377,10 +377,10 @@ gfx::ImageSkia SidebarItemsContentsView::GetImageForBuiltInItems(
     return gfx::CreateVectorIcon(kSidebarCryptoWalletIcon, base_button_color);
   }
 
-  if (item_url == GURL("https://together.brave.com/")) {
+  if (item_url == GURL("https://together.adrbrowsiel.com/")) {
     if (focused)
-      return *bundle.GetImageSkiaNamed(IDR_SIDEBAR_BRAVE_TOGETHER_FOCUSED);
-    return gfx::CreateVectorIcon(kSidebarBraveTogetherIcon, base_button_color);
+      return *bundle.GetImageSkiaNamed(IDR_SIDEBAR_adrbrowsiel_TOGETHER_FOCUSED);
+    return gfx::CreateVectorIcon(kSidebaradrbrowsielTogetherIcon, base_button_color);
   }
 
   if (item_url == GURL("chrome://bookmarks/")) {

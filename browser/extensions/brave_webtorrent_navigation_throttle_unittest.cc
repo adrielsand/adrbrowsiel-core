@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/extensions/brave_webtorrent_navigation_throttle.h"
+#include "adrbrowsiel/browser/extensions/adrbrowsiel_webtorrent_navigation_throttle.h"
 
 #include <memory>
 #include <utility>
@@ -11,7 +11,7 @@
 
 #include "base/command_line.h"
 #include "base/files/scoped_temp_dir.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/browser/extensions/extension_service.h"
 #include "chrome/browser/extensions/load_error_reporter.h"
 #include "chrome/browser/extensions/test_extension_system.h"
@@ -45,13 +45,13 @@ class MockBrowserClient : public content::ContentBrowserClient {
   MockBrowserClient() {}
   ~MockBrowserClient() override {}
 
-  // Only construct an BraveWebTorrentNavigationThrottle so that we can test it
+  // Only construct an adrbrowsielWebTorrentNavigationThrottle so that we can test it
   // in isolation.
   std::vector<std::unique_ptr<NavigationThrottle>> CreateThrottlesForNavigation(
       content::NavigationHandle* handle) override {
     std::vector<std::unique_ptr<NavigationThrottle>> throttles;
     throttles.push_back(
-        std::make_unique<BraveWebTorrentNavigationThrottle>(handle));
+        std::make_unique<adrbrowsielWebTorrentNavigationThrottle>(handle));
     return throttles;
   }
 };
@@ -70,10 +70,10 @@ const GURL& GetTorrentUrl() {
 
 }  // namespace
 
-class BraveWebTorrentNavigationThrottleUnitTest
+class adrbrowsielWebTorrentNavigationThrottleUnitTest
     : public content::RenderViewHostTestHarness {
  public:
-  BraveWebTorrentNavigationThrottleUnitTest()
+  adrbrowsielWebTorrentNavigationThrottleUnitTest()
       : local_state_(TestingBrowserProcess::GetGlobal()) {
   }
 
@@ -130,7 +130,7 @@ class BraveWebTorrentNavigationThrottleUnitTest
         .Set("manifest_version", 2);
     extension_ = ExtensionBuilder()
                      .SetManifest(manifest.Build())
-                     .SetID(brave_webtorrent_extension_id)
+                     .SetID(adrbrowsiel_webtorrent_extension_id)
                      .Build();
     ASSERT_TRUE(extension_);
     extension_service()->AddExtension(extension_.get());
@@ -145,11 +145,11 @@ class BraveWebTorrentNavigationThrottleUnitTest
   sync_preferences::TestingPrefServiceSyncable prefs_;
   // The ExtensionService associated with the primary profile.
   extensions::ExtensionService* extension_service_ = nullptr;
-  DISALLOW_COPY_AND_ASSIGN(BraveWebTorrentNavigationThrottleUnitTest);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielWebTorrentNavigationThrottleUnitTest);
 };
 
 // Tests the basic case of loading a URL, it should proceed.
-TEST_F(BraveWebTorrentNavigationThrottleUnitTest, ExternalWebPage) {
+TEST_F(adrbrowsielWebTorrentNavigationThrottleUnitTest, ExternalWebPage) {
   web_contents_tester()->NavigateAndCommit(GURL("http://example.com"));
   content::RenderFrameHost* host =
       render_frame_host_tester(main_rfh())->AppendChild("child");
@@ -157,14 +157,14 @@ TEST_F(BraveWebTorrentNavigationThrottleUnitTest, ExternalWebPage) {
   content::MockNavigationHandle test_handle(url, host);
   test_handle.set_starting_site_instance(host->GetSiteInstance());
   auto throttle =
-      std::make_unique<BraveWebTorrentNavigationThrottle>(&test_handle);
+      std::make_unique<adrbrowsielWebTorrentNavigationThrottle>(&test_handle);
   EXPECT_EQ(NavigationThrottle::PROCEED, throttle->WillStartRequest().action())
       << url;
 }
 
 // Tests the case of loading a torrent without having the extension
 // installed. It should defer which it does to install the extension.
-TEST_F(BraveWebTorrentNavigationThrottleUnitTest,
+TEST_F(adrbrowsielWebTorrentNavigationThrottleUnitTest,
     WebTorrentUrlNotInstalled) {
   web_contents_tester()->NavigateAndCommit(GURL("http://example.com"));
   content::RenderFrameHost* host =
@@ -172,14 +172,14 @@ TEST_F(BraveWebTorrentNavigationThrottleUnitTest,
   content::MockNavigationHandle test_handle(GetTorrentUrl(), host);
   test_handle.set_starting_site_instance(host->GetSiteInstance());
   auto throttle =
-      std::make_unique<BraveWebTorrentNavigationThrottle>(&test_handle);
+      std::make_unique<adrbrowsielWebTorrentNavigationThrottle>(&test_handle);
   EXPECT_EQ(NavigationThrottle::DEFER, throttle->WillStartRequest().action())
       << GetTorrentUrl();
 }
 
 // Tests the case of loading a torrent without having the extension
 // installed. It should defer which it does to install the extension.
-TEST_F(BraveWebTorrentNavigationThrottleUnitTest,
+TEST_F(adrbrowsielWebTorrentNavigationThrottleUnitTest,
     WebTorrentMagnetUrlNotInstalled) {
   web_contents_tester()->NavigateAndCommit(GURL("http://example.com"));
   content::RenderFrameHost* host =
@@ -187,7 +187,7 @@ TEST_F(BraveWebTorrentNavigationThrottleUnitTest,
   content::MockNavigationHandle test_handle(GetMagnetUrl(), host);
   test_handle.set_starting_site_instance(host->GetSiteInstance());
   auto throttle =
-      std::make_unique<BraveWebTorrentNavigationThrottle>(&test_handle);
+      std::make_unique<adrbrowsielWebTorrentNavigationThrottle>(&test_handle);
   EXPECT_EQ(NavigationThrottle::DEFER, throttle->WillStartRequest().action())
       << GetMagnetUrl();
 }
@@ -195,7 +195,7 @@ TEST_F(BraveWebTorrentNavigationThrottleUnitTest,
 
 // Tests the case of loading a torrent with the extension installed.
 // It should just proceed.
-TEST_F(BraveWebTorrentNavigationThrottleUnitTest, WebTorrentUrlInstalled) {
+TEST_F(adrbrowsielWebTorrentNavigationThrottleUnitTest, WebTorrentUrlInstalled) {
   AddExtension();
   web_contents_tester()->NavigateAndCommit(GURL("http://example.com"));
   content::RenderFrameHost* host =
@@ -203,14 +203,14 @@ TEST_F(BraveWebTorrentNavigationThrottleUnitTest, WebTorrentUrlInstalled) {
   content::MockNavigationHandle test_handle(GetMagnetUrl(), host);
   test_handle.set_starting_site_instance(host->GetSiteInstance());
   auto throttle =
-      std::make_unique<BraveWebTorrentNavigationThrottle>(&test_handle);
+      std::make_unique<adrbrowsielWebTorrentNavigationThrottle>(&test_handle);
   EXPECT_EQ(NavigationThrottle::PROCEED, throttle->WillStartRequest().action())
       << GetMagnetUrl();
 }
 
 // Tests the case of loading a torrent when the WebTorrent is explicitly
 // disabled.
-TEST_F(BraveWebTorrentNavigationThrottleUnitTest, WebTorrentDisabledByPref) {
+TEST_F(adrbrowsielWebTorrentNavigationThrottleUnitTest, WebTorrentDisabledByPref) {
   profile()->GetPrefs()->SetBoolean(kWebTorrentEnabled, false);
   web_contents_tester()->NavigateAndCommit(GURL("http://example.com"));
   content::RenderFrameHost* host =
@@ -218,7 +218,7 @@ TEST_F(BraveWebTorrentNavigationThrottleUnitTest, WebTorrentDisabledByPref) {
   content::MockNavigationHandle test_handle(GetMagnetUrl(), host);
   test_handle.set_starting_site_instance(host->GetSiteInstance());
   auto throttle =
-      std::make_unique<BraveWebTorrentNavigationThrottle>(&test_handle);
+      std::make_unique<adrbrowsielWebTorrentNavigationThrottle>(&test_handle);
   EXPECT_EQ(NavigationThrottle::PROCEED,
       throttle->WillStartRequest().action()) << GetMagnetUrl();
 }

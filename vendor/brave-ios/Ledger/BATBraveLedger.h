@@ -5,33 +5,33 @@
 #import <Foundation/Foundation.h>
 #import "ledger.mojom.objc.h"
 #import "BATRewardsNotification.h"
-#import "BATBraveLedgerObserver.h"
+#import "BATadrbrowsielLedgerObserver.h"
 #import "BATPromotionSolution.h"
 
-@class BATBraveAds;
+@class BATadrbrowsielAds;
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^BATFaviconFetcher)(NSURL *pageURL, void (^completion)(NSURL * _Nullable faviconURL));
 
 /// The error domain for ledger related errors
-OBJC_EXPORT NSString * const BATBraveLedgerErrorDomain NS_SWIFT_NAME(BraveLedgerErrorDomain);
+OBJC_EXPORT NSString * const BATadrbrowsielLedgerErrorDomain NS_SWIFT_NAME(adrbrowsielLedgerErrorDomain);
 
-OBJC_EXPORT NSNotificationName const BATBraveLedgerNotificationAdded NS_SWIFT_NAME(BraveLedger.NotificationAdded);
+OBJC_EXPORT NSNotificationName const BATadrbrowsielLedgerNotificationAdded NS_SWIFT_NAME(adrbrowsielLedger.NotificationAdded);
 
-typedef NSString *BATBraveGeneralLedgerNotificationID NS_SWIFT_NAME(GeneralLedgerNotificationID) NS_STRING_ENUM;
-OBJC_EXPORT BATBraveGeneralLedgerNotificationID const BATBraveGeneralLedgerNotificationIDWalletNowVerified;
-OBJC_EXPORT BATBraveGeneralLedgerNotificationID const BATBraveGeneralLedgerNotificationIDWalletDisconnected;
+typedef NSString *BATadrbrowsielGeneralLedgerNotificationID NS_SWIFT_NAME(GeneralLedgerNotificationID) NS_STRING_ENUM;
+OBJC_EXPORT BATadrbrowsielGeneralLedgerNotificationID const BATadrbrowsielGeneralLedgerNotificationIDWalletNowVerified;
+OBJC_EXPORT BATadrbrowsielGeneralLedgerNotificationID const BATadrbrowsielGeneralLedgerNotificationIDWalletDisconnected;
 
 OBJC_EXPORT
-NS_SWIFT_NAME(BraveLedger)
-@interface BATBraveLedger : NSObject
+NS_SWIFT_NAME(adrbrowsielLedger)
+@interface BATadrbrowsielLedger : NSObject
 
-@property (nonatomic, weak) BATBraveAds *ads;
+@property (nonatomic, weak) BATadrbrowsielAds *ads;
 
 @property (nonatomic, copy, nullable) BATFaviconFetcher faviconFetcher;
 
-/// Create a brave ledger that will read and write its state to the given path
+/// Create a adrbrowsiel ledger that will read and write its state to the given path
 - (instancetype)initWithStateStoragePath:(NSString *)path;
 
 - (instancetype)init NS_UNAVAILABLE;
@@ -64,10 +64,10 @@ NS_SWIFT_NAME(BraveLedger)
 /// Add an interface to the list of observers
 ///
 /// Observers are stored weakly and do not necessarily need to be removed
-- (void)addObserver:(BATBraveLedgerObserver *)observer;
+- (void)addObserver:(BATadrbrowsielLedgerObserver *)observer;
 
 /// Removes an interface from the list of observers
-- (void)removeObserver:(BATBraveLedgerObserver *)observer;
+- (void)removeObserver:(BATadrbrowsielLedgerObserver *)observer;
 
 #pragma mark - Global
 
@@ -90,8 +90,8 @@ NS_SWIFT_NAME(BraveLedger)
 /// Creates a cryptocurrency wallet
 - (void)createWallet:(nullable void (^)(NSError * _Nullable error))completion;
 
-/// Get the brave wallet's payment ID and seed for ads confirmations
-- (void)currentWalletInfo:(void (^)(BATBraveWallet *_Nullable wallet))completion;
+/// Get the adrbrowsiel wallet's payment ID and seed for ads confirmations
+- (void)currentWalletInfo:(void (^)(BATadrbrowsielWallet *_Nullable wallet))completion;
 
 /// Get parameters served from the server
 - (void)getRewardsParameters:(nullable void (^)(BATRewardsParameters * _Nullable))completion;
@@ -119,13 +119,13 @@ NS_SWIFT_NAME(BraveLedger)
 /// Returns reserved amount of pending contributions to publishers.
 - (void)pendingContributionsTotal:(void (^)(double amount))completion NS_SWIFT_NAME(pendingContributionsTotal(completion:));
 
-/// Links a desktop brave wallet given some payment ID
-- (void)linkBraveWalletToPaymentId:(NSString *)paymentId
+/// Links a desktop adrbrowsiel wallet given some payment ID
+- (void)linkadrbrowsielWalletToPaymentId:(NSString *)paymentId
                         completion:(void (^)(BATResult result, NSString *drainID))completion
-    NS_SWIFT_NAME(linkBraveWallet(paymentId:completion:));
+    NS_SWIFT_NAME(linkadrbrowsielWallet(paymentId:completion:));
 
 /// Obtain a drain status given some drain ID previously obtained from
-/// `linkBraveWalletToPaymentId:completion:`
+/// `linkadrbrowsielWalletToPaymentId:completion:`
 - (void)drainStatusForDrainId:(NSString *)drainId
                    completion:(void (^)(BATResult result, BATDrainStatus status))completion
     NS_SWIFT_NAME(drainStatus(for:completion:));
@@ -165,7 +165,7 @@ NS_SWIFT_NAME(BraveLedger)
 
 /// Start a fetch to get a publishers activity information given a URL
 ///
-/// Use `BATBraveLedgerObserver` to retrieve a panel publisher if one is found
+/// Use `BATadrbrowsielLedgerObserver` to retrieve a panel publisher if one is found
 - (void)fetchPublisherActivityFromURL:(NSURL *)URL
                            faviconURL:(nullable NSURL *)faviconURL
                         publisherBlob:(nullable NSString *)publisherBlob

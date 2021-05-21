@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/brave_view_ids.h"
-#include "brave/browser/ui/views/bookmarks/bookmark_bar_instructions_view.h"
+#include "adrbrowsiel/browser/ui/adrbrowsiel_view_ids.h"
+#include "adrbrowsiel/browser/ui/views/bookmarks/bookmark_bar_instructions_view.h"
 #include "components/bookmarks/browser/bookmark_model.h"
 #include "ui/views/controls/highlight_path_generator.h"
 
@@ -14,7 +14,7 @@ constexpr int kBookmarkBarInstructionsPadding = 6;
 BookmarkBarInstructionsView* GetInstructionView(
     views::View* bookmark_bar_view) {
   for (auto* child : bookmark_bar_view->children()) {
-    if (child->GetID() == BRAVE_VIEW_ID_BOOKMARK_IMPORT_INSTRUCTION_VIEW)
+    if (child->GetID() == adrbrowsiel_VIEW_ID_BOOKMARK_IMPORT_INSTRUCTION_VIEW)
       return static_cast<BookmarkBarInstructionsView*>(child);
   }
   return nullptr;
@@ -66,11 +66,11 @@ void InstallNoHighlightPathGenerator(View* view) {
 }
 }  // namespace views
 
-#define BRAVE_LAYOUT \
+#define adrbrowsiel_LAYOUT \
     LayoutBookmarkBarInstructionsView( \
         this, model_, browser(), button_height, x, max_x, y);
 
 #define InstallPillHighlightPathGenerator InstallNoHighlightPathGenerator
 #include "../../../../../../../chrome/browser/ui/views/bookmarks/bookmark_bar_view.cc"
 #undef InstallPillHighlightPathGenerator
-#undef BRAVE_LAYOUT
+#undef adrbrowsiel_LAYOUT

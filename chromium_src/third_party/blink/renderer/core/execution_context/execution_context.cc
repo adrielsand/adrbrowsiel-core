@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,7 +7,7 @@
 
 #include "base/command_line.h"
 #include "base/strings/string_number_conversions.h"
-#include "brave/third_party/blink/renderer/brave_farbling_constants.h"
+#include "adrbrowsiel/third_party/blink/renderer/adrbrowsiel_farbling_constants.h"
 #include "crypto/hmac.h"
 #include "third_party/blink/public/platform/web_content_settings_client.h"
 #include "third_party/blink/renderer/core/dom/document.h"
@@ -55,10 +55,10 @@ float PseudoRandomSequence(uint64_t seed, float value, size_t index) {
 
 }  // namespace
 
-namespace brave {
+namespace adrbrowsiel {
 
-const char kBraveSessionToken[] = "brave_session_token";
-const char BraveSessionCache::kSupplementName[] = "BraveSessionCache";
+const char kadrbrowsielSessionToken[] = "adrbrowsiel_session_token";
+const char adrbrowsielSessionCache::kSupplementName[] = "adrbrowsielSessionCache";
 const int kFarbledUserAgentMaxExtraSpaces = 5;
 
 // acceptable letters for generating random strings
@@ -85,7 +85,7 @@ blink::WebContentSettingsClient* GetContentSettingsClientFor(
   return settings;
 }
 
-BraveSessionCache::BraveSessionCache(ExecutionContext& context)
+adrbrowsielSessionCache::adrbrowsielSessionCache(ExecutionContext& context)
     : Supplement<ExecutionContext>(context) {
   farbling_enabled_ = false;
   scoped_refptr<const blink::SecurityOrigin> origin;
@@ -110,8 +110,8 @@ BraveSessionCache::BraveSessionCache(ExecutionContext& context)
   if (domain.empty())
     return;
   base::CommandLine* cmd_line = base::CommandLine::ForCurrentProcess();
-  DCHECK(cmd_line->HasSwitch(kBraveSessionToken));
-  base::StringToUint64(cmd_line->GetSwitchValueASCII(kBraveSessionToken),
+  DCHECK(cmd_line->HasSwitch(kadrbrowsielSessionToken));
+  base::StringToUint64(cmd_line->GetSwitchValueASCII(kadrbrowsielSessionToken),
                        &session_key_);
   crypto::HMAC h(crypto::HMAC::SHA256);
   CHECK(h.Init(reinterpret_cast<const unsigned char*>(&session_key_),
@@ -120,24 +120,24 @@ BraveSessionCache::BraveSessionCache(ExecutionContext& context)
   farbling_enabled_ = true;
 }
 
-BraveSessionCache& BraveSessionCache::From(ExecutionContext& context) {
-  BraveSessionCache* cache =
-      Supplement<ExecutionContext>::From<BraveSessionCache>(context);
+adrbrowsielSessionCache& adrbrowsielSessionCache::From(ExecutionContext& context) {
+  adrbrowsielSessionCache* cache =
+      Supplement<ExecutionContext>::From<adrbrowsielSessionCache>(context);
   if (!cache) {
-    cache = MakeGarbageCollected<BraveSessionCache>(context);
+    cache = MakeGarbageCollected<adrbrowsielSessionCache>(context);
     ProvideTo(context, cache);
   }
   return *cache;
 }
 
-AudioFarblingCallback BraveSessionCache::GetAudioFarblingCallback(
+AudioFarblingCallback adrbrowsielSessionCache::GetAudioFarblingCallback(
     blink::WebContentSettingsClient* settings) {
   if (farbling_enabled_ && settings) {
-    switch (settings->GetBraveFarblingLevel()) {
-      case BraveFarblingLevel::OFF: {
+    switch (settings->GetadrbrowsielFarblingLevel()) {
+      case adrbrowsielFarblingLevel::OFF: {
         break;
       }
-      case BraveFarblingLevel::BALANCED: {
+      case adrbrowsielFarblingLevel::BALANCED: {
         const uint64_t* fudge = reinterpret_cast<const uint64_t*>(domain_key_);
         const double maxUInt64AsDouble = UINT64_MAX;
         double fudge_factor = 0.99 + ((*fudge / maxUInt64AsDouble) / 100);
@@ -145,7 +145,7 @@ AudioFarblingCallback BraveSessionCache::GetAudioFarblingCallback(
                 << fudge_factor;
         return base::BindRepeating(&ConstantMultiplier, fudge_factor);
       }
-      case BraveFarblingLevel::MAXIMUM: {
+      case adrbrowsielFarblingLevel::MAXIMUM: {
         uint64_t seed = *reinterpret_cast<uint64_t*>(domain_key_);
         return base::BindRepeating(&PseudoRandomSequence, seed);
       }
@@ -154,16 +154,16 @@ AudioFarblingCallback BraveSessionCache::GetAudioFarblingCallback(
   return base::BindRepeating(&Identity);
 }
 
-void BraveSessionCache::PerturbPixels(blink::WebContentSettingsClient* settings,
+void adrbrowsielSessionCache::PerturbPixels(blink::WebContentSettingsClient* settings,
                                       const unsigned char* data,
                                       size_t size) {
   if (!farbling_enabled_ || !settings)
     return;
-  switch (settings->GetBraveFarblingLevel()) {
-    case BraveFarblingLevel::OFF:
+  switch (settings->GetadrbrowsielFarblingLevel()) {
+    case adrbrowsielFarblingLevel::OFF:
       break;
-    case BraveFarblingLevel::BALANCED:
-    case BraveFarblingLevel::MAXIMUM: {
+    case adrbrowsielFarblingLevel::BALANCED:
+    case adrbrowsielFarblingLevel::MAXIMUM: {
       PerturbPixelsInternal(data, size);
       break;
     }
@@ -173,7 +173,7 @@ void BraveSessionCache::PerturbPixels(blink::WebContentSettingsClient* settings,
   return;
 }
 
-void BraveSessionCache::PerturbPixelsInternal(const unsigned char* data,
+void adrbrowsielSessionCache::PerturbPixelsInternal(const unsigned char* data,
                                               size_t size) {
   if (!data || size == 0)
     return;
@@ -216,7 +216,7 @@ void BraveSessionCache::PerturbPixelsInternal(const unsigned char* data,
   }
 }
 
-WTF::String BraveSessionCache::GenerateRandomString(std::string seed,
+WTF::String adrbrowsielSessionCache::GenerateRandomString(std::string seed,
                                                     wtf_size_t length) {
   uint8_t key[32];
   crypto::HMAC h(crypto::HMAC::SHA256);
@@ -235,7 +235,7 @@ WTF::String BraveSessionCache::GenerateRandomString(std::string seed,
   return value;
 }
 
-WTF::String BraveSessionCache::FarbledUserAgent(WTF::String real_user_agent) {
+WTF::String adrbrowsielSessionCache::FarbledUserAgent(WTF::String real_user_agent) {
   std::mt19937_64 prng = MakePseudoRandomGenerator();
   WTF::StringBuilder result;
   result.Append(real_user_agent);
@@ -245,11 +245,11 @@ WTF::String BraveSessionCache::FarbledUserAgent(WTF::String real_user_agent) {
   return result.ToString();
 }
 
-std::mt19937_64 BraveSessionCache::MakePseudoRandomGenerator() {
+std::mt19937_64 adrbrowsielSessionCache::MakePseudoRandomGenerator() {
   uint64_t seed = *reinterpret_cast<uint64_t*>(domain_key_);
   return std::mt19937_64(seed);
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
 #include "../../../../../../../third_party/blink/renderer/core/execution_context/execution_context.cc"

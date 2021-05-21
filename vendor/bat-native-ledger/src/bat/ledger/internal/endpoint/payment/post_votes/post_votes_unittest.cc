@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -16,7 +16,7 @@
 #include "net/http/http_status_code.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=PostVotesTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=PostVotesTest.*
 
 using ::testing::_;
 using ::testing::Invoke;
@@ -60,7 +60,7 @@ TEST_F(PostVotesTest, ServerOK) {
   token.public_key = "dvpysTSiJdZUPihius7pvGOfngRWfDiIbrowykgMi1I=";
 
   credential::CredentialsRedeem redeem;
-  redeem.publisher_key = "brave.com";
+  redeem.publisher_key = "adrbrowsiel.com";
   redeem.type = type::RewardsType::ONE_TIME_TIP;
   redeem.processor = type::ContributionProcessor::UPHOLD;
   redeem.token_list = {token};
@@ -92,7 +92,7 @@ TEST_F(PostVotesTest, ServerError400) {
   token.public_key = "dvpysTSiJdZUPihius7pvGOfngRWfDiIbrowykgMi1I=";
 
   credential::CredentialsRedeem redeem;
-  redeem.publisher_key = "brave.com";
+  redeem.publisher_key = "adrbrowsiel.com";
   redeem.type = type::RewardsType::ONE_TIME_TIP;
   redeem.processor = type::ContributionProcessor::UPHOLD;
   redeem.token_list = {token};
@@ -124,7 +124,7 @@ TEST_F(PostVotesTest, ServerError500) {
   token.public_key = "dvpysTSiJdZUPihius7pvGOfngRWfDiIbrowykgMi1I=";
 
   credential::CredentialsRedeem redeem;
-  redeem.publisher_key = "brave.com";
+  redeem.publisher_key = "adrbrowsiel.com";
   redeem.type = type::RewardsType::ONE_TIME_TIP;
   redeem.processor = type::ContributionProcessor::UPHOLD;
   redeem.token_list = {token};
@@ -156,7 +156,7 @@ TEST_F(PostVotesTest, ServerErrorRandom) {
   token.public_key = "dvpysTSiJdZUPihius7pvGOfngRWfDiIbrowykgMi1I=";
 
   credential::CredentialsRedeem redeem;
-  redeem.publisher_key = "brave.com";
+  redeem.publisher_key = "adrbrowsiel.com";
   redeem.type = type::RewardsType::ONE_TIME_TIP;
   redeem.processor = type::ContributionProcessor::UPHOLD;
   redeem.token_list = {token};

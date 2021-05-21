@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/brave_wallet_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_service.h"
 
-#include "brave/components/brave_wallet/browser/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/pref_names.h"
 #include "chrome/browser/profiles/profile_manager.h"
 #include "chrome/test/base/testing_browser_process.h"
 #include "chrome/test/base/testing_profile_manager.h"
@@ -14,12 +14,12 @@
 #include "extensions/buildflags/buildflags.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-class BraveWalletUnitTest : public testing::Test {
+class adrbrowsielWalletUnitTest : public testing::Test {
  public:
-  BraveWalletUnitTest()
+  adrbrowsielWalletUnitTest()
       : testing_profile_manager_(TestingBrowserProcess::GetGlobal()) {
   }
-  ~BraveWalletUnitTest() override {}
+  ~adrbrowsielWalletUnitTest() override {}
 
  protected:
   void SetUp() override {
@@ -36,17 +36,17 @@ class BraveWalletUnitTest : public testing::Test {
   base::ScopedTempDir temp_dir_;
 };
 
-TEST_F(BraveWalletUnitTest, TestGetRandomNonce) {
-  std::string nonce = BraveWalletService::GetRandomNonce();
-  ASSERT_EQ(nonce.size(), BraveWalletService::kNonceByteLength);
+TEST_F(adrbrowsielWalletUnitTest, TestGetRandomNonce) {
+  std::string nonce = adrbrowsielWalletService::GetRandomNonce();
+  ASSERT_EQ(nonce.size(), adrbrowsielWalletService::kNonceByteLength);
 }
 
-TEST_F(BraveWalletUnitTest, TestGetRandomSeed) {
-  std::string seed = BraveWalletService::GetRandomSeed();
-  ASSERT_EQ(seed.size(), BraveWalletService::kSeedByteLength);
+TEST_F(adrbrowsielWalletUnitTest, TestGetRandomSeed) {
+  std::string seed = adrbrowsielWalletService::GetRandomSeed();
+  ASSERT_EQ(seed.size(), adrbrowsielWalletService::kSeedByteLength);
 }
 
-TEST_F(BraveWalletUnitTest, TestGetEthereumRemoteClientSeedFromRootSeed) {
+TEST_F(adrbrowsielWalletUnitTest, TestGetEthereumRemoteClientSeedFromRootSeed) {
   const char seed[32] = {
     48, 196, 56, 174, 243, 75, 120, 235,
     37, 174, 254, 97, 37, 205, 101, 93,
@@ -60,13 +60,13 @@ TEST_F(BraveWalletUnitTest, TestGetEthereumRemoteClientSeedFromRootSeed) {
     52, 76, 223, 24, 183, 138, 244, 72
   };
   std::string derived =
-    BraveWalletService::GetEthereumRemoteClientSeedFromRootSeed(
+    adrbrowsielWalletService::GetEthereumRemoteClientSeedFromRootSeed(
         std::string(seed, base::size(seed)));
   ASSERT_EQ(derived, std::string(expected_derived_seed,
       base::size(expected_derived_seed)));
 }
 
-TEST_F(BraveWalletUnitTest, TestBitGoSeedFromRootSeed) {
+TEST_F(adrbrowsielWalletUnitTest, TestBitGoSeedFromRootSeed) {
   const char seed[32] = {
     48, 196, 56, 174, 243, 75, 120, 235,
     37, 174, 254, 97, 37, 205, 101, 93,
@@ -80,13 +80,13 @@ TEST_F(BraveWalletUnitTest, TestBitGoSeedFromRootSeed) {
     45, 203, 71, 123, 188, 29, 224, 203
   };
   std::string derived =
-    BraveWalletService::GetBitGoSeedFromRootSeed(
+    adrbrowsielWalletService::GetBitGoSeedFromRootSeed(
         std::string(seed, base::size(seed)));
   ASSERT_EQ(derived, std::string(expected_derived_seed,
       base::size(expected_derived_seed)));
 }
 
-TEST_F(BraveWalletUnitTest, TestSealSeed) {
+TEST_F(adrbrowsielWalletUnitTest, TestSealSeed) {
   const char seed[32] = {
     48, 196, 56, 174, 243, 75, 120, 235,
     37, 174, 254, 97, 37, 205, 101, 93,
@@ -111,14 +111,14 @@ TEST_F(BraveWalletUnitTest, TestSealSeed) {
     222, 231, 48, 93, 132, 131, 178, 177
   };
   std::string cipher_seed;
-  ASSERT_TRUE(BraveWalletService::SealSeed(
+  ASSERT_TRUE(adrbrowsielWalletService::SealSeed(
      std::string(seed, base::size(seed)), std::string(key, base::size(key)),
      std::string(nonce, base::size(nonce)), &cipher_seed));
   ASSERT_EQ(cipher_seed, std::string(expected_cipher_seed,
       base::size(expected_cipher_seed)));
 }
 
-TEST_F(BraveWalletUnitTest, TestOpenSeed) {
+TEST_F(adrbrowsielWalletUnitTest, TestOpenSeed) {
   const char cipher_seed[48] = {
     33, 11, 185, 125, 67, 27, 92, 110,
     132, 238, 255, 8, 79, 7, 8, 40,
@@ -143,21 +143,21 @@ TEST_F(BraveWalletUnitTest, TestOpenSeed) {
     232, 187, 188, 220, 160, 187, 212, 28
   };
   std::string seed;
-  ASSERT_TRUE(BraveWalletService::OpenSeed(
+  ASSERT_TRUE(adrbrowsielWalletService::OpenSeed(
        std::string(cipher_seed, base::size(cipher_seed)),
        std::string(key, base::size(key)),
        std::string(nonce, base::size(nonce)), &seed));
   ASSERT_EQ(seed, std::string(expected_seed, 32));
 }
 
-TEST_F(BraveWalletUnitTest, TestLoadFromPrefs) {
-  GetPrefs()->SetString(kBraveWalletAES256GCMSivNonce, "yJngKDr5nCGYz7EM");
-  GetPrefs()->SetString(kBraveWalletEncryptedSeed,
+TEST_F(adrbrowsielWalletUnitTest, TestLoadFromPrefs) {
+  GetPrefs()->SetString(kadrbrowsielWalletAES256GCMSivNonce, "yJngKDr5nCGYz7EM");
+  GetPrefs()->SetString(kadrbrowsielWalletEncryptedSeed,
       "IQu5fUMbXG6E7v8ITwcIKL3TI3rst0LU1US7ZxCKpgAGgLNAN6DbCN7nMF2Eg7Kx");
 
   std::string cipher_seed;
   std::string nonce;
-  ASSERT_TRUE(BraveWalletService::LoadFromPrefs(
+  ASSERT_TRUE(adrbrowsielWalletService::LoadFromPrefs(
       ProfileManager::GetActiveUserProfile()->GetPrefs(),
       &cipher_seed, &nonce));
 
@@ -177,7 +177,7 @@ TEST_F(BraveWalletUnitTest, TestLoadFromPrefs) {
       cipher_seed);
 }
 
-TEST_F(BraveWalletUnitTest, TestSaveToPrefs) {
+TEST_F(adrbrowsielWalletUnitTest, TestSaveToPrefs) {
   const char nonce[12] = {
     200, 153, 224, 40, 58, 249, 156, 33, 152, 207, 177, 12
   };
@@ -189,13 +189,13 @@ TEST_F(BraveWalletUnitTest, TestSaveToPrefs) {
     6, 128, 179, 64, 55, 160, 219, 8,
     222, 231, 48, 93, 132, 131, 178, 177
   };
-  BraveWalletService::SaveToPrefs(
+  adrbrowsielWalletService::SaveToPrefs(
       ProfileManager::GetActiveUserProfile()->GetPrefs(),
       std::string(cipher_seed, base::size(cipher_seed)),
       std::string(nonce, base::size(nonce)));
 
-  ASSERT_EQ(GetPrefs()->GetString(kBraveWalletAES256GCMSivNonce),
+  ASSERT_EQ(GetPrefs()->GetString(kadrbrowsielWalletAES256GCMSivNonce),
       "yJngKDr5nCGYz7EM");
-  ASSERT_EQ(GetPrefs()->GetString(kBraveWalletEncryptedSeed),
+  ASSERT_EQ(GetPrefs()->GetString(kadrbrowsielWalletEncryptedSeed),
       "IQu5fUMbXG6E7v8ITwcIKL3TI3rst0LU1US7ZxCKpgAGgLNAN6DbCN7nMF2Eg7Kx");
 }

@@ -1,27 +1,27 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/frame/brave_glass_browser_frame_view.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_glass_browser_frame_view.h"
 
-#include "brave/browser/ui/views/frame/brave_window_frame_graphic.h"
+#include "adrbrowsiel/browser/ui/views/frame/adrbrowsiel_window_frame_graphic.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 #include "ui/gfx/geometry/insets.h"
 #include "ui/gfx/geometry/rect.h"
 #include "ui/gfx/scoped_canvas.h"
 
-BraveGlassBrowserFrameView::BraveGlassBrowserFrameView(
+adrbrowsielGlassBrowserFrameView::adrbrowsielGlassBrowserFrameView(
     BrowserFrame* frame, BrowserView* browser_view)
     : GlassBrowserFrameView(frame, browser_view) {
   frame_graphic_.reset(
-      new BraveWindowFrameGraphic(browser_view->browser()->profile()));
+      new adrbrowsielWindowFrameGraphic(browser_view->browser()->profile()));
 }
 
-BraveGlassBrowserFrameView::~BraveGlassBrowserFrameView() = default;
+adrbrowsielGlassBrowserFrameView::~adrbrowsielGlassBrowserFrameView() = default;
 
-void BraveGlassBrowserFrameView::OnPaint(gfx::Canvas* canvas) {
+void adrbrowsielGlassBrowserFrameView::OnPaint(gfx::Canvas* canvas) {
   GlassBrowserFrameView::OnPaint(canvas);
 
   // Don't draw frame graphic over border outline.

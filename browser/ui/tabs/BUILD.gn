@@ -4,14 +4,14 @@ source_set("tabs") {
 
   if (!is_android) {
     sources = [
-      "brave_tab_menu_model.cc",
-      "brave_tab_menu_model.h",
-      "brave_tab_strip_model.cc",
-      "brave_tab_strip_model.h",
+      "adrbrowsiel_tab_menu_model.cc",
+      "adrbrowsiel_tab_menu_model.h",
+      "adrbrowsiel_tab_strip_model.cc",
+      "adrbrowsiel_tab_strip_model.h",
     ]
 
     deps = [
-      "//brave/common/",
+      "//adrbrowsiel/common/",
       "//chrome/app:generated_resources",
       "//components/prefs",
       "//components/sessions",

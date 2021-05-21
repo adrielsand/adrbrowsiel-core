@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/browser/ui/views/translate/brave_translate_icon_view.h"
+#include "adrbrowsiel/browser/ui/views/translate/adrbrowsiel_translate_icon_view.h"
 
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/extensions/webstore_install_with_prompt.h"
@@ -15,7 +15,7 @@
 #include "extensions/browser/extension_registry.h"
 #include "extensions/common/constants.h"
 
-BraveTranslateIconView::BraveTranslateIconView(
+adrbrowsielTranslateIconView::adrbrowsielTranslateIconView(
     CommandUpdater* command_updater,
     IconLabelBubbleView::Delegate* icon_label_bubble_delegate,
     PageActionIconView::Delegate* page_action_icon_delegate)
@@ -25,10 +25,10 @@ BraveTranslateIconView::BraveTranslateIconView(
       weak_ptr_factory_(this) {
 }
 
-BraveTranslateIconView::~BraveTranslateIconView() {
+adrbrowsielTranslateIconView::~adrbrowsielTranslateIconView() {
 }
 
-void BraveTranslateIconView::InstallGoogleTranslate() {
+void adrbrowsielTranslateIconView::InstallGoogleTranslate() {
   if (!GetWebContents())
     return;
   Browser* browser = chrome::FindBrowserWithWebContents(GetWebContents());
@@ -41,12 +41,12 @@ void BraveTranslateIconView::InstallGoogleTranslate() {
             Profile::FromBrowserContext(
               GetWebContents()->GetBrowserContext()),
             browser->window()->GetNativeWindow(),
-            base::BindOnce(&BraveTranslateIconView::OnInstallResult,
+            base::BindOnce(&adrbrowsielTranslateIconView::OnInstallResult,
               weak_ptr_factory_.GetWeakPtr()));
   installer->BeginInstall();
 }
 
-void BraveTranslateIconView::OnInstallResult(
+void adrbrowsielTranslateIconView::OnInstallResult(
     bool success,
     const std::string& error,
     extensions::webstore_install::Result result) {
@@ -54,7 +54,7 @@ void BraveTranslateIconView::OnInstallResult(
   Update();
 }
 
-void BraveTranslateIconView::UpdateImpl() {
+void adrbrowsielTranslateIconView::UpdateImpl() {
   if (!GetWebContents())
     return;
 

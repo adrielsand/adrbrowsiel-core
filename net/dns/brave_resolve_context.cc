@@ -1,13 +1,13 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/net/dns/brave_resolve_context.h"
+#include "adrbrowsiel/net/dns/adrbrowsiel_resolve_context.h"
 
 #include <string>
 
-#include "brave/net/decentralized_dns/constants.h"
+#include "adrbrowsiel/net/decentralized_dns/constants.h"
 #include "net/dns/dns_session.h"
 
 namespace {
@@ -21,18 +21,18 @@ bool IsDecentralizedDNSResolver(const std::string& server) {
 
 namespace net {
 
-BraveResolveContext::BraveResolveContext(URLRequestContext* url_request_context,
+adrbrowsielResolveContext::adrbrowsielResolveContext(URLRequestContext* url_request_context,
                                          bool enable_caching)
     : ResolveContext(url_request_context, enable_caching) {}
 
-BraveResolveContext::~BraveResolveContext() = default;
+adrbrowsielResolveContext::~adrbrowsielResolveContext() = default;
 
-bool BraveResolveContext::IsFirstProbeCompleted(const ServerStats& stat) const {
+bool adrbrowsielResolveContext::IsFirstProbeCompleted(const ServerStats& stat) const {
   return !(stat.last_failure_count == 0 &&
            stat.current_connection_success == false);
 }
 
-bool BraveResolveContext::GetDohServerAvailability(
+bool adrbrowsielResolveContext::GetDohServerAvailability(
     size_t doh_server_index,
     const DnsSession* session) const {
   // Return decentralized DNS resolvers as available before the first probe is
@@ -49,7 +49,7 @@ bool BraveResolveContext::GetDohServerAvailability(
   return ResolveContext::GetDohServerAvailability(doh_server_index, session);
 }
 
-size_t BraveResolveContext::NumAvailableDohServers(
+size_t adrbrowsielResolveContext::NumAvailableDohServers(
     const DnsSession* session) const {
   size_t num = 0;
 

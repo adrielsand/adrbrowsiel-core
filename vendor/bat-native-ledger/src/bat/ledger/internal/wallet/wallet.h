@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVELEDGER_WALLET_WALLET_H_
-#define BRAVELEDGER_WALLET_WALLET_H_
+#ifndef adrbrowsielLEDGER_WALLET_WALLET_H_
+#define adrbrowsielLEDGER_WALLET_WALLET_H_
 
 #include <stdint.h>
 
@@ -35,7 +35,7 @@ class Wallet {
       const std::string& pass_phrase,
       ledger::ResultCallback callback);
 
-  std::string GetWalletPassphrase(type::BraveWalletPtr wallet);
+  std::string GetWalletPassphrase(type::adrbrowsielWalletPtr wallet);
 
   void FetchBalance(ledger::FetchBalanceCallback callback);
 
@@ -54,11 +54,11 @@ class Wallet {
 
   void DisconnectAllWallets(ledger::ResultCallback callback);
 
-  type::BraveWalletPtr GetWallet();
+  type::adrbrowsielWalletPtr GetWallet();
 
-  bool SetWallet(type::BraveWalletPtr wallet);
+  bool SetWallet(type::adrbrowsielWalletPtr wallet);
 
-  void LinkBraveWallet(const std::string& destination_payment_id,
+  void LinkadrbrowsielWallet(const std::string& destination_payment_id,
                        ledger::PostSuggestionsClaimCallback callback);
 
  private:
@@ -77,4 +77,4 @@ class Wallet {
 
 }  // namespace wallet
 }  // namespace ledger
-#endif  // BRAVELEDGER_WALLET_WALLET_H_
+#endif  // adrbrowsielLEDGER_WALLET_WALLET_H_

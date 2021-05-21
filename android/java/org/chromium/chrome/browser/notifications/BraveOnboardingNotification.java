@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019 The Brave Authors. All rights reserved.
+ * Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -16,9 +16,9 @@ import android.net.Uri;
 
 import org.chromium.base.ContextUtils;
 import org.chromium.chrome.R;
-import org.chromium.chrome.browser.app.BraveActivity;
-import org.chromium.chrome.browser.dialogs.BraveAdsNotificationDialog;
-import org.chromium.chrome.browser.notifications.BraveAdsNotificationBuilder;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
+import org.chromium.chrome.browser.dialogs.adrbrowsielAdsNotificationDialog;
+import org.chromium.chrome.browser.notifications.adrbrowsielAdsNotificationBuilder;
 import org.chromium.chrome.browser.notifications.NotificationBuilderBase;
 import org.chromium.chrome.browser.notifications.NotificationUmaTracker;
 import org.chromium.chrome.browser.notifications.retention.RetentionNotificationPublisher;
@@ -30,15 +30,15 @@ import org.chromium.components.browser_ui.notifications.PendingIntentProvider;
 
 import java.util.Locale;
 
-public class BraveOnboardingNotification extends BroadcastReceiver {
+public class adrbrowsielOnboardingNotification extends BroadcastReceiver {
     public Context mContext;
     private Intent mIntent;
 
-    private static final int BRAVE_ONBOARDING_NOTIFICATION_ID = -2;
-    public static String BRAVE_ONBOARDING_NOTIFICATION_TAG = "brave_onboarding_notification_tag";
-    private static String BRAVE_ONBOARDING_ORIGIN_EN = "https://brave.com/my-first-ad/";
-    private static String BRAVE_ONBOARDING_ORIGIN_DE = "https://brave.com/de/my-first-ad/";
-    private static String BRAVE_ONBOARDING_ORIGIN_FR = "https://brave.com/fr/my-first-ad/";
+    private static final int adrbrowsiel_ONBOARDING_NOTIFICATION_ID = -2;
+    public static String adrbrowsiel_ONBOARDING_NOTIFICATION_TAG = "adrbrowsiel_onboarding_notification_tag";
+    private static String adrbrowsiel_ONBOARDING_ORIGIN_EN = "https://adrbrowsiel.com/my-first-ad/";
+    private static String adrbrowsiel_ONBOARDING_ORIGIN_DE = "https://adrbrowsiel.com/de/my-first-ad/";
+    private static String adrbrowsiel_ONBOARDING_ORIGIN_FR = "https://adrbrowsiel.com/fr/my-first-ad/";
     public static final String DEEP_LINK = "deep_link";
     public static final String USE_CUSTOM_NOTIFICATION = "use_custom_notification";
 
@@ -46,12 +46,12 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
     private static final String COUNTRY_CODE_FR = "fr_FR";
 
     public static void showOnboardingDialog() {
-        BraveActivity braveActivity = BraveActivity.getBraveActivity();
-        if (braveActivity != null) {
-            BraveAdsNotificationDialog.showAdNotification(braveActivity,
-                    BRAVE_ONBOARDING_NOTIFICATION_TAG, getNotificationUrl(),
-                    braveActivity.getString(R.string.brave_ui_brave_rewards),
-                    braveActivity.getString(R.string.this_is_your_first_ad));
+        adrbrowsielActivity adrbrowsielActivity = adrbrowsielActivity.getadrbrowsielActivity();
+        if (adrbrowsielActivity != null) {
+            adrbrowsielAdsNotificationDialog.showAdNotification(adrbrowsielActivity,
+                    adrbrowsiel_ONBOARDING_NOTIFICATION_TAG, getNotificationUrl(),
+                    adrbrowsielActivity.getString(R.string.adrbrowsiel_ui_adrbrowsiel_rewards),
+                    adrbrowsielActivity.getString(R.string.this_is_your_first_ad));
         }
     }
 
@@ -62,8 +62,8 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
             new NotificationManagerProxyImpl(context);
 
         NotificationBuilderBase notificationBuilder =
-            new BraveAdsNotificationBuilder(context)
-        .setTitle(context.getString(R.string.brave_ui_brave_rewards))
+            new adrbrowsielAdsNotificationBuilder(context)
+        .setTitle(context.getString(R.string.adrbrowsiel_ui_adrbrowsiel_rewards))
         .setBody(context.getString(R.string.this_is_your_first_ad))
         .setSmallIconId(R.drawable.ic_chrome)
         .setPriority(Notification.PRIORITY_HIGH)
@@ -74,14 +74,14 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
         NotificationWrapper notification = notificationBuilder.build(new NotificationMetadata(
                                               NotificationUmaTracker.SystemNotificationType
                                               .UNKNOWN /* Underlying code doesn't track UNKNOWN */,
-                                              BRAVE_ONBOARDING_NOTIFICATION_TAG /* notificationTag */,
-                                              BRAVE_ONBOARDING_NOTIFICATION_ID /* notificationId */
+                                              adrbrowsiel_ONBOARDING_NOTIFICATION_TAG /* notificationTag */,
+                                              adrbrowsiel_ONBOARDING_NOTIFICATION_ID /* notificationId */
                                           ));
         notificationManager.notify(notification);
     }
 
     public static PendingIntentProvider getDeepLinkIntent(Context context) {
-        Intent intent = new Intent(context, BraveOnboardingNotification.class);
+        Intent intent = new Intent(context, adrbrowsielOnboardingNotification.class);
         intent.setAction(DEEP_LINK);
         return new PendingIntentProvider(
                 PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT),
@@ -91,10 +91,10 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
-        BraveActivity braveActivity = BraveActivity.getBraveActivity();
+        adrbrowsielActivity adrbrowsielActivity = adrbrowsielActivity.getadrbrowsielActivity();
         if (action != null && action.equals(DEEP_LINK)) {
-            if (braveActivity != null) {
-                braveActivity.openRewardsPanel();
+            if (adrbrowsielActivity != null) {
+                adrbrowsielActivity.openRewardsPanel();
                 Intent launchIntent = new Intent(Intent.ACTION_MAIN);
                 launchIntent.setPackage(context.getPackageName());
                 launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -109,8 +109,8 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
             } else {
                 showOnboardingNotification();
             }
-            if (braveActivity != null) {
-                braveActivity.hideRewardsOnboardingIcon();
+            if (adrbrowsielActivity != null) {
+                adrbrowsielActivity.hideRewardsOnboardingIcon();
             }
         }
     }
@@ -119,11 +119,11 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
         Locale locale = Locale.getDefault();
         switch (locale.toString()) {
         case COUNTRY_CODE_DE:
-            return BRAVE_ONBOARDING_ORIGIN_DE;
+            return adrbrowsiel_ONBOARDING_ORIGIN_DE;
         case COUNTRY_CODE_FR:
-            return BRAVE_ONBOARDING_ORIGIN_FR;
+            return adrbrowsiel_ONBOARDING_ORIGIN_FR;
         default:
-            return BRAVE_ONBOARDING_ORIGIN_EN;
+            return adrbrowsiel_ONBOARDING_ORIGIN_EN;
         }
     }
 
@@ -131,6 +131,6 @@ public class BraveOnboardingNotification extends BroadcastReceiver {
         NotificationManagerProxyImpl notificationManager =
             new NotificationManagerProxyImpl(context);
         notificationManager.cancel(
-            BRAVE_ONBOARDING_NOTIFICATION_TAG, BRAVE_ONBOARDING_NOTIFICATION_ID);
+            adrbrowsiel_ONBOARDING_NOTIFICATION_TAG, adrbrowsiel_ONBOARDING_NOTIFICATION_ID);
     }
 }

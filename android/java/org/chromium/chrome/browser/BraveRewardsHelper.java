@@ -28,15 +28,15 @@ import org.chromium.base.ContextUtils;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.ChromeTabbedActivity;
-import org.chromium.chrome.browser.app.BraveActivity;
-import org.chromium.chrome.browser.preferences.BravePreferenceKeys;
+import org.chromium.chrome.browser.app.adrbrowsielActivity;
+import org.chromium.chrome.browser.preferences.adrbrowsielPreferenceKeys;
 import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.tab.Tab;
 import org.chromium.chrome.browser.tab.TabImpl;
 import org.chromium.components.browser_ui.widget.RoundedIconGenerator;
 import org.chromium.chrome.browser.flags.ChromeFeatureList;
-import org.chromium.chrome.browser.BraveFeatureList;
+import org.chromium.chrome.browser.adrbrowsielFeatureList;
 import org.chromium.components.favicon.IconType;
 import org.chromium.components.favicon.LargeIconBridge;
 import org.chromium.url.GURL;
@@ -45,12 +45,12 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class BraveRewardsHelper implements LargeIconBridge.LargeIconCallback{
-    private static final String PREF_BRAVE_REWARDS_APP_OPEN_COUNT = "brave_rewards_app_open_count";
-    private static final String PREF_SHOW_BRAVE_REWARDS_ONBOARDING_MODAL =
-            "show_brave_rewards_onboarding_modal";
-    private static final String PREF_SHOW_BRAVE_REWARDS_ONBOARDING_ONCE =
-            "show_brave_rewards_onboarding_once";
+public class adrbrowsielRewardsHelper implements LargeIconBridge.LargeIconCallback{
+    private static final String PREF_adrbrowsiel_REWARDS_APP_OPEN_COUNT = "adrbrowsiel_rewards_app_open_count";
+    private static final String PREF_SHOW_adrbrowsiel_REWARDS_ONBOARDING_MODAL =
+            "show_adrbrowsiel_rewards_onboarding_modal";
+    private static final String PREF_SHOW_adrbrowsiel_REWARDS_ONBOARDING_ONCE =
+            "show_adrbrowsiel_rewards_onboarding_once";
     private static final String PREF_SHOW_ONBOARDING_MINI_MODAL = "show_onboarding_mini_modal";
     private static final String PREF_NEXT_REWARDS_ONBOARDING_MODAL_DATE =
             "next_rewards_onboarding_modal_date";
@@ -118,9 +118,9 @@ public class BraveRewardsHelper implements LargeIconBridge.LargeIconCallback{
         if (!hasRewardsOnboardingModalShown()
                 && (getNextRewardsOnboardingModalDate() > 0
                         && System.currentTimeMillis() > getNextRewardsOnboardingModalDate())
-                && shouldShowBraveRewardsOnboardingModal()
-                && ChromeFeatureList.isEnabled(BraveFeatureList.BRAVE_REWARDS)) {
-            if (BraveAdsNativeHelper.nativeIsBraveAdsEnabled(Profile.getLastUsedRegularProfile())) {
+                && shouldShowadrbrowsielRewardsOnboardingModal()
+                && ChromeFeatureList.isEnabled(adrbrowsielFeatureList.adrbrowsiel_REWARDS)) {
+            if (adrbrowsielAdsNativeHelper.nativeIsadrbrowsielAdsEnabled(Profile.getLastUsedRegularProfile())) {
                 setRewardsOnboardingModalShown(true);
                 return false;
             } else {
@@ -130,15 +130,15 @@ public class BraveRewardsHelper implements LargeIconBridge.LargeIconCallback{
         return false;
     }
 
-    public static int getBraveRewardsAppOpenCount() {
-        return ContextUtils.getAppSharedPreferences().getInt(PREF_BRAVE_REWARDS_APP_OPEN_COUNT, 0);
+    public static int getadrbrowsielRewardsAppOpenCount() {
+        return ContextUtils.getAppSharedPreferences().getInt(PREF_adrbrowsiel_REWARDS_APP_OPEN_COUNT, 0);
     }
 
-    public static void updateBraveRewardsAppOpenCount() {
+    public static void updateadrbrowsielRewardsAppOpenCount() {
         SharedPreferences.Editor sharedPreferencesEditor = ContextUtils.getAppSharedPreferences().edit();
-        sharedPreferencesEditor.putInt(PREF_BRAVE_REWARDS_APP_OPEN_COUNT,
+        sharedPreferencesEditor.putInt(PREF_adrbrowsiel_REWARDS_APP_OPEN_COUNT,
                 SharedPreferencesManager.getInstance().readInt(
-                        BravePreferenceKeys.BRAVE_APP_OPEN_COUNT));
+                        adrbrowsielPreferenceKeys.adrbrowsiel_APP_OPEN_COUNT));
         sharedPreferencesEditor.apply();
     }
 
@@ -154,27 +154,27 @@ public class BraveRewardsHelper implements LargeIconBridge.LargeIconCallback{
         sharedPreferencesEditor.apply();
     }
 
-    public static boolean shouldShowBraveRewardsOnboardingModal() {
+    public static boolean shouldShowadrbrowsielRewardsOnboardingModal() {
         return ContextUtils.getAppSharedPreferences().getBoolean(
-                PREF_SHOW_BRAVE_REWARDS_ONBOARDING_MODAL, true);
+                PREF_SHOW_adrbrowsiel_REWARDS_ONBOARDING_MODAL, true);
     }
 
-    public static void setShowBraveRewardsOnboardingModal(boolean enabled) {
+    public static void setShowadrbrowsielRewardsOnboardingModal(boolean enabled) {
         SharedPreferences.Editor sharedPreferencesEditor =
                 ContextUtils.getAppSharedPreferences().edit();
-        sharedPreferencesEditor.putBoolean(PREF_SHOW_BRAVE_REWARDS_ONBOARDING_MODAL, enabled);
+        sharedPreferencesEditor.putBoolean(PREF_SHOW_adrbrowsiel_REWARDS_ONBOARDING_MODAL, enabled);
         sharedPreferencesEditor.apply();
     }
 
-    public static boolean shouldShowBraveRewardsOnboardingOnce() {
+    public static boolean shouldShowadrbrowsielRewardsOnboardingOnce() {
         return ContextUtils.getAppSharedPreferences().getBoolean(
-                PREF_SHOW_BRAVE_REWARDS_ONBOARDING_ONCE, false);
+                PREF_SHOW_adrbrowsiel_REWARDS_ONBOARDING_ONCE, false);
     }
 
-    public static void setShowBraveRewardsOnboardingOnce(boolean enabled) {
+    public static void setShowadrbrowsielRewardsOnboardingOnce(boolean enabled) {
         SharedPreferences.Editor sharedPreferencesEditor =
                 ContextUtils.getAppSharedPreferences().edit();
-        sharedPreferencesEditor.putBoolean(PREF_SHOW_BRAVE_REWARDS_ONBOARDING_ONCE, enabled);
+        sharedPreferencesEditor.putBoolean(PREF_SHOW_adrbrowsiel_REWARDS_ONBOARDING_ONCE, enabled);
         sharedPreferencesEditor.apply();
     }
 
@@ -182,7 +182,7 @@ public class BraveRewardsHelper implements LargeIconBridge.LargeIconCallback{
         void onLargeIconReady(Bitmap icon);
     }
 
-    public BraveRewardsHelper(Tab tab) {
+    public adrbrowsielRewardsHelper(Tab tab) {
         mTab = tab;
         assert mTab != null;
         if (mLargeIconBridge == null && mTab != null) {
@@ -307,52 +307,52 @@ public class BraveRewardsHelper implements LargeIconBridge.LargeIconCallback{
     }
 
     static public ChromeTabbedActivity getChromeTabbedActivity() {
-      return BraveActivity.getChromeTabbedActivity();
+      return adrbrowsielActivity.getChromeTabbedActivity();
     }
 
-    static public BraveActivity getBraveActivity() {
-      return BraveActivity.getBraveActivity();
+    static public adrbrowsielActivity getadrbrowsielActivity() {
+      return adrbrowsielActivity.getadrbrowsielActivity();
     }
 
   static public String getCurrentMonth(Calendar currentTime,
       Resources resources, boolean upper_case) {
-    String month = resources.getString(R.string.brave_ui_month_jan);
+    String month = resources.getString(R.string.adrbrowsiel_ui_month_jan);
     switch (currentTime.get(Calendar.MONTH)) {
       case Calendar.JANUARY:
-        month = resources.getString(R.string.brave_ui_month_jan);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_jan);
         break;
       case Calendar.FEBRUARY:
-        month = resources.getString(R.string.brave_ui_month_feb);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_feb);
         break;
       case Calendar.MARCH:
-        month = resources.getString(R.string.brave_ui_month_mar);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_mar);
         break;
       case Calendar.APRIL:
-        month = resources.getString(R.string.brave_ui_month_apr);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_apr);
         break;
       case Calendar.MAY:
-        month = resources.getString(R.string.brave_ui_month_may);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_may);
         break;
       case Calendar.JUNE:
-        month = resources.getString(R.string.brave_ui_month_jun);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_jun);
         break;
       case Calendar.JULY:
-        month = resources.getString(R.string.brave_ui_month_jul);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_jul);
         break;
       case Calendar.AUGUST:
-        month = resources.getString(R.string.brave_ui_month_aug);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_aug);
         break;
       case Calendar.SEPTEMBER:
-        month = resources.getString(R.string.brave_ui_month_sep);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_sep);
         break;
       case Calendar.OCTOBER:
-        month = resources.getString(R.string.brave_ui_month_oct);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_oct);
         break;
       case Calendar.NOVEMBER:
-        month = resources.getString(R.string.brave_ui_month_nov);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_nov);
         break;
       case Calendar.DECEMBER:
-        month = resources.getString(R.string.brave_ui_month_dec);
+        month = resources.getString(R.string.adrbrowsiel_ui_month_dec);
         break;
     }
     if (!upper_case && !month.isEmpty()) {
@@ -368,7 +368,7 @@ public class BraveRewardsHelper implements LargeIconBridge.LargeIconCallback{
   }
 
   public static Tab currentActiveChromeTabbedActivityTab() {
-      ChromeTabbedActivity activity = BraveRewardsHelper.getChromeTabbedActivity();
+      ChromeTabbedActivity activity = adrbrowsielRewardsHelper.getChromeTabbedActivity();
       if (activity == null || activity.getTabModelSelector() == null) {
           return null;
       }
@@ -498,6 +498,6 @@ public class BraveRewardsHelper implements LargeIconBridge.LargeIconCallback{
     }
 
     public static boolean isAnonWallet() {
-      return BraveRewardsNativeWorker.getInstance().IsAnonWallet();
+      return adrbrowsielRewardsNativeWorker.getInstance().IsAnonWallet();
     }
 }
