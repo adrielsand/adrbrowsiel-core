@@ -15,7 +15,7 @@ export default class ConnectHeader extends React.PureComponent<Props, {}> {
         {/* FavIcon is a temp fill in until we add logic to fetch site metadata to display fav icons.*/}
         <FavIcon />
         <URLText>{url}</URLText>
-        <PanelTitle>Connect With Brave Wallet</PanelTitle>
+        <PanelTitle>Connect With adrbrowsiel Wallet</PanelTitle>
       </StyledWrapper>
     )
   }

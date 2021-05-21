@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_ads/browser/notification_helper_win.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/notification_helper_win.h"
 
 #include <Windows.h>
 
@@ -12,13 +12,13 @@
 #include "base/win/core_winrt_util.h"
 #include "base/win/scoped_hstring.h"
 #include "base/win/windows_version.h"
-#include "brave/components/brave_ads/browser/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/features.h"
 #include "chrome/common/chrome_features.h"
 #include "chrome/install_static/install_util.h"
 #include "chrome/installer/util/install_util.h"
 #include "chrome/installer/util/shell_util.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 // Copied from ntdef.h as not available in the Windows SDK and is required to
 // detect if Focus Assist is enabled. Focus Assist is currently undocumented
@@ -266,4 +266,4 @@ HRESULT NotificationHelperWin::CreateActivationFactory(
                                            IID_PPV_ARGS(object));
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

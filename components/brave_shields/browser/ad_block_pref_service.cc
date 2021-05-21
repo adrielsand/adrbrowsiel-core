@@ -1,32 +1,32 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/ad_block_pref_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_pref_service.h"
 
 #include "base/bind.h"
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
-#include "brave/components/brave_shields/browser/ad_block_regional_service_manager.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
-#include "brave/components/brave_shields/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_regional_service_manager.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/pref_names.h"
 #include "components/prefs/pref_change_registrar.h"
 #include "components/prefs/pref_service.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 namespace {
 
 std::string GetTagFromPrefName(const std::string& pref_name) {
   if (pref_name == prefs::kFBEmbedControlType) {
-    return brave_shields::kFacebookEmbeds;
+    return adrbrowsiel_shields::kFacebookEmbeds;
   }
   if (pref_name == prefs::kTwitterEmbedControlType) {
-    return brave_shields::kTwitterEmbeds;
+    return adrbrowsiel_shields::kTwitterEmbeds;
   }
   if (pref_name == prefs::kLinkedInEmbedControlType) {
-    return brave_shields::kLinkedInEmbeds;
+    return adrbrowsiel_shields::kLinkedInEmbeds;
   }
   return "";
 }
@@ -70,4 +70,4 @@ void AdBlockPrefService::OnPreferenceChanged(const std::string& pref_name) {
   ad_block_service_->custom_filters_service()->EnableTag(tag, enabled);
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

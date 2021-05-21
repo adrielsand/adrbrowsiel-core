@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -7,7 +7,7 @@ import AsyncActionHandler from '../../common/AsyncActionHandler'
 import * as Background from '../../common/Background'
 import * as Actions from '../actions/today_actions'
 import { ApplicationState } from '../reducers'
-import { saveIsBraveTodayOptedIn } from '../api/preferences'
+import { saveIsadrbrowsielTodayOptedIn } from '../api/preferences'
 
 function storeInHistoryState (data: Object) {
   const oldHistoryState = (typeof history.state === 'object') ? history.state : {}
@@ -15,7 +15,7 @@ function storeInHistoryState (data: Object) {
   history.pushState(newHistoryState, document.title)
 }
 
-import Messages = BraveToday.Messages
+import Messages = adrbrowsielToday.Messages
 import MessageTypes = Background.MessageTypes.Today
 
 const handler = new AsyncActionHandler()
@@ -47,7 +47,7 @@ handler.on(
 )
 
 handler.on(Actions.optIn.getType(), async () => {
-  saveIsBraveTodayOptedIn(true)
+  saveIsadrbrowsielTodayOptedIn(true)
 })
 
 handler.on(Actions.ensureSettingsData.getType(), async (store) => {
@@ -68,7 +68,7 @@ handler.on<Actions.ReadFeedItemPayload>(Actions.readFeedItem.getType(), async (s
   if (payload.isPromoted) {
     backendArgs.push(
       payload.item.url_hash,
-      (payload.item as BraveToday.PromotedArticle).creative_instance_id,
+      (payload.item as adrbrowsielToday.PromotedArticle).creative_instance_id,
       payload.isPromoted
     )
   }
@@ -90,7 +90,7 @@ handler.on<Actions.ReadFeedItemPayload>(Actions.readFeedItem.getType(), async (s
   }
 })
 
-handler.on<BraveToday.PromotedArticle>(Actions.promotedItemViewed.getType(), async (store, item) => {
+handler.on<adrbrowsielToday.PromotedArticle>(Actions.promotedItemViewed.getType(), async (store, item) => {
   chrome.send('todayOnPromotedCardView', [
     item.creative_instance_id,
     item.url_hash

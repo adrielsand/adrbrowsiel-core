@@ -7,7 +7,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { Store } from 'webext-redux'
 
-import Theme from 'brave-ui/theme/brave-default'
+import Theme from 'adrbrowsiel-ui/theme/adrbrowsiel-default'
 import { ThemeProvider } from 'styled-components'
 
 // Components
@@ -18,11 +18,11 @@ import { TorrentsState } from './constants/webtorrentState'
 
 // This is a hack that's needed for lazy loading
 // Basically we need the browser to restart the navigation, so we redirect first
-// to brave_webtorrent2.html and have that rewrite the URL to
-// brave_webtorrent.html
-if (window.location.pathname === '/extension/brave_webtorrent2.html') {
+// to adrbrowsiel_webtorrent2.html and have that rewrite the URL to
+// adrbrowsiel_webtorrent.html
+if (window.location.pathname === '/extension/adrbrowsiel_webtorrent2.html') {
   window.location.href =
-    window.location.href.replace('brave_webtorrent2.html', 'brave_webtorrent.html')
+    window.location.href.replace('adrbrowsiel_webtorrent2.html', 'adrbrowsiel_webtorrent.html')
 }
 
 const store: Store<TorrentsState> = new Store({

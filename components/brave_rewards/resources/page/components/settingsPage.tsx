@@ -7,7 +7,7 @@ import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
 // Components
-import { Column, Grid } from 'brave-ui/components'
+import { Column, Grid } from 'adrbrowsiel-ui/components'
 import {
   MainToggle,
   SettingsPage as Page,
@@ -176,7 +176,7 @@ class SettingsPage extends React.Component<Props, State> {
   }
 
   openPrivacyPolicy () {
-    window.open('https://brave.com/privacy#rewards', '_blank')
+    window.open('https://adrbrowsiel.com/privacy#rewards', '_blank')
   }
 
   onDismissPromo = (promo: PromoType, event: React.MouseEvent<HTMLDivElement>) => {

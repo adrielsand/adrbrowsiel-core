@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_FREQUENCY_CAPPING_HELPER_H_
-#define BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_FREQUENCY_CAPPING_HELPER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_FREQUENCY_CAPPING_HELPER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_FREQUENCY_CAPPING_HELPER_H_
 
 #include <cstdint>
 #include <string>
@@ -13,7 +13,7 @@
 #include "base/memory/singleton.h"
 #include "bat/ads/ad_event_history.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 class FrequencyCappingHelper {
  public:
@@ -38,6 +38,6 @@ class FrequencyCappingHelper {
   FrequencyCappingHelper& operator=(const FrequencyCappingHelper&) = delete;
 };
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_FREQUENCY_CAPPING_HELPER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_FREQUENCY_CAPPING_HELPER_H_

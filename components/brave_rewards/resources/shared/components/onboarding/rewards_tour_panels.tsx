@@ -145,7 +145,7 @@ export function getVerifyWalletPanel (
             formatMessage(getString('onboardingPanelBitflyerLearnMore'), {
               tags: {
                 $1: (content) => (
-                  <NewTabLink key='learn-more' href='https://brave.com/ja/users-bitflyer/'>
+                  <NewTabLink key='learn-more' href='https://adrbrowsiel.com/ja/users-bitflyer/'>
                     {content}
                   </NewTabLink>
                 )
@@ -156,7 +156,7 @@ export function getVerifyWalletPanel (
       )
 
       content = (
-        <NewTabLink href='https://bitflyer.com/static/lp03/?ns=display_brave_bf_brave&utm_source=brave&utm_medium=display&utm_campaign=bf_brave&utm_term=202104&utm_content='>
+        <NewTabLink href='https://bitflyer.com/static/lp03/?ns=display_adrbrowsiel_bf_adrbrowsiel&utm_source=adrbrowsiel&utm_medium=display&utm_campaign=bf_adrbrowsiel&utm_term=202104&utm_content='>
           <img src={bitflyerPromoImage} />
         </NewTabLink>
       )

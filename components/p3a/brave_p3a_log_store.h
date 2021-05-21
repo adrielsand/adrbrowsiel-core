@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_P3A_BRAVE_P3A_LOG_STORE_H_
-#define BRAVE_COMPONENTS_P3A_BRAVE_P3A_LOG_STORE_H_
+#ifndef adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_LOG_STORE_H_
+#define adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_LOG_STORE_H_
 
 #include <string>
 
@@ -17,13 +17,13 @@
 class PrefService;
 class PrefRegistrySimple;
 
-namespace brave {
+namespace adrbrowsiel {
 
 // Stores all given values in memory and persists in prefs on the fly.
 // All logs (not only unsent are persistent), and all logs could be loaded
 // using |LoadPersistedUnsentLogs()|. We should fix this at some point since
 // for now persisted entries never expire.
-class BraveP3ALogStore : public metrics::LogStore {
+class adrbrowsielP3ALogStore : public metrics::LogStore {
  public:
   class Delegate {
    public:
@@ -35,11 +35,11 @@ class BraveP3ALogStore : public metrics::LogStore {
     virtual ~Delegate() {}
   };
 
-  BraveP3ALogStore(Delegate* delegate,
+  adrbrowsielP3ALogStore(Delegate* delegate,
                    PrefService* local_state);
 
   // TODO(iefremov): Make parent destructor virtual?
-  virtual ~BraveP3ALogStore();
+  virtual ~adrbrowsielP3ALogStore();
 
   static void RegisterPrefs(PrefRegistrySimple* registry);
 
@@ -99,6 +99,6 @@ class BraveP3ALogStore : public metrics::LogStore {
   std::string staged_log_signature_;
 };
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_COMPONENTS_P3A_BRAVE_P3A_LOG_STORE_H_
+#endif  // adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_LOG_STORE_H_

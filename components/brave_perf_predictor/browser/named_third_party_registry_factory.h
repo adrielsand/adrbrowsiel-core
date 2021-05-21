@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_FACTORY_H_
-#define BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_FACTORY_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_FACTORY_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_FACTORY_H_
 
 #include "base/memory/singleton.h"
 #include "components/keyed_service/content/browser_context_keyed_service_factory.h"
@@ -12,7 +12,7 @@
 
 class Profile;
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 class NamedThirdPartyRegistry;
 
@@ -39,6 +39,6 @@ class NamedThirdPartyRegistryFactory
   bool ServiceIsCreatedWithBrowserContext() const override;
 };
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor
 
-#endif  // BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_FACTORY_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_FACTORY_H_

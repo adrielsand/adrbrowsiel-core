@@ -35,7 +35,7 @@ export default class ShieldsBox extends React.PureComponent<Props> {
         <Paragraph>
           {text[0]}
           <a
-            href='https://brave.com/p3a'
+            href='https://adrbrowsiel.com/p3a'
             target='_blank'
             rel='noopener noreferrer'
           >

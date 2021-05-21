@@ -1,22 +1,22 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_component_updater/browser/extension_whitelist_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/extension_whitelist_service.h"
 
 #include <utility>
 
 #include "base/bind.h"
 #include "base/logging.h"
 #include "base/task_runner_util.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
-#include "brave/vendor/extension-whitelist/extension_whitelist_parser.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/vendor/extension-whitelist/extension_whitelist_parser.h"
 #include "extensions/common/extension.h"
 
 using extensions::Extension;
 
-namespace brave_component_updater {
+namespace adrbrowsiel_component_updater {
 
 ExtensionWhitelistService::ExtensionWhitelistService(
     LocalDataFilesService* local_data_files_service,
@@ -69,7 +69,7 @@ void ExtensionWhitelistService::OnComponentReady(
       local_data_files_service()->GetTaskRunner().get(),
       FROM_HERE,
       base::BindOnce(
-          &brave_component_updater::LoadDATFileData<ExtensionWhitelistParser>,
+          &adrbrowsiel_component_updater::LoadDATFileData<ExtensionWhitelistParser>,
           dat_file_path),
       base::BindOnce(&ExtensionWhitelistService::OnGetDATFileData,
                      weak_factory_.GetWeakPtr()));
@@ -99,4 +99,4 @@ std::unique_ptr<ExtensionWhitelistService> ExtensionWhitelistServiceFactory(
                                                      whitelist);
 }
 
-}  // namespace brave_component_updater
+}  // namespace adrbrowsiel_component_updater

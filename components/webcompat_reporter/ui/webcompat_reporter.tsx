@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,9 +8,9 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Theme from 'brave-ui/theme/brave-default'
-import DarkTheme from 'brave-ui/theme/brave-dark'
-import BraveCoreThemeProvider from '../../common/BraveCoreThemeProvider'
+import Theme from 'adrbrowsiel-ui/theme/adrbrowsiel-default'
+import DarkTheme from 'adrbrowsiel-ui/theme/adrbrowsiel-dark'
+import adrbrowsielCoreThemeProvider from '../../common/adrbrowsielCoreThemeProvider'
 require('../../../ui/webui/resources/fonts/muli.css')
 require('../../../ui/webui/resources/fonts/poppins.css')
 
@@ -47,17 +47,17 @@ function loadDialogArgs () {
 function initialize () {
   loadDialogArgs()
 
-  new Promise(resolve => chrome.braveTheme.getBraveThemeType(resolve))
-  .then((themeType: chrome.braveTheme.ThemeType) => {
+  new Promise(resolve => chrome.adrbrowsielTheme.getadrbrowsielThemeType(resolve))
+  .then((themeType: chrome.adrbrowsielTheme.ThemeType) => {
     render(
       <Provider store={store}>
-        <BraveCoreThemeProvider
+        <adrbrowsielCoreThemeProvider
           initialThemeType={themeType}
           dark={DarkTheme}
           light={Theme}
         >
           <App />
-        </BraveCoreThemeProvider>
+        </adrbrowsielCoreThemeProvider>
       </Provider>,
       document.getElementById('root')
     )

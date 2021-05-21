@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,7 +6,7 @@
 #include <string>
 
 #include "base/strings/string_number_conversions.h"
-#include "brave/components/brave_wallet/browser/rlp_decode.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/rlp_decode.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
 namespace {
@@ -47,7 +47,7 @@ std::string FromHex(const std::string& hex_input) {
 
 }  // namespace
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 TEST(RLPDecodeTest, ByteString00) {
   base::Value val;
@@ -396,4 +396,4 @@ TEST(RLPDecodeTest, InvalidInputLessThanLongLengthList2) {
   ASSERT_TRUE(val.is_none());
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

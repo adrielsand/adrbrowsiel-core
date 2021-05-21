@@ -3,7 +3,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { create } from 'react-test-renderer'
 import ModalRedirect from './index'
-import { TestThemeProvider } from 'brave-ui/theme'
+import { TestThemeProvider } from 'adrbrowsiel-ui/theme'
 
 describe('ModalRedirect tests', () => {
   const baseComponent = (props?: object) => <TestThemeProvider><ModalRedirect id='modal' {...props} /></TestThemeProvider>

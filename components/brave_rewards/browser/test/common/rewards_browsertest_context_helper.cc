@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,12 +6,12 @@
 #include <string>
 
 #include "base/test/bind.h"
-#include "brave/browser/extensions/api/brave_action_api.h"
-#include "brave/browser/ui/views/brave_actions/brave_actions_container.h"
-#include "brave/browser/ui/views/location_bar/brave_location_bar_view.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_helper.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_util.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
+#include "adrbrowsiel/browser/extensions/api/adrbrowsiel_action_api.h"
+#include "adrbrowsiel/browser/ui/views/adrbrowsiel_actions/adrbrowsiel_actions_container.h"
+#include "adrbrowsiel/browser/ui/views/location_bar/adrbrowsiel_location_bar_view.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 #include "chrome/test/base/ui_test_utils.h"
 #include "content/public/browser/notification_service.h"
@@ -32,9 +32,9 @@ RewardsBrowserTestContextHelper::~RewardsBrowserTestContextHelper() = default;
 void RewardsBrowserTestContextHelper::OpenPopup() {
   // Ask the popup to open
   std::string error;
-  bool popup_shown = extensions::BraveActionAPI::ShowActionUI(
+  bool popup_shown = extensions::adrbrowsielActionAPI::ShowActionUI(
     browser_,
-    brave_rewards_extension_id,
+    adrbrowsiel_rewards_extension_id,
     nullptr,
     &error);
   if (!popup_shown) {
@@ -45,13 +45,13 @@ void RewardsBrowserTestContextHelper::OpenPopup() {
 
 void RewardsBrowserTestContextHelper::OpenPopupFirstTime() {
   BrowserView* browser_view = BrowserView::GetBrowserViewForBrowser(browser_);
-  BraveLocationBarView* brave_location_bar_view =
-      static_cast<BraveLocationBarView*>(browser_view->GetLocationBarView());
-  ASSERT_NE(brave_location_bar_view, nullptr);
-  auto* brave_actions = brave_location_bar_view->GetBraveActionsContainer();
-  ASSERT_NE(brave_actions, nullptr);
+  adrbrowsielLocationBarView* adrbrowsiel_location_bar_view =
+      static_cast<adrbrowsielLocationBarView*>(browser_view->GetLocationBarView());
+  ASSERT_NE(adrbrowsiel_location_bar_view, nullptr);
+  auto* adrbrowsiel_actions = adrbrowsiel_location_bar_view->GetadrbrowsielActionsContainer();
+  ASSERT_NE(adrbrowsiel_actions, nullptr);
 
-  brave_actions->OnRewardsStubButtonClicked();
+  adrbrowsiel_actions->OnRewardsStubButtonClicked();
   loaded_ = true;
 }
 
@@ -69,7 +69,7 @@ content::WebContents* RewardsBrowserTestContextHelper::OpenRewardsPopup() {
         // the extension background page.
         std::string url = popup_contents->GetLastCommittedURL().spec();
         std::string rewards_panel_url = std::string("chrome-extension://") +
-            brave_rewards_extension_id + "/brave_rewards_panel.html";
+            adrbrowsiel_rewards_extension_id + "/adrbrowsiel_rewards_panel.html";
         return url == rewards_panel_url;
       };
 
@@ -78,7 +78,7 @@ content::WebContents* RewardsBrowserTestContextHelper::OpenRewardsPopup() {
       base::BindLambdaForTesting(check_load_is_rewards_panel));
 
   bool ac_enabled = browser_->profile()->GetPrefs()->
-      GetBoolean(brave_rewards::prefs::kAutoContributeEnabled);
+      GetBoolean(adrbrowsiel_rewards::prefs::kAutoContributeEnabled);
 
   if (loaded_ || ac_enabled) {
     OpenPopup();

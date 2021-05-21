@@ -1,11 +1,11 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 import * as React from 'react'
 import styled from 'styled-components'
-import { ArrowLeftIcon } from 'brave-ui/components/icons'
+import { ArrowLeftIcon } from 'adrbrowsiel-ui/components/icons'
 import { getLocale } from '../../../../common/locale'
 
 type Props = {
@@ -28,13 +28,13 @@ const Back = styled('button')`
 
   &:focus,
   &:hover {
-    color: ${p => p.theme.color.brandBraveInteracting}
+    color: ${p => p.theme.color.brandadrbrowsielInteracting}
   }
   &:active {
-    color: ${p => p.theme.color.brandBraveActive}
+    color: ${p => p.theme.color.brandadrbrowsielActive}
   }
   &:focus-visible {
-    outline: solid 1px ${p => p.theme.color.brandBrave};
+    outline: solid 1px ${p => p.theme.color.brandadrbrowsiel};
   }
 `
 

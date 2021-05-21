@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -27,14 +27,14 @@ function useGetUnpaddedImage (paddedUrl: string, onLoaded?: () => any) {
   React.useEffect(() => {
     // Storybook method
     // @ts-ignore
-    if (window.braveStorybookUnpadUrl) {
+    if (window.adrbrowsielStorybookUnpadUrl) {
       // @ts-ignore
-      window.braveStorybookUnpadUrl(paddedUrl)
+      window.adrbrowsielStorybookUnpadUrl(paddedUrl)
       .then(onReceiveUnpaddedUrl)
       return
     }
-    Background.send<BraveToday.Messages.GetImageDataResponse,
-        BraveToday.Messages.GetImageDataPayload>(
+    Background.send<adrbrowsielToday.Messages.GetImageDataResponse,
+        adrbrowsielToday.Messages.GetImageDataPayload>(
       Background.MessageTypes.Today.getImageData,
       { url: paddedUrl }
     )

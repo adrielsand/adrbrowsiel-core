@@ -1,19 +1,19 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_VIEW_COUNTER_SERVICE_H_
-#define BRAVE_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_VIEW_COUNTER_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_VIEW_COUNTER_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_VIEW_COUNTER_SERVICE_H_
 
 #include <memory>
 #include <string>
 #include <vector>
 
 #include "base/values.h"
-#include "brave/components/brave_ads/browser/ads_service.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_service.h"
-#include "brave/components/ntp_background_images/browser/view_counter_model.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_service.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/view_counter_model.h"
 #include "components/keyed_service/core/keyed_service.h"
 #include "components/prefs/pref_change_registrar.h"
 
@@ -38,7 +38,7 @@ class ViewCounterService : public KeyedService,
                            public NTPBackgroundImagesService::Observer {
  public:
   ViewCounterService(NTPBackgroundImagesService* service,
-                     brave_ads::AdsService* ads_service,
+                     adrbrowsiel_ads::AdsService* ads_service,
                      PrefService* prefs,
                      PrefService* local_state,
                      bool is_supported_locale);
@@ -78,7 +78,7 @@ class ViewCounterService : public KeyedService,
   void InitializeWebUIDataSource(content::WebUIDataSource* html_source);
 
  private:
-  // Sync with themeValues in brave_appearance_page.js
+  // Sync with themeValues in adrbrowsiel_appearance_page.js
   enum ThemesOption {
     DEFAULT,
     SUPER_REFERRAL,
@@ -123,7 +123,7 @@ class ViewCounterService : public KeyedService,
   void UpdateP3AValues() const;
 
   NTPBackgroundImagesService* service_ = nullptr;  // not owned
-  brave_ads::AdsService* ads_service_ = nullptr;  // not owned
+  adrbrowsiel_ads::AdsService* ads_service_ = nullptr;  // not owned
   PrefService* prefs_ = nullptr;  // not owned
   bool is_supported_locale_ = false;
   PrefChangeRegistrar pref_change_registrar_;
@@ -137,5 +137,5 @@ class ViewCounterService : public KeyedService,
 
 }  // namespace ntp_background_images
 
-#endif  // BRAVE_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_VIEW_COUNTER_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_VIEW_COUNTER_SERVICE_H_
 

@@ -4,7 +4,7 @@ import { welcomeInitialState } from '../../testData'
 import {
   WelcomePage,
   mapStateToProps
-} from '../../../../components/brave_welcome_ui/containers/app'
+} from '../../../../components/adrbrowsiel_welcome_ui/containers/app'
 
 describe('welcomePage component', () => {
   describe('mapStateToProps', () => {

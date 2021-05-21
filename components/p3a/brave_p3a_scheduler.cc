@@ -1,13 +1,13 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/p3a/brave_p3a_scheduler.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_p3a_scheduler.h"
 
 #include "base/rand_util.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 namespace {
 
@@ -43,7 +43,7 @@ base::TimeDelta BackOffUploadInterval(base::TimeDelta interval) {
 
 }  // namespace
 
-BraveP3AScheduler::BraveP3AScheduler(
+adrbrowsielP3AScheduler::adrbrowsielP3AScheduler(
     const base::Closure& upload_callback,
     const base::Callback<base::TimeDelta(void)>& get_interval_callback)
     : metrics::MetricsScheduler(upload_callback,
@@ -54,9 +54,9 @@ BraveP3AScheduler::BraveP3AScheduler(
       backoff_interval_(
           base::TimeDelta::FromSeconds(kInitialBackoffIntervalSeconds)) {}
 
-BraveP3AScheduler::~BraveP3AScheduler() {}
+adrbrowsielP3AScheduler::~adrbrowsielP3AScheduler() {}
 
-void BraveP3AScheduler::UploadFinished(bool ok) {
+void adrbrowsielP3AScheduler::UploadFinished(bool ok) {
   if (!ok) {
     TaskDone(backoff_interval_);
     backoff_interval_ = BackOffUploadInterval(backoff_interval_);
@@ -66,4 +66,4 @@ void BraveP3AScheduler::UploadFinished(bool ok) {
   }
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

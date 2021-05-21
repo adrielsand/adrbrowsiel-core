@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_H_
 
 #include <stdint.h>
 
@@ -14,14 +14,14 @@
 
 #include "base/callback.h"
 #include "base/files/file_path.h"
-#include "brave/components/adblock_rust_ffi/src/wrapper.h"
-#include "brave/components/brave_shields/browser/ad_block_base_service.h"
+#include "adrbrowsiel/components/adblock_rust_ffi/src/wrapper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_base_service.h"
 
 class AdBlockServiceTest;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
-// The brave shields service in charge of ad-block checking and init
+// The adrbrowsiel shields service in charge of ad-block checking and init
 // for a specific region.
 class AdBlockRegionalService : public AdBlockBaseService {
  public:
@@ -30,7 +30,7 @@ class AdBlockRegionalService : public AdBlockBaseService {
 
   explicit AdBlockRegionalService(
       const adblock::FilterList& catalog_entry,
-      brave_component_updater::BraveComponent::Delegate* delegate,
+      adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate,
       ResourcesFileReadyCallback resoures_file_ready_callback);
   ~AdBlockRegionalService() override;
 
@@ -69,10 +69,10 @@ class AdBlockRegionalService : public AdBlockBaseService {
 // Creates the AdBlockRegionalService
 std::unique_ptr<AdBlockRegionalService> AdBlockRegionalServiceFactory(
     const adblock::FilterList& catalog_entry,
-    brave_component_updater::BraveComponent::Delegate* delegate,
+    adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate,
     AdBlockRegionalService::ResourcesFileReadyCallback
         resoures_file_ready_callback);
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_H_

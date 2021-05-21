@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_BASE_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_BASE_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_BASE_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_BASE_SERVICE_H_
 
 #include <stdint.h>
 
@@ -17,27 +17,27 @@
 #include "base/memory/weak_ptr.h"
 #include "base/sequence_checker.h"
 #include "base/values.h"
-#include "brave/components/brave_shields/browser/base_brave_shields_service.h"
-#include "brave/components/brave_component_updater/browser/dat_file_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/base_adrbrowsiel_shields_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/dat_file_util.h"
 #include "third_party/blink/public/mojom/loader/resource_load_info.mojom-shared.h"
 
 class AdBlockServiceTest;
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 namespace adblock {
 class Engine;
 }
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
-// The base class of the brave shields service in charge of ad-block
+// The base class of the adrbrowsiel shields service in charge of ad-block
 // checking and init.
-class AdBlockBaseService : public BaseBraveShieldsService {
+class AdBlockBaseService : public BaseadrbrowsielShieldsService {
  public:
   using GetDATFileDataResult =
-      brave_component_updater::LoadDATFileDataResult<adblock::Engine>;
+      adrbrowsiel_component_updater::LoadDATFileDataResult<adblock::Engine>;
 
-  explicit AdBlockBaseService(BraveComponent::Delegate* delegate);
+  explicit AdBlockBaseService(adrbrowsielComponent::Delegate* delegate);
   ~AdBlockBaseService() override;
 
   void ShouldStartRequest(const GURL& url,
@@ -85,6 +85,6 @@ class AdBlockBaseService : public BaseBraveShieldsService {
   DISALLOW_COPY_AND_ASSIGN(AdBlockBaseService);
 };
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_BASE_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_BASE_SERVICE_H_

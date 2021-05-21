@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-declare namespace BraveToday {
+declare namespace adrbrowsielToday {
 
   // Messages
   namespace Messages {
@@ -71,7 +71,7 @@ declare namespace BraveToday {
   }
 
   type BaseFeedItem = {
-    content_type: 'article' | 'product' | 'brave_partner'
+    content_type: 'article' | 'product' | 'adrbrowsiel_partner'
     category: string // 'Tech', 'Business', 'Top News', 'Crypto', 'Cars', 'Culture', 'Fashion', 'Sports', 'Entertainment'
     publish_time: string // UTC "2020-04-17 19:21:10"
     title: string // "14 Truly Incredible Catfish Makeup Transformations From TikTok"
@@ -93,7 +93,7 @@ declare namespace BraveToday {
   }
 
   export type PromotedArticle = BaseFeedItem & {
-    content_type: 'brave_partner',
+    content_type: 'adrbrowsiel_partner',
     creative_instance_id: string // (Possibly but not guaranteed unique) Id for this specific item
   }
 

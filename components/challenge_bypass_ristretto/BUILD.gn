@@ -2,12 +2,12 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-import("//brave/build/cargo.gni")
+import("//adrbrowsiel/build/cargo.gni")
 
 config("external_config") {
   defines = [ "NO_CXXEXCEPTIONS=1" ]
 
-  include_dirs = [ "//brave/vendor/challenge_bypass_ristretto_ffi/src" ]
+  include_dirs = [ "//adrbrowsiel/vendor/challenge_bypass_ristretto_ffi/src" ]
 }
 
 rust_ffi("challenge_bypass_ristretto") {
@@ -17,9 +17,9 @@ rust_ffi("challenge_bypass_ristretto") {
   public_configs = [ ":external_config" ]
 
   sources = [
-    "//brave/vendor/challenge_bypass_ristretto_ffi/src/lib.h",
-    "//brave/vendor/challenge_bypass_ristretto_ffi/src/wrapper.cpp",
-    "//brave/vendor/challenge_bypass_ristretto_ffi/src/wrapper.hpp",
+    "//adrbrowsiel/vendor/challenge_bypass_ristretto_ffi/src/lib.h",
+    "//adrbrowsiel/vendor/challenge_bypass_ristretto_ffi/src/wrapper.cpp",
+    "//adrbrowsiel/vendor/challenge_bypass_ristretto_ffi/src/wrapper.hpp",
   ]
 
   deps = [ "//base" ]
@@ -31,7 +31,7 @@ rust_ffi("challenge_bypass_ristretto") {
 
 rust_crate("rust_lib") {
   inputs = [
-    "//brave/vendor/challenge_bypass_ristretto_ffi/Cargo.toml",
-    "//brave/vendor/challenge_bypass_ristretto_ffi/src/lib.rs",
+    "//adrbrowsiel/vendor/challenge_bypass_ristretto_ffi/Cargo.toml",
+    "//adrbrowsiel/vendor/challenge_bypass_ristretto_ffi/src/lib.rs",
   ]
 }

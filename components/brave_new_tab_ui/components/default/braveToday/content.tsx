@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -13,13 +13,13 @@ import Customize from './options/customize'
 import { attributeNameCardCount, Props } from './'
 import Refresh from './options/refresh'
 
-function getFeedHashForCache (feed?: BraveToday.Feed) {
+function getFeedHashForCache (feed?: adrbrowsielToday.Feed) {
   return feed ? feed.hash : ''
 }
 
 let pageRequestPending = false
 
-export default function BraveTodayContent (props: Props) {
+export default function adrbrowsielTodayContent (props: Props) {
   const { feed, publishers } = props
 
   const previousYAxis = React.useRef(0)
@@ -31,9 +31,9 @@ export default function BraveTodayContent (props: Props) {
       return
     }
     const endOfCurrentArticlesListObserver = new IntersectionObserver((entries) => {
-      console.debug('Brave Today content Intersection Observer triggered')
+      console.debug('adrbrowsiel Today content Intersection Observer triggered')
       if (entries.some(entry => entry.intersectionRatio > 0)) {
-        console.debug('Brave Today content Intersection Observer determined need new page.')
+        console.debug('adrbrowsiel Today content Intersection Observer determined need new page.')
         if (!pageRequestPending) {
           pageRequestPending = true
           window.requestIdleCallback(() => {
@@ -114,7 +114,7 @@ export default function BraveTodayContent (props: Props) {
     if (latestCardDepth.current >= count) {
       return
     }
-    console.debug(`Brave Today: viewed ${count} cards.`)
+    console.debug(`adrbrowsiel Today: viewed ${count} cards.`)
     props.onFeedItemViewedCountChanged(count)
   }))
   const registerCardCountTriggerElement = React.useCallback((trigger: HTMLElement | null) => {
@@ -137,7 +137,7 @@ export default function BraveTodayContent (props: Props) {
 
   // satisfy typescript sanity, should not get here
   if (!feed || !publishers) {
-    console.error('Brave Today: should have shown error or loading state, but ran in to an unintended code path.')
+    console.error('adrbrowsiel Today: should have shown error or loading state, but ran in to an unintended code path.')
     return null
   }
 
@@ -184,7 +184,7 @@ export default function BraveTodayContent (props: Props) {
           )
         })
       }
-      <Customize onCustomizeBraveToday={props.onCustomizeBraveToday} show={showOptions} />
+      <Customize onCustomizeadrbrowsielToday={props.onCustomizeadrbrowsielToday} show={showOptions} />
       <Refresh isFetching={props.isFetching} show={showOptions && (props.isUpdateAvailable || props.isFetching)} onClick={props.onRefresh} />
       <div
         ref={setScrollTriggerRef}

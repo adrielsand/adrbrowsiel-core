@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_P3A_BRAVE_P3A_SERVICE_H_
-#define BRAVE_COMPONENTS_P3A_BRAVE_P3A_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_SERVICE_H_
 
 #include <memory>
 #include <string>
@@ -13,8 +13,8 @@
 #include "base/memory/ref_counted.h"
 #include "base/metrics/histogram_base.h"
 #include "base/timer/timer.h"
-#include "brave/components/brave_prochlo/brave_prochlo_message.h"
-#include "brave/components/p3a/brave_p3a_log_store.h"
+#include "adrbrowsiel/components/adrbrowsiel_prochlo/adrbrowsiel_prochlo_message.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_p3a_log_store.h"
 #include "url/gurl.h"
 
 class PrefRegistrySimple;
@@ -23,19 +23,19 @@ namespace network {
 class SharedURLLoaderFactory;
 }
 
-namespace brave {
+namespace adrbrowsiel {
 
-class BraveP3AScheduler;
-class BraveP3AUploader;
+class adrbrowsielP3AScheduler;
+class adrbrowsielP3AUploader;
 
-// Core class for Brave Privacy-Preserving Product Analytics machinery.
+// Core class for adrbrowsiel Privacy-Preserving Product Analytics machinery.
 // Works on UI thread. Refcounted to receive histogram updating callbacks
 // on any thread.
 // TODO(iefremov): It should be possible to get rid of refcounted here.
-class BraveP3AService : public base::RefCountedThreadSafe<BraveP3AService>,
-                        public BraveP3ALogStore::Delegate {
+class adrbrowsielP3AService : public base::RefCountedThreadSafe<adrbrowsielP3AService>,
+                        public adrbrowsielP3ALogStore::Delegate {
  public:
-  BraveP3AService(PrefService* local_state,
+  adrbrowsielP3AService(PrefService* local_state,
                   std::string channel,
                   std::string week_of_install);
 
@@ -49,7 +49,7 @@ class BraveP3AService : public base::RefCountedThreadSafe<BraveP3AService>,
   void Init(
       scoped_refptr<network::SharedURLLoaderFactory> url_loader_factory);
 
-  // BraveP3ALogStore::Delegate
+  // adrbrowsielP3ALogStore::Delegate
   std::string Serialize(base::StringPiece histogram_name,
                         uint64_t value) override;
 
@@ -57,8 +57,8 @@ class BraveP3AService : public base::RefCountedThreadSafe<BraveP3AService>,
   bool IsActualMetric(base::StringPiece histogram_name) const override;
 
  private:
-  friend class base::RefCountedThreadSafe<BraveP3AService>;
-  ~BraveP3AService() override;
+  friend class base::RefCountedThreadSafe<adrbrowsielP3AService>;
+  ~adrbrowsielP3AService() override;
 
   void MaybeOverrideSettingsFromCommandLine();
 
@@ -106,9 +106,9 @@ class BraveP3AService : public base::RefCountedThreadSafe<BraveP3AService>,
   prochlo::MessageMetainfo pyxis_meta_;
 
   // Components:
-  std::unique_ptr<BraveP3ALogStore> log_store_;
-  std::unique_ptr<BraveP3AUploader> uploader_;
-  std::unique_ptr<BraveP3AScheduler> upload_scheduler_;
+  std::unique_ptr<adrbrowsielP3ALogStore> log_store_;
+  std::unique_ptr<adrbrowsielP3AUploader> uploader_;
+  std::unique_ptr<adrbrowsielP3AScheduler> upload_scheduler_;
 
   // Used to store histogram values that are produced between constructing
   // the service and its initialization.
@@ -117,9 +117,9 @@ class BraveP3AService : public base::RefCountedThreadSafe<BraveP3AService>,
   // Once fired we restart the overall uploading process.
   base::OneShotTimer rotation_timer_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveP3AService);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielP3AService);
 };
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_COMPONENTS_P3A_BRAVE_P3A_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_SERVICE_H_

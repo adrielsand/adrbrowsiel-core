@@ -1,17 +1,17 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_WIN_H_
-#define BRAVE_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_WIN_H_
+#ifndef adrbrowsiel_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_WIN_H_
+#define adrbrowsiel_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_WIN_H_
 
 #include <windows.h>
 #include <string>
 
-#include "brave/components/l10n/browser/locale_helper.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper.h"
 
-namespace brave_l10n {
+namespace adrbrowsiel_l10n {
 
 class LocaleHelperWin : public LocaleHelper {
  public:
@@ -30,6 +30,6 @@ class LocaleHelperWin : public LocaleHelper {
   std::string GetLocale() const override;
 };
 
-}  // namespace brave_l10n
+}  // namespace adrbrowsiel_l10n
 
-#endif  // BRAVE_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_WIN_H_
+#endif  // adrbrowsiel_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_WIN_H_

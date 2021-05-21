@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/ios/browser/brave_web_main_parts.h"
+#include "adrbrowsiel/ios/browser/adrbrowsiel_web_main_parts.h"
 
 #include "base/base_switches.h"
 #include "base/metrics/user_metrics.h"
@@ -29,11 +29,11 @@
 #error "This file requires ARC support."
 #endif
 
-BraveWebMainParts::BraveWebMainParts() {}
+adrbrowsielWebMainParts::adrbrowsielWebMainParts() {}
 
-BraveWebMainParts::~BraveWebMainParts() {}
+adrbrowsielWebMainParts::~adrbrowsielWebMainParts() {}
 
-void BraveWebMainParts::PreMainMessageLoopStart() {
+void adrbrowsielWebMainParts::PreMainMessageLoopStart() {
   l10n_util::OverrideLocaleWithCocoaLocale();
 
    const std::string loaded_locale =
@@ -47,7 +47,7 @@ void BraveWebMainParts::PreMainMessageLoopStart() {
        resources_pack_path, ui::SCALE_FACTOR_100P);
 }
 
-void BraveWebMainParts::PreCreateThreads() {
+void adrbrowsielWebMainParts::PreCreateThreads() {
   scoped_refptr<base::SequencedTaskRunner> local_state_task_runner =
       base::ThreadPool::CreateSequencedTaskRunner(
           {base::MayBlock(), base::TaskPriority::BEST_EFFORT,
@@ -78,7 +78,7 @@ void BraveWebMainParts::PreCreateThreads() {
   application_context_->PreCreateThreads();
 }
 
-void BraveWebMainParts::SetupFieldTrials() {
+void adrbrowsielWebMainParts::SetupFieldTrials() {
   base::SetRecordActionTaskRunner(
       base::CreateSingleThreadTaskRunner({web::WebThread::UI}));
 
@@ -106,7 +106,7 @@ void BraveWebMainParts::SetupFieldTrials() {
       std::move(feature_list), &ios_field_trials_);
 }
 
-void BraveWebMainParts::PreMainMessageLoopRun() {
+void adrbrowsielWebMainParts::PreMainMessageLoopRun() {
   application_context_->PreMainMessageLoopRun();
 
   // ContentSettingsPattern need to be initialized before creating the
@@ -123,10 +123,10 @@ void BraveWebMainParts::PreMainMessageLoopRun() {
   ALLOW_UNUSED_LOCAL(last_used_browser_state);
 }
 
-void BraveWebMainParts::PostMainMessageLoopRun() {
+void adrbrowsielWebMainParts::PostMainMessageLoopRun() {
   application_context_->StartTearDown();
 }
 
-void BraveWebMainParts::PostDestroyThreads() {
+void adrbrowsielWebMainParts::PostDestroyThreads() {
   application_context_->PostDestroyThreads();
 }

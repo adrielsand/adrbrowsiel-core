@@ -70,7 +70,7 @@ const publisherKeysByMediaKey = new Map<string, string>()
 // Maps publisher keys by tabId
 const publisherKeysByTabId = new Map<number, string>()
 
-const braveRewardsExtensionId = 'jidkidbbcafjabdphckchenhfomhnfma'
+const adrbrowsielRewardsExtensionId = 'jidkidbbcafjabdphckchenhfomhnfma'
 
 const buildTabIdSenderIdKey = (tabId: number, senderId: string) => {
   if (!tabId || !senderId) {
@@ -108,7 +108,7 @@ const handleMediaDurationMetadata = (tabId: number, mediaType: string, data: Med
     return
   }
 
-  chrome.braveRewards.updateMediaDuration(tabId, publisherKey, data.duration, data.firstVisit)
+  chrome.adrbrowsielRewards.updateMediaDuration(tabId, publisherKey, data.duration, data.firstVisit)
 }
 
 const onCompletedWebRequest = (
@@ -233,11 +233,11 @@ const handleRegisterOnUpdatedTab = (registrationKey: string, mediaType: string) 
 }
 
 const getPublisherPanelInfo = (tabId: number, publisherKey: string) => {
-  chrome.braveRewards.getPublisherPanelInfo(
+  chrome.adrbrowsielRewards.getPublisherPanelInfo(
     publisherKey, (result: RewardsExtension.Result, info?: RewardsExtension.Publisher) => {
       if (result === 0 && info) {
         chrome.runtime.sendMessage(
-          braveRewardsExtensionId,
+          adrbrowsielRewardsExtensionId,
           {
             type: 'OnPublisherData',
             tabId,
@@ -262,7 +262,7 @@ const getPublisherPanelInfoByTabId = (tabId: number) => {
 }
 
 const savePublisherInfo = (tabId: number, mediaType: string, url: string, publisherKey: string, publisherName: string, favIconUrl: string) => {
-  chrome.braveRewards.savePublisherInfo(
+  chrome.adrbrowsielRewards.savePublisherInfo(
     tabId,
     mediaType,
     url,
@@ -289,7 +289,7 @@ const handleSavePublisherVisit = (tabId: number, mediaType: string, data: SavePu
     publisherKeysByMediaKey.set(data.mediaKey, data.publisherKey)
   }
 
-  chrome.braveRewards.getPublisherInfo(
+  chrome.adrbrowsielRewards.getPublisherInfo(
     data.publisherKey, (result: RewardsExtension.Result, info?: RewardsExtension.Publisher) => {
       if (result === 0 && info) {
         getPublisherPanelInfo(tabId, data.publisherKey)
@@ -311,7 +311,7 @@ const handleSavePublisherVisit = (tabId: number, mediaType: string, data: SavePu
 }
 
 const handleTipUser = (tabId: number, mediaType: string, data: TipUser) => {
-  chrome.braveRewards.tipUser(
+  chrome.adrbrowsielRewards.tipUser(
     tabId,
     mediaType,
     data.url,
@@ -463,7 +463,7 @@ chrome.runtime.onMessageExternal.addListener(
       return
     }
     chrome.greaselion.isGreaselionExtension(sender.id, (valid: boolean) => {
-      if (!valid && sender.id !== braveRewardsExtensionId) {
+      if (!valid && sender.id !== adrbrowsielRewardsExtensionId) {
         return
       }
       switch (msg.type) {

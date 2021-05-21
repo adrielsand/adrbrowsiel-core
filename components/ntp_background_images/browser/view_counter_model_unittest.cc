@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/components/ntp_background_images/browser/view_counter_model.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/view_counter_model.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
 namespace {

@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/speedreader/speedreader_service.h"
+#include "adrbrowsiel/components/speedreader/speedreader_service.h"
 
 #include "base/feature_list.h"
 #include "base/metrics/histogram_macros.h"
-#include "brave/components/speedreader/features.h"
-#include "brave/components/speedreader/speedreader_pref_names.h"
-#include "brave/components/weekly_storage/weekly_storage.h"
+#include "adrbrowsiel/components/speedreader/features.h"
+#include "adrbrowsiel/components/speedreader/speedreader_pref_names.h"
+#include "adrbrowsiel/components/weekly_storage/weekly_storage.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
 
@@ -38,10 +38,10 @@ enum class EnabledStatus {
 };
 
 constexpr char kSpeedreaderToggleUMAHistogramName[] =
-    "Brave.SpeedReader.ToggleCount";
+    "adrbrowsiel.SpeedReader.ToggleCount";
 
 constexpr char kSpeedreaderEnabledUMAHistogramName[] =
-    "Brave.SpeedReader.Enabled";
+    "adrbrowsiel.SpeedReader.Enabled";
 
 void StoreTogglesHistogram(uint64_t toggles) {
   int bucket = 0;

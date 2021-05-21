@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/eth_json_rpc_controller.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_json_rpc_controller.h"
 
 #include <utility>
 
 #include "base/environment.h"
-#include "brave/components/brave_wallet/browser/eth_call_data_builder.h"
-#include "brave/components/brave_wallet/browser/eth_requests.h"
-#include "brave/components/brave_wallet/browser/eth_response_parser.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_call_data_builder.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_requests.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_response_parser.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/storage_partition.h"
 #include "net/base/load_flags.h"
@@ -25,9 +25,9 @@ net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotationTag() {
         sender: "ETH JSON RPC Controller"
         description:
           "This controller is used to communicate with Ethereum nodes "
-          "on behalf of the user interacting with the native Brave wallet."
+          "on behalf of the user interacting with the native adrbrowsiel wallet."
         trigger:
-          "Triggered by uses of the native Brave wallet."
+          "Triggered by uses of the native adrbrowsiel wallet."
         data:
           "Ethereum JSON RPC response bodies."
         destination: WEBSITE
@@ -45,25 +45,25 @@ net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotationTag() {
 const unsigned int kRetriesCountOnNetworkChange = 1;
 
 std::string GetInfuraProjectID() {
-  std::string project_id(BRAVE_INFURA_PROJECT_ID);
+  std::string project_id(adrbrowsiel_INFURA_PROJECT_ID);
   std::unique_ptr<base::Environment> env(base::Environment::Create());
 
-  if (env->HasVar("BRAVE_INFURA_PROJECT_ID")) {
-    env->GetVar("BRAVE_INFURA_PROJECT_ID", &project_id);
+  if (env->HasVar("adrbrowsiel_INFURA_PROJECT_ID")) {
+    env->GetVar("adrbrowsiel_INFURA_PROJECT_ID", &project_id);
   }
 
   return project_id;
 }
 
 bool GetUseStagingInfuraEndpoint() {
-  std::string project_id(BRAVE_INFURA_PROJECT_ID);
+  std::string project_id(adrbrowsiel_INFURA_PROJECT_ID);
   std::unique_ptr<base::Environment> env(base::Environment::Create());
-  return env->HasVar("BRAVE_INFURA_STAGING");
+  return env->HasVar("adrbrowsiel_INFURA_STAGING");
 }
 
 }  // namespace
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 EthJsonRpcController::EthJsonRpcController(content::BrowserContext* context,
                                            Network network)
@@ -167,8 +167,8 @@ void EthJsonRpcController::SetNetwork(Network network) {
 
   const std::string spec =
       base::StringPrintf(GetUseStagingInfuraEndpoint()
-                             ? "https://%s-staging-infura.bravesoftware.com/%s"
-                             : "https://%s-infura.brave.com/%s",
+                             ? "https://%s-staging-infura.adrbrowsielsoftware.com/%s"
+                             : "https://%s-infura.adrbrowsiel.com/%s",
                          subdomain.c_str(), GetInfuraProjectID().c_str());
   network_url_ = GURL(spec);
 }
@@ -327,4 +327,4 @@ GURL EthJsonRpcController::GetBlockTrackerURLFromNetwork(Network network) {
   return url;
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

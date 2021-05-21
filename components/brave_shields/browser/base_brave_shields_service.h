@@ -1,34 +1,34 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_BASE_BRAVE_SHIELDS_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_BASE_BRAVE_SHIELDS_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_BASE_adrbrowsiel_SHIELDS_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_BASE_adrbrowsiel_SHIELDS_SERVICE_H_
 
 #include <stdint.h>
 
 #include <memory>
 #include <string>
-// TODO(brave): <mutex> is an unapproved C++11 header
+// TODO(adrbrowsiel): <mutex> is an unapproved C++11 header
 #include <mutex>  // NOLINT
 
 #include "base/files/file_path.h"
 #include "base/sequenced_task_runner.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
 #include "third_party/blink/public/mojom/loader/resource_load_info.mojom-shared.h"
 #include "url/gurl.h"
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
-// The brave shields service in charge of checking brave shields like ad-block,
+// The adrbrowsiel shields service in charge of checking adrbrowsiel shields like ad-block,
 // tracking protection, etc.
-class BaseBraveShieldsService : public BraveComponent {
+class BaseadrbrowsielShieldsService : public adrbrowsielComponent {
  public:
-  explicit BaseBraveShieldsService(BraveComponent::Delegate* delegate);
-  ~BaseBraveShieldsService() override;
+  explicit BaseadrbrowsielShieldsService(adrbrowsielComponent::Delegate* delegate);
+  ~BaseadrbrowsielShieldsService() override;
   bool Start();
   bool IsInitialized() const;
   virtual void ShouldStartRequest(const GURL& url,
@@ -50,6 +50,6 @@ class BaseBraveShieldsService : public BraveComponent {
   scoped_refptr<base::SequencedTaskRunner> task_runner_;
 };
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_BASE_BRAVE_SHIELDS_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_BASE_adrbrowsiel_SHIELDS_SERVICE_H_

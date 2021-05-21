@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/eth_transaction.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_transaction.h"
 
 #include <utility>
 
 #include "base/logging.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/components/brave_wallet/browser/rlp_encode.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/rlp_encode.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 EthTransaction::EthTransaction(const uint256_t& nonce,
                                const uint256_t& gas_price,
@@ -85,4 +85,4 @@ bool EthTransaction::IsSigned() const {
   return v_ != 0 && r_.size() != 0 && s_.size() != 0;
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

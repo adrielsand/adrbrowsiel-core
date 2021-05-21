@@ -2,7 +2,7 @@
 * License, v. 2.0. If a copy of the MPL was not distributed with this file,
 * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import * as cosmeticFilterEvents from '../../../../brave_extension/extension/brave_extension/background/events/cosmeticFilterEvents'
+import * as cosmeticFilterEvents from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/events/cosmeticFilterEvents'
 
 let lastInputText: string
 let lastPromptText: string
@@ -18,9 +18,9 @@ describe('cosmeticFilterEvents events', () => {
   describe('when runtime.onMessage is received', () => {
     describe('contextMenuOpened', () => {
       it('assigns the base URI', () => {
-        chrome.runtime.sendMessage({ type: 'contextMenuOpened', baseURI: 'brave.com' },
+        chrome.runtime.sendMessage({ type: 'contextMenuOpened', baseURI: 'adrbrowsiel.com' },
         () => {
-          expect(cosmeticFilterEvents.rule.host).toBe('brave.com')
+          expect(cosmeticFilterEvents.rule.host).toBe('adrbrowsiel.com')
         })
       })
     })
@@ -30,15 +30,15 @@ describe('cosmeticFilterEvents events', () => {
     let contextMenuOnClickedSpy: jest.SpyInstance
     let chromeTabsQuerySpy: jest.SpyInstance
     let chromeTabsSendMessageSpy: jest.SpyInstance
-    let chromeBraveShieldsAddSiteCosmeticFilterSpy: jest.SpyInstance
-    chrome.braveShields = {
+    let chromeadrbrowsielShieldsAddSiteCosmeticFilterSpy: jest.SpyInstance
+    chrome.adrbrowsielShields = {
       addSiteCosmeticFilter: () => { /* stub */ }
     }
     beforeEach(() => {
       contextMenuOnClickedSpy = jest.spyOn(chrome.tabs, 'create')
       chromeTabsQuerySpy = jest.spyOn(chrome.tabs, 'query')
       chromeTabsSendMessageSpy = jest.spyOn(chrome.tabs, 'sendMessage')
-      chromeBraveShieldsAddSiteCosmeticFilterSpy = jest.spyOn(chrome.braveShields, 'addSiteCosmeticFilter')
+      chromeadrbrowsielShieldsAddSiteCosmeticFilterSpy = jest.spyOn(chrome.adrbrowsielShields, 'addSiteCosmeticFilter')
     })
     afterEach(() => {
       contextMenuOnClickedSpy.mockRestore()
@@ -47,7 +47,7 @@ describe('cosmeticFilterEvents events', () => {
 
     describe('addBlockElement', function () {
       it('triggers addBlockElement action (query call)', function () {
-        const info: chrome.contextMenus.OnClickData = { menuItemId: 'elementPickerMode', editable: false, pageUrl: 'brave.com' }
+        const info: chrome.contextMenus.OnClickData = { menuItemId: 'elementPickerMode', editable: false, pageUrl: 'adrbrowsiel.com' }
         // calls query
         const tab: chrome.tabs.Tab = {
           id: 3,
@@ -76,7 +76,7 @@ describe('cosmeticFilterEvents events', () => {
         })
         it('calls `chrome.tabs.insertCSS` with cosmetic filter rule', function () {
           selectorToReturn = '#test_selector'
-          cosmeticFilterEvents.applyCosmeticFilter('brave.com', selectorToReturn)
+          cosmeticFilterEvents.applyCosmeticFilter('adrbrowsiel.com', selectorToReturn)
           let returnObj = {
             'code': '#test_selector {display: none !important;}',
             'cssOrigin': 'user'

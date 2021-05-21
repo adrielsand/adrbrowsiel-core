@@ -13,7 +13,7 @@ import {
   WalletWrapper,
   WalletEmpty
 } from '../../ui/components'
-import { CloseStrokeIcon } from 'brave-ui/components/icons'
+import { CloseStrokeIcon } from 'adrbrowsiel-ui/components/icons'
 import { StyledWalletClose, StyledWalletOverlay, StyledWalletWrapper } from './style'
 
 // Utils
@@ -130,7 +130,7 @@ class PageWallet extends React.Component<Props, State> {
                 : <WalletSummary
                   reservedAmount={pendingTotal}
                   onlyAnonWallet={onlyAnonWallet}
-                  reservedMoreLink={'https://brave.com/faq-rewards/#unclaimed-funds'}
+                  reservedMoreLink={'https://adrbrowsiel.com/faq-rewards/#unclaimed-funds'}
                   {...this.getWalletSummary()}
                 />
               }

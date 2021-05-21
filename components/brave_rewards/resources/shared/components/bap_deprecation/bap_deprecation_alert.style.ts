@@ -10,12 +10,12 @@ export const root = styled.div`
   background-image: url('${bannerBackground}');
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: var(--brave-palette-white);
+  background-color: var(--adrbrowsiel-palette-white);
   box-shadow: 0px 0px 16px rgba(99, 105, 110, 0.2);
   border-radius: 8px;
   width: 440px;
   padding: 12px;
-  font-family: var(--brave-font-heading);
+  font-family: var(--adrbrowsiel-font-heading);
 
   .icon {
     color: #fff;
@@ -23,7 +23,7 @@ export const root = styled.div`
 `
 
 export const banner = styled.div`
-  color: var(--brave-palette-white);
+  color: var(--adrbrowsiel-palette-white);
   text-align: center;
   margin-top: -12px;
 
@@ -48,7 +48,7 @@ export const text = styled.div`
   margin-top: 9px;
   font-size: 14px;
   line-height: 22px;
-  color: var(--brave-palette-neutral700);
+  color: var(--adrbrowsiel-palette-neutral700);
 `
 
 export const action = styled.div`
@@ -56,7 +56,7 @@ export const action = styled.div`
   text-align: center;
 
   button {
-    color: var(--brave-palette-white);
+    color: var(--adrbrowsiel-palette-white);
     min-width: 160px;
     padding: 10px 20px;
     font-weight: 600;
@@ -64,12 +64,12 @@ export const action = styled.div`
     line-height: 22px;
     border: none;
     border-radius: 40px;
-    background: var(--brave-color-brandBat);
+    background: var(--adrbrowsiel-color-brandBat);
     cursor: pointer;
     text-transform: uppercase;
   }
 
   button:active {
-    background: var(--brave-color-brandBatActive);
+    background: var(--adrbrowsiel-color-brandBatActive);
   }
 `

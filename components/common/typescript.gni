@@ -1,12 +1,12 @@
 import("//tools/grit/grit_rule.gni")
 
 # Make sure webpack re-builds when...
-brave_common_web_compile_inputs = [
+adrbrowsiel_common_web_compile_inputs = [
   # common includes change
   rebase_path("classSet.ts"),
   rebase_path("debounce.ts"),
   rebase_path("locale.ts"),
-  rebase_path("BraveCoreThemeProvider.tsx"),
+  rebase_path("adrbrowsielCoreThemeProvider.tsx"),
 
   # common definitions change
   rebase_path("../definitions/adBlock.d.ts"),
@@ -31,10 +31,10 @@ brave_common_web_compile_inputs = [
   rebase_path("../webpack/webpack-plugin-depfile.js"),
 
   # typescript config changes
-  "//brave/tsconfig.json",
+  "//adrbrowsiel/tsconfig.json",
 
-  # brave-ui changes on its own (perhaps a manual local link)
-  "//brave/node_modules/brave-ui/package.json",
+  # adrbrowsiel-ui changes on its own (perhaps a manual local link)
+  "//adrbrowsiel/node_modules/adrbrowsiel-ui/package.json",
 ]
 
 # Runs a frontend compiler for the specified entry point(s) and outputs a GRD file
@@ -73,10 +73,10 @@ brave_common_web_compile_inputs = [
 #
 template("transpile_web_ui") {
   action(target_name) {
-    script = "//brave/script/transpile-web-ui.py"
+    script = "//adrbrowsiel/script/transpile-web-ui.py"
 
     # make sure rebuilds when common files change
-    inputs = brave_common_web_compile_inputs
+    inputs = adrbrowsiel_common_web_compile_inputs
     if (defined(invoker.inputs)) {
       inputs += invoker.inputs
     }
@@ -97,7 +97,7 @@ template("transpile_web_ui") {
     if (defined(invoker.output_dir)) {
       gen_output_dir = invoker.output_dir
     } else {
-      gen_output_dir = "$root_gen_dir/brave/web-ui-$resource_name"
+      gen_output_dir = "$root_gen_dir/adrbrowsiel/web-ui-$resource_name"
     }
 
     # sole output is a GRD that includes all the resources
@@ -169,7 +169,7 @@ template("pack_web_resources") {
     if (defined(invoker.generated_dir)) {
       generated_dir = invoker.generated_dir
     } else {
-      generated_dir = "$root_gen_dir/brave/web-ui-$resource_name"
+      generated_dir = "$root_gen_dir/adrbrowsiel/web-ui-$resource_name"
     }
     source = "$generated_dir/$resource_name.grd"
     enable_input_discovery_for_gn_analyze = true
@@ -190,7 +190,7 @@ template("pack_web_resources") {
 
     output_dir = invoker.output_dir
 
-    resource_ids = "//brave/browser/resources/resource_ids"
+    resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 
     forward_variables_from(invoker,
                            [

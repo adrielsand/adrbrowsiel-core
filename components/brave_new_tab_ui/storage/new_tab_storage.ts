@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -11,7 +11,7 @@ export const keyName = 'new-tab-data'
 export const defaultState: NewTab.State = {
   initialDataLoaded: false,
   textDirection: window.loadTimeData.getString('textdirection'),
-  featureFlagBraveNTPSponsoredImagesWallpaper: window.loadTimeData.getBoolean('featureFlagBraveNTPSponsoredImagesWallpaper'),
+  featureFlagadrbrowsielNTPSponsoredImagesWallpaper: window.loadTimeData.getBoolean('featureFlagadrbrowsielNTPSponsoredImagesWallpaper'),
   showBackgroundImage: false,
   showStats: false,
   showToday: false,
@@ -29,7 +29,7 @@ export const defaultState: NewTab.State = {
   showFTX: false,
   brandedWallpaperOptIn: false,
   isBrandedWallpaperNotificationDismissed: true,
-  isBraveTodayOptedIn: false,
+  isadrbrowsielTodayOptedIn: false,
   showEmptyPage: false,
   togetherSupported: false,
   geminiSupported: false,
@@ -207,7 +207,7 @@ export const addNewStackWidget = (state: NewTab.State) => {
 }
 
 // Replaces any stack widgets that were improperly removed
-// as a result of https://github.com/brave/brave-browser/issues/10067
+// as a result of https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10067
 export const replaceStackWidgets = (state: NewTab.State) => {
   const {
     showBinance,

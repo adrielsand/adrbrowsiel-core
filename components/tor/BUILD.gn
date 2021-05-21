@@ -1,7 +1,7 @@
-import("//brave/components/tor/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/tor/buildflags/buildflags.gni")
 
 source_set("tor") {
-  public_deps = [ "//brave/components/tor/buildflags" ]
+  public_deps = [ "//adrbrowsiel/components/tor/buildflags" ]
 
   sources = [
     "tor_constants.cc",
@@ -17,8 +17,8 @@ source_set("tor") {
 
   if (enable_tor) {
     sources += [
-      "brave_tor_client_updater.cc",
-      "brave_tor_client_updater.h",
+      "adrbrowsiel_tor_client_updater.cc",
+      "adrbrowsiel_tor_client_updater.h",
       "onion_location_navigation_throttle.cc",
       "onion_location_navigation_throttle.h",
       "onion_location_tab_helper.cc",
@@ -45,9 +45,9 @@ source_set("tor") {
   }
 
   deps += [
-    "//brave/components/brave_component_updater/browser",
-    "//brave/components/resources:strings",
-    "//brave/components/services/tor/public/interfaces",
+    "//adrbrowsiel/components/adrbrowsiel_component_updater/browser",
+    "//adrbrowsiel/components/resources:strings",
+    "//adrbrowsiel/components/services/tor/public/interfaces",
     "//components/pref_registry",
     "//components/prefs",
     "//components/user_prefs",
@@ -91,7 +91,7 @@ source_set("tor_unit_tests") {
 
     deps = [
       "//base/test:test_support",
-      "//brave/components/tor",
+      "//adrbrowsiel/components/tor",
       "//content/public/browser",
       "//content/test:test_support",
       "//testing/gtest",

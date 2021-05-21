@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_FEATURES_H_
-#define BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_FEATURES_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_FEATURES_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_FEATURES_H_
 
 #include "build/build_config.h"
 
@@ -12,7 +12,7 @@ namespace base {
 struct Feature;
 }  // namespace base
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 namespace features {
 
 extern const base::Feature kAdNotifications;
@@ -35,6 +35,6 @@ int AdNotificationInsetY();
 #endif  // !defined(OS_ANDROID)
 
 }  // namespace features
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_FEATURES_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_FEATURES_H_

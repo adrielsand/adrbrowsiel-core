@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -18,14 +18,14 @@ interface Props {
   showStats: boolean
 }
 
-class BraveStatsSettings extends React.PureComponent<Props, {}> {
+class adrbrowsielStatsSettings extends React.PureComponent<Props, {}> {
   render () {
     const { toggleShowStats, showStats } = this.props
 
     return (
       <div>
         <SettingsRow>
-          <SettingsText>{getLocale('showBraveStats')}</SettingsText>
+          <SettingsText>{getLocale('showadrbrowsielStats')}</SettingsText>
           <Toggle
             onChange={toggleShowStats}
             checked={showStats}
@@ -37,4 +37,4 @@ class BraveStatsSettings extends React.PureComponent<Props, {}> {
   }
 }
 
-export default BraveStatsSettings
+export default adrbrowsielStatsSettings

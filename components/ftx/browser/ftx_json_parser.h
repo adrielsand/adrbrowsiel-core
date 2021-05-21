@@ -1,16 +1,16 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_COMPONENTS_FTX_BROWSER_FTX_JSON_PARSER_H_
-#define BRAVE_COMPONENTS_FTX_BROWSER_FTX_JSON_PARSER_H_
+#ifndef adrbrowsiel_COMPONENTS_FTX_BROWSER_FTX_JSON_PARSER_H_
+#define adrbrowsiel_COMPONENTS_FTX_BROWSER_FTX_JSON_PARSER_H_
 
 #include <map>
 #include <string>
 #include <vector>
 
-#include "brave/components/ftx/browser/ftx_service.h"
+#include "adrbrowsiel/components/ftx/browser/ftx_service.h"
 
 class FTXJSONParser {
  public:
@@ -30,4 +30,4 @@ class FTXJSONParser {
                                  std::string* proceeds);
 };
 
-#endif  // BRAVE_COMPONENTS_FTX_BROWSER_FTX_JSON_PARSER_H_
+#endif  // adrbrowsiel_COMPONENTS_FTX_BROWSER_FTX_JSON_PARSER_H_

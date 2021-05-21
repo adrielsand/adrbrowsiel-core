@@ -1,4 +1,4 @@
-import("//brave/build/cargo.gni")
+import("//adrbrowsiel/build/cargo.gni")
 
 rust_crate("lib") {
   inputs = [

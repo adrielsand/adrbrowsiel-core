@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import { Toggle } from 'brave-ui/components'
+import { Toggle } from 'adrbrowsiel-ui/components'
 
 import { LocaleContext } from '../localeContext'
 import { Behaviors } from './behaviors'

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_H_
-#define BRAVE_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_H_
 
 #include <map>
 #include <string>
@@ -33,7 +33,7 @@ enum GreaselionFeature {
   GITHUB_TIPS,
   AUTO_CONTRIBUTION,
   ADS,
-  SUPPORTS_MINIMUM_BRAVE_VERSION,
+  SUPPORTS_MINIMUM_adrbrowsiel_VERSION,
   LAST_FEATURE
 };
 
@@ -67,4 +67,4 @@ class GreaselionService : public KeyedService,
 
 }  // namespace greaselion
 
-#endif  // BRAVE_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_H_

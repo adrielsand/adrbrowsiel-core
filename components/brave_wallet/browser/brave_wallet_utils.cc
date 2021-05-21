@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
 
 #include <algorithm>
 #include <cmath>
@@ -16,9 +16,9 @@
 #include "base/strings/string_split.h"
 #include "base/strings/string_util.h"
 #include "base/strings/stringprintf.h"
-#include "brave/components/brave_wallet/common/features.h"
-#include "brave/third_party/ethash/src/include/ethash/keccak.h"
-#include "brave/vendor/bip39wally-core-native/include/wally_bip39.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/features.h"
+#include "adrbrowsiel/third_party/ethash/src/include/ethash/keccak.h"
+#include "adrbrowsiel/vendor/bip39wally-core-native/include/wally_bip39.h"
 #include "crypto/random.h"
 #include "third_party/boringssl/src/include/openssl/evp.h"
 
@@ -26,7 +26,7 @@
 #include <windows.h>
 #endif
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 namespace {
 std::string GenerateMnemonicInternal(uint8_t* entropy, size_t size) {
@@ -44,7 +44,7 @@ std::string GenerateMnemonicInternal(uint8_t* entropy, size_t size) {
 
 bool IsNativeWalletEnabled() {
   return base::FeatureList::IsEnabled(
-      brave_wallet::features::kNativeBraveWalletFeature);
+      adrbrowsiel_wallet::features::kNativeadrbrowsielWalletFeature);
 }
 
 std::string ToHex(const std::string& data) {
@@ -393,4 +393,4 @@ void SecureZeroData(void* data, size_t size) {
 #endif
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

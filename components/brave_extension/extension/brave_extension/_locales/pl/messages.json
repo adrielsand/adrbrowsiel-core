@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Rozszerzenie Brave",
+    "message": "Rozszerzenie adrbrowsiel",
     "description": "The name of the the extension."
   },
   "shields": {
@@ -24,12 +24,12 @@
     "description": "Message telling the user to disable shields if a site appears broken"
   },
   "disabledMessage": {
-    "message": "Przeglądasz tę witrynę bez zabezpieczeń prywatności Brave. Czy włączone tarcze Brave powodują nieprawidłowe działanie tej witryny?",
+    "message": "Przeglądasz tę witrynę bez zabezpieczeń prywatności adrbrowsiel. Czy włączone tarcze adrbrowsiel powodują nieprawidłowe działanie tej witryny?",
     "description": "Message telling the user that shields are disabled, and prompting them towards reporting an issue if necessary"
   },
   "reportBrokenSite": {
     "message": "Zgłoś uszkodzoną stronę",
-    "description": "Message for the button allowing users to report a broken site to Brave developers"
+    "description": "Message for the button allowing users to report a broken site to adrbrowsiel developers"
   },
   "itemsBlocked": {
     "message": "zablokowanych elementów",
@@ -192,8 +192,8 @@
     "description": "Message for the simple view option"
   },
   "shieldsExplanation": {
-    "message": "Strony często zawierają pliki cookie i skrypty, które próbują zidentyfikować Ciebie i Twoje urządzenie (często wbudowane w reklamy). Chcą ustalić kim jesteś i śledzić Cię w Internecie - sprawdzać co robisz na każdej stronie. Brave blokuje te rzeczy, dzięki czemu możesz przeglądać witryny bez obserwowania Ciebie.",
-    "description": "Message in read-only view explaining what Brave Shields do"
+    "message": "Strony często zawierają pliki cookie i skrypty, które próbują zidentyfikować Ciebie i Twoje urządzenie (często wbudowane w reklamy). Chcą ustalić kim jesteś i śledzić Cię w Internecie - sprawdzać co robisz na każdej stronie. adrbrowsiel blokuje te rzeczy, dzięki czemu możesz przeglądać witryny bez obserwowania Ciebie.",
+    "description": "Message in read-only view explaining what adrbrowsiel Shields do"
   },
   "blockedResoucesExplanation": {
     "message": "Skrypty śledzące i inne przerażające rzeczy zostały zablokowane",

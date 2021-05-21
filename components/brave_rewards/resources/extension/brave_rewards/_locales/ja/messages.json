@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Brave Rewardsに大きな更新がありました。",
+    "message": "adrbrowsiel Rewardsに大きな更新がありました。",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "はBrave Rewardsにおいて、あなたの気に入ったコンテンツの制作者に寄付するために利用できます。BATポイントはBATに交換できません。",
+    "message": "はadrbrowsiel Rewardsにおいて、あなたの気に入ったコンテンツの制作者に寄付するために利用できます。BATポイントはBATに交換できません。",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Brave認証クリエイター",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsiel認証クリエイター",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "アテンション",
@@ -193,15 +193,15 @@
     "message": "OK",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "広告を見ることによって報酬を獲得できるようになりました。",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave Ads",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel Ads",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "自動支援",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Brave Rewardsアカウントは入金を待っています。",
+    "message": "adrbrowsiel Rewardsアカウントは入金を待っています。",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "資金が不足しています",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "ウォレットの作成",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave リワードに問題が発生しました。時間をおいて、もう一度試してみてください。",
+    "message": "adrbrowsiel リワードに問題が発生しました。時間をおいて、もう一度試してみてください。",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "このクリエイターは、Braveユーザーから支援を受け取る登録をまだ行っていません。彼らが認証するまでは、贈ったチップはあなたのウォレットに保留されます。",
+    "message": "このクリエイターは、adrbrowsielユーザーから支援を受け取る登録をまだ行っていません。彼らが認証するまでは、贈ったチップはあなたのウォレットに保留されます。",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave Rewardsは、",
+    "message": "adrbrowsiel Rewardsは、",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "および",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "ウェブサイト\n閲覧で報酬を得よう！",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Brave Rewardsを有効にする",
+    "message": "adrbrowsiel Rewardsを有効にする",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "[Brave Rewardsを有効にする]をクリックすると、次を読んで同意したものと見なされます",
+    "message": "[adrbrowsiel Rewardsを有効にする]をクリックすると、次を読んで同意したものと見なされます",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "報酬をあなたのBrave Rewardsウォレットに入金中です。",
+    "message": "報酬をあなたのadrbrowsiel Rewardsウォレットに入金中です。",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Brave Rewardとの接続を解除する",
+    "message": "adrbrowsiel Rewardとの接続を解除する",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "このBrave認定クリエーターは、Braveユーザーからの支援を受け取るためのアカウント設定を完了していません。設定が完了するまで、チップは全て送ったユーザーのウォレット内に留まります。",
+    "message": "このadrbrowsiel認定クリエーターは、adrbrowsielユーザーからの支援を受け取るためのアカウント設定を完了していません。設定が完了するまで、チップは全て送ったユーザーのウォレット内に留まります。",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Brave Rewardsの使用を開始",
+    "message": "adrbrowsiel Rewardsの使用を開始",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Brave Rewardsへようこそ！",
+    "message": "adrbrowsiel Rewardsへようこそ！",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Braveプライベート広告は、従来の広告とは異なり、コンテンツクリエイターをサポートするためのトークンで報酬がもらえ、すべては個人情報を非公開にして行われます。",
+    "message": "adrbrowsielプライベート広告は、従来の広告とは異なり、コンテンツクリエイターをサポートするためのトークンで報酬がもらえ、すべては個人情報を非公開にして行われます。",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Braveプライベート広告は通常の通知として表示されます。これらの広告をどのくらいの頻度で表示するかは設定で操作します。",
+    "message": "adrbrowsielプライベート広告は通常の通知として表示されます。これらの広告をどのくらいの頻度で表示するかは設定で操作します。",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "当月中にBraveプライベート広告から獲得したトークンは、翌月の5日に届きます。",
+    "message": "当月中にadrbrowsielプライベート広告から獲得したトークンは、翌月の5日に届きます。",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Brave Rewardsを使用することで、ウェブを誰にとってもより良い場所にすることができます。そしてそれは素晴らしいことです！",
+    "message": "adrbrowsiel Rewardsを使用することで、ウェブを誰にとってもより良い場所にすることができます。そしてそれは素晴らしいことです！",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "ウォレットを認証しbitFlyerアカウントにリンクすると、Brave Rewardsで獲得したトークンを簡単に保管し管理することができます",
+    "message": "ウォレットを認証しbitFlyerアカウントにリンクすると、adrbrowsiel Rewardsで獲得したトークンを簡単に保管し管理することができます",
     "description": ""
   },
   "onboardingPanelBitflyerLearnMore": {
-    "message": "BraveブラウザとbitFlyerアカウントの連携方法について$link_begin$詳しくはこちら$link_end$",
+    "message": "adrbrowsielブラウザとbitFlyerアカウントの連携方法について$link_begin$詳しくはこちら$link_end$",
     "description": "",
     "placeholders": {
       "link_begin": {
@@ -832,7 +832,7 @@
     }
   },
   "bapDeprecationHeader": {
-    "message": "日本の「Brave Rewards」は新しいシステムに移行を予定しています！",
+    "message": "日本の「adrbrowsiel Rewards」は新しいシステムに移行を予定しています！",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
-import { WalletAddIcon, BatColorIcon } from 'brave-ui/components/icons'
+import { WalletAddIcon, BatColorIcon } from 'adrbrowsiel-ui/components/icons'
 import { WalletWrapper, WalletSummary, WalletSummarySlider, WalletPanel } from '../../../ui/components'
 import { Provider } from '../../../ui/components/profile'
 import { NotificationType, WalletState } from '../../../ui/components/walletWrapper'
@@ -98,34 +98,34 @@ export class Panel extends React.Component<Props, State> {
   }
 
   startRewards () {
-    chrome.braveRewards.getACEnabled((enabled: boolean) => {
+    chrome.adrbrowsielRewards.getACEnabled((enabled: boolean) => {
       this.props.actions.onEnabledAC(enabled)
     })
 
-    chrome.braveRewards.shouldShowOnboarding((showOnboarding: boolean) => {
+    chrome.adrbrowsielRewards.shouldShowOnboarding((showOnboarding: boolean) => {
       this.props.actions.onShouldShowOnboarding(showOnboarding)
     })
 
-    chrome.braveRewards.getPrefs((prefs) => {
+    chrome.adrbrowsielRewards.getPrefs((prefs) => {
       this.props.actions.onGetPrefs(prefs)
     })
 
     this.actions.fetchPromotions()
 
-    chrome.braveRewards.getBalanceReport(new Date().getMonth() + 1, new Date().getFullYear(),
+    chrome.adrbrowsielRewards.getBalanceReport(new Date().getMonth() + 1, new Date().getFullYear(),
       (report: RewardsExtension.BalanceReport) => {
         this.actions.onBalanceReport(report)
       })
 
-    chrome.braveRewards.getPendingContributionsTotal(((amount: number) => {
+    chrome.adrbrowsielRewards.getPendingContributionsTotal(((amount: number) => {
       this.actions.OnPendingContributionsTotal(amount)
     }))
 
-    chrome.braveRewards.getRecurringTips((tips: RewardsExtension.RecurringTips) => {
+    chrome.adrbrowsielRewards.getRecurringTips((tips: RewardsExtension.RecurringTips) => {
       this.props.actions.onRecurringTips(tips)
     })
 
-    chrome.braveRewards.getRewardsParameters((parameters: RewardsExtension.RewardsParameters) => {
+    chrome.adrbrowsielRewards.getRewardsParameters((parameters: RewardsExtension.RewardsParameters) => {
       this.props.actions.onRewardsParameters(parameters)
     })
   }
@@ -183,7 +183,7 @@ export class Panel extends React.Component<Props, State> {
       const split = notification.id.split('_')
       const promoId = split[split.length - 1]
       if (promoId) {
-        chrome.braveRewards.claimPromotion(promoId, (properties: RewardsExtension.Captcha) => {
+        chrome.adrbrowsielRewards.claimPromotion(promoId, (properties: RewardsExtension.Captcha) => {
           this.actions.onClaimPromotion(properties)
         })
       }
@@ -199,7 +199,7 @@ export class Panel extends React.Component<Props, State> {
 
   onDeviceLimitReached = (id: string) => {
     chrome.tabs.create({
-      url: 'https://support.brave.com/hc/en-us/articles/360056508071'
+      url: 'https://support.adrbrowsiel.com/hc/en-us/articles/360056508071'
     })
     this.actions.deleteNotification(id)
   }
@@ -235,10 +235,10 @@ export class Panel extends React.Component<Props, State> {
       y: parseInt(y.toFixed(1), 10)
     })
 
-    chrome.braveRewards.attestPromotion(promotionId, data, (result: number, promotion?: RewardsExtension.Promotion) => {
+    chrome.adrbrowsielRewards.attestPromotion(promotionId, data, (result: number, promotion?: RewardsExtension.Promotion) => {
       // if wrong position try again
       if (result === 6) {
-        chrome.braveRewards.claimPromotion(promotionId, (properties: RewardsExtension.Captcha) => {
+        chrome.adrbrowsielRewards.claimPromotion(promotionId, (properties: RewardsExtension.Captcha) => {
           this.actions.onClaimPromotion(properties)
         })
       }
@@ -273,7 +273,7 @@ export class Panel extends React.Component<Props, State> {
 
   openRewardsPage (notificationId?: string) {
     chrome.tabs.create({
-      url: 'brave://rewards'
+      url: 'adrbrowsiel://rewards'
     })
 
     if (notificationId) {
@@ -310,7 +310,7 @@ export class Panel extends React.Component<Props, State> {
       return
     }
 
-    chrome.braveRewards.tipSite(tabId, publisher.publisherKey, entryPoint)
+    chrome.adrbrowsielRewards.tipSite(tabId, publisher.publisherKey, entryPoint)
     window.close()
   }
 
@@ -575,7 +575,7 @@ export class Panel extends React.Component<Props, State> {
     const publisher: RewardsExtension.Publisher | undefined = this.getPublisher()
     const publisherKey = publisher && publisher.publisherKey
     if (publisherKey) {
-      chrome.braveRewards.refreshPublisher(publisherKey, (status: number, publisherKey: string) => {
+      chrome.adrbrowsielRewards.refreshPublisher(publisherKey, (status: number, publisherKey: string) => {
         if (publisherKey) {
           this.actions.refreshPublisher(status, publisherKey)
         }
@@ -596,7 +596,7 @@ export class Panel extends React.Component<Props, State> {
   }
 
   onDisconnectClick = () => {
-    chrome.braveRewards.disconnectWallet()
+    chrome.adrbrowsielRewards.disconnectWallet()
   }
 
   shouldShowConnectedMessage = () => {
@@ -765,7 +765,7 @@ export class Panel extends React.Component<Props, State> {
 
       // Ensure that we have the latest version of prefs when displaying
       // the rewards tour
-      chrome.braveRewards.getPrefs((prefs) => {
+      chrome.adrbrowsielRewards.getPrefs((prefs) => {
         this.actions.onGetPrefs(prefs)
       })
 
@@ -866,7 +866,7 @@ export class Panel extends React.Component<Props, State> {
               onIncludeInAuto={this.switchAutoContribute}
               showUnVerified={this.shouldShowConnectedMessage()}
               acEnabled={enabledAC}
-              moreLink={'https://brave.com/faq/#unclaimed-funds'}
+              moreLink={'https://adrbrowsiel.com/faq/#unclaimed-funds'}
               onRefreshPublisher={this.refreshPublisher}
               refreshingPublisher={this.state.refreshingPublisher}
               publisherRefreshed={this.state.publisherRefreshed}
@@ -880,7 +880,7 @@ export class Panel extends React.Component<Props, State> {
             compact={true}
             reservedAmount={pendingTotal}
             onlyAnonWallet={this.props.onlyAnonWallet}
-            reservedMoreLink={'https://brave.com/faq/#unclaimed-funds'}
+            reservedMoreLink={'https://adrbrowsiel.com/faq/#unclaimed-funds'}
             {...this.getWalletSummary()}
           />
         </WalletSummarySlider>

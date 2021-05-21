@@ -1,17 +1,17 @@
-import("//brave/components/common/typescript.gni")
+import("//adrbrowsiel/components/common/typescript.gni")
 
-transpile_web_ui("brave_adblock_ui") {
+transpile_web_ui("adrbrowsiel_adblock_ui") {
   entry_points = [
-    ["brave_adblock", rebase_path("brave_adblock.tsx")]
+    ["adrbrowsiel_adblock", rebase_path("adrbrowsiel_adblock.tsx")]
   ]
 
-  resource_name = "brave_adblock"
+  resource_name = "adrbrowsiel_adblock"
 }
 
 pack_web_resources("generated_resources") {
-  resource_name = "brave_adblock"
-  output_dir = "$root_gen_dir/brave/components/brave_adblock/resources"
+  resource_name = "adrbrowsiel_adblock"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_adblock/resources"
   deps = [
-    ":brave_adblock_ui"
+    ":adrbrowsiel_adblock_ui"
   ]
 }

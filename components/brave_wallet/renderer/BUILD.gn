@@ -1,16 +1,16 @@
 source_set("renderer") {
   sources = [
-    "brave_wallet_js_handler.cc",
-    "brave_wallet_js_handler.h",
-    "brave_wallet_response_helpers.cc",
-    "brave_wallet_response_helpers.h",
+    "adrbrowsiel_wallet_js_handler.cc",
+    "adrbrowsiel_wallet_js_handler.h",
+    "adrbrowsiel_wallet_response_helpers.cc",
+    "adrbrowsiel_wallet_response_helpers.h",
   ]
 
   deps = [
     "//base",
-    "//brave/components/brave_wallet/common:common_constants",
-    "//brave/components/brave_wallet/common:mojom",
-    "//brave/components/brave_wallet/resources:ethereum_provider_generated_resources",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/common:common_constants",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/common:mojom",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/resources:ethereum_provider_generated_resources",
     "//content/public/renderer",
     "//gin",
     "//mojo/public/cpp/bindings",

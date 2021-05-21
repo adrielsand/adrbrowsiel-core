@@ -1,10 +1,10 @@
-import("//brave/components/brave_rewards/browser/buildflags/buildflags.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
-import("//brave/vendor/bat-native-ledger/config.gni")
+import("//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/vendor/bat-native-ledger/config.gni")
 import("//extensions/buildflags/buildflags.gni")
 
 source_set("browser") {
-  # Remove when https://github.com/brave/brave-browser/issues/10618 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10618 is resolved
   check_includes = false
   public_deps = [ "buildflags" ]
 
@@ -43,7 +43,7 @@ source_set("browser") {
 
   deps = [
     "//base",
-    "//brave/components/brave_rewards/common",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/common",
 
     # for profile.h
     "//components/domain_reliability",
@@ -63,7 +63,7 @@ source_set("browser") {
     ]
   }
 
-  if (brave_rewards_enabled) {
+  if (adrbrowsiel_rewards_enabled) {
     sources += [
       "net/network_delegate_helper.cc",
       "net/network_delegate_helper.h",
@@ -74,11 +74,11 @@ source_set("browser") {
     ]
 
     deps += [
-      "//brave/app:brave_generated_resources_grit",
-      "//brave/components/brave_ads/browser/buildflags",
-      "//brave/components/resources",
-      "//brave/components/services/bat_ledger/public/cpp",
-      "//brave/vendor/bat-native-ads",
+      "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+      "//adrbrowsiel/components/adrbrowsiel_ads/browser/buildflags",
+      "//adrbrowsiel/components/resources",
+      "//adrbrowsiel/components/services/bat_ledger/public/cpp",
+      "//adrbrowsiel/vendor/bat-native-ads",
       "//mojo/public/cpp/bindings",
       "//net",
       "//services/network/public/cpp",
@@ -87,13 +87,13 @@ source_set("browser") {
     ]
 
     if (ipfs_enabled) {
-      deps += [ "//brave/components/ipfs" ]
+      deps += [ "//adrbrowsiel/components/ipfs" ]
     }
 
-    public_deps += [ "//brave/vendor/bat-native-ledger:headers" ]
+    public_deps += [ "//adrbrowsiel/vendor/bat-native-ledger:headers" ]
 
     if (is_android) {
-      deps += [ "//brave/components/safetynet:android" ]
+      deps += [ "//adrbrowsiel/components/safetynet:android" ]
     }
   }
 }
@@ -103,8 +103,8 @@ source_set("testutil") {
   deps = [
     ":browser",
     "//base",
-    "//brave/browser",
-    "//brave/vendor/bat-native-ledger:headers",
+    "//adrbrowsiel/browser",
+    "//adrbrowsiel/vendor/bat-native-ledger:headers",
     "//chrome/test:test_support",
     "//content/public/browser",
     "//testing/gtest",

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REFERRALS_BROWSER_BRAVE_REFERRALS_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_REFERRALS_BROWSER_BRAVE_REFERRALS_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REFERRALS_BROWSER_adrbrowsiel_REFERRALS_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REFERRALS_BROWSER_adrbrowsiel_REFERRALS_SERVICE_H_
 
 #include <memory>
 #include <string>
@@ -19,7 +19,7 @@
 #include "url/gurl.h"
 
 #if defined(OS_ANDROID)
-#include "brave/components/safetynet/safetynet_check.h"
+#include "adrbrowsiel/components/safetynet/safetynet_check.h"
 #endif
 
 class PrefRegistrySimple;
@@ -30,16 +30,16 @@ namespace network {
 class SimpleURLLoader;
 }
 
-namespace brave {
+namespace adrbrowsiel {
 
 std::string GetAPIKey();
 
-class BraveReferralsService : public ProfileManagerObserver {
+class adrbrowsielReferralsService : public ProfileManagerObserver {
  public:
-  explicit BraveReferralsService(PrefService* pref_service,
+  explicit adrbrowsielReferralsService(PrefService* pref_service,
                                  const std::string& platform,
                                  const std::string& api_key);
-  ~BraveReferralsService() override;
+  ~adrbrowsielReferralsService() override;
 
   void Start();
   void Stop();
@@ -123,12 +123,12 @@ class BraveReferralsService : public ProfileManagerObserver {
   const std::string platform_;
   std::string promo_code_;
 
-  base::WeakPtrFactory<BraveReferralsService> weak_factory_;
+  base::WeakPtrFactory<adrbrowsielReferralsService> weak_factory_;
 };
 
-// Registers the preferences used by BraveReferralsService
-void RegisterPrefsForBraveReferralsService(PrefRegistrySimple* registry);
+// Registers the preferences used by adrbrowsielReferralsService
+void RegisterPrefsForadrbrowsielReferralsService(PrefRegistrySimple* registry);
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REFERRALS_BROWSER_BRAVE_REFERRALS_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REFERRALS_BROWSER_adrbrowsiel_REFERRALS_SERVICE_H_

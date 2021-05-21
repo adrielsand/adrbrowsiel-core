@@ -1,13 +1,13 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 import * as React from 'react'
 import styled, { css } from 'styled-components'
-import palette from 'brave-ui/theme/colors'
+import palette from 'adrbrowsiel-ui/theme/colors'
 import confettiImageUrl from './confetti.png'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
-import TOSAndPP, { Props as TOSProps } from '../../../../brave_rewards/resources/ui/components/TOSAndPP'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
+import TOSAndPP, { Props as TOSProps } from '../../../../adrbrowsiel_rewards/resources/ui/components/TOSAndPP'
 
 interface StyleProps {
   isLast?: boolean
@@ -60,7 +60,7 @@ export const RewardsTitle = styled('div')<StyleProps>`
 `
 
 export const ServiceLink = styled('a')<{}>`
-  color: ${p => p.theme.color.brandBrave};
+  color: ${p => p.theme.color.brandadrbrowsiel};
   font-weight: 600;
   text-decoration: none;
 `
@@ -89,7 +89,7 @@ export const SubTitle = styled('span')<{}>`
 `
 
 export const SubTitleLink = styled('a')<{}>`
-  color: ${p => p.theme.color.brandBrave};
+  color: ${p => p.theme.color.brandadrbrowsiel};
   text-decoration: none;
   cursor: pointer;
   &:hover {
@@ -115,7 +115,7 @@ export const TurnOnButton = styled('button')<{}>`
   justify-content: center;
   :focus {
     outline: none;
-    box-shadow: 0 0 0 1px ${p => p.theme.color.brandBrave};
+    box-shadow: 0 0 0 1px ${p => p.theme.color.brandadrbrowsiel};
   }
 `
 
@@ -275,7 +275,7 @@ export const StyledTOS = styled(TOSAndPP as React.ComponentType<TOSProps>)`
   font-size: 12px;
 
   a {
-    color: ${p => p.theme.color.brandBrave};
+    color: ${p => p.theme.color.brandadrbrowsiel};
   }
 `
 

@@ -1,13 +1,13 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/sync_device_info/brave_device_info.h"
+#include "adrbrowsiel/components/sync_device_info/adrbrowsiel_device_info.h"
 
 namespace syncer {
 
-BraveDeviceInfo::BraveDeviceInfo(
+adrbrowsielDeviceInfo::adrbrowsielDeviceInfo(
     const std::string& guid,
     const std::string& client_name,
     const std::string& chrome_version,
@@ -42,11 +42,11 @@ BraveDeviceInfo::BraveDeviceInfo(
                  interested_data_types),
       is_self_delete_supported_(is_self_delete_supported) {}
 
-bool BraveDeviceInfo::is_self_delete_supported() const {
+bool adrbrowsielDeviceInfo::is_self_delete_supported() const {
   return is_self_delete_supported_;
 }
 
-void BraveDeviceInfo::set_is_self_delete_supported(
+void adrbrowsielDeviceInfo::set_is_self_delete_supported(
     bool is_self_delete_supported) {
   is_self_delete_supported_ = is_self_delete_supported;
 }

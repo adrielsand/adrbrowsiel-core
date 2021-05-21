@@ -1,19 +1,19 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_perf_predictor/browser/bandwidth_savings_predictor.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/bandwidth_savings_predictor.h"
 
 #include <iostream>
 
 #include "base/logging.h"
-#include "brave/components/brave_perf_predictor/browser/bandwidth_linreg.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/bandwidth_linreg.h"
 #include "components/page_load_metrics/common/page_load_metrics.mojom.h"
 #include "net/base/registry_controlled_domains/registry_controlled_domain.h"
 #include "third_party/blink/public/mojom/loader/resource_load_info.mojom.h"
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 BandwidthSavingsPredictor::BandwidthSavingsPredictor(
     const NamedThirdPartyRegistry* registry)
@@ -140,7 +140,7 @@ double BandwidthSavingsPredictor::PredictSavingsBytes() const {
       VLOG(3) << feature.first << " :: " << feature.second;
     }
   }
-  double prediction = ::brave_perf_predictor::LinregPredictNamed(feature_map_);
+  double prediction = ::adrbrowsiel_perf_predictor::LinregPredictNamed(feature_map_);
   VLOG(2) << main_frame_url_ << " estimated saving " << prediction << " bytes";
   // Sanity check for predicted saving
   if (prediction > kSavingsAbsoluteOutlier &&
@@ -155,4 +155,4 @@ void BandwidthSavingsPredictor::Reset() {
   main_frame_url_ = {};
 }
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor

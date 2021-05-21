@@ -1,4 +1,4 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,17 +10,17 @@ source_set("app") {
   configs += [ "//build/config/compiler:enable_arc" ]
 
   sources = [
-    "brave_core_main.h",
-    "brave_core_main.mm",
-    "brave_main_delegate.h",
-    "brave_main_delegate.mm",
+    "adrbrowsiel_core_main.h",
+    "adrbrowsiel_core_main.mm",
+    "adrbrowsiel_main_delegate.h",
+    "adrbrowsiel_main_delegate.mm",
   ]
 
   deps = [
     "//base",
-    "//brave/common:pref_names",
-    "//brave/components/brave_sync:constants",
-    "//brave/ios/browser",
+    "//adrbrowsiel/common:pref_names",
+    "//adrbrowsiel/components/adrbrowsiel_sync:constants",
+    "//adrbrowsiel/ios/browser",
     "//components/browser_sync",
     "//components/sync/driver",
     "//components/sync/base",

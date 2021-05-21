@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -14,7 +14,7 @@ function getHostname (): Promise<string> {
     return Promise.resolve(hostnameCache)
   }
   return new Promise(resolve => {
-    chrome.braveToday.getHostname((newHostname) => {
+    chrome.adrbrowsielToday.getHostname((newHostname) => {
       hostnameCache = newHostname
       resolve(hostnameCache)
     })
@@ -26,7 +26,7 @@ function getRegionUrlPart (): Promise<string> {
     return Promise.resolve(regionURLPartCache)
   }
   return new Promise(resolve => {
-    chrome.braveToday.getRegionUrlPart((regionURLPart) => {
+    chrome.adrbrowsielToday.getRegionUrlPart((regionURLPart) => {
       regionURLPartCache = regionURLPart
       if (regionURLPart) {
         regionURLPartCache += '.'
@@ -41,7 +41,7 @@ export async function getFeedUrl () {
     getHostname(),
     getRegionUrlPart()
   ])
-  return `https://${hostname}/brave-today/feed.${regionUrlPart}json`
+  return `https://${hostname}/adrbrowsiel-today/feed.${regionUrlPart}json`
 }
 
 export async function getSourcesUrl () {
@@ -55,7 +55,7 @@ export async function getSourcesUrl () {
 // Always get the hostname at startup, it's cheap
 getHostname().then(hostname => {
   hostnameCache = hostname
-  console.debug('Brave Today hostname', hostname)
+  console.debug('adrbrowsiel Today hostname', hostname)
 }).catch(reason => {
-  console.error('Brave Today could not fetch hostname.', reason)
+  console.error('adrbrowsiel Today could not fetch hostname.', reason)
 })

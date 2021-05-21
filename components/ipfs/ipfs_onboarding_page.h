@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_IPFS_IPFS_ONBOARDING_PAGE_H_
-#define BRAVE_COMPONENTS_IPFS_IPFS_ONBOARDING_PAGE_H_
+#ifndef adrbrowsiel_COMPONENTS_IPFS_IPFS_ONBOARDING_PAGE_H_
+#define adrbrowsiel_COMPONENTS_IPFS_IPFS_ONBOARDING_PAGE_H_
 
 #include <memory>
 #include <string>
@@ -13,8 +13,8 @@
 #include "base/memory/weak_ptr.h"
 #include "base/scoped_observation.h"
 #include "base/values.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/ipfs_service_observer.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service_observer.h"
 #include "components/security_interstitials/content/security_interstitial_page.h"
 #include "ui/native_theme/native_theme.h"
 #include "ui/native_theme/native_theme_observer.h"
@@ -121,4 +121,4 @@ class IPFSOnboardingPage
 
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_IPFS_IPFS_ONBOARDING_PAGE_H_
+#endif  // adrbrowsiel_COMPONENTS_IPFS_IPFS_ONBOARDING_PAGE_H_

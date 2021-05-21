@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SEARCH_ENGINES_BRAVE_PREPOPULATED_ENGINES_H_
-#define BRAVE_COMPONENTS_SEARCH_ENGINES_BRAVE_PREPOPULATED_ENGINES_H_
+#ifndef adrbrowsiel_COMPONENTS_SEARCH_ENGINES_adrbrowsiel_PREPOPULATED_ENGINES_H_
+#define adrbrowsiel_COMPONENTS_SEARCH_ENGINES_adrbrowsiel_PREPOPULATED_ENGINES_H_
 
 #include <cstddef>
 #include <map>
@@ -14,8 +14,8 @@
 
 namespace TemplateURLPrepopulateData {
 
-extern const int kBraveCurrentDataVersion;
-extern const int kBraveFirstTrackedDataVersion;
+extern const int kadrbrowsielCurrentDataVersion;
+extern const int kadrbrowsielFirstTrackedDataVersion;
 
 // See comments on prepopulated engines ids in
 // components/search_engines/prepopulated_engines_schema.json above the
@@ -24,7 +24,7 @@ extern const int kBraveFirstTrackedDataVersion;
 // Currently taken ids range under 90, but we'd want to leave room for
 // additions by Chromium, so starting our ids from 500. Potential problem:
 // Chromium adds one of these engines to their list with a different id.
-enum BravePrepopulatedEngineID : unsigned int {
+enum adrbrowsielPrepopulatedEngineID : unsigned int {
   PREPOPULATED_ENGINE_ID_INVALID = 0,
 
   // These engine IDs are already defined in prepopulated_engines.json
@@ -33,7 +33,7 @@ enum BravePrepopulatedEngineID : unsigned int {
   PREPOPULATED_ENGINE_ID_YANDEX = 15,
   PREPOPULATED_ENGINE_ID_ECOSIA = 101,
   // These engine IDs are not defined in Chromium
-  BRAVE_PREPOPULATED_ENGINES_START = 500,
+  adrbrowsiel_PREPOPULATED_ENGINES_START = 500,
   PREPOPULATED_ENGINE_ID_AMAZON = 500,     // No longer in defaults (2/2019).
   PREPOPULATED_ENGINE_ID_DUCKDUCKGO,
 #if defined(OS_ANDROID)
@@ -97,14 +97,14 @@ extern const PrepopulatedEngine duckduckgo_au_nz_ie;
 #if defined(OS_ANDROID)
 extern const PrepopulatedEngine duckduckgo_lite;
 #endif
-extern const PrepopulatedEngine brave_ecosia;
+extern const PrepopulatedEngine adrbrowsiel_ecosia;
 extern const PrepopulatedEngine qwant;
 extern const PrepopulatedEngine startpage;
-extern const PrepopulatedEngine brave_yandex;
+extern const PrepopulatedEngine adrbrowsiel_yandex;
 
-const std::map<BravePrepopulatedEngineID, const PrepopulatedEngine*>&
-GetBraveEnginesMap();
+const std::map<adrbrowsielPrepopulatedEngineID, const PrepopulatedEngine*>&
+GetadrbrowsielEnginesMap();
 
 }  // namespace TemplateURLPrepopulateData
 
-#endif  // BRAVE_COMPONENTS_SEARCH_ENGINES_BRAVE_PREPOPULATED_ENGINES_H_
+#endif  // adrbrowsiel_COMPONENTS_SEARCH_ENGINES_adrbrowsiel_PREPOPULATED_ENGINES_H_

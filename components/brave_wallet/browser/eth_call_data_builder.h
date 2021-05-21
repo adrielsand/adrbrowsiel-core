@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_ETH_CALL_DATA_BUILDER_H_
-#define BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_ETH_CALL_DATA_BUILDER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_ETH_CALL_DATA_BUILDER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_ETH_CALL_DATA_BUILDER_H_
 
 #include <string>
 #include <vector>
 #include "base/values.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 namespace erc20 {
 
@@ -28,6 +28,6 @@ bool GetMany(const std::vector<std::string>& keys,
 
 }  // namespace unstoppable_domains
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_ETH_CALL_DATA_BUILDER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_ETH_CALL_DATA_BUILDER_H_

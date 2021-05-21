@@ -1,12 +1,12 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_P3A_BRAVE_P3A_SWITCHES_H_
-#define BRAVE_COMPONENTS_P3A_BRAVE_P3A_SWITCHES_H_
+#ifndef adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_SWITCHES_H_
+#define adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_SWITCHES_H_
 
-namespace brave {
+namespace adrbrowsiel {
 namespace switches {
 
 // Interval between sending two values.
@@ -27,6 +27,6 @@ constexpr char kP3AUploadServerUrl[] = "p3a-upload-server-url";
 constexpr char kP3AIgnoreServerErrors[] = "p3a-ignore-server-errors";
 
 }  // namespace switches
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_COMPONENTS_P3A_BRAVE_P3A_SWITCHES_H_
+#endif  // adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_SWITCHES_H_

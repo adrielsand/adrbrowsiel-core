@@ -1,19 +1,19 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/keyring_controller.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/keyring_controller.h"
 
 #include "base/base64.h"
 #include "base/logging.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/components/brave_wallet/browser/hd_keyring.h"
-#include "brave/components/brave_wallet/browser/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/hd_keyring.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/pref_names.h"
 #include "components/prefs/pref_service.h"
 #include "crypto/random.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 namespace {
 const size_t kSaltSize = 32;
 const size_t kNonceSize = 12;
@@ -30,7 +30,7 @@ KeyringController::KeyringController(PrefService* prefs) : prefs_(prefs) {
 KeyringController::~KeyringController() {
   // Store the accounts number for keyring resume
   if (!IsLocked() && default_keyring_)
-    prefs_->SetInteger(kBraveWalletDefaultKeyringAccountNum,
+    prefs_->SetInteger(kadrbrowsielWalletDefaultKeyringAccountNum,
                        default_keyring_->GetAccounts().size());
 }
 
@@ -58,7 +58,7 @@ HDKeyring* KeyringController::ResumeDefaultKeyring(
     return nullptr;
   }
   size_t account_no =
-      (size_t)prefs_->GetInteger(kBraveWalletDefaultKeyringAccountNum);
+      (size_t)prefs_->GetInteger(kadrbrowsielWalletDefaultKeyringAccountNum);
   if (account_no)
     default_keyring_->AddAccounts(account_no);
 
@@ -87,7 +87,7 @@ std::string KeyringController::GetMnemonicForDefaultKeyring() {
   }
   DCHECK(encryptor_);
   std::vector<uint8_t> encrypted_mnemonic;
-  if (!GetPrefsInBytes(kBraveWalletEncryptedMnemonic, &encrypted_mnemonic)) {
+  if (!GetPrefsInBytes(kadrbrowsielWalletEncryptedMnemonic, &encrypted_mnemonic)) {
     return std::string();
   }
   std::vector<uint8_t> mnemonic;
@@ -115,7 +115,7 @@ void KeyringController::Lock() {
   if (IsLocked() || !default_keyring_)
     return;
   // invalidate keyring and save account number
-  prefs_->SetInteger(kBraveWalletDefaultKeyringAccountNum,
+  prefs_->SetInteger(kadrbrowsielWalletDefaultKeyringAccountNum,
                      default_keyring_->GetAccounts().size());
   default_keyring_->ClearData();
 
@@ -135,13 +135,13 @@ bool KeyringController::Unlock(const std::string& password) {
 }
 
 void KeyringController::Reset() {
-  prefs_->ClearPref(kBraveWalletPasswordEncryptorSalt);
-  prefs_->ClearPref(kBraveWalletPasswordEncryptorNonce);
+  prefs_->ClearPref(kadrbrowsielWalletPasswordEncryptorSalt);
+  prefs_->ClearPref(kadrbrowsielWalletPasswordEncryptorNonce);
   encryptor_.reset();
 
   default_keyring_.reset();
-  prefs_->ClearPref(kBraveWalletEncryptedMnemonic);
-  prefs_->ClearPref(kBraveWalletDefaultKeyringAccountNum);
+  prefs_->ClearPref(kadrbrowsielWalletEncryptedMnemonic);
+  prefs_->ClearPref(kadrbrowsielWalletDefaultKeyringAccountNum);
 }
 
 bool KeyringController::GetPrefsInBytes(const std::string& path,
@@ -169,9 +169,9 @@ void KeyringController::SetPrefsInBytes(const std::string& path,
 
 std::vector<uint8_t> KeyringController::GetOrCreateNonce() {
   std::vector<uint8_t> nonce(kNonceSize);
-  if (!GetPrefsInBytes(kBraveWalletPasswordEncryptorNonce, &nonce)) {
+  if (!GetPrefsInBytes(kadrbrowsielWalletPasswordEncryptorNonce, &nonce)) {
     crypto::RandBytes(nonce);
-    SetPrefsInBytes(kBraveWalletPasswordEncryptorNonce, nonce);
+    SetPrefsInBytes(kadrbrowsielWalletPasswordEncryptorNonce, nonce);
   }
   return nonce;
 }
@@ -180,9 +180,9 @@ bool KeyringController::CreateEncryptor(const std::string& password) {
   if (password.empty())
     return false;
   std::vector<uint8_t> salt(kSaltSize);
-  if (!GetPrefsInBytes(kBraveWalletPasswordEncryptorSalt, &salt)) {
+  if (!GetPrefsInBytes(kadrbrowsielWalletPasswordEncryptorSalt, &salt)) {
     crypto::RandBytes(salt);
-    SetPrefsInBytes(kBraveWalletPasswordEncryptorSalt, salt);
+    SetPrefsInBytes(kadrbrowsielWalletPasswordEncryptorSalt, salt);
   }
   encryptor_ = PasswordEncryptor::DeriveKeyFromPasswordUsingPbkdf2(
       password, salt, 100000, 256);
@@ -198,7 +198,7 @@ bool KeyringController::CreateDefaultKeyringInternal(
                            &encrypted_mnemonic)) {
     return false;
   }
-  SetPrefsInBytes(kBraveWalletEncryptedMnemonic, encrypted_mnemonic);
+  SetPrefsInBytes(kadrbrowsielWalletEncryptedMnemonic, encrypted_mnemonic);
 
   const std::unique_ptr<std::vector<uint8_t>> seed =
       MnemonicToSeed(mnemonic, "");
@@ -208,4 +208,4 @@ bool KeyringController::CreateDefaultKeyringInternal(
   return true;
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

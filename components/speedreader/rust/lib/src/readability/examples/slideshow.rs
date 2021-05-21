@@ -10,7 +10,7 @@ use std::process::Command;
 use url::Url;
 
 // This stylesheet is the one used by the crx packager.
-static SPEEDREADER_CSS: &str = "https://raw.githubusercontent.com/brave-experiments/SpeedReader/master/data/content-stylesheet.css";
+static SPEEDREADER_CSS: &str = "https://raw.githubusercontent.com/adrbrowsiel-experiments/SpeedReader/master/data/content-stylesheet.css";
 static SAMPLES_PATH: &str = "../../data/tests-samples";
 static HTML_SLIDESHOW: &str = r#"
 <html>
@@ -123,7 +123,7 @@ fn main() {
     // can manually check for any regressions.
     let client = reqwest::blocking::Client::new();
     let sheet = format!(
-        "<style id=\"brave_speedreader_style\">{}</style>",
+        "<style id=\"adrbrowsiel_speedreader_style\">{}</style>",
         client.get(SPEEDREADER_CSS).send().unwrap().text().unwrap()
     );
     let css = sheet.as_bytes();
@@ -165,5 +165,5 @@ fn main() {
         .into_os_string()
         .into_string()
         .unwrap();
-    Command::new("brave").arg(slideshow_path).spawn().unwrap();
+    Command::new("adrbrowsiel").arg(slideshow_path).spawn().unwrap();
 }

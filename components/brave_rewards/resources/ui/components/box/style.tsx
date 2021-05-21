@@ -5,7 +5,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { Type } from './index'
-import Card, { CardProps } from 'brave-ui/components/layout/card'
+import Card, { CardProps } from 'adrbrowsiel-ui/components/layout/card'
 import TOSAndPP, { Props as TOSProps } from '../TOSAndPP'
 
 interface StyleProps {

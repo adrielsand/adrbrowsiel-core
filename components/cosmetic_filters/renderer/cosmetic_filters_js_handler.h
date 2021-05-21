@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_HANDLER_H_
-#define BRAVE_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_HANDLER_H_
+#ifndef adrbrowsiel_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_HANDLER_H_
+#define adrbrowsiel_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_HANDLER_H_
 
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "brave/components/cosmetic_filters/common/cosmetic_filters.mojom.h"
+#include "adrbrowsiel/components/cosmetic_filters/common/cosmetic_filters.mojom.h"
 #include "content/public/renderer/render_frame.h"
 #include "content/public/renderer/render_frame_observer.h"
 #include "mojo/public/cpp/bindings/remote.h"
@@ -75,4 +75,4 @@ v8::Local<v8::Object> GetOrCreateWorkerObject(v8::Isolate* isolate,
 
 }  // namespace cosmetic_filters
 
-#endif  // BRAVE_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_HANDLER_H_
+#endif  // adrbrowsiel_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_HANDLER_H_

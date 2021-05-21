@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_BRAVE_CONTENT_SETTINGS_PREF_PROVIDER_H_
-#define BRAVE_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_BRAVE_CONTENT_SETTINGS_PREF_PROVIDER_H_
+#ifndef adrbrowsiel_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_adrbrowsiel_CONTENT_SETTINGS_PREF_PROVIDER_H_
+#define adrbrowsiel_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_adrbrowsiel_CONTENT_SETTINGS_PREF_PROVIDER_H_
 
 #include <map>
 #include <memory>
@@ -19,14 +19,14 @@
 namespace content_settings {
 
 // With this subclass, shields configuration is persisted across sessions.
-class BravePrefProvider : public PrefProvider,
+class adrbrowsielPrefProvider : public PrefProvider,
                           public Observer {
  public:
-  BravePrefProvider(PrefService* prefs,
+  adrbrowsielPrefProvider(PrefService* prefs,
                     bool off_the_record,
                     bool store_last_modified,
                     bool restore_session);
-  ~BravePrefProvider() override;
+  ~adrbrowsielPrefProvider() override;
 
   static void CopyPluginSettingsForMigration(PrefService* prefs);
   static void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry);
@@ -43,13 +43,13 @@ class BravePrefProvider : public PrefProvider,
       bool incognito) const override;
 
  private:
-  friend class BravePrefProviderTest;
-  FRIEND_TEST_ALL_PREFIXES(BravePrefProviderTest, TestShieldsSettingsMigration);
-  FRIEND_TEST_ALL_PREFIXES(BravePrefProviderTest,
+  friend class adrbrowsielPrefProviderTest;
+  FRIEND_TEST_ALL_PREFIXES(adrbrowsielPrefProviderTest, TestShieldsSettingsMigration);
+  FRIEND_TEST_ALL_PREFIXES(adrbrowsielPrefProviderTest,
                            TestShieldsSettingsMigrationVersion);
-  FRIEND_TEST_ALL_PREFIXES(BravePrefProviderTest,
+  FRIEND_TEST_ALL_PREFIXES(adrbrowsielPrefProviderTest,
                            TestShieldsSettingsMigrationFromResourceIDs);
-  FRIEND_TEST_ALL_PREFIXES(BravePrefProviderTest,
+  FRIEND_TEST_ALL_PREFIXES(adrbrowsielPrefProviderTest,
                            TestShieldsSettingsMigrationFromUnknownSettings);
   void MigrateShieldsSettings(bool incognito);
   void MigrateShieldsSettingsFromResourceIds();
@@ -79,15 +79,15 @@ class BravePrefProvider : public PrefProvider,
   void OnCookiePrefsChanged(const std::string& pref);
 
   std::map<bool /* is_incognito */, std::vector<Rule>> cookie_rules_;
-  std::map<bool /* is_incognito */, std::vector<Rule>> brave_cookie_rules_;
+  std::map<bool /* is_incognito */, std::vector<Rule>> adrbrowsiel_cookie_rules_;
 
   bool initialized_;
   bool store_last_modified_;
-  base::WeakPtrFactory<BravePrefProvider> weak_factory_;
+  base::WeakPtrFactory<adrbrowsielPrefProvider> weak_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BravePrefProvider);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielPrefProvider);
 };
 
 }  //  namespace content_settings
 
-#endif  // BRAVE_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_BRAVE_CONTENT_SETTINGS_PREF_PROVIDER_H_
+#endif  // adrbrowsiel_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_adrbrowsiel_CONTENT_SETTINGS_PREF_PROVIDER_H_

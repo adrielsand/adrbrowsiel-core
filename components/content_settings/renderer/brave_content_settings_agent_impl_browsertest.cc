@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/feature_list.h"
 #include "base/path_service.h"
-#include "brave/browser/brave_content_browser_client.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
-#include "brave/components/brave_shields/common/features.h"
+#include "adrbrowsiel/browser/adrbrowsiel_content_browser_client.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/features.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -31,7 +31,7 @@
 #include "net/test/embedded_test_server/http_request.h"
 #include "testing/gmock/include/gmock/gmock.h"
 
-using brave_shields::ControlType;
+using adrbrowsiel_shields::ControlType;
 
 namespace {
 
@@ -81,11 +81,11 @@ const char kTitleScript[] = "domAutomationController.send(document.title);";
 
 }  // namespace
 
-class BraveContentSettingsAgentImplBrowserTest : public InProcessBrowserTest {
+class adrbrowsielContentSettingsAgentImplBrowserTest : public InProcessBrowserTest {
  public:
-  BraveContentSettingsAgentImplBrowserTest()
+  adrbrowsielContentSettingsAgentImplBrowserTest()
       : https_server_(net::EmbeddedTestServer::TYPE_HTTPS) {
-    feature_list_.InitAndEnableFeature(net::features::kBraveEphemeralStorage);
+    feature_list_.InitAndEnableFeature(net::features::kadrbrowsielEphemeralStorage);
   }
 
   void SetUpOnMainThread() override {
@@ -93,19 +93,19 @@ class BraveContentSettingsAgentImplBrowserTest : public InProcessBrowserTest {
 
     content_client_.reset(new ChromeContentClient);
     content::SetContentClient(content_client_.get());
-    browser_content_client_.reset(new BraveContentBrowserClient());
+    browser_content_client_.reset(new adrbrowsielContentBrowserClient());
     content::SetBrowserClientForTesting(browser_content_client_.get());
 
     host_resolver()->AddRule("*", "127.0.0.1");
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     https_server_.ServeFilesFromDirectory(test_data_dir);
     https_server_.AddDefaultHandlers(GetChromeTestDataDir());
     content::SetupCrossSiteRedirector(&https_server_);
     https_server_.RegisterRequestMonitor(base::BindRepeating(
-        &BraveContentSettingsAgentImplBrowserTest::SaveReferrer,
+        &adrbrowsielContentSettingsAgentImplBrowserTest::SaveReferrer,
         base::Unretained(this)));
 
     ASSERT_TRUE(https_server_.Start());
@@ -222,80 +222,80 @@ class BraveContentSettingsAgentImplBrowserTest : public InProcessBrowserTest {
   void BlockReferrers() {
     content_settings()->SetContentSettingCustomScope(
         top_level_page_pattern(), ContentSettingsPattern::Wildcard(),
-        ContentSettingsType::BRAVE_REFERRERS, CONTENT_SETTING_BLOCK);
+        ContentSettingsType::adrbrowsiel_REFERRERS, CONTENT_SETTING_BLOCK);
     ContentSettingsForOneType settings;
     content_settings()->GetSettingsForOneType(
-        ContentSettingsType::BRAVE_REFERRERS, &settings);
+        ContentSettingsType::adrbrowsiel_REFERRERS, &settings);
     EXPECT_EQ(settings.size(), 1u);
   }
 
   void AllowReferrers() {
     content_settings()->SetContentSettingCustomScope(
         top_level_page_pattern(), ContentSettingsPattern::Wildcard(),
-        ContentSettingsType::BRAVE_REFERRERS, CONTENT_SETTING_ALLOW);
+        ContentSettingsType::adrbrowsiel_REFERRERS, CONTENT_SETTING_ALLOW);
     ContentSettingsForOneType settings;
     content_settings()->GetSettingsForOneType(
-        ContentSettingsType::BRAVE_REFERRERS, &settings);
+        ContentSettingsType::adrbrowsiel_REFERRERS, &settings);
     EXPECT_EQ(settings.size(), 1u);
   }
 
   void Block3PCookies() {
-    brave_shields::SetCookieControlType(content_settings(),
+    adrbrowsiel_shields::SetCookieControlType(content_settings(),
                                         ControlType::BLOCK_THIRD_PARTY,
                                         top_level_page_url());
   }
 
   void BlockCookies() {
-    brave_shields::SetCookieControlType(
+    adrbrowsiel_shields::SetCookieControlType(
         content_settings(), ControlType::BLOCK, top_level_page_url());
   }
 
   void AllowCookies() {
-    brave_shields::SetCookieControlType(
+    adrbrowsiel_shields::SetCookieControlType(
         content_settings(), ControlType::ALLOW, top_level_page_url());
   }
 
   void ShieldsDown() {
-    brave_shields::SetBraveShieldsEnabled(content_settings(),
+    adrbrowsiel_shields::SetadrbrowsielShieldsEnabled(content_settings(),
                                           false,
                                           top_level_page_url());
   }
 
   void ShieldsUp() {
-    brave_shields::SetBraveShieldsEnabled(content_settings(),
+    adrbrowsiel_shields::SetadrbrowsielShieldsEnabled(content_settings(),
                                           true,
                                           top_level_page_url());
   }
 
   void AllowFingerprinting() {
-    brave_shields::SetFingerprintingControlType(
+    adrbrowsiel_shields::SetFingerprintingControlType(
         content_settings(), ControlType::ALLOW, top_level_page_url());
   }
 
   void BlockFingerprinting() {
-    brave_shields::SetFingerprintingControlType(
+    adrbrowsiel_shields::SetFingerprintingControlType(
         content_settings(), ControlType::BLOCK, top_level_page_url());
   }
 
   void BlockThirdPartyFingerprinting() {
-    brave_shields::SetFingerprintingControlType(content_settings(),
+    adrbrowsiel_shields::SetFingerprintingControlType(content_settings(),
                                                 ControlType::BLOCK_THIRD_PARTY,
                                                 top_level_page_url());
   }
 
   void SetFingerprintingDefault() {
-    brave_shields::SetFingerprintingControlType(content_settings(),
+    adrbrowsiel_shields::SetFingerprintingControlType(content_settings(),
                                                 ControlType::DEFAULT,
                                                 top_level_page_url());
   }
 
   void BlockScripts() {
-    brave_shields::SetNoScriptControlType(
+    adrbrowsiel_shields::SetNoScriptControlType(
         content_settings(), ControlType::BLOCK, top_level_page_url());
   }
 
   void AllowScripts() {
-    brave_shields::SetNoScriptControlType(
+    adrbrowsiel_shields::SetNoScriptControlType(
         content_settings(), ControlType::ALLOW, top_level_page_url());
   }
 
@@ -418,7 +418,7 @@ class BraveContentSettingsAgentImplBrowserTest : public InProcessBrowserTest {
   ContentSettingsPattern first_party_pattern_;
   ContentSettingsPattern iframe_pattern_;
   std::unique_ptr<ChromeContentClient> content_client_;
-  std::unique_ptr<BraveContentBrowserClient> browser_content_client_;
+  std::unique_ptr<adrbrowsielContentBrowserClient> browser_content_client_;
   mutable base::Lock last_referrers_lock_;
   std::map<GURL, std::string> last_referrers_;
 
@@ -426,16 +426,16 @@ class BraveContentSettingsAgentImplBrowserTest : public InProcessBrowserTest {
   net::test_server::EmbeddedTestServer https_server_;
 };
 
-class BraveContentSettingsAgentImplNoEphemeralStorageBrowserTest
-    : public BraveContentSettingsAgentImplBrowserTest {
+class adrbrowsielContentSettingsAgentImplNoEphemeralStorageBrowserTest
+    : public adrbrowsielContentSettingsAgentImplBrowserTest {
  public:
-  BraveContentSettingsAgentImplNoEphemeralStorageBrowserTest() {
+  adrbrowsielContentSettingsAgentImplNoEphemeralStorageBrowserTest() {
     feature_list_.Reset();
-    feature_list_.InitAndDisableFeature(net::features::kBraveEphemeralStorage);
+    feature_list_.InitAndDisableFeature(net::features::kadrbrowsielEphemeralStorage);
   }
 };
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        FarbleGetImageData) {
   // Farbling should be balanced by default
   NavigateToPageWithIframe();
@@ -471,16 +471,16 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   EXPECT_EQ(kExpectedImageDataHashFarblingOff, hash);
 }
 
-class BraveContentSettingsAgentImplV2BrowserTest
-    : public BraveContentSettingsAgentImplBrowserTest {
+class adrbrowsielContentSettingsAgentImplV2BrowserTest
+    : public adrbrowsielContentSettingsAgentImplBrowserTest {
  public:
-  void SetUp() override { BraveContentSettingsAgentImplBrowserTest::SetUp(); }
+  void SetUp() override { adrbrowsielContentSettingsAgentImplBrowserTest::SetUp(); }
 
  private:
   base::test::ScopedFeatureList scoped_feature_list_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplV2BrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplV2BrowserTest,
                        WebGLReadPixels) {
   std::string origin = "a.com";
   std::string path = "/webgl/readpixels.html";
@@ -504,9 +504,9 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplV2BrowserTest,
   EXPECT_EQ(ExecScriptGetStr(kTitleScript, contents()), "0");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplV2BrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplV2BrowserTest,
                        FarbleGetImageData) {
-  // Farbling should be default when kBraveFingerprintingV2 is enabled
+  // Farbling should be default when kadrbrowsielFingerprintingV2 is enabled
   // because it uses a different content setting
   NavigateToPageWithIframe();
   int hash = -1;
@@ -515,7 +515,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplV2BrowserTest,
   EXPECT_EQ(kExpectedImageDataHashFarblingBalanced, hash);
 
   // Farbling should be maximum if fingerprinting is blocked via content
-  // settings and kBraveFingerprintingV2 is enabled
+  // settings and kadrbrowsielFingerprintingV2 is enabled
   BlockFingerprinting();
   NavigateToPageWithIframe();
   hash = -1;
@@ -524,7 +524,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplV2BrowserTest,
   EXPECT_EQ(kExpectedImageDataHashFarblingMaximum, hash);
 
   // Farbling should be balanced if fingerprinting is default via
-  // content settings and kBraveFingerprintingV2 is enabled
+  // content settings and kadrbrowsielFingerprintingV2 is enabled
   SetFingerprintingDefault();
   NavigateToPageWithIframe();
   hash = -1;
@@ -533,7 +533,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplV2BrowserTest,
   EXPECT_EQ(kExpectedImageDataHashFarblingBalanced, hash);
 
   // Farbling should be off if fingerprinting is allowed via
-  // content settings and kBraveFingerprintingV2 is enabled
+  // content settings and kadrbrowsielFingerprintingV2 is enabled
   AllowFingerprinting();
   NavigateToPageWithIframe();
   hash = -1;
@@ -542,7 +542,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplV2BrowserTest,
   EXPECT_EQ(kExpectedImageDataHashFarblingOff, hash);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplV2BrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplV2BrowserTest,
                        CanvasIsPointInPath) {
   bool isPointInPath;
 
@@ -598,11 +598,11 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplV2BrowserTest,
 }
 
 // TODO(iefremov): We should reduce the copy-paste amount in these tests.
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        BlockReferrerByDefault) {
   ContentSettingsForOneType settings;
   content_settings()->GetSettingsForOneType(
-      ContentSettingsType::BRAVE_REFERRERS, &settings);
+      ContentSettingsType::adrbrowsiel_REFERRERS, &settings);
   EXPECT_EQ(settings.size(), 0u)
       << "There should not be any visible referrer rules.";
 
@@ -654,11 +654,11 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   EXPECT_EQ(GetLastReferrer(cross_site_url()), link_url().GetOrigin().spec());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        BlockReferrerByDefaultRedirects) {
   ContentSettingsForOneType settings;
   content_settings()->GetSettingsForOneType(
-      ContentSettingsType::BRAVE_REFERRERS, &settings);
+      ContentSettingsType::adrbrowsiel_REFERRERS, &settings);
   EXPECT_EQ(settings.size(), 0u)
       << "There should not be any visible referrer rules.";
 
@@ -691,7 +691,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
             link_url().spec());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        BlockReferrer) {
   BlockReferrers();
 
@@ -762,7 +762,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   EXPECT_EQ(GetLastReferrer(cross_site_url()), "");
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        BlockReferrerRedirects) {
   BlockReferrers();
 
@@ -796,7 +796,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
             link_url().spec());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        AllowReferrer) {
   AllowReferrers();
 
@@ -878,7 +878,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   EXPECT_EQ(GetLastReferrer(cross_site_url()), link.GetOrigin().spec());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        BlockReferrerShieldsDown) {
   BlockReferrers();
   ShieldsDown();
@@ -909,7 +909,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
 }
 
 IN_PROC_BROWSER_TEST_F(
-    BraveContentSettingsAgentImplNoEphemeralStorageBrowserTest,
+    adrbrowsielContentSettingsAgentImplNoEphemeralStorageBrowserTest,
     BlockThirdPartyCookieByDefault) {
   NavigateToPageWithIframe();
   CheckCookie(child_frame(), kTestCookie);
@@ -920,7 +920,7 @@ IN_PROC_BROWSER_TEST_F(
 
 // With ephemeral storage enabled, the 3p cookie should still appear to be set
 // correctly.
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        BlockThirdPartyCookieByDefault) {
   NavigateToPageWithIframe();
   CheckCookie(child_frame(), kTestCookie);
@@ -930,7 +930,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
 }
 
 IN_PROC_BROWSER_TEST_F(
-    BraveContentSettingsAgentImplNoEphemeralStorageBrowserTest,
+    adrbrowsielContentSettingsAgentImplNoEphemeralStorageBrowserTest,
     ExplicitBlock3PCookies) {
   Block3PCookies();
 
@@ -943,7 +943,7 @@ IN_PROC_BROWSER_TEST_F(
 
 // With ephemeral storage enabled, the 3p cookie should still appear to be
 // set correctly.
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        ExplicitBlock3PCookies) {
   Block3PCookies();
 
@@ -954,7 +954,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   Check3PCookie(child_frame(), kTestCookie);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest, BlockCookies) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest, BlockCookies) {
   BlockCookies();
 
   NavigateToPageWithIframe();
@@ -964,7 +964,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest, BlockCookies) {
   Check3PCookie(child_frame(), kEmptyCookie);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest, AllowCookies) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest, AllowCookies) {
   AllowCookies();
 
   NavigateToPageWithIframe();
@@ -977,8 +977,8 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest, AllowCookies) {
             content::GetCookies(browser()->profile(), cross_site_url()));
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
-                       ChromiumCookieBlockOverridesBraveAllowCookiesTopLevel) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
+                       ChromiumCookieBlockOverridesadrbrowsielAllowCookiesTopLevel) {
   AllowCookies();
   HostContentSettingsMap* content_settings =
       HostContentSettingsMapFactory::GetForProfile(browser()->profile());
@@ -994,8 +994,8 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
 }
 
 IN_PROC_BROWSER_TEST_F(
-    BraveContentSettingsAgentImplNoEphemeralStorageBrowserTest,
-    ChromiumCookieBlockOverridesBraveAllowCookiesIframe) {
+    adrbrowsielContentSettingsAgentImplNoEphemeralStorageBrowserTest,
+    ChromiumCookieBlockOverridesadrbrowsielAllowCookiesIframe) {
   AllowCookies();
   HostContentSettingsMap* content_settings =
       HostContentSettingsMapFactory::GetForProfile(browser()->profile());
@@ -1012,8 +1012,8 @@ IN_PROC_BROWSER_TEST_F(
 
 // Ephemeral storage still works with the Chromium cookie blocking content
 // setting.
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
-                       ChromiumCookieBlockOverridesBraveAllowCookiesIframe) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
+                       ChromiumCookieBlockOverridesadrbrowsielAllowCookiesIframe) {
   AllowCookies();
   HostContentSettingsMap* content_settings =
       HostContentSettingsMapFactory::GetForProfile(browser()->profile());
@@ -1028,7 +1028,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   Check3PCookie(child_frame(), kTestCookie);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        ShieldsDownOverridesBlockedCookies) {
   BlockCookies();
   ShieldsDown();
@@ -1040,7 +1040,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   Check3PCookie(child_frame(), kTestCookie);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        ShieldsDownAllowsCookies) {
   ShieldsDown();
 
@@ -1051,7 +1051,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   Check3PCookie(child_frame(), kTestCookie);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        ShieldsUpBlockCookies) {
   BlockCookies();
   ShieldsUp();
@@ -1064,7 +1064,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
 }
 
 IN_PROC_BROWSER_TEST_F(
-    BraveContentSettingsAgentImplNoEphemeralStorageBrowserTest,
+    adrbrowsielContentSettingsAgentImplNoEphemeralStorageBrowserTest,
     LocalStorageTest) {
   NavigateToPageWithIframe();
 
@@ -1077,9 +1077,9 @@ IN_PROC_BROWSER_TEST_F(
   CheckLocalStorageAccessDenied(child_frame());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        LocalStorageTest) {
-  // Brave defaults:
+  // adrbrowsiel defaults:
   // Main frame storage is always accessible.
   NavigateToPageWithIframe();
   CheckLocalStorageAccessible(contents());
@@ -1130,21 +1130,21 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   CheckLocalStorageThrows(child_frame());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest, BlockScripts) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest, BlockScripts) {
   BlockScripts();
 
   NavigateToURLUntilLoadStop("a.com", "/load_js_from_origins.html");
   EXPECT_EQ(contents()->GetAllFrames().size(), 1u);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest, AllowScripts) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest, AllowScripts) {
   AllowScripts();
 
   NavigateToURLUntilLoadStop("a.com", "/load_js_from_origins.html");
   EXPECT_EQ(contents()->GetAllFrames().size(), 4u);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        BlockScriptsShieldsDown) {
   BlockScripts();
   ShieldsDown();
@@ -1153,7 +1153,7 @@ IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
   EXPECT_EQ(contents()->GetAllFrames().size(), 4u);
 }
 
-IN_PROC_BROWSER_TEST_F(BraveContentSettingsAgentImplBrowserTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielContentSettingsAgentImplBrowserTest,
                        BlockScriptsShieldsDownInOtherTab) {
   // Turn off shields in a.com.
   ShieldsDown();

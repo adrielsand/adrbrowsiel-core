@@ -47,11 +47,11 @@ export const monthlyIndicator = styled.div`
   margin-top: -20px;
   font-size: 12px;
   line-height: 16px;
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
 `
 
 export const monthlyIndicatorStar = styled.span`
-  color: var(--brave-color-brandBatInteracting);
+  color: var(--adrbrowsiel-color-brandBatInteracting);
 `
 
 export const main = styled.div`

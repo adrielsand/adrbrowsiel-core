@@ -1,24 +1,24 @@
-import("//brave/components/brave_referrals/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.gni")
 
 source_set("browser") {
-  # Remove when https://github.com/brave/brave-browser/issues/10646 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10646 is resolved
   check_includes = false
   public_deps = [
-    "//brave/components/brave_referrals/buildflags",
+    "//adrbrowsiel/components/adrbrowsiel_referrals/buildflags",
   ]
 
-  if (enable_brave_referrals) {
+  if (enable_adrbrowsiel_referrals) {
     sources = [
-      "brave_referrals_service.cc",
-      "brave_referrals_service.h",
+      "adrbrowsiel_referrals_service.cc",
+      "adrbrowsiel_referrals_service.h",
     ]
 
     deps = [
       "//base",
-      "//brave/common",
-      "//brave/components/brave_referrals/common",
-      "//brave/components/brave_stats/browser",
-      "//brave/vendor/brave_base",
+      "//adrbrowsiel/common",
+      "//adrbrowsiel/components/adrbrowsiel_referrals/common",
+      "//adrbrowsiel/components/adrbrowsiel_stats/browser",
+      "//adrbrowsiel/vendor/adrbrowsiel_base",
       "//chrome/common",
       "//components/prefs",
       "//content/public/browser",
@@ -27,7 +27,7 @@ source_set("browser") {
     ]
 
     if (is_android) {
-      deps += [ "//brave/components/safetynet:android" ]
+      deps += [ "//adrbrowsiel/components/safetynet:android" ]
     }
   }
 }

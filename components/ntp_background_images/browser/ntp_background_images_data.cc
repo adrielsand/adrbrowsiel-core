@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ntp_background_images/browser/ntp_background_images_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_data.h"
 
 #include <utility>
 
 #include "base/json/json_reader.h"
 #include "base/logging.h"
 #include "base/strings/stringprintf.h"
-#include "brave/components/ntp_background_images/browser/url_constants.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/url_constants.h"
 #include "content/public/common/url_constants.h"
 
 /* Sample photo.json.
@@ -18,9 +18,9 @@
   "schemaVersion": 1,
   "logo": {
     "imageUrl": "logo.png",
-    "alt": "Visit Brave Software",
-    "companyName": "Brave Software",
-    "destinationUrl": "https://www.brave.com/"
+    "alt": "Visit adrbrowsiel Software",
+    "companyName": "adrbrowsiel Software",
+    "destinationUrl": "https://www.adrbrowsiel.com/"
   },
   "wallpapers": [
     {

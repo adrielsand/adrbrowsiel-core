@@ -1,4 +1,4 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -11,8 +11,8 @@
  * anything to take precedence.
  */
 
-@import url(chrome://brave-resources/fonts/muli.css);
-@import url(chrome://brave-resources/fonts/poppins.css);
+@import url(chrome://adrbrowsiel-resources/fonts/muli.css);
+@import url(chrome://adrbrowsiel-resources/fonts/poppins.css);
 
 html {
   /* TODO(dbeam): remove this soon. Prefer dir= in HTML. */

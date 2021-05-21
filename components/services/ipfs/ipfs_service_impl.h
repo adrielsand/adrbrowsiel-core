@@ -1,18 +1,18 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SERVICES_IPFS_IPFS_SERVICE_IMPL_H_
-#define BRAVE_COMPONENTS_SERVICES_IPFS_IPFS_SERVICE_IMPL_H_
+#ifndef adrbrowsiel_COMPONENTS_SERVICES_IPFS_IPFS_SERVICE_IMPL_H_
+#define adrbrowsiel_COMPONENTS_SERVICES_IPFS_IPFS_SERVICE_IMPL_H_
 
 #include <memory>
 
 #include "base/memory/weak_ptr.h"
 #include "base/process/process.h"
 #include "base/sequence_checker.h"
-#include "brave/components/child_process_monitor/child_process_monitor.h"
-#include "brave/components/services/ipfs/public/mojom/ipfs_service.mojom.h"
+#include "adrbrowsiel/components/child_process_monitor/child_process_monitor.h"
+#include "adrbrowsiel/components/services/ipfs/public/mojom/ipfs_service.mojom.h"
 #include "mojo/public/cpp/bindings/pending_receiver.h"
 #include "mojo/public/cpp/bindings/receiver.h"
 
@@ -33,7 +33,7 @@ class IpfsServiceImpl : public mojom::IpfsService {
   void OnChildCrash(base::ProcessId pid);
   void Cleanup();
 
-  std::unique_ptr<brave::ChildProcessMonitor> child_monitor_;
+  std::unique_ptr<adrbrowsiel::ChildProcessMonitor> child_monitor_;
   mojo::Receiver<mojom::IpfsService> receiver_;
   SetCrashHandlerCallback crash_handler_callback_;
 #if !defined(OS_ANDROID)
@@ -46,4 +46,4 @@ class IpfsServiceImpl : public mojom::IpfsService {
 
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_SERVICES_IPFS_IPFS_SERVICE_IMPL_H_
+#endif  // adrbrowsiel_COMPONENTS_SERVICES_IPFS_IPFS_SERVICE_IMPL_H_

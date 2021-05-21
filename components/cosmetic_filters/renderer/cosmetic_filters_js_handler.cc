@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/cosmetic_filters/renderer/cosmetic_filters_js_handler.h"
+#include "adrbrowsiel/components/cosmetic_filters/renderer/cosmetic_filters_js_handler.h"
 
 #include <utility>
 
@@ -12,7 +12,7 @@
 #include "base/no_destructor.h"
 #include "base/strings/stringprintf.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/components/cosmetic_filters/resources/grit/cosmetic_filters_generated_map.h"
+#include "adrbrowsiel/components/cosmetic_filters/resources/grit/cosmetic_filters_generated_map.h"
 #include "content/public/renderer/render_frame.h"
 #include "gin/arguments.h"
 #include "gin/function_template.h"

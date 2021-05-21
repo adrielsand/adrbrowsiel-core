@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/ad_block_service_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service_helper.h"
 
 #include <algorithm>
 #include <utility>
@@ -15,7 +15,7 @@
 
 using adblock::FilterList;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 std::vector<FilterList>::const_iterator FindAdBlockFilterListByUUID(
     const std::vector<FilterList>& region_lists,
@@ -214,4 +214,4 @@ void MergeResourcesInto(base::Value from, base::Value* into, bool force_hide) {
   }
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

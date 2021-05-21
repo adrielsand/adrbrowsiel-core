@@ -5,7 +5,7 @@
 import styled from 'styled-components'
 
 import batEcosystemImage from './assets/tour_bat_ecosystem.svg'
-import braveAdsImage from './assets/tour_brave_ads.svg'
+import adrbrowsielAdsImage from './assets/tour_adrbrowsiel_ads.svg'
 import batScheduleImage from './assets/tour_bat_schedule.svg'
 import acImage from './assets/tour_ac.svg'
 import tippingImage from './assets/tour_tipping.svg'
@@ -13,7 +13,7 @@ import redeemImage from './assets/tour_redeem.svg'
 import completedImage from './assets/tour_completed.svg'
 
 export const root = styled.div`
-  font-family: var(--brave-font-heading);
+  font-family: var(--adrbrowsiel-font-heading);
   min-height: 388px;
   text-align: center;
   display: grid;
@@ -45,7 +45,7 @@ export const stepHeader = styled.div`
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
-  color: var(--brave-palette-black);
+  color: var(--adrbrowsiel-palette-black);
 `
 
 export const stepText = styled.div`
@@ -53,7 +53,7 @@ export const stepText = styled.div`
   margin-top: 8px;
   font-size: 14px;
   line-height: 22px;
-  color: var(--brave-palette-neutral700);
+  color: var(--adrbrowsiel-palette-neutral700);
 `
 
 export const stepContent = styled.div`
@@ -75,7 +75,7 @@ export const stepGraphic = styled.div`
   }
 
   &.tour-graphic-ads {
-    background-image: url('${braveAdsImage}');
+    background-image: url('${adrbrowsielAdsImage}');
     max-width: 275px;
   }
 

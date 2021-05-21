@@ -1,12 +1,12 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/domain_block_controller_client.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_controller_client.h"
 
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
-#include "brave/components/brave_shields/browser/domain_block_tab_storage.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_tab_storage.h"
 #include "components/prefs/pref_service.h"
 #include "components/security_interstitials/content/settings_page_helper.h"
 #include "components/security_interstitials/core/metrics_helper.h"
@@ -16,7 +16,7 @@
 #include "ui/base/page_transition_types.h"
 #include "ui/base/window_open_disposition.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 // static
 std::unique_ptr<security_interstitials::MetricsHelper>
@@ -66,4 +66,4 @@ void DomainBlockControllerClient::SetDontWarnAgain(bool value) {
   dont_warn_again_ = value;
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

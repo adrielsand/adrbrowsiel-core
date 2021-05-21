@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_BRAVE_CONTENT_SETTINGS_DEFAULT_PROVIDER_H_
-#define BRAVE_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_BRAVE_CONTENT_SETTINGS_DEFAULT_PROVIDER_H_
+#ifndef adrbrowsiel_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_adrbrowsiel_CONTENT_SETTINGS_DEFAULT_PROVIDER_H_
+#define adrbrowsiel_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_adrbrowsiel_CONTENT_SETTINGS_DEFAULT_PROVIDER_H_
 
 #include <memory>
 
@@ -18,10 +18,10 @@ class PrefService;
 
 namespace content_settings {
 
-class BraveDefaultProvider : public DefaultProvider {
+class adrbrowsielDefaultProvider : public DefaultProvider {
  public:
-  BraveDefaultProvider(PrefService* prefs, bool off_the_record);
-  ~BraveDefaultProvider() override;
+  adrbrowsielDefaultProvider(PrefService* prefs, bool off_the_record);
+  ~adrbrowsielDefaultProvider() override;
 
   static void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry);
 
@@ -31,9 +31,9 @@ class BraveDefaultProvider : public DefaultProvider {
       bool off_the_record) const override;
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(BraveDefaultProvider);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielDefaultProvider);
 };
 
 }  // namespace content_settings
 
-#endif  // BRAVE_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_BRAVE_CONTENT_SETTINGS_DEFAULT_PROVIDER_H_
+#endif  // adrbrowsiel_COMPONENTS_CONTENT_SETTINGS_CORE_BROWSER_adrbrowsiel_CONTENT_SETTINGS_DEFAULT_PROVIDER_H_

@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/permissions/permission_expirations.h"
+#include "adrbrowsiel/components/permissions/permission_expirations.h"
 
 #include <algorithm>
 #include <memory>
@@ -13,7 +13,7 @@
 #include "base/strings/string_util.h"
 #include "base/test/bind.h"
 #include "base/test/values_test_util.h"
-#include "brave/components/permissions/permission_lifetime_pref_names.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_pref_names.h"
 #include "components/content_settings/core/browser/content_settings_utils.h"
 #include "components/content_settings/core/browser/website_settings_info.h"
 #include "components/content_settings/core/browser/website_settings_registry.h"
@@ -148,8 +148,8 @@ class PermissionExpirationsTest : public testing::Test {
 
  protected:
   const GURL kOrigin{"https://example.com"};
-  const GURL kOrigin2{"https://brave1.com"};
-  const GURL kOrigin3{"https://brave2.com"};
+  const GURL kOrigin2{"https://adrbrowsiel1.com"};
+  const GURL kOrigin3{"https://adrbrowsiel2.com"};
   const base::TimeDelta kLifetime{base::TimeDelta::FromSeconds(5)};
   const base::TimeDelta kOneSecond{base::TimeDelta::FromSeconds(1)};
 

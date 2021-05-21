@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -13,7 +13,7 @@ import org.chromium.components.browser_ui.settings.SettingsUtils;
 
 import java.util.HashMap;
 
-public class BraveSiteSettingsPreferencesBase extends SiteSettingsPreferenceFragment {
+public class adrbrowsielSiteSettingsPreferencesBase extends SiteSettingsPreferenceFragment {
     private static final String DESKTOP_MODE_CATEGORY_KEY = "desktop_mode_category";
     private static final String PLAY_YT_VIDEO_IN_BROWSER_CATEGORY_KEY = "play_yt_video_in_browser_category";
     private static final String ADS_KEY = "ads";
@@ -28,12 +28,12 @@ public class BraveSiteSettingsPreferencesBase extends SiteSettingsPreferenceFrag
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Add brave's additional preferences here because |onCreatePreference| is not called
+        // Add adrbrowsiel's additional preferences here because |onCreatePreference| is not called
         // by subclass (SiteSettingsPreferences::onCreatePreferences()).
         // But, calling here has same effect because |onCreatePreferences()| is called by onCreate().
-        SettingsUtils.addPreferencesFromResource(this, R.xml.brave_site_settings_preferences);
-        configureBravePreferences();
-        updateBravePreferenceStates();
+        SettingsUtils.addPreferencesFromResource(this, R.xml.adrbrowsiel_site_settings_preferences);
+        configureadrbrowsielPreferences();
+        updateadrbrowsielPreferenceStates();
     }
 
     @Override
@@ -42,7 +42,7 @@ public class BraveSiteSettingsPreferencesBase extends SiteSettingsPreferenceFrag
     @Override
     public void onResume() {
         super.onResume();
-        updateBravePreferenceStates();
+        updateadrbrowsielPreferenceStates();
     }
 
     /**
@@ -65,13 +65,13 @@ public class BraveSiteSettingsPreferencesBase extends SiteSettingsPreferenceFrag
         }
     }
 
-    private void configureBravePreferences() {
+    private void configureadrbrowsielPreferences() {
         removePreferenceIfPresent(IDLE_DETECTION);
         removePreferenceIfPresent(ADS_KEY);
         removePreferenceIfPresent(BACKGROUND_SYNC_KEY);
     }
 
-    private void updateBravePreferenceStates() {
+    private void updateadrbrowsielPreferenceStates() {
         {
             Preference p = findPreference(PLAY_YT_VIDEO_IN_BROWSER_CATEGORY_KEY);
             boolean enabled = ContextUtils.getAppSharedPreferences().getBoolean(

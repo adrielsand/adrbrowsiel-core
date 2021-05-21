@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/rpill/common/rpill.h"
+#include "adrbrowsiel/components/rpill/common/rpill.h"
 
 #include <memory>
 #include <string>
@@ -15,7 +15,7 @@
 #include "base/strings/string_util.h"
 #include "base/system/sys_info.h"
 
-namespace brave_rpill {
+namespace adrbrowsiel_rpill {
 
 namespace {
 
@@ -76,4 +76,4 @@ void DetectUncertainFuture(IsUncertainFutureCallback callback) {
                      base::ScopedClosureRunner(done_closure)));
 }
 
-}  // namespace brave_rpill
+}  // namespace adrbrowsiel_rpill

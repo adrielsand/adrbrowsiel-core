@@ -3,15 +3,15 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import AdsTrackersControl, { Props } from '../../../../../brave_extension/extension/brave_extension/containers/advancedView/controls/adsTrackersControl'
-import { BlockOptions } from '../../../../../brave_extension/extension/brave_extension/types/other/blockTypes'
-import * as actionTypes from '../../../../../brave_extension/extension/brave_extension/constants/shieldsPanelTypes'
+import AdsTrackersControl, { Props } from '../../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/containers/advancedView/controls/adsTrackersControl'
+import { BlockOptions } from '../../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/other/blockTypes'
+import * as actionTypes from '../../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/shieldsPanelTypes'
 import { shallow } from 'enzyme'
 
 const fakeProps: Props = {
   isBlockedListOpen: true,
   setBlockedListOpen: () => { return },
-  hostname: 'brave.com',
+  hostname: 'adrbrowsiel.com',
   favicon: '',
   ads: 'allow',
   cosmeticFiltering: 'block_third_party',

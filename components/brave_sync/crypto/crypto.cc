@@ -1,21 +1,21 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_sync/crypto/crypto.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/crypto/crypto.h"
 
 #include <cmath>
 
 #include "base/logging.h"
-#include "brave/vendor/bat-native-tweetnacl/tweetnacl.h"
-#include "brave/vendor/bip39wally-core-native/include/wally_bip39.h"
+#include "adrbrowsiel/vendor/bat-native-tweetnacl/tweetnacl.h"
+#include "adrbrowsiel/vendor/bip39wally-core-native/include/wally_bip39.h"
 #include "crypto/random.h"
 #include "third_party/boringssl/src/include/openssl/curve25519.h"
 #include "third_party/boringssl/src/include/openssl/digest.h"
 #include "third_party/boringssl/src/include/openssl/hkdf.h"
 
-namespace brave_sync {
+namespace adrbrowsiel_sync {
 namespace crypto {
 
 std::vector<uint8_t> GetSeed(size_t size) {
@@ -155,4 +155,4 @@ bool PassphraseToBytes32(const std::string& passphrase,
 }
 
 }  // namespace crypto
-}  // namespace brave_sync
+}  // namespace adrbrowsiel_sync

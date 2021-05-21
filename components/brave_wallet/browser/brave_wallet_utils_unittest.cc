@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -12,17 +12,17 @@
 
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/string_util.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
-TEST(BraveWalletUtilsUnitTest, ToHex) {
+TEST(adrbrowsielWalletUtilsUnitTest, ToHex) {
   ASSERT_EQ(ToHex(""), "0x0");
   ASSERT_EQ(ToHex("hello world"), "0x68656c6c6f20776f726c64");
 }
 
-TEST(BraveWalletUtilsUnitTest, KeccakHash) {
+TEST(adrbrowsielWalletUtilsUnitTest, KeccakHash) {
   ASSERT_EQ(
       KeccakHash(""),
       "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470");
@@ -31,12 +31,12 @@ TEST(BraveWalletUtilsUnitTest, KeccakHash) {
       "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad");
 }
 
-TEST(BraveWalletUtilsUnitTest, GetFunctionHash) {
+TEST(adrbrowsielWalletUtilsUnitTest, GetFunctionHash) {
   ASSERT_EQ(GetFunctionHash("approve(address,uint256)"), "0x095ea7b3");
   ASSERT_EQ(GetFunctionHash("balanceOf(address)"), "0x70a08231");
 }
 
-TEST(BraveWalletUtilsUnitTest, PadHexEncodedParameter) {
+TEST(adrbrowsielWalletUtilsUnitTest, PadHexEncodedParameter) {
   std::string out;
   // Pad an address
   ASSERT_TRUE(PadHexEncodedParameter(
@@ -54,18 +54,18 @@ TEST(BraveWalletUtilsUnitTest, PadHexEncodedParameter) {
   ASSERT_FALSE(PadHexEncodedParameter("", &out));
 }
 
-TEST(BraveWalletUtilsUnitTest, IsValidHexString) {
+TEST(adrbrowsielWalletUtilsUnitTest, IsValidHexString) {
   ASSERT_TRUE(IsValidHexString("0x0"));
   ASSERT_TRUE(IsValidHexString("0x4e02f254184E904300e0775E4b8eeCB14a1b29f0"));
   ASSERT_FALSE(IsValidHexString("0x"));
   ASSERT_FALSE(IsValidHexString("123"));
   ASSERT_FALSE(IsValidHexString("0"));
   ASSERT_FALSE(IsValidHexString(""));
-  ASSERT_FALSE(IsValidHexString("0xBraVe"));
+  ASSERT_FALSE(IsValidHexString("0xadrbrowsiel"));
   ASSERT_FALSE(IsValidHexString("0x12$$"));
 }
 
-TEST(BraveWalletUtilsUnitTest, ConcatHexStrings) {
+TEST(adrbrowsielWalletUtilsUnitTest, ConcatHexStrings) {
   std::string out;
   // Pad an address
   ASSERT_TRUE(ConcatHexStrings(
@@ -82,7 +82,7 @@ TEST(BraveWalletUtilsUnitTest, ConcatHexStrings) {
   ASSERT_FALSE(ConcatHexStrings("0x0", "0", &out));
 }
 
-TEST(BraveWalletUtilsUnitTest, HexValueToUint256) {
+TEST(adrbrowsielWalletUtilsUnitTest, HexValueToUint256) {
   uint256_t out;
   ASSERT_TRUE(HexValueToUint256("0x1", &out));
   ASSERT_EQ(out, (uint256_t)1);
@@ -100,7 +100,7 @@ TEST(BraveWalletUtilsUnitTest, HexValueToUint256) {
   ASSERT_EQ(out, (uint256_t)240);
 }
 
-TEST(BraveWalletUtilsUnitTest, Uint256ValueToHex) {
+TEST(adrbrowsielWalletUtilsUnitTest, Uint256ValueToHex) {
   ASSERT_EQ(Uint256ValueToHex(1), "0x1");
   ASSERT_EQ(Uint256ValueToHex(4660), "0x1234");
   ASSERT_EQ(Uint256ValueToHex(11), "0xb");
@@ -111,7 +111,7 @@ TEST(BraveWalletUtilsUnitTest, Uint256ValueToHex) {
   ASSERT_EQ(Uint256ValueToHex(3735928559), "0xdeadbeef");
 }
 
-TEST(BraveWalletUtilsUnitTest, Mnemonic) {
+TEST(adrbrowsielWalletUtilsUnitTest, Mnemonic) {
   const struct {
     const char* entropy;
     const char* mnemonic;
@@ -275,7 +275,7 @@ TEST(BraveWalletUtilsUnitTest, Mnemonic) {
   }
 }
 
-TEST(BraveWalletUtilsUnitTest, EncodeString) {
+TEST(adrbrowsielWalletUtilsUnitTest, EncodeString) {
   std::string output;
   EXPECT_TRUE(EncodeString("one", &output));
   EXPECT_EQ(output,
@@ -310,7 +310,7 @@ TEST(BraveWalletUtilsUnitTest, EncodeString) {
   EXPECT_FALSE(EncodeString(invalid_input, &output));
 }
 
-TEST(BraveWalletUtilsUnitTest, EncodeStringArray) {
+TEST(adrbrowsielWalletUtilsUnitTest, EncodeStringArray) {
   std::vector<std::string> input({"one", "two", "three"});
   std::string output;
   EXPECT_TRUE(EncodeStringArray(input, &output));
@@ -408,7 +408,7 @@ TEST(BraveWalletUtilsUnitTest, EncodeStringArray) {
   EXPECT_FALSE(EncodeStringArray(input, &output));
 }
 
-TEST(BraveWalletUtilsUnitTest, DecodeString) {
+TEST(adrbrowsielWalletUtilsUnitTest, DecodeString) {
   std::string output;
   EXPECT_TRUE(DecodeString(
       0,
@@ -477,7 +477,7 @@ TEST(BraveWalletUtilsUnitTest, DecodeString) {
       &output));
 }
 
-TEST(BraveWalletUtilsUnitTest, DecodeStringArray) {
+TEST(adrbrowsielWalletUtilsUnitTest, DecodeStringArray) {
   std::vector<std::string> output;
   EXPECT_TRUE(DecodeStringArray(
       // count of elements in input array
@@ -658,7 +658,7 @@ TEST(BraveWalletUtilsUnitTest, DecodeStringArray) {
       &output));
 }
 
-TEST(BraveWalletUtilsUnitTest, Namehash) {
+TEST(adrbrowsielWalletUtilsUnitTest, Namehash) {
   EXPECT_EQ(
       Namehash(""),
       "0x0000000000000000000000000000000000000000000000000000000000000000");
@@ -684,15 +684,15 @@ TEST(BraveWalletUtilsUnitTest, Namehash) {
       Namehash("a.b.c.crypto"),
       "0x353ea3e0449067382e0ea7934767470170dcfa9c49b1be0fe708adc4b1f9cf13");
   EXPECT_EQ(
-      Namehash("brave.crypto"),
+      Namehash("adrbrowsiel.crypto"),
       "0x77252571a99feee8f5e6b2f0c8b705407d395adc00b3c8ebcc7c19b2ea850013");
 }
 
-TEST(BraveWalletUtilsUnitTest, SecureZeroData) {
+TEST(adrbrowsielWalletUtilsUnitTest, SecureZeroData) {
   int a = 123;
   SecureZeroData(&a, sizeof(a));
   EXPECT_EQ(a, 0);
-  std::string b = "brave";
+  std::string b = "adrbrowsiel";
   SecureZeroData(&b, sizeof(b));
   EXPECT_TRUE(b.empty());
   std::vector<uint8_t> c = {0xde, 0xad, 0xbe, 0xef};
@@ -702,4 +702,4 @@ TEST(BraveWalletUtilsUnitTest, SecureZeroData) {
   }
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

@@ -1,23 +1,23 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-import { isPublisherContentAllowed } from '../../../../../common/braveToday'
+import { isPublisherContentAllowed } from '../../../../../common/adrbrowsielToday'
 import { getOrFetchData as getOrFetchPublishers, addPublishersChangedListener } from './publishers'
 import feedToData from './feedToData'
 import { fetchResource } from './privateCDN'
 import { getFeedUrl } from './urls'
 
-type RemoteData = BraveToday.FeedItem[]
+type RemoteData = adrbrowsielToday.FeedItem[]
 
 type FeedInStorage = {
   storageSchemaVersion: number,
   sourceUrl: string,
-  feed: BraveToday.Feed
+  feed: adrbrowsielToday.Feed
 }
 
-let memoryTodayData: BraveToday.Feed | undefined
+let memoryTodayData: adrbrowsielToday.Feed | undefined
 let readLock: Promise<void> | null
 const STORAGE_KEY = 'today'
 const STORAGE_KEY_ETAG = 'todayEtag'
@@ -37,7 +37,7 @@ function getFromStorage<T> (key: string) {
   })
 }
 
-async function setStorageData (feed: BraveToday.Feed) {
+async function setStorageData (feed: adrbrowsielToday.Feed) {
   chrome.storage.local.set({
     [STORAGE_KEY]: {
       storageSchemaVersion: STORAGE_SCHEMA_VERSION,
@@ -137,7 +137,7 @@ function performUpdateFeed () {
         throw new Error(`Not ok when fetching feed. Status ${feedResponse.status} (${feedResponse.statusText})`)
       }
     } catch (e) {
-      console.error('Could not process Brave Today feed contents')
+      console.error('Could not process adrbrowsiel Today feed contents')
       reject(e)
     } finally {
       readLock = null
@@ -183,7 +183,7 @@ export async function checkForRemoteUpdate () {
   }
   const newEtag = headResponse.headers.get('Etag')
   setLastUpdateCheckTime(Date.now())
-  console.debug(`Brave Today checked for new update. New Etag is "${newEtag}". Last Etag was "${existingEtag}".`)
+  console.debug(`adrbrowsiel Today checked for new update. New Etag is "${newEtag}". Last Etag was "${existingEtag}".`)
   if (newEtag && newEtag !== existingEtag) {
     isKnownRemoteUpdateAvailable = true
     return true

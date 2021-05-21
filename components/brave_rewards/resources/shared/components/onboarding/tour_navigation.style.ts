@@ -24,8 +24,8 @@ export const root = styled.div`
   }
 
   button.nav-forward {
-    color: var(--brave-palette-white);
-    background: var(--brave-color-brandBat);
+    color: var(--adrbrowsiel-palette-white);
+    background: var(--adrbrowsiel-color-brandBat);
     padding: 5px 20px;
     border-radius: 30px;
 
@@ -36,17 +36,17 @@ export const root = styled.div`
     }
 
     &:active {
-      background: var(--brave-color-brandBatActive);
+      background: var(--adrbrowsiel-color-brandBatActive);
     }
   }
 
   button.nav-skip {
-    color: var(--brave-palette-neutral600);
+    color: var(--adrbrowsiel-palette-neutral600);
   }
 
   button.nav-back {
     padding: 5px;
-    color: var(--brave-color-brandBat);
+    color: var(--adrbrowsiel-color-brandBat);
 
     .icon {
       height: 12px;

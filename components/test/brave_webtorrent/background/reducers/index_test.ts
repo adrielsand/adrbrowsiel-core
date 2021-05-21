@@ -2,11 +2,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import reducers from '../../../../brave_webtorrent/extension/background/reducers/index'
+import reducers from '../../../../adrbrowsiel_webtorrent/extension/background/reducers/index'
 import { applicationState } from '../../testData'
 
 // this import seems to trigger createStore and get an undefined reducer
-jest.mock('../../../../brave_webtorrent/extension/background/events/torrentEvents')
+jest.mock('../../../../adrbrowsiel_webtorrent/extension/background/events/torrentEvents')
 
 describe('webtorrent reducers test', () => {
   it('reducers are a combined reducer function', () => {

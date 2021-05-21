@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_PAGE_METRICS_OBSERVER_H_
-#define BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_PAGE_METRICS_OBSERVER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_PAGE_METRICS_OBSERVER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_PAGE_METRICS_OBSERVER_H_
 
 #include <cstdint>
 #include <string>
@@ -22,7 +22,7 @@ class PageLoadTiming;
 }  // namespace mojom
 }  // namespace page_load_metrics
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 class PerfPredictorTabHelper;
 
@@ -58,6 +58,6 @@ class PerfPredictorPageMetricsObserver
   PerfPredictorTabHelper* observer_ = nullptr;
 };
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor
 
-#endif  // BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_PAGE_METRICS_OBSERVER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_PAGE_METRICS_OBSERVER_H_

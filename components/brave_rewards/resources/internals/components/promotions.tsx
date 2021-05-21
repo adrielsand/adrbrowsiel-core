@@ -6,7 +6,7 @@ import * as React from 'react'
 
 import { Promotion } from './promotion'
 import { ButtonWrapper } from '../style'
-import { Button } from 'brave-ui/components'
+import { Button } from 'adrbrowsiel-ui/components'
 
 interface Props {
   items: RewardsInternals.Promotion[]

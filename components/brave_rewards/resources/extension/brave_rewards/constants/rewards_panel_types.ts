@@ -41,7 +41,7 @@ export const enum types {
 }
 
 // Note: This declaration must match the RewardsNotificationType enum in
-// brave/components/brave_rewards/browser/rewards_notification_service.h
+// adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service.h
 export const enum RewardsNotificationType {
   REWARDS_NOTIFICATION_INVALID = 0,
   REWARDS_NOTIFICATION_AUTO_CONTRIBUTE = 1,

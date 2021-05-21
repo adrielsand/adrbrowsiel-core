@@ -4,10 +4,10 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Types
-import * as types from '../../../brave_extension/extension/brave_extension/constants/windowTypes'
+import * as types from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/windowTypes'
 
 // Actions
-import * as actions from '../../../brave_extension/extension/brave_extension/actions/windowActions'
+import * as actions from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/actions/windowActions'
 
 describe('windowActions', () => {
   it('windowFocusChanged', () => {

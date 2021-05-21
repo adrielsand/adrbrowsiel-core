@@ -2,11 +2,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import '../../../../brave_extension/extension/brave_extension/background/events/runtimeEvents'
-import windowActions from '../../../../brave_extension/extension/brave_extension/background/actions/windowActions'
-import tabActions from '../../../../brave_extension/extension/brave_extension/background/actions/tabActions'
-import * as windowTypes from '../../../../brave_extension/extension/brave_extension/constants/windowTypes'
-import * as tabTypes from '../../../../brave_extension/extension/brave_extension/constants/tabTypes'
+import '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/events/runtimeEvents'
+import windowActions from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/actions/windowActions'
+import tabActions from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/actions/tabActions'
+import * as windowTypes from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/windowTypes'
+import * as tabTypes from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/tabTypes'
 import { ChromeEvent } from '../../../testData'
 
 interface InputWindows {

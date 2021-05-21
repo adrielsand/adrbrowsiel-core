@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/permissions/permission_lifetime_utils.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_utils.h"
 
 #include <algorithm>
 #include <string>
@@ -14,7 +14,7 @@
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/stringprintf.h"
 #include "base/strings/utf_string_conversions.h"
-#include "components/grit/brave_components_strings.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/permissions/features.h"
 #include "components/permissions/permission_request.h"
 #include "net/base/features.h"
@@ -51,7 +51,7 @@ std::vector<PermissionLifetimeOption> CreatePermissionLifetimeOptions() {
   const size_t kOptionsCount = 4;
   options.reserve(kOptionsCount);
 
-  if (base::FeatureList::IsEnabled(net::features::kBraveEphemeralStorage)) {
+  if (base::FeatureList::IsEnabled(net::features::kadrbrowsielEphemeralStorage)) {
     options.emplace_back(PermissionLifetimeOption(
         l10n_util::GetStringUTF16(
             IDS_PERMISSIONS_BUBBLE_UNTIL_PAGE_CLOSE_LIFETIME_OPTION),

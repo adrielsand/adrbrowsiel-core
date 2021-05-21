@@ -8,7 +8,7 @@ import * as React from 'react'
 import { Content, Title, Paragraph, PrimaryButton } from '../../../components'
 
 // Shared components
-import { ArrowRightIcon } from 'brave-ui/components/icons'
+import { ArrowRightIcon } from 'adrbrowsiel-ui/components/icons'
 
 // Utils
 import locale from '../fakeLocale'
@@ -34,7 +34,7 @@ export default class ThemingBox extends React.PureComponent<Props, {}> {
       >
         <WelcomeLionImage />
         <Title>{locale.welcome}</Title>
-        <Paragraph>{locale.whatIsBrave}</Paragraph>
+        <Paragraph>{locale.whatIsadrbrowsiel}</Paragraph>
         <PrimaryButton
           level='primary'
           type='accent'

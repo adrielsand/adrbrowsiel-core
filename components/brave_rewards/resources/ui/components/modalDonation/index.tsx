@@ -7,7 +7,7 @@ import {
   StyledWrapper,
   StyledTitle
 } from './style'
-import Modal from 'brave-ui/components/popupModals/modal/index'
+import Modal from 'adrbrowsiel-ui/components/popupModals/modal/index'
 import TableDonation, { DetailRow } from '../tableDonation/index'
 
 export interface Props {

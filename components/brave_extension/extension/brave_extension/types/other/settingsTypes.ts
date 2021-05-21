@@ -22,5 +22,5 @@ export type GeneratedSettingsKey =
   'statsBadgeVisible'
 
 export type SettingsKey =
-  'brave.shields.advanced_view_enabled' |
-  'brave.shields.stats_badge_visible'
+  'adrbrowsiel.shields.advanced_view_enabled' |
+  'adrbrowsiel.shields.stats_badge_visible'

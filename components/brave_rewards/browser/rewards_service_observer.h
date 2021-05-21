@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_OBSERVER_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_OBSERVER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_OBSERVER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_OBSERVER_H_
 
 #include <memory>
 #include <string>
@@ -13,7 +13,7 @@
 #include "base/observer_list_types.h"
 #include "bat/ledger/mojom_structs.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 class RewardsService;
 
@@ -52,11 +52,11 @@ class RewardsServiceObserver : public base::CheckedObserver {
       const ledger::type::ContributionProcessor processor) {}
 
   virtual void OnAdsEnabled(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       bool ads_enabled) {}
 
   virtual void OnPendingContributionSaved(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       const ledger::type::Result result) {}
 
   virtual void OnPublisherListNormalized(
@@ -64,27 +64,27 @@ class RewardsServiceObserver : public base::CheckedObserver {
       ledger::type::PublisherInfoList list) {}
 
   virtual void OnStatementChanged(
-      brave_rewards::RewardsService* rewards_service) {}
+      adrbrowsiel_rewards::RewardsService* rewards_service) {}
 
   virtual void OnRecurringTipSaved(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       bool success) {}
 
   virtual void OnRecurringTipRemoved(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       bool success) {}
 
   virtual void OnPendingContributionRemoved(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       const ledger::type::Result result) {}
 
   virtual void OnDisconnectWallet(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       const ledger::type::Result result,
       const std::string& wallet_type) {}
 
   virtual void OnUnblindedTokensReady(
-      brave_rewards::RewardsService* rewards_service) {}
+      adrbrowsiel_rewards::RewardsService* rewards_service) {}
 
   virtual void ReconcileStampReset() {}
 
@@ -98,6 +98,6 @@ class RewardsServiceObserver : public base::CheckedObserver {
   // etc... are examples of events that all observers will be interested in.
 };
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_OBSERVER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_OBSERVER_H_

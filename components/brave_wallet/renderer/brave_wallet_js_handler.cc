@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/renderer/brave_wallet_js_handler.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/renderer/adrbrowsiel_wallet_js_handler.h"
 
 #include <utility>
 #include <vector>
@@ -13,9 +13,9 @@
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/stringprintf.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/components/brave_wallet/common/web3_provider_constants.h"
-#include "brave/components/brave_wallet/renderer/brave_wallet_response_helpers.h"
-#include "brave/components/brave_wallet/resources/grit/brave_wallet_script_generated.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/web3_provider_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/renderer/adrbrowsiel_wallet_response_helpers.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/resources/grit/adrbrowsiel_wallet_script_generated.h"
 #include "content/public/renderer/render_frame.h"
 #include "content/public/renderer/v8_value_converter.h"
 #include "gin/arguments.h"
@@ -84,28 +84,28 @@ void CallMethodOfObject(blink::WebLocalFrame* web_frame,
 
 }  // namespace
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
-BraveWalletJSHandler::BraveWalletJSHandler(content::RenderFrame* render_frame)
+adrbrowsielWalletJSHandler::adrbrowsielWalletJSHandler(content::RenderFrame* render_frame)
     : render_frame_(render_frame) {
   if (g_provider_script->empty()) {
     *g_provider_script =
-        LoadDataResource(IDR_BRAVE_WALLET_SCRIPT_BRAVE_WALLET_SCRIPT_BUNDLE_JS);
+        LoadDataResource(IDR_adrbrowsiel_WALLET_SCRIPT_adrbrowsiel_WALLET_SCRIPT_BUNDLE_JS);
   }
 }
 
-BraveWalletJSHandler::~BraveWalletJSHandler() = default;
+adrbrowsielWalletJSHandler::~adrbrowsielWalletJSHandler() = default;
 
-bool BraveWalletJSHandler::EnsureConnected() {
-  if (!brave_wallet_provider_.is_bound()) {
+bool adrbrowsielWalletJSHandler::EnsureConnected() {
+  if (!adrbrowsiel_wallet_provider_.is_bound()) {
     render_frame_->GetBrowserInterfaceBroker()->GetInterface(
-        brave_wallet_provider_.BindNewPipeAndPassReceiver());
+        adrbrowsiel_wallet_provider_.BindNewPipeAndPassReceiver());
   }
 
-  return brave_wallet_provider_.is_bound();
+  return adrbrowsiel_wallet_provider_.is_bound();
 }
 
-void BraveWalletJSHandler::AddJavaScriptObjectToFrame(
+void adrbrowsielWalletJSHandler::AddJavaScriptObjectToFrame(
     v8::Local<v8::Context> context) {
   v8::Isolate* isolate = blink::MainThreadIsolate();
   v8::HandleScope handle_scope(isolate);
@@ -118,7 +118,7 @@ void BraveWalletJSHandler::AddJavaScriptObjectToFrame(
   InjectInitScript();
 }
 
-void BraveWalletJSHandler::CreateEthereumObject(
+void adrbrowsielWalletJSHandler::CreateEthereumObject(
     v8::Isolate* isolate, v8::Local<v8::Context> context) {
   v8::Local<v8::Object> global = context->Global();
   v8::Local<v8::Object> cosmetic_filters_obj;
@@ -135,17 +135,17 @@ void BraveWalletJSHandler::CreateEthereumObject(
   }
 }
 
-void BraveWalletJSHandler::BindFunctionsToObject(
+void adrbrowsielWalletJSHandler::BindFunctionsToObject(
     v8::Isolate* isolate,
     v8::Local<v8::Context> context,
     v8::Local<v8::Object> javascript_object) {
   BindFunctionToObject(isolate, javascript_object, "request",
-                       base::BindRepeating(&BraveWalletJSHandler::Request,
+                       base::BindRepeating(&adrbrowsielWalletJSHandler::Request,
                                            base::Unretained(this), isolate));
 }
 
 template <typename Sig>
-void BraveWalletJSHandler::BindFunctionToObject(
+void adrbrowsielWalletJSHandler::BindFunctionToObject(
     v8::Isolate* isolate,
     v8::Local<v8::Object> javascript_object,
     const std::string& name,
@@ -160,7 +160,7 @@ void BraveWalletJSHandler::BindFunctionToObject(
       .Check();
 }
 
-v8::Local<v8::Promise> BraveWalletJSHandler::Request(
+v8::Local<v8::Promise> adrbrowsielWalletJSHandler::Request(
     v8::Isolate* isolate,
     v8::Local<v8::Value> input) {
   if (!EnsureConnected() || !input->IsObject())
@@ -188,9 +188,9 @@ v8::Local<v8::Promise> BraveWalletJSHandler::Request(
         v8::Global<v8::Promise::Resolver>(isolate, resolver.ToLocalChecked()));
     auto context_old(
         v8::Global<v8::Context>(isolate, isolate->GetCurrentContext()));
-    brave_wallet_provider_->Request(
+    adrbrowsiel_wallet_provider_->Request(
         formed_input,
-        base::BindOnce(&BraveWalletJSHandler::OnRequest, base::Unretained(this),
+        base::BindOnce(&adrbrowsielWalletJSHandler::OnRequest, base::Unretained(this),
                        std::move(promise_resolver), isolate,
                        std::move(context_old)));
 
@@ -200,7 +200,7 @@ v8::Local<v8::Promise> BraveWalletJSHandler::Request(
   return v8::Local<v8::Promise>();
 }
 
-void BraveWalletJSHandler::OnRequest(
+void adrbrowsielWalletJSHandler::OnRequest(
     v8::Global<v8::Promise::Resolver> promise_resolver,
     v8::Isolate* isolate,
     v8::Global<v8::Context> context_old,
@@ -235,7 +235,7 @@ void BraveWalletJSHandler::OnRequest(
   }
 }
 
-void BraveWalletJSHandler::ExecuteScript(const std::string script) {
+void adrbrowsielWalletJSHandler::ExecuteScript(const std::string script) {
   blink::WebLocalFrame* web_frame = render_frame_->GetWebFrame();
   if (web_frame->IsProvisional())
     return;
@@ -243,11 +243,11 @@ void BraveWalletJSHandler::ExecuteScript(const std::string script) {
   web_frame->ExecuteScript(blink::WebString::FromUTF8(script));
 }
 
-void BraveWalletJSHandler::InjectInitScript() {
+void adrbrowsielWalletJSHandler::InjectInitScript() {
   ExecuteScript(*g_provider_script);
 }
 
-void BraveWalletJSHandler::FireEvent(const std::string& event,
+void adrbrowsielWalletJSHandler::FireEvent(const std::string& event,
                                      const std::string& event_args) {
   base::Value args = base::Value(base::Value::Type::LIST);
   args.Append(event);
@@ -258,20 +258,20 @@ void BraveWalletJSHandler::FireEvent(const std::string& event,
                      std::move(args));
 }
 
-void BraveWalletJSHandler::ConnectEvent(const std::string& chain_id) {
+void adrbrowsielWalletJSHandler::ConnectEvent(const std::string& chain_id) {
   FireEvent(kConnectEvent, chain_id);
 }
 
-void BraveWalletJSHandler::DisconnectEvent(const std::string& message) {
+void adrbrowsielWalletJSHandler::DisconnectEvent(const std::string& message) {
   FireEvent(kDisconnectEvent, message);
 }
 
-void BraveWalletJSHandler::ChainChangedEvent(const std::string& chain_id) {
+void adrbrowsielWalletJSHandler::ChainChangedEvent(const std::string& chain_id) {
   FireEvent(kChainChangedEvent, chain_id);
 }
 
-void BraveWalletJSHandler::AccountsChangedEvent(const std::string& accounts) {
+void adrbrowsielWalletJSHandler::AccountsChangedEvent(const std::string& accounts) {
   FireEvent(kAccountsChangedEvent, accounts);
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

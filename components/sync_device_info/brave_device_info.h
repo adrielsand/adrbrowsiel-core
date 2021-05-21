@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SYNC_DEVICE_INFO_BRAVE_DEVICE_INFO_H_
-#define BRAVE_COMPONENTS_SYNC_DEVICE_INFO_BRAVE_DEVICE_INFO_H_
+#ifndef adrbrowsiel_COMPONENTS_SYNC_DEVICE_INFO_adrbrowsiel_DEVICE_INFO_H_
+#define adrbrowsiel_COMPONENTS_SYNC_DEVICE_INFO_adrbrowsiel_DEVICE_INFO_H_
 
 #include <string>
 
@@ -16,9 +16,9 @@
 
 namespace syncer {
 
-class BraveDeviceInfo : public DeviceInfo {
+class adrbrowsielDeviceInfo : public DeviceInfo {
  public:
-  BraveDeviceInfo(const std::string& guid,
+  adrbrowsielDeviceInfo(const std::string& guid,
                   const std::string& client_name,
                   const std::string& chrome_version,
                   const std::string& sync_user_agent,
@@ -34,7 +34,7 @@ class BraveDeviceInfo : public DeviceInfo {
                   const std::string& fcm_registration_token,
                   const ModelTypeSet& interested_data_types,
                   bool is_self_delete_supported);
-  ~BraveDeviceInfo() override {}
+  ~adrbrowsielDeviceInfo() override {}
 
   bool is_self_delete_supported() const;
   void set_is_self_delete_supported(bool is_self_delete_supported);
@@ -42,9 +42,9 @@ class BraveDeviceInfo : public DeviceInfo {
  private:
   bool is_self_delete_supported_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveDeviceInfo);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielDeviceInfo);
 };
 
 }  // namespace syncer
 
-#endif  // BRAVE_COMPONENTS_SYNC_DEVICE_INFO_BRAVE_DEVICE_INFO_H_
+#endif  // adrbrowsiel_COMPONENTS_SYNC_DEVICE_INFO_adrbrowsiel_DEVICE_INFO_H_

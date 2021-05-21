@@ -1,14 +1,14 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/json/json_reader.h"
-#include "brave/components/brave_shields/browser/ad_block_service_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service_helper.h"
 #include "testing/gmock/include/gmock/gmock.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 using ::testing::_;
 
@@ -307,4 +307,4 @@ TEST_F(CosmeticResourceMergeTest, MergeStyles) {
 }
 
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

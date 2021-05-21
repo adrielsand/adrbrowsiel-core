@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,15 +9,15 @@
 #include "base/feature_list.h"
 #include "base/files/file_path.h"
 #include "base/test/task_environment.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_referrals/browser/brave_referrals_service.h"
-#include "brave/components/brave_referrals/common/pref_names.h"
-#include "brave/components/ntp_background_images/browser/features.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_data.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_service.h"
-#include "brave/components/ntp_background_images/browser/view_counter_model.h"
-#include "brave/components/ntp_background_images/browser/view_counter_service.h"
-#include "brave/components/ntp_background_images/common/pref_names.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/common/pref_names.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/features.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_service.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/view_counter_model.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/view_counter_service.h"
+#include "adrbrowsiel/components/ntp_background_images/common/pref_names.h"
 #include "components/prefs/testing_pref_service.h"
 #include "components/sync_preferences/testing_pref_service_syncable.h"
 #include "testing/gtest/include/gtest/gtest.h"
@@ -34,13 +34,13 @@ std::unique_ptr<NTPBackgroundImagesData> GetDemoWallpaper(bool super_referral) {
   };
   demo->default_logo.alt_text = "Technikke: For music lovers.";
   demo->default_logo.company_name = "Technikke";
-  demo->default_logo.destination_url = "https://brave.com";
+  demo->default_logo.destination_url = "https://adrbrowsiel.com";
 
   if (super_referral) {
     demo->theme_name = "Technikke";
     demo->top_sites = {
-      { "Brave", "https://brave.com", "brave.png",
-        base::FilePath(FILE_PATH_LITERAL("brave.png")) },
+      { "adrbrowsiel", "https://adrbrowsiel.com", "adrbrowsiel.png",
+        base::FilePath(FILE_PATH_LITERAL("adrbrowsiel.png")) },
      { "BAT", "https://basicattentiontoken.org/", "bat.png",
         base::FilePath(FILE_PATH_LITERAL("bat.png")) },
     };
@@ -59,7 +59,7 @@ class NTPBackgroundImagesViewCounterTest : public testing::Test {
     auto* registry = prefs()->registry();
     ViewCounterService::RegisterProfilePrefs(registry);
     auto* local_registry = local_pref_.registry();
-    brave::RegisterPrefsForBraveReferralsService(local_registry);
+    adrbrowsiel::RegisterPrefsForadrbrowsielReferralsService(local_registry);
     NTPBackgroundImagesService::RegisterLocalStatePrefs(local_registry);
     ViewCounterService::RegisterLocalStatePrefs(local_registry);
 

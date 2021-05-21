@@ -2,9 +2,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import '../../../../brave_extension/extension/brave_extension/background/events/tabsEvents'
-import actions from '../../../../brave_extension/extension/brave_extension/background/actions/tabActions'
-import * as types from '../../../../brave_extension/extension/brave_extension/constants/tabTypes'
+import '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/events/tabsEvents'
+import actions from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/actions/tabActions'
+import * as types from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/tabTypes'
 
 interface TabActivatedEvent extends chrome.events.Event<(activeInfo: chrome.tabs.TabActiveInfo) => void> {
   emit: (detail: chrome.tabs.TabActiveInfo) => void

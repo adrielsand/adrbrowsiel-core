@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SERVICES_BAT_ADS_BAT_ADS_IMPL_H_
-#define BRAVE_COMPONENTS_SERVICES_BAT_ADS_BAT_ADS_IMPL_H_
+#ifndef adrbrowsiel_COMPONENTS_SERVICES_BAT_ADS_BAT_ADS_IMPL_H_
+#define adrbrowsiel_COMPONENTS_SERVICES_BAT_ADS_BAT_ADS_IMPL_H_
 
 #include <cstdint>
 #include <memory>
@@ -13,7 +13,7 @@
 #include <vector>
 
 #include "base/memory/weak_ptr.h"
-#include "brave/components/services/bat_ads/public/interfaces/bat_ads.mojom.h"
+#include "adrbrowsiel/components/services/bat_ads/public/interfaces/bat_ads.mojom.h"
 #include "mojo/public/cpp/bindings/interface_request.h"
 #include "bat/ads/ads.h"
 #include "bat/ads/statement_info.h"
@@ -188,4 +188,4 @@ class BatAdsImpl :
 
 }  // namespace bat_ads
 
-#endif  // BRAVE_COMPONENTS_SERVICES_BAT_ADS_BAT_ADS_IMPL_H_
+#endif  // adrbrowsiel_COMPONENTS_SERVICES_BAT_ADS_BAT_ADS_IMPL_H_

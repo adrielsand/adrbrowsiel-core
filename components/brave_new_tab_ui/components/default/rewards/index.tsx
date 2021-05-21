@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 import createWidget from '../widget/index'
-import { convertBalance } from '../../../../brave_rewards/resources/page/utils'
+import { convertBalance } from '../../../../adrbrowsiel_rewards/resources/page/utils'
 import { getLocale, splitStringForTag } from '../../../../common/locale'
 
 import {
@@ -32,7 +32,7 @@ import {
 import { StyledTitleTab } from '../widgetTitleTab'
 import Notification from './notification'
 import BrandedWallpaperNotification from './brandedWallpaperNotification'
-import { BatColorIcon, CloseStrokeIcon } from 'brave-ui/components/icons'
+import { BatColorIcon, CloseStrokeIcon } from 'adrbrowsiel-ui/components/icons'
 
 export interface RewardsProps {
   enabledAds: boolean
@@ -234,7 +234,7 @@ class Rewards extends React.PureComponent<RewardsProps, {}> {
         <BatIcon>
           <BatColorIcon />
         </BatIcon>
-        {getLocale('rewardsWidgetBraveRewards')}
+        {getLocale('rewardsWidgetadrbrowsielRewards')}
       </RewardsTitle>
     )
   }

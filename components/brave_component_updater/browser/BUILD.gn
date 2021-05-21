@@ -14,10 +14,10 @@ config("updater_config") {
 
 source_set("browser") {
   sources = [
-    "brave_component.cc",
-    "brave_component.h",
-    "brave_on_demand_updater.cc",
-    "brave_on_demand_updater.h",
+    "adrbrowsiel_component.cc",
+    "adrbrowsiel_component.h",
+    "adrbrowsiel_on_demand_updater.cc",
+    "adrbrowsiel_on_demand_updater.h",
     "dat_file_util.cc",
     "dat_file_util.h",
     "features.cc",
@@ -42,7 +42,7 @@ source_set("browser") {
     ]
 
     deps += [
-      "//brave/vendor/extension-whitelist/brave:extension-whitelist",
+      "//adrbrowsiel/vendor/extension-whitelist/adrbrowsiel:extension-whitelist",
       "//extensions/common",
     ]
   }

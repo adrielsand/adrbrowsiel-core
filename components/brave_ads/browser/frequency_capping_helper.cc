@@ -1,11 +1,11 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_ads/browser/frequency_capping_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/frequency_capping_helper.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 FrequencyCappingHelper::FrequencyCappingHelper() = default;
 
@@ -27,4 +27,4 @@ std::vector<uint64_t> FrequencyCappingHelper::GetAdEvents(
   return ad_event_history_.Get(ad_type, confirmation_type);
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

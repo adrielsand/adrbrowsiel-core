@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Разширението Brave",
+    "message": "Разширението adrbrowsiel",
     "description": "The name of the the extension."
   },
   "shields": {
@@ -24,12 +24,12 @@
     "description": "Message telling the user to disable shields if a site appears broken"
   },
   "disabledMessage": {
-    "message": "Разглеждате този сайт без защитата на личните данни и сигурността на Brave. Не работи ли правилно с включени Щитове?",
+    "message": "Разглеждате този сайт без защитата на личните данни и сигурността на adrbrowsiel. Не работи ли правилно с включени Щитове?",
     "description": "Message telling the user that shields are disabled, and prompting them towards reporting an issue if necessary"
   },
   "reportBrokenSite": {
     "message": "Докладвайте нефункциониращ сайт",
-    "description": "Message for the button allowing users to report a broken site to Brave developers"
+    "description": "Message for the button allowing users to report a broken site to adrbrowsiel developers"
   },
   "itemsBlocked": {
     "message": "Блокирани елементи",
@@ -192,8 +192,8 @@
     "description": "Message for the simple view option"
   },
   "shieldsExplanation": {
-    "message": "Сайтовете често включват бисквитки и скриптове, които се опитват да идентифицират вас и вашето устройство (често са вградени в рекламите). Те искат да разберат кой сте и да ви следват из нета, проследявайки какво правите на всеки сайт. Brave блокира тези неща, така че да браузвате без да ви следват.",
-    "description": "Message in read-only view explaining what Brave Shields do"
+    "message": "Сайтовете често включват бисквитки и скриптове, които се опитват да идентифицират вас и вашето устройство (често са вградени в рекламите). Те искат да разберат кой сте и да ви следват из нета, проследявайки какво правите на всеки сайт. adrbrowsiel блокира тези неща, така че да браузвате без да ви следват.",
+    "description": "Message in read-only view explaining what adrbrowsiel Shields do"
   },
   "blockedResoucesExplanation": {
     "message": "Блокирани са проследяващи устройства през сайтове и други неприятни неща",

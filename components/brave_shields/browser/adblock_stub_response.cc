@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/adblock_stub_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adblock_stub_response.h"
 
 #include <string>
 #include <utility>
@@ -17,7 +17,7 @@
 #include "services/network/public/cpp/resource_request.h"
 #include "services/network/public/mojom/url_response_head.mojom.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 namespace {
 
 // Everything but jpeg is a transparent pixel.
@@ -171,4 +171,4 @@ void MakeStubResponse(const base::Optional<std::string>& data_url,
       net::HttpUtil::AssembleRawHeaders(raw_headers));
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
 
-#include "brave/components/brave_component_updater/browser/local_data_files_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_observer.h"
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
-namespace brave_component_updater {
+namespace adrbrowsiel_component_updater {
 
 std::string LocalDataFilesService::g_local_data_files_component_id_(
     kLocalDataFilesComponentId);
@@ -17,8 +17,8 @@ std::string LocalDataFilesService::
 g_local_data_files_component_base64_public_key_(
     kLocalDataFilesComponentBase64PublicKey);
 
-LocalDataFilesService::LocalDataFilesService(BraveComponent::Delegate* delegate)
-  : BraveComponent(delegate),
+LocalDataFilesService::LocalDataFilesService(adrbrowsielComponent::Delegate* delegate)
+  : adrbrowsielComponent(delegate),
     initialized_(false) {}
 
 LocalDataFilesService::~LocalDataFilesService() {
@@ -63,8 +63,8 @@ void LocalDataFilesService::SetComponentIdAndBase64PublicKeyForTest(
 ///////////////////////////////////////////////////////////////////////////////
 
 std::unique_ptr<LocalDataFilesService>
-LocalDataFilesServiceFactory(BraveComponent::Delegate* delegate) {
+LocalDataFilesServiceFactory(adrbrowsielComponent::Delegate* delegate) {
   return std::make_unique<LocalDataFilesService>(delegate);
 }
 
-}  // namespace brave_component_updater
+}  // namespace adrbrowsiel_component_updater

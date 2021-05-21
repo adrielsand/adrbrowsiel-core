@@ -1,13 +1,13 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_component_updater/browser/local_data_files_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_observer.h"
 
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
 
-namespace brave_component_updater {
+namespace adrbrowsiel_component_updater {
 
 LocalDataFilesObserver::LocalDataFilesObserver(
     LocalDataFilesService* local_data_files_service)
@@ -27,5 +27,5 @@ LocalDataFilesService* LocalDataFilesObserver::local_data_files_service() {
   return local_data_files_service_;
 }
 
-}  // namespace brave_component_updater
+}  // namespace adrbrowsiel_component_updater
 

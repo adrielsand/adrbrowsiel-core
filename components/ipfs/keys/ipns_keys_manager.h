@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_IPFS_KEYS_IPNS_KEYS_MANAGER_H_
-#define BRAVE_COMPONENTS_IPFS_KEYS_IPNS_KEYS_MANAGER_H_
+#ifndef adrbrowsiel_COMPONENTS_IPFS_KEYS_IPNS_KEYS_MANAGER_H_
+#define adrbrowsiel_COMPONENTS_IPFS_KEYS_IPNS_KEYS_MANAGER_H_
 
 #include <list>
 #include <memory>
@@ -14,8 +14,8 @@
 #include "base/callback.h"
 #include "base/containers/queue.h"
 #include "base/memory/scoped_refptr.h"
-#include "brave/components/ipfs/ipfs_network_utils.h"
-#include "brave/components/ipfs/ipfs_service_observer.h"
+#include "adrbrowsiel/components/ipfs/ipfs_network_utils.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service_observer.h"
 #include "services/network/public/cpp/resource_request.h"
 #include "url/gurl.h"
 
@@ -100,4 +100,4 @@ class IpnsKeysManager : public IpfsServiceObserver {
 
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_IPFS_KEYS_IPNS_KEYS_MANAGER_H_
+#endif  // adrbrowsiel_COMPONENTS_IPFS_KEYS_IPNS_KEYS_MANAGER_H_

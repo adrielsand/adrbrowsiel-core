@@ -1,20 +1,20 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
 
 #include <vector>
 
 #include "base/feature_list.h"
 #include "base/strings/string_util.h"
 #include "base/strings/stringprintf.h"
-#include "brave/components/ipfs/features.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_ports.h"
-#include "brave/components/ipfs/keys/ipns_keys_manager.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/components/ipfs/features.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_ports.h"
+#include "adrbrowsiel/components/ipfs/keys/ipns_keys_manager.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #include "components/prefs/pref_service.h"
 #include "components/user_prefs/user_prefs.h"
 #include "content/public/browser/browser_context.h"

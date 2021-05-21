@@ -1,25 +1,25 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WALLET_RENDERER_BRAVE_WALLET_JS_HANDLER_H_
-#define BRAVE_COMPONENTS_BRAVE_WALLET_RENDERER_BRAVE_WALLET_JS_HANDLER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_RENDERER_adrbrowsiel_WALLET_JS_HANDLER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_RENDERER_adrbrowsiel_WALLET_JS_HANDLER_H_
 
 #include <memory>
 #include <string>
 
-#include "brave/components/brave_wallet/common/brave_wallet.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/adrbrowsiel_wallet.mojom.h"
 #include "content/public/renderer/render_frame.h"
 #include "mojo/public/cpp/bindings/remote.h"
 #include "v8/include/v8.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
-class BraveWalletJSHandler {
+class adrbrowsielWalletJSHandler {
  public:
-  explicit BraveWalletJSHandler(content::RenderFrame* render_frame);
-  ~BraveWalletJSHandler();
+  explicit adrbrowsielWalletJSHandler(content::RenderFrame* render_frame);
+  ~adrbrowsielWalletJSHandler();
 
   void AddJavaScriptObjectToFrame(v8::Local<v8::Context> context);
   void FireEvent(const std::string& event, const std::string& event_args);
@@ -55,9 +55,9 @@ class BraveWalletJSHandler {
                  const std::string& response);
 
   content::RenderFrame* render_frame_;
-  mojo::Remote<brave_wallet::mojom::BraveWalletProvider> brave_wallet_provider_;
+  mojo::Remote<adrbrowsiel_wallet::mojom::adrbrowsielWalletProvider> adrbrowsiel_wallet_provider_;
 };
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_RENDERER_BRAVE_WALLET_JS_HANDLER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_RENDERER_adrbrowsiel_WALLET_JS_HANDLER_H_

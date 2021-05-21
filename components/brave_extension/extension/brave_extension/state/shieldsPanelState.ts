@@ -20,7 +20,7 @@ export const isShieldsActive = (state: shieldState.State, tabId: number): boolea
   if (!state.tabs[tabId]) {
     return false
   }
-  return state.tabs[tabId].braveShields !== 'block'
+  return state.tabs[tabId].adrbrowsielShields !== 'block'
 }
 
 export const getPersistentData: shieldState.GetPersistentData = (state) => state.persistentData
@@ -57,7 +57,7 @@ export const updateTabShieldsData: shieldState.UpdateTabShieldsData = (state, ta
     httpsRedirected: 0,
     javascriptBlocked: 0,
     fingerprintingBlocked: 0,
-    braveShields: 'allow',
+    adrbrowsielShields: 'allow',
     ads: 'allow',
     trackers: 'allow',
     cosmeticFiltering: 'allow',
@@ -153,7 +153,7 @@ export const updateShieldsIconImage: shieldState.UpdateShieldsIconImage = (state
   const tab: shieldState.Tab = state.tabs[tabId]
   if (tab) {
     const url: string = tab.url
-    const isShieldsActive: boolean = state.tabs[tabId].braveShields !== 'block'
+    const isShieldsActive: boolean = state.tabs[tabId].adrbrowsielShields !== 'block'
     setIcon(url, tabId, isShieldsActive)
   }
 }

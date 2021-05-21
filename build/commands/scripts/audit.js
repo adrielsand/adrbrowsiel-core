@@ -17,7 +17,7 @@ if (process.argv.includes('--audit_dev_deps')) {
 util.run('gn', ['gen', outputDir, '--args="' + args + '"'], options)
 
 let ninjaOpts = [
-  '-C', outputDir, 'brave:audit_deps',
+  '-C', outputDir, 'adrbrowsiel:audit_deps',
   ...config.extraNinjaOpts
 ]
 util.run('ninja', ninjaOpts, options)

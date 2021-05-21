@@ -8,10 +8,10 @@ import {
   CaratRightIcon,
   CloseStrokeIcon,
   SettingsIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 import { List } from '../../'
-import { getLocale } from 'brave-ui/helpers'
-import Toggle from 'brave-ui/components/formControls/toggle/index'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
+import Toggle from 'adrbrowsiel-ui/components/formControls/toggle/index'
 import * as Styled from './style'
 
 export type Type = 'ads' | 'contribute' | 'donation'
@@ -76,13 +76,13 @@ export default class BoxMobile extends React.PureComponent<Props, State> {
   /*
    * Sets state given the view that should be shown.
    *
-   * When user is on the index page: (brave://rewards)
+   * When user is on the index page: (adrbrowsiel://rewards)
    * (state) { detailView: false, settings: false }
    *
-   * When user is on a detail view: (brave://rewards/ads)
+   * When user is on a detail view: (adrbrowsiel://rewards/ads)
    * (state) { detailView: true, settings: false }
    *
-   * When user is on a settings view: (brave://rewards/ads-settings)
+   * When user is on a settings view: (adrbrowsiel://rewards/ads-settings)
    * (state) { detailView: true, settings: true }
    */
   setView = (view: string, updateHistory: boolean = true) => {

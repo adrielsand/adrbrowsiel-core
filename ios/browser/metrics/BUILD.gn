@@ -1,4 +1,4 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,8 +10,8 @@ source_set("metrics") {
   configs += [ "//build/config/compiler:enable_arc" ]
 
   sources = [
-    "ios_brave_metrics_services_manager_client.h",
-    "ios_brave_metrics_services_manager_client.mm",
+    "ios_adrbrowsiel_metrics_services_manager_client.h",
+    "ios_adrbrowsiel_metrics_services_manager_client.mm",
   ]
 
   deps = [

@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_TAB_HELPER_H_
-#define BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_TAB_HELPER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_TAB_HELPER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_TAB_HELPER_H_
 
 #include <memory>
 #include <string>
 
-#include "brave/components/brave_perf_predictor/browser/bandwidth_savings_predictor.h"
-#include "brave/components/brave_perf_predictor/browser/p3a_bandwidth_savings_tracker.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/bandwidth_savings_predictor.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/p3a_bandwidth_savings_tracker.h"
 #include "content/public/browser/web_contents_observer.h"
 #include "content/public/browser/web_contents_user_data.h"
 #include "url/gurl.h"
@@ -35,7 +35,7 @@ class PageLoadTiming;
 }  // namespace mojom
 }  // namespace page_load_metrics
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 // The main entry point for performance prediction. Collects events from
 // WebContentsObserver, received `PageLoadTiming` reports and adblocker resource
@@ -54,7 +54,7 @@ class PerfPredictorTabHelper
   void OnPageLoadTimingUpdated(
       const page_load_metrics::mojom::PageLoadTiming& timing);
   static void RegisterProfilePrefs(PrefRegistrySimple* registry);
-  // Called from Brave Shields
+  // Called from adrbrowsiel Shields
   static void DispatchBlockedEvent(const std::string& subresource,
                                    int frame_tree_node_id);
 
@@ -94,6 +94,6 @@ class PerfPredictorTabHelper
   WEB_CONTENTS_USER_DATA_KEY_DECL();
 };
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor
 
-#endif  // BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_TAB_HELPER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_PERF_PREDICTOR_TAB_HELPER_H_

@@ -1,6 +1,6 @@
 source_set("browser") {
   public_deps = [
-    # TODO(jocelyn): move buildflags to brave/components/translate/core/browser
-    "//brave/browser/translate/buildflags",
+    # TODO(jocelyn): move buildflags to adrbrowsiel/components/translate/core/browser
+    "//adrbrowsiel/browser/translate/buildflags",
   ]
 }

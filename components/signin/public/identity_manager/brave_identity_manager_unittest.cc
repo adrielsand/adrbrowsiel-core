@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -47,9 +47,9 @@ const char kTestEmail2[] = "me2@gmail.com";
 
 }  // namespace
 
-class BraveIdentityManagerTest : public testing::Test {
+class adrbrowsielIdentityManagerTest : public testing::Test {
  protected:
-  BraveIdentityManagerTest()
+  adrbrowsielIdentityManagerTest()
       : signin_client_(&pref_service_, &test_url_loader_factory_) {
     IdentityManager::RegisterProfilePrefs(pref_service_.registry());
     IdentityManager::RegisterLocalStatePrefs(pref_service_.registry());
@@ -57,13 +57,13 @@ class BraveIdentityManagerTest : public testing::Test {
     RecreateIdentityManager();
   }
 
-  ~BraveIdentityManagerTest() override {
+  ~adrbrowsielIdentityManagerTest() override {
     identity_manager_->Shutdown();
     signin_client_.Shutdown();
   }
 
-  BraveIdentityManagerTest(const BraveIdentityManagerTest&) = delete;
-  BraveIdentityManagerTest& operator=(const BraveIdentityManagerTest&) = delete;
+  adrbrowsielIdentityManagerTest(const adrbrowsielIdentityManagerTest&) = delete;
+  adrbrowsielIdentityManagerTest& operator=(const adrbrowsielIdentityManagerTest&) = delete;
 
   void SetUp() override {
     primary_account_id_ =
@@ -193,7 +193,7 @@ class BraveIdentityManagerTest : public testing::Test {
   GaiaCookieManagerService* gaia_cookie_manager_service_;
 };
 
-TEST_F(BraveIdentityManagerTest, GetAccountsInCookieJarWithNoAccounts) {
+TEST_F(adrbrowsielIdentityManagerTest, GetAccountsInCookieJarWithNoAccounts) {
   base::RunLoop run_loop;
   identity_manager_observer()->SetOnAccountsInCookieUpdatedCallback(
       run_loop.QuitClosure());
@@ -218,7 +218,7 @@ TEST_F(BraveIdentityManagerTest, GetAccountsInCookieJarWithNoAccounts) {
   EXPECT_TRUE(updated_accounts_in_cookie_jar.signed_out_accounts.empty());
 }
 
-TEST_F(BraveIdentityManagerTest, GetAccountsInCookieJarWithOneAccount) {
+TEST_F(adrbrowsielIdentityManagerTest, GetAccountsInCookieJarWithOneAccount) {
   base::RunLoop run_loop;
   identity_manager_observer()->SetOnAccountsInCookieUpdatedCallback(
       run_loop.QuitClosure());
@@ -244,7 +244,7 @@ TEST_F(BraveIdentityManagerTest, GetAccountsInCookieJarWithOneAccount) {
   EXPECT_TRUE(updated_accounts_in_cookie_jar.signed_out_accounts.empty());
 }
 
-TEST_F(BraveIdentityManagerTest, GetAccountsInCookieJarWithTwoAccounts) {
+TEST_F(adrbrowsielIdentityManagerTest, GetAccountsInCookieJarWithTwoAccounts) {
   base::RunLoop run_loop;
   identity_manager_observer()->SetOnAccountsInCookieUpdatedCallback(
       run_loop.QuitClosure());

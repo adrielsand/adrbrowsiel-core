@@ -14,7 +14,7 @@ import App from './components/app'
 import store from './store'
 import * as adblockActions from './actions/adblock_actions'
 
-window.cr.define('brave_adblock', function () {
+window.cr.define('adrbrowsiel_adblock', function () {
   'use strict'
 
   function getCustomFilters () {
@@ -55,4 +55,4 @@ window.cr.define('brave_adblock', function () {
   }
 })
 
-document.addEventListener('DOMContentLoaded', window.brave_adblock.initialize)
+document.addEventListener('DOMContentLoaded', window.adrbrowsiel_adblock.initialize)

@@ -4,8 +4,8 @@
 
 import { Notification } from './'
 import styled from 'styled-components'
-import palette from 'brave-ui/theme/colors'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
+import palette from 'adrbrowsiel-ui/theme/colors'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 import { ComponentType } from 'react'
 
 interface StyledProps {

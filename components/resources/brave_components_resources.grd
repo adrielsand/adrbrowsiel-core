@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grit latest_public_release="0" current_release="1" output_all_resource_defines="false">
   <outputs>
-    <output filename="grit/brave_components_resources.h" type="rc_header">
+    <output filename="grit/adrbrowsiel_components_resources.h" type="rc_header">
       <emit emit_type='prepend'></emit>
     </output>
-    <output filename="brave_components_static.pak" type="data_package" />
+    <output filename="adrbrowsiel_components_static.pak" type="data_package" />
   </outputs>
   <release seq="1">
     <includes>
@@ -12,58 +12,58 @@
            create a new grd file in components/component_name/resources/ -->
       <!-- Common resources -->
       <!-- TODO: Define only where needed, via webpack generated output, or use common chrome://resources DataSource -->
-      <include name="IDR_BRAVE_COMMON_TOOLBAR_IMG" file="../img/toolbar/menu_btn.svg" type="BINDATA" />
+      <include name="IDR_adrbrowsiel_COMMON_TOOLBAR_IMG" file="../img/toolbar/menu_btn.svg" type="BINDATA" />
 
       <!-- WebUI adblock resources -->
-      <!-- TODO: move to brave_adblock_ui component -->
-      <include name="IDR_BRAVE_ADBLOCK_HTML" file="../brave_adblock_ui/brave_adblock.html" type="BINDATA" />
+      <!-- TODO: move to adrbrowsiel_adblock_ui component -->
+      <include name="IDR_adrbrowsiel_ADBLOCK_HTML" file="../adrbrowsiel_adblock_ui/adrbrowsiel_adblock.html" type="BINDATA" />
 
       <!-- WebUI webcompat reporter resources -->
       <!-- TODO: move to webcompat_reporter_ui component -->
       <include name="IDR_WEBCOMPAT_REPORTER_HTML" file="../webcompat_reporter/ui/webcompat_reporter.html" type="BINDATA" />
 
       <!-- WebUI welcome page resources -->
-      <!-- TODO: move to brave_welcome_ui component -->
-      <include name="IDR_BRAVE_WELCOME_HTML" file="../brave_welcome_ui/brave_welcome.html" type="BINDATA" />
-      <include name="IDR_BRAVE_WELCOME_PAGE_FAVICON" file="../img/welcome/favicon.ico" type="BINDATA" />
+      <!-- TODO: move to adrbrowsiel_welcome_ui component -->
+      <include name="IDR_adrbrowsiel_WELCOME_HTML" file="../adrbrowsiel_welcome_ui/adrbrowsiel_welcome.html" type="BINDATA" />
+      <include name="IDR_adrbrowsiel_WELCOME_PAGE_FAVICON" file="../img/welcome/favicon.ico" type="BINDATA" />
 
       <!-- WebUI newtab resources -->
-      <!-- TODO: move to brave_new_tab_ui component -->
-      <include name="IDR_BRAVE_NEW_TAB_HTML" file="../brave_new_tab_ui/brave_new_tab.html" type="BINDATA" />
-      <include name="IDR_BRAVE_NEW_TAB_IMG1" file="../img/newtab/bookmarks_btn.svg" type="BINDATA" />
-      <include name="IDR_BRAVE_NEW_TAB_IMG4" file="../img/newtab/history_btn.svg" type="BINDATA" />
-      <include name="IDR_BRAVE_NEW_TAB_IMG2" file="../img/newtab/settings_prefs_btn.svg" type="BINDATA" />
+      <!-- TODO: move to adrbrowsiel_new_tab_ui component -->
+      <include name="IDR_adrbrowsiel_NEW_TAB_HTML" file="../adrbrowsiel_new_tab_ui/adrbrowsiel_new_tab.html" type="BINDATA" />
+      <include name="IDR_adrbrowsiel_NEW_TAB_IMG1" file="../img/newtab/bookmarks_btn.svg" type="BINDATA" />
+      <include name="IDR_adrbrowsiel_NEW_TAB_IMG4" file="../img/newtab/history_btn.svg" type="BINDATA" />
+      <include name="IDR_adrbrowsiel_NEW_TAB_IMG2" file="../img/newtab/settings_prefs_btn.svg" type="BINDATA" />
 
       <!-- WebUI wallet resources -->
       <if expr="not is_android">
-        <include name="IDR_BRAVE_WALLET_HTML" file="../brave_wallet_ui/page/wallet_page.html" type="BINDATA" />
-        <include name="IDR_WALLET_PANEL_HTML" file="../brave_wallet_ui/panel/wallet_panel.html" type="BINDATA" />
+        <include name="IDR_adrbrowsiel_WALLET_HTML" file="../adrbrowsiel_wallet_ui/page/wallet_page.html" type="BINDATA" />
+        <include name="IDR_WALLET_PANEL_HTML" file="../adrbrowsiel_wallet_ui/panel/wallet_panel.html" type="BINDATA" />
       </if>
 
       <!-- Imagery links -->
       <if expr="not is_android">
-        <include name="IDR_BRAVE_NEW_TAB_BACKGROUND1" file="../img/newtab/backgrounds/alex-plesovskich.avif" type="BINDATA" />
-        <include name="IDR_BRAVE_NEW_TAB_BACKGROUND2" file="../img/newtab/backgrounds/andre-benz.avif" type="BINDATA" />
-        <include name="IDR_BRAVE_NEW_TAB_BACKGROUND3" file="../img/newtab/backgrounds/corwin-prescott_olympic.avif" type="BINDATA" />
-        <include name="IDR_BRAVE_NEW_TAB_BACKGROUND4" file="../img/newtab/backgrounds/dylan-malval_alps.avif" type="BINDATA" />
-        <include name="IDR_BRAVE_NEW_TAB_BACKGROUND5" file="../img/newtab/backgrounds/sora-sagano.avif" type="BINDATA" />
-        <include name="IDR_BRAVE_NEW_TAB_BACKGROUND6" file="../img/newtab/backgrounds/spencer-moore_lake.avif" type="BINDATA" />
-        <include name="IDR_BRAVE_NEW_TAB_BACKGROUND7" file="../img/newtab/backgrounds/su-san-lee.avif" type="BINDATA" />
-        <include name="IDR_BRAVE_NEW_TAB_BACKGROUND8" file="../img/newtab/backgrounds/zane-lee.avif" type="BINDATA" />
+        <include name="IDR_adrbrowsiel_NEW_TAB_BACKGROUND1" file="../img/newtab/backgrounds/alex-plesovskich.avif" type="BINDATA" />
+        <include name="IDR_adrbrowsiel_NEW_TAB_BACKGROUND2" file="../img/newtab/backgrounds/andre-benz.avif" type="BINDATA" />
+        <include name="IDR_adrbrowsiel_NEW_TAB_BACKGROUND3" file="../img/newtab/backgrounds/corwin-prescott_olympic.avif" type="BINDATA" />
+        <include name="IDR_adrbrowsiel_NEW_TAB_BACKGROUND4" file="../img/newtab/backgrounds/dylan-malval_alps.avif" type="BINDATA" />
+        <include name="IDR_adrbrowsiel_NEW_TAB_BACKGROUND5" file="../img/newtab/backgrounds/sora-sagano.avif" type="BINDATA" />
+        <include name="IDR_adrbrowsiel_NEW_TAB_BACKGROUND6" file="../img/newtab/backgrounds/spencer-moore_lake.avif" type="BINDATA" />
+        <include name="IDR_adrbrowsiel_NEW_TAB_BACKGROUND7" file="../img/newtab/backgrounds/su-san-lee.avif" type="BINDATA" />
+        <include name="IDR_adrbrowsiel_NEW_TAB_BACKGROUND8" file="../img/newtab/backgrounds/zane-lee.avif" type="BINDATA" />
       </if>
 
       <!-- WebUI private new tab resources -->
-      <!-- TODO: move to brave_new_tab_ui component -->
-      <include name="IDR_BRAVE_PRIVATE_TAB_IMG" file="../img/newtab/private-window.svg" type="BINDATA" />
-      <include name="IDR_BRAVE_PRIVATE_TAB_TOR_IMG" file="../img/newtab/private-window-tor.svg" type="BINDATA" />
+      <!-- TODO: move to adrbrowsiel_new_tab_ui component -->
+      <include name="IDR_adrbrowsiel_PRIVATE_TAB_IMG" file="../img/newtab/private-window.svg" type="BINDATA" />
+      <include name="IDR_adrbrowsiel_PRIVATE_TAB_TOR_IMG" file="../img/newtab/private-window-tor.svg" type="BINDATA" />
 
-      <if expr="enable_brave_perf_predictor">
-        <part file="../brave_perf_predictor/resources/brave_perf_predictor_resources.grdp" />
+      <if expr="enable_adrbrowsiel_perf_predictor">
+        <part file="../adrbrowsiel_perf_predictor/resources/adrbrowsiel_perf_predictor_resources.grdp" />
       </if>
 
-      <part file="brave_blank_page_resources.grdp" />
+      <part file="adrbrowsiel_blank_page_resources.grdp" />
       <part file="speedreader_resources.grdp" />
-      <part file="brave_flags_ui_resources.grdp" />
+      <part file="adrbrowsiel_flags_ui_resources.grdp" />
       <part file="ipfs_resources.grdp" />
       <part file="domain_block_resources.grdp" />
       <part file="decentralized_dns_resources.grdp" />

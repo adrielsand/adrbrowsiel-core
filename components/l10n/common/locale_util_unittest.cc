@@ -1,14 +1,14 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/l10n/common/locale_util.h"
+#include "adrbrowsiel/components/l10n/common/locale_util.h"
 
 #include "testing/gmock/include/gmock/gmock.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=BatAds*
+// npm run test -- adrbrowsiel_unit_tests --filter=BatAds*
 
 namespace ads {
 
@@ -18,7 +18,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en";
 
   // Act
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
 
   // Assert
   const std::string expected_language_code = "en";
@@ -31,7 +31,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en";
 
   // Act
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Assert
   const std::string expected_country_code = "US";
@@ -44,7 +44,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en-US";
 
   // Act
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
 
   // Assert
   const std::string expected_language_code = "en";
@@ -57,7 +57,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en-US";
 
   // Act
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Assert
   const std::string expected_country_code = "US";
@@ -70,7 +70,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en-101";
 
   // Act
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
 
   // Assert
   const std::string expected_language_code = "en";
@@ -83,7 +83,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en-101";
 
   // Act
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Assert
   const std::string expected_country_code = "101";
@@ -96,7 +96,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en-US.UTF-8";
 
   // Act
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
 
   // Assert
   const std::string expected_language_code = "en";
@@ -109,7 +109,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en-US.UTF-8";
 
   // Act
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Assert
   const std::string expected_country_code = "US";
@@ -122,7 +122,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "az-Latn-AZ";
 
   // Act
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
 
   // Assert
   const std::string expected_language_code = "az";
@@ -135,7 +135,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "az-Latn-AZ";
 
   // Act
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Assert
   const std::string expected_country_code = "AZ";
@@ -148,7 +148,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en_US";
 
   // Act
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
 
   // Assert
   const std::string expected_language_code = "en";
@@ -161,7 +161,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en_US";
 
   // Act
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Assert
   const std::string expected_country_code = "US";
@@ -174,7 +174,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en_US.UTF-8";
 
   // Act
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
 
   // Assert
   const std::string expected_language_code = "en";
@@ -187,7 +187,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "en_US.UTF-8";
 
   // Act
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Assert
   const std::string expected_country_code = "US";
@@ -200,7 +200,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "az_Latn_AZ";
 
   // Act
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
 
   // Assert
   const std::string expected_language_code = "az";
@@ -213,7 +213,7 @@ TEST(BatAdsLocaleTest,
   const std::string locale = "az_Latn_AZ";
 
   // Act
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Assert
   const std::string expected_country_code = "AZ";

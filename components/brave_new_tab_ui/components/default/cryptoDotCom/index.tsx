@@ -32,7 +32,7 @@ import {
   UpperCaseText
 } from './style'
 import CryptoDotComLogo from './assets/cryptoDotCom-logo'
-import { CaratLeftIcon } from 'brave-ui/components/icons'
+import { CaratLeftIcon } from 'adrbrowsiel-ui/components/icons'
 import icons from './assets/icons'
 
 // Utils

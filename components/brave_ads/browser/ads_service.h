@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_ADS_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_ADS_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_ADS_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_ADS_SERVICE_H_
 
 #include <map>
 #include <string>
@@ -13,8 +13,8 @@
 #include "base/callback_forward.h"
 #include "base/macros.h"
 #include "base/observer_list.h"
-#include "brave/components/brave_ads/browser/ads_service_observer.h"
-#include "brave/vendor/bat-native-ads/include/bat/ads/public/interfaces/ads.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service_observer.h"
+#include "adrbrowsiel/vendor/bat-native-ads/include/bat/ads/public/interfaces/ads.mojom.h"
 #include "build/build_config.h"
 #include "components/keyed_service/core/keyed_service.h"
 #include "components/sessions/core/session_id.h"
@@ -32,7 +32,7 @@ namespace user_prefs {
 class PrefRegistrySyncable;
 }
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 using OnGetAdsHistoryCallback =
     base::OnceCallback<void(const base::ListValue&)>;
@@ -119,12 +119,12 @@ class AdsService : public KeyedService {
   virtual void OnNewTabPageAdEvent(
       const std::string& uuid,
       const std::string& creative_instance_id,
-      const ads::mojom::BraveAdsNewTabPageAdEventType event_type) = 0;
+      const ads::mojom::adrbrowsielAdsNewTabPageAdEventType event_type) = 0;
 
   virtual void OnPromotedContentAdEvent(
       const std::string& uuid,
       const std::string& creative_instance_id,
-      const ads::mojom::BraveAdsPromotedContentAdEventType event_type) = 0;
+      const ads::mojom::adrbrowsielAdsPromotedContentAdEventType event_type) = 0;
 
   virtual void ReconcileAdRewards() = 0;
 
@@ -167,6 +167,6 @@ class AdsService : public KeyedService {
   base::ObserverList<AdsServiceObserver> observers_;
 };
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_ADS_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_ADS_SERVICE_H_

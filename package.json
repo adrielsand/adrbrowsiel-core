@@ -1,7 +1,7 @@
 {
-  "name": "brave-core",
+  "name": "adrbrowsiel-core",
   "version": "1.27.3",
-  "description": "Brave Core is a set of changes, APIs, and scripts used for customizing Chromium to make Brave.",
+  "description": "adrbrowsiel Core is a set of changes, APIs, and scripts used for customizing Chromium to make adrbrowsiel.",
   "main": "index.js",
   "scripts": {
     "audit_deps": "node ./build/commands/scripts/audit.js -- --audit_dev_deps",
@@ -19,7 +19,7 @@
     "update_patches": "node ./build/commands/scripts/commands.js update_patches",
     "apply_patches": "node ./build/commands/scripts/commands.js apply_patches",
     "start": "node ./build/commands/scripts/commands.js start",
-    "network-audit": "node ./build/commands/scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test --disable-doh",
+    "network-audit": "node ./build/commands/scripts/commands.js start --enable_adrbrowsiel_update --network_log --user_data_dir_name=adrbrowsiel-network-test --disable-doh",
     "push_l10n": "node ./build/commands/scripts/commands.js push_l10n",
     "pull_l10n": "node ./build/commands/scripts/commands.js pull_l10n",
     "chromium_rebase_l10n": "node ./build/commands/scripts/commands.js chromium_rebase_l10n",
@@ -27,7 +27,7 @@
     "format": "node ./build/commands/scripts/commands.js format",
     "test": "node ./build/commands/scripts/commands.js test",
     "test:scripts": "jest build/commands/lib build/commands/scripts",
-    "test-security": "npm run check_security && npm run audit_deps && node ./build/commands/scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test",
+    "test-security": "npm run check_security && npm run audit_deps && node ./build/commands/scripts/commands.js start --enable_adrbrowsiel_update --network_log --user_data_dir_name=adrbrowsiel-network-test",
     "tslint": "tslint --project tsconfig-lint.json \"components/**/*.{ts,tsx}\"",
     "pep8": "pycodestyle --max-line-length 120 -r script",
     "pylint": "./script/pylint.sh",
@@ -42,15 +42,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brave/brave-core.git"
+    "url": "git+https://github.com/adrbrowsiel/adrbrowsiel-core.git"
   },
   "author": {
-    "name": "Brave Software <support@brave.com>"
+    "name": "adrbrowsiel Software <support@adrbrowsiel.com>"
   },
   "contributors": [
     {
       "name": "Cezar Augusto",
-      "email": "cezar@brave.com"
+      "email": "cezar@adrbrowsiel.com"
     },
     {
       "name": "Matt Bacchi",
@@ -58,7 +58,7 @@
     },
     {
       "name": "Alexey Barabash",
-      "email": "alexey@brave.com"
+      "email": "alexey@adrbrowsiel.com"
     },
     {
       "name": "Brian R. Bondy",
@@ -70,26 +70,26 @@
     },
     {
       "name": "George Dregalo",
-      "email": "gdregalo@brave.com"
+      "email": "gdregalo@adrbrowsiel.com"
     },
     {
       "name": "Rafael Ebron",
-      "email": "rebron@brave.com"
+      "email": "rebron@adrbrowsiel.com"
     },
     {
       "name": "Brendan Eich",
-      "email": "brendan@brave.com"
+      "email": "brendan@adrbrowsiel.com"
     },
     {
       "name": "Matt Evangelista",
-      "email": "mevangelista@brave.com"
+      "email": "mevangelista@adrbrowsiel.com"
     },
     {
       "name": "Ryan Gerstenkorn"
     },
     {
       "name": "Kyle Hickinson",
-      "email": "khickinson@brave.com"
+      "email": "khickinson@adrbrowsiel.com"
     },
     {
       "name": "Simon Hong",
@@ -97,7 +97,7 @@
     },
     {
       "name": "Brian Johnson",
-      "email": "bjohnson@brave.com"
+      "email": "bjohnson@adrbrowsiel.com"
     },
     {
       "name": "Kamil Jozwiak",
@@ -105,15 +105,15 @@
     },
     {
       "name": "Pranjal Jumde",
-      "email": "pranjal@brave.com"
+      "email": "pranjal@adrbrowsiel.com"
     },
     {
       "name": "Max Karolinskiy",
-      "email": "max@brave.com"
+      "email": "max@adrbrowsiel.com"
     },
     {
       "name": "Ben Kero",
-      "email": "bkero@brave.com"
+      "email": "bkero@adrbrowsiel.com"
     },
     {
       "name": "Aubrey Keus",
@@ -125,7 +125,7 @@
     },
     {
       "name": "Kevin Lawler",
-      "email": "kevin@brave.com"
+      "email": "kevin@adrbrowsiel.com"
     },
     {
       "name": "Bartlomiej Lechowski",
@@ -143,7 +143,7 @@
     },
     {
       "name": "Karen Liu",
-      "email": "kliu@brave.com"
+      "email": "kliu@adrbrowsiel.com"
     },
     {
       "name": "Tom Lowenthal",
@@ -151,7 +151,7 @@
     },
     {
       "name": "Terry Mancey",
-      "email": "tmancey@brave.com"
+      "email": "tmancey@adrbrowsiel.com"
     },
     {
       "name": "Pete Miller",
@@ -163,7 +163,7 @@
     },
     {
       "name": "Mark Pilgrim",
-      "email": "mpilgrim@brave.com"
+      "email": "mpilgrim@adrbrowsiel.com"
     },
     {
       "name": "Mihai Plesa",
@@ -186,23 +186,23 @@
     },
     {
       "name": "Emerick Rogul",
-      "email": "erogul@brave.com"
+      "email": "erogul@adrbrowsiel.com"
     },
     {
       "name": "Jason Sadler",
-      "email": "jsadler@brave.com"
+      "email": "jsadler@adrbrowsiel.com"
     },
     {
       "name": "Geeta Sarvadnya",
-      "email": "gsarvadnya@brave.com"
+      "email": "gsarvadnya@adrbrowsiel.com"
     },
     {
       "name": "Mandar Shinde",
-      "email": "mandar@brave.com"
+      "email": "mandar@adrbrowsiel.com"
     },
     {
       "name": "Peter Snyder",
-      "email": "psnyder@brave.com"
+      "email": "psnyder@adrbrowsiel.com"
     },
     {
       "name": "David Temkin",
@@ -218,7 +218,7 @@
     },
     {
       "name": "Lauren Wagner",
-      "email": "lauren@brave.com"
+      "email": "lauren@adrbrowsiel.com"
     },
     {
       "name": "Ryan Watson",
@@ -226,7 +226,7 @@
     },
     {
       "name": "Nejc Zdovc",
-      "email": "nejc@brave.com"
+      "email": "nejc@adrbrowsiel.com"
     },
     {
       "name": "Yan Zhu",
@@ -234,14 +234,14 @@
     },
     {
       "name": "Sergey Zhukovsky",
-      "email": "serg@brave.com"
+      "email": "serg@adrbrowsiel.com"
     }
   ],
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/brave/brave-browser/issues"
+    "url": "https://github.com/adrbrowsiel/adrbrowsiel-browser/issues"
   },
-  "homepage": "https:/github.com/brave/brave-core#readme",
+  "homepage": "https:/github.com/adrbrowsiel/adrbrowsiel-core#readme",
   "devDependencies": {
     "@babel/core": "7.13.8",
     "@dump247/storybook-state": "1.6.1",
@@ -268,7 +268,7 @@
     "@types/styled-components": "5.1.9",
     "acorn": "8.0.5",
     "babel-loader": "8.2.2",
-    "brave-ui": "github:brave/brave-ui#abf54ab62e464a03762197cb751c957dbc801427",
+    "adrbrowsiel-ui": "github:adrbrowsiel/adrbrowsiel-ui#abf54ab62e464a03762197cb751c957dbc801427",
     "chalk": "4.1.0",
     "commander": "2.20.3",
     "css-loader": "^3.6.0",
@@ -277,7 +277,7 @@
     "emptykit.css": "1.0.1",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.6",
-    "ethereum-blockies": "github:brave/blockies#07ebdfa3ed79fceec8234ef8c880ebdefd79bf0a",
+    "ethereum-blockies": "github:adrbrowsiel/blockies#07ebdfa3ed79fceec8234ef8c880ebdefd79bf0a",
     "file-loader": "1.1.11",
     "font-awesome": "4.7.0",
     "fs-extra": "8.1.0",
@@ -310,7 +310,7 @@
     "webpack-cli": "3.3.12"
   },
   "dependencies": {
-    "@brave/react-virtualized-auto-sizer": "^1.0.4",
+    "@adrbrowsiel/react-virtualized-auto-sizer": "^1.0.4",
     "@types/jszip": "^3.1.6",
     "@types/parse-torrent": "^5.8.3",
     "@types/webtorrent": "^0.109.0",

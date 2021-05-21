@@ -1,18 +1,18 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SERVICES_TOR_TOR_LAUNCHER_IMPL_H_
-#define BRAVE_COMPONENTS_SERVICES_TOR_TOR_LAUNCHER_IMPL_H_
+#ifndef adrbrowsiel_COMPONENTS_SERVICES_TOR_TOR_LAUNCHER_IMPL_H_
+#define adrbrowsiel_COMPONENTS_SERVICES_TOR_TOR_LAUNCHER_IMPL_H_
 
 #include <memory>
 
 #include "base/memory/weak_ptr.h"
 #include "base/process/process.h"
 #include "base/sequence_checker.h"
-#include "brave/components/child_process_monitor/child_process_monitor.h"
-#include "brave/components/services/tor/public/interfaces/tor.mojom.h"
+#include "adrbrowsiel/components/child_process_monitor/child_process_monitor.h"
+#include "adrbrowsiel/components/services/tor/public/interfaces/tor.mojom.h"
 #include "mojo/public/cpp/bindings/pending_receiver.h"
 #include "mojo/public/cpp/bindings/receiver.h"
 
@@ -36,7 +36,7 @@ class TorLauncherImpl : public tor::mojom::TorLauncher {
   void Cleanup();
 
   SetCrashHandlerCallback crash_handler_callback_;
-  std::unique_ptr<brave::ChildProcessMonitor> child_monitor_;
+  std::unique_ptr<adrbrowsiel::ChildProcessMonitor> child_monitor_;
   mojo::Receiver<tor::mojom::TorLauncher> receiver_;
   bool in_shutdown_ = false;
 
@@ -47,4 +47,4 @@ class TorLauncherImpl : public tor::mojom::TorLauncher {
 
 }  // namespace tor
 
-#endif  // BRAVE_COMPONENTS_SERVICES_TOR_TOR_LAUNCHER_IMPL_H_
+#endif  // adrbrowsiel_COMPONENTS_SERVICES_TOR_TOR_LAUNCHER_IMPL_H_

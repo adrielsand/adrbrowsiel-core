@@ -16,7 +16,7 @@ import {
   StyledTOS,
   StyleCenter
 } from './style'
-import { CloseStrokeIcon } from 'brave-ui/components/icons'
+import { CloseStrokeIcon } from 'adrbrowsiel-ui/components/icons'
 import { getLocale, splitStringForTag } from '../../../../common/locale'
 
 interface NotificationProps {
@@ -40,7 +40,7 @@ export default class BrandedWallpaperRewardsNotification extends React.PureCompo
         </Title>
         <SubTitle>
           {beforeTag}
-          <SubTitleLink href='https://brave.com/brave-rewards/'>
+          <SubTitleLink href='https://adrbrowsiel.com/adrbrowsiel-rewards/'>
             {duringTag}
           </SubTitleLink>
           {afterTag}

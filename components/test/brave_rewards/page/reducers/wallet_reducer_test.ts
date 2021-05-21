@@ -3,9 +3,9 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* global chrome */
 
-import reducers from '../../../../brave_rewards/resources/page/reducers/index'
-import { types } from '../../../../brave_rewards/resources/page/constants/rewards_types'
-import { defaultState } from '../../../../brave_rewards/resources/page/storage'
+import reducers from '../../../../adrbrowsiel_rewards/resources/page/reducers/index'
+import { types } from '../../../../adrbrowsiel_rewards/resources/page/constants/rewards_types'
+import { defaultState } from '../../../../adrbrowsiel_rewards/resources/page/storage'
 import { getMockChrome } from '../../../testData'
 
 describe('wallet reducer', () => {
@@ -68,10 +68,10 @@ describe('wallet reducer', () => {
       }
 
       expect(chromeSpy).toHaveBeenCalledTimes(4)
-      expect(chromeSpy.mock.calls[0][0]).toEqual('brave_rewards.fetchPromotions')
-      expect(chromeSpy.mock.calls[1][0]).toEqual('brave_rewards.fetchBalance')
-      expect(chromeSpy.mock.calls[2][0]).toEqual('brave_rewards.getPaymentId')
-      expect(chromeSpy.mock.calls[3][0]).toEqual('brave_rewards.getBalanceReport')
+      expect(chromeSpy.mock.calls[0][0]).toEqual('adrbrowsiel_rewards.fetchPromotions')
+      expect(chromeSpy.mock.calls[1][0]).toEqual('adrbrowsiel_rewards.fetchBalance')
+      expect(chromeSpy.mock.calls[2][0]).toEqual('adrbrowsiel_rewards.getPaymentId')
+      expect(chromeSpy.mock.calls[3][0]).toEqual('adrbrowsiel_rewards.getBalanceReport')
 
       expect(assertion).toEqual({
         rewardsData: expectedState

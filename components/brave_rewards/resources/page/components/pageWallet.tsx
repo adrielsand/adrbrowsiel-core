@@ -15,7 +15,7 @@ import {
   WalletSummary,
   WalletWrapper
 } from '../../ui/components'
-import { WalletAddIcon, WalletWithdrawIcon } from 'brave-ui/components/icons'
+import { WalletAddIcon, WalletWithdrawIcon } from 'adrbrowsiel-ui/components/icons'
 import { AlertWallet, WalletState } from '../../ui/components/walletWrapper'
 import { Provider } from '../../ui/components/profile'
 import { DetailRow as PendingDetailRow, PendingType } from '../../ui/components/tablePending'
@@ -92,7 +92,7 @@ class PageWallet extends React.Component<Props, State> {
     try {
       await navigator.clipboard.writeText(backupKey)
       console.log('Copy successful')
-      chrome.send('brave_rewards.setBackupCompleted')
+      chrome.send('adrbrowsiel_rewards.setBackupCompleted')
     } catch (e) {
       console.log('Copy failed')
     }
@@ -105,14 +105,14 @@ class PageWallet extends React.Component<Props, State> {
         win.document.body.innerText = utils.constructBackupString(backupKey) // this should be text, not HTML
         win.print()
         win.close()
-        chrome.send('brave_rewards.setBackupCompleted')
+        chrome.send('adrbrowsiel_rewards.setBackupCompleted')
       }
     }
   }
 
   onModalBackupOnSaveFile = (backupKey: string) => {
     const backupString = utils.constructBackupString(backupKey)
-    const backupFileText = 'brave_wallet_recovery.txt'
+    const backupFileText = 'adrbrowsiel_wallet_recovery.txt'
     const a = document.createElement('a')
     document.body.appendChild(a)
     a.style.display = 'display: none'
@@ -122,7 +122,7 @@ class PageWallet extends React.Component<Props, State> {
     a.download = backupFileText
     a.click()
     window.URL.revokeObjectURL(url)
-    chrome.send('brave_rewards.setBackupCompleted')
+    chrome.send('adrbrowsiel_rewards.setBackupCompleted')
   }
 
   onModalBackupOnRestore = (key: string | MouseEvent) => {
@@ -589,16 +589,16 @@ class PageWallet extends React.Component<Props, State> {
         text = ''
         break
       }
-      case 1: { // Rewards.Processor.BRAVE_TOKENS
-        text = getLocale('processorBraveTokens')
+      case 1: { // Rewards.Processor.adrbrowsiel_TOKENS
+        text = getLocale('processoradrbrowsielTokens')
         break
       }
       case 2: { // Rewards.Processor.UPHOLD
         text = getLocale('processorUphold')
         break
       }
-      case 3: { // Rewards.Processor.BRAVE_USER_FUNDS
-        text = getLocale('processorBraveUserFunds')
+      case 3: { // Rewards.Processor.adrbrowsiel_USER_FUNDS
+        text = getLocale('processoradrbrowsielUserFunds')
         break
       }
       case 4: { // Rewards.Processor.BITFLYER
@@ -753,7 +753,7 @@ class PageWallet extends React.Component<Props, State> {
       return (
         <span>
           {tags.beforeTag}
-          <a href='https://brave.com/faq#convert-old-keys' target='_blank' rel='noopener noreferrer'>
+          <a href='https://adrbrowsiel.com/faq#convert-old-keys' target='_blank' rel='noopener noreferrer'>
             {tags.duringTag}
           </a>
           {tags.afterTag}
@@ -829,7 +829,7 @@ class PageWallet extends React.Component<Props, State> {
             : <WalletSummary
               reservedAmount={pendingTotal}
               onlyAnonWallet={onlyAnonWallet}
-              reservedMoreLink={'https://brave.com/faq/#unclaimed-funds'}
+              reservedMoreLink={'https://adrbrowsiel.com/faq/#unclaimed-funds'}
               onActivity={this.onModalActivityToggle}
               {...this.getWalletSummary()}
             />

@@ -1,4 +1,4 @@
-import("//brave/components/common/typescript.gni")
+import("//adrbrowsiel/components/common/typescript.gni")
 import("//build/config/locales.gni")
 import("//extensions/buildflags/buildflags.gni")
 import("//tools/grit/grit_rule.gni")
@@ -7,28 +7,28 @@ import("//tools/grit/repack.gni")
 assert(enable_extensions)
 
 pack_web_resources("extension_generated_resources") {
-  resource_name = "brave_rewards_panel"
-  output_dir = "$root_gen_dir/brave/components/brave_rewards/resources/extension"
+  resource_name = "adrbrowsiel_rewards_panel"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/extension"
   deps = [
-    "brave_rewards:brave_rewards_panel"
+    "adrbrowsiel_rewards:adrbrowsiel_rewards_panel"
   ]
 }
 
 grit("static_resources") {
   source = "extension_static_resources.grd"
   outputs = [
-    "grit/brave_rewards_extension_resources_map.cc",
-    "grit/brave_rewards_extension_resources_map.h",
-    "grit/brave_rewards_extension_resources.h",
-    "brave_rewards_extension_static.pak",
+    "grit/adrbrowsiel_rewards_extension_resources_map.cc",
+    "grit/adrbrowsiel_rewards_extension_resources_map.h",
+    "grit/adrbrowsiel_rewards_extension_resources.h",
+    "adrbrowsiel_rewards_extension_static.pak",
   ]
 
   deps = [
   ]
 
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 
-  output_dir = "$root_gen_dir/brave/components/brave_rewards/resources/extension"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/extension"
 }
 
 repack("resources") {
@@ -38,11 +38,11 @@ repack("resources") {
   ]
 
   sources = [
-    "$root_gen_dir/brave/components/brave_rewards/resources/extension/brave_rewards_extension_static.pak",
-    "$root_gen_dir/brave/components/brave_rewards/resources/extension/brave_rewards_panel_generated.pak",
+    "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/extension/adrbrowsiel_rewards_extension_static.pak",
+    "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/extension/adrbrowsiel_rewards_panel_generated.pak",
   ]
 
-  output = "$root_gen_dir/brave/components/brave_rewards/resources/extension/brave_rewards_extension_resources.pak"
+  output = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/extension/adrbrowsiel_rewards_extension_resources.pak"
 }
 
 if (is_mac) {
@@ -58,10 +58,10 @@ if (is_mac) {
       locale = string_replace(locale, "-", "_")
       source_locale = string_replace(locale, "nb", "no")
       sources = [
-        "brave_rewards/_locales/$source_locale/messages.json"
+        "adrbrowsiel_rewards/_locales/$source_locale/messages.json"
       ]
       outputs = [
-        "{{bundle_resources_dir}}/brave_rewards/_locales/$locale/{{source_file_part}}"
+        "{{bundle_resources_dir}}/adrbrowsiel_rewards/_locales/$locale/{{source_file_part}}"
       ]
     }
   }
@@ -77,10 +77,10 @@ if (is_mac) {
       locale = string_replace(locale, "-", "_")
       source_locale = string_replace(locale, "nb", "no")
       sources = [
-        "brave_rewards/_locales/${source_locale}/messages.json",
+        "adrbrowsiel_rewards/_locales/${source_locale}/messages.json",
       ]
       outputs = [
-        "$root_out_dir/resources/brave_rewards/_locales/${locale}/{{source_file_part}}",
+        "$root_out_dir/resources/adrbrowsiel_rewards/_locales/${locale}/{{source_file_part}}",
       ]
     }
   }

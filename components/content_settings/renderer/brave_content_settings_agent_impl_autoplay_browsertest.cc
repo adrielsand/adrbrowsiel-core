@@ -1,9 +1,9 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/content_settings/renderer/brave_content_settings_agent_impl.h"
+#include "adrbrowsiel/components/content_settings/renderer/adrbrowsiel_content_settings_agent_impl.h"
 #include "components/content_settings/core/common/content_settings.h"
 #include "components/content_settings/core/common/content_settings_utils.h"
 #include "components/content_settings/renderer/content_settings_agent_impl.h"
@@ -50,7 +50,7 @@ class MockContentSettingsManagerImpl : public mojom::ContentSettingsManager {
   Log* log_;
 };
 
-class MockContentSettingsAgentImpl : public BraveContentSettingsAgentImpl {
+class MockContentSettingsAgentImpl : public adrbrowsielContentSettingsAgentImpl {
  public:
   explicit MockContentSettingsAgentImpl(content::RenderFrame* render_frame);
   ~MockContentSettingsAgentImpl() override {}
@@ -72,7 +72,7 @@ class MockContentSettingsAgentImpl : public BraveContentSettingsAgentImpl {
 
 MockContentSettingsAgentImpl::MockContentSettingsAgentImpl(
     content::RenderFrame* render_frame)
-    : BraveContentSettingsAgentImpl(
+    : adrbrowsielContentSettingsAgentImpl(
           render_frame,
           false,
           std::make_unique<ContentSettingsAgentImpl::Delegate>()) {}
@@ -85,7 +85,7 @@ void MockContentSettingsAgentImpl::BindContentSettingsManager(
 }
 }  // namespace
 
-class BraveContentSettingsAgentImplAutoplayBrowserTest
+class adrbrowsielContentSettingsAgentImplAutoplayBrowserTest
     : public content::RenderViewTest {
  protected:
   void SetUp() override {
@@ -103,7 +103,7 @@ class BraveContentSettingsAgentImplAutoplayBrowserTest
   }
 };
 
-TEST_F(BraveContentSettingsAgentImplAutoplayBrowserTest,
+TEST_F(adrbrowsielContentSettingsAgentImplAutoplayBrowserTest,
        AutoplayBlockedByDefault) {
   LoadHTMLWithUrlOverride("<html>Autoplay</html>", "https://example.com/");
 
@@ -136,7 +136,7 @@ TEST_F(BraveContentSettingsAgentImplAutoplayBrowserTest,
   EXPECT_TRUE(agent.AllowAutoplay(true));
 }
 
-TEST_F(BraveContentSettingsAgentImplAutoplayBrowserTest,
+TEST_F(adrbrowsielContentSettingsAgentImplAutoplayBrowserTest,
        AutoplayAllowedByDefault) {
   LoadHTMLWithUrlOverride("<html>Autoplay</html>", "https://example.com/");
 

@@ -4,7 +4,7 @@ import { adblockInitialState } from '../../testData'
 import {
   AdblockPage,
   mapStateToProps
-} from '../../../brave_adblock_ui/components/app'
+} from '../../../adrbrowsiel_adblock_ui/components/app'
 
 describe('adblockPage component', () => {
   describe('mapStateToProps', () => {

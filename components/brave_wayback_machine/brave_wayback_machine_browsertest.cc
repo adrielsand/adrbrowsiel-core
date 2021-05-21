@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wayback_machine/brave_wayback_machine_tab_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/adrbrowsiel_wayback_machine_tab_helper.h"
 #include "chrome/browser/infobars/infobar_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -14,7 +14,7 @@
 #include "content/public/test/browser_test.h"
 #include "testing/gmock/include/gmock/gmock.h"
 
-using BraveWaybackMachineTest = InProcessBrowserTest;
+using adrbrowsielWaybackMachineTest = InProcessBrowserTest;
 using ::testing::_;
 
 namespace {
@@ -28,10 +28,10 @@ class TestObserver : public infobars::InfoBarManager::Observer {
 
 }  // namespace
 
-IN_PROC_BROWSER_TEST_F(BraveWaybackMachineTest, InfobarAddTest) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielWaybackMachineTest, InfobarAddTest) {
   auto* model = browser()->tab_strip_model();
   auto* contents = model->GetActiveWebContents();
-  auto* tab_helper = BraveWaybackMachineTabHelper::FromWebContents(contents);
+  auto* tab_helper = adrbrowsielWaybackMachineTabHelper::FromWebContents(contents);
   auto* infobar_service = InfoBarService::FromWebContents(contents);
 
   TestObserver observer;

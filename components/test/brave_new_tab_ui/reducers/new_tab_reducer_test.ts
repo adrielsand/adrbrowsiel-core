@@ -3,10 +3,10 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Reducer
-import { newTabReducers } from '../../../brave_new_tab_ui/reducers'
+import { newTabReducers } from '../../../adrbrowsiel_new_tab_ui/reducers'
 
 // API
-import * as storage from '../../../brave_new_tab_ui/storage/new_tab_storage'
+import * as storage from '../../../adrbrowsiel_new_tab_ui/storage/new_tab_storage'
 
 describe('newTabReducer', () => {
 

@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_P3A_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_P3A_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_P3A_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_P3A_H_
 
 #include <stddef.h>
 #include <ctype.h>
@@ -20,7 +20,7 @@ namespace base {
 class DictionaryValue;
 }
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 namespace p3a {
 
 struct WalletState {
@@ -79,6 +79,6 @@ double CalcWalletBalance(base::flat_map<std::string, double> wallets,
 void ExtractAndLogStats(const base::DictionaryValue& dict);
 
 }  // namespace p3a
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_P3A_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_P3A_H_

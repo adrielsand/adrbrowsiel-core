@@ -1,20 +1,20 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_TOR_TOR_PROFILE_SERVICE_IMPL_H_
-#define BRAVE_COMPONENTS_TOR_TOR_PROFILE_SERVICE_IMPL_H_
+#ifndef adrbrowsiel_COMPONENTS_TOR_TOR_PROFILE_SERVICE_IMPL_H_
+#define adrbrowsiel_COMPONENTS_TOR_TOR_PROFILE_SERVICE_IMPL_H_
 
 #include <memory>
 #include <string>
 
 #include "base/memory/weak_ptr.h"
 #include "base/optional.h"
-#include "brave/components/tor/brave_tor_client_updater.h"
-#include "brave/components/tor/tor_launcher_factory.h"
-#include "brave/components/tor/tor_launcher_observer.h"
-#include "brave/components/tor/tor_profile_service.h"
+#include "adrbrowsiel/components/tor/adrbrowsiel_tor_client_updater.h"
+#include "adrbrowsiel/components/tor/tor_launcher_factory.h"
+#include "adrbrowsiel/components/tor/tor_launcher_observer.h"
+#include "adrbrowsiel/components/tor/tor_profile_service.h"
 #include "net/proxy_resolution/proxy_info.h"
 
 namespace content {
@@ -32,11 +32,11 @@ using NewTorCircuitCallback = base::OnceCallback<void(
     const base::Optional<net::ProxyInfo>& proxy_info)>;
 
 class TorProfileServiceImpl : public TorProfileService,
-                              public BraveTorClientUpdater::Observer,
+                              public adrbrowsielTorClientUpdater::Observer,
                               public TorLauncherObserver {
  public:
   TorProfileServiceImpl(content::BrowserContext* context,
-                        BraveTorClientUpdater* tor_client_updater);
+                        adrbrowsielTorClientUpdater* tor_client_updater);
   ~TorProfileServiceImpl() override;
 
   // TorProfileService:
@@ -58,11 +58,11 @@ class TorProfileServiceImpl : public TorProfileService,
   base::FilePath GetTorDataPath() const;
   base::FilePath GetTorWatchPath() const;
 
-  // BraveTorClientUpdater::Observer
+  // adrbrowsielTorClientUpdater::Observer
   void OnExecutableReady(const base::FilePath& path) override;
 
   content::BrowserContext* context_ = nullptr;
-  BraveTorClientUpdater* tor_client_updater_ = nullptr;
+  adrbrowsielTorClientUpdater* tor_client_updater_ = nullptr;
   TorLauncherFactory* tor_launcher_factory_;  // Singleton
   net::ProxyConfigServiceTor* proxy_config_service_;  // NOT OWNED
   base::WeakPtrFactory<TorProfileServiceImpl> weak_ptr_factory_;
@@ -72,4 +72,4 @@ class TorProfileServiceImpl : public TorProfileService,
 
 }  // namespace tor
 
-#endif  // BRAVE_COMPONENTS_TOR_TOR_PROFILE_SERVICE_IMPL_H_
+#endif  // adrbrowsiel_COMPONENTS_TOR_TOR_PROFILE_SERVICE_IMPL_H_

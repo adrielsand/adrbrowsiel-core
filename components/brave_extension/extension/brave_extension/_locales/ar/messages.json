@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "امتداد Brave",
+    "message": "امتداد adrbrowsiel",
     "description": "The name of the the extension."
   },
   "shields": {
@@ -24,12 +24,12 @@
     "description": "Message telling the user to disable shields if a site appears broken"
   },
   "disabledMessage": {
-    "message": "إنك تتصفح هذا الموقع دون حماية الخصوصية والأمن من Brave. ألا يعمل بشكل سليم أثناء تشغيل Shields؟",
+    "message": "إنك تتصفح هذا الموقع دون حماية الخصوصية والأمن من adrbrowsiel. ألا يعمل بشكل سليم أثناء تشغيل Shields؟",
     "description": "Message telling the user that shields are disabled, and prompting them towards reporting an issue if necessary"
   },
   "reportBrokenSite": {
     "message": "الإبلاغ عن موقع إلكتروني معطل",
-    "description": "Message for the button allowing users to report a broken site to Brave developers"
+    "description": "Message for the button allowing users to report a broken site to adrbrowsiel developers"
   },
   "itemsBlocked": {
     "message": "العناصر المحجوبة",
@@ -192,8 +192,8 @@
     "description": "Message for the simple view option"
   },
   "shieldsExplanation": {
-    "message": "غالبًا ما تتضمن المواقع ملفات تعريف الارتباط والبرامج النصية التي تحاول تحديد هويتك وجهازك (غالبًا ما تكون مضمنة في الإعلانات). إنهم يريدون معرفة ماهيتك ومتابعتك عبر شبكة الإنترنت - يتتبعون بذلك ما تفعله في كل موقع. يحجب Brave هذه الأشياء لكي تتمكن من التصفح دون التعرض للمتابعة.",
-    "description": "Message in read-only view explaining what Brave Shields do"
+    "message": "غالبًا ما تتضمن المواقع ملفات تعريف الارتباط والبرامج النصية التي تحاول تحديد هويتك وجهازك (غالبًا ما تكون مضمنة في الإعلانات). إنهم يريدون معرفة ماهيتك ومتابعتك عبر شبكة الإنترنت - يتتبعون بذلك ما تفعله في كل موقع. يحجب adrbrowsiel هذه الأشياء لكي تتمكن من التصفح دون التعرض للمتابعة.",
+    "description": "Message in read-only view explaining what adrbrowsiel Shields do"
   },
   "blockedResoucesExplanation": {
     "message": "تم حجب برامج التتبع عبر المواقع وغيرها من العناصر المريبة",

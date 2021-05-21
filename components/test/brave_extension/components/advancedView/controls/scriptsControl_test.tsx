@@ -4,14 +4,14 @@
 
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import ScriptsControl, { Props } from '../../../../../brave_extension/extension/brave_extension/containers/advancedView/controls/scriptsControl'
-import * as actionTypes from '../../../../../brave_extension/extension/brave_extension/constants/shieldsPanelTypes'
-import { BlockJSOptions } from '../../../../../brave_extension/extension/brave_extension/types/other/blockTypes'
+import ScriptsControl, { Props } from '../../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/containers/advancedView/controls/scriptsControl'
+import * as actionTypes from '../../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/shieldsPanelTypes'
+import { BlockJSOptions } from '../../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/other/blockTypes'
 
 const fakeProps: Props = {
   isBlockedListOpen: true,
   setBlockedListOpen: () => { return },
-  hostname: 'brave.com',
+  hostname: 'adrbrowsiel.com',
   favicon: '',
   javascript: 'allow',
   javascriptBlocked: 0,

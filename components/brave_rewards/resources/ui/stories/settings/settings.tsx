@@ -10,7 +10,7 @@ import ContributeBox from './contributeBox'
 import DonationsBox from './donationsBox'
 import Grant from './grant'
 import PageWallet, { Props as WalletProps } from './pageWallet'
-import { Grid, Column } from 'brave-ui/components'
+import { Grid, Column } from 'adrbrowsiel-ui/components'
 import { MainToggle, SettingsPage } from '../../components'
 
 export interface Props {

@@ -1,24 +1,24 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 3.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/cosmetic_filters/browser/cosmetic_filters_resources.h"
+#include "adrbrowsiel/components/cosmetic_filters/browser/cosmetic_filters_resources.h"
 
 #include <utility>
 
 #include "base/json/json_reader.h"
 #include "base/optional.h"
 #include "base/values.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
 #include "components/content_settings/core/browser/host_content_settings_map.h"
 
 namespace cosmetic_filters {
 
 CosmeticFiltersResources::CosmeticFiltersResources(
     HostContentSettingsMap* settings_map,
-    brave_shields::AdBlockService* ad_block_service)
+    adrbrowsiel_shields::AdBlockService* ad_block_service)
     : settings_map_(settings_map),
       ad_block_service_(ad_block_service),
       weak_factory_(this) {}
@@ -65,7 +65,7 @@ void CosmeticFiltersResources::HiddenClassIdSelectors(
 
   ad_block_service_->GetTaskRunner()->PostTaskAndReplyWithResult(
       FROM_HERE,
-      base::BindOnce(&brave_shields::AdBlockService::HiddenClassIdSelectors,
+      base::BindOnce(&adrbrowsiel_shields::AdBlockService::HiddenClassIdSelectors,
                      base::Unretained(ad_block_service_), classes, ids,
                      exceptions),
       base::BindOnce(&CosmeticFiltersResources::HiddenClassIdSelectorsOnUI,
@@ -90,9 +90,9 @@ void CosmeticFiltersResources::ShouldDoCosmeticFiltering(
     const std::string& url,
     ShouldDoCosmeticFilteringCallback callback) {
   bool enabled =
-      brave_shields::ShouldDoCosmeticFiltering(settings_map_, GURL(url));
+      adrbrowsiel_shields::ShouldDoCosmeticFiltering(settings_map_, GURL(url));
   bool first_party_enabled =
-      brave_shields::IsFirstPartyCosmeticFilteringEnabled(settings_map_,
+      adrbrowsiel_shields::IsFirstPartyCosmeticFilteringEnabled(settings_map_,
                                                           GURL(url));
   std::move(callback).Run(enabled, first_party_enabled);
 }
@@ -102,7 +102,7 @@ void CosmeticFiltersResources::UrlCosmeticResources(
     UrlCosmeticResourcesCallback callback) {
   ad_block_service_->GetTaskRunner()->PostTaskAndReplyWithResult(
       FROM_HERE,
-      base::BindOnce(&brave_shields::AdBlockService::UrlCosmeticResources,
+      base::BindOnce(&adrbrowsiel_shields::AdBlockService::UrlCosmeticResources,
                      base::Unretained(ad_block_service_), url),
       base::BindOnce(&CosmeticFiltersResources::UrlCosmeticResourcesOnUI,
                      weak_factory_.GetWeakPtr(), std::move(callback)));

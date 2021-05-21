@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_search/renderer/brave_search_js_handler.h"
+#include "adrbrowsiel/components/adrbrowsiel_search/renderer/adrbrowsiel_search_js_handler.h"
 
 #include <utility>
 
@@ -18,38 +18,38 @@
 #include "third_party/blink/public/web/web_local_frame.h"
 #include "third_party/blink/public/web/web_script_source.h"
 
-namespace brave_search {
+namespace adrbrowsiel_search {
 
-BraveSearchJSHandler::BraveSearchJSHandler(
+adrbrowsielSearchJSHandler::adrbrowsielSearchJSHandler(
     v8::Local<v8::Context> v8_context,
     blink::ThreadSafeBrowserInterfaceBrokerProxy* broker)
     : broker_(broker),
       context_(v8_context->GetIsolate(), v8_context),
       isolate_(v8_context->GetIsolate()) {}
 
-BraveSearchJSHandler::~BraveSearchJSHandler() = default;
+adrbrowsielSearchJSHandler::~adrbrowsielSearchJSHandler() = default;
 
-bool BraveSearchJSHandler::EnsureConnected() {
-  if (!brave_search_fallback_.is_bound() && broker_) {
-    broker_->GetInterface(brave_search_fallback_.BindNewPipeAndPassReceiver());
+bool adrbrowsielSearchJSHandler::EnsureConnected() {
+  if (!adrbrowsiel_search_fallback_.is_bound() && broker_) {
+    broker_->GetInterface(adrbrowsiel_search_fallback_.BindNewPipeAndPassReceiver());
   }
 
-  return brave_search_fallback_.is_bound();
+  return adrbrowsiel_search_fallback_.is_bound();
 }
 
-v8::Local<v8::Context> BraveSearchJSHandler::Context() {
+v8::Local<v8::Context> adrbrowsielSearchJSHandler::Context() {
   return v8::Local<v8::Context>::New(isolate_, context_);
 }
 
-v8::Isolate* BraveSearchJSHandler::GetIsolate() {
+v8::Isolate* adrbrowsielSearchJSHandler::GetIsolate() {
   return isolate_;
 }
 
-void BraveSearchJSHandler::Invalidate() {
+void adrbrowsielSearchJSHandler::Invalidate() {
   context_.Reset();
 }
 
-void BraveSearchJSHandler::AddJavaScriptObject() {
+void adrbrowsielSearchJSHandler::AddJavaScriptObject() {
   v8::HandleScope handle_scope(isolate_);
   if (Context().IsEmpty())
     return;
@@ -59,28 +59,28 @@ void BraveSearchJSHandler::AddJavaScriptObject() {
   BindFunctionsToObject();
 }
 
-void BraveSearchJSHandler::BindFunctionsToObject() {
+void adrbrowsielSearchJSHandler::BindFunctionsToObject() {
   v8::Local<v8::Object> global = Context()->Global();
-  v8::Local<v8::Object> brave_obj;
-  v8::Local<v8::Value> brave_value;
-  if (!global->Get(Context(), gin::StringToV8(isolate_, "brave"))
-           .ToLocal(&brave_value) ||
-      !brave_value->IsObject()) {
-    brave_obj = v8::Object::New(isolate_);
-    global->Set(Context(), gin::StringToSymbol(isolate_, "brave"), brave_obj)
+  v8::Local<v8::Object> adrbrowsiel_obj;
+  v8::Local<v8::Value> adrbrowsiel_value;
+  if (!global->Get(Context(), gin::StringToV8(isolate_, "adrbrowsiel"))
+           .ToLocal(&adrbrowsiel_value) ||
+      !adrbrowsiel_value->IsObject()) {
+    adrbrowsiel_obj = v8::Object::New(isolate_);
+    global->Set(Context(), gin::StringToSymbol(isolate_, "adrbrowsiel"), adrbrowsiel_obj)
         .Check();
   } else {
-    brave_obj = brave_value->ToObject(Context()).ToLocalChecked();
+    adrbrowsiel_obj = adrbrowsiel_value->ToObject(Context()).ToLocalChecked();
   }
 
   BindFunctionToObject(
-      brave_obj, "fetchBackupResults",
-      base::BindRepeating(&BraveSearchJSHandler::FetchBackupResults,
+      adrbrowsiel_obj, "fetchBackupResults",
+      base::BindRepeating(&adrbrowsielSearchJSHandler::FetchBackupResults,
                           base::Unretained(this)));
 }
 
 template <typename Sig>
-void BraveSearchJSHandler::BindFunctionToObject(
+void adrbrowsielSearchJSHandler::BindFunctionToObject(
     v8::Local<v8::Object> javascript_object,
     const std::string& name,
     const base::RepeatingCallback<Sig>& callback) {
@@ -92,7 +92,7 @@ void BraveSearchJSHandler::BindFunctionToObject(
       .Check();
 }
 
-v8::Local<v8::Promise> BraveSearchJSHandler::FetchBackupResults(
+v8::Local<v8::Promise> adrbrowsielSearchJSHandler::FetchBackupResults(
     const std::string& query_string,
     const std::string& lang,
     const std::string& country,
@@ -107,9 +107,9 @@ v8::Local<v8::Promise> BraveSearchJSHandler::FetchBackupResults(
     auto promise_resolver =
         std::make_unique<v8::Global<v8::Promise::Resolver>>();
     promise_resolver->Reset(isolate_, resolver.ToLocalChecked());
-    brave_search_fallback_->FetchBackupResults(
+    adrbrowsiel_search_fallback_->FetchBackupResults(
         query_string, lang, country, geo, filter_explicit_results,
-        base::BindOnce(&BraveSearchJSHandler::OnFetchBackupResults,
+        base::BindOnce(&adrbrowsielSearchJSHandler::OnFetchBackupResults,
                        base::Unretained(this), std::move(promise_resolver)));
 
     return resolver.ToLocalChecked()->GetPromise();
@@ -118,7 +118,7 @@ v8::Local<v8::Promise> BraveSearchJSHandler::FetchBackupResults(
   return v8::Local<v8::Promise>();
 }
 
-void BraveSearchJSHandler::OnFetchBackupResults(
+void adrbrowsielSearchJSHandler::OnFetchBackupResults(
     std::unique_ptr<v8::Global<v8::Promise::Resolver>> promise_resolver,
     const std::string& response) {
   v8::HandleScope handle_scope(isolate_);
@@ -134,4 +134,4 @@ void BraveSearchJSHandler::OnFetchBackupResults(
   ALLOW_UNUSED_LOCAL(resolver->Resolve(context, result));
 }
 
-}  // namespace brave_search
+}  // namespace adrbrowsiel_search

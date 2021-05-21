@@ -1,19 +1,19 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SPEEDREADER_SPEEDREADER_REWRITER_SERVICE_H_
-#define BRAVE_COMPONENTS_SPEEDREADER_SPEEDREADER_REWRITER_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_SPEEDREADER_SPEEDREADER_REWRITER_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_SPEEDREADER_SPEEDREADER_REWRITER_SERVICE_H_
 
 #include <memory>
 #include <string>
 
 #include "base/memory/weak_ptr.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
-#include "brave/components/brave_component_updater/browser/dat_file_util.h"
-#include "brave/components/speedreader/rust/ffi/speedreader.h"
-#include "brave/components/speedreader/speedreader_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/dat_file_util.h"
+#include "adrbrowsiel/components/speedreader/rust/ffi/speedreader.h"
+#include "adrbrowsiel/components/speedreader/speedreader_component.h"
 
 namespace base {
 class FilePath;
@@ -35,7 +35,7 @@ class SpeedreaderRewriterService : public SpeedreaderComponent::Observer {
   void OnStylesheetReady(const base::FilePath& path) override;
 
   explicit SpeedreaderRewriterService(
-      brave_component_updater::BraveComponent::Delegate* delegate);
+      adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate);
   ~SpeedreaderRewriterService() override;
 
   SpeedreaderRewriterService(const SpeedreaderRewriterService&) = delete;
@@ -49,7 +49,7 @@ class SpeedreaderRewriterService : public SpeedreaderComponent::Observer {
 
  private:
   using GetDATFileDataResult =
-      brave_component_updater::LoadDATFileDataResult<speedreader::SpeedReader>;
+      adrbrowsiel_component_updater::LoadDATFileDataResult<speedreader::SpeedReader>;
 
   void OnLoadDATFileData(GetDATFileDataResult result);
   void OnLoadStylesheet(std::string stylesheet);
@@ -65,4 +65,4 @@ class SpeedreaderRewriterService : public SpeedreaderComponent::Observer {
 
 }  // namespace speedreader
 
-#endif  // BRAVE_COMPONENTS_SPEEDREADER_SPEEDREADER_REWRITER_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_SPEEDREADER_SPEEDREADER_REWRITER_SERVICE_H_

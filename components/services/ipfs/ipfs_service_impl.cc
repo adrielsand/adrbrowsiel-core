@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/services/ipfs/ipfs_service_impl.h"
+#include "adrbrowsiel/components/services/ipfs/ipfs_service_impl.h"
 
 #include <initializer_list>
 #include <string>
@@ -137,7 +137,7 @@ void IpfsServiceImpl::Launch(mojom::IpfsConfigPtr config,
     return;
   }
 
-  child_monitor_ = std::make_unique<brave::ChildProcessMonitor>();
+  child_monitor_ = std::make_unique<adrbrowsiel::ChildProcessMonitor>();
 
   // Launch IPFS daemon.
   base::CommandLine args(config->binary_path);

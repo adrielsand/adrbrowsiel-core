@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Ödülleri",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Ödülleri",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Brave Ödülleri'nde büyük bir geliştirme yaptık.",
+    "message": "adrbrowsiel Ödülleri'nde büyük bir geliştirme yaptık.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "en sevdiğiniz içerik yaratıcılarına katkıda bulunmak için Brave Ödüller'de kullanılabilir. BAT Puanları, BAT almak için kullanılamaz.",
+    "message": "en sevdiğiniz içerik yaratıcılarına katkıda bulunmak için adrbrowsiel Ödüller'de kullanılabilir. BAT Puanları, BAT almak için kullanılamaz.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Brave Onaylı Oluşturucu",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsiel Onaylı Oluşturucu",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Dikkat",
@@ -193,15 +193,15 @@
     "message": "tamam",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Artık reklam görüntüleyerek kazanabilirsiniz.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave Reklamları",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel Reklamları",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Otomatik-Katkı",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Lütfen Brave cüzdanınızı yedekleyin.",
+    "message": "Lütfen adrbrowsiel cüzdanınızı yedekleyin.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Brave Ödülleri hesabınız para yatırmayı bekliyor.",
+    "message": "adrbrowsiel Ödülleri hesabınız para yatırmayı bekliyor.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Yetersiz Bakiye",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Cüzdan oluşturmak",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave Rewards bir sorun yaşıyor. Lütfen daha sonra tekrar deneyiniz.",
+    "message": "adrbrowsiel Rewards bir sorun yaşıyor. Lütfen daha sonra tekrar deneyiniz.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Bu içerik oluşturucusu henüz Brave kullanıcılarının katkılarını almak için kaydolmadı. Gönderdiğiniz bütün bahşişler, onlar doğrulayana kadar cüzdanınızda kalacaktır. ",
+    "message": "Bu içerik oluşturucusu henüz adrbrowsiel kullanıcılarının katkılarını almak için kaydolmadı. Gönderdiğiniz bütün bahşişler, onlar doğrulayana kadar cüzdanınızda kalacaktır. ",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave Rewards",
+    "message": "adrbrowsiel Rewards",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "ve",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "İnternette gezinerek ödül kazanın!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Brave Ödülleri'ni Etkinleştir",
+    "message": "adrbrowsiel Ödülleri'ni Etkinleştir",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "'Brave Ödüllerini Etkinleştir'i tıklayarak, şunu okuduğunuzu ve kabul ettiğinizi bildirirsiniz: ",
+    "message": "'adrbrowsiel Ödüllerini Etkinleştir'i tıklayarak, şunu okuduğunuzu ve kabul ettiğinizi bildirirsiniz: ",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Ödülünüz, Brave Ödülleri cüzdanınıza geliyor.",
+    "message": "Ödülünüz, adrbrowsiel Ödülleri cüzdanınıza geliyor.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Brave Ödüllerden Ayrıl",
+    "message": "adrbrowsiel Ödüllerden Ayrıl",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Bu Brave Doğrulanmış Oluşturucusu, henüz hesabını Brave Kullanıcılarından katkılar alacak biçimde yapılandırmadı. Gönderdiğiniz tüm bahşişler, bu kişi bu işlemi tamamlayana kadar cüzdanınızda kalır.",
+    "message": "Bu adrbrowsiel Doğrulanmış Oluşturucusu, henüz hesabını adrbrowsiel Kullanıcılarından katkılar alacak biçimde yapılandırmadı. Gönderdiğiniz tüm bahşişler, bu kişi bu işlemi tamamlayana kadar cüzdanınızda kalır.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Brave Ödülleri'ni kullanmaya Başla",
+    "message": "adrbrowsiel Ödülleri'ni kullanmaya Başla",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Brave Ödülleri'ne Hoşgeldiniz!",
+    "message": "adrbrowsiel Ödülleri'ne Hoşgeldiniz!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Brave Private Ads, geleneksel reklamlardan farklı olarak sizi içerik üreticilerini desteklemeniz için jetonlarla ödüllendirir, bu sırada kişisel bilgilerinizi gizli tutar.",
+    "message": "adrbrowsiel Private Ads, geleneksel reklamlardan farklı olarak sizi içerik üreticilerini desteklemeniz için jetonlarla ödüllendirir, bu sırada kişisel bilgilerinizi gizli tutar.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Brave Private Ads normal bir bildirim gibi gözükecektir. Bu reklamları ne sıklıkta göreceğinizi ayarlardan kontrol edersiniz.",
+    "message": "adrbrowsiel Private Ads normal bir bildirim gibi gözükecektir. Bu reklamları ne sıklıkta göreceğinizi ayarlardan kontrol edersiniz.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Mevcut ay boyunca Brave Private Ads'ten kazanılan jetonlarınız sonraki ayın 5'inde gelecektir.",
+    "message": "Mevcut ay boyunca adrbrowsiel Private Ads'ten kazanılan jetonlarınız sonraki ayın 5'inde gelecektir.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Brave Rewards kullanarak webin herkes için daha iyi bir yer haline gelmesine yardım ediyorsunuz. Ve bu harika!",
+    "message": "adrbrowsiel Rewards kullanarak webin herkes için daha iyi bir yer haline gelmesine yardım ediyorsunuz. Ve bu harika!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Cüzdanınızı doğrulayarak ve bir bitFlyer hesabına bağlayarak, Brave Rewards aracılığıyla kazandığınız tokenleri daha kolay depolayabilecek ve yönetebileceksiniz",
+    "message": "Cüzdanınızı doğrulayarak ve bir bitFlyer hesabına bağlayarak, adrbrowsiel Rewards aracılığıyla kazandığınız tokenleri daha kolay depolayabilecek ve yönetebileceksiniz",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Brave Ödülleri Japonya'da yeni bir sisteme geçiyor!",
+    "message": "adrbrowsiel Ödülleri Japonya'da yeni bir sisteme geçiyor!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

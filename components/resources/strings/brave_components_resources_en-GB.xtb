@@ -29,7 +29,7 @@
 <translation id="985862351129593673">Customise dashboard</translation>
 <translation id="7180865173735832675">Customise</translation>
 <translation id="8522669544471808198">Show background images</translation>
-<translation id="7275773481201277457">Show Brave Stats</translation>
+<translation id="7275773481201277457">Show adrbrowsiel Stats</translation>
 <translation id="6836061097810262923">Show Clock</translation>
 <translation id="5912396950572065471">Format</translation>
 <translation id="604124094241169006">Automatic</translation>
@@ -52,27 +52,27 @@
 <translation id="8037713009824540257">Add site</translation>
 <translation id="1773147648972887693">Show frequently visited</translation>
 <translation id="4546260624932151782">Show favourites</translation>
-<translation id="3446024864193919737">Show Brave Rewards</translation>
+<translation id="3446024864193919737">Show adrbrowsiel Rewards</translation>
 <translation id="6274899614137380422">Show Binance</translation>
-<translation id="5551238871320268996">Brave Together</translation>
+<translation id="5551238871320268996">adrbrowsiel Together</translation>
 <translation id="5585019845078534178">Cards</translation>
 <translation id="3870475560794762985">Show sponsored images</translation>
 <translation id="2875302873837723333">top sites</translation>
-<translation id="8173998484743827990">Brave stats</translation>
+<translation id="8173998484743827990">adrbrowsiel stats</translation>
 <translation id="383680190590774040">clock</translation>
-<translation id="3333887201479867589">Brave Rewards</translation>
+<translation id="3333887201479867589">adrbrowsiel Rewards</translation>
 <translation id="3159285901314605198">Background Image</translation>
 <translation id="385051799172605136">Back</translation>
-<translation id="9024104284526126630">You can start a private call in Brave.</translation>
-<translation id="5735801688206890393">Start unlimited calls with friends and colleagues in Brave Together.</translation>
+<translation id="9024104284526126630">You can start a private call in adrbrowsiel.</translation>
+<translation id="5735801688206890393">Start unlimited calls with friends and colleagues in adrbrowsiel Together.</translation>
 <translation id="7115051913071512405">Try it out</translation>
 <translation id="7415602225677446066">Today's top stories in a completely private feed, just for you.</translation>
-<translation id="8607689491789524900">Brave Today matches your interests on your device so your personal information never leaves your browser. New content updated throughout the day.</translation>
+<translation id="8607689491789524900">adrbrowsiel Today matches your interests on your device so your personal information never leaves your browser. New content updated throughout the day.</translation>
 <translation id="9164544612367905452">Fetching…</translation>
 <translation id="1276592121036104130">Load new content</translation>
-<translation id="4210987321913275328">Scroll for Brave Today</translation>
-<translation id="3122595178900736207">Reset Brave Today sources</translation>
-<translation id="2197023915568148978">Reset all your Brave Today publisher choices to their default?</translation>
+<translation id="4210987321913275328">Scroll for adrbrowsiel Today</translation>
+<translation id="3122595178900736207">Reset adrbrowsiel Today sources</translation>
+<translation id="2197023915568148978">Reset all your adrbrowsiel Today publisher choices to their default?</translation>
 <translation id="954001034349395856">All sources</translation>
 <translation id="8890516388109605451">Sources</translation>
 <translation id="5158129253322921540">Disable content from <ph name="PUBLISHER_NAME"/></translation>
@@ -91,21 +91,21 @@
 <translation id="6248988683584659830">Search settings</translation>
 <translation id="730042046912793465">This is a</translation>
 <translation id="2055363275850890030">Private Window</translation>
-<translation id="9133213713928851646">Brave doesn't remember what you do in a Private Window. Sites you visit won't show up in your history, and cookies vanish when you're done. Private Windows don't make you completely anonymous online, though.</translation>
+<translation id="9133213713928851646">adrbrowsiel doesn't remember what you do in a Private Window. Sites you visit won't show up in your history, and cookies vanish when you're done. Private Windows don't make you completely anonymous online, though.</translation>
 <translation id="3546750666732517156">Private Window with Tor connectivity</translation>
-<translation id="5383068818957293256">Brave never remembers what you do in a Private Window. With Tor connectivity, your IP address is also hidden from the sites you visit. However, if your personal safety depends on remaining anonymous, use the Tor Browser instead.</translation>
+<translation id="5383068818957293256">adrbrowsiel never remembers what you do in a Private Window. With Tor connectivity, your IP address is also hidden from the sites you visit. However, if your personal safety depends on remaining anonymous, use the Tor Browser instead.</translation>
 <translation id="778096729652828897">Learn more about Private Windows with Tor</translation>
 <translation id="7919374705736538787">Search Privately with</translation>
 <translation id="3135655280958284640">DuckDuckGo</translation>
-<translation id="218839872518145456">With private search, Brave will use DuckDuckGo for searches in Private Windows. DuckDuckGo doesn't track your search history, so you can search privately.</translation>
+<translation id="218839872518145456">With private search, adrbrowsiel will use DuckDuckGo for searches in Private Windows. DuckDuckGo doesn't track your search history, so you can search privately.</translation>
 <translation id="1925197199485958903">In Private Windows with Tor, DuckDuckGo is the default search engine. Some of the other popular search engines are harder to use with Tor. DuckDuckGo doesn't track your search history; with Tor, they don't even know your IP address.</translation>
 <translation id="4371533307685765155">Search with DuckDuckGo</translation>
 <translation id="548478195417408221">Make Private Windows more private</translation>
 <translation id="3294503279952534143">This Private Window is more private</translation>
 <translation id="4644024131266615376">with Tor connectivity</translation>
 <translation id="8541421872680304667">Tor hides your IP address from the sites you visit, by routing your browsing through several Tor servers before it reaches your destination. Tor can slow down browsing and some sites might not work at all.</translation>
-<translation id="8897548669448660973">Using Private Windows only changes what Brave does on your device — it doesn't change anyone else's behavior. Tor hides your IP address from the sites you visit and makes it somewhat more difficult, but not impossible, for your ISP or employer to see what sites you are visiting. Open a Private Window with Tor from the menu, or with [[ key ]].</translation>
-<translation id="6975708438781948564">Learn more about Tor in Brave</translation>
+<translation id="8897548669448660973">Using Private Windows only changes what adrbrowsiel does on your device — it doesn't change anyone else's behavior. Tor hides your IP address from the sites you visit and makes it somewhat more difficult, but not impossible, for your ISP or employer to see what sites you are visiting. Open a Private Window with Tor from the menu, or with [[ key ]].</translation>
+<translation id="6975708438781948564">Learn more about Tor in adrbrowsiel</translation>
 <translation id="4712050378540986986">Tor status</translation>
 <translation id="3368922792935385530">Connected</translation>
 <translation id="8030169304546394654">Disconnected</translation>
@@ -116,15 +116,15 @@
 <translation id="4673764878177947707">Custom Filters</translation>
 <translation id="8803682034537762884">One per line, a filter is described in Adblock Plus filter syntax</translation>
 <translation id="1209739344687072997">Report a broken site</translation>
-<translation id="8510478288840333677">Let Brave's developers know that this site doesn't work properly with Shields:</translation>
-<translation id="6013164422534859494">Note: This site address will be submitted with your Brave version number and your IP address (which will not be stored).</translation>
+<translation id="8510478288840333677">Let adrbrowsiel's developers know that this site doesn't work properly with Shields:</translation>
+<translation id="6013164422534859494">Note: This site address will be submitted with your adrbrowsiel version number and your IP address (which will not be stored).</translation>
 <translation id="2653659639078652383">Submit</translation>
 <translation id="5299848999918506028">Thank you!</translation>
-<translation id="76550953340008122">Thanks for letting Brave's developers know that there's something wrong with this site. We'll do our best to fix it!</translation>
-<translation id="2974339193389078578">Brave the new Internet</translation>
+<translation id="76550953340008122">Thanks for letting adrbrowsiel's developers know that there's something wrong with this site. We'll do our best to fix it!</translation>
+<translation id="2974339193389078578">adrbrowsiel the new Internet</translation>
 <translation id="7735138632831241257">Get ready to enjoy a faster and more secure browsing experience with a browser built to protect your privacy.</translation>
 <translation id="6001839398155993679">Let's go</translation>
-<translation id="4225189922025976867"><ph name="BEGIN_BOLD"/>Earn tokens<ph name="END_BOLD"/> by viewing Brave Private Ads and support content creators automatically.</translation>
+<translation id="4225189922025976867"><ph name="BEGIN_BOLD"/>Earn tokens<ph name="END_BOLD"/> by viewing adrbrowsiel Private Ads and support content creators automatically.</translation>
 <translation id="5477721706074111257">By clicking, you agree to the <ph name="BEGIN_LINK"/>Terms of Service<ph name="END_LINK"/> and <ph name="BEGIN_LINK"/>Privacy Policy<ph name="END_LINK"/>.</translation>
 <translation id="3505541710659461355">You can turn this off at any time in settings.</translation>
 <translation id="2965798296974325760">Start using Rewards</translation>
@@ -133,7 +133,7 @@
 <translation id="8275038454117074363">Import</translation>
 <translation id="2088479175984386785">Import from...</translation>
 <translation id="5540323067375019678">Manage your shields</translation>
-<translation id="3278033011827237847">Protect against privacy-invading ads and trackers while browsing with Brave Shields. Set Shields to "down" if a site doesn’t seem to be working properly.</translation>
+<translation id="3278033011827237847">Protect against privacy-invading ads and trackers while browsing with adrbrowsiel Shields. Set Shields to "down" if a site doesn’t seem to be working properly.</translation>
 <translation id="3366308997091824722">Shield Settings</translation>
 <translation id="4764692524839457597">default</translation>
 <translation id="3108122610701115301">Set default</translation>
@@ -144,16 +144,16 @@
 <translation id="3829010735958850433">Skip welcome tour</translation>
 <translation id="1201402288615127009">Next</translation>
 <translation id="7954950242989581218">Browse safe and sound</translation>
-<translation id="2188651882929633653">Brave Shields blocks the creepy stuff that tries to track you across the web — including most ads. Set Shields to “down” if a site doesn’t seem to be working. Brave uses <ph name="BEGIN_LINK_P3A"/>completely private product analytics<ph name="END_LINK_P3A"/> to estimate the overall usage of certain features. You can turn this off in <ph name="BEGIN_LINK_P3A_SETTINGS"/>Settings<ph name="END_LINK_P3A_SETTINGS"/>.</translation>
+<translation id="2188651882929633653">adrbrowsiel Shields blocks the creepy stuff that tries to track you across the web — including most ads. Set Shields to “down” if a site doesn’t seem to be working. adrbrowsiel uses <ph name="BEGIN_LINK_P3A"/>completely private product analytics<ph name="END_LINK_P3A"/> to estimate the overall usage of certain features. You can turn this off in <ph name="BEGIN_LINK_P3A_SETTINGS"/>Settings<ph name="END_LINK_P3A_SETTINGS"/>.</translation>
 <translation id="1919345977826869612">Ads</translation>
-<translation id="6769094341455418696">Earn [[currency]] by viewing Brave Ads. Ads presented are based on your interests, as inferred from your browsing behavior. No personal data or browsing history ever leaves your browser.</translation>
+<translation id="6769094341455418696">Earn [[currency]] by viewing adrbrowsiel Ads. Ads presented are based on your interests, as inferred from your browsing behavior. No personal data or browsing history ever leaves your browser.</translation>
 <translation id="6112368337882254910">Auto-Contribute</translation>
-<translation id="3742599705619405136">An automatic way to support publishers and content creators. Set a monthly payment and browse normally. The Brave verified sites you visit will receive your contributions automatically, based on your attention as measured by Brave.</translation>
+<translation id="3742599705619405136">An automatic way to support publishers and content creators. Set a monthly payment and browse normally. The adrbrowsiel verified sites you visit will receive your contributions automatically, based on your attention as measured by adrbrowsiel.</translation>
 <translation id="20281847067919078">Estimated rewards pending</translation>
 <translation id="8593551638387217772">Next payment date</translation>
 <translation id="4428871418618312983">Ads received this month</translation>
 <translation id="4229016885653790965">Sorry! Ads are not yet available in your region.</translation>
-<translation id="2539279826042558064">Brave Rewards and Ads are not available on your device at this time.</translation>
+<translation id="2539279826042558064">adrbrowsiel Rewards and Ads are not available on your device at this time.</translation>
 <translation id="5421369907811917952">Other settings</translation>
 <translation id="654711254769318398">Ad pages viewed</translation>
 <translation id="2532127066761785857">Maximum number of ads displayed</translation>
@@ -163,7 +163,7 @@
 <translation id="905529390827000221">4 ads per hour</translation>
 <translation id="7694167481321619202">5 ads per hour</translation>
 <translation id="8576106690599421723">Location level ad targeting</translation>
-<translation id="4775297407519948063">This allows Brave to show you ads meant specifically for your location.</translation>
+<translation id="4775297407519948063">This allows adrbrowsiel to show you ads meant specifically for your location.</translation>
 <translation id="8446884382197647889">Learn More</translation>
 <translation id="6209514229703649203">Auto-detected as [[adsSubdivisionTarget]]</translation>
 <translation id="8010081455002666927">Auto-detect</translation>
@@ -174,7 +174,7 @@
 <translation id="8845154268466251503">BAT</translation>
 <translation id="6160106411363856968">BAP</translation>
 <translation id="1081826981536899387">BAT Points</translation>
-<translation id="2563462925929938015">can be used in Brave Rewards to contribute to your favourite content creators. BAT Points cannot be exchanged for BAT.</translation>
+<translation id="2563462925929938015">can be used in adrbrowsiel Rewards to contribute to your favourite content creators. BAT Points cannot be exchanged for BAT.</translation>
 <translation id="3390542282753297856">The device is offline, please try again later.</translation>
 <translation id="4684554059837592728">Monthly Payment</translation>
 <translation id="2846354907189538">Next contribution date</translation>
@@ -222,21 +222,21 @@
 <translation id="2195074481553016770">Almost there!</translation>
 <translation id="5254740304961202261">Prove that you are human!</translation>
 <translation id="2187043784382239974">Hmmm, not quite...</translation>
-<translation id="7510166204621526816">The Brave Rewards server is not responding. We will fix this as soon as possible.</translation>
+<translation id="7510166204621526816">The adrbrowsiel Rewards server is not responding. We will fix this as soon as possible.</translation>
 <translation id="2323069945529668668">Uh oh!</translation>
 <translation id="717952606991220586">Oops, something is wrong. Please try again later.</translation>
 <translation id="6965382102122355670">OK</translation>
-<translation id="7210234701206674260">Brave Rewards is having an issue. Please try again later.</translation>
+<translation id="7210234701206674260">adrbrowsiel Rewards is having an issue. Please try again later.</translation>
 <translation id="5549059668721746831">Next monthly contribution date</translation>
-<translation id="6231182869178328516">I just tipped <ph name="NAME"/> using the Brave Browser. Check it out at https://brave.com/tips.</translation>
-<translation id="8404935570206006581">TipWithBrave</translation>
+<translation id="6231182869178328516">I just tipped <ph name="NAME"/> using the adrbrowsiel Browser. Check it out at https://adrbrowsiel.com/tips.</translation>
+<translation id="8404935570206006581">TipWithadrbrowsiel</translation>
 <translation id="3113653894794167793">Sorry there was a problem processing your request, please try again.</translation>
 <translation id="3082557070674409251">Clicked</translation>
 <translation id="7119308337584989771">Dismissed</translation>
 <translation id="6805660603861526473">Viewed</translation>
 <translation id="2359865110462963929">BAT is not currently supported in your region. Please refer <ph name="BEGIN_LINK"/>here<ph name="END_LINK"/> for updates.</translation>
 <translation id="1737873393693460829">By turning on [[title]], you agree to the <ph name="BEGIN_LINK1"/>Terms of Service<ph name="END_LINK1"/> and <ph name="BEGIN_LINK2"/>Privacy Policy<ph name="END_LINK2"/>.</translation>
-<translation id="2564425876266960486">Error creating Brave Browser BAT card</translation>
+<translation id="2564425876266960486">Error creating adrbrowsiel Browser BAT card</translation>
 <translation id="6473583070570450185">You need a verified wallet to login</translation>
 <translation id="5949995321533425416">You need a minimum of <ph name="AMOUNT"/> BAT to create an Uphold wallet. Please try again after you have verified your wallet with Uphold.</translation>
 <translation id="7422678632904904341">Amount:</translation>
@@ -359,21 +359,21 @@
 <translation id="7532131110478098401">(ads per hour)</translation>
 <translation id="2951964054390325080">How much monthly support do you want to give to your favourite creators?</translation>
 <translation id="3164498053837913829">(from your ads earnings)</translation>
-<translation id="2070991379950719711">Start using Brave Rewards</translation>
+<translation id="2070991379950719711">Start using adrbrowsiel Rewards</translation>
 <translation id="6318696841371191107">Take a quick tour</translation>
 <translation id="8465790416279415448">By proceeding, you agree to the <ph name="TOS_LINK_BEGIN"/>Terms of Service<ph name="TOS_LINK_END"/> and <ph name="PP_LINK_BEGIN"/>Privacy Policy<ph name="PP_LINK_END"/>.</translation>
-<translation id="2404165674840145940">Tip with Brave rewards</translation>
-<translation id="5820285701794581330">By using Brave rewards, you will start to gain BAT that you can use to tip creators.</translation>
+<translation id="2404165674840145940">Tip with adrbrowsiel rewards</translation>
+<translation id="5820285701794581330">By using adrbrowsiel rewards, you will start to gain BAT that you can use to tip creators.</translation>
 <translation id="5705882733397021510">Go Back</translation>
 <translation id="185034574799484512">Let’s take a quick tour</translation>
 <translation id="8281886186245836920">Skip</translation>
 <translation id="1377600615067678409">Skip for now</translation>
-<translation id="7930505144430343145">Welcome to Brave Rewards!</translation>
-<translation id="3477340970981564961">Brave Private Ads reward you with tokens to support content creators unlike traditional ads, all while keeping your personal information private.</translation>
+<translation id="7930505144430343145">Welcome to adrbrowsiel Rewards!</translation>
+<translation id="3477340970981564961">adrbrowsiel Private Ads reward you with tokens to support content creators unlike traditional ads, all while keeping your personal information private.</translation>
 <translation id="6973095375773523904">Where do ads show up?</translation>
-<translation id="7556325460112047619">Brave Private Ads will appear as a normal notification. You control how often you see these ads in settings.</translation>
+<translation id="7556325460112047619">adrbrowsiel Private Ads will appear as a normal notification. You control how often you see these ads in settings.</translation>
 <translation id="6897083627729802351">When do you receive rewards?</translation>
-<translation id="310863932297733723">Your earned tokens from Brave Private Ads throughout the current month will arrive on the 5th of the next month.</translation>
+<translation id="310863932297733723">Your earned tokens from adrbrowsiel Private Ads throughout the current month will arrive on the 5th of the next month.</translation>
 <translation id="7712287524451429139">Giving back made effortless</translation>
 <translation id="105037569026952831">Creators receive your token contributions automatically based on your engagement levels that we measure as ‘Attention’.</translation>
 <translation id="5323267338679539010">Say thank you with tips</translation>
@@ -383,17 +383,17 @@
 <translation id="1402530520078693620">Lastly, let’s get you set up on the basic settings</translation>
 <translation id="3494356595346329740">You can change this later.</translation>
 <translation id="827315274423079662">Woohoo, you’re done!</translation>
-<translation id="8268038362451312235">By using Brave Rewards you are helping make the web a better place for everyone. And that’s awesome!</translation>
+<translation id="8268038362451312235">By using adrbrowsiel Rewards you are helping make the web a better place for everyone. And that’s awesome!</translation>
 <translation id="9146355483497231818">Verify your wallet</translation>
 <translation id="8913591412117692523">In order to withdraw the tokens you earn for viewing ads, you’ll need to verify your wallet.</translation>
 <translation id="9168436347345867845">Do it later</translation>
 <translation id="5468234114288973517">Verify my wallet</translation>
 <translation id="6609621505400013054">The bitFlyer wallet is a service managed by bitFlyer, Inc.</translation>
-<translation id="7258399883616914635">By verifying your wallet and linking it to a bitFlyer account, you will be able to store and manage the tokens you have earned through Brave Rewards more easily</translation>
+<translation id="7258399883616914635">By verifying your wallet and linking it to a bitFlyer account, you will be able to store and manage the tokens you have earned through adrbrowsiel Rewards more easily</translation>
 <translation id="5094577350232361255">about</translation>
 <translation id="4918086044614829423">Accept</translation>
-<translation id="5916290544882167205">Brave Software. Brave is a registered trademark of Brave Software. Site names may be trademarks or registered trademarks of the site owner.</translation>
-<translation id="9026369588205476247">To protect your privacy, this Brave Rewards statement is not saved, recorded or logged anywhere other than on your device (this computer). It cannot be retrieved from Brave in the event of data loss on your device.</translation>
+<translation id="5916290544882167205">adrbrowsiel Software. adrbrowsiel is a registered trademark of adrbrowsiel Software. Site names may be trademarks or registered trademarks of the site owner.</translation>
+<translation id="9026369588205476247">To protect your privacy, this adrbrowsiel Rewards statement is not saved, recorded or logged anywhere other than on your device (this computer). It cannot be retrieved from adrbrowsiel in the event of data loss on your device.</translation>
 <translation id="1036277985068412734">add funds</translation>
 <translation id="3587482841069643663">All</translation>
 <translation id="4241224519481557898">Category</translation>
@@ -404,13 +404,13 @@
 <translation id="2777306694585938662">Ads rewards received</translation>
 <translation id="5212777575344695266">Mark as inappropriate</translation>
 <translation id="2111256234277361810">Mark as inappropriate ✓</translation>
-<translation id="8988332871810963281">There is currently no Brave ads history</translation>
+<translation id="8988332871810963281">There is currently no adrbrowsiel ads history</translation>
 <translation id="5345727496083327478">You will no longer receive ads from this category</translation>
 <translation id="2827387977307390755">Allow tips on</translation>
 <translation id="3819257035322786455">Backup</translation>
 <translation id="1312977698678162065">Get paid to view relevant ads that respect your privacy.</translation>
 <translation id="4396256076373444156">Collect points when you view relevant ads that respect your privacy.</translation>
-<translation id="2975780980638932742">Brave Ads has arrived!</translation>
+<translation id="2975780980638932742">adrbrowsiel Ads has arrived!</translation>
 <translation id="3361548743396744457">Support your favourite sites just by browsing – or tip a site any time you like.</translation>
 <translation id="6976444672879155794">Auto-Contribute [[processor]]</translation>
 <translation id="4493850495402472953">and</translation>
@@ -423,7 +423,7 @@
 <translation id="516395624550019162">Yes, I'm In!</translation>
 <translation id="529572070778367192">Get Rewarded for Browsing!</translation>
 <translation id="128450776206759934">How it works...</translation>
-<translation id="3825698830825612308">Brave Verified Publishers</translation>
+<translation id="3825698830825612308">adrbrowsiel Verified Publishers</translation>
 <translation id="7262285991915892790">Drag the BAT Icon on to the</translation>
 <translation id="7656781188259414093">target.</translation>
 <translation id="1555514580945108302">Hmm… Not Quite. Try Again.</translation>
@@ -441,7 +441,7 @@
 <translation id="5860033963881614850">Off</translation>
 <translation id="2039417478970545937">Settings.</translation>
 <translation id="1651355182880886661">You are not currently accruing any Rewards benefits while browsing. Turn Rewards back on in</translation>
-<translation id="8605272644314973683">Brave Rewards is</translation>
+<translation id="8605272644314973683">adrbrowsiel Rewards is</translation>
 <translation id="2157162992285072267">Drag and drop this logo onto the</translation>
 <translation id="4805054577224376281">target</translation>
 <translation id="1346059596910821859">Tip</translation>
@@ -457,7 +457,7 @@
 <translation id="418343137736963579">Total number of sites you excluded from Auto-Contribute:</translation>
 <translation id="1759104587873258696">expires on</translation>
 <translation id="6149218349077925111">for</translation>
-<translation id="8802504113265057166">[[currency]] not used by the expiration date will be automatically returned to the Brave User Growth Pool.</translation>
+<translation id="8802504113265057166">[[currency]] not used by the expiration date will be automatically returned to the adrbrowsiel User Growth Pool.</translation>
 <translation id="279567716178902927">Grant Expiration Date</translation>
 <translation id="2104073734684466851">Grants</translation>
 <translation id="6476729769006815569">Hello, [[name]]!</translation>
@@ -529,18 +529,18 @@
 <translation id="5939518447894949180">Reset</translation>
 <translation id="3157931365184549694">Restore</translation>
 <translation id="1797334173232638045">Your pinned sites have been moved to</translation>
-<translation id="6803187280799213426">The funds in your Brave wallet are virtual and not required to backup. It's available for you to spend exclusively on this browser.</translation>
+<translation id="6803187280799213426">The funds in your adrbrowsiel wallet are virtual and not required to backup. It's available for you to spend exclusively on this browser.</translation>
 <translation id="5290348443732633227">If you'd like to secure all of your funds in the case of clean installing the browser or switching to a new device, and have other benefits such as adding, withdrawing and transferring funds, we recommend</translation>
 <translation id="467041382895390784">connecting to a verified <ph name="PROVIDER"/> wallet.</translation>
 <translation id="5717619667204259673">Keep this recovery key safe.</translation>
 <translation id="4699702339303280827">You can always use this key to get your wallet back if something happens to your browser or computer. But make sure to protect it — anyone who gets this key could steal your wallet. It’s probably safest to write it down on a piece of paper, or wherever else you keep important info.</translation>
 <translation id="8979401359137062629">Please note:</translation>
-<translation id="7934806082615382155">Part of the funds may be received from Brave and are not included in the backup as it is not required. It's available for you to spend exclusively on this browser.</translation>
+<translation id="7934806082615382155">Part of the funds may be received from adrbrowsiel and are not included in the backup as it is not required. It's available for you to spend exclusively on this browser.</translation>
 <translation id="7354412786785889047">You can support this content creator by sending a tip. It’s a way of thanking them for making great content. Verified creators get paid for their tips during the first week of each calendar month.</translation>
-<translation id="972846019534552366">You can also set a monthly recurring contribution from within the Brave Rewards panel.</translation>
+<translation id="972846019534552366">You can also set a monthly recurring contribution from within the adrbrowsiel Rewards panel.</translation>
 <translation id="3074127054582480056">Attention</translation>
 <translation id="5010112177773747965">without your consent.</translation>
-<translation id="7147673045905733351">Today, Brave welcomes you to the new Internet.</translation>
+<translation id="7147673045905733351">Today, adrbrowsiel welcomes you to the new Internet.</translation>
 <translation id="1350763070659630336">One where your time is valued, your personal data is kept private, and you actually get paid for your attention.</translation>
 <translation id="880341991877949255">With your old browser, you paid to browse the web by viewing ads with your valuable attention. You spent your valuable time downloading invasive ad technology that transmitted your valuable private data to advertisers ― without your consent.</translation>
 <translation id="3610794092923555181">Sadly, no points yet.</translation>
@@ -548,12 +548,12 @@
 <translation id="7359258898775969374">3 ways to fill your wallet:</translation>
 <translation id="8087614920008846901">You can add funds.</translation>
 <translation id="996024295464837691">You can earn tokens from viewing ads.</translation>
-<translation id="8014425282125849700">Occasionally, you'll be offered free token grants from Brave. Be sure to keep an eye out for the alert!</translation>
-<translation id="2185598236335233939">Look for ad notifications as you continue to use Brave. Your BAT Points balance will increase with each ad you view.</translation>
+<translation id="8014425282125849700">Occasionally, you'll be offered free token grants from adrbrowsiel. Be sure to keep an eye out for the alert!</translation>
+<translation id="2185598236335233939">Look for ad notifications as you continue to use adrbrowsiel. Your BAT Points balance will increase with each ad you view.</translation>
 <translation id="1370034647041840967">Earn tokens for your attention to ads and pay it forward to support content creators you value!</translation>
 <translation id="4919888432594361029">Add, withdraw and manage funds at <ph name="PROVIDER"/>.</translation>
-<translation id="3092054349246483285">Your Brave wallet is powered by <ph name="PROVIDER"/>.</translation>
-<translation id="6401272292123354754">Brave Rewards is built on the Basic Attention Token. Learn more about BAT</translation>
+<translation id="3092054349246483285">Your adrbrowsiel wallet is powered by <ph name="PROVIDER"/>.</translation>
+<translation id="6401272292123354754">adrbrowsiel Rewards is built on the Basic Attention Token. Learn more about BAT</translation>
 <translation id="7823359893981882407">here</translation>
 <translation id="4483635855837696643">Restore your Wallet</translation>
 <translation id="459721429458957031">Use your recovery key to restore your wallet.</translation>
@@ -588,11 +588,11 @@
 <translation id="1193434225710679930">Point Grants</translation>
 <translation id="4395099108822007284">Loading image...</translation>
 <translation id="3535654229833214438">Transactions</translation>
-<translation id="244362569344671266">Earn tokens by viewing Brave Private Ads and support content creators automatically.</translation>
+<translation id="244362569344671266">Earn tokens by viewing adrbrowsiel Private Ads and support content creators automatically.</translation>
 <translation id="3903419925307046908">Earn tokens and give back</translation>
 <translation id="8987812599455325915">This enables both ads and automatic contributions. You can turn them on or off separately at any time.</translation>
 <translation id="1485484147452131556">Activate Rewards</translation>
-<translation id="8772672608371898774">Brave Verified Publisher</translation>
+<translation id="8772672608371898774">adrbrowsiel Verified Publisher</translation>
 <translation id="5050370287908180130">View Monthly Statement for Details</translation>
 <translation id="8615803647903750175">Wallet Activity</translation>
 <translation id="2620624773940447728">Wallet Address</translation>
@@ -606,15 +606,15 @@
 <translation id="8787500234852052352">Get paid for viewing ads and pay it forward to support your favorite content creators.</translation>
 <translation id="4282161221635140902">You can now earn points for watching privacy-respecting ads.</translation>
 <translation id="318487899513214296">Check out what's improved</translation>
-<translation id="4083384190339959182">We've given Brave Payments a big upgrade.</translation>
+<translation id="4083384190339959182">We've given adrbrowsiel Payments a big upgrade.</translation>
 <translation id="5395851053710553429">Get ready to experience the next Internet.</translation>
-<translation id="63956545637156715">Why Brave Rewards?</translation>
+<translation id="63956545637156715">Why adrbrowsiel Rewards?</translation>
 <translation id="8494748383523030337">Your balance</translation>
 <translation id="3780605330121608425">Your wallet</translation>
 <translation id="6727483290601442544">View Details</translation>
 <translation id="1988679729106502285">NOTE:</translation>
-<translation id="5815103311506128988">This creator has not yet signed up to receive contributions from Brave users. Your browser will keep trying to contribute until they verify, or until 90 days have passed.</translation>
-<translation id="7461596279975181413">This Brave Verified Creator has not yet configured their account to receive contributions from Brave users. Your browser will keep trying to contribute until they verify, or until 90 days have passed.</translation>
+<translation id="5815103311506128988">This creator has not yet signed up to receive contributions from adrbrowsiel users. Your browser will keep trying to contribute until they verify, or until 90 days have passed.</translation>
+<translation id="7461596279975181413">This adrbrowsiel Verified Creator has not yet configured their account to receive contributions from adrbrowsiel users. Your browser will keep trying to contribute until they verify, or until 90 days have passed.</translation>
 <translation id="4292832015778676417">earned from ads</translation>
 <translation id="3197752845651180812">Pending contributions</translation>
 <translation id="6964891561514920613">Show all pending contributions</translation>
@@ -628,7 +628,7 @@
 <translation id="923467487918828349">Show All</translation>
 <translation id="5113531205597573951">Sites viewed</translation>
 <translation id="4560448935659791043">You've earned an Ads Reward!</translation>
-<translation id="4947094120398792493">Your Reward is on its way to your Brave Rewards wallet.</translation>
+<translation id="4947094120398792493">Your Reward is on its way to your adrbrowsiel Rewards wallet.</translation>
 <translation id="39734939514946950">Your Reward amount</translation>
 <translation id="2151535059686617995">It’s your lucky day!</translation>
 <translation id="6436689611575806470">Your [[currency]] grant is on its way.</translation>
@@ -638,17 +638,17 @@
 <translation id="543510923939676996">Wallet verified</translation>
 <translation id="2659764755126740206">Go to my <ph name="PROVIDER"/> account</translation>
 <translation id="3699674790322420653">Complete wallet verification</translation>
-<translation id="9200453331904391567">Disconnect from Brave Rewards</translation>
+<translation id="9200453331904391567">Disconnect from adrbrowsiel Rewards</translation>
 <translation id="46988480989545156">Verify wallet</translation>
 <translation id="5796169459825124737">Our wallet service is provided by <ph name="PROVIDER"/>.</translation>
 <translation id="6771734945114850124">Please have your ID available.</translation>
 <translation id="8697510149346635496">Withdraw BAT that you earn from viewing privacy-respecting ads</translation>
 <translation id="1481480653609649134">Purchase additional BAT with credit cards and other sources</translation>
-<translation id="9096003370755878766">Withdraw BAT that you may have previously added to your Brave Rewards wallet</translation>
+<translation id="9096003370755878766">Withdraw BAT that you may have previously added to your adrbrowsiel Rewards wallet</translation>
 <translation id="8558636200953226885">But if you verify, you can...</translation>
 <translation id="3354315693758743702">Verifying your wallet is optional.</translation>
 <translation id="4872388810065331182"><ph name="PROVIDER"/> may require you to verify your identity based on services requested.</translation>
-<translation id="6938217233488972952">Brave Software Inc. does not process, store or access any of the personal information that you provide to <ph name="PROVIDER"/> when you establish an account with them.</translation>
+<translation id="6938217233488972952">adrbrowsiel Software Inc. does not process, store or access any of the personal information that you provide to <ph name="PROVIDER"/> when you establish an account with them.</translation>
 <translation id="2415586822982819406">Note: your transactions will be visible to <ph name="PROVIDER"/> once you authorize; for instance, they will be able to see the recipient and amount of your tips.</translation>
 <translation id="7404779623219601861">Redeem BAT for gift cards</translation>
 <translation id="6215565499749144110">With TAP Network, you can redeem your BAT for popular name-brand gift cards.</translation>
@@ -657,25 +657,25 @@
 <translation id="1109729143147368573">Spend your crypto and other assets at nearly 50 million merchants and ATMs worldwide. Spend crypto to get crypto!</translation>
 <translation id="7840362246306242214">U.S. equities trading available on Uphold</translation>
 <translation id="3345432088196080137">Invest as little as $1 in popular stocks and exchange traded funds such as AAPL, TSLA or AMZN</translation>
-<translation id="4360054110030715117"><ph name="LINK_BEGIN"/>Learn more<ph name="LINK_END"/> about Brave Rewards</translation>
-<translation id="7443190393462029180">By clicking Start using Brave Rewards, you agree to the <ph name="TOS_LINK_BEGIN"/>Terms of Service<ph name="TOS_LINK_END"/> and <ph name="PP_LINK_BEGIN"/>Privacy Policy<ph name="PP_LINK_END"/>.</translation>
+<translation id="4360054110030715117"><ph name="LINK_BEGIN"/>Learn more<ph name="LINK_END"/> about adrbrowsiel Rewards</translation>
+<translation id="7443190393462029180">By clicking Start using adrbrowsiel Rewards, you agree to the <ph name="TOS_LINK_BEGIN"/>Terms of Service<ph name="TOS_LINK_END"/> and <ph name="PP_LINK_BEGIN"/>Privacy Policy<ph name="PP_LINK_END"/>.</translation>
 <translation id="8344084848798035850">Estimated earnings so far this month</translation>
 <translation id="5235444069025581717">Tips and contributions this month</translation>
 <translation id="1210965535849006928">Claim my Rewards</translation>
 <translation id="4609518959946843710">Earn rewards for viewing this sponsored background image.</translation>
-<translation id="5311968438376723685">Turn on Brave Private Ads to claim your share. You can also choose to <ph name="LINK_BEGIN"/>hide sponsored images<ph name="LINK_END"/>.</translation>
+<translation id="5311968438376723685">Turn on adrbrowsiel Private Ads to claim your share. You can also choose to <ph name="LINK_BEGIN"/>hide sponsored images<ph name="LINK_END"/>.</translation>
 <translation id="8568666589217601917">Way to Go!</translation>
 <translation id="764235488372037377">Your rewards from Ads are here</translation>
-<translation id="7091215606170476659">You have a UGP grant from Brave.</translation>
+<translation id="7091215606170476659">You have a UGP grant from adrbrowsiel.</translation>
 <translation id="6759185676704303656">You’re getting paid to view this background image.</translation>
-<translation id="1749232564087138444"><ph name="LINK_BEGIN"/>Learn more<ph name="LINK_END"/> about sponsored images in Brave Rewards.</translation>
+<translation id="1749232564087138444"><ph name="LINK_BEGIN"/>Learn more<ph name="LINK_END"/> about sponsored images in adrbrowsiel Rewards.</translation>
 <translation id="6113004497629356998">Hide sponsored images</translation>
 <translation id="8587285254008006694">As part of this transition, the tipping and contribution features in
         your browser will be temporarily unavailable from 13 March and
         your BAP balance will show 0.0 until you have updated to the new system
         in April. Once you’re on the new system, you’ll start off with new
         tokens!</translation>
-<translation id="6232491755501685494">Brave Rewards in Japan is switching to a new system!</translation>
+<translation id="6232491755501685494">adrbrowsiel Rewards in Japan is switching to a new system!</translation>
 <translation id="3787061634640932557">Edit Cards</translation>
 <translation id="8511604585939286108">By clicking [[title]], you agree to the <ph name="BEGIN_LINK1"/>Terms of Service<ph name="END_LINK1"/> and <ph name="BEGIN_LINK2"/>Privacy Policy<ph name="END_LINK2"/>.</translation>
 <translation id="5977237145327845546">Start a private video call with your friends and colleagues.</translation>
@@ -740,9 +740,9 @@
 <translation id="1833248467354516560">Unit price</translation>
 <translation id="4763179765154524864">Total spent</translation>
 <translation id="8851480289992540512">Total received</translation>
-<translation id="616639131065447379">Welcome to Brave Crypto Wallets</translation>
-<translation id="1740464057879304704">Crypto Wallets lets you work with cryptocurrency and related assets in Brave. Crypto Wallets supports Ethereum tokens like ETH and BAT, as well as collectibles, and lets you work with Ðapps and other smart contracts. All this is meant for people who are familiar with Ethereum and other blockchain systems — or are excited to learn.</translation>
-<translation id="4855440621031541830">Only use Crypto Wallets if you accept that you alone are responsible for all risk associated with this use, and that Brave Software bears no responsibility or liability for any losses, including incidental or consequential losses you might suffer as a result of this use.</translation>
+<translation id="616639131065447379">Welcome to adrbrowsiel Crypto Wallets</translation>
+<translation id="1740464057879304704">Crypto Wallets lets you work with cryptocurrency and related assets in adrbrowsiel. Crypto Wallets supports Ethereum tokens like ETH and BAT, as well as collectibles, and lets you work with Ðapps and other smart contracts. All this is meant for people who are familiar with Ethereum and other blockchain systems — or are excited to learn.</translation>
+<translation id="4855440621031541830">Only use Crypto Wallets if you accept that you alone are responsible for all risk associated with this use, and that adrbrowsiel Software bears no responsibility or liability for any losses, including incidental or consequential losses you might suffer as a result of this use.</translation>
 <translation id="3187473319809074178">All of this is completely separate from</translation>
 <translation id="8327818101454798856">So if you were looking to support your favourite sites, head over there instead.</translation>
 <translation id="412480955826088549">Downloading Component...</translation>
@@ -758,18 +758,18 @@
 <translation id="5337526542182802976">Supported Pairs</translation>
 <translation id="1164622162816276433">24HR Volume</translation>
 <translation id="7534079972563542000">Unstoppable Domains</translation>
-<translation id="4492298165410552103">Enable support of Unstoppable Domains in Brave?</translation>
-<translation id="3470923752115324276">Brave can enable you to visit .crypto domains by using Cloudflare to resolve .crypto domain name lookup requests using DNS over HTTPS. If you enable this, Cloudflare will see the .crypto domain that you're trying to visit but they will not be able to see other domains. See Cloudflare's <ph name="BEGIN_CF_TOU_LINK"/>terms of use<ph name="END_CF_TOU_LINK"/> and <ph name="BEGIN_CF_PRIVACY_LINK"/>privacy policy<ph name="END_CF_PRIVACY_LINK"/>.</translation>
+<translation id="4492298165410552103">Enable support of Unstoppable Domains in adrbrowsiel?</translation>
+<translation id="3470923752115324276">adrbrowsiel can enable you to visit .crypto domains by using Cloudflare to resolve .crypto domain name lookup requests using DNS over HTTPS. If you enable this, Cloudflare will see the .crypto domain that you're trying to visit but they will not be able to see other domains. See Cloudflare's <ph name="BEGIN_CF_TOU_LINK"/>terms of use<ph name="END_CF_TOU_LINK"/> and <ph name="BEGIN_CF_PRIVACY_LINK"/>privacy policy<ph name="END_CF_PRIVACY_LINK"/>.</translation>
 <translation id="6513892817556267573">Ethereum Name Service</translation>
-<translation id="4335039108389860301">Enable support of Ethereum Name Service (ENS) in Brave?</translation>
-<translation id="618766505813078707">Brave can enable you to visit .eth domains by using Cloudflare to resolve .eth domain name lookup requests using DNS over HTTPS. If you enable this, Cloudflare will see the .eth domain that you're trying to visit but they will not be able to see other domains. See Cloudflare's <ph name="BEGIN_CF_TOU_LINK"/>terms of use<ph name="END_CF_TOU_LINK"/> and <ph name="BEGIN_CF_PRIVACY_LINK"/>privacy policy<ph name="END_CF_PRIVACY_LINK"/>.</translation>
+<translation id="4335039108389860301">Enable support of Ethereum Name Service (ENS) in adrbrowsiel?</translation>
+<translation id="618766505813078707">adrbrowsiel can enable you to visit .eth domains by using Cloudflare to resolve .eth domain name lookup requests using DNS over HTTPS. If you enable this, Cloudflare will see the .eth domain that you're trying to visit but they will not be able to see other domains. See Cloudflare's <ph name="BEGIN_CF_TOU_LINK"/>terms of use<ph name="END_CF_TOU_LINK"/> and <ph name="BEGIN_CF_PRIVACY_LINK"/>privacy policy<ph name="END_CF_PRIVACY_LINK"/>.</translation>
 <translation id="5636651007798897342">Proceed using Cloudflare server</translation>
 <translation id="2356070529366658676">Ask</translation>
 <translation id="2218918398178303658">DNS over HTTPS</translation>
 <translation id="1448289340149908413">Ethereum</translation>
 <translation id="2468755552460246661">Domain blocked</translation>
 <translation id="6393849031898466746">This site may attempt to track you across other sites</translation>
-<translation id="983774928604730749">Brave has prevented the following site from loading:</translation>
+<translation id="983774928604730749">adrbrowsiel has prevented the following site from loading:</translation>
 <translation id="4781961723893779890">This site may try to link some of your personal data with a cookie before showing the content.</translation>
 <translation id="2459038234784107183">Don't warn me about this site again</translation>
 <translation id="8242426110754782860">Proceed</translation>
@@ -811,7 +811,7 @@
 <translation id="3373798179786163193">Proceed with Public Gateway</translation>
 <translation id="1974060860693918893">Advanced</translation>
 <translation id="9096577886148726047">Hide Advanced</translation>
-<translation id="7716995370131231171">Brave cannot load the requested IPFS resources either because the local node did not start, or because there are no connected peers available at the moment. If you choose "Proceed", Brave will automatically fall back to the default public gateway whenever using the local node fails. You can change this behavior at any point in Brave settings.</translation>
+<translation id="7716995370131231171">adrbrowsiel cannot load the requested IPFS resources either because the local node did not start, or because there are no connected peers available at the moment. If you choose "Proceed", adrbrowsiel will automatically fall back to the default public gateway whenever using the local node fails. You can change this behavior at any point in adrbrowsiel settings.</translation>
 <translation id="8026038288183400906">IPFS preference</translation>
 <translation id="2058855456574089690">Set your IPFS preference</translation>
 <translation id="4447758690649023734">Use a local node</translation>
@@ -827,14 +827,14 @@
 <translation id="1675751799495331928">We have exceeded the limit of attemps, try again later.</translation>
 <translation id="4499666752625407848">Error ocurred during an update.</translation>
 <translation id="62991515067726424">This content was loaded over the IPFS protocol</translation>
-<translation id="7263366446813126341">InterPlanetary File System (IPFS) is a public network for peer-to-peer data storage and delivery. You can learn more about Brave's integration or configure your IPFS settings at any time.</translation>
+<translation id="7263366446813126341">InterPlanetary File System (IPFS) is a public network for peer-to-peer data storage and delivery. You can learn more about adrbrowsiel's integration or configure your IPFS settings at any time.</translation>
 <translation id="3862600063748690056">IPFS import completed</translation>
 <translation id="8263749381887932384">IPFS import partially completed</translation>
 <translation id="2145699434318651911">IPFS import failed</translation>
 <translation id="5525148540855044244">Shareable link copied: <ph name="SHAREABLE_LINK"/></translation>
 <translation id="3741998951694470470">Failed to fetch data for import</translation>
 <translation id="7900950536120202771">IPFS node internal error</translation>
-<translation id="1036635552229153800">The data was successfully uploaded but not moved to the brave-import directory. You can do this manually on the import settings page.</translation>
+<translation id="1036635552229153800">The data was successfully uploaded but not moved to the adrbrowsiel-import directory. You can do this manually on the import settings page.</translation>
 <translation id="7789840864192026963">Give permission</translation>
 <translation id="7978789143098237970">until I close this page</translation>
 <translation id="3523195733429162409">for 24 hours</translation>

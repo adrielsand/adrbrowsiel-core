@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/ad_block_regional_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_regional_service.h"
 
 #include <algorithm>
 #include <string>
@@ -18,13 +18,13 @@
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/threading/thread_restrictions.h"
-#include "brave/components/adblock_rust_ffi/src/wrapper.h"
-#include "brave/components/brave_shields/browser/ad_block_regional_service_manager.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/browser/ad_block_service_helper.h"
+#include "adrbrowsiel/components/adblock_rust_ffi/src/wrapper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_regional_service_manager.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service_helper.h"
 #include "components/prefs/pref_service.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 std::string                                                     // NOLINT
     AdBlockRegionalService::g_ad_block_regional_component_id_;  // NOLINT
@@ -33,7 +33,7 @@ std::string AdBlockRegionalService::                            // NOLINT
 
 AdBlockRegionalService::AdBlockRegionalService(
     const adblock::FilterList& catalog_entry,
-    brave_component_updater::BraveComponent::Delegate* delegate,
+    adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate,
     AdBlockRegionalService::ResourcesFileReadyCallback
         resoures_file_ready_callback)
     : AdBlockBaseService(delegate),
@@ -78,7 +78,7 @@ void AdBlockRegionalService::OnComponentReady(const std::string& component_id,
 
   base::PostTaskAndReplyWithResult(
       GetTaskRunner().get(), FROM_HERE,
-      base::BindOnce(&brave_component_updater::GetDATFileAsString,
+      base::BindOnce(&adrbrowsiel_component_updater::GetDATFileAsString,
                      resources_file_path),
       base::BindOnce(&AdBlockRegionalService::OnResourcesFileDataReady,
                      weak_factory_.GetWeakPtr()));
@@ -102,11 +102,11 @@ void AdBlockRegionalService::SetComponentIdAndBase64PublicKeyForTest(
 
 std::unique_ptr<AdBlockRegionalService> AdBlockRegionalServiceFactory(
     const adblock::FilterList& catalog_entry,
-    brave_component_updater::BraveComponent::Delegate* delegate,
+    adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate,
     AdBlockRegionalService::ResourcesFileReadyCallback
         resoures_file_ready_callback) {
   return std::make_unique<AdBlockRegionalService>(catalog_entry, delegate,
                                                   resoures_file_ready_callback);
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

@@ -16,7 +16,7 @@ import {
   AlertCircleIcon,
   CheckCircleIcon,
   CloseStrokeIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 
 export type Type = 'error' | 'success' | 'warning'
 

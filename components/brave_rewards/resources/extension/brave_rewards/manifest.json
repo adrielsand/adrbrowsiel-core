@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "name": "Brave Rewards",
+  "name": "adrbrowsiel Rewards",
   "manifest_version": 2,
-  "description": "Brave Rewards Extension",
+  "description": "adrbrowsiel Rewards Extension",
   "default_locale": "en_US",
   "incognito": "not_allowed",
   "background" : {
-    "scripts": ["out/brave_rewards_panel_background.bundle.js"]
+    "scripts": ["out/adrbrowsiel_rewards_panel_background.bundle.js"]
   },
   "permissions": [
     "storage",
@@ -14,7 +14,7 @@
     "chrome://favicon/*"
   ],
   "browser_action": {
-    "default_popup": "brave_rewards_panel.html",
+    "default_popup": "adrbrowsiel_rewards_panel.html",
     "default_icon": {
       "16": "img/bat-16.png",
       "32": "img/bat-32.png",

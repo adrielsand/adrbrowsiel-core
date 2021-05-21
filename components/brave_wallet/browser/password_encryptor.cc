@@ -1,18 +1,18 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/password_encryptor.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/password_encryptor.h"
 
 #include <utility>
 
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
 #include "crypto/aead.h"
 #include "crypto/openssl_util.h"
 #include "third_party/boringssl/src/include/openssl/evp.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 PasswordEncryptor::PasswordEncryptor(const std::vector<uint8_t> key)
     : key_(key) {}
@@ -70,4 +70,4 @@ bool PasswordEncryptor::Decrypt(base::span<const uint8_t> ciphertext,
   return true;
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

@@ -1,4 +1,4 @@
-import("//brave/components/common/typescript.gni")
+import("//adrbrowsiel/components/common/typescript.gni")
 
 transpile_web_ui("ipfs_ui") {
   entry_points = [
@@ -10,7 +10,7 @@ transpile_web_ui("ipfs_ui") {
 
 pack_web_resources("generated_resources") {
   resource_name = "ipfs"
-  output_dir = "$root_gen_dir/brave/components/ipfs_ui/resources"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/ipfs_ui/resources"
   deps = [
     ":ipfs_ui"
   ]

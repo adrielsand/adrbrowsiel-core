@@ -24,13 +24,13 @@ import {
   StyledNoLogoDiv,
   StyledTD
 } from './style'
-import { Row } from 'brave-ui/components/dataTables/table'
-import { StyledTable } from 'brave-ui/components/dataTables/table/style'
+import { Row } from 'adrbrowsiel-ui/components/dataTables/table'
+import { StyledTable } from 'adrbrowsiel-ui/components/dataTables/table/style'
 import ThumbLikePicker from '../thumbLikePicker'
 import CategoryLikePicker from '../categoryLikePicker'
 import DropMenu from '../dropMenu'
 import AdRowsDetails from '../adRowsDetails'
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 
 export interface DetailRow {
   uuid: string

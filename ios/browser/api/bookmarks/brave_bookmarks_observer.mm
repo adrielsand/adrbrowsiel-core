@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/ios/browser/api/bookmarks/brave_bookmarks_observer.h"
+#include "adrbrowsiel/ios/browser/api/bookmarks/adrbrowsiel_bookmarks_observer.h"
 
 #include <memory>
 
 #include "base/check.h"
 #include "base/compiler_specific.h"
 #include "base/notreached.h"
-#include "brave/ios/browser/api/bookmarks/brave_bookmarks_api.h"
+#include "adrbrowsiel/ios/browser/api/bookmarks/adrbrowsiel_bookmarks_api.h"
 #include "components/bookmarks/browser/bookmark_model.h"
 #include "components/bookmarks/browser/bookmark_model_observer.h"
 
@@ -23,7 +23,7 @@
                        model:(bookmarks::BookmarkModel*)model;
 @end
 
-namespace brave {
+namespace adrbrowsiel {
 namespace ios {
 class BookmarkModelListener : public bookmarks::BookmarkModelObserver {
  public:
@@ -182,10 +182,10 @@ void BookmarkModelListener::BookmarkAllUserNodesRemoved(
   }
 }
 }  // namespace ios
-}  // namespace brave
+}  // namespace adrbrowsiel
 
 @interface BookmarkModelListenerImpl () {
-  std::unique_ptr<brave::ios::BookmarkModelListener> observer_;
+  std::unique_ptr<adrbrowsiel::ios::BookmarkModelListener> observer_;
   bookmarks::BookmarkModel* bookmarkModel_;
 }
 @end
@@ -194,7 +194,7 @@ void BookmarkModelListener::BookmarkAllUserNodesRemoved(
 - (instancetype)init:(id<BookmarkModelObserver>)observer
        bookmarkModel:(void*)model {
   if ((self = [super init])) {
-    observer_ = std::make_unique<brave::ios::BookmarkModelListener>(
+    observer_ = std::make_unique<adrbrowsiel::ios::BookmarkModelListener>(
         observer, static_cast<bookmarks::BookmarkModel*>(model));
     bookmarkModel_ = static_cast<bookmarks::BookmarkModel*>(model);
   }

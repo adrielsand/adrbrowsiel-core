@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -19,7 +19,7 @@ import org.chromium.ui.modaldialog.ModalDialogProperties;
 import org.chromium.ui.modelutil.PropertyModel;
 
 /* Adds additional items to Permission Dialog. */
-class BravePermissionDialogModel {
+class adrbrowsielPermissionDialogModel {
     public static PropertyModel getModel(ModalDialogProperties.Controller controller,
             PermissionDialogDelegate delegate, Runnable touchFilteredCallback) {
         PropertyModel model =
@@ -32,10 +32,10 @@ class BravePermissionDialogModel {
     /* Adds a permission lifetime options to a dialog view if lifetime options are available. */
     private static void addLifetimeOptions(View customView, PermissionDialogDelegate delegate) {
         Context context = delegate.getWindow().getContext().get();
-        BravePermissionDialogDelegate braveDelegate =
-                (BravePermissionDialogDelegate) (Object) delegate;
+        adrbrowsielPermissionDialogDelegate adrbrowsielDelegate =
+                (adrbrowsielPermissionDialogDelegate) (Object) delegate;
 
-        String[] lifetimeOptions = braveDelegate.getLifetimeOptions();
+        String[] lifetimeOptions = adrbrowsielDelegate.getLifetimeOptions();
         if (lifetimeOptions == null) {
             return;
         }
@@ -44,7 +44,7 @@ class BravePermissionDialogModel {
 
         // Create a text label before the lifetime selector.
         TextView lifetimeOptionsText = new TextView(context);
-        lifetimeOptionsText.setText(braveDelegate.getLifetimeOptionsText());
+        lifetimeOptionsText.setText(adrbrowsielDelegate.getLifetimeOptionsText());
         ApiCompatibilityUtils.setTextAppearance(
                 lifetimeOptionsText, R.style.TextAppearance_TextMedium_Primary);
 
@@ -67,7 +67,7 @@ class BravePermissionDialogModel {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                braveDelegate.setSelectedLifetimeOption(checkedId);
+                adrbrowsielDelegate.setSelectedLifetimeOption(checkedId);
             }
         });
         radioGroup.check(0);

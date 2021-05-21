@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 
-import { EmoteSadIcon } from 'brave-ui/components/icons'
+import { EmoteSadIcon } from 'adrbrowsiel-ui/components/icons'
 
 import { LocaleContext } from '../../shared/lib/locale_context'
 import { TipOptInForm } from '../../shared/components/onboarding'

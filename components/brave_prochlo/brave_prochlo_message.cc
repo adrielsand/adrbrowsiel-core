@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_prochlo/brave_prochlo_message.h"
+#include "adrbrowsiel/components/adrbrowsiel_prochlo/adrbrowsiel_prochlo_message.h"
 
 #include <vector>
 
@@ -12,9 +12,9 @@
 #include "base/stl_util.h"
 #include "base/strings/string_number_conversions.h"
 #include "base/trace_event/trace_event.h"
-#include "brave/components/brave_prochlo/brave_prochlo_crypto.h"
-#include "brave/components/brave_prochlo/prochlo_data.h"
-#include "brave/components/brave_prochlo/prochlo_message.pb.h"
+#include "adrbrowsiel/components/adrbrowsiel_prochlo/adrbrowsiel_prochlo_crypto.h"
+#include "adrbrowsiel/components/adrbrowsiel_prochlo/prochlo_data.h"
+#include "adrbrowsiel/components/adrbrowsiel_prochlo/prochlo_message.pb.h"
 #include "crypto/sha2.h"
 
 namespace prochlo {
@@ -42,11 +42,11 @@ bool MakeProchlomation(uint64_t metric,
   DCHECK(data);
   DCHECK(crowd_id);
   DCHECK(shuffler_item);
-  // TODO(iefremov): - create patch for adding `brave_p3a`
+  // TODO(iefremov): - create patch for adding `adrbrowsiel_p3a`
   // to src/base/trace_event/builtin_categories.h
-  // TRACE_EVENT0("brave_p3a", "MakeProchlomation");
+  // TRACE_EVENT0("adrbrowsiel_p3a", "MakeProchlomation");
 
-  BraveProchloCrypto crypto;
+  adrbrowsielProchloCrypto crypto;
 
   const std::vector<char> shuffler_key(
       &kShufflerKey[0], &kShufflerKey[0] + base::size(kShufflerKey));
@@ -91,9 +91,9 @@ bool MakeProchlomation(uint64_t metric,
 
 void InitProchloMessage(uint64_t metric_hash,
                         const ShufflerItem& item,
-                        brave_pyxis::PyxisMessage* pyxis_message) {
+                        adrbrowsiel_pyxis::PyxisMessage* pyxis_message) {
   DCHECK(pyxis_message);
-  brave_pyxis::PyxisValue* value = pyxis_message->add_pyxis_values();
+  adrbrowsiel_pyxis::PyxisValue* value = pyxis_message->add_pyxis_values();
   value->set_ciphertext(item.ciphertext, kPlainShufflerItemLength);
   value->set_tag(item.tag, kTagLength);
   value->set_nonce(item.nonce, kNonceLength);
@@ -109,10 +109,10 @@ MessageMetainfo::~MessageMetainfo() = default;
 void GenerateProchloMessage(uint64_t metric_hash,
                             uint64_t metric_value,
                             const MessageMetainfo& meta,
-                            brave_pyxis::PyxisMessage* pyxis_message) {
-  // TODO(iefremov): - create patch for adding `brave_p3a`
+                            adrbrowsiel_pyxis::PyxisMessage* pyxis_message) {
+  // TODO(iefremov): - create patch for adding `adrbrowsiel_p3a`
   // to src/base/trace_event/builtin_categories.h
-  // TRACE_EVENT0("brave_p3a", "GenerateProchloMessage");
+  // TRACE_EVENT0("adrbrowsiel_p3a", "GenerateProchloMessage");
   ShufflerItem item;
   uint8_t data[kProchlomationDataLength] = {0};
   uint8_t crowd_id[kCrowdIdLength] = {0};
@@ -162,10 +162,10 @@ void GenerateProchloMessage(uint64_t metric_hash,
 void GenerateP3AMessage(uint64_t metric_hash,
                         uint64_t metric_value,
                         const MessageMetainfo& meta,
-                        brave_pyxis::RawP3AValue* p3a_message) {
-  // TODO(iefremov): - create patch for adding `brave_p3a`
+                        adrbrowsiel_pyxis::RawP3AValue* p3a_message) {
+  // TODO(iefremov): - create patch for adding `adrbrowsiel_p3a`
   // to src/base/trace_event/builtin_categories.h
-  // TRACE_EVENT0("brave_p3a", "GenerateP3AMessage");
+  // TRACE_EVENT0("adrbrowsiel_p3a", "GenerateP3AMessage");
   uint8_t data[kProchlomationDataLength] = {0};
 
   // First byte contains the 4 booleans.

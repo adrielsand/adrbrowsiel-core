@@ -8,44 +8,44 @@ import shieldsDarkTheme from './theme/shields-dark'
 import shieldsLightTheme from './theme/shields-light'
 import { Provider } from 'react-redux'
 import { Store } from 'webext-redux'
-import BraveCoreThemeProvider from '../../../common/BraveCoreThemeProvider'
-import BraveShields from './containers/app'
+import adrbrowsielCoreThemeProvider from '../../../common/adrbrowsielCoreThemeProvider'
+import adrbrowsielShields from './containers/app'
 import { getViewPreferences } from './background/api/shieldsAPI'
 require('../../../../ui/webui/resources/fonts/muli.css')
 require('../../../../ui/webui/resources/fonts/poppins.css')
 
 const store: any = new Store({
-  portName: 'BRAVE'
+  portName: 'adrbrowsiel'
 })
 
 Promise.all([
   store.ready(),
-  new Promise(resolve => chrome.braveTheme.getBraveThemeType(resolve)),
+  new Promise(resolve => chrome.adrbrowsielTheme.getadrbrowsielThemeType(resolve)),
   getViewPreferences()
 ])
 .then((
   [ , themeType, settings ]:
   [
     undefined,
-    chrome.braveTheme.ThemeType,
-    chrome.braveShields.BraveShieldsViewPreferences
+    chrome.adrbrowsielTheme.ThemeType,
+    chrome.adrbrowsielShields.adrbrowsielShieldsViewPreferences
   ]
 ) => {
   const mountNode: HTMLElement | null = document.querySelector('#root')
   ReactDOM.render(
     <Provider store={store}>
-      <BraveCoreThemeProvider
+      <adrbrowsielCoreThemeProvider
         initialThemeType={themeType}
         dark={shieldsDarkTheme}
         light={shieldsLightTheme}
       >
-        <BraveShields settings={settings} />
-      </BraveCoreThemeProvider>
+        <adrbrowsielShields settings={settings} />
+      </adrbrowsielCoreThemeProvider>
     </Provider>,
     mountNode
   )
 })
 .catch((error: any) => {
-  console.error('Problem mounting brave shields')
+  console.error('Problem mounting adrbrowsiel shields')
   console.error(error)
 })

@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/eth_response_parser.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_response_parser.h"
 
 #include <utility>
 
@@ -33,7 +33,7 @@ bool ParseSingleStringResult(const std::string& json, std::string* result) {
 
 }  // namespace
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 bool ParseEthGetBalance(const std::string& json, std::string* hex_balance) {
   return ParseSingleStringResult(json, hex_balance);
@@ -43,4 +43,4 @@ bool ParseEthCall(const std::string& json, std::string* result) {
   return ParseSingleStringResult(json, result);
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

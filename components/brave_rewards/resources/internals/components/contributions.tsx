@@ -6,7 +6,7 @@ import * as React from 'react'
 
 import { Contribution } from './contribution'
 import { ButtonWrapper } from '../style'
-import { Button } from 'brave-ui/components'
+import { Button } from 'adrbrowsiel-ui/components'
 
 interface Props {
   items: RewardsInternals.ContributionInfo[]

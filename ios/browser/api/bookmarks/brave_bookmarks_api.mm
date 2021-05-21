@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/ios/browser/api/bookmarks/brave_bookmarks_api.h"
+#include "adrbrowsiel/ios/browser/api/bookmarks/adrbrowsiel_bookmarks_api.h"
 
 #include "base/compiler_specific.h"
 #include "base/containers/adapters.h"
 #include "base/guid.h"
 #include "base/strings/sys_string_conversions.h"
-#include "brave/ios/browser/api/bookmarks/brave_bookmarks_observer.h"
+#include "adrbrowsiel/ios/browser/api/bookmarks/adrbrowsiel_bookmarks_observer.h"
 #include "components/bookmarks/browser/bookmark_model.h"
 #include "components/bookmarks/browser/bookmark_node.h"
 #include "components/bookmarks/browser/bookmark_utils.h"
@@ -455,18 +455,18 @@
 
 @end
 
-@interface BraveBookmarksAPI () {
+@interface adrbrowsielBookmarksAPI () {
   bookmarks::BookmarkModel* bookmark_model_;    // NOT OWNED
   BookmarkUndoService* bookmark_undo_service_;  // NOT OWNED
 }
 @end
 
-@implementation BraveBookmarksAPI
+@implementation adrbrowsielBookmarksAPI
 + (instancetype)sharedBookmarksAPI {
-  static BraveBookmarksAPI* instance = nil;
+  static adrbrowsielBookmarksAPI* instance = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    instance = [[BraveBookmarksAPI alloc] init];
+    instance = [[adrbrowsielBookmarksAPI alloc] init];
   });
   return instance;
 }

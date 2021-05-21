@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 
 #include <algorithm>
 #include <utility>
@@ -11,9 +11,9 @@
 #include "base/feature_list.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/values.h"
-#include "brave/components/sidebar/features.h"
-#include "brave/components/sidebar/pref_names.h"
-#include "components/grit/brave_components_strings.h"
+#include "adrbrowsiel/components/sidebar/features.h"
+#include "adrbrowsiel/components/sidebar/pref_names.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
 #include "components/prefs/scoped_user_pref_update.h"
@@ -33,8 +33,8 @@ std::vector<SidebarItem> GetDefaultSidebarItems() {
   // TODO(simonhong): Get titles by observing webcontents.
   std::vector<SidebarItem> items;
   items.push_back(SidebarItem::Create(
-      GURL("https://together.brave.com/"),
-      l10n_util::GetStringUTF16(IDS_SIDEBAR_BRAVE_TOGETHER_ITEM_TITLE),
+      GURL("https://together.adrbrowsiel.com/"),
+      l10n_util::GetStringUTF16(IDS_SIDEBAR_adrbrowsiel_TOGETHER_ITEM_TITLE),
       SidebarItem::Type::kTypeBuiltIn, true));
   items.push_back(SidebarItem::Create(
       GURL("chrome://wallet/"),

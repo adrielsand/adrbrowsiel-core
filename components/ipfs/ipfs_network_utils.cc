@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ipfs/ipfs_network_utils.h"
+#include "adrbrowsiel/components/ipfs/ipfs_network_utils.h"
 
 #include <memory>
 #include <string>
@@ -17,7 +17,7 @@
 #include "base/guid.h"
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
-#include "brave/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/browser_task_traits.h"
 #include "net/base/mime_util.h"
@@ -45,9 +45,9 @@ net::NetworkTrafficAnnotationTag GetIpfsNetworkTrafficAnnotationTag() {
             sender: "IPFS service"
             description:
               "This service is used to communicate with IPFS daemon "
-              "on behalf of the user interacting with the actions in brave://ipfs."
+              "on behalf of the user interacting with the actions in adrbrowsiel://ipfs."
             trigger:
-              "Triggered by actions in brave://ipfs."
+              "Triggered by actions in adrbrowsiel://ipfs."
             data:
               "Options of the commands."
             destination: WEBSITE
@@ -55,7 +55,7 @@ net::NetworkTrafficAnnotationTag GetIpfsNetworkTrafficAnnotationTag() {
           policy {
             cookies_allowed: NO
             setting:
-              "You can enable or disable this feature in brave://settings."
+              "You can enable or disable this feature in adrbrowsiel://settings."
             policy_exception_justification:
               "Not implemented."
           }

@@ -1,20 +1,20 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/p3a/brave_histogram_rewrite.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_histogram_rewrite.h"
 
 #include "base/bind.h"
 #include "base/metrics/histogram_macros.h"
 #include "base/metrics/statistics_recorder.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 namespace {
 
-// Please keep this list sorted and synced with |DoHistogramBravezation|.
-constexpr const char* kBravezationHistograms[] = {
+// Please keep this list sorted and synced with |DoHistogramadrbrowsielzation|.
+constexpr const char* kadrbrowsielzationHistograms[] = {
     "Bookmarks.Count.OnProfileLoad",
     "DefaultBrowser.State",
     "Extensions.LoadExtension",
@@ -24,8 +24,8 @@ constexpr const char* kBravezationHistograms[] = {
 };
 
 // TODO(iefremov): Replace a bunch of 'if's with something more elegant.
-// Records the given sample using the proper Brave way.
-void DoHistogramBravezation(const char* histogram_name,
+// Records the given sample using the proper adrbrowsiel way.
+void DoHistogramadrbrowsielzation(const char* histogram_name,
                             uint64_t name_hash,
                             base::HistogramBase::Sample sample) {
   DCHECK(histogram_name);
@@ -34,7 +34,7 @@ void DoHistogramBravezation(const char* histogram_name,
     const int* it =
         std::lower_bound(kIntervals, std::end(kIntervals), sample);
     const int answer = it - kIntervals;
-    UMA_HISTOGRAM_EXACT_LINEAR("Brave.Core.BookmarksCountOnProfileLoad.2",
+    UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Core.BookmarksCountOnProfileLoad.2",
                                answer, base::size(kIntervals));
     return;
   }
@@ -55,7 +55,7 @@ void DoHistogramBravezation(const char* histogram_name,
     default:
       NOTREACHED();
     }
-    UMA_HISTOGRAM_BOOLEAN("Brave.Core.IsDefault", answer);
+    UMA_HISTOGRAM_BOOLEAN("adrbrowsiel.Core.IsDefault", answer);
   }
 
   if (strcmp("Extensions.LoadExtension", histogram_name) == 0) {
@@ -67,7 +67,7 @@ void DoHistogramBravezation(const char* histogram_name,
     else if (sample >= 5)
       answer = 3;
 
-    UMA_HISTOGRAM_EXACT_LINEAR("Brave.Core.NumberOfExtensions", answer, 3);
+    UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Core.NumberOfExtensions", answer, 3);
     return;
   }
 
@@ -86,7 +86,7 @@ void DoHistogramBravezation(const char* histogram_name,
       answer = 4;
     }
 
-    UMA_HISTOGRAM_EXACT_LINEAR("Brave.Core.TabCount", answer, 4);
+    UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Core.TabCount", answer, 4);
     return;
   }
 
@@ -102,19 +102,19 @@ void DoHistogramBravezation(const char* histogram_name,
       answer = 3;
     }
 
-    UMA_HISTOGRAM_EXACT_LINEAR("Brave.Core.WindowCount.2", answer, 3);
+    UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Core.WindowCount.2", answer, 3);
     return;
   }
 }
 
 }  // namespace
 
-void SetupHistogramsBraveization() {
-  for (const char* histogram_name : kBravezationHistograms) {
+void SetupHistogramsadrbrowsielization() {
+  for (const char* histogram_name : kadrbrowsielzationHistograms) {
     base::StatisticsRecorder::SetCallback(
         histogram_name,
-        base::BindRepeating(&DoHistogramBravezation));
+        base::BindRepeating(&DoHistogramadrbrowsielzation));
   }
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

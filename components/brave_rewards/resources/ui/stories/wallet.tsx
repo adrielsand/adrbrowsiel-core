@@ -1,4 +1,4 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -9,10 +9,10 @@ import { object, text, select, boolean, number } from '@storybook/addon-knobs'
 // Components
 import { WalletSummary, WalletEmpty, WalletPanel, WalletSummarySlider, WalletWrapper } from '../components'
 import { AlertWallet, WalletState } from '../components/walletWrapper'
-import { WalletAddIcon, WalletImportIcon } from 'brave-ui/components/icons'
+import { WalletAddIcon, WalletImportIcon } from 'adrbrowsiel-ui/components/icons'
 import { WalletInfoHeader } from '../components/mobile'
 
-const favicon = require('./img/brave-favicon.png')
+const favicon = require('./img/adrbrowsiel-favicon.png')
 
 const doNothing = () => {
   console.log('nothing')
@@ -72,7 +72,7 @@ export const wrapper = () => {
       walletState={state}
       walletProvider={'Uphold'}
       onDisconnectClick={doNothing}
-      greetings={'Hello, Brave!'}
+      greetings={'Hello, adrbrowsiel!'}
     >
       Some content
     </WalletWrapper>
@@ -101,7 +101,7 @@ export const summary = () => {
         }}
         onActivity={doNothing}
         reservedAmount={number('Reserved amount', 52)}
-        reservedMoreLink={'https://brave.com'}
+        reservedMoreLink={'https://adrbrowsiel.com'}
         onSeeAllReserved={doNothing}
         onlyAnonWallet={boolean('Anon Wallet Only', false)}
       />

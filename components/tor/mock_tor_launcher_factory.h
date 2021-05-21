@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_TOR_MOCK_TOR_LAUNCHER_FACTORY_H_
-#define BRAVE_COMPONENTS_TOR_MOCK_TOR_LAUNCHER_FACTORY_H_
+#ifndef adrbrowsiel_COMPONENTS_TOR_MOCK_TOR_LAUNCHER_FACTORY_H_
+#define adrbrowsiel_COMPONENTS_TOR_MOCK_TOR_LAUNCHER_FACTORY_H_
 
 #include <string>
 
 #include "base/no_destructor.h"
-#include "brave/components/tor/tor_launcher_factory.h"
+#include "adrbrowsiel/components/tor/tor_launcher_factory.h"
 #include "testing/gmock/include/gmock/gmock.h"
 
 class MockTorLauncherFactory : public TorLauncherFactory {
@@ -36,4 +36,4 @@ class MockTorLauncherFactory : public TorLauncherFactory {
   MockTorLauncherFactory& operator=(const MockTorLauncherFactory&) = delete;
 };
 
-#endif  // BRAVE_COMPONENTS_TOR_MOCK_TOR_LAUNCHER_FACTORY_H_
+#endif  // adrbrowsiel_COMPONENTS_TOR_MOCK_TOR_LAUNCHER_FACTORY_H_

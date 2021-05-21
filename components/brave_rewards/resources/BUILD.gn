@@ -1,12 +1,12 @@
-import("//brave/components/brave_rewards/browser/buildflags/buildflags.gni")
-import("//brave/components/common/typescript.gni")
+import("//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/common/typescript.gni")
 import("//extensions/buildflags/buildflags.gni")
 import("//tools/grit/grit_rule.gni")
 import("//tools/grit/repack.gni")
 
 pack_web_resources("page_generated_resources") {
-  resource_name = "brave_rewards_page"
-  output_dir = "$root_gen_dir/brave/components/brave_rewards/resources"
+  resource_name = "adrbrowsiel_rewards_page"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources"
   # need webpack and GRD generation first
   if (is_android) {
     deps = [ "android_page" ]
@@ -16,8 +16,8 @@ pack_web_resources("page_generated_resources") {
 }
 
 pack_web_resources("internals_generated_resources") {
-  resource_name = "brave_rewards_internals"
-  output_dir = "$root_gen_dir/brave/components/brave_rewards/resources"
+  resource_name = "adrbrowsiel_rewards_internals"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources"
   # need webpack and GRD generation first
   deps = [
     "internals"
@@ -25,8 +25,8 @@ pack_web_resources("internals_generated_resources") {
 }
 
 pack_web_resources("tip_generated_resources") {
-  resource_name = "brave_rewards_tip"
-  output_dir = "$root_gen_dir/brave/components/brave_rewards/resources"
+  resource_name = "adrbrowsiel_rewards_tip"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources"
   # need webpack and GRD generation first
   deps = [
     "tip"
@@ -34,11 +34,11 @@ pack_web_resources("tip_generated_resources") {
 }
 
 grit("static_resources") {
-  source = "brave_rewards_static_resources.grd"
+  source = "adrbrowsiel_rewards_static_resources.grd"
 
   outputs = [
-    "grit/brave_rewards_resources.h",
-    "brave_rewards_static.pak",
+    "grit/adrbrowsiel_rewards_resources.h",
+    "adrbrowsiel_rewards_static.pak",
   ]
 
   deps = [
@@ -49,9 +49,9 @@ grit("static_resources") {
     "root_gen_dir=" + rebase_path(root_gen_dir, root_build_dir),
   ]
 
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 
-  output_dir = "$root_gen_dir/brave/components/brave_rewards/resources"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources"
 }
 
 repack("resources") {
@@ -62,15 +62,15 @@ repack("resources") {
   ]
 
   sources = [
-    "$root_gen_dir/brave/components/brave_rewards/resources/brave_rewards_page_generated.pak",
-    "$root_gen_dir/brave/components/brave_rewards/resources/brave_rewards_internals_generated.pak",
-    "$root_gen_dir/brave/components/brave_rewards/resources/brave_rewards_static.pak",
+    "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/adrbrowsiel_rewards_page_generated.pak",
+    "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/adrbrowsiel_rewards_internals_generated.pak",
+    "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/adrbrowsiel_rewards_static.pak",
   ]
 
   if (!is_android) {
-    sources += [ "$root_gen_dir/brave/components/brave_rewards/resources/brave_rewards_tip_generated.pak" ]
+    sources += [ "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/adrbrowsiel_rewards_tip_generated.pak" ]
     public_deps += [ ":tip_generated_resources" ]
   }
 
-  output = "$root_gen_dir/brave/components/brave_rewards/resources/brave_rewards_resources.pak"
+  output = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_rewards/resources/adrbrowsiel_rewards_resources.pak"
 }

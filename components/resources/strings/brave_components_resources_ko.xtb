@@ -29,7 +29,7 @@
 <translation id="985862351129593673">대시보드 사용자 정의</translation>
 <translation id="7180865173735832675">사용자 정의</translation>
 <translation id="8522669544471808198">배경 이미지 표시</translation>
-<translation id="7275773481201277457">Brave Stats 보기</translation>
+<translation id="7275773481201277457">adrbrowsiel Stats 보기</translation>
 <translation id="6836061097810262923">시계 보기</translation>
 <translation id="5912396950572065471">포맷</translation>
 <translation id="604124094241169006">자동</translation>
@@ -52,27 +52,27 @@
 <translation id="8037713009824540257">사이트 추가</translation>
 <translation id="1773147648972887693">자주 방문하는 사이트 표시</translation>
 <translation id="4546260624932151782">즐겨찾기 표시</translation>
-<translation id="3446024864193919737">Brave (브레이브) 리워드 표시</translation>
+<translation id="3446024864193919737">adrbrowsiel (브레이브) 리워드 표시</translation>
 <translation id="6274899614137380422">Binance 표시</translation>
-<translation id="5551238871320268996">Brave Together</translation>
+<translation id="5551238871320268996">adrbrowsiel Together</translation>
 <translation id="5585019845078534178">카드</translation>
 <translation id="3870475560794762985">스폰 이미지 표시</translation>
 <translation id="2875302873837723333">탑 사이트</translation>
-<translation id="8173998484743827990">Brave Stats</translation>
+<translation id="8173998484743827990">adrbrowsiel Stats</translation>
 <translation id="383680190590774040">시계</translation>
-<translation id="3333887201479867589">Brave Rewards</translation>
+<translation id="3333887201479867589">adrbrowsiel Rewards</translation>
 <translation id="3159285901314605198">배경 이미지</translation>
 <translation id="385051799172605136">뒤로</translation>
-<translation id="9024104284526126630">Brave에서 프라이빗 통화를 걸 수 있습니다.</translation>
-<translation id="5735801688206890393">Brave Together에서 친구들, 동료들과 무제한 통화를 시작하세요.</translation>
+<translation id="9024104284526126630">adrbrowsiel에서 프라이빗 통화를 걸 수 있습니다.</translation>
+<translation id="5735801688206890393">adrbrowsiel Together에서 친구들, 동료들과 무제한 통화를 시작하세요.</translation>
 <translation id="7115051913071512405">시도해 보기</translation>
 <translation id="7415602225677446066">나만을 위한 완벽한 비공개 피드의 오늘의 주요 스토리입니다.</translation>
-<translation id="8607689491789524900">Brave Today는 개인 정보가 브라우저에서 떠나지 않도록 장치에 대한 관심사를 일치시킵니다. 하루 종일 새로운 콘텐츠가 업데이트됩니다.</translation>
+<translation id="8607689491789524900">adrbrowsiel Today는 개인 정보가 브라우저에서 떠나지 않도록 장치에 대한 관심사를 일치시킵니다. 하루 종일 새로운 콘텐츠가 업데이트됩니다.</translation>
 <translation id="9164544612367905452">가져 오는 중…</translation>
 <translation id="1276592121036104130">새 콘텐츠 로드하기</translation>
-<translation id="4210987321913275328">Brave Today 스크롤</translation>
-<translation id="3122595178900736207">Brave Today 소스 재설정</translation>
-<translation id="2197023915568148978">모든 Brave Today 게시자 선택을 기본값으로 재설정하시겠습니까?</translation>
+<translation id="4210987321913275328">adrbrowsiel Today 스크롤</translation>
+<translation id="3122595178900736207">adrbrowsiel Today 소스 재설정</translation>
+<translation id="2197023915568148978">모든 adrbrowsiel Today 게시자 선택을 기본값으로 재설정하시겠습니까?</translation>
 <translation id="954001034349395856">모든 소스</translation>
 <translation id="8890516388109605451">소스</translation>
 <translation id="5158129253322921540"><ph name="PUBLISHER_NAME"/> 콘텐츠 비활성화</translation>
@@ -91,21 +91,21 @@
 <translation id="6248988683584659830">검색 설정</translation>
 <translation id="730042046912793465">이것은</translation>
 <translation id="2055363275850890030">비공개 윈도우</translation>
-<translation id="9133213713928851646">Brave는 당신이 비공개 윈도우에서 하는 활동을 기억하지 않습니다. 방문한 사이트는 검색 내역에 나타나지 않으며, 검색을 끝내면 쿠기도 사라집니다. 비공개 윈도우는 온라인상에서 당신을 완벽한 익명으로 만들어 줍니다.</translation>
+<translation id="9133213713928851646">adrbrowsiel는 당신이 비공개 윈도우에서 하는 활동을 기억하지 않습니다. 방문한 사이트는 검색 내역에 나타나지 않으며, 검색을 끝내면 쿠기도 사라집니다. 비공개 윈도우는 온라인상에서 당신을 완벽한 익명으로 만들어 줍니다.</translation>
 <translation id="3546750666732517156">Tor 연결이 제공되는 Private Window</translation>
-<translation id="5383068818957293256">Brave는 사용자가 Private Window에서 무엇을 하는지 기억하지 않습니다. Tor 연결을 이용하면, 방문하는 사이트에서 사용자의 IP 주소도 숨겨집니다. 다만, 신변의 안전이 익명 유지에 달려 있다면, 대신 Tor 브라우저를 사용하십시오.</translation>
+<translation id="5383068818957293256">adrbrowsiel는 사용자가 Private Window에서 무엇을 하는지 기억하지 않습니다. Tor 연결을 이용하면, 방문하는 사이트에서 사용자의 IP 주소도 숨겨집니다. 다만, 신변의 안전이 익명 유지에 달려 있다면, 대신 Tor 브라우저를 사용하십시오.</translation>
 <translation id="778096729652828897">Tor를 이용한 비공개 창에 관하여 자세히 알아보십시오</translation>
 <translation id="7919374705736538787">다음으로 비공개 검색하기:</translation>
 <translation id="3135655280958284640">DuckDuckGo (덕덕고)</translation>
-<translation id="218839872518145456">비공개 검색에선, Brave가 검색을 위해 비공개 윈도우에서 DuckDuckGo를 사용합니다. DuckDuckGo는 검색 내역을 추적하지 않기에, 비공개로 검색할 수 있습니다.</translation>
+<translation id="218839872518145456">비공개 검색에선, adrbrowsiel가 검색을 위해 비공개 윈도우에서 DuckDuckGo를 사용합니다. DuckDuckGo는 검색 내역을 추적하지 않기에, 비공개로 검색할 수 있습니다.</translation>
 <translation id="1925197199485958903">Tor와 함께하는 비공개 윈도우에선, DuckDuckGo가 기본 설정 검색 엔진입니다. 기타 몇몇 인기 있는 검색 엔진은 Tor와 함께 사용하기가 더 어렵습니다. DuckDuckGo는 검색 내역을 추적하지 않습니다. Tor와 함께라면, IP 주소도 알 수 없습니다.</translation>
 <translation id="4371533307685765155">DuckDuckGo로 검색하기</translation>
 <translation id="548478195417408221">Private Windows에 대해 추가로 비공개로 설정</translation>
 <translation id="3294503279952534143">이 Private Window는 비공개에 더욱 철저합니다</translation>
 <translation id="4644024131266615376">Tor 연결과 함께</translation>
 <translation id="8541421872680304667">Tor는 목적지에 도달하기 전에 여러 Tor 서버를 통해 브라우징을 라우팅하는 방식으로 방문하는 사이트에 대해 사용자의 IP 주소를 숨깁니다. Tor를 이용함으로써 브라우징 속도가 느려질 수 있으며, 일부 사이트는 전혀 동작하지 않을 수 있습니다.</translation>
-<translation id="8897548669448660973">시크릿 창을 사용하면 현재 사용 중인 기기에서의 Brave 동작 방식만 변화하며 다른 사용자의 동작 방식은 변화하지 않습니다. Tor는 방문한 사이트에서 IP 주소를 숨겨, 어떤 사이트를 방문했는지 ISP나 직장 상사가 파악하기 어려워집니다. Tor로 시크릿 창을 열려면 메뉴에서 찾아보거나 [[ key ]] 키를 누르세요.</translation>
-<translation id="6975708438781948564">Brave에서 Tor에 대해 더 알아보기</translation>
+<translation id="8897548669448660973">시크릿 창을 사용하면 현재 사용 중인 기기에서의 adrbrowsiel 동작 방식만 변화하며 다른 사용자의 동작 방식은 변화하지 않습니다. Tor는 방문한 사이트에서 IP 주소를 숨겨, 어떤 사이트를 방문했는지 ISP나 직장 상사가 파악하기 어려워집니다. Tor로 시크릿 창을 열려면 메뉴에서 찾아보거나 [[ key ]] 키를 누르세요.</translation>
+<translation id="6975708438781948564">adrbrowsiel에서 Tor에 대해 더 알아보기</translation>
 <translation id="4712050378540986986">Tor 상태</translation>
 <translation id="3368922792935385530">연결됨</translation>
 <translation id="8030169304546394654">연결 해제됨</translation>
@@ -116,15 +116,15 @@
 <translation id="4673764878177947707">커스텀 필터</translation>
 <translation id="8803682034537762884">라인 당 하나씩, 필터가 Adblock Plus 필터 문법으로 기술되어 있습니다</translation>
 <translation id="1209739344687072997">작동이 멈춘 사이트 보고</translation>
-<translation id="8510478288840333677">Brave (브레이브) 개발자에게 이 사이트가 Shields (실드)와 함께 제대로 작동하지 않는다는 것을 알리십시오.</translation>
-<translation id="6013164422534859494">참고: 이 사이트 주소는 Brave  (브레이브) 버전 번호 및 귀하의 IP 주소 (저장되지 않음)와 함께 제출됩니다.</translation>
+<translation id="8510478288840333677">adrbrowsiel (브레이브) 개발자에게 이 사이트가 Shields (실드)와 함께 제대로 작동하지 않는다는 것을 알리십시오.</translation>
+<translation id="6013164422534859494">참고: 이 사이트 주소는 adrbrowsiel  (브레이브) 버전 번호 및 귀하의 IP 주소 (저장되지 않음)와 함께 제출됩니다.</translation>
 <translation id="2653659639078652383">제출</translation>
 <translation id="5299848999918506028">감사합니다!</translation>
-<translation id="76550953340008122">이 사이트에 문제가 있다는 것을 Brave (브레이브) 개발자에게 알려 주셔서 감사합니다. 최선을 다해 문제를 해결하겠습니다!</translation>
-<translation id="2974339193389078578">새로운 인터넷 세상, Brave</translation>
+<translation id="76550953340008122">이 사이트에 문제가 있다는 것을 adrbrowsiel (브레이브) 개발자에게 알려 주셔서 감사합니다. 최선을 다해 문제를 해결하겠습니다!</translation>
+<translation id="2974339193389078578">새로운 인터넷 세상, adrbrowsiel</translation>
 <translation id="7735138632831241257">개인정보 보호에 최적화된 브라우저로 더욱 빠르고 안전한 검색을 즐겨보세요.</translation>
 <translation id="6001839398155993679">시작</translation>
-<translation id="4225189922025976867">Brave 프라이빗 광고를 시청하는 것으로 <ph name="BEGIN_BOLD"/>토큰 획득<ph name="END_BOLD"/>이 가능하며 자동으로 콘텐츠 제작자를 지원합니다.</translation>
+<translation id="4225189922025976867">adrbrowsiel 프라이빗 광고를 시청하는 것으로 <ph name="BEGIN_BOLD"/>토큰 획득<ph name="END_BOLD"/>이 가능하며 자동으로 콘텐츠 제작자를 지원합니다.</translation>
 <translation id="5477721706074111257">클릭함에 따라 <ph name="BEGIN_LINK"/>이용 약관<ph name="END_LINK"/>과 <ph name="BEGIN_LINK"/>개인 정보 처리 방침<ph name="END_LINK"/>에 동의하는 것입니다.</translation>
 <translation id="3505541710659461355">언제든지 설정에서 끌 수 있습니다.</translation>
 <translation id="2965798296974325760">리워드 사용 시작</translation>
@@ -133,7 +133,7 @@
 <translation id="8275038454117074363">가져오기</translation>
 <translation id="2088479175984386785">다음에서 가져오기...</translation>
 <translation id="5540323067375019678">차단 관리</translation>
-<translation id="3278033011827237847">Brave Shields로 탐색하는 동안 개인 정보를 침해하는 광고와 추적기로부터 보호를 받으세요. 사이트가 제대로 작동하지 않는 것처럼 보이면 Shields를 "해제"로 설정하세요.</translation>
+<translation id="3278033011827237847">adrbrowsiel Shields로 탐색하는 동안 개인 정보를 침해하는 광고와 추적기로부터 보호를 받으세요. 사이트가 제대로 작동하지 않는 것처럼 보이면 Shields를 "해제"로 설정하세요.</translation>
 <translation id="3366308997091824722">차단 설정</translation>
 <translation id="4764692524839457597">기본</translation>
 <translation id="3108122610701115301">기본값으로 설정</translation>
@@ -144,16 +144,16 @@
 <translation id="3829010735958850433">시작 안내 건너뛰기</translation>
 <translation id="1201402288615127009">다음</translation>
 <translation id="7954950242989581218">안전하게 검색하세요</translation>
-<translation id="2188651882929633653">Brave Shields는 웹상에서 사용자를 추적하고 하는 것들과 대부분의 광고를 차단합니다. 사이트가 작동하지 않는 것 같으면 Shield를 "down"으로 설정하세요. Brave는 <ph name="BEGIN_LINK_P3A"/>완전 비공개 제품 분석<ph name="END_LINK_P3A"/>을 사용하여 특정 기능의 전체 사용량을 추정합니다. <ph name="BEGIN_LINK_P3A_SETTINGS"/>설정<ph name="END_LINK_P3A_SETTINGS"/>에서 이 기능을 사용 중지할 수 있습니다.</translation>
+<translation id="2188651882929633653">adrbrowsiel Shields는 웹상에서 사용자를 추적하고 하는 것들과 대부분의 광고를 차단합니다. 사이트가 작동하지 않는 것 같으면 Shield를 "down"으로 설정하세요. adrbrowsiel는 <ph name="BEGIN_LINK_P3A"/>완전 비공개 제품 분석<ph name="END_LINK_P3A"/>을 사용하여 특정 기능의 전체 사용량을 추정합니다. <ph name="BEGIN_LINK_P3A_SETTINGS"/>설정<ph name="END_LINK_P3A_SETTINGS"/>에서 이 기능을 사용 중지할 수 있습니다.</translation>
 <translation id="1919345977826869612">광고</translation>
-<translation id="6769094341455418696">Brave Ads를 보면 [[currency]]가 적립됩니다. 광고는 사용자의 관심사를 기반으로 표시되며 브라우저의 성능을 저해하지 않습니다. 개인 데이터나 인터넷 사용 기록은 절대 브라우저에 남지 않습니다.</translation>
+<translation id="6769094341455418696">adrbrowsiel Ads를 보면 [[currency]]가 적립됩니다. 광고는 사용자의 관심사를 기반으로 표시되며 브라우저의 성능을 저해하지 않습니다. 개인 데이터나 인터넷 사용 기록은 절대 브라우저에 남지 않습니다.</translation>
 <translation id="6112368337882254910">자동 기부</translation>
-<translation id="3742599705619405136">발행자 및 콘텐츠 제작자를 자동으로 후원하는 방법입니다. 월별 지불 금액을 설정하고 평소와 같이 탐색하세요. Brave가 측정하는 귀하의 관심에 기반하여, 방문하시는 Brave 인증 사이트가 자동으로 귀하의 기부금을 받게 됩니다.</translation>
+<translation id="3742599705619405136">발행자 및 콘텐츠 제작자를 자동으로 후원하는 방법입니다. 월별 지불 금액을 설정하고 평소와 같이 탐색하세요. adrbrowsiel가 측정하는 귀하의 관심에 기반하여, 방문하시는 adrbrowsiel 인증 사이트가 자동으로 귀하의 기부금을 받게 됩니다.</translation>
 <translation id="20281847067919078">보류 중인 예상 보상금</translation>
 <translation id="8593551638387217772">다음 결제일</translation>
 <translation id="4428871418618312983">이번 달에 받은 광고</translation>
 <translation id="4229016885653790965">죄송합니다! 귀하의 지역에서는 아직 광고가 제공되지 않습니다.</translation>
-<translation id="2539279826042558064">지금 귀하의 장치에서 Brave (브레이브) 리워드 및 광고를 사용할 수 없습니다.</translation>
+<translation id="2539279826042558064">지금 귀하의 장치에서 adrbrowsiel (브레이브) 리워드 및 광고를 사용할 수 없습니다.</translation>
 <translation id="5421369907811917952">기타 설정</translation>
 <translation id="654711254769318398">조회한 광고 페이지</translation>
 <translation id="2532127066761785857">최대 표시 광고 수</translation>
@@ -163,7 +163,7 @@
 <translation id="905529390827000221">시간당 광고 4개</translation>
 <translation id="7694167481321619202">시간당 광고 5개</translation>
 <translation id="8576106690599421723">지역 레벨 광고 추적</translation>
-<translation id="4775297407519948063">허용하면 Brave가 지역과 관련된 광고를 더 많이 보여줍니다.</translation>
+<translation id="4775297407519948063">허용하면 adrbrowsiel가 지역과 관련된 광고를 더 많이 보여줍니다.</translation>
 <translation id="8446884382197647889">자세히 알아보기</translation>
 <translation id="6209514229703649203">[[adsSubdivisionTarget]] 자동 감지됨</translation>
 <translation id="8010081455002666927">자동 감지</translation>
@@ -174,7 +174,7 @@
 <translation id="8845154268466251503">BAT</translation>
 <translation id="6160106411363856968">BAP</translation>
 <translation id="1081826981536899387">BAT 포인트</translation>
-<translation id="2563462925929938015">Brave 리워드에서 사용하여 가장 좋아하는 콘텐츠 제작자들에게 기부할 수 있습니다. BAT 포인트는 BAT로 환전될 수 없습니다.</translation>
+<translation id="2563462925929938015">adrbrowsiel 리워드에서 사용하여 가장 좋아하는 콘텐츠 제작자들에게 기부할 수 있습니다. BAT 포인트는 BAT로 환전될 수 없습니다.</translation>
 <translation id="3390542282753297856">기기가 오프라인 상태입니다, 나중에 다시 시도해 주세요.</translation>
 <translation id="4684554059837592728">매월 결제</translation>
 <translation id="2846354907189538">다음 기부 정보</translation>
@@ -222,21 +222,21 @@
 <translation id="2195074481553016770">거의 다 되었습니다</translation>
 <translation id="5254740304961202261">귀하가 인간임을 증명하세요!</translation>
 <translation id="2187043784382239974">흠, 아직은...</translation>
-<translation id="7510166204621526816">Brave 보상 서버가 응답하지 않습니다. 가능한 한 신속히 이 문제를 해결하겠습니다.</translation>
+<translation id="7510166204621526816">adrbrowsiel 보상 서버가 응답하지 않습니다. 가능한 한 신속히 이 문제를 해결하겠습니다.</translation>
 <translation id="2323069945529668668">이런!</translation>
 <translation id="717952606991220586">이런, 뭔가 잘못되었습니다. 나중에 다시 시도해 주세요.</translation>
 <translation id="6965382102122355670">오케이</translation>
 <translation id="7210234701206674260">브레이브 리워드에 문제가 있습니다. 나중에 다시 시도해 주세요.</translation>
 <translation id="5549059668721746831">다음 월 기부금 날짜</translation>
-<translation id="6231182869178328516">Brave 브라우저를 이용해 <ph name="NAME"/>에게 팁으로 주었습니다. https://brave.com/tips에서 확인해 보세요.</translation>
-<translation id="8404935570206006581">TipWithBrave</translation>
+<translation id="6231182869178328516">adrbrowsiel 브라우저를 이용해 <ph name="NAME"/>에게 팁으로 주었습니다. https://adrbrowsiel.com/tips에서 확인해 보세요.</translation>
+<translation id="8404935570206006581">TipWithadrbrowsiel</translation>
 <translation id="3113653894794167793">죄송하지만 요청을 처리하는 중에 문제가 발생했습니다. 다시 시도하시기 바랍니다.</translation>
 <translation id="3082557070674409251">클릭됨</translation>
 <translation id="7119308337584989771">기각됨</translation>
 <translation id="6805660603861526473">조회됨</translation>
 <translation id="2359865110462963929">현재 사용자의 지역에서는 BAT가 지원되지 않습니다. 업데이트는 <ph name="BEGIN_LINK"/>여기<ph name="END_LINK"/>에서 확인하세요.</translation>
 <translation id="1737873393693460829">[[title]] 기능을 켜면 <ph name="BEGIN_LINK1"/>이용약관<ph name="END_LINK1"/> 및 <ph name="BEGIN_LINK2"/>개인정보처리방침<ph name="END_LINK2"/>에 동의하게 됩니다.</translation>
-<translation id="2564425876266960486">Brave Browser BAT 카드 생성 오류</translation>
+<translation id="2564425876266960486">adrbrowsiel Browser BAT 카드 생성 오류</translation>
 <translation id="6473583070570450185">로그인하려면 인증된 지갑이 필요합니다</translation>
 <translation id="5949995321533425416">Uphold 지갑을 만들려면 최소 <ph name="AMOUNT"/>BAT가 필요합니다. Uphold로 지갑을 인증한 후 다시 시도하세요.</translation>
 <translation id="7422678632904904341">금액:</translation>
@@ -359,21 +359,21 @@
 <translation id="7532131110478098401">(시간당 광고)</translation>
 <translation id="2951964054390325080">좋아하는 크리에이터에게 매달 얼마나 지원하고 싶으신가요?</translation>
 <translation id="3164498053837913829">(광고 수입에서)</translation>
-<translation id="2070991379950719711">Brave Rewards 사용 시작</translation>
+<translation id="2070991379950719711">adrbrowsiel Rewards 사용 시작</translation>
 <translation id="6318696841371191107">빠르게 투어하기</translation>
 <translation id="8465790416279415448">계속하면 <ph name="TOS_LINK_BEGIN"/>서비스 약관<ph name="TOS_LINK_END"/> 및 <ph name="PP_LINK_BEGIN"/>개인 정보 보호 정책<ph name="PP_LINK_END"/>에 동의하게 됩니다.</translation>
-<translation id="2404165674840145940">Brave Rewards 팁</translation>
-<translation id="5820285701794581330">Brave rewards를 사용하면 크리에이터에게 팁을 주는 데 사용할 수 있는 BAT를 얻을 수 있습니다.</translation>
+<translation id="2404165674840145940">adrbrowsiel Rewards 팁</translation>
+<translation id="5820285701794581330">adrbrowsiel rewards를 사용하면 크리에이터에게 팁을 주는 데 사용할 수 있는 BAT를 얻을 수 있습니다.</translation>
 <translation id="5705882733397021510">돌아가기</translation>
 <translation id="185034574799484512">간단히 살펴봅시다</translation>
 <translation id="8281886186245836920">건너뛰기</translation>
 <translation id="1377600615067678409">지금은 넘어가기</translation>
-<translation id="7930505144430343145">Brave Rewards에 오신 것을 환영합니다!</translation>
-<translation id="3477340970981564961">Brave 프라이빗 광고는 종전의 광고와는 달리 콘텐츠 제작자를 지원할 수 있도록 여러분께 토큰을 리워드로 지급하며, 이 과정에서 여러분의 개인 정보는 안전하게 보호됩니다.</translation>
+<translation id="7930505144430343145">adrbrowsiel Rewards에 오신 것을 환영합니다!</translation>
+<translation id="3477340970981564961">adrbrowsiel 프라이빗 광고는 종전의 광고와는 달리 콘텐츠 제작자를 지원할 수 있도록 여러분께 토큰을 리워드로 지급하며, 이 과정에서 여러분의 개인 정보는 안전하게 보호됩니다.</translation>
 <translation id="6973095375773523904">광고는 어디에 표시됩니까?</translation>
-<translation id="7556325460112047619">Brave 프라이빗 광고는 일반 알림의 형태로 나타나게 됩니다. 설정에서 이 광고를 얼마나 자주 볼 것인지에 대해 조정할 수 있습니다.</translation>
+<translation id="7556325460112047619">adrbrowsiel 프라이빗 광고는 일반 알림의 형태로 나타나게 됩니다. 설정에서 이 광고를 얼마나 자주 볼 것인지에 대해 조정할 수 있습니다.</translation>
 <translation id="6897083627729802351">Rewards가 적립되는 시점</translation>
-<translation id="310863932297733723">이번 달 동안 Brave 프라이빗 광고를 통해 획득하신 토큰은 다음 달 5일에 지급됩니다.</translation>
+<translation id="310863932297733723">이번 달 동안 adrbrowsiel 프라이빗 광고를 통해 획득하신 토큰은 다음 달 5일에 지급됩니다.</translation>
 <translation id="7712287524451429139">쉽게 돌려주기</translation>
 <translation id="105037569026952831">크리에이터는 ‘관심’으로 측정한 참여 수준에 따라 자동으로 토큰 기여금을 받습니다.</translation>
 <translation id="5323267338679539010">팁으로 감사 인사하기</translation>
@@ -383,17 +383,17 @@
 <translation id="1402530520078693620">마지막으로 기본 설정을 설정하겠습니다</translation>
 <translation id="3494356595346329740">나중에 변경할 수 있습니다.</translation>
 <translation id="827315274423079662">야호, 설정이 다 끝났습니다!</translation>
-<translation id="8268038362451312235">Brave Rewards를 사용함에 따라 여러분은 웹을 모두를 위한 더 나은 장소로 만드는 데 한 몫을 거들고 있습니다. 대단한 일이지요!</translation>
+<translation id="8268038362451312235">adrbrowsiel Rewards를 사용함에 따라 여러분은 웹을 모두를 위한 더 나은 장소로 만드는 데 한 몫을 거들고 있습니다. 대단한 일이지요!</translation>
 <translation id="9146355483497231818">월렛 검증하기</translation>
 <translation id="8913591412117692523">광고를 보고 적립된 토큰을 인출하려면 월렛을 검증해야 합니다.</translation>
 <translation id="9168436347345867845">나중에</translation>
 <translation id="5468234114288973517">내 월렛 검증하기</translation>
 <translation id="6609621505400013054">bitFlyer 월렛은 bitFlyer, Inc.에서 관리하는 서비스입니다.</translation>
-<translation id="7258399883616914635">월렛을 검증하여 bitFlyer 계정에 연결하면 Brave Rewards를 통해 적립된 토큰을 더욱 쉽게 저장하고 관리할 수 있습니다.</translation>
+<translation id="7258399883616914635">월렛을 검증하여 bitFlyer 계정에 연결하면 adrbrowsiel Rewards를 통해 적립된 토큰을 더욱 쉽게 저장하고 관리할 수 있습니다.</translation>
 <translation id="5094577350232361255">대하여</translation>
 <translation id="4918086044614829423">수락</translation>
-<translation id="5916290544882167205">Brave Software. Brave는 Brave Software의 등록 상표입니다. 사이트 이름은 사이트 소유자의 상표 또는 등록 상표일 수 있습니다.</translation>
-<translation id="9026369588205476247">개인 정보를 보호하기 위해 이 Brave Rewards 내역은 귀하의 기기(컴퓨터) 외에 그 어느 곳에도 저장되거나, 기록되거나 로그되지 않습니다. 귀하의 기기에서 데이터 손실이 발생하는 경우 Brave에서는 복구 조치할 수 없습니다.</translation>
+<translation id="5916290544882167205">adrbrowsiel Software. adrbrowsiel는 adrbrowsiel Software의 등록 상표입니다. 사이트 이름은 사이트 소유자의 상표 또는 등록 상표일 수 있습니다.</translation>
+<translation id="9026369588205476247">개인 정보를 보호하기 위해 이 adrbrowsiel Rewards 내역은 귀하의 기기(컴퓨터) 외에 그 어느 곳에도 저장되거나, 기록되거나 로그되지 않습니다. 귀하의 기기에서 데이터 손실이 발생하는 경우 adrbrowsiel에서는 복구 조치할 수 없습니다.</translation>
 <translation id="1036277985068412734">자금 추가히기</translation>
 <translation id="3587482841069643663">전체</translation>
 <translation id="4241224519481557898">카테고리</translation>
@@ -404,13 +404,13 @@
 <translation id="2777306694585938662">광고 보상 받음</translation>
 <translation id="5212777575344695266">부적절한 것으로 표시</translation>
 <translation id="2111256234277361810">부적절한 것으로 표시 ✓</translation>
-<translation id="8988332871810963281">현재 Brave Ads 기록이 없습니다</translation>
+<translation id="8988332871810963281">현재 adrbrowsiel Ads 기록이 없습니다</translation>
 <translation id="5345727496083327478">더는 이 카테고리에서 광고를 받지 않습니다</translation>
 <translation id="2827387977307390755">팁 허용</translation>
 <translation id="3819257035322786455">백업</translation>
 <translation id="1312977698678162065">귀하의 개인 정보를 존중하는 관련 광고를 보고 보상을 받으세요.</translation>
 <translation id="4396256076373444156">개인 정보를 존중하는 관련 광고를 보시고 포인트를 적립하세요.</translation>
-<translation id="2975780980638932742">Brave 광고가 왔습니다!</translation>
+<translation id="2975780980638932742">adrbrowsiel 광고가 왔습니다!</translation>
 <translation id="3361548743396744457">좋아하는 사이트를 둘러보는 것만으로 후원하시거나 – 언제든 원하시는 때 사이트에 팁을 주세요.</translation>
 <translation id="6976444672879155794">[[processor]] 자동 기부</translation>
 <translation id="4493850495402472953">및</translation>
@@ -423,7 +423,7 @@
 <translation id="516395624550019162">네, 참여합니다!</translation>
 <translation id="529572070778367192">브라우징하고 보상 받기!</translation>
 <translation id="128450776206759934">작동 방법...</translation>
-<translation id="3825698830825612308">Brave 승인 발행처</translation>
+<translation id="3825698830825612308">adrbrowsiel 승인 발행처</translation>
 <translation id="7262285991915892790">배트 아이콘을 다음으로 드래그하세요</translation>
 <translation id="7656781188259414093">타킷.</translation>
 <translation id="1555514580945108302">음… 잘 모르겠네요. 다시 시도하세요.</translation>
@@ -457,7 +457,7 @@
 <translation id="418343137736963579">자동 기부에서 제외한 전체 사이트 숫자 :</translation>
 <translation id="1759104587873258696">만료됩니다</translation>
 <translation id="6149218349077925111">위해서</translation>
-<translation id="8802504113265057166">만료일까지 사용하지 않은 [[currency]]는 Brave User Growth Pool로 자동 반환됩니다.</translation>
+<translation id="8802504113265057166">만료일까지 사용하지 않은 [[currency]]는 adrbrowsiel User Growth Pool로 자동 반환됩니다.</translation>
 <translation id="279567716178902927">만료 일자 승인</translation>
 <translation id="2104073734684466851">보조금</translation>
 <translation id="6476729769006815569">안녕하세요, [[name]] 님!</translation>
@@ -529,18 +529,18 @@
 <translation id="5939518447894949180">초기화</translation>
 <translation id="3157931365184549694">복구</translation>
 <translation id="1797334173232638045">고정된 사이트가 다음으로 이동됨</translation>
-<translation id="6803187280799213426">Brave 지갑에 있는 잔고는 가상이며 백업할 수 없습니다. 이 브라우저에서만 독점적으로 사용할 수 있습니다.</translation>
+<translation id="6803187280799213426">adrbrowsiel 지갑에 있는 잔고는 가상이며 백업할 수 없습니다. 이 브라우저에서만 독점적으로 사용할 수 있습니다.</translation>
 <translation id="5290348443732633227">브라우저를 새로 설치하거나 새 기기로 전환할 때 모든 자금을 확보하고 자금 추가, 인출 및 이전과 같은 다른 혜택을 받고 싶다면 추천합니다</translation>
 <translation id="467041382895390784">검증된 <ph name="PROVIDER"/> 지갑에 연결 중</translation>
 <translation id="5717619667204259673">이 복구 키를 안전하게 보관하세요.</translation>
 <translation id="4699702339303280827">귀하께서는 브라우저나 컴퓨터에 이상 발생 시 항상 이 열쇠를 사용하여 귀하의 지갑을 돌려받으실 수 있습니다. 하지만 안전하게 보호하셔서 — 이 키를 가진 사람이 귀하의 지갑을 훔치지 못하도록 주의하세요. 아마도’ 종이에 적어두시거나, 혹은 중요한 정보를 보관하는 곳에 적어 두시는 것이 가장 안전할 것입니다.</translation>
 <translation id="8979401359137062629">참고:</translation>
-<translation id="7934806082615382155">자금의 일부는 Brave로부터 받을 수 있으며, 필요하지 않기 때문에 백업에 포함되지 않습니다. 이 브라우저에서만 사용할 수 있습니다.</translation>
+<translation id="7934806082615382155">자금의 일부는 adrbrowsiel로부터 받을 수 있으며, 필요하지 않기 때문에 백업에 포함되지 않습니다. 이 브라우저에서만 사용할 수 있습니다.</translation>
 <translation id="7354412786785889047">팁을 보내서 이 콘텐츠 크리에이터를 지원할 수 있습니다. 이것은 훌륭한 콘텐츠를 만드는 분들에게 감사를 전하는 방법입니다. 인증된 크리에이터는 각 달 첫 주에 자신의 팁에 대한 돈을 받습니다.</translation>
-<translation id="972846019534552366">Brave (브레이브) 리워드 패널 내에서 매월 반복되는 기부를 설정할 수도 있습니다.</translation>
+<translation id="972846019534552366">adrbrowsiel (브레이브) 리워드 패널 내에서 매월 반복되는 기부를 설정할 수도 있습니다.</translation>
 <translation id="3074127054582480056">주의</translation>
 <translation id="5010112177773747965">당신의 동의 없이요.</translation>
-<translation id="7147673045905733351">오늘, Brave가 여러분을 새로운 인터넷 세상으로 초대합니다.</translation>
+<translation id="7147673045905733351">오늘, adrbrowsiel가 여러분을 새로운 인터넷 세상으로 초대합니다.</translation>
 <translation id="1350763070659630336">여러분의 시간이 가치 있게 여겨지고, 개인 데이터가 비공개로 유지되며, 관심이 실제 수익 창출로 이어지는 곳.</translation>
 <translation id="880341991877949255">구버전 브라우저에서는 신경 쓰며 광고를 시청함으로써 인터넷 검색 비용을 지불했습니다. 당신은 소중한 개인 정보를 광고주에게 전송하는 침투성 광고 기술을 다운로드하면서 귀중한 시간을 허비했습니다 — 당신의 동의 없이요.</translation>
 <translation id="3610794092923555181">안타깝지만, 아직 포인트가 없습니다.</translation>
@@ -548,12 +548,12 @@
 <translation id="7359258898775969374">지갑을 채울 3가지 방법:</translation>
 <translation id="8087614920008846901">자금을 추가할 수 있습니다.</translation>
 <translation id="996024295464837691">광고 보기로 토큰을 벌 수 있습니다.</translation>
-<translation id="8014425282125849700">가끔 Brave에서 무료 토큰 보조금이 제공됩니다. 그 알림을 눈여겨보세요!</translation>
-<translation id="2185598236335233939">Brave (브레이브)를 계속 사용할 때 광고 알림을 찾으십시오. 귀하의 BAT 포인트 잔액은 귀하가 보는 각 광고와 함께  증가할 것입니다.</translation>
+<translation id="8014425282125849700">가끔 adrbrowsiel에서 무료 토큰 보조금이 제공됩니다. 그 알림을 눈여겨보세요!</translation>
+<translation id="2185598236335233939">adrbrowsiel (브레이브)를 계속 사용할 때 광고 알림을 찾으십시오. 귀하의 BAT 포인트 잔액은 귀하가 보는 각 광고와 함께  증가할 것입니다.</translation>
 <translation id="1370034647041840967">광고에 관심을 보이고 토큰을 벌어 가치 있게 여기는 콘텐츠 제작자에게 보내 지원하세요.</translation>
 <translation id="4919888432594361029">자금을 추가, 인출하고 관리하세요 <ph name="PROVIDER"/>.</translation>
-<translation id="3092054349246483285">Brave 월렛은 <ph name="PROVIDER"/> 기반으로 동작합니다.</translation>
-<translation id="6401272292123354754">Brave Rewards는 Basic Attention Token을 바탕으로 설계되었습니다. BAT에 관해 자세히 알아보세요</translation>
+<translation id="3092054349246483285">adrbrowsiel 월렛은 <ph name="PROVIDER"/> 기반으로 동작합니다.</translation>
+<translation id="6401272292123354754">adrbrowsiel Rewards는 Basic Attention Token을 바탕으로 설계되었습니다. BAT에 관해 자세히 알아보세요</translation>
 <translation id="7823359893981882407">여기</translation>
 <translation id="4483635855837696643">지갑 복구</translation>
 <translation id="459721429458957031">복구 키를 사용하여 월렛을 복구하세요.</translation>
@@ -588,11 +588,11 @@
 <translation id="1193434225710679930">포인트 보조금</translation>
 <translation id="4395099108822007284">이미지 로드 중...</translation>
 <translation id="3535654229833214438">트랜잭션</translation>
-<translation id="244362569344671266">Brave Private Ads를 보고 토큰을 얻고 콘텐츠 크리에이터를 자동으로 지원하세요.</translation>
+<translation id="244362569344671266">adrbrowsiel Private Ads를 보고 토큰을 얻고 콘텐츠 크리에이터를 자동으로 지원하세요.</translation>
 <translation id="3903419925307046908">토큰을 획득하고 돌려주기</translation>
 <translation id="8987812599455325915">이것은 광고와 자동 기부를 모두 활성화합니다. 언제든지 이 기능을 따로 켜거나 끌 수 있습니다.</translation>
 <translation id="1485484147452131556">Rewards 활성화</translation>
-<translation id="8772672608371898774">Brave가 인증한 출판자</translation>
+<translation id="8772672608371898774">adrbrowsiel가 인증한 출판자</translation>
 <translation id="5050370287908180130">상세한 월간 내역 보기</translation>
 <translation id="8615803647903750175">지갑 활동</translation>
 <translation id="2620624773940447728">지갑 주소</translation>
@@ -606,15 +606,15 @@
 <translation id="8787500234852052352">광고를 시청해 돈을 받으시고, 그것을 좋아하는 콘텐츠 제작자를 후원하는 데 사용하십시오.</translation>
 <translation id="4282161221635140902">개인 정보를 존중하는 광고 시청으로 이제 포인트를 획득할 수 있습니다.</translation>
 <translation id="318487899513214296">무엇이 개선되었는지 확인하기</translation>
-<translation id="4083384190339959182">Brave 결제가 크게 업그레이드됐습니다.</translation>
+<translation id="4083384190339959182">adrbrowsiel 결제가 크게 업그레이드됐습니다.</translation>
 <translation id="5395851053710553429">다음 인터넷을 경험할 준비를 하세요.</translation>
-<translation id="63956545637156715">왜 Brave Rewards일까요?</translation>
+<translation id="63956545637156715">왜 adrbrowsiel Rewards일까요?</translation>
 <translation id="8494748383523030337">귀하의 잔액</translation>
 <translation id="3780605330121608425">귀하의 월렛</translation>
 <translation id="6727483290601442544">세부 내용 보기</translation>
 <translation id="1988679729106502285">주의:</translation>
 <translation id="5815103311506128988">이 크리에이터가 아직 브레이브 유저들로부터 기부를 받기 위한 회원 가입을 하지 않으셨습니다. 귀하의 브라우저는 그들이 확인 할 때까지 혹은 90일이 지나기까지 계속 기부를 시도하게 됩니다.</translation>
-<translation id="7461596279975181413">Brave Verified Creator가 Brave 사용자로부터 기부금을 수령하도록 아직 계정을 구성하지 않았습니다. 귀하의 브라우저는 확인이 될 때까지 또는 90일이 지날 때까지 계속 기부를 시도할 것입니다.</translation>
+<translation id="7461596279975181413">adrbrowsiel Verified Creator가 adrbrowsiel 사용자로부터 기부금을 수령하도록 아직 계정을 구성하지 않았습니다. 귀하의 브라우저는 확인이 될 때까지 또는 90일이 지날 때까지 계속 기부를 시도할 것입니다.</translation>
 <translation id="4292832015778676417">광고로부터 수입</translation>
 <translation id="3197752845651180812">기부금 보류</translation>
 <translation id="6964891561514920613">보류 중인 모든 기부금 보이기</translation>
@@ -628,7 +628,7 @@
 <translation id="923467487918828349">모두 표시</translation>
 <translation id="5113531205597573951">본 사이트</translation>
 <translation id="4560448935659791043">광고 리워드를 획득하셨습니다!</translation>
-<translation id="4947094120398792493">귀하의 리워드는 귀하의 Brave 리워드 월렛으로 이동하는 중입니다.</translation>
+<translation id="4947094120398792493">귀하의 리워드는 귀하의 adrbrowsiel 리워드 월렛으로 이동하는 중입니다.</translation>
 <translation id="39734939514946950">귀하의 리워드 금액</translation>
 <translation id="2151535059686617995">오늘은’ 당신의 행운의 날입니다!</translation>
 <translation id="6436689611575806470">무료 [[currency]] 보조금이 지급되고 있습니다.</translation>
@@ -638,17 +638,17 @@
 <translation id="543510923939676996">지갑 인증됨</translation>
 <translation id="2659764755126740206">내 <ph name="PROVIDER"/> 계정으로 가기</translation>
 <translation id="3699674790322420653">지갑 인증 완료</translation>
-<translation id="9200453331904391567">Brave Rewards에서 접속 해제됨.</translation>
+<translation id="9200453331904391567">adrbrowsiel Rewards에서 접속 해제됨.</translation>
 <translation id="46988480989545156">월렛 검증하기</translation>
 <translation id="5796169459825124737">당사의 월렛 서비스는 <ph name="PROVIDER"/>에 의해 제공됩니다.</translation>
 <translation id="6771734945114850124">정부에서 발급한 유효한 신분증을 준비해 주세요.</translation>
 <translation id="8697510149346635496">개인 정보를 존중하는 광고를 본 것으로 획득하는 BAT 중단</translation>
 <translation id="1481480653609649134">신용 카드 및 기타 자원으로 추가 BAT 구매</translation>
-<translation id="9096003370755878766">이전에 Brave Rewards 월렛에 추가했을 수 있는 BAT를 중단하세요</translation>
+<translation id="9096003370755878766">이전에 adrbrowsiel Rewards 월렛에 추가했을 수 있는 BAT를 중단하세요</translation>
 <translation id="8558636200953226885">하지만 확인하시면, 귀하는...</translation>
 <translation id="3354315693758743702">귀하 월렛 확인은 선택 사항입니다.</translation>
 <translation id="4872388810065331182"><ph name="PROVIDER"/>에 의해 요청된 서비스에 따라 신원 확인이 요구될 수 있습니다.</translation>
-<translation id="6938217233488972952">Brave Software Inc.는 사용자가 계정을 생성할 때 <ph name="PROVIDER"/>에 제공하는 개인 정보를 처리, 저장 또는 액세스하지 않습니다.</translation>
+<translation id="6938217233488972952">adrbrowsiel Software Inc.는 사용자가 계정을 생성할 때 <ph name="PROVIDER"/>에 제공하는 개인 정보를 처리, 저장 또는 액세스하지 않습니다.</translation>
 <translation id="2415586822982819406">주의: 한 번 승인하면 <ph name="PROVIDER"/> 측에서 귀하의 거래를 볼 수 있게 됩니다. 예를 들어, 수취인과 팁의 금액을 볼 수 있습니다.</translation>
 <translation id="7404779623219601861">BAT와 기프트 카드 교환</translation>
 <translation id="6215565499749144110">TAP 네트워크를 사용하면 인기 있는 유명 브랜드 기프트 카드와 BAT를 교환할 수 있습니다.</translation>
@@ -657,25 +657,25 @@
 <translation id="1109729143147368573">전 세계 거의 5천만 상인과 ATM에서 크립토 및 기타 자산을 사용하십시오. 크립토를 사용하여 크립토를 얻으십시오!</translation>
 <translation id="7840362246306242214">미국 주식 거래 Uphold에서 가능</translation>
 <translation id="3345432088196080137">AAPL, TSLA 또는 AMZN 같은 인기 주식 및 상장지수펀드에 1달러만 투자하세요</translation>
-<translation id="4360054110030715117">Brave 상금에 대한 <ph name="LINK_BEGIN"/>자세한 정보 보기<ph name="LINK_END"/></translation>
-<translation id="7443190393462029180">Brave Rewards 사용 시작을 클릭하면 <ph name="TOS_LINK_BEGIN"/>서비스 약관<ph name="TOS_LINK_END"/> 및 <ph name="PP_LINK_BEGIN"/>개인 정보 보호 정책<ph name="PP_LINK_END"/>에 동의하게 됩니다.</translation>
+<translation id="4360054110030715117">adrbrowsiel 상금에 대한 <ph name="LINK_BEGIN"/>자세한 정보 보기<ph name="LINK_END"/></translation>
+<translation id="7443190393462029180">adrbrowsiel Rewards 사용 시작을 클릭하면 <ph name="TOS_LINK_BEGIN"/>서비스 약관<ph name="TOS_LINK_END"/> 및 <ph name="PP_LINK_BEGIN"/>개인 정보 보호 정책<ph name="PP_LINK_END"/>에 동의하게 됩니다.</translation>
 <translation id="8344084848798035850">이번 달까지의 예상 수익</translation>
 <translation id="5235444069025581717">이번 달 팁과 기부</translation>
 <translation id="1210965535849006928">내 리워드 청구</translation>
 <translation id="4609518959946843710">협찬된 배경 이미지 보기에 대한 리워드를 받으세요.</translation>
-<translation id="5311968438376723685">Brave 개인 광고를 켜서 사용자의 몫을 청구하세요. <ph name="LINK_BEGIN"/>
+<translation id="5311968438376723685">adrbrowsiel 개인 광고를 켜서 사용자의 몫을 청구하세요. <ph name="LINK_BEGIN"/>
 협찬된 이미지 숨기기<ph name="LINK_END"/>를 선택할 수도 있습니다.</translation>
 <translation id="8568666589217601917">정말 멋지네요!</translation>
 <translation id="764235488372037377">광고에서 받은 리워드가 여기 있습니다</translation>
-<translation id="7091215606170476659">Brave (브레이브)로부터 UGP 보조금이 있습니다.</translation>
+<translation id="7091215606170476659">adrbrowsiel (브레이브)로부터 UGP 보조금이 있습니다.</translation>
 <translation id="6759185676704303656">이 배경 이미지를 보고 있는 동안 상금이 지급됩니다.</translation>
-<translation id="1749232564087138444">Brave 상금의 스폰서 이미지에 대한 <ph name="LINK_BEGIN"/>자세한 정보 보기<ph name="LINK_END"/></translation>
+<translation id="1749232564087138444">adrbrowsiel 상금의 스폰서 이미지에 대한 <ph name="LINK_BEGIN"/>자세한 정보 보기<ph name="LINK_END"/></translation>
 <translation id="6113004497629356998">스폰서 이미지 숨기기</translation>
 <translation id="8587285254008006694">이러한 전환의 일환으로 3월 13일부터 브라우저에서 팁 주기 및 기부 기능을
         일시적으로 사용할 수 없으며, 4월에 새로운 시스템으로 업데이트될 때까지
         BAP 잔액은 0.0으로 표시됩니다. 새로운 시스템에 접속하게 되면 새 토큰으로
         시작할 수 있습니다!</translation>
-<translation id="6232491755501685494">일본의 Brave 리워드가 새로운 시스템으로 전환 중입니다!</translation>
+<translation id="6232491755501685494">일본의 adrbrowsiel 리워드가 새로운 시스템으로 전환 중입니다!</translation>
 <translation id="3787061634640932557">카드 편집</translation>
 <translation id="8511604585939286108">[[title]]를 클릭하면 <ph name="BEGIN_LINK1"/>이용약관<ph name="END_LINK1"/> 및 <ph name="BEGIN_LINK2"/>개인정보처리방침<ph name="END_LINK2"/>에 동의하게 됩니다.</translation>
 <translation id="5977237145327845546">친구 및 동료와 비공개 화상 통화를 시작하세요.</translation>
@@ -740,9 +740,9 @@
 <translation id="1833248467354516560">단가</translation>
 <translation id="4763179765154524864">총 사용량</translation>
 <translation id="8851480289992540512">받은 총계</translation>
-<translation id="616639131065447379">Brave 암호 지갑에 오신 것을 환영합니다</translation>
-<translation id="1740464057879304704">암호 지갑을 사용하면 Brave의 암호 화폐 및 관련 자산으로 작업할 수 있습니다. 암호 지갑은 수집품뿐만 아니라 ETH 및 BAT와 같은 이더리움 토큰을 지원하며 Ð앱 및 기타 스마트 계약을 처리할 수 있습니다. 이 모든 것은 이더리움 및 기타 블록 체인 시스템에 익숙하거나 — 배우기를 기대하는 사람들을 위한 것입니다.</translation>
-<translation id="4855440621031541830">이 사용과 관련된 모든 위험에 대한 책임은 귀하에게 있으며 Brave 소프트웨어가 이 사용으로 인해 발생할 수 있는 우발적 또는 결과적 손실을 포함한 모든 손실에 대해 책임을지지 않음을 인정하는 경우에만 암호 지갑을 사용하세요.</translation>
+<translation id="616639131065447379">adrbrowsiel 암호 지갑에 오신 것을 환영합니다</translation>
+<translation id="1740464057879304704">암호 지갑을 사용하면 adrbrowsiel의 암호 화폐 및 관련 자산으로 작업할 수 있습니다. 암호 지갑은 수집품뿐만 아니라 ETH 및 BAT와 같은 이더리움 토큰을 지원하며 Ð앱 및 기타 스마트 계약을 처리할 수 있습니다. 이 모든 것은 이더리움 및 기타 블록 체인 시스템에 익숙하거나 — 배우기를 기대하는 사람들을 위한 것입니다.</translation>
+<translation id="4855440621031541830">이 사용과 관련된 모든 위험에 대한 책임은 귀하에게 있으며 adrbrowsiel 소프트웨어가 이 사용으로 인해 발생할 수 있는 우발적 또는 결과적 손실을 포함한 모든 손실에 대해 책임을지지 않음을 인정하는 경우에만 암호 지갑을 사용하세요.</translation>
 <translation id="3187473319809074178">이 모든 것은 완전히 분리되어 있습니다</translation>
 <translation id="8327818101454798856">가장 좋아하는 사이트를 지원하고자 한다면, 대신 그쪽으로 가세요.</translation>
 <translation id="412480955826088549">구성 요소를 다운로드하고 있습니다...</translation>
@@ -758,18 +758,18 @@
 <translation id="5337526542182802976">지원되는 페어</translation>
 <translation id="1164622162816276433">24시간 거래량</translation>
 <translation id="7534079972563542000">Unstoppable Domains</translation>
-<translation id="4492298165410552103">Brave에서 Unstoppable Domains 지원을 활성화할까요?</translation>
-<translation id="3470923752115324276">Brave를 사용하면 HTTPS를 통해 DNS를 사용하는 .crypto 도메인명 조회 요청을 해결하도록 Cloudflare를 사용하여 .crypto 도메인에 방문할 수 있습니다. 이를 활성화하면 Cloudflare 측에서 사용자가 방문하려는 .crypto 도메인을 볼 수 있지만, 다른 도메인은 볼 수 없습니다. Cloudflare의 <ph name="BEGIN_CF_TOU_LINK"/>이용 약관<ph name="END_CF_TOU_LINK"/> and <ph name="BEGIN_CF_PRIVACY_LINK"/>개인 정보 보호 정책<ph name="END_CF_PRIVACY_LINK"/> 보기.</translation>
+<translation id="4492298165410552103">adrbrowsiel에서 Unstoppable Domains 지원을 활성화할까요?</translation>
+<translation id="3470923752115324276">adrbrowsiel를 사용하면 HTTPS를 통해 DNS를 사용하는 .crypto 도메인명 조회 요청을 해결하도록 Cloudflare를 사용하여 .crypto 도메인에 방문할 수 있습니다. 이를 활성화하면 Cloudflare 측에서 사용자가 방문하려는 .crypto 도메인을 볼 수 있지만, 다른 도메인은 볼 수 없습니다. Cloudflare의 <ph name="BEGIN_CF_TOU_LINK"/>이용 약관<ph name="END_CF_TOU_LINK"/> and <ph name="BEGIN_CF_PRIVACY_LINK"/>개인 정보 보호 정책<ph name="END_CF_PRIVACY_LINK"/> 보기.</translation>
 <translation id="6513892817556267573">Ethereum Name Service</translation>
-<translation id="4335039108389860301">Brave에서 Ethereum Name Service(ENS) 지원을 활성화할까요?</translation>
-<translation id="618766505813078707">Brave를 사용하면 HTTPS를 통해 DNS를 사용하는 .eth 도메인명 조회 요청을 해결하도록 Cloudflare를 사용하여 .eth 도메인에 방문할 수 있습니다. 이를 활성화하면 Cloudflare 측에서 사용자가 방문하려는 .eth 도메인을 볼 수 있지만, 다른 도메인은 볼 수 없습니다. Cloudflare의 <ph name="BEGIN_CF_TOU_LINK"/>이용 약관<ph name="END_CF_TOU_LINK"/> and <ph name="BEGIN_CF_PRIVACY_LINK"/>개인 정보 보호 정책<ph name="END_CF_PRIVACY_LINK"/>.</translation>
+<translation id="4335039108389860301">adrbrowsiel에서 Ethereum Name Service(ENS) 지원을 활성화할까요?</translation>
+<translation id="618766505813078707">adrbrowsiel를 사용하면 HTTPS를 통해 DNS를 사용하는 .eth 도메인명 조회 요청을 해결하도록 Cloudflare를 사용하여 .eth 도메인에 방문할 수 있습니다. 이를 활성화하면 Cloudflare 측에서 사용자가 방문하려는 .eth 도메인을 볼 수 있지만, 다른 도메인은 볼 수 없습니다. Cloudflare의 <ph name="BEGIN_CF_TOU_LINK"/>이용 약관<ph name="END_CF_TOU_LINK"/> and <ph name="BEGIN_CF_PRIVACY_LINK"/>개인 정보 보호 정책<ph name="END_CF_PRIVACY_LINK"/>.</translation>
 <translation id="5636651007798897342">Cloudflare 서버를 이용하여 계속 진행</translation>
 <translation id="2356070529366658676">확인</translation>
 <translation id="2218918398178303658">HTTPS상의 DNS</translation>
 <translation id="1448289340149908413">이더리움</translation>
 <translation id="2468755552460246661">도메인 차단</translation>
 <translation id="6393849031898466746">이 사이트는 다른 사이트에서도 귀하의 추적을 시도할 수 있습니다.</translation>
-<translation id="983774928604730749">Brave는 다음 사이트의 로드를 차단했습니다:</translation>
+<translation id="983774928604730749">adrbrowsiel는 다음 사이트의 로드를 차단했습니다:</translation>
 <translation id="4781961723893779890">이 사이트는 콘텐츠를 표시하기 전에 쿠키로 귀하의 개인 데이터 중 일부의 연결을 시도할 수 있습니다.</translation>
 <translation id="2459038234784107183">이 사이트에 대해 다시 경고하지 않음</translation>
 <translation id="8242426110754782860">계속</translation>
@@ -811,7 +811,7 @@
 <translation id="3373798179786163193">공용 게이트웨이로 계속 진행</translation>
 <translation id="1974060860693918893">고급</translation>
 <translation id="9096577886148726047">세부 정보 숨기기</translation>
-<translation id="7716995370131231171">로컬 노드가 시작되지 않았거나 현재 사용 가능한 연결된 피어가 없었기 때문에 Brave가 IPFS 리소스를 불러올 수 없었습니다. "계속"을 선택하는 경우, Brave는 로컬 노드 사용에 실패할 때마다 기본 퍼블릭 게이트웨이로 자동 전환할 것입니다. 이 행동은 언제든지 Brave 설정에서 변경할 수 있습니다.</translation>
+<translation id="7716995370131231171">로컬 노드가 시작되지 않았거나 현재 사용 가능한 연결된 피어가 없었기 때문에 adrbrowsiel가 IPFS 리소스를 불러올 수 없었습니다. "계속"을 선택하는 경우, adrbrowsiel는 로컬 노드 사용에 실패할 때마다 기본 퍼블릭 게이트웨이로 자동 전환할 것입니다. 이 행동은 언제든지 adrbrowsiel 설정에서 변경할 수 있습니다.</translation>
 <translation id="8026038288183400906">IPFS 기본 환경</translation>
 <translation id="2058855456574089690">IPFS 기본 환경 설정</translation>
 <translation id="4447758690649023734">로컬 노드 사용</translation>
@@ -827,14 +827,14 @@
 <translation id="1675751799495331928">시도 제한을 초과했습니다. 나중에 다시 시도하세요.</translation>
 <translation id="4499666752625407848">업데이트 중에 오류가 발생했습니다.</translation>
 <translation id="62991515067726424">이 콘텐츠는 IPFS 프로토콜을 통해 로드되었습니다.</translation>
-<translation id="7263366446813126341">IPFS(분산형 파일 시스템)는 피어 투 피어 데이터 저장 및 제공을 위한 공용 네트워크입니다. 언제든지 Brave에 통합된 요소와 IPFS 설정 구성 방법에 대해 자세히 알아보세요.</translation>
+<translation id="7263366446813126341">IPFS(분산형 파일 시스템)는 피어 투 피어 데이터 저장 및 제공을 위한 공용 네트워크입니다. 언제든지 adrbrowsiel에 통합된 요소와 IPFS 설정 구성 방법에 대해 자세히 알아보세요.</translation>
 <translation id="3862600063748690056">IPFS 가져오기 완료됨</translation>
 <translation id="8263749381887932384">IPFS 가져오기가 일부 완료됨</translation>
 <translation id="2145699434318651911">IPFS 가져오기 실패</translation>
 <translation id="5525148540855044244">공유 가능 링크 복사됨: <ph name="SHAREABLE_LINK"/></translation>
 <translation id="3741998951694470470">가져올 데이터 가져오기 실패</translation>
 <translation id="7900950536120202771">IPFS 노드 내부 오류</translation>
-<translation id="1036635552229153800">데이터가 성공적으로 업로드되었지만 brave-import 디렉토리로 이동하지 않았습니다. 가져오기 설정 페이지에서 이 작업을 수동으로 수행할 수 있습니다.</translation>
+<translation id="1036635552229153800">데이터가 성공적으로 업로드되었지만 adrbrowsiel-import 디렉토리로 이동하지 않았습니다. 가져오기 설정 페이지에서 이 작업을 수동으로 수행할 수 있습니다.</translation>
 <translation id="7789840864192026963">권한 부여</translation>
 <translation id="7978789143098237970">이 페이지를 닫을 때까지</translation>
 <translation id="3523195733429162409">24시간 동안</translation>

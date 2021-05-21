@@ -16,7 +16,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
 
   switch (action.type) {
     case types.GET_REWARDS_PARAMETERS:
-      chrome.send('brave_rewards.getRewardsParameters')
+      chrome.send('adrbrowsiel_rewards.getRewardsParameters')
       break
     case types.ON_REWARDS_PARAMETERS: {
       state = { ...state }
@@ -39,7 +39,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
         break
       }
 
-      chrome.send('brave_rewards.recoverWallet', [key])
+      chrome.send('adrbrowsiel_rewards.recoverWallet', [key])
       break
     }
     case types.ON_RECOVER_WALLET_DATA: {
@@ -50,9 +50,9 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       // TODO NZ check why enum can't be used inside Rewards namespace
       ui.walletRecoveryStatus = result
       if (result === 0) {
-        chrome.send('brave_rewards.fetchPromotions')
-        chrome.send('brave_rewards.fetchBalance')
-        chrome.send('brave_rewards.getPaymentId')
+        chrome.send('adrbrowsiel_rewards.fetchPromotions')
+        chrome.send('adrbrowsiel_rewards.fetchBalance')
+        chrome.send('adrbrowsiel_rewards.getPaymentId')
         getCurrentBalanceReport()
         ui.modalBackup = false
         ui.emptyWallet = false
@@ -66,7 +66,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.GET_BALANCE_REPORT: {
-      chrome.send('brave_rewards.getBalanceReport', [
+      chrome.send('adrbrowsiel_rewards.getBalanceReport', [
         action.payload.month,
         action.payload.year
       ])
@@ -78,7 +78,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.GET_CONTRIBUTION_AMOUNT: {
-      chrome.send('brave_rewards.getContributionAmount')
+      chrome.send('adrbrowsiel_rewards.getContributionAmount')
       break
     }
     case types.ON_CONTRIBUTION_AMOUNT: {
@@ -87,11 +87,11 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.GET_RECONCILE_STAMP: {
-      chrome.send('brave_rewards.getReconcileStamp')
+      chrome.send('adrbrowsiel_rewards.getReconcileStamp')
       break
     }
     case types.GET_PENDING_CONTRIBUTIONS: {
-      chrome.send('brave_rewards.getPendingContributions')
+      chrome.send('adrbrowsiel_rewards.getPendingContributions')
       break
     }
     case types.ON_PENDING_CONTRIBUTIONS: {
@@ -108,17 +108,17 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.REMOVE_PENDING_CONTRIBUTION: {
-      chrome.send('brave_rewards.removePendingContribution', [
+      chrome.send('adrbrowsiel_rewards.removePendingContribution', [
         action.payload.id
       ])
       break
     }
     case types.REMOVE_ALL_PENDING_CONTRIBUTION: {
-      chrome.send('brave_rewards.removeAllPendingContribution')
+      chrome.send('adrbrowsiel_rewards.removeAllPendingContribution')
       break
     }
     case types.GET_BALANCE: {
-      chrome.send('brave_rewards.fetchBalance')
+      chrome.send('adrbrowsiel_rewards.fetchBalance')
       break
     }
     case types.ON_BALANCE: {
@@ -135,7 +135,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       } else if (status === 1) { // on ledger::type::Result::LEDGER_ERROR
         ui.walletServerProblem = true
       } else if (status === 24) { // on ledger::type::Result::EXPIRED_TOKEN
-        chrome.send('brave_rewards.getExternalWallet')
+        chrome.send('adrbrowsiel_rewards.getExternalWallet')
         state.balance.total = action.payload.balance.total || 0
       }
 
@@ -146,14 +146,14 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.GET_EXTERNAL_WALLET: {
-      chrome.send('brave_rewards.getExternalWallet')
+      chrome.send('adrbrowsiel_rewards.getExternalWallet')
       break
     }
     case types.ON_EXTERNAL_WALLET: {
       state = { ...state }
 
       if (action.payload.result === 24) { // on ledger::type::Result::EXPIRED_TOKEN
-        chrome.send('brave_rewards.getExternalWallet')
+        chrome.send('adrbrowsiel_rewards.getExternalWallet')
         break
       }
 
@@ -171,7 +171,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
         year = new Date().getFullYear()
       }
 
-      chrome.send('brave_rewards.getMonthlyReport', [month, year])
+      chrome.send('adrbrowsiel_rewards.getMonthlyReport', [month, year])
       break
     }
     case types.ON_MONTHLY_REPORT: {
@@ -189,7 +189,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.GET_MONTHLY_REPORT_IDS: {
-      chrome.send('brave_rewards.getMonthlyReportIds')
+      chrome.send('adrbrowsiel_rewards.getMonthlyReportIds')
       break
     }
     case types.ON_MONTHLY_REPORT_IDS: {
@@ -198,7 +198,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.GET_WALLET_PASSPHRASE:	{
-      chrome.send('brave_rewards.getWalletPassphrase')
+      chrome.send('adrbrowsiel_rewards.getWalletPassphrase')
       break
     }
     case types.ON_WALLET_PASSPHRASE: {

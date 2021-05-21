@@ -1,13 +1,13 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
 import { TextSection } from './structure'
-import { CheckCircleIcon } from 'brave-ui/components/icons'
-import { Card } from 'brave-ui/components'
-import { CardProps } from 'brave-ui/components/layout/card'
+import { CheckCircleIcon } from 'adrbrowsiel-ui/components/icons'
+import { Card } from 'adrbrowsiel-ui/components'
+import { CardProps } from 'adrbrowsiel-ui/components/layout/card'
 
 export const ModalTitle = styled(TextSection)`
   box-sizing: border-box;
@@ -39,7 +39,7 @@ export const DisclaimerText = styled(TextSection)`
 
 export const NonInteractiveURL = styled('p')<{}>`
   box-sizing: border-box;
-  color: ${p => p.theme.color.brandBrave};
+  color: ${p => p.theme.color.brandadrbrowsiel};
   font-size: 14px;
   font-weight: 500;
   display: inline-block;

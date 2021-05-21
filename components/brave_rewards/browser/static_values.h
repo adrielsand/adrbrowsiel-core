@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_STATIC_VALUES_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_STATIC_VALUES_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_STATIC_VALUES_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_STATIC_VALUES_H_
 
 #include <stdint.h>
 
@@ -15,7 +15,7 @@
 #include "base/time/time.h"
 #include "bat/ledger/option_keys.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 const std::vector<std::string> kBitflyerCountries = {
     "JP"  // ID: 19024
@@ -55,6 +55,6 @@ const std::vector<std::string> kBitflyerCountries = {
        3 * base::Time::kHoursPerDay * base::Time::kSecondsPerHour}};
 #endif
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_STATIC_VALUES_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_STATIC_VALUES_H_

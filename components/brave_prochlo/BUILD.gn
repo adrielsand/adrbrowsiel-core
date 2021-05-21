@@ -1,11 +1,11 @@
 import("//third_party/protobuf/proto_library.gni")
 
-source_set("brave_prochlo") {
+source_set("adrbrowsiel_prochlo") {
   sources = [
-    "brave_prochlo_crypto.cc",
-    "brave_prochlo_crypto.h",
-    "brave_prochlo_message.cc",
-    "brave_prochlo_message.h",
+    "adrbrowsiel_prochlo_crypto.cc",
+    "adrbrowsiel_prochlo_crypto.h",
+    "adrbrowsiel_prochlo_message.cc",
+    "adrbrowsiel_prochlo_message.h",
     "prochlo_crypto.cc",
     "prochlo_crypto.h",
     "prochlo_data.h",

@@ -1,13 +1,13 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/omnibox/browser/suggested_sites_provider.h"
+#include "adrbrowsiel/components/omnibox/browser/suggested_sites_provider.h"
 
 #include "base/strings/utf_string_conversions.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/omnibox/browser/fake_autocomplete_provider_client.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/omnibox/browser/fake_autocomplete_provider_client.h"
 #include "components/omnibox/browser/test_scheme_classifier.h"
 #include "components/prefs/testing_pref_service.h"
 #include "testing/gtest/include/gtest/gtest.h"
@@ -75,7 +75,7 @@ TEST_F(SuggestedSitesProviderTest, OnlyMatchFromStart) {
 }
 
 TEST_F(SuggestedSitesProviderTest, NoMatchingWhenPrefIsOff) {
-  prefs()->SetBoolean(kBraveSuggestedSiteSuggestionsEnabled, false);
+  prefs()->SetBoolean(kadrbrowsielSuggestedSiteSuggestionsEnabled, false);
   provider_->Start(CreateAutocompleteInput("bitc"), false);
   EXPECT_TRUE(provider_->matches().empty());
 }

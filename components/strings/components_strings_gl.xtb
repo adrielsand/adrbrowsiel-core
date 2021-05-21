@@ -37,7 +37,7 @@
 <translation id="1113869188872983271">&amp;Desfacer o cambio de orde</translation>
 <translation id="1125573121925420732">Podes ver avisos con frecuencia mentres os sitios web actualizan os seus sistemas de seguranza, pero a situación mellorará en breve.</translation>
 <translation id="112840717907525620">Caché de política correcta</translation>
-<translation id="3186248837008742887">Botón Traducir páxina, preme Intro para traducir esta páxina co Tradutor de Brave</translation>
+<translation id="3186248837008742887">Botón Traducir páxina, preme Intro para traducir esta páxina co Tradutor de adrbrowsiel</translation>
 <translation id="1131264053432022307">Imaxe que copiaches</translation>
 <translation id="1150979032973867961">Este servidor non puido demostrar que é <ph name="DOMAIN"/> porque o sistema operativo do teu ordenador non confía no seu certificado de seguranza. É posible que isto se deba a un erro de configuración ou a que un atacante interceptase a túa conexión.</translation>
 <translation id="1151972924205500581">Contrasinal obrigatorio</translation>
@@ -70,7 +70,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="1240347957665416060">O nome do teu dispositivo</translation>
 <translation id="124116460088058876">Máis idiomas</translation>
 <translation id="1243027604378859286">Autor:</translation>
-<translation id="1052005765108026699">Para pagar máis rápido a próxima vez, garda a túa tarxeta, o nome e o enderezo de facturación na túa Conta de Brave.</translation>
+<translation id="1052005765108026699">Para pagar máis rápido a próxima vez, garda a túa tarxeta, o nome e o enderezo de facturación na túa Conta de adrbrowsiel.</translation>
 <translation id="1253921432148366685"><ph name="TYPE_1"/> e <ph name="TYPE_2"/> (sincronizado)</translation>
 <translation id="1256368399071562588">&lt;p&gt;Se tentas visitar un sitio web e non abre, proba estes pasos para solucionar problemas:&lt;/p&gt;
     &lt;ol&gt;
@@ -91,7 +91,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="1270502636509132238">Método de recollida</translation>
 <translation id="1281476433249504884">Amontoador 1</translation>
 <translation id="1285320974508926690">Non traducir nunca este sitio</translation>
-<translation id="1209478311331937175">"Hai software no teu ordenador que está evitando que Brave se conecte de forma segura á web" (só para ordenadores con Windows)</translation>
+<translation id="1209478311331937175">"Hai software no teu ordenador que está evitando que adrbrowsiel se conecte de forma segura á web" (só para ordenadores con Windows)</translation>
 <translation id="1294154142200295408">Variacións da liña de comandos</translation>
 <translation id="129553762522093515">Pechado recentemente</translation>
 <translation id="129863573139666797"><ph name="BEGIN_LINK"/>Proba a borrar as cookies<ph name="END_LINK"/></translation>
@@ -138,7 +138,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="1442386063175183758">Dobrez en ventá na parte dereita</translation>
 <translation id="1442987760062738829">Perforación</translation>
 <translation id="1447067628680007684">(x86_64)</translation>
-<translation id="7408760246081928496">O texto que pegas ou anexas envíase a Brave Cloud ou a terceiros para analizalo. Por exemplo, poderíase comprobar se contén datos confidenciais.</translation>
+<translation id="7408760246081928496">O texto que pegas ou anexas envíase a adrbrowsiel Cloud ou a terceiros para analizalo. Por exemplo, poderíase comprobar se contén datos confidenciais.</translation>
 <translation id="1455413310270022028">Borrador</translation>
 <translation id="1462245070427461050">JIS B9</translation>
 <translation id="1462951478840426066">Usar os tipos de letra do teu ordenador para que poidas crear contido de alta fidelidade</translation>
@@ -151,13 +151,13 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="1476595624592550506">Cambia o teu contrasinal</translation>
 <translation id="1484290072879560759">Escoller enderezo de envío</translation>
 <translation id="1492194039220927094">Aplicación de políticas:</translation>
-<translation id="1812569385220097122">Mostra tarxetas da túa Conta de Brave</translation>
+<translation id="1812569385220097122">Mostra tarxetas da túa Conta de adrbrowsiel</translation>
 <translation id="1507202001669085618">&lt;p&gt;Verás este erro se utilizas un portal wifi no que tes que iniciar sesión para poder conectarte a Internet.&lt;/p&gt;
     &lt;p&gt;Para solucionar o erro, fai clic en &lt;strong&gt;Conectar&lt;/strong&gt; na páxina que tentas abrir.&lt;/p&gt;</translation>
 <translation id="1513706915089223971">Lista de entradas do historial</translation>
 <translation id="1517433312004943670">O número de teléfono é obrigatorio</translation>
 <translation id="1519264250979466059">Data de compilación</translation>
-<translation id="5524011986660000129">Follas de cálculo de Brave</translation>
+<translation id="5524011986660000129">Follas de cálculo de adrbrowsiel</translation>
 <translation id="1527263332363067270">Agardando pola conexión…</translation>
 <translation id="1529521330346880926">10x15 (sobre)</translation>
 <translation id="1529789484829130889">Bandexa 8</translation>
@@ -169,7 +169,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="154408704832528245">Escoller enderezo de entrega</translation>
 <translation id="1549470594296187301">JavaScript debe estar activado para usar esta función.</translation>
 <translation id="155039086686388498">Engineering-D</translation>
-<translation id="1705567146636171298">Actualizar Brave</translation>
+<translation id="1705567146636171298">Actualizar adrbrowsiel</translation>
 <translation id="1555130319947370107">Azul</translation>
 <translation id="1559447966090556585">Queres recibir notificacións?</translation>
 <translation id="1559528461873125649">Non existe o ficheiro ou o directorio</translation>
@@ -199,10 +199,10 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="1644574205037202324">Historial</translation>
 <translation id="1645368109819982629">Protocolo non compatible</translation>
 <translation id="1652415888492971589">JIS B8</translation>
-<translation id="3848846802033604519">Brave simplificou esta páxina para que sexa máis fácil de ler. Brave recuperou a páxina orixinal a través dunha conexión segura.</translation>
+<translation id="3848846802033604519">adrbrowsiel simplificou esta páxina para que sexa máis fácil de ler. adrbrowsiel recuperou a páxina orixinal a través dunha conexión segura.</translation>
 <translation id="1656489000284462475">Recollida</translation>
 <translation id="1662550410081243962">Gardar e autocompletar métodos de pago</translation>
-<translation id="1838576226863399477">As tarxetas e enderezos proceden de Brave. Podes xestionalos en <ph name="BEGIN_LINK"/>Configuración<ph name="END_LINK"/>.</translation>
+<translation id="1838576226863399477">As tarxetas e enderezos proceden de adrbrowsiel. Podes xestionalos en <ph name="BEGIN_LINK"/>Configuración<ph name="END_LINK"/>.</translation>
 <translation id="1671391448414634642">As páxinas en <ph name="SOURCE_LANGUAGE"/> traduciranse ao <ph name="TARGET_LANGUAGE"/> a partir de agora.</translation>
 <translation id="1682696192498422849">Co bordo curto primeiro</translation>
 <translation id="168693727862418163">Non puido cotexarse o valor desta política co seu esquema para levar a cabo a súa validación, así que se ignorará.</translation>
@@ -241,7 +241,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="1778646502362731194">JIS B0</translation>
 <translation id="1783075131180517613">Actualiza a túa frase de acceso de sincronización.</translation>
 <translation id="1787142507584202372">As pestanas abertas aparecerán aquí</translation>
-<translation id="3480410886581896628">Brave Smart Lock</translation>
+<translation id="3480410886581896628">adrbrowsiel Smart Lock</translation>
 <translation id="1798447301915465742"><ph name="MULTIPLE_ACTIONS_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Hai varias accións dispoñibles; para desprazarte por elas, preme Tab</translation>
 <translation id="1800473098294731951">B9</translation>
 <translation id="1803264062614276815">Nome do titular da tarxeta</translation>
@@ -257,7 +257,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="1842969606798536927">Pagar</translation>
 <translation id="1871208020102129563">O proxy está configurado para utilizar servidores proxy fixos, non un URL de script .pac.</translation>
 <translation id="1871284979644508959">O campo é obrigatorio</translation>
-<translation id="85321348617848915">Formularios de Brave</translation>
+<translation id="85321348617848915">Formularios de adrbrowsiel</translation>
 <translation id="187918866476621466">Abrir páxinas de inicio</translation>
 <translation id="1883255238294161206">Contraer lista</translation>
 <translation id="1898423065542865115">Filtrando</translation>
@@ -268,12 +268,12 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="1914326953223720820">Servizo de descompresión</translation>
 <translation id="1915697529809968049">Queres usar Touch ID en lugar do CVC?</translation>
 <translation id="1916770123977586577">Para aplicar a túa configuración actualizada a este sitio, volve cargar esta páxina</translation>
-<translation id="688541908229382784">O teu contrasinal está en risco debido a unha violación da seguranza dos datos dun sitio ou aplicación. Brave recoméndache que cambies o contrasinal de <ph name="ORIGIN"/> agora.</translation>
+<translation id="688541908229382784">O teu contrasinal está en risco debido a unha violación da seguranza dos datos dun sitio ou aplicación. adrbrowsiel recoméndache que cambies o contrasinal de <ph name="ORIGIN"/> agora.</translation>
 <translation id="1919345977826869612">Anuncios</translation>
 <translation id="1919367280705858090">Obter axuda cando aparece unha mensaxe de erro concreta</translation>
 <translation id="192020519938775529">{COUNT,plural, =0{Ningún}=1{1 sitio}other{# sitios}}</translation>
 <translation id="1947454675006758438">Grampa na parte superior dereita</translation>
-<translation id="990584554013599191">Enviar a Brave os <ph name="BEGIN_WHITEPAPER_LINK"/>URL dalgunhas páxinas que visitas, información limitada do sistema e parte do contido das páxinas<ph name="END_WHITEPAPER_LINK"/> para axudarlle a mellorar a seguranza da Web para todo o mundo. <ph name="BEGIN_PRIVACY_PAGE_LINK"/>Política de privacidade<ph name="END_PRIVACY_PAGE_LINK"/></translation>
+<translation id="990584554013599191">Enviar a adrbrowsiel os <ph name="BEGIN_WHITEPAPER_LINK"/>URL dalgunhas páxinas que visitas, información limitada do sistema e parte do contido das páxinas<ph name="END_WHITEPAPER_LINK"/> para axudarlle a mellorar a seguranza da Web para todo o mundo. <ph name="BEGIN_PRIVACY_PAGE_LINK"/>Política de privacidade<ph name="END_PRIVACY_PAGE_LINK"/></translation>
 <translation id="1962204205936693436">Marcadores de <ph name="DOMAIN"/></translation>
 <translation id="1973335181906896915">Erro de serialización</translation>
 <translation id="1974060860693918893">Configuración avanzada</translation>
@@ -289,7 +289,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="2025186561304664664">O proxy está establecido como configurado automaticamente.</translation>
 <translation id="2032962459168915086"><ph name="BEGIN_LINK"/>Comprobar o proxy e o firewall<ph name="END_LINK"/></translation>
 <translation id="2042213636306070719">Bandexa 7</translation>
-<translation id="3163988908275223348">Iniciar sesión para utilizar contrasinais gardados na túa Conta de Brave</translation>
+<translation id="3163988908275223348">Iniciar sesión para utilizar contrasinais gardados na túa Conta de adrbrowsiel</translation>
 <translation id="2053111141626950936">Non se traducirán as páxinas en <ph name="LANGUAGE"/>.</translation>
 <translation id="2053553514270667976">Código postal</translation>
 <translation id="2064691555167957331">{COUNT,plural, =1{1 suxestión}other{# suxestións}}</translation>
@@ -359,7 +359,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="2289385804009217824">Recortar</translation>
 <translation id="2292556288342944218">O teu acceso a Internet está bloqueado</translation>
 <translation id="2293443924986248631">Ao activar esta función, os sitios non poden utilizar cookies para seguirte pola Web. As funcións dalgúns sitios poden quedar bloqueadas.</translation>
-<translation id="6148139222908395733">Os URL das páxinas que visitas envíanse a Brave Cloud ou a terceiros para analizalos. Por exemplo, poderíanse analizar para detectar sitios web que non son seguros.</translation>
+<translation id="6148139222908395733">Os URL das páxinas que visitas envíanse a adrbrowsiel Cloud ou a terceiros para analizalos. Por exemplo, poderíanse analizar para detectar sitios web que non son seguros.</translation>
 <translation id="2297722699537546652">B5 (sobre)</translation>
 <translation id="2300306941146563769">Non se cargou</translation>
 <translation id="2310021320168182093">Chou2 (sobre)</translation>
@@ -370,17 +370,17 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="2344028582131185878">Descargas automáticas</translation>
 <translation id="2346319942568447007">Imaxe que copiaches</translation>
 <translation id="2354001756790975382">Outros marcadores</translation>
-<translation id="2354430244986887761">A navegación segura de Brave <ph name="BEGIN_LINK"/>atopou aplicacións prexudiciais<ph name="END_LINK"/> recentemente en <ph name="SITE"/>.</translation>
+<translation id="2354430244986887761">A navegación segura de adrbrowsiel <ph name="BEGIN_LINK"/>atopou aplicacións prexudiciais<ph name="END_LINK"/> recentemente en <ph name="SITE"/>.</translation>
 <translation id="2355395290879513365">É posible que os atacantes poidan ver as imaxes que estás observando neste sitio e enganarte modificándoas.</translation>
 <translation id="2356070529366658676">Preguntar</translation>
 <translation id="2357481397660644965"><ph name="DEVICE_MANAGER"/> xestiona o teu dispositivo e <ph name="ACCOUNT_MANAGER"/> xestiona a túa conta.</translation>
 <translation id="2359629602545592467">Varias divisas</translation>
 <translation id="2359808026110333948">Continuar</translation>
 <translation id="2367567093518048410">Nivel</translation>
-<translation id="3759641402938286697">Unha vez que confirmes os datos, os detalles da tarxeta da túa Conta de Brave compartiranse con este sitio. Busca o CVC entre os datos da túa conta de Plex.</translation>
+<translation id="3759641402938286697">Unha vez que confirmes os datos, os detalles da tarxeta da túa Conta de adrbrowsiel compartiranse con este sitio. Busca o CVC entre os datos da túa conta de Plex.</translation>
 <translation id="2380886658946992094">Legal</translation>
 <translation id="2384307209577226199">Política predeterminada da empresa</translation>
-<translation id="5244533701344680487">Actualiza Brave desde a súa configuración</translation>
+<translation id="5244533701344680487">Actualiza adrbrowsiel desde a súa configuración</translation>
 <translation id="2386255080630008482">Revogouse o certificado do servidor.</translation>
 <translation id="2392959068659972793">Mostrar políticas sen ningún valor establecido</translation>
 <translation id="239429038616798445">Este método de envío non está dispoñible. Proba cun diferente.</translation>
@@ -402,7 +402,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="2491120439723279231">O certificado do servidor contén erros.</translation>
 <translation id="2493640343870896922">Letter-Plus</translation>
 <translation id="2495083838625180221">Analizador JSON</translation>
-<translation id="5047769237368272183">Se se marca esta opción, Brave almacenará unha copia da túa tarxeta neste dispositivo para completar os formularios máis rápido.</translation>
+<translation id="5047769237368272183">Se se marca esta opción, adrbrowsiel almacenará unha copia da túa tarxeta neste dispositivo para completar os formularios máis rápido.</translation>
 <translation id="2498091847651709837">Dixitalizar nova tarxeta</translation>
 <translation id="2501278716633472235">Ir atrás</translation>
 <translation id="2505268675989099013">Protexer conta</translation>
@@ -429,11 +429,11 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="2609632851001447353">Variacións</translation>
 <translation id="2618023639789766142">C10 (sobre)</translation>
 <translation id="2625385379895617796">O teu reloxo está adiantado</translation>
-<translation id="2915787201097107005">Para gozar do máximo nivel de seguranza de Brave, <ph name="BEGIN_ENHANCED_PROTECTION_LINK"/>activa a protección mellorada<ph name="END_ENHANCED_PROTECTION_LINK"/></translation>
+<translation id="2915787201097107005">Para gozar do máximo nivel de seguranza de adrbrowsiel, <ph name="BEGIN_ENHANCED_PROTECTION_LINK"/>activa a protección mellorada<ph name="END_ENHANCED_PROTECTION_LINK"/></translation>
 <translation id="2634124572758952069">Non se puido atopar o enderezo IP do servidor de <ph name="HOST_NAME"/>.</translation>
 <translation id="2639739919103226564">Estado:</translation>
 <translation id="2649204054376361687"><ph name="CITY"/>, <ph name="COUNTRY"/></translation>
-<translation id="9078005688100552065"><ph name="CLEAR_BROWSING_DATA_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para borrar o historial de navegación, as cookies, a memoria caché e outros datos desde a configuración de Brave</translation>
+<translation id="9078005688100552065"><ph name="CLEAR_BROWSING_DATA_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para borrar o historial de navegación, as cookies, a memoria caché e outros datos desde a configuración de adrbrowsiel</translation>
 <translation id="2650446666397867134">Denegouse o acceso ao ficheiro</translation>
 <translation id="2653659639078652383">Enviar</translation>
 <translation id="2660779039299703961">Evento</translation>
@@ -456,7 +456,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="2705137772291741111">A copia deste sitio gardada (almacenada na memoria caché) era ilexible.</translation>
 <translation id="2709516037105925701">Autocompletar</translation>
 <translation id="2713444072780614174">Branco</translation>
-<translation id="4131157740532436004"><ph name="UPDATE_CREDIT_CARD_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para xestionar os teus métodos de pago e a información das tarxetas de crédito desde a configuración de Brave</translation>
+<translation id="4131157740532436004"><ph name="UPDATE_CREDIT_CARD_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para xestionar os teus métodos de pago e a información das tarxetas de crédito desde a configuración de adrbrowsiel</translation>
 <translation id="2721148159707890343">Solicitude correcta</translation>
 <translation id="272451190272506600">Toca o sensor para pagar</translation>
 <translation id="2728127805433021124">O certificado do servidor está asinado cun algoritmo de sinatura débil.</translation>
@@ -469,12 +469,12 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="277133753123645258">Método de envío</translation>
 <translation id="277499241957683684">Non se atopa o rexistro do dispositivo</translation>
 <translation id="2775884851269838147">Primeira páxina de impresión</translation>
-<translation id="5152275065296016556">Brave Pay</translation>
+<translation id="5152275065296016556">adrbrowsiel Pay</translation>
 <translation id="2784949926578158345">Restableceuse a conexión.</translation>
 <translation id="2792012897584536778">Os administradores deste dispositivo configuraron certificados de seguranza que poden permitirlles ver o contido dos sitios web que visitas.</translation>
 <translation id="2799020568854403057">O sitio que se indica a continuación contén aplicacións prexudiciais</translation>
 <translation id="2799223571221894425">Iniciar de novo</translation>
-<translation id="2803306138276472711">A navegación segura de Brave <ph name="BEGIN_LINK"/>detectou software malicioso<ph name="END_LINK"/> en <ph name="SITE"/> recentemente. Ás veces, os sitios web que adoitan ser seguros inféctanse con software malicioso.</translation>
+<translation id="2803306138276472711">A navegación segura de adrbrowsiel <ph name="BEGIN_LINK"/>detectou software malicioso<ph name="END_LINK"/> en <ph name="SITE"/> recentemente. Ás veces, os sitios web que adoitan ser seguros inféctanse con software malicioso.</translation>
 <translation id="2807052079800581569">Posición Y de imaxe</translation>
 <translation id="2824775600643448204">Barra de enderezos e de busca</translation>
 <translation id="2826760142808435982">A conexión cífrase e autentícase con <ph name="CIPHER"/> e utiliza <ph name="KX"/> como mecanismo de intercambio de claves.</translation>
@@ -516,7 +516,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="2991174974383378012">Compartindo con sitios web</translation>
 <translation id="2991571918955627853">Non podes visitar <ph name="SITE"/> neste momento porque o sitio web utiliza HSTS. Normalmente, os erros de rede e os ataques son temporais, polo que é posible que esta páxina funcione máis tarde.</translation>
 <translation id="2995517112308048736">Tamaño do ficheiro:</translation>
-<translation id="6683975920571472553">Suxestións de Brave</translation>
+<translation id="6683975920571472553">Suxestións de adrbrowsiel</translation>
 <translation id="3002501248619246229">Comproba o soporte da bandexa de entrada</translation>
 <translation id="3005723025932146533">Mostrar copia gardada</translation>
 <translation id="3008447029300691911">Introduce o código CVC da tarxeta <ph name="CREDIT_CARD"/>. Unha vez que confirmes os datos, os detalles da tarxeta compartiranse con este sitio.</translation>
@@ -582,7 +582,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="3286372614333682499">vertical</translation>
 <translation id="3287510313208355388">Descargar a páxina cando estea en liña</translation>
 <translation id="3293642807462928945">Máis información acerca da política de <ph name="POLICY_NAME"/></translation>
-<translation id="5894665462526421022">Consulta e xestiona os teus contrasinais na configuración de Brave</translation>
+<translation id="5894665462526421022">Consulta e xestiona os teus contrasinais na configuración de adrbrowsiel</translation>
 <translation id="3303855915957856445">Non se encontraron resultados da busca</translation>
 <translation id="3308006649705061278">Unidade organizativa (UO)</translation>
 <translation id="3320021301628644560">Engade un enderezo de facturación</translation>
@@ -591,7 +591,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="3338095232262050444">Seguro</translation>
 <translation id="3355823806454867987">Cambiar configuración do proxy...</translation>
 <translation id="3360103848165129075">Folla do controlador de pagos</translation>
-<translation id="669410734497476819">Brave <ph name="BEGIN_EMPHASIS"/>non gardará<ph name="END_EMPHASIS"/> a seguinte información:
+<translation id="669410734497476819">adrbrowsiel <ph name="BEGIN_EMPHASIS"/>non gardará<ph name="END_EMPHASIS"/> a seguinte información:
         <ph name="BEGIN_LIST"/>
           <ph name="LIST_ITEM"/>O teu historial de navegación
           <ph name="LIST_ITEM"/>As cookies e os datos de sitios
@@ -616,7 +616,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="3399952811970034796">Enderezo de entrega</translation>
 <translation id="3402261774528610252">A conexión coa que se cargou este sitio utilizou TLS 1.0 ou TLS 1.1, as cales son versións obsoletas que se desactivarán no futuro. Cando se desactiven, evitarase que os usuarios carguen este sitio. O servidor debería activar TLS 1.2 ou unha versión superior.</translation>
 <translation id="3414952576877147120">Tamaño:</translation>
-<translation id="25726459489263481">Os ficheiros que cargas ou anexas envíanse a Brave Cloud ou a terceiros para analizalos. Por exemplo, poderíase comprobar se conteñen datos confidenciais ou software malicioso.</translation>
+<translation id="25726459489263481">Os ficheiros que cargas ou anexas envíanse a adrbrowsiel Cloud ou a terceiros para analizalos. Por exemplo, poderíase comprobar se conteñen datos confidenciais ou software malicioso.</translation>
 <translation id="3422248202833853650">Proba a saír doutros programas para liberar memoria.</translation>
 <translation id="3422472998109090673">Actualmente non se pode acceder a <ph name="HOST_NAME"/>.</translation>
 <translation id="3423742043356668186">Especificado polo sistema</translation>
@@ -625,7 +625,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="3428151540071562330">Un ou varios URI do modelo do servidor DnsOverHttpsTemplates non son válidos e non se utilizarán.</translation>
 <translation id="3431636764301398940">Gardar esta tarxeta neste dispositivo</translation>
 <translation id="3432601291244612633">Pechar páxina</translation>
-<translation id="4527130811319726464">Utilizar contrasinais gardados na túa Conta de Brave</translation>
+<translation id="4527130811319726464">Utilizar contrasinais gardados na túa Conta de adrbrowsiel</translation>
 <translation id="3443726618221119081">Juuro-Ku-Kai</translation>
 <translation id="3447661539832366887">O propietario deste dispositivo desactivou o xogo do dinosauro.</translation>
 <translation id="3447884698081792621">Mostrar certificado (emitido por <ph name="ISSUER"/>)</translation>
@@ -658,7 +658,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="3567778190852720481">Non se puido realizar o rexistro coa conta de empresa (esta non cumpre os requisitos).</translation>
 <translation id="3574305903863751447"><ph name="CITY"/>, <ph name="STATE"/> <ph name="COUNTRY"/></translation>
 <translation id="3576616784287504635">Unha páxina inserida en <ph name="SITE"/> di</translation>
-<translation id="230476913390177517">Brave permitirache saber cando está lista esta páxina. &lt;a&gt;Cancelar&lt;/a&gt;</translation>
+<translation id="230476913390177517">adrbrowsiel permitirache saber cando está lista esta páxina. &lt;a&gt;Cancelar&lt;/a&gt;</translation>
 <translation id="3582930987043644930">Engadir nome</translation>
 <translation id="3583757800736429874">&amp;Refacer movemento</translation>
 <translation id="3584299510153766161">Dúas perforacións na parte inferior</translation>
@@ -677,7 +677,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
        a eliminalo da lista e volver engadilo.</translation>
 <translation id="3630699740441428070">Os administradores deste dispositivo configuraron a túa conexión de rede, o cal pode permitirlles ver o tráfico de rede, así como os sitios web que visitas.</translation>
 <translation id="3631244953324577188">Autenticación biométrica</translation>
-<translation id="1367445511302842209">Botón Actualizar Brave. Preme Intro para actualizar Brave desde a configuración do navegador</translation>
+<translation id="1367445511302842209">Botón Actualizar adrbrowsiel. Preme Intro para actualizar adrbrowsiel desde a configuración do navegador</translation>
 <translation id="3634530185120165534">Bandexa 5</translation>
 <translation id="3640766068866876100">Index-4x6-Ext</translation>
 <translation id="3642638418806704195">Aplicación:</translation>
@@ -703,7 +703,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="373042150751172459">B4 (sobre)</translation>
 <translation id="3736520371357197498">Se aceptas os riscos para a túa seguranza, podes <ph name="BEGIN_LINK"/>visitar este sitio non seguro<ph name="END_LINK"/> antes de que se eliminen os programas perigosos.</translation>
 <translation id="3738166223076830879">O teu administrador xestiona o teu navegador.</translation>
-<translation id="4098534208927606680">Unha vez que confirmes os datos, os detalles da tarxeta da túa Conta de Brave compartiranse con este sitio.</translation>
+<translation id="4098534208927606680">Unha vez que confirmes os datos, os detalles da tarxeta da túa Conta de adrbrowsiel compartiranse con este sitio.</translation>
 <translation id="3748148204939282805">Os piratas informáticos de <ph name="BEGIN_BOLD"/><ph name="SITE"/><ph name="END_BOLD"/> poden enganarte para que realices accións perigosas, como instalar un software ou revelar información persoal (por exemplo, contrasinais, números de teléfono ou tarxetas de crédito). <ph name="BEGIN_LEARN_MORE_LINK"/>Máis información<ph name="END_LEARN_MORE_LINK"/></translation>
 <translation id="3754210790023674521">Saír do modo de pantalla superposta</translation>
 <translation id="3759461132968374835">Non informaches de ningún erro recentemente. Os erros producidos mentres estaban desactivados os informes de erros non aparecerán aquí.</translation>
@@ -712,7 +712,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="3765032636089507299">A páxina de navegación segura está en construción.</translation>
 <translation id="3765588406864124894">Caixa de correo 9</translation>
 <translation id="3767485424735936570">A política do administrador non recomenda copiar e pegar este contido en <ph name="VM_NAME"/></translation>
-<translation id="5141491707451394486">Queres gardar esta tarxeta na túa conta de Brave e neste dispositivo?</translation>
+<translation id="5141491707451394486">Queres gardar esta tarxeta na túa conta de adrbrowsiel e neste dispositivo?</translation>
 <translation id="3780694243617746492">Bandexa de saída</translation>
 <translation id="3781428340399460090">Rosa fucsia</translation>
 <translation id="3783418713923659662">Mastercard</translation>
@@ -745,7 +745,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="3901925938762663762">A tarxeta caducou</translation>
 <translation id="3906600011954732550">B5-Extra</translation>
 <translation id="3906954721959377182">Tableta</translation>
-<translation id="2650609753175229582"><ph name="URL"/> quere reproducir contidos protexidos. Brave verificará a identidade do teu dispositivo e este sitio web poderá acceder a ela.</translation>
+<translation id="2650609753175229582"><ph name="URL"/> quere reproducir contidos protexidos. adrbrowsiel verificará a identidade do teu dispositivo e este sitio web poderá acceder a ela.</translation>
 <translation id="3909695131102177774"><ph name="LABEL"/>: <ph name="ERROR"/></translation>
 <translation id="3939773374150895049">Queres usar a autenticación web en lugar do CVC?</translation>
 <translation id="3946209740501886391">Preguntar sempre sobre este sitio</translation>
@@ -760,7 +760,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="3964661563329879394">{COUNT,plural, =0{Ningún}=1{De 1 sitio }other{De # sitios }}</translation>
 <translation id="397105322502079400">Calculando...</translation>
 <translation id="3973234410852337861"><ph name="HOST_NAME"/> está bloqueado</translation>
-<translation id="2321540973325616220">Brave determinou que este sitio podería ser falso ou fraudulento.
+<translation id="2321540973325616220">adrbrowsiel determinou que este sitio podería ser falso ou fraudulento.
 
     Se cres que se trata dun erro, visita https://bugs.chromium.org/p/chromium/issues/entry?template=Safety+Tips+Appeals.</translation>
 <translation id="3987940399970879459">Menos de 1 MB</translation>
@@ -836,7 +836,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="4270541775497538019">Amontoador 6</translation>
 <translation id="4275830172053184480">Reinicia o dispositivo</translation>
 <translation id="4277028893293644418">Restablecer contrasinal</translation>
-<translation id="8314946990939758167">{NUM_CARDS,plural, =1{Esta tarxeta gardouse na túa Conta de Brave}other{Estas tarxetas gardáronse na túa Conta de Brave}}</translation>
+<translation id="8314946990939758167">{NUM_CARDS,plural, =1{Esta tarxeta gardouse na túa Conta de adrbrowsiel}other{Estas tarxetas gardáronse na túa Conta de adrbrowsiel}}</translation>
 <translation id="4297502707443874121">Miniatura da páxina <ph name="THUMBNAIL_PAGE"/></translation>
 <translation id="42981349822642051">Ampliar</translation>
 <translation id="4300675098767811073">Varias perforacións na parte dereita</translation>
@@ -853,14 +853,14 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="4329871760342656885">Produciuse un erro de análise da política: <ph name="ERROR"/></translation>
 <translation id="4331519897422864041">Amontoador 5</translation>
 <translation id="4331708818696583467">Non seguro</translation>
-<translation id="6116812392674177288">Non se detectou que unha empresa xestione este ordenador, polo que a política só pode instalar automaticamente extensións aloxadas en Brave Webstore. O URL de actualización de Brave Webstore é <ph name="CWS_UPDATE_URL"/>.</translation>
+<translation id="6116812392674177288">Non se detectou que unha empresa xestione este ordenador, polo que a política só pode instalar automaticamente extensións aloxadas en adrbrowsiel Webstore. O URL de actualización de adrbrowsiel Webstore é <ph name="CWS_UPDATE_URL"/>.</translation>
 <translation id="4346197816712207223">Acéptanse tarxetas de crédito</translation>
 <translation id="4346833872170306413">Roc-16K</translation>
 <translation id="4356973930735388585">Os atacantes deste sitio poden tentar instalar programas perigosos no teu ordenador e roubar ou eliminar os teus datos (por exemplo, fotos, contrasinais, mensaxes e información das túas tarxetas de crédito).</translation>
 <translation id="4358059973562876591">Os modelos que especificaches poden non aplicarse debido a un erro coa política DnsOverHttpsMode.</translation>
 <translation id="4358461427845829800">Xestiona os métodos de pago…</translation>
 <translation id="4367563149485757821">Number-12 (Envelope)</translation>
-<translation id="7954571639479265338">{1,plural, =0{Unha violación da seguranza dos datos dun sitio ou dunha aplicación provocou que o teu contrasinal gardado de <ph name="ORIGIN"/> estea en risco. Brave recoméndache que cambies agora o contrasinal de <ph name="ORIGIN"/>.}=1{Unha violación da seguranza dos datos dun sitio ou dunha aplicación provocou que o teu contrasinal gardado de <ph name="ORIGIN"/> e doutro sitio estea en risco. Brave recoméndache que comprobes agora os teus contrasinais gardados.}other{Unha violación da seguranza dos datos dun sitio ou dunha aplicación provocou que o teu contrasinal gardado de <ph name="ORIGIN"/> e doutros <ph name="SITES_COUNT"/> sitios estea en risco. Brave recoméndache que comprobes agora os teus contrasinais gardados.}}</translation>
+<translation id="7954571639479265338">{1,plural, =0{Unha violación da seguranza dos datos dun sitio ou dunha aplicación provocou que o teu contrasinal gardado de <ph name="ORIGIN"/> estea en risco. adrbrowsiel recoméndache que cambies agora o contrasinal de <ph name="ORIGIN"/>.}=1{Unha violación da seguranza dos datos dun sitio ou dunha aplicación provocou que o teu contrasinal gardado de <ph name="ORIGIN"/> e doutro sitio estea en risco. adrbrowsiel recoméndache que comprobes agora os teus contrasinais gardados.}other{Unha violación da seguranza dos datos dun sitio ou dunha aplicación provocou que o teu contrasinal gardado de <ph name="ORIGIN"/> e doutros <ph name="SITES_COUNT"/> sitios estea en risco. adrbrowsiel recoméndache que comprobes agora os teus contrasinais gardados.}}</translation>
 <translation id="437058704415269440">Saldo da conta</translation>
 <translation id="4372516964750095882">Fanfold-Us</translation>
 <translation id="4372948949327679948">Valor <ph name="VALUE_TYPE"/> esperado.</translation>
@@ -881,16 +881,16 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="4477350412780666475">Pista seguinte</translation>
 <translation id="4482953324121162758">Non se traducirá este sitio.</translation>
 <translation id="4490717597759821841">A7</translation>
-<translation id="3614771894046523359">Estas funcións están desactivadas de forma predeterminada. Non estarán dispoñibles en versións futuras de Brave.</translation>
+<translation id="3614771894046523359">Estas funcións están desactivadas de forma predeterminada. Non estarán dispoñibles en versións futuras de adrbrowsiel.</translation>
 <translation id="4493480324863638523">O URL non é válido. Debe ser un URL cunha estrutura estándar, como http://example.com ou https://example.com.</translation>
 <translation id="4503882053543859973">Architecture-D</translation>
 <translation id="4506176782989081258">Erro de validación: <ph name="VALIDATION_ERROR"/></translation>
 <translation id="4506599922270137252">Poñerte en contacto co administrador do sistema</translation>
 <translation id="450710068430902550">Compartindo co administrador</translation>
 <translation id="4508814173490746936">Non se puido utilizar Touch ID</translation>
-<translation id="7581711177899574338"><ph name="TRANSLATE_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para traducir esta páxina co Tradutor de Brave</translation>
+<translation id="7581711177899574338"><ph name="TRANSLATE_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para traducir esta páxina co Tradutor de adrbrowsiel</translation>
 <translation id="4510487217173779431">Chou4 (sobre)</translation>
-<translation id="4892470328555495647">As tarxetas e enderezos proceden de Brave e da túa conta de Brave (<ph name="ACCOUNT_EMAIL"/>). Podes xestionalos en <ph name="BEGIN_LINK"/>Configuración<ph name="END_LINK"/>.</translation>
+<translation id="4892470328555495647">As tarxetas e enderezos proceden de adrbrowsiel e da túa conta de adrbrowsiel (<ph name="ACCOUNT_EMAIL"/>). Podes xestionalos en <ph name="BEGIN_LINK"/>Configuración<ph name="END_LINK"/>.</translation>
 <translation id="4517607026994743406">Comm-10 (sobre)</translation>
 <translation id="4521157617044179198"><ph name="WIDTH"/> × <ph name="HEIGHT"/> mm (<ph name="ORIENTATION"/>)</translation>
 <translation id="4522570452068850558">Detalles</translation>
@@ -917,10 +917,10 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="4658638640878098064">Grampa na parte superior esquerda</translation>
 <translation id="4668929960204016307">,</translation>
 <translation id="4670064810192446073">Realidade virtual</translation>
-<translation id="5554243581036241411">Non verás a información de ningún perfil de Brave no modo de invitado. Podes <ph name="LINK_BEGIN"/>iniciar sesión<ph name="LINK_END"/> para acceder á información (como os contrasinais e os métodos de pago) da túa conta de Brave.</translation>
+<translation id="5554243581036241411">Non verás a información de ningún perfil de adrbrowsiel no modo de invitado. Podes <ph name="LINK_BEGIN"/>iniciar sesión<ph name="LINK_END"/> para acceder á información (como os contrasinais e os métodos de pago) da túa conta de adrbrowsiel.</translation>
 <translation id="467662567472608290">Este servidor non puido demostrar que é <ph name="DOMAIN"/> porque o seu certificado de seguranza contén erros. É posible que isto se deba a un erro de configuración ou a que un atacante interceptase a túa conexión.</translation>
 <translation id="4677585247300749148">O URL <ph name="URL"/> quere responder a eventos de accesibilidade</translation>
-<translation id="8197094463444457125">Presentacións de Brave</translation>
+<translation id="8197094463444457125">Presentacións de adrbrowsiel</translation>
 <translation id="4690462567478992370">Deter o uso dun certificado non válido</translation>
 <translation id="4691835149146451662">Architecture-A (sobre)</translation>
 <translation id="4701488924964507374"><ph name="SENTENCE1"/> <ph name="SENTENCE2"/></translation>
@@ -956,11 +956,11 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="4791134497475588553">Aplicacións Linux instaladas e último uso</translation>
 <translation id="4792686369684665359">A información que estás a piques de enviar non é segura</translation>
 <translation id="4796594887379589189">Código da conta para o traballo</translation>
-<translation id="7110430050177876111">Introduce a data de caducidade e o código CVC da tarxeta <ph name="CREDIT_CARD"/> para actualizar os datos. Unha vez confirmados, os detalles da tarxeta da túa Conta de Brave compartiranse con este sitio.</translation>
+<translation id="7110430050177876111">Introduce a data de caducidade e o código CVC da tarxeta <ph name="CREDIT_CARD"/> para actualizar os datos. Unha vez confirmados, os detalles da tarxeta da túa Conta de adrbrowsiel compartiranse con este sitio.</translation>
 <translation id="4800132727771399293">Comproba a túa data de caducidade e o CVC e téntao de novo</translation>
 <translation id="480334179571489655">Produciuse un erro relacionado coa política de orixe</translation>
 <translation id="4803924862070940586"><ph name="FORMATTED_TOTAL_AMOUNT"/> <ph name="CURRENCY_CODE"/></translation>
-<translation id="8896585555528145662">Non podes visitar <ph name="SITE"/> agora mesmo porque o sitio web enviou credenciais cifradas que Brave non pode procesar. Normalmente, os erros de rede e os ataques son temporais, polo que é posible que esta páxina funcione máis tarde.</translation>
+<translation id="8896585555528145662">Non podes visitar <ph name="SITE"/> agora mesmo porque o sitio web enviou credenciais cifradas que adrbrowsiel non pode procesar. Normalmente, os erros de rede e os ataques son temporais, polo que é posible que esta páxina funcione máis tarde.</translation>
 <translation id="4809079943450490359">Instrucións do administrador do teu dispositivo:</translation>
 <translation id="4813512666221746211">Erro de rede</translation>
 <translation id="4816492930507672669">Axustar á páxina</translation>
@@ -1003,7 +1003,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="4989809363548539747">Este plugin non é compatible</translation>
 <translation id="4995216769782533993">Confirma o código de seguranza para compartir os detalles da túa tarxeta con este sitio</translation>
 <translation id="4995474875135717171">Modificación:</translation>
-<translation id="3676215163710610678">Se a opción está activada, Brave almacenará unha copia da túa tarxeta neste dispositivo para completar o formulario máis rápido.</translation>
+<translation id="3676215163710610678">Se a opción está activada, adrbrowsiel almacenará unha copia da túa tarxeta neste dispositivo para completar o formulario máis rápido.</translation>
 <translation id="5011561501798487822">Idioma detectado</translation>
 <translation id="5015510746216210676">Nome do equipo:</translation>
 <translation id="5017554619425969104">Texto que copiaches</translation>
@@ -1013,7 +1013,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="5029568752722684782">Borrar copia</translation>
 <translation id="5030338702439866405">Emitido por</translation>
 <translation id="503069730517007720">Precísase un certificado raíz para <ph name="SOFTWARE_NAME"/>, pero non está instalado. O teu administrador de TI debe comprobar as instrucións de configuración de <ph name="SOFTWARE_NAME"/> para solucionar este problema. <ph name="FURTHER_EXPLANATION"/></translation>
-<translation id="6425384654920630035">Acerca do Tradutor de Brave</translation>
+<translation id="6425384654920630035">Acerca do Tradutor de adrbrowsiel</translation>
 <translation id="503498442187459473">O host <ph name="HOST"/> quere utilizar a túa cámara e o micrófono</translation>
 <translation id="5039762155821394373">Tamaño do tipo de letra</translation>
 <translation id="5039804452771397117">Permitir</translation>
@@ -1031,7 +1031,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="5088142053160410913">Mensaxe para o operador</translation>
 <translation id="5089810972385038852">Estado</translation>
 <translation id="5093232627742069661">Dobrez en Z</translation>
-<translation id="4906192414477726331">Este servidor non puido demostrar que é <ph name="DOMAIN"/> porque Brave non confía no seu certificado de seguranza. É posible que isto se deba a un erro de configuración ou a que un atacante interceptase a túa conexión.</translation>
+<translation id="4906192414477726331">Este servidor non puido demostrar que é <ph name="DOMAIN"/> porque adrbrowsiel non confía no seu certificado de seguranza. É posible que isto se deba a un erro de configuración ou a que un atacante interceptase a túa conexión.</translation>
 <translation id="5095208057601539847">Provincia</translation>
 <translation id="5097099694988056070">Estatísticas do hardware, como o uso de CPU/RAM</translation>
 <translation id="5097501891273180634">A2</translation>
@@ -1043,7 +1043,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="5126510351761255129">Verificar a túa tarxeta</translation>
 <translation id="5135404736266831032">Xestiona os enderezos…</translation>
 <translation id="5138227688689900538">Mostrar menos</translation>
-<translation id="7186167407612593632">Cifrar contrasinais sincronizados coas túas credenciais de Brave</translation>
+<translation id="7186167407612593632">Cifrar contrasinais sincronizados coas túas credenciais de adrbrowsiel</translation>
 <translation id="5145883236150621069">Código de erro presente na resposta da política</translation>
 <translation id="5146995429444047494">As notificacións de <ph name="ORIGIN"/> están bloqueadas</translation>
 <translation id="5148809049217731050">Cara arriba</translation>
@@ -1052,8 +1052,8 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="5161334686036120870">Asunto:</translation>
 <translation id="5161506081086828129">Amontoador 9</translation>
 <translation id="5164798890604758545">Escríbese texto</translation>
-<translation id="2996889577833788807">Introduce o código CVC da tarxeta <ph name="CREDIT_CARD"/>. Unha vez que confirmes os datos, os detalles da tarxeta da túa Conta de Brave compartiranse con este sitio.</translation>
-<translation id="8515152881111950319">Poderías perder o acceso á conta da túa organización ou alguén podería roubarche a identidade. Brave recoméndache que cambies de contrasinal agora.</translation>
+<translation id="2996889577833788807">Introduce o código CVC da tarxeta <ph name="CREDIT_CARD"/>. Unha vez que confirmes os datos, os detalles da tarxeta da túa Conta de adrbrowsiel compartiranse con este sitio.</translation>
+<translation id="8515152881111950319">Poderías perder o acceso á conta da túa organización ou alguén podería roubarche a identidade. adrbrowsiel recoméndache que cambies de contrasinal agora.</translation>
 <translation id="5171045022955879922">Buscar ou escribir o URL</translation>
 <translation id="5171689220826475070">Fanfold-European</translation>
 <translation id="5172758083709347301">Equipo</translation>
@@ -1062,7 +1062,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="5201306358585911203">Unha páxina inserida nesta páxina di</translation>
 <translation id="5205222826937269299">É obrigatorio introducir o nome</translation>
 <translation id="5209518306177824490">Impresión dixital SHA-1</translation>
-<translation id="1051285409463218679">Métodos de pago e enderezos que usan Brave Pay</translation>
+<translation id="1051285409463218679">Métodos de pago e enderezos que usan adrbrowsiel Pay</translation>
 <translation id="5215363486134917902">Folio-Sp</translation>
 <translation id="5222812217790122047">É obrigatorio introducir o correo electrónico</translation>
 <translation id="5230733896359313003">Enderezo de envío</translation>
@@ -1087,7 +1087,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="5287456746628258573">Este sitio utiliza unha configuración de seguranza obsoleta que pode poñer en risco a túa información (por exemplo, contrasinais ou números de tarxetas de crédito) cando se lle envía.</translation>
 <translation id="5288108484102287882">A validación dos valores da política xerou advertencias</translation>
 <translation id="5289384342738547352">Manipulación de varios documentos</translation>
-<translation id="3764885446986388155">O teu contrasinal está en risco debido a unha violación da seguranza dos datos dun sitio ou aplicación. Brave recoméndache que comprobes agora os teus contrasinais gardados.</translation>
+<translation id="3764885446986388155">O teu contrasinal está en risco debido a unha violación da seguranza dos datos dun sitio ou aplicación. adrbrowsiel recoméndache que comprobes agora os teus contrasinais gardados.</translation>
 <translation id="5299298092464848405">Erro ao analizar a política</translation>
 <translation id="5300589172476337783">Mostrar</translation>
 <translation id="5306593769196050043">As dúas follas</translation>
@@ -1145,14 +1145,14 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="5523118979700054094">Nome da política</translation>
 <translation id="55293785478302737">Grampa no bordo</translation>
 <translation id="553484882784876924">Prc6 (sobre)</translation>
-<translation id="6477838366754392112">Botón Borrar datos de navegación. Preme Intro para eliminar o historial de navegación, as cookies, a memoria caché e outros datos desde a configuración de Brave</translation>
+<translation id="6477838366754392112">Botón Borrar datos de navegación. Preme Intro para eliminar o historial de navegación, as cookies, a memoria caché e outros datos desde a configuración de adrbrowsiel</translation>
 <translation id="5536214594743852365">Mostrar a sección <ph name="SECTION"/></translation>
 <translation id="5539243836947087108">Balsa</translation>
 <translation id="5540224163453853">Non se puido atopar o artigo solicitado.</translation>
 <translation id="5541086400771735334">Caixa de correo 7</translation>
 <translation id="5541546772353173584">Engade un correo electrónico</translation>
 <translation id="5545756402275714221">Artigos personalizados</translation>
-<translation id="6084314943327785510">Brave comproba periodicamente se os teus contrasinais aparecen nas listas que se publican en liña. Cando o fai, os teus contrasinais e os teus nomes de usuario están encriptados, polo que ninguén pode lelos, nin sequera Brave.</translation>
+<translation id="6084314943327785510">adrbrowsiel comproba periodicamente se os teus contrasinais aparecen nas listas que se publican en liña. Cando o fai, os teus contrasinais e os teus nomes de usuario están encriptados, polo que ninguén pode lelos, nin sequera adrbrowsiel.</translation>
 <translation id="5556459405103347317">Volver cargar</translation>
 <translation id="5560088892362098740">Data de caducidade</translation>
 <translation id="55635442646131152">Esquema do documento</translation>
@@ -1169,13 +1169,13 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="5607240918979444548">Architecture-C</translation>
 <translation id="5610142619324316209">Comprobar a conexión</translation>
 <translation id="5610807607761827392">Podes xestionar as tarxetas e os enderezos na <ph name="BEGIN_LINK"/>Configuración<ph name="END_LINK"/>.</translation>
-<translation id="2012723355262040739">Traduce esta páxina co Tradutor de Brave</translation>
+<translation id="2012723355262040739">Traduce esta páxina co Tradutor de adrbrowsiel</translation>
 <translation id="5612720917913232150">O URL <ph name="URL"/> quere utilizar a localización do teu ordenador</translation>
 <translation id="5617949217645503996"><ph name="HOST_NAME"/> redireccionoute demasiadas veces.</translation>
 <translation id="5624120631404540903">Xestionar contrasinais</translation>
 <translation id="5629630648637658800">Erro ao cargar a configuración da política</translation>
 <translation id="5631439013527180824">Token de xestión de dispositivo non válido</translation>
-<translation id="2590378115732684772">Os datos encriptáronse co teu <ph name="BEGIN_LINK"/>contrasinal de Brave<ph name="END_LINK"/> a partir do <ph name="TIME"/>. Introdúceo para iniciar a sincronización.</translation>
+<translation id="2590378115732684772">Os datos encriptáronse co teu <ph name="BEGIN_LINK"/>contrasinal de adrbrowsiel<ph name="END_LINK"/> a partir do <ph name="TIME"/>. Introdúceo para iniciar a sincronización.</translation>
 <translation id="5633066919399395251">Os piratas informáticos do sitio <ph name="BEGIN_BOLD"/><ph name="SITE"/><ph name="END_BOLD"/> poderían tentar instalar programas perigosos no ordenador que rouben ou eliminen a túa información (por exemplo, fotos, contrasinais, mensaxes e tarxetas de crédito). <ph name="BEGIN_LEARN_MORE_LINK"/>Máis información<ph name="END_LEARN_MORE_LINK"/></translation>
 <translation id="563324245173044180">Bloqueouse contido enganoso.</translation>
 <translation id="5644090287519800334">Desprazamento do lado 1 da imaxe no eixe X</translation>
@@ -1199,8 +1199,8 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="571403275720188526">(arm64)</translation>
 <translation id="5720705177508910913">Usuario actual</translation>
 <translation id="5728056243719941842">C5 (sobre)</translation>
-<translation id="3006790309890592320">Brave recoméndache que restablezas o contrasinal se o reutilizaches noutros sitios.</translation>
-<translation id="5576538372759072019">{NUM_CARDS,plural, =1{Garda a tarxeta na túa Conta de Brave}other{Garda tarxetas na túa Conta de Brave}}</translation>
+<translation id="3006790309890592320">adrbrowsiel recoméndache que restablezas o contrasinal se o reutilizaches noutros sitios.</translation>
+<translation id="5576538372759072019">{NUM_CARDS,plural, =1{Garda a tarxeta na túa Conta de adrbrowsiel}other{Garda tarxetas na túa Conta de adrbrowsiel}}</translation>
 <translation id="5745980000221562234">{NUM_CARDS,plural, =1{Utilizar un número virtual para esta tarxeta}other{Seleccionar unha tarxeta}}</translation>
 <translation id="5759751709240058861">Utilizar e mover a túa cámara</translation>
 <translation id="5763042198335101085">Introduce un enderezo de correo electrónico válido</translation>
@@ -1243,7 +1243,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="59174027418879706">Activado</translation>
 <translation id="5919090499915321845">B10</translation>
 <translation id="5921185718311485855">Activado</translation>
-<translation id="2687595201721621314">Queres gardar a tarxeta na Conta de Brave?</translation>
+<translation id="2687595201721621314">Queres gardar a tarxeta na Conta de adrbrowsiel?</translation>
 <translation id="5922853866070715753">Case está listo</translation>
 <translation id="5932224571077948991">O sitio mostra anuncios enganosos ou intrusivos</translation>
 <translation id="5938793338444039872">Troy</translation>
@@ -1296,10 +1296,10 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="6104072995492677441">JIS B6</translation>
 <translation id="6106989379647458772">É posible que a páxina web de <ph name="PAGE"/> estea temporalmente inactiva ou que se trasladase definitivamente a un enderezo web novo.</translation>
 <translation id="6107012941649240045">Emitido para</translation>
-<translation id="8233947174119245051">É posible que a túa conta de Brave teña outras formas do historial de navegación en <ph name="BEGIN_LINK"/>history.google.com<ph name="END_LINK"/></translation>
+<translation id="8233947174119245051">É posible que a túa conta de adrbrowsiel teña outras formas do historial de navegación en <ph name="BEGIN_LINK"/>history.google.com<ph name="END_LINK"/></translation>
 <translation id="6116338172782435947">Ver o texto e as imaxes que se copian no portapapeis</translation>
 <translation id="6120179357481664955">Queres lembrar o teu código da UPI?</translation>
-<translation id="5972135347314259717">Conectores de Brave Enterprise</translation>
+<translation id="5972135347314259717">Conectores de adrbrowsiel Enterprise</translation>
 <translation id="6146055958333702838">Comproba os cables e reinicia os routers, módems e demais dispositivos
     de rede que utilices.</translation>
 <translation id="614940544461990577">Proba a facer o seguinte:</translation>
@@ -1312,11 +1312,11 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="6180316780098470077">Intervalo de reintentos</translation>
 <translation id="6196640612572343990">Bloquear cookies de terceiros</translation>
 <translation id="6203231073485539293">Comproba a túa conexión a Internet</translation>
-<translation id="8385639954311581596">Queres eliminar o enderezo de Brave?</translation>
+<translation id="8385639954311581596">Queres eliminar o enderezo de adrbrowsiel?</translation>
 <translation id="622039917539443112">Dobrez en paralelo</translation>
-<translation id="6221345481584921695">A navegación segura de Brave <ph name="BEGIN_LINK"/>detectou software malicioso<ph name="END_LINK"/> en <ph name="SITE"/> recentemente. Ás veces, os sitios web que adoitan ser seguros inféctanse con software malicioso. O contido malicioso procede de <ph name="SUBRESOURCE_HOST"/>, un coñecido distribuidor de software malicioso.</translation>
+<translation id="6221345481584921695">A navegación segura de adrbrowsiel <ph name="BEGIN_LINK"/>detectou software malicioso<ph name="END_LINK"/> en <ph name="SITE"/> recentemente. Ás veces, os sitios web que adoitan ser seguros inféctanse con software malicioso. O contido malicioso procede de <ph name="SUBRESOURCE_HOST"/>, un coñecido distribuidor de software malicioso.</translation>
 <translation id="6234122620015464377">Recorte despois de cada documento</translation>
-<translation id="4765229189146046954">Logotipo de Brave Pay</translation>
+<translation id="4765229189146046954">Logotipo de adrbrowsiel Pay</translation>
 <translation id="6241121617266208201">Ocultar suxestións</translation>
 <translation id="624499991300733384">Servizo de composición de impresión</translation>
 <translation id="6254436959401408446">Non hai memoria suficiente para abrir esta páxina</translation>
@@ -1326,15 +1326,15 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="6264485186158353794">Volver para estar a salvo</translation>
 <translation id="6265794661083428563">Copiar o valor da política <ph name="POLICY_NAME"/></translation>
 <translation id="6266934640124581640">Turquesa claro</translation>
-<translation id="9136010393039243713">Actualización de Brave</translation>
+<translation id="9136010393039243713">Actualización de adrbrowsiel</translation>
 <translation id="6276112860590028508">As páxinas da túa lista de lectura aparecen aquí</translation>
-<translation id="7954557091400543500">Para pagar máis rápido a próxima vez, garda a túa tarxeta e o enderezo de facturación na conta de Brave.</translation>
+<translation id="7954557091400543500">Para pagar máis rápido a próxima vez, garda a túa tarxeta e o enderezo de facturación na conta de adrbrowsiel.</translation>
 <translation id="6280223929691119688">Non se pode realizar a entrega neste enderezo. Selecciona un diferente.</translation>
 <translation id="6282194474023008486">Código postal</translation>
 <translation id="6289939620939689042">Cor das páxinas</translation>
 <translation id="6290238015253830360">Os teus artigos suxeridos aparecerán aquí</translation>
 <translation id="6293309776179964942">JIS B5</translation>
-<translation id="5880900081429361525">Detendo o Asistente de Brave en Brave</translation>
+<translation id="5880900081429361525">Detendo o Asistente de adrbrowsiel en adrbrowsiel</translation>
 <translation id="6305205051461490394">Non se pode acceder a <ph name="URL"/>.</translation>
 <translation id="6312113039770857350">A páxina web non está dispoñible</translation>
 <translation id="6321917430147971392">Comproba a configuración de DNS</translation>
@@ -1362,7 +1362,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="6401136357288658127">Esta política quedou obsoleta. Debes utilizar a política <ph name="NEW_POLICY"/>.</translation>
 <translation id="6404511346730675251">Editar marcador</translation>
 <translation id="6406765186087300643">C0 (sobre)</translation>
-<translation id="9018981925326888629">Acabas de introducir o teu contrasinal nun sitio enganoso. Brave recoméndache que cambies o contrasinal agora.</translation>
+<translation id="9018981925326888629">Acabas de introducir o teu contrasinal nun sitio enganoso. adrbrowsiel recoméndache que cambies o contrasinal agora.</translation>
 <translation id="6410264514553301377">Introduce a data de caducidade e o código CVC da tarxeta <ph name="CREDIT_CARD"/></translation>
 <translation id="6423385022588644828">A partir de agora, confirma as tarxetas máis rápido con Touch ID</translation>
 <translation id="6425092077175753609">Material</translation>
@@ -1386,7 +1386,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="6489534406876378309">Comezar a cargar erros</translation>
 <translation id="6499038740797743453">Queres restablecer o contrasinal?</translation>
 <translation id="6502991525169604759">Sen os teus cambios</translation>
-<translation id="3960299545138990065">Reinicia Brave</translation>
+<translation id="3960299545138990065">Reinicia adrbrowsiel</translation>
 <translation id="6517596291481585650">Advertencia: Esta política non se combinou como unha lista do xeito especificado na política porque non é unha lista.</translation>
 <translation id="6518133107902771759">Verificar</translation>
 <translation id="6521745193039995384">Non activa</translation>
@@ -1414,8 +1414,8 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="663260587451432563">JIS B4</translation>
 <translation id="6643016212128521049">Borrar</translation>
 <translation id="6645291930348198241">Acceder ás cookies e aos datos dos sitios.</translation>
-<translation id="1375868315964791309">{COUNT,plural, =0{Ningún}=1{De 1 sitio (non se pechará sesión na túa conta de Brave)}other{De # sitios (non se pechará sesión na túa conta de Brave)}}</translation>
-<translation id="6678472970290886941">O teu administrador pode cambiar a configuración do navegador de forma remota. A actividade deste dispositivo tamén se pode xestionar fóra de Brave.</translation>
+<translation id="1375868315964791309">{COUNT,plural, =0{Ningún}=1{De 1 sitio (non se pechará sesión na túa conta de adrbrowsiel)}other{De # sitios (non se pechará sesión na túa conta de adrbrowsiel)}}</translation>
+<translation id="6678472970290886941">O teu administrador pode cambiar a configuración do navegador de forma remota. A actividade deste dispositivo tamén se pode xestionar fóra de adrbrowsiel.</translation>
 <translation id="6648524591329069940">Tipo de letra con serifas</translation>
 <translation id="6651270836885078973">Xestionadas por:</translation>
 <translation id="6652101503459149953">Usar Windows Hello</translation>
@@ -1425,7 +1425,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="6685834062052613830">Pecha sesión e finaliza o proceso de configuración</translation>
 <translation id="6687335167692595844">Tamaño do tipo de letra solicitado</translation>
 <translation id="6689249931105087298">Relativo con compresión de puntos negros</translation>
-<translation id="5406652219015697259">Brave permíteche gardar as túas tarxetas na túa Conta de Brave porque tes a sesión iniciada. Podes cambiar esta opción na configuración cando queiras. O nome do titular da tarxeta procede da túa conta.</translation>
+<translation id="5406652219015697259">adrbrowsiel permíteche gardar as túas tarxetas na túa Conta de adrbrowsiel porque tes a sesión iniciada. Podes cambiar esta opción na configuración cando queiras. O nome do titular da tarxeta procede da túa conta.</translation>
 <translation id="6698381487523150993">Creada:</translation>
 <translation id="6702919718839027939">Presentar</translation>
 <translation id="6710213216561001401">Anterior</translation>
@@ -1458,7 +1458,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="6874604403660855544">&amp;Refacer adición</translation>
 <translation id="6884662655240309489">Tamaño 1</translation>
 <translation id="6886577214605505410"><ph name="LOCATION_TITLE"/> <ph name="SHORT_URL"/></translation>
-<translation id="7265969755975834932">Brave simplificou esta páxina para que sexa máis fácil de ler. Brave recuperou a páxina orixinal a través dunha conexión insegura.</translation>
+<translation id="7265969755975834932">adrbrowsiel simplificou esta páxina para que sexa máis fácil de ler. adrbrowsiel recuperou a páxina orixinal a través dunha conexión insegura.</translation>
 <translation id="6891596781022320156">O nivel da política non é compatible.</translation>
 <translation id="6895330447102777224">Confirmouse a túa tarxeta</translation>
 <translation id="6897140037006041989">Axente de usuario</translation>
@@ -1466,7 +1466,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="6907293445143367439">Permitir que <ph name="SITE_NAME"/> faga o seguinte:</translation>
 <translation id="6910240653697687763">O URL <ph name="URL"/> quere obter o control total dos teus dispositivos MIDI</translation>
 <translation id="6915804003454593391">Usuario:</translation>
-<translation id="6722453239914327220">Este nome procede da túa Conta de Brave</translation>
+<translation id="6722453239914327220">Este nome procede da túa Conta de adrbrowsiel</translation>
 <translation id="6944692733090228304">Introduciches o teu contrasinal nun sitio que non está xestionado por <ph name="BEGIN_BOLD"/><ph name="ORG_NAME"/><ph name="END_BOLD"/>. Para protexer a túa conta, non reutilices o contrasinal noutros sitios nin aplicacións.</translation>
 <translation id="6945221475159498467">Seleccionar</translation>
 <translation id="6948701128805548767">Para consultar os requisitos e métodos de recollida, selecciona un enderezo</translation>
@@ -1483,10 +1483,10 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="6972629891077993081">Dispositivos de interface humana</translation>
 <translation id="6973656660372572881">Especifícanse tanto servidores proxy fixos como un URL de script .pac.</translation>
 <translation id="6973932557599545801">Síntoo, non podo axudar. Continúa sen asistencia.</translation>
-<translation id="846000886289004690">Acabas de escribir o teu contrasinal nun sitio enganoso. Brave recoméndache que vaias a <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/> e outros sitios nos que utilices este contrasinal para cambialo agora.</translation>
+<translation id="846000886289004690">Acabas de escribir o teu contrasinal nun sitio enganoso. adrbrowsiel recoméndache que vaias a <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/> e outros sitios nos que utilices este contrasinal para cambialo agora.</translation>
 <translation id="6979158407327259162">Google Drive</translation>
 <translation id="6979440798594660689">Silenciar (opción predeterminada)</translation>
-<translation id="1714833602699685456">Os ficheiros que descargas envíanse a Brave Cloud ou a terceiros para analizalos. Por exemplo, poderíase comprobar se conteñen datos confidenciais ou software malicioso.</translation>
+<translation id="1714833602699685456">Os ficheiros que descargas envíanse a adrbrowsiel Cloud ou a terceiros para analizalos. Por exemplo, poderíase comprobar se conteñen datos confidenciais ou software malicioso.</translation>
 <translation id="6989763994942163495">Mostrar configuración avanzada...</translation>
 <translation id="6993898126790112050">6x9 (sobre)</translation>
 <translation id="6996312675313362352">Traducir sempre o <ph name="ORIGINAL_LANGUAGE"/></translation>
@@ -1544,7 +1544,7 @@ En caso contrario, a configuración de privacidade impedirao. Se o permites, o c
 <translation id="7219179957768738017">A conexión utiliza <ph name="SSL_VERSION"/>.</translation>
 <translation id="7220786058474068424">Procesando</translation>
 <translation id="7221855153210829124">Mostrar notificacións</translation>
-<translation id="3619365259205518877">Acabas de escribir o teu contrasinal nun sitio enganoso. Brave recomenda comprobar os contrasinais gardados para <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/>, <ph name="WEBSITE_3"/> e outros sitios nos que esteas a utilizar este contrasinal neste momento.</translation>
+<translation id="3619365259205518877">Acabas de escribir o teu contrasinal nun sitio enganoso. adrbrowsiel recomenda comprobar os contrasinais gardados para <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/>, <ph name="WEBSITE_3"/> e outros sitios nos que esteas a utilizar este contrasinal neste momento.</translation>
 <translation id="7233592378249864828">Folla de confirmación da impresión</translation>
 <translation id="7238585580608191973">Impresión dixital SHA-256</translation>
 <translation id="7240120331469437312">Nome alternativo do asunto do certificado</translation>
@@ -1566,7 +1566,7 @@ Detalles adicionais:
 <translation id="7320336641823683070">Axuda de conexión</translation>
 <translation id="7323804146520582233">Ocultar a sección <ph name="SECTION"/></translation>
 <translation id="733354035281974745">Anulación da conta local do dispositivo</translation>
-<translation id="8539546768943490744">Acabas de escribir o teu contrasinal nun sitio enganoso. Brave recoméndache que vaias a <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/>, <ph name="WEBSITE_3"/> e outros sitios nos que utilices este contrasinal para cambialo agora.</translation>
+<translation id="8539546768943490744">Acabas de escribir o teu contrasinal nun sitio enganoso. adrbrowsiel recoméndache que vaias a <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/>, <ph name="WEBSITE_3"/> e outros sitios nos que utilices este contrasinal para cambialo agora.</translation>
 <translation id="7334320624316649418">&amp;Refacer de cambio de orde</translation>
 <translation id="7337706099755338005">Non está dispoñible na túa plataforma.</translation>
 <translation id="733923710415886693">O certificado do servidor non se indicou mediante Certificate Transparency.</translation>
@@ -1577,9 +1577,9 @@ Detalles adicionais:
 <translation id="7359588939039777303">Bloqueáronse os anuncios.</translation>
 <translation id="7365849542400970216">Queres permitir a detección do uso do dispositivo?</translation>
 <translation id="7372973238305370288">resultado da busca</translation>
-<translation id="3898257577441589237">Este problema prodúcese por causa dun certificado instalado por ti ou por outra persoa no teu dispositivo. Sábese que este certificado se utiliza para supervisar e interceptar redes, e Brave non confía nel. Aínda que existen algunhas situacións lexítimas para a supervisión, como no caso de redes de empresas ou de centros educativos, Brave quere asegurarse de que sexas consciente do que acontece, inda que non poidas facer nada ao respecto. A supervisión pode levarse a cabo en calquera navegador ou aplicación que acceda á Web.</translation>
+<translation id="3898257577441589237">Este problema prodúcese por causa dun certificado instalado por ti ou por outra persoa no teu dispositivo. Sábese que este certificado se utiliza para supervisar e interceptar redes, e adrbrowsiel non confía nel. Aínda que existen algunhas situacións lexítimas para a supervisión, como no caso de redes de empresas ou de centros educativos, adrbrowsiel quere asegurarse de que sexas consciente do que acontece, inda que non poidas facer nada ao respecto. A supervisión pode levarse a cabo en calquera navegador ou aplicación que acceda á Web.</translation>
 <translation id="7375818412732305729">Anéxase un ficheiro</translation>
-<translation id="5859172549848239531">Cando Brave Enterprise Connectors marca eventos de seguranza, envíanse datos relevantes sobre os eventos en cuestión ao teu administrador. Pódense incluír URL de páxinas que visitas en Brave, nomes de ficheiros ou metadatos e o nome de usuario que utilizas para iniciar sesión no teu dispositivo e en Brave.</translation>
+<translation id="5859172549848239531">Cando adrbrowsiel Enterprise Connectors marca eventos de seguranza, envíanse datos relevantes sobre os eventos en cuestión ao teu administrador. Pódense incluír URL de páxinas que visitas en adrbrowsiel, nomes de ficheiros ou metadatos e o nome de usuario que utilizas para iniciar sesión no teu dispositivo e en adrbrowsiel.</translation>
 <translation id="7377249249140280793"><ph name="RELATIVE_DATE"/> - <ph name="FULL_DATE"/></translation>
 <translation id="7378594059915113390">Controis de contido multimedia</translation>
 <translation id="7378627244592794276">Non</translation>
@@ -1596,7 +1596,7 @@ Detalles adicionais:
       &lt;li&gt;En &lt;strong&gt;Tipo de inicio&lt;/strong&gt;, selecciona &lt;strong&gt;Desactivado&lt;/strong&gt;
       &lt;li&gt;En &lt;strong&gt;Estado do servizo&lt;/strong&gt;, fai clic en &lt;strong&gt;Parar&lt;/strong&gt;
       &lt;li&gt;Fai clic en &lt;strong&gt;Aplicar&lt;/strong&gt; e, a continuación, fai clic en &lt;strong&gt;Aceptar&lt;/strong&gt;
-      &lt;li&gt;Accede ao &lt;a href="https://support.google.com/chrome/answer/6098869"&gt;Centro de Axuda de Brave&lt;/a&gt; para obter información sobre como eliminar permanentemente o software do ordenador
+      &lt;li&gt;Accede ao &lt;a href="https://support.google.com/chrome/answer/6098869"&gt;Centro de Axuda de adrbrowsiel&lt;/a&gt; para obter información sobre como eliminar permanentemente o software do ordenador
       &lt;/ol&gt;</translation>
 <translation id="741007362987735528">Wide-Format</translation>
 <translation id="7416351320495623771">Xestionar contrasinais…</translation>
@@ -1613,7 +1613,7 @@ Detalles adicionais:
 <translation id="7473891865547856676">Non, grazas</translation>
 <translation id="7481312909269577407">Adiante</translation>
 <translation id="7485870689360869515">Non se atoparon datos.</translation>
-<translation id="3692186536781145635">O teu contrasinal está en risco debido a unha violación da seguranza dos datos dun sitio ou aplicación. Brave recoméndache que comprobes os teus contrasinais gardados e que cambies o de <ph name="ORIGIN"/> agora.</translation>
+<translation id="3692186536781145635">O teu contrasinal está en risco debido a unha violación da seguranza dos datos dun sitio ou aplicación. adrbrowsiel recoméndache que comprobes os teus contrasinais gardados e que cambies o de <ph name="ORIGIN"/> agora.</translation>
 <translation id="7495528107193238112">Este contido está bloqueado. Ponte en contacto co propietario do sitio para corrixir o problema.</translation>
 <translation id="7498234416455752244">Seguir editando</translation>
 <translation id="7508255263130623398">O código de dispositivo da política está baleiro ou non coincide co código do dispositivo actual</translation>
@@ -1633,13 +1633,13 @@ Detalles adicionais:
 <translation id="7542995811387359312">A opción de autocompletado da tarxeta de crédito está desactivada porque este formulario non utiliza unha conexión segura.</translation>
 <translation id="7548892272833184391">Solucionar erros de conexión</translation>
 <translation id="7549584377607005141">Esta páxina web require datos introducidos anteriormente para mostrarse correctamente. Podes enviar estes datos de novo, pero volveranse repetir as accións que a páxina realizase previamente.</translation>
-<translation id="5474381306981932386">O nome de usuario do teu dispositivo e o de Brave</translation>
+<translation id="5474381306981932386">O nome de usuario do teu dispositivo e o de adrbrowsiel</translation>
 <translation id="7552846755917812628">Proba os seguintes consellos:</translation>
 <translation id="7554791636758816595">Nova pestana</translation>
 <translation id="7567204685887185387">Este servidor non puido demostrar que é <ph name="DOMAIN"/> porque é probable que o seu certificado de seguranza se emitise fraudulentamente. É posible que isto se deba a un erro de configuración ou a que un atacante interceptase a túa conexión.</translation>
 <translation id="7569983096843329377">Negro</translation>
 <translation id="7575207903026901870">Botón Quitar suxestión, preme Intro para quitala</translation>
-<translation id="405970181812690156">Paga rapidamente en sitios e aplicacións en diferentes dispositivos usando as tarxetas que gardaches con Brave.</translation>
+<translation id="405970181812690156">Paga rapidamente en sitios e aplicacións en diferentes dispositivos usando as tarxetas que gardaches con adrbrowsiel.</translation>
 <translation id="7581199239021537589">Desprazamento do lado 2 da imaxe no eixe Y</translation>
 <translation id="7591636454931265313"><ph name="EMBEDDED_URL"/> quere utilizar as cookies e os datos do sitio <ph name="TOP_LEVEL_URL"/></translation>
 <translation id="7592362899630581445">O certificado do servidor inclúe un nome que está fóra do teu alcance.</translation>
@@ -1648,13 +1648,13 @@ Detalles adicionais:
 <translation id="7600965453749440009">Non traducir nunca do <ph name="LANGUAGE"/></translation>
 <translation id="7610193165460212391">O valor está fóra do rango de <ph name="VALUE"/>.</translation>
 <translation id="7613889955535752492">Caducidade: <ph name="EXPIRATION_MONTH"/>/<ph name="EXPIRATION_YEAR"/></translation>
-<translation id="5704205738724476508"><ph name="MANAGE_PASSWORDS_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para ver e xestionar os teus contrasinais desde a configuración de Brave</translation>
-<translation id="6994126885316933886">Anteriormente, utilizaches outra versión do contrasinal da túa conta de Brave para o cifrado de datos. Introdúcea a continuación.</translation>
-<translation id="8565825862287624454">O teu administrador activou Brave Enterprise Connectors no teu navegador. Estes conectores teñen acceso a algúns dos teus datos.</translation>
+<translation id="5704205738724476508"><ph name="MANAGE_PASSWORDS_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para ver e xestionar os teus contrasinais desde a configuración de adrbrowsiel</translation>
+<translation id="6994126885316933886">Anteriormente, utilizaches outra versión do contrasinal da túa conta de adrbrowsiel para o cifrado de datos. Introdúcea a continuación.</translation>
+<translation id="8565825862287624454">O teu administrador activou adrbrowsiel Enterprise Connectors no teu navegador. Estes conectores teñen acceso a algúns dos teus datos.</translation>
 <translation id="7619838219691048931">Folla final</translation>
 <translation id="762844065391966283">Un de cada vez</translation>
 <translation id="7633909222644580952">Datos de rendemento e informes de fallos</translation>
-<translation id="6386821459680628976">Queres eliminar a túa tarxeta de crédito de Brave?</translation>
+<translation id="6386821459680628976">Queres eliminar a túa tarxeta de crédito de adrbrowsiel?</translation>
 <translation id="7637586430889951925">{COUNT,plural, =0{Ningún}=1{1 contrasinal na túa conta (para <ph name="DOMAIN_LIST"/>)}other{# contrasinais na túa conta (para <ph name="DOMAIN_LIST"/>)}}</translation>
 <translation id="7638605456503525968">Portos de serie</translation>
 <translation id="7639968568612851608">Gris escuro</translation>
@@ -1708,7 +1708,7 @@ Detalles adicionais:
 <translation id="780301667611848630">Non, grazas</translation>
 <translation id="7805768142964895445">Estado</translation>
 <translation id="7812922009395017822">Mir</translation>
-<translation id="4670564340385807132">Queres eliminar a suxestión de Brave?</translation>
+<translation id="4670564340385807132">Queres eliminar a suxestión de adrbrowsiel?</translation>
 <translation id="781440967107097262">Queres compartir o portapapeis?</translation>
 <translation id="7815407501681723534">Encontráronse <ph name="NUMBER_OF_RESULTS"/> <ph name="SEARCH_RESULTS"/> para "<ph name="SEARCH_STRING"/>"</translation>
 <translation id="782886543891417279">É posible que a rede wifi que utilizas (<ph name="WIFI_NAME"/>) requira o acceso á súa páxina de inicio de sesión.</translation>
@@ -1717,7 +1717,7 @@ Detalles adicionais:
 <translation id="7855695075675558090"><ph name="TOTAL_LABEL"/>: <ph name="FORMATTED_TOTAL_AMOUNT"/> <ph name="CURRENCY_CODE"/></translation>
 <translation id="7862185352068345852">Queres saír do sitio?</translation>
 <translation id="7865448901209910068">A mellor velocidade</translation>
-<translation id="1012292338579042608">Acabas de escribir o teu contrasinal nun sitio enganoso. Brave recomenda comprobar os contrasinais gardados para <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/> e outros sitios nos que esteas a utilizar este contrasinal neste momento.</translation>
+<translation id="1012292338579042608">Acabas de escribir o teu contrasinal nun sitio enganoso. adrbrowsiel recomenda comprobar os contrasinais gardados para <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/> e outros sitios nos que esteas a utilizar este contrasinal neste momento.</translation>
 <translation id="7878562273885520351">Pode que o teu contrasinal estea en perigo</translation>
 <translation id="7882421473871500483">Marrón</translation>
 <translation id="7887683347370398519">Comproba o CVC e téntao de novo</translation>
@@ -1729,7 +1729,7 @@ Detalles adicionais:
 <translation id="7932579305932748336">Recubrimento</translation>
 <translation id="79338296614623784">Introduce un número de teléfono válido</translation>
 <translation id="7934052535022478634">Completouse o pago</translation>
-<translation id="8329449853370113380"><ph name="URL"/> quere reproducir contido protexido. Brave verificará a identidade do teu dispositivo.</translation>
+<translation id="8329449853370113380"><ph name="URL"/> quere reproducir contido protexido. adrbrowsiel verificará a identidade do teu dispositivo.</translation>
 <translation id="7935031712718413217">Posible suplantación de URL</translation>
 <translation id="7935318582918952113">Extractor de DOM</translation>
 <translation id="7937554595067888181">Caduca o <ph name="EXPIRATION_DATE_ABBR"/></translation>
@@ -1765,7 +1765,7 @@ Detalles adicionais:
 <translation id="8042918947222776840">Escoller método de recollida</translation>
 <translation id="8057711352706143257"><ph name="SOFTWARE_NAME"/> non está configurado correctamente. Ao desinstalar <ph name="SOFTWARE_NAME"/> adoita solucionarse o problema. <ph name="FURTHER_EXPLANATION"/></translation>
 <translation id="8066955247577885446">Produciuse un erro.</translation>
-<translation id="5442778523450464826">Acabas de escribir o teu contrasinal nun sitio enganoso. Brave pode axudarche. Para cambiar o teu contrasinal e notificarlle a Brave que a túa conta pode estar en risco, fai clic en Protexer conta.</translation>
+<translation id="5442778523450464826">Acabas de escribir o teu contrasinal nun sitio enganoso. adrbrowsiel pode axudarche. Para cambiar o teu contrasinal e notificarlle a adrbrowsiel que a túa conta pode estar en risco, fai clic en Protexer conta.</translation>
 <translation id="8074253406171541171">10x13 (sobre)</translation>
 <translation id="8078141288243656252">Non se poden realizar anotacións ao xirar o documento</translation>
 <translation id="8079031581361219619">Queres volver cargar o sitio?</translation>
@@ -1788,7 +1788,7 @@ Detalles adicionais:
 <translation id="8150722005171944719">Non se pode ler o ficheiro que se encontra en <ph name="URL"/>. É posible que se eliminase, movese ou que os permisos do ficheiro estean impedindo o acceso.</translation>
 <translation id="8157295877370077682">Saír do sitio</translation>
 <translation id="8163866351304776260">Catro perforacións na parte esquerda</translation>
-<translation id="4351627595884993315">Brave permíteche gardar as túas tarxetas na túa Conta de Brave porque tes a sesión iniciada. Podes cambiar esta opción na configuración cando queiras.</translation>
+<translation id="4351627595884993315">adrbrowsiel permíteche gardar as túas tarxetas na túa Conta de adrbrowsiel porque tes a sesión iniciada. Podes cambiar esta opción na configuración cando queiras.</translation>
 <translation id="8184538546369750125">Utilizar axuste predeterminado global (permitir)</translation>
 <translation id="8194797478851900357">&amp;Desfacer movemento</translation>
 <translation id="8201077131113104583">O URL de actualización para a extensión co ID "<ph name="EXTENSION_ID"/>" non é válido.</translation>
@@ -1799,7 +1799,7 @@ Detalles adicionais:
 <translation id="8213464188712611711">Recordos</translation>
 <translation id="8218327578424803826">Localización asignada:</translation>
 <translation id="8220146938470311105">C7/C6 (sobre)</translation>
-<translation id="3272614036080146686">Acabas de escribir o teu contrasinal nun sitio enganoso. Brave recoméndache que vaias a <ph name="WEBSITE_1"/> e outros sitios nos que utilices este contrasinal para cambialo agora.</translation>
+<translation id="3272614036080146686">Acabas de escribir o teu contrasinal nun sitio enganoso. adrbrowsiel recoméndache que vaias a <ph name="WEBSITE_1"/> e outros sitios nos que utilices este contrasinal para cambialo agora.</translation>
 <translation id="8228419419708659934">Vista de dúas páxinas</translation>
 <translation id="822964464349305906"><ph name="TYPE_1"/>, <ph name="TYPE_2"/></translation>
 <translation id="8232343881378637145">Temperatura da plataforma</translation>
@@ -1829,7 +1829,7 @@ Detalles adicionais:
 <translation id="830498451218851433">Dobrez á metade</translation>
 <translation id="8307358339886459768">Small-Photo</translation>
 <translation id="8307888238279532626">Aplicacións instaladas e frecuencia de uso</translation>
-<translation id="8390490312179389407">Esta páxina é sospeitosa (foi detectada por Brave).</translation>
+<translation id="8390490312179389407">Esta páxina é sospeitosa (foi detectada por adrbrowsiel).</translation>
 <translation id="831997045666694187">Serán</translation>
 <translation id="8332188693563227489">Denegouse o acceso a <ph name="HOST_NAME"/></translation>
 <translation id="833262891116910667">Destacar</translation>
@@ -1862,16 +1862,16 @@ Detalles adicionais:
 <translation id="8473863474539038330">Enderezos e moito máis</translation>
 <translation id="8474910779563686872">Mostrar detalles do programador</translation>
 <translation id="8479754468255770962">Grampa na parte inferior esquerda</translation>
-<translation id="5142582872611298328">Para usar tarxetas da túa conta de Brave, inicia sesión en Brave</translation>
+<translation id="5142582872611298328">Para usar tarxetas da túa conta de adrbrowsiel, inicia sesión en adrbrowsiel</translation>
 <translation id="8488350697529856933">Aplícase a</translation>
 <translation id="8490137692873530638">Amontoador 10</translation>
 <translation id="8498891568109133222"><ph name="HOST_NAME"/> tardou demasiado en responder.</translation>
-<translation id="230699814587342492">Contrasinais de Brave</translation>
+<translation id="230699814587342492">Contrasinais de adrbrowsiel</translation>
 <translation id="8503813439785031346">Nome de usuario</translation>
 <translation id="8507227106804027148">Liña de comandos</translation>
 <translation id="8508648098325802031">Icona de busca</translation>
-<translation id="1426902392270366682">Brave pode axudarche a protexer a túa Conta de Brave e a cambiar o teu contrasinal.</translation>
-<translation id="1215802963054007211">Borra o historial de navegación, as cookies, a memoria caché e moito máis na configuración de Brave</translation>
+<translation id="1426902392270366682">adrbrowsiel pode axudarche a protexer a túa Conta de adrbrowsiel e a cambiar o teu contrasinal.</translation>
+<translation id="1215802963054007211">Borra o historial de navegación, as cookies, a memoria caché e moito máis na configuración de adrbrowsiel</translation>
 <translation id="8533619373899488139">Visita &lt;strong&gt;chrome://policy&lt;/strong&gt; para ver a lista dos URL bloqueados e outras políticas aplicadas polo teu administrador do sistema.</translation>
 <translation id="8541158209346794904">Dispositivo Bluetooth</translation>
 <translation id="8542014550340843547">Tres grampas na parte inferior</translation>
@@ -1922,32 +1922,32 @@ Detalles adicionais:
 <translation id="8725066075913043281">Tentar de novo</translation>
 <translation id="8726549941689275341">Tamaño da páxina:</translation>
 <translation id="8730621377337864115">Feito</translation>
-<translation id="1769647018144434441">Botón Xestionar contrasinais. Preme Intro para ver e xestionar os teus contrasinais desde a configuración de Brave</translation>
+<translation id="1769647018144434441">Botón Xestionar contrasinais. Preme Intro para ver e xestionar os teus contrasinais desde a configuración de adrbrowsiel</translation>
 <translation id="8734529307927223492"><ph name="MANAGER"/> xestiona o teu dispositivo (<ph name="DEVICE_TYPE"/>)</translation>
-<translation id="6326805297893828864">Para establecer unha conexión segura, é necesario axustar o reloxo correctamente. Isto débese a que os certificados que utilizan os sitios web para identificarse só son válidos durante períodos de tempo específicos. Debido a que o reloxo do dispositivo non está correctamente axustado, Brave non pode verificar estes certificados.</translation>
+<translation id="6326805297893828864">Para establecer unha conexión segura, é necesario axustar o reloxo correctamente. Isto débese a que os certificados que utilizan os sitios web para identificarse só son válidos durante períodos de tempo específicos. Debido a que o reloxo do dispositivo non está correctamente axustado, adrbrowsiel non pode verificar estes certificados.</translation>
 <translation id="8740359287975076522">Non se puido atopar o &lt;abbr id="dnsDefinition"&gt;enderezo DNS&lt;/abbr&gt; de <ph name="HOST_NAME"/>. Estase diagnosticando o problema.</translation>
 <translation id="8742371904523228557"><ph name="ONE_TIME_CODE"/> é o teu código para <ph name="ORIGIN"/></translation>
 <translation id="874918643257405732">Engadir esta pestana aos marcadores</translation>
 <translation id="8751426954251315517">Téntao de novo a próxima vez</translation>
-<translation id="6994163263933300131">Hai unha oferta de Brave Pay dispoñible</translation>
+<translation id="6994163263933300131">Hai unha oferta de adrbrowsiel Pay dispoñible</translation>
 <translation id="8759274551635299824">Esta tarxeta caducou</translation>
 <translation id="87601671197631245">Este sitio utiliza unha configuración de seguranza obsoleta que pode poñer en risco a túa información (por exemplo, contrasinais, mensaxes ou números de tarxetas de crédito) cando se lle envía.</translation>
-<translation id="8761567432415473239">A navegación segura de Brave <ph name="BEGIN_LINK"/>atopou programas prexudiciais<ph name="END_LINK"/> recentemente en <ph name="SITE"/>.</translation>
+<translation id="8761567432415473239">A navegación segura de adrbrowsiel <ph name="BEGIN_LINK"/>atopou programas prexudiciais<ph name="END_LINK"/> recentemente en <ph name="SITE"/>.</translation>
 <translation id="8763927697961133303">Dispositivo USB</translation>
-<translation id="565908431635579039">Acabas de escribir o teu contrasinal nun sitio enganoso. Brave recomenda comprobar os contrasinais gardados para <ph name="WEBSITE_1"/> e outros sitios nos que esteas a utilizar este contrasinal neste momento.</translation>
+<translation id="565908431635579039">Acabas de escribir o teu contrasinal nun sitio enganoso. adrbrowsiel recomenda comprobar os contrasinais gardados para <ph name="WEBSITE_1"/> e outros sitios nos que esteas a utilizar este contrasinal neste momento.</translation>
 <translation id="877985182522063539">A4</translation>
 <translation id="8790007591277257123">&amp;Refacer eliminación</translation>
-<translation id="5304100303568917877">Poderías perder o acceso á túa conta de <ph name="ORG_NAME"/> ou alguén podería roubarche a identidade. Brave recoméndache que cambies de contrasinal agora.</translation>
-<translation id="9156291179464624174"><ph name="ENROLLMENT_DOMAIN"/> activou Brave Enterprise Connectors no teu navegador. Estes conectores teñen acceso a algúns dos teus datos.</translation>
+<translation id="5304100303568917877">Poderías perder o acceso á túa conta de <ph name="ORG_NAME"/> ou alguén podería roubarche a identidade. adrbrowsiel recoméndache que cambies de contrasinal agora.</translation>
+<translation id="9156291179464624174"><ph name="ENROLLMENT_DOMAIN"/> activou adrbrowsiel Enterprise Connectors no teu navegador. Estes conectores teñen acceso a algúns dos teus datos.</translation>
 <translation id="8798099450830957504">Predeterminado</translation>
 <translation id="8805819170075074995">Entrada da lista "<ph name="LANGUAGE_ID"/>": ignorouse a entrada debido a que tamén está incluída na política SpellcheckLanguage.</translation>
 <translation id="8807160976559152894">Recorte despois de cada páxina</translation>
-<translation id="7674607358106534914"><ph name="UPDATE_CHROME_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para actualizar Brave desde a configuración do navegador</translation>
+<translation id="7674607358106534914"><ph name="UPDATE_CHROME_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Preme Tab e, a continuación, Intro para actualizar adrbrowsiel desde a configuración do navegador</translation>
 <translation id="883848425547221593">Outros marcadores</translation>
 <translation id="884264119367021077">Enderezo de envío</translation>
 <translation id="884923133447025588">Non se atopou ningún mecanismo de revogación.</translation>
-<translation id="7487066225574140895">Compartindo con Brave</translation>
-<translation id="4764754838347156633">Brave recoméndache que restablezas o contrasinal de <ph name="BEGIN_BOLD"/><ph name="ORG_NAME"/><ph name="END_BOLD"/> se o reutilizaches noutros sitios.</translation>
+<translation id="7487066225574140895">Compartindo con adrbrowsiel</translation>
+<translation id="4764754838347156633">adrbrowsiel recoméndache que restablezas o contrasinal de <ph name="BEGIN_BOLD"/><ph name="ORG_NAME"/><ph name="END_BOLD"/> se o reutilizaches noutros sitios.</translation>
 <translation id="885906927438988819">Se está ben escrito, podes <ph name="BEGIN_LINK"/>probar a executar o diagnóstico de rede de Windows<ph name="END_LINK"/>.</translation>
 <translation id="8866481888320382733">Erro ao analizar a configuración da política</translation>
 <translation id="8866928039507595380">Dobrez</translation>
@@ -1960,12 +1960,12 @@ Detalles adicionais:
 <translation id="8903921497873541725">Achegar</translation>
 <translation id="890485472659500557">Engineering-C</translation>
 <translation id="890493561996401738">Botón Quitar suxestión, preme Intro para quitala, <ph name="REMOVE_BUTTON_FOCUSED_FRIENDLY_MATCH_TEXT"/></translation>
-<translation id="2684652081942622950">Conta de Brave</translation>
-<translation id="4102271590580840789">Botón Xestionar métodos de pago. Preme Intro para xestionar os teus métodos de pago e a información das tarxetas de crédito desde a configuración de Brave</translation>
+<translation id="2684652081942622950">Conta de adrbrowsiel</translation>
+<translation id="4102271590580840789">Botón Xestionar métodos de pago. Preme Intro para xestionar os teus métodos de pago e a información das tarxetas de crédito desde a configuración de adrbrowsiel</translation>
 <translation id="8918231688545606538">Esta páxina é sospeitosa</translation>
 <translation id="8922013791253848639">Permitir sempre os anuncios neste sitio</translation>
 <translation id="892588693504540538">Perforación na parte superior dereita</translation>
-<translation id="7757992844965332255">Queres gardar esta tarxeta na túa conta de Brave?</translation>
+<translation id="7757992844965332255">Queres gardar esta tarxeta na túa conta de adrbrowsiel?</translation>
 <translation id="8932102934695377596">O reloxo está atrasado</translation>
 <translation id="893332455753468063">Engade un nome</translation>
 <translation id="8942355029279167844">O teu administrador permitiu que a aplicación <ph name="APP_NAME"/> recompile datos de diagnóstico para mellorar a experiencia do produto. Consulta <ph name="BEGIN_LINK"/>https://www.parallels.com/pcep<ph name="END_LINK"/> para obter máis información.</translation>
@@ -1977,8 +1977,8 @@ Detalles adicionais:
 <translation id="8971063699422889582">O certificado do servidor caducou.</translation>
 <translation id="8975012916872825179">Incluír información como números de teléfono, enderezos de correo electrónico e enderezos de envío</translation>
 <translation id="8975263830901772334">Nomes dos ficheiros que imprimes</translation>
-<translation id="8978053250194585037">A función de navegación segura de Brave <ph name="BEGIN_LINK"/>detectou actividades de phishing<ph name="END_LINK"/> recentemente no sitio <ph name="SITE"/>. Os sitios de phishing fanse pasar por outros sitios web para enganar os usuarios.</translation>
-<translation id="5889706513445719653">Métodos de pago e enderezos que usan Brave Pay</translation>
+<translation id="8978053250194585037">A función de navegación segura de adrbrowsiel <ph name="BEGIN_LINK"/>detectou actividades de phishing<ph name="END_LINK"/> recentemente no sitio <ph name="SITE"/>. Os sitios de phishing fanse pasar por outros sitios web para enganar os usuarios.</translation>
+<translation id="5889706513445719653">Métodos de pago e enderezos que usan adrbrowsiel Pay</translation>
 <translation id="8987927404178983737">Mes</translation>
 <translation id="8989148748219918422"><ph name="ORGANIZATION"/> [<ph name="COUNTRY"/>]</translation>
 <translation id="899688752321268742"><ph name="URL"/> quere saber se estás utilizando este dispositivo de maneira activa</translation>
@@ -2010,12 +2010,12 @@ Detalles adicionais:
 <translation id="9089260154716455634">Política fóra do horario:</translation>
 <translation id="9095388113577226029">Máis idiomas…</translation>
 <translation id="9101630580131696064">Bandexa 1</translation>
-<translation id="6373940988468425649">Normalmente, <ph name="SITE"/> encripta a túa información para protexela. Nesta ocasión, cando Brave tentou conectar con <ph name="SITE"/>, o sitio web devolveu credenciais estrañas e incorrectas. É posible que un atacante tentase facerse pasar por <ph name="SITE"/> ou que a pantalla de inicio de sesión de wifi interrompese a conexión. Non obstante, a túa información segue a salvo porque Brave detivo a conexión antes de intercambiar datos.</translation>
+<translation id="6373940988468425649">Normalmente, <ph name="SITE"/> encripta a túa información para protexela. Nesta ocasión, cando adrbrowsiel tentou conectar con <ph name="SITE"/>, o sitio web devolveu credenciais estrañas e incorrectas. É posible que un atacante tentase facerse pasar por <ph name="SITE"/> ou que a pantalla de inicio de sesión de wifi interrompese a conexión. Non obstante, a túa información segue a salvo porque adrbrowsiel detivo a conexión antes de intercambiar datos.</translation>
 <translation id="9106062320799175032">Engade un enderezo de facturación</translation>
 <translation id="9107467864910557787"><ph name="MANAGER"/> xestiona o teu navegador</translation>
 <translation id="91108059142052966">A política do administrador desactiva a pantalla compartida con <ph name="APPLICATION_TITLE"/> cando hai contido confidencial á vista</translation>
 <translation id="9114524666733003316">Confirmando tarxeta…</translation>
-<translation id="3582535072753734287">Ningunha compañía ou organización xestiona este navegador. A actividade deste dispositivo pódese xestionar fóra de Brave. <ph name="BEGIN_LINK"/>Máis información<ph name="END_LINK"/></translation>
+<translation id="3582535072753734287">Ningunha compañía ou organización xestiona este navegador. A actividade deste dispositivo pódese xestionar fóra de adrbrowsiel. <ph name="BEGIN_LINK"/>Máis información<ph name="END_LINK"/></translation>
 <translation id="9119042192571987207">Cargouse</translation>
 <translation id="9128016270925453879">Cargáronse as políticas</translation>
 <translation id="9128870381267983090">Conectarse á rede</translation>
@@ -2024,7 +2024,7 @@ Detalles adicionais:
 <translation id="9148088599418889305">Escoller método de envío</translation>
 <translation id="9148507642005240123">&amp;Desfacer modificación</translation>
 <translation id="9150045010208374699">Utilizar a túa cámara</translation>
-<translation id="5874192512642998555">O teu administrador pode cambiar a configuración do navegador de forma remota. A actividade deste dispositivo tamén se pode xestionar fóra de Brave. <ph name="BEGIN_LINK"/>Máis información<ph name="END_LINK"/></translation>
+<translation id="5874192512642998555">O teu administrador pode cambiar a configuración do navegador de forma remota. A actividade deste dispositivo tamén se pode xestionar fóra de adrbrowsiel. <ph name="BEGIN_LINK"/>Máis información<ph name="END_LINK"/></translation>
 <translation id="9154194610265714752">Actualizado</translation>
 <translation id="9157595877708044936">Configurando...</translation>
 <translation id="9158625974267017556">C6 (sobre)</translation>
@@ -2036,20 +2036,20 @@ Detalles adicionais:
 <translation id="9173282814238175921">Documento único/folla nova</translation>
 <translation id="917450738466192189">O certificado do servidor non é válido.</translation>
 <translation id="9174917557437862841">Botón de cambio de pestana; preme Intro para cambiar a esta pestana</translation>
-<translation id="5129795253416930127">Xestiona os teus pagos e a información das tarxetas de crédito na configuración de Brave</translation>
-<translation id="9183302530794969518">Documentos de Brave</translation>
+<translation id="5129795253416930127">Xestiona os teus pagos e a información das tarxetas de crédito na configuración de adrbrowsiel</translation>
+<translation id="9183302530794969518">Documentos de adrbrowsiel</translation>
 <translation id="9183425211371246419"><ph name="HOST_NAME"/> utiliza un protocolo non compatible.</translation>
 <translation id="9191834167571392248">Perforación na parte inferior esquerda</translation>
 <translation id="9199905725844810519">A opción de impresión está bloqueada</translation>
 <translation id="9205078245616868884">Os teus datos encriptáronse co teu contrasinal de sincronización. Introdúceo para comezar a sincronización.</translation>
 <translation id="9207861905230894330">Non se puido engadir o artigo.</translation>
 <translation id="9213433120051936369">Personalizar a aparencia</translation>
-<translation id="2206050430829841793">Unha aplicación está evitando que Brave se conecte de forma segura a este sitio</translation>
+<translation id="2206050430829841793">Unha aplicación está evitando que adrbrowsiel se conecte de forma segura a este sitio</translation>
 <translation id="9219103736887031265">Imaxes</translation>
 <translation id="933712198907837967">Diners Club</translation>
 <translation id="935608979562296692">BORRAR FORMULARIO</translation>
 <translation id="936474030629450166">Super-B</translation>
-<translation id="7486559383537872796">Poderías perder o acceso á túa Conta de Brave. Brave recoméndache que cambies de contrasinal agora. Deberás iniciar sesión.</translation>
+<translation id="7486559383537872796">Poderías perder o acceso á túa Conta de adrbrowsiel. adrbrowsiel recoméndache que cambies de contrasinal agora. Deberás iniciar sesión.</translation>
 <translation id="939736085109172342">Cartafol novo</translation>
 <translation id="945522503751344254">Enviar comentarios</translation>
 <translation id="945855313015696284">Comproba a información que aparece a continuación e elimina as tarxetas non válidas</translation>
@@ -2075,7 +2075,7 @@ Detalles adicionais:
     &lt;li&gt;Proba a conectarte a outra rede&lt;/li&gt;
     &lt;/ul&gt;</translation>
 <translation id="994346157028146140">JIS B1</translation>
-<translation id="6771143571626203666">De Brave Pay</translation>
+<translation id="6771143571626203666">De adrbrowsiel Pay</translation>
 <translation id="8820817407110198400">Marcadores</translation>
 <translation id="8362995731815961365">A persoa que configurou este ordenador optou por bloquear este sitio.</translation>
 <translation id="4075123085690634698">Abre a páxina nunha nova ventá do modo de incógnito (⇧⌘N)</translation>
@@ -2099,11 +2099,11 @@ Detalles adicionais:
     &lt;/ol&gt;
     &lt;h4&gt;Paso 2: Abre a páxina nunha ventá do modo de incógnito (só en ordenadores)&lt;/h4&gt;
     &lt;p&gt;Nunha ventá do modo de incógnito, abre a páxina que estabas a visitar.&lt;/p&gt;
-    &lt;p&gt;Se a páxina se abre, unha extensión de Brave non funciona correctamente. Para solucionar o erro, desactiva a extensión.&lt;/p&gt;
+    &lt;p&gt;Se a páxina se abre, unha extensión de adrbrowsiel non funciona correctamente. Para solucionar o erro, desactiva a extensión.&lt;/p&gt;
     &lt;h4&gt;Paso 3: Actualiza o sistema operativo&lt;/h4&gt;
     &lt;p&gt;Asegúrate de que o dispositivo estea actualizado.&lt;/p&gt;
     &lt;h4&gt;Paso 4: Desactiva temporalmente o antivirus&lt;/h4&gt;
-    &lt;p&gt;Verás este erro se tes un software de antivirus que proporciona "Protección HTTPS" ou "Análise de HTTPS". Este software evita que Brave ofreza seguranza.&lt;/p&gt;
+    &lt;p&gt;Verás este erro se tes un software de antivirus que proporciona "Protección HTTPS" ou "Análise de HTTPS". Este software evita que adrbrowsiel ofreza seguranza.&lt;/p&gt;
     &lt;p&gt;Para solucionar o problema, desactiva o software de antivirus. Se a páxina funciona despois de desactivalo, desactívao cando navegues por sitios seguros.&lt;/p&gt;
     &lt;p&gt;Lembra volver activar o programa de antivirus cando remates.&lt;/p&gt;
     &lt;h4&gt;Paso 5: Recibe axuda adicional&lt;/h4&gt;

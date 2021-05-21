@@ -32,7 +32,7 @@ export const heading = styled.div`
   font-weight: 600;
   font-size: 18px;
   line-height: 27px;
-  color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-neutral900);
 `
 
 export const message = styled.div`
@@ -42,11 +42,11 @@ export const message = styled.div`
   margin: 0 auto;
   font-size: 14px;
   line-height: 20px;
-  color: var(--brave-palette-neutral700);
+  color: var(--adrbrowsiel-palette-neutral700);
 `
 
 export const details = styled.div`
   font-size: 10px;
   padding: 5px;
-  color: var(--brave-palette-grey500);
+  color: var(--adrbrowsiel-palette-grey500);
 `

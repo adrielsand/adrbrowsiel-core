@@ -32,7 +32,7 @@ const store = createStore(
 )
 
 wrapStore(store, {
-  portName: 'BRAVE'
+  portName: 'adrbrowsiel'
 })
 
 export default store

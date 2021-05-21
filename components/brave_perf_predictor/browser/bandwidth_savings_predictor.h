@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_BANDWIDTH_SAVINGS_PREDICTOR_H_
-#define BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_BANDWIDTH_SAVINGS_PREDICTOR_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_BANDWIDTH_SAVINGS_PREDICTOR_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_BANDWIDTH_SAVINGS_PREDICTOR_H_
 
 #include <string>
 
 #include "base/containers/flat_map.h"
 #include "base/gtest_prod_util.h"
-#include "brave/components/brave_perf_predictor/browser/named_third_party_registry.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/named_third_party_registry.h"
 #include "url/gurl.h"
 
 namespace page_load_metrics {
@@ -29,7 +29,7 @@ class ResourceLoadInfo;
 }  // namespace mojom
 }  // namespace blink
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 // Accumulates statistics for a page being loaded and produces estimated
 // bandwidth savings when queried. If reused, caller is responsible for
@@ -67,6 +67,6 @@ class BandwidthSavingsPredictor {
   base::flat_map<std::string, double> feature_map_;
 };
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor
 
-#endif  // BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_BANDWIDTH_SAVINGS_PREDICTOR_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_BANDWIDTH_SAVINGS_PREDICTOR_H_

@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 import * as React from 'react'
 import styled from 'styled-components'
-import Card, { CardProps } from 'brave-ui/components/layout/card'
+import Card, { CardProps } from 'adrbrowsiel-ui/components/layout/card'
 
 export const QRBoxWrapper = styled('div')<{}>`
   width: 100%;

@@ -3,16 +3,16 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import ShieldsHeader, { Props } from '../../../../brave_extension/extension/brave_extension/containers/advancedView/header'
-import { BlockOptions } from '../../../../brave_extension/extension/brave_extension/types/other/blockTypes'
-import * as actionTypes from '../../../../brave_extension/extension/brave_extension/constants/shieldsPanelTypes'
+import ShieldsHeader, { Props } from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/containers/advancedView/header'
+import { BlockOptions } from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/other/blockTypes'
+import * as actionTypes from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/shieldsPanelTypes'
 import { shallow } from 'enzyme'
 
 const fakeProps: Props = {
   enabled: false,
   favicon: '',
-  origin: 'https://brave.com',
-  hostname: 'brave.com',
+  origin: 'https://adrbrowsiel.com',
+  hostname: 'adrbrowsiel.com',
   isBlockedListOpen: true,
   shieldsToggled: (setting: BlockOptions) => ({ type: actionTypes.SHIELDS_TOGGLED, setting }),
   adsBlocked: 0,
@@ -28,7 +28,7 @@ describe('AdvancedView Header component', () => {
 
   it('renders the component', () => {
     const wrapper = shallow(baseComponent(fakeProps))
-    const assertion = wrapper.find('#braveShieldsHeader').length === 1
+    const assertion = wrapper.find('#adrbrowsielShieldsHeader').length === 1
     expect(assertion).toBe(true)
   })
 

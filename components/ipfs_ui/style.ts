@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 
 export const Section = styled('div')<{}>`
   margin: 0 20px 10px;

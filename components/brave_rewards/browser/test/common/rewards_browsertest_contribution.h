@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTRIBUTION_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTRIBUTION_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTRIBUTION_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTRIBUTION_H_
 
 #include <memory>
 #include <string>
@@ -12,23 +12,23 @@
 
 #include "base/run_loop.h"
 #include "bat/ledger/mojom_structs.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/rewards_service_observer.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_helper.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
 #include "chrome/browser/ui/browser.h"
 
 namespace rewards_browsertest {
 
 class RewardsBrowserTestContribution
-    : public brave_rewards::RewardsServiceObserver {
+    : public adrbrowsiel_rewards::RewardsServiceObserver {
  public:
   RewardsBrowserTestContribution();
   ~RewardsBrowserTestContribution() override;
 
   void Initialize(
       Browser* browser,
-      brave_rewards::RewardsServiceImpl* rewards_service);
+      adrbrowsiel_rewards::RewardsServiceImpl* rewards_service);
 
   void TipViaCode(
       const std::string& publisher_key,
@@ -63,7 +63,7 @@ class RewardsBrowserTestContribution
       const double amount,
       const bool verified = false,
       const ledger::type::ContributionProcessor processor =
-          ledger::type::ContributionProcessor::BRAVE_TOKENS);
+          ledger::type::ContributionProcessor::adrbrowsiel_TOKENS);
 
   void WaitForMultipleTipReconcileCompleted(const int32_t needed);
 
@@ -81,7 +81,7 @@ class RewardsBrowserTestContribution
   std::vector<ledger::type::Result> GetMultipleACStatus();
 
   void SetUpUpholdWallet(
-      brave_rewards::RewardsServiceImpl* rewards_service,
+      adrbrowsiel_rewards::RewardsServiceImpl* rewards_service,
       const double balance,
       const ledger::type::WalletStatus status =
         ledger::type::WalletStatus::VERIFIED);
@@ -96,11 +96,11 @@ class RewardsBrowserTestContribution
   void WaitForPendingTipToBeSaved();
 
   void OnPendingContributionSaved(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       const ledger::type::Result result) override;
 
   void OnReconcileComplete(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       const ledger::type::Result result,
       const std::string& contribution_id,
       const double amount,
@@ -110,7 +110,7 @@ class RewardsBrowserTestContribution
   void WaitForRecurringTipToBeSaved();
 
   void OnRecurringTipSaved(
-      brave_rewards::RewardsService* rewards_service,
+      adrbrowsiel_rewards::RewardsService* rewards_service,
       const bool success) override;
 
   std::string GetStringBalance();
@@ -146,9 +146,9 @@ class RewardsBrowserTestContribution
       ledger::type::Result::LEDGER_ERROR;
 
   Browser* browser_;  // NOT OWNED
-  brave_rewards::RewardsServiceImpl* rewards_service_;  // NOT OWNED
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;  // NOT OWNED
   std::unique_ptr<RewardsBrowserTestContextHelper> context_helper_;
 };
 
 }  // namespace rewards_browsertest
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTRIBUTION_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTRIBUTION_H_

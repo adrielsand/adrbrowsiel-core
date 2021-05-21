@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_GREASELION_BROWSER_GREASELION_DOWNLOAD_SERVICE_H_
-#define BRAVE_COMPONENTS_GREASELION_BROWSER_GREASELION_DOWNLOAD_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_GREASELION_BROWSER_GREASELION_DOWNLOAD_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_GREASELION_BROWSER_GREASELION_DOWNLOAD_SERVICE_H_
 
 #include <memory>
 #include <string>
@@ -17,8 +17,8 @@
 #include "base/sequence_checker.h"
 #include "base/sequenced_task_runner.h"
 #include "base/values.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_observer.h"
-#include "brave/components/greaselion/browser/greaselion_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_observer.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_service.h"
 #include "content/public/browser/notification_types.h"
 #include "extensions/common/url_pattern_set.h"
 #include "url/gurl.h"
@@ -29,8 +29,8 @@ namespace base {
 class Version;
 }
 
-using brave_component_updater::LocalDataFilesObserver;
-using brave_component_updater::LocalDataFilesService;
+using adrbrowsiel_component_updater::LocalDataFilesObserver;
+using adrbrowsiel_component_updater::LocalDataFilesService;
 
 namespace greaselion {
 
@@ -46,7 +46,7 @@ struct GreaselionPreconditions {
   GreaselionPreconditionValue github_tips_enabled = kAny;
   GreaselionPreconditionValue auto_contribution_enabled = kAny;
   GreaselionPreconditionValue ads_enabled = kAny;
-  GreaselionPreconditionValue supports_minimum_brave_version = kAny;
+  GreaselionPreconditionValue supports_minimum_adrbrowsiel_version = kAny;
 };
 
 class GreaselionRule {
@@ -60,7 +60,7 @@ class GreaselionRule {
              base::ListValue* urls_value,
              base::ListValue* scripts_value,
              const std::string& run_at_value,
-             const std::string& minimum_brave_version_value,
+             const std::string& minimum_adrbrowsiel_version_value,
              const base::FilePath& messages_value,
              const base::FilePath& resource_dir);
   bool Matches(
@@ -86,7 +86,7 @@ class GreaselionRule {
   std::vector<std::string> url_patterns_;
   std::vector<base::FilePath> scripts_;
   std::string run_at_;
-  std::string minimum_brave_version_;
+  std::string minimum_adrbrowsiel_version_;
   base::FilePath messages_;
   GreaselionPreconditions preconditions_;
   bool has_unknown_preconditions_ = false;
@@ -145,4 +145,4 @@ std::unique_ptr<GreaselionDownloadService> GreaselionDownloadServiceFactory(
 
 }  // namespace greaselion
 
-#endif  // BRAVE_COMPONENTS_GREASELION_BROWSER_GREASELION_DOWNLOAD_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_GREASELION_BROWSER_GREASELION_DOWNLOAD_SERVICE_H_

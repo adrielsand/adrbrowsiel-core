@@ -6,15 +6,15 @@ import * as React from 'react'
 
 import { getLocale } from '../../../../common/locale'
 
-import { WithThemeVariables } from '../../../../brave_rewards/resources/shared/components/with_theme_variables'
-import { LocaleContext } from '../../../../brave_rewards/resources/shared/lib/locale_context'
+import { WithThemeVariables } from '../../../../adrbrowsiel_rewards/resources/shared/components/with_theme_variables'
+import { LocaleContext } from '../../../../adrbrowsiel_rewards/resources/shared/lib/locale_context'
 import {
   BAPDeprecationAlert,
   shouldShowBAPAlert,
   shouldShowBAPPopup,
   saveBAPAlertDismissed,
   saveBAPPopupShown
-} from '../../../../brave_rewards/resources/shared/components/bap_deprecation'
+} from '../../../../adrbrowsiel_rewards/resources/shared/components/bap_deprecation'
 
 const locale = {
   getString: getLocale
@@ -46,8 +46,8 @@ export default function BAPDeprecationModal (props: Props) {
     if (shouldShowBAPPopup(onlyAnonWallet, balance.total)) {
       setPopupShown(true)
       saveBAPPopupShown()
-      const popupURL = 'brave_rewards_panel.html#bap-deprecation'
-      chrome.braveRewards.openBrowserActionUI(popupURL)
+      const popupURL = 'adrbrowsiel_rewards_panel.html#bap-deprecation'
+      chrome.adrbrowsielRewards.openBrowserActionUI(popupURL)
     }
   }, [popupShown, showModal, onlyAnonWallet, balance])
 
@@ -57,7 +57,7 @@ export default function BAPDeprecationModal (props: Props) {
     }
 
     // Attach a hashchange listener while this component is rendered. If the
-    // BAP deprecation popup has been opened in the brave rewards extension
+    // BAP deprecation popup has been opened in the adrbrowsiel rewards extension
     // panel and the user clicks "Learn more", it will update the hash on
     // this page.
     const onHashChange = () => {

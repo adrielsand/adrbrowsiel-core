@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#import "brave/ios/browser/api/sync/brave_sync_api.h"
+#import "adrbrowsiel/ios/browser/api/sync/adrbrowsiel_sync_api.h"
 
 #import <CoreImage/CoreImage.h>
 #include <string>
@@ -15,10 +15,10 @@
 #include "base/scoped_observer.h"
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/sys_string_conversions.h"
-#include "brave/components/brave_sync/brave_sync_prefs.h"
-#include "brave/components/brave_sync/crypto/crypto.h"
-#include "brave/components/sync_device_info/brave_device_info.h"
-#include "brave/ios/browser/api/sync/brave_sync_worker.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/adrbrowsiel_sync_prefs.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/crypto/crypto.h"
+#include "adrbrowsiel/components/sync_device_info/adrbrowsiel_device_info.h"
+#include "adrbrowsiel/ios/browser/api/sync/adrbrowsiel_sync_worker.h"
 #include "components/sync/driver/profile_sync_service.h"
 #include "components/sync/driver/sync_service.h"
 #include "components/sync/driver/sync_service_observer.h"
@@ -38,54 +38,54 @@
 #error "This file requires ARC support."
 #endif
 
-@interface BraveSyncDeviceObserver : NSObject {
-  std::unique_ptr<BraveSyncDeviceTracker> _device_observer;
+@interface adrbrowsielSyncDeviceObserver : NSObject {
+  std::unique_ptr<adrbrowsielSyncDeviceTracker> _device_observer;
 }
 @end
 
-@implementation BraveSyncDeviceObserver
+@implementation adrbrowsielSyncDeviceObserver
 
 - (instancetype)initWithDeviceInfoTracker:(syncer::DeviceInfoTracker*)tracker
                                  callback:(void (^)())onDeviceInfoChanged {
   if ((self = [super init])) {
     _device_observer =
-        std::make_unique<BraveSyncDeviceTracker>(tracker, onDeviceInfoChanged);
+        std::make_unique<adrbrowsielSyncDeviceTracker>(tracker, onDeviceInfoChanged);
   }
   return self;
 }
 @end
 
-@interface BraveSyncServiceObserver : NSObject {
-  std::unique_ptr<BraveSyncServiceTracker> _service_tracker;
+@interface adrbrowsielSyncServiceObserver : NSObject {
+  std::unique_ptr<adrbrowsielSyncServiceTracker> _service_tracker;
 }
 @end
 
-@implementation BraveSyncServiceObserver
+@implementation adrbrowsielSyncServiceObserver
 
 - (instancetype)
     initWithProfileSyncService:(syncer::ProfileSyncService*)profileSyncService
                       callback:(void (^)())onSyncServiceStateChanged {
   if ((self = [super init])) {
-    _service_tracker = std::make_unique<BraveSyncServiceTracker>(
+    _service_tracker = std::make_unique<adrbrowsielSyncServiceTracker>(
         profileSyncService, onSyncServiceStateChanged);
   }
   return self;
 }
 @end
 
-@interface BraveSyncAPI () {
-  std::unique_ptr<BraveSyncWorker> _worker;
+@interface adrbrowsielSyncAPI () {
+  std::unique_ptr<adrbrowsielSyncWorker> _worker;
   ChromeBrowserState* _chromeBrowserState;
 }
 @end
 
-@implementation BraveSyncAPI
+@implementation adrbrowsielSyncAPI
 
 + (instancetype)sharedSyncAPI {
-  static BraveSyncAPI* instance = nil;
+  static adrbrowsielSyncAPI* instance = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    instance = [[BraveSyncAPI alloc] init];
+    instance = [[adrbrowsielSyncAPI alloc] init];
   });
   return instance;
 }
@@ -95,7 +95,7 @@
     ios::ChromeBrowserStateManager* browserStateManager =
         GetApplicationContext()->GetChromeBrowserStateManager();
     _chromeBrowserState = browserStateManager->GetLastUsedBrowserState();
-    _worker.reset(new BraveSyncWorker(_chromeBrowserState));
+    _worker.reset(new adrbrowsielSyncWorker(_chromeBrowserState));
   }
   return self;
 }
@@ -142,7 +142,7 @@
 - (UIImage*)getQRCodeImage:(CGSize)size {
   std::vector<uint8_t> seed;
   std::string sync_code = _worker->GetOrCreateSyncCode();
-  if (!brave_sync::crypto::PassphraseToBytes32(sync_code, &seed)) {
+  if (!adrbrowsiel_sync::crypto::PassphraseToBytes32(sync_code, &seed)) {
     return nil;
   }
 
@@ -212,7 +212,7 @@
   auto* tracker =
       DeviceInfoSyncServiceFactory::GetForBrowserState(_chromeBrowserState)
           ->GetDeviceInfoTracker();
-  return [[BraveSyncDeviceObserver alloc]
+  return [[adrbrowsielSyncDeviceObserver alloc]
       initWithDeviceInfoTracker:tracker
                        callback:onDeviceInfoChanged];
 }
@@ -221,7 +221,7 @@
   auto* service =
       ProfileSyncServiceFactory::GetAsProfileSyncServiceForBrowserState(
           _chromeBrowserState);
-  return [[BraveSyncServiceObserver alloc]
+  return [[adrbrowsielSyncServiceObserver alloc]
       initWithProfileSyncService:service
                         callback:onSyncServiceStateChanged];
 }

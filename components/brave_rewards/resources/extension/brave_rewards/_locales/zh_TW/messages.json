@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "我們為 Brave Rewards 做了一次大更新。",
+    "message": "我們為 adrbrowsiel Rewards 做了一次大更新。",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "可用於 Brave 獎勵來捐助您最喜愛的內容創作者。BAT 點數不可兌換 BAT。",
+    "message": "可用於 adrbrowsiel 獎勵來捐助您最喜愛的內容創作者。BAT 點數不可兌換 BAT。",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Brave 驗證的創作者",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsiel 驗證的創作者",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "注意",
@@ -193,15 +193,15 @@
     "message": "確定",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "現在您可以透過觀看廣告來賺取獎勵。",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave 廣告",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel 廣告",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "自動捐獻",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "請備份您的 Brave 電子錢包。",
+    "message": "請備份您的 adrbrowsiel 電子錢包。",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "您的 Brave Rewards 帳號正在等待存款。",
+    "message": "您的 adrbrowsiel Rewards 帳號正在等待存款。",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "資金不足",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "創造錢包",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "「Brave 報酬」發生問題了。請待會再試一次。",
+    "message": "「adrbrowsiel 報酬」發生問題了。請待會再試一次。",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "這位建立者尚未登記接受 Brave 使用者的提撥金。您寄發的任何小費在他們驗證之前都會留在您的錢包中。",
+    "message": "這位建立者尚未登記接受 adrbrowsiel 使用者的提撥金。您寄發的任何小費在他們驗證之前都會留在您的錢包中。",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "「Brave 報酬」是",
+    "message": "「adrbrowsiel 報酬」是",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "與",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "瀏覽網站就能賺取報酬！",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "啟用 Brave Rewards",
+    "message": "啟用 adrbrowsiel Rewards",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "透過點選「啟用 Brave Rewards」，您即暗示您已經閱讀並同意",
+    "message": "透過點選「啟用 adrbrowsiel Rewards」，您即暗示您已經閱讀並同意",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "您的獎勵已撥給 Brave 獎勵電子錢包。",
+    "message": "您的獎勵已撥給 adrbrowsiel 獎勵電子錢包。",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "從 Brave Rewards 取消連結",
+    "message": "從 adrbrowsiel Rewards 取消連結",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "此 Brave 驗證的創作者還沒設定好他們的帳號來接收 Brave 使用者的貢獻。您傳送的任何小費都會在他們完成此程序前保留在您的錢包內。",
+    "message": "此 adrbrowsiel 驗證的創作者還沒設定好他們的帳號來接收 adrbrowsiel 使用者的貢獻。您傳送的任何小費都會在他們完成此程序前保留在您的錢包內。",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "開始使用 Brave Rewards",
+    "message": "開始使用 adrbrowsiel Rewards",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "歡迎使用 Brave Rewards！",
+    "message": "歡迎使用 adrbrowsiel Rewards！",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "與傳統廣告不同，Brave 的私人廣告用代幣獎勵您以支持內容創作者，同時為您的個人資訊保密。",
+    "message": "與傳統廣告不同，adrbrowsiel 的私人廣告用代幣獎勵您以支持內容創作者，同時為您的個人資訊保密。",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Brave 的私人廣告會以一般通知顯示。您可以在設定中控制看到這些廣告的頻率。",
+    "message": "adrbrowsiel 的私人廣告會以一般通知顯示。您可以在設定中控制看到這些廣告的頻率。",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "本月您從 Brave 的私人廣告贏取的代幣，將在下個月的 5 日抵達。",
+    "message": "本月您從 adrbrowsiel 的私人廣告贏取的代幣，將在下個月的 5 日抵達。",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "透過使用 Brave 獎勵，您正在協助使網際網路成為適合所有人的更美好的地方。真是太棒了！",
+    "message": "透過使用 adrbrowsiel 獎勵，您正在協助使網際網路成為適合所有人的更美好的地方。真是太棒了！",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "驗證您的錢包並將其連結至 bitFlyer 帳戶，您將能更輕鬆地儲存並管理透過 Brave Rewards 賺取的代幣",
+    "message": "驗證您的錢包並將其連結至 bitFlyer 帳戶，您將能更輕鬆地儲存並管理透過 adrbrowsiel Rewards 賺取的代幣",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "日本的 Brave Rewards 正在切換到新系統！",
+    "message": "日本的 adrbrowsiel Rewards 正在切換到新系統！",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

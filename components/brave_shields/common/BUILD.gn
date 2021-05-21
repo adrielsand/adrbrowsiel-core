@@ -2,9 +2,9 @@ import("//mojo/public/tools/bindings/mojom.gni")
 
 source_set("common") {
   sources = [
-    "brave_shield_constants.h",
-    "brave_shield_utils.cc",
-    "brave_shield_utils.h",
+    "adrbrowsiel_shield_constants.h",
+    "adrbrowsiel_shield_utils.cc",
+    "adrbrowsiel_shield_utils.h",
     "features.cc",
     "features.h",
     "pref_names.cc",
@@ -19,7 +19,7 @@ source_set("common") {
 }
 
 mojom("mojom") {
-  sources = [ "brave_shields.mojom" ]
+  sources = [ "adrbrowsiel_shields.mojom" ]
 
   deps = [ "//mojo/public/mojom/base" ]
 }

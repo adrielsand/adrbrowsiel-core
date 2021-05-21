@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_sync/brave_sync_prefs.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/adrbrowsiel_sync_prefs.h"
 
 #include <utility>
 
@@ -14,48 +14,48 @@
 #include "components/prefs/pref_service.h"
 #include "components/prefs/scoped_user_pref_update.h"
 
-namespace brave_sync {
+namespace adrbrowsiel_sync {
 namespace {
 
 // Stored as bip39 keywords (encrypted)
-const char kSyncV2Seed[] = "brave_sync_v2.seed";
+const char kSyncV2Seed[] = "adrbrowsiel_sync_v2.seed";
 // Indicate whether migration has been done from v1 to v2
-const char kSyncV1Migrated[] = "brave_sync_v2.v1_migrated";
+const char kSyncV1Migrated[] = "adrbrowsiel_sync_v2.v1_migrated";
 // Indicate all meta info set in V1 has been stripped in
-// BraveBookmarkModelLoadedObserver
-const char kSyncV1MetaInfoCleared[] = "brave_sync_v2.v1_meta_info_cleared";
+// adrbrowsielBookmarkModelLoadedObserver
+const char kSyncV1MetaInfoCleared[] = "adrbrowsiel_sync_v2.v1_meta_info_cleared";
 // Has dismissed message about migration to sync v2
 const char kSyncV2MigrateNoticeDismissed[] =
-    "brave_sync_v2.migrate_notice_dismissed";
+    "adrbrowsiel_sync_v2.migrate_notice_dismissed";
 // Deprecated
 // ============================================================================
-const char kSyncSeed[] = "brave_sync.seed";
-const char kSyncEnabled[] = "brave_sync.enabled";
-const char kSyncDeviceId[] = "brave_sync.device_id";
-const char kSyncDeviceIdV2[] = "brave_sync.device_id_v2";
-const char kSyncDeviceObjectId[] = "brave_sync.device_object_id";
-const char kSyncPrevSeed[] = "brave_sync.previous_seed";
-const char kSyncDeviceName[] = "brave_sync.device_name";
-const char kSyncBookmarksBaseOrder[] = "brave_sync.bookmarks_base_order";
-const char kSyncBookmarksEnabled[] = "brave_sync.bookmarks_enabled";
-const char kSyncSiteSettingsEnabled[] = "brave_sync.site_settings_enabled";
-const char kSyncHistoryEnabled[] = "brave_sync.history_enabled";
-const char kSyncLatestRecordTime[] = "brave_sync.latest_record_time";
+const char kSyncSeed[] = "adrbrowsiel_sync.seed";
+const char kSyncEnabled[] = "adrbrowsiel_sync.enabled";
+const char kSyncDeviceId[] = "adrbrowsiel_sync.device_id";
+const char kSyncDeviceIdV2[] = "adrbrowsiel_sync.device_id_v2";
+const char kSyncDeviceObjectId[] = "adrbrowsiel_sync.device_object_id";
+const char kSyncPrevSeed[] = "adrbrowsiel_sync.previous_seed";
+const char kSyncDeviceName[] = "adrbrowsiel_sync.device_name";
+const char kSyncBookmarksBaseOrder[] = "adrbrowsiel_sync.bookmarks_base_order";
+const char kSyncBookmarksEnabled[] = "adrbrowsiel_sync.bookmarks_enabled";
+const char kSyncSiteSettingsEnabled[] = "adrbrowsiel_sync.site_settings_enabled";
+const char kSyncHistoryEnabled[] = "adrbrowsiel_sync.history_enabled";
+const char kSyncLatestRecordTime[] = "adrbrowsiel_sync.latest_record_time";
 const char kSyncLatestDeviceRecordTime[] =
-    "brave_sync.latest_device_record_time";
-const char kSyncLastFetchTime[] = "brave_sync.last_fetch_time";
+    "adrbrowsiel_sync.latest_device_record_time";
+const char kSyncLastFetchTime[] = "adrbrowsiel_sync.last_fetch_time";
 const char kSyncLastCompactTimeBookmarks[] =
-    "brave_sync.last_compact_time.bookmarks";
-const char kSyncDeviceList[] = "brave_sync.device_list";
-const char kSyncApiVersion[] = "brave_sync.api_version";
+    "adrbrowsiel_sync.last_compact_time.bookmarks";
+const char kSyncDeviceList[] = "adrbrowsiel_sync.device_list";
+const char kSyncApiVersion[] = "adrbrowsiel_sync.api_version";
 const char kSyncMigrateBookmarksVersion[]
-                                       = "brave_sync.migrate_bookmarks_version";
-const char kSyncRecordsToResend[] = "brave_sync_records_to_resend";
-const char kSyncRecordsToResendMeta[] = "brave_sync_records_to_resend_meta";
+                                       = "adrbrowsiel_sync.migrate_bookmarks_version";
+const char kSyncRecordsToResend[] = "adrbrowsiel_sync_records_to_resend";
+const char kSyncRecordsToResendMeta[] = "adrbrowsiel_sync_records_to_resend_meta";
 const char kDuplicatedBookmarksRecovered[] =
-    "brave_sync_duplicated_bookmarks_recovered";
+    "adrbrowsiel_sync_duplicated_bookmarks_recovered";
 const char kDuplicatedBookmarksMigrateVersion[] =
-    "brave_sync_duplicated_bookmarks_migrate_version";
+    "adrbrowsiel_sync_duplicated_bookmarks_migrate_version";
 // ============================================================================
 }  // namespace
 
@@ -169,7 +169,7 @@ void Prefs::Clear() {
   pref_service_->ClearPref(kSyncV2Seed);
 }
 
-void MigrateBraveSyncPrefs(PrefService* prefs) {
+void MigrateadrbrowsielSyncPrefs(PrefService* prefs) {
   // Added 11/2019
   prefs->ClearPref(kSyncPrevSeed);
 
@@ -197,4 +197,4 @@ void MigrateBraveSyncPrefs(PrefService* prefs) {
   prefs->ClearPref(kDuplicatedBookmarksMigrateVersion);
 }
 
-}  // namespace brave_sync
+}  // namespace adrbrowsiel_sync

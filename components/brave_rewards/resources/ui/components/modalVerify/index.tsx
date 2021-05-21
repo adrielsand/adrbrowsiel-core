@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 
 import {
   StyledWrapper,
@@ -31,8 +31,8 @@ import {
   UpholdColorIcon,
   RewardsWalletCheck,
   RewardsCheckIcon
-} from 'brave-ui/components/icons'
-import { Modal } from 'brave-ui/components'
+} from 'adrbrowsiel-ui/components/icons'
+import { Modal } from 'adrbrowsiel-ui/components'
 
 export interface Props {
   onVerifyClick: () => void

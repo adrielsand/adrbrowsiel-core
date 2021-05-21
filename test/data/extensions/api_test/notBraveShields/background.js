@@ -3,15 +3,15 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 chrome.test.runTests([
-  function notBraveShieldsExtensionHasAccess() {
-    if (chrome.braveShields) {
+  function notadrbrowsielShieldsExtensionHasAccess() {
+    if (chrome.adrbrowsielShields) {
       chrome.test.fail();
     } else {
       chrome.test.succeed();
     }
   },
-  function notBraveShieldsHasNoWalletAccess() {
-    if (!chrome.braveWallet) {
+  function notadrbrowsielShieldsHasNoWalletAccess() {
+    if (!chrome.adrbrowsielWallet) {
       chrome.test.succeed();
     } else {
       chrome.test.fail();

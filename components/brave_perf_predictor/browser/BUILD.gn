@@ -1,16 +1,16 @@
-import("//brave/build/config.gni")
+import("//adrbrowsiel/build/config.gni")
 import("//build/buildflag_header.gni")
 import("buildflags/buildflags.gni")
 
 buildflag_header("buildflags") {
   header = "buildflags.h"
   flags = [
-    "ENABLE_BRAVE_PERF_PREDICTOR=$enable_brave_perf_predictor",
+    "ENABLE_adrbrowsiel_PERF_PREDICTOR=$enable_adrbrowsiel_perf_predictor",
   ]
 }
 
 source_set("browser") {
-  # Remove when https://github.com/brave/brave-browser/issues/10647 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10647 is resolved
   check_includes = false
   public_deps = [
     ":buildflags",
@@ -36,9 +36,9 @@ source_set("browser") {
 
   deps = [
     "//base",
-    "//brave/components/brave_perf_predictor/common",
-    "//brave/components/resources",
-    "//brave/components/weekly_storage",
+    "//adrbrowsiel/components/adrbrowsiel_perf_predictor/common",
+    "//adrbrowsiel/components/resources",
+    "//adrbrowsiel/components/weekly_storage",
     "//components/keyed_service/content:content",
     "//components/page_load_metrics/browser",
     "//components/page_load_metrics/common",

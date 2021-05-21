@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ipfs/ipfs_onboarding_page.h"
+#include "adrbrowsiel/components/ipfs/ipfs_onboarding_page.h"
 
 #include <utility>
 #include <vector>
@@ -13,12 +13,12 @@
 #include "base/strings/string_util.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/time/time.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #include "components/component_updater/component_updater_service.h"
-#include "components/grit/brave_components_resources.h"
-#include "components/grit/brave_components_strings.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/prefs/pref_service.h"
 #include "components/security_interstitials/content/security_interstitial_controller_client.h"
 #include "components/user_prefs/user_prefs.h"
@@ -251,10 +251,10 @@ void IPFSOnboardingPage::PopulateInterstitialStrings(
 
 #if !defined(OS_ANDROID)
   load_time_data->SetString(
-      "braveTheme", GetThemeType(ui::NativeTheme::GetInstanceForNativeUi()));
+      "adrbrowsielTheme", GetThemeType(ui::NativeTheme::GetInstanceForNativeUi()));
   load_time_data->SetString("os", "");
 #else
-  load_time_data->SetString("braveTheme", "light");
+  load_time_data->SetString("adrbrowsielTheme", "light");
   load_time_data->SetString("os", "Android");
 #endif
 }

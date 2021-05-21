@@ -1,5 +1,5 @@
 include_rules = [
-  "+brave/ios/browser",
+  "+adrbrowsiel/ios/browser",
   "+components",
   "+ios/chrome/browser",
   "+ios/web/public",

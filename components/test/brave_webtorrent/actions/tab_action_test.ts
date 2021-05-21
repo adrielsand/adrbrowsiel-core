@@ -2,8 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { types } from '../../../brave_webtorrent/extension/constants/tab_types'
-import * as actions from '../../../brave_webtorrent/extension/actions/tab_actions'
+import { types } from '../../../adrbrowsiel_webtorrent/extension/constants/tab_types'
+import * as actions from '../../../adrbrowsiel_webtorrent/extension/actions/tab_actions'
 
 const tab: chrome.tabs.Tab = {
   id: 1,

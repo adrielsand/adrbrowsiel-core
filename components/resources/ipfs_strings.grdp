@@ -28,15 +28,15 @@
     <message name="IDS_IPFS_RUN_GC_BUTTON" desc="Text of garbage collection button on state">Perform a garbage collection sweep</message>
     <message name="IDS_IPFS_GC_ERROR" desc="Text of garbage collection error">Garbage collection error</message>
     <message name="IDS_UTILITY_PROCESS_IPFS_NAME" desc="The utility process which manages IPFS daemon">IPFS Service</message>
-    <message name="IDS_IPFS_OPEN_WEBUI" desc="Title of brave://ipfs webui button">My Node</message>
+    <message name="IDS_IPFS_OPEN_WEBUI" desc="Title of adrbrowsiel://ipfs webui button">My Node</message>
     <message name="IDS_IPFS_BADGE_TITLE" desc="Title of page info badge in location bar">IPFS</message>
-    <message name="IDS_IPFS_PEERS_DETAILS_LINK" desc="Link to open details about peers on brave://ipfs.">
+    <message name="IDS_IPFS_PEERS_DETAILS_LINK" desc="Link to open details about peers on adrbrowsiel://ipfs.">
       (details)
     </message>
-    <message name="IDS_IPFS_INSTALL_AND_LAUNCH" desc="Title of brave://ipfs install and launch button.">
+    <message name="IDS_IPFS_INSTALL_AND_LAUNCH" desc="Title of adrbrowsiel://ipfs install and launch button.">
       Install and start
     </message>
-    <message name="IDS_IPFS_LEARN_MORE" desc="Link to open infromation about IPFS on brave://ipfs.">
+    <message name="IDS_IPFS_LEARN_MORE" desc="Link to open infromation about IPFS on adrbrowsiel://ipfs.">
       Learn more about IPFS and privacy
     </message>
     <message name="IDS_IPFS_SERVICE_LAUNCH_RETRY" desc="Retry button text for IPFS interstitial page.">
@@ -64,7 +64,7 @@
       Hide Advanced
     </message>
     <message name="IDS_IPFS_NOT_CONNECTED_EXPLANATION" desc="The text of the IPFS not connected interstitial that will be displayed when the user presses the 'Advanced' button for additional information.">
-      Brave cannot load the requested IPFS resources either because the local node did not start, or because there are no connected peers available at the moment. If you choose "Proceed", Brave will automatically fall back to the default public gateway whenever using the local node fails. You can change this behavior at any point in Brave settings.
+      adrbrowsiel cannot load the requested IPFS resources either because the local node did not start, or because there are no connected peers available at the moment. If you choose "Proceed", adrbrowsiel will automatically fall back to the default public gateway whenever using the local node fails. You can change this behavior at any point in adrbrowsiel settings.
     </message>
     <message name="IDS_IPFS_ONBOARDING_TITLE" desc="Title of IPFS onboarding interstitial page.">
       IPFS Preference
@@ -118,7 +118,7 @@
       This content was loaded over the IPFS protocol
     </message>
     <message name="IDS_PAGE_INFO_IPFS_BUBBLE_TEXT" desc="The text for ips page info bubble.">
-      InterPlanetary File System (IPFS) is a public network for peer-to-peer data storage and delivery. You can learn more about Brave's integration or configure your IPFS settings at any time.
+      InterPlanetary File System (IPFS) is a public network for peer-to-peer data storage and delivery. You can learn more about adrbrowsiel's integration or configure your IPFS settings at any time.
     </message>
     <message name="IDS_IPFS_IMPORT_NOTIFICATION_TITLE" desc="The title for ips import error notification.">
       IPFS import completed
@@ -139,7 +139,7 @@
       IPFS node internal error
     </message>
     <message name="IDS_IPFS_IMPORT_PARTLY_COMPLETED_NOTIFICATION_BODY" desc="The title for ips import error notification.">
-      The data was successfully uploaded but not moved to the brave-import directory. You can do this manually on the import settings page.
+      The data was successfully uploaded but not moved to the adrbrowsiel-import directory. You can do this manually on the import settings page.
     </message>
   </if>
 </grit-part>

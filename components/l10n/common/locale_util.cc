@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/l10n/common/locale_util.h"
+#include "adrbrowsiel/components/l10n/common/locale_util.h"
 
 #include <algorithm>
 #include <vector>
@@ -11,7 +11,7 @@
 #include "base/strings/string_split.h"
 #include "base/strings/string_util.h"
 
-namespace brave_l10n {
+namespace adrbrowsiel_l10n {
 
 namespace {
 
@@ -68,4 +68,4 @@ std::string GetCountryCode(
   return base::ToUpperASCII(country_code);
 }
 
-}  // namespace brave_l10n
+}  // namespace adrbrowsiel_l10n

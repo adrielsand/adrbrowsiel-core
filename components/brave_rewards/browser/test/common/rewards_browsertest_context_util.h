@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTEXT_UTIL_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTEXT_UTIL_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTEXT_UTIL_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTEXT_UTIL_H_
 
 #include <string>
 #include <vector>
@@ -61,4 +61,4 @@ double GetRewardsPopupMonthlyTipValue(content::WebContents* context);
 
 }  // namespace rewards_browsertest_util
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTEXT_UTIL_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_CONTEXT_UTIL_H_

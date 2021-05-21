@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_H_
 
 #include <memory>
 #include <string>
@@ -14,8 +14,8 @@
 #include "base/callback_forward.h"
 #include "base/macros.h"
 #include "base/observer_list.h"
-#include "brave/vendor/bat-native-ledger/include/bat/ledger/mojom_structs.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service.h"
+#include "adrbrowsiel/vendor/bat-native-ledger/include/bat/ledger/mojom_structs.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service.h"
 #include "build/build_config.h"
 #include "components/keyed_service/core/keyed_service.h"
 #include "components/sessions/core/session_id.h"
@@ -28,7 +28,7 @@ namespace content {
 class NavigationHandle;
 }
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 bool IsMediaLink(const GURL& url,
                  const GURL& first_party_url,
@@ -127,8 +127,8 @@ using SuccessCallback = base::OnceCallback<void(const bool success)>;
 using GetEventLogsCallback =
     base::OnceCallback<void(ledger::type::EventLogs logs)>;
 
-using GetBraveWalletCallback =
-    base::OnceCallback<void(ledger::type::BraveWalletPtr wallet)>;
+using GetadrbrowsielWalletCallback =
+    base::OnceCallback<void(ledger::type::adrbrowsielWalletPtr wallet)>;
 
 using GetWalletPassphraseCallback = base::Callback<void(const std::string&)>;
 
@@ -359,7 +359,7 @@ class RewardsService : public KeyedService {
       const std::string& key,
       const std::string& value) = 0;
 
-  virtual void GetBraveWallet(GetBraveWalletCallback callback) = 0;
+  virtual void GetadrbrowsielWallet(GetadrbrowsielWalletCallback callback) = 0;
 
   virtual void StartProcess(base::OnceClosure callback) = 0;
 
@@ -376,6 +376,6 @@ class RewardsService : public KeyedService {
   DISALLOW_COPY_AND_ASSIGN(RewardsService);
 };
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_H_

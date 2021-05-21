@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_IOS_BROWSER_API_SYNC_BRAVE_SYNC_WORKER_H_
-#define BRAVE_IOS_BROWSER_API_SYNC_BRAVE_SYNC_WORKER_H_
+#ifndef adrbrowsiel_IOS_BROWSER_API_SYNC_adrbrowsiel_SYNC_WORKER_H_
+#define adrbrowsiel_IOS_BROWSER_API_SYNC_adrbrowsiel_SYNC_WORKER_H_
 
 #include <functional>
 #include <memory>
@@ -20,17 +20,17 @@
 class ChromeBrowserState;
 
 namespace syncer {
-class BraveProfileSyncService;
+class adrbrowsielProfileSyncService;
 class DeviceInfo;
-class BraveDeviceInfo;
+class adrbrowsielDeviceInfo;
 class ProfileSyncService;
 }  // namespace syncer
 
-class BraveSyncDeviceTracker : public syncer::DeviceInfoTracker::Observer {
+class adrbrowsielSyncDeviceTracker : public syncer::DeviceInfoTracker::Observer {
  public:
-  BraveSyncDeviceTracker(syncer::DeviceInfoTracker* device_info_tracker,
+  adrbrowsielSyncDeviceTracker(syncer::DeviceInfoTracker* device_info_tracker,
                          std::function<void()> on_device_info_changed_callback);
-  virtual ~BraveSyncDeviceTracker();
+  virtual ~adrbrowsielSyncDeviceTracker();
 
  private:
   void OnDeviceInfoChange() override;
@@ -41,11 +41,11 @@ class BraveSyncDeviceTracker : public syncer::DeviceInfoTracker::Observer {
       device_info_tracker_observer_{this};
 };
 
-class BraveSyncServiceTracker : public syncer::SyncServiceObserver {
+class adrbrowsielSyncServiceTracker : public syncer::SyncServiceObserver {
  public:
-  BraveSyncServiceTracker(syncer::ProfileSyncService* profile_sync_service,
+  adrbrowsielSyncServiceTracker(syncer::ProfileSyncService* profile_sync_service,
                           std::function<void()> on_state_changed_callback);
-  ~BraveSyncServiceTracker() override;
+  ~adrbrowsielSyncServiceTracker() override;
 
  private:
   void OnStateChanged(syncer::SyncService* sync) override;
@@ -56,10 +56,10 @@ class BraveSyncServiceTracker : public syncer::SyncServiceObserver {
       sync_service_observer_{this};
 };
 
-class BraveSyncWorker : public syncer::SyncServiceObserver {
+class adrbrowsielSyncWorker : public syncer::SyncServiceObserver {
  public:
-  explicit BraveSyncWorker(ChromeBrowserState* browser_state_);
-  ~BraveSyncWorker() override;
+  explicit adrbrowsielSyncWorker(ChromeBrowserState* browser_state_);
+  ~adrbrowsielSyncWorker() override;
 
   bool SetSyncEnabled(bool enabled);
   std::string GetOrCreateSyncCode();
@@ -67,7 +67,7 @@ class BraveSyncWorker : public syncer::SyncServiceObserver {
   bool SetSyncCode(const std::string& sync_code);
   std::string GetSyncCodeFromHexSeed(const std::string& hex_seed);
   const syncer::DeviceInfo* GetLocalDeviceInfo();
-  std::vector<std::unique_ptr<syncer::BraveDeviceInfo>> GetDeviceList();
+  std::vector<std::unique_ptr<syncer::adrbrowsielDeviceInfo>> GetDeviceList();
   bool IsSyncEnabled();
   bool IsSyncFeatureActive();
   bool IsFirstSetupComplete();
@@ -77,7 +77,7 @@ class BraveSyncWorker : public syncer::SyncServiceObserver {
  private:
   // syncer::SyncServiceObserver implementation.
 
-  syncer::BraveProfileSyncService* GetSyncService() const;
+  syncer::adrbrowsielProfileSyncService* GetSyncService() const;
   void OnStateChanged(syncer::SyncService* service) override;
   void OnSyncShutdown(syncer::SyncService* service) override;
 
@@ -91,9 +91,9 @@ class BraveSyncWorker : public syncer::SyncServiceObserver {
   ChromeBrowserState* browser_state_;  // NOT OWNED
   ScopedObserver<syncer::SyncService, syncer::SyncServiceObserver>
       sync_service_observer_{this};
-  base::WeakPtrFactory<BraveSyncWorker> weak_ptr_factory_{this};
+  base::WeakPtrFactory<adrbrowsielSyncWorker> weak_ptr_factory_{this};
 
-  DISALLOW_COPY_AND_ASSIGN(BraveSyncWorker);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielSyncWorker);
 };
 
-#endif  // BRAVE_IOS_BROWSER_API_SYNC_BRAVE_SYNC_WORKER_H_
+#endif  // adrbrowsiel_IOS_BROWSER_API_SYNC_adrbrowsiel_SYNC_WORKER_H_

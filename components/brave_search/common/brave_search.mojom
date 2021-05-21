@@ -1,8 +1,8 @@
-module brave_search.mojom;
+module adrbrowsiel_search.mojom;
 
 import "mojo/public/mojom/base/values.mojom";
 
-interface BraveSearchFallback {
+interface adrbrowsielSearchFallback {
   FetchBackupResults(string query_string,
                      string lang,
                      string country,

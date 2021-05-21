@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ntp_tiles/brave_popular_sites_impl.h"
+#include "adrbrowsiel/components/ntp_tiles/adrbrowsiel_popular_sites_impl.h"
 
 namespace {
 
@@ -25,7 +25,7 @@ namespace ntp_tiles {
 // Only PERSONALIZED section type is included in |PopularSitesImpl::sections_|.
 // See PopularSitesImpl::ParseVersion6OrAbove() or ParseVersion5().
 const std::map<SectionType, PopularSitesImpl::SitesVector>&
-BravePopularSitesImpl::sections() const {
+adrbrowsielPopularSitesImpl::sections() const {
   PopularSites::SitesVector filtered_sites;
   const auto iter =
       PopularSitesImpl::sections().find(SectionType::PERSONALIZED);

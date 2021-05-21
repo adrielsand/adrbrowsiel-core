@@ -12,7 +12,7 @@ export const text = styled.div`
   font-size: 14px;
   line-height: 21px;
   font-weight: 500;
-  color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-neutral900);
 `
 
 export const amount = styled.div`
@@ -20,9 +20,9 @@ export const amount = styled.div`
   margin-top: 32px;
   min-width: 178px;
   display: inline-block;
-  background: var(--brave-color-brandBatInteracting);
+  background: var(--adrbrowsiel-color-brandBatInteracting);
   padding: 10px 60px;
-  color: var(--brave-palette-white);
+  color: var(--adrbrowsiel-palette-white);
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
@@ -48,7 +48,7 @@ export const reset = styled.div`
     border-radius: 50%;
 
     .icon {
-      color: var(--brave-palette-white);
+      color: var(--adrbrowsiel-palette-white);
       opacity: .8;
       transform: rotate(45deg);
       font-size: 28px;
@@ -59,7 +59,7 @@ export const reset = styled.div`
 
 export const exchange = styled.div`
   margin-top: 6px;
-  color: var(--brave-color-brandBatInteracting);
+  color: var(--adrbrowsiel-color-brandBatInteracting);
   font-size: 12px;
   line-height: 18px;
 `

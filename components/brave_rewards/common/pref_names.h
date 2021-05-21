@@ -1,12 +1,12 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_COMMON_PREF_NAMES_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_COMMON_PREF_NAMES_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_COMMON_PREF_NAMES_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_COMMON_PREF_NAMES_H_
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 namespace prefs {
 
 extern const char kHideButton[];
@@ -52,11 +52,11 @@ extern const char kParametersTipChoices[];
 extern const char kParametersMonthlyTipChoices[];
 extern const char kFetchOldBalance[];
 extern const char kEmptyBalanceChecked[];
-extern const char kWalletBrave[];
+extern const char kWalletadrbrowsiel[];
 extern const char kWalletUphold[];
 extern const char kWalletBitflyer[];
 
 }  // namespace prefs
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_COMMON_PREF_NAMES_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_COMMON_PREF_NAMES_H_

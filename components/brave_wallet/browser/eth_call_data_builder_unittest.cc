@@ -1,13 +1,13 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/eth_call_data_builder.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_call_data_builder.h"
 
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 namespace erc20 {
 
@@ -26,12 +26,12 @@ namespace unstoppable_domains {
 TEST(EthCallDataBuilderTest, GetMany) {
   std::string data;
   std::vector<std::string> keys = {"crypto.ETH.address"};
-  EXPECT_TRUE(GetMany(keys, "brave.crypto", &data));
+  EXPECT_TRUE(GetMany(keys, "adrbrowsiel.crypto", &data));
   EXPECT_EQ(data,
             "0x1bd8cc1a"
             // Offset to the start of keys array.
             "0000000000000000000000000000000000000000000000000000000000000040"
-            // Name hash of brave.crypto.
+            // Name hash of adrbrowsiel.crypto.
             "77252571a99feee8f5e6b2f0c8b705407d395adc00b3c8ebcc7c19b2ea850013"
             // Count of keys array.
             "0000000000000000000000000000000000000000000000000000000000000001"
@@ -44,12 +44,12 @@ TEST(EthCallDataBuilderTest, GetMany) {
 
   keys = {"dweb.ipfs.hash", "ipfs.html.value", "browser.redirect_url",
           "ipfs.redirect_domain.value"};
-  EXPECT_TRUE(GetMany(keys, "brave.crypto", &data));
+  EXPECT_TRUE(GetMany(keys, "adrbrowsiel.crypto", &data));
   EXPECT_EQ(data,
             "0x1bd8cc1a"
             // Offset to the start of keys array.
             "0000000000000000000000000000000000000000000000000000000000000040"
-            // Name hash of brave.crypto.
+            // Name hash of adrbrowsiel.crypto.
             "77252571a99feee8f5e6b2f0c8b705407d395adc00b3c8ebcc7c19b2ea850013"
             // Count of keys array.
             "0000000000000000000000000000000000000000000000000000000000000004"
@@ -78,4 +78,4 @@ TEST(EthCallDataBuilderTest, GetMany) {
 
 }  // namespace unstoppable_domains
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

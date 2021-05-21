@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_DOMAIN_BLOCK_PAGE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_DOMAIN_BLOCK_PAGE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_DOMAIN_BLOCK_PAGE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_DOMAIN_BLOCK_PAGE_H_
 
 #include <memory>
 #include <string>
@@ -21,7 +21,7 @@ namespace security_interstitials {
 class SecurityInterstitialControllerClient;
 }  // namespace security_interstitials
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 // DomainBlockPage is the interstitial page which will be shown when the
 // browser blocks a top-level, first-party request. A proceed button is
@@ -58,6 +58,6 @@ class DomainBlockPage
   int GetHTMLTemplateId() override;
 };
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_DOMAIN_BLOCK_PAGE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_DOMAIN_BLOCK_PAGE_H_

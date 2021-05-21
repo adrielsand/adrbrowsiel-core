@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -23,15 +23,15 @@ import {
   ToggleCardsSwitch,
   ToggleCardsText
 } from '../../../components/default'
-import togetherBanner from './assets/bravetogether.png'
+import togetherBanner from './assets/adrbrowsieltogether.png'
 import binanceBanner from './assets/binance.png'
-import rewardsBanner from './assets/braverewards.png'
+import rewardsBanner from './assets/adrbrowsielrewards.png'
 import geminiBanner from './assets/gemini.png'
 import cryptoDotComBanner from './assets/crypto-dot-com.png'
 import ftxPreviewImageUrl from './assets/ftx-preview.png'
 import HideIcon from './assets/hide-icon'
 import { Toggle } from '../../../components/toggle'
-import { PlusIcon } from 'brave-ui/components/icons'
+import { PlusIcon } from 'adrbrowsiel-ui/components/icons'
 
 import { getLocale } from '../../../../common/locale'
 
@@ -190,7 +190,7 @@ class CardsSettings extends React.PureComponent<Props, {}> {
           <StyledBannerImage src={rewardsBanner} />
           <StyledSettingsInfo>
             <StyledSettingsTitle>
-              {getLocale('braveRewardsTitle')}
+              {getLocale('adrbrowsielRewardsTitle')}
             </StyledSettingsTitle>
             <StyledSettingsCopy>
               {getLocale('rewardsWidgetDesc')}

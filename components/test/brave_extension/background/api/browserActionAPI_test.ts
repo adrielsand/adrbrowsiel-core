@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import * as browserActionAPI from '../../../../brave_extension/extension/brave_extension/background/api/browserActionAPI'
+import * as browserActionAPI from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/api/browserActionAPI'
 
 describe('BrowserAction API', () => {
   describe('setBadgeText', () => {
@@ -28,7 +28,7 @@ describe('BrowserAction API', () => {
     let setIconSpy: jest.SpyInstance
     let disableSpy: jest.SpyInstance
     let enableSpy: jest.SpyInstance
-    let url = 'https://brave.com'
+    let url = 'https://adrbrowsiel.com'
     const tabId = 1
     let shieldsEnabled = true
     beforeEach(() => {
@@ -53,7 +53,7 @@ describe('BrowserAction API', () => {
       expect(enableSpy.mock.calls[0][0]).toBe(tabId)
     })
     it('sets the disabled icon when the protocol is neither https nor http', () => {
-      url = 'brave://welcome'
+      url = 'adrbrowsiel://welcome'
       browserActionAPI.setIcon(url, tabId, shieldsEnabled)
       expect(disableSpy.mock.calls[0][0]).toBe(tabId)
     })

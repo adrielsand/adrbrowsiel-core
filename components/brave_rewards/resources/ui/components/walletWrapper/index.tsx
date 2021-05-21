@@ -42,10 +42,10 @@ import {
   LoginMessageButtons,
   LoginMessageText
 } from './style'
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 import { GrantCaptcha, GrantComplete, GrantError, GrantWrapper, WalletPopup } from '../'
 import Alert, { Type as AlertType } from '../alert'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 import {
   CaratDownIcon,
   CloseCircleOIcon,
@@ -53,7 +53,7 @@ import {
   UpholdColorIcon,
   UpholdSystemIcon,
   CaratCircleRightIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 
 import { BitflyerIcon } from '../../../shared/components/icons/bitflyer_icon'
 import { upholdMinimumBalance } from '../../../shared/lib/uphold'
@@ -500,13 +500,13 @@ export default class WalletWrapper extends React.PureComponent<Props, State> {
 
     switch (notification.type) {
       case 'ads':
-        typeText = getLocale('braveAdsTitle')
+        typeText = getLocale('adrbrowsielAdsTitle')
         break
       case 'backupWallet':
         typeText = getLocale('backupWalletTitle')
         break
       case 'contribute':
-        typeText = getLocale('braveContributeTitle')
+        typeText = getLocale('adrbrowsielContributeTitle')
         break
       case 'deviceLimitReached':
         typeText = getLocale('deviceLimitReachedTitle')

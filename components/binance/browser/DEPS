@@ -6,6 +6,6 @@ include_rules = [
 # Existing exceptions
 specific_include_rules = {
   "binance_service.cc": [
-    "+brave/common/pref_names.h",
+    "+adrbrowsiel/common/pref_names.h",
   ],
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -12,7 +12,7 @@ import TableDonation, { DetailRow as DonationDetailRow } from '../components/tab
 import TableTransactions, { DetailRow as TransactionsRow } from '../components/tableTransactions'
 import TablePending, { DetailRow as PendingDetailRow } from '../components/tablePending'
 
-const favicon = require('./img/brave-favicon.png')
+const favicon = require('./img/adrbrowsiel-favicon.png')
 const ddgo = require('./img/ddgo.jpg')
 const wiki = require('./img/wiki.jpg')
 const buzz = require('./img/buzz.jpg')
@@ -44,7 +44,7 @@ export const contribution = () => {
         provider: 'youtube',
         src: favicon
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       attention: 40,
       onRemove: doNothing
     },
@@ -54,7 +54,7 @@ export const contribution = () => {
         verified: true,
         src: ddgo
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       attention: 20,
       onRemove: doNothing
     },
@@ -64,7 +64,7 @@ export const contribution = () => {
         verified: false,
         src: buzz
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       attention: 10,
       onRemove: doNothing
     },
@@ -74,7 +74,7 @@ export const contribution = () => {
         verified: true,
         src: guardian
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       attention: 5,
       onRemove: doNothing
     },
@@ -84,7 +84,7 @@ export const contribution = () => {
         verified: false,
         src: wiki
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       attention: 4,
       onRemove: doNothing
     }
@@ -115,7 +115,7 @@ export const conation = () => {
         provider: 'youtube',
         src: favicon
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       type: 'recurring',
       contribute: {
         tokens: '2.0',
@@ -129,7 +129,7 @@ export const conation = () => {
         name: 'theguardian.com',
         src: guardian
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       type: 'donation',
       contribute: {
         tokens: '12000.0',
@@ -144,7 +144,7 @@ export const conation = () => {
         provider: 'twitter',
         src: eich
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       type: 'tip',
       contribute: {
         tokens: '1.0',
@@ -172,7 +172,7 @@ export const transactions = () => {
     {
       date: 1576066103000,
       type: 'ads',
-      description: 'Brave Ads payment for May',
+      description: 'adrbrowsiel Ads payment for May',
       amount: {
         value: '5.0',
         converted: '5.00'
@@ -222,7 +222,7 @@ export const pendingContributions = () => {
         provider: 'youtube',
         src: favicon
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       type: 'recurring',
       amount: {
         tokens: '2.0',
@@ -237,7 +237,7 @@ export const pendingContributions = () => {
         name: 'theguardian.com',
         src: guardian
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       type: 'tip',
       amount: {
         tokens: '12000.0',
@@ -253,7 +253,7 @@ export const pendingContributions = () => {
         provider: 'twitter',
         src: eich
       },
-      url: 'https://brave.com',
+      url: 'https://adrbrowsiel.com',
       type: 'ac',
       amount: {
         tokens: '1.0',

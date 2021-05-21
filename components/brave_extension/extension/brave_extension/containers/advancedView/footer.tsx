@@ -33,7 +33,7 @@ export default class Footer extends React.PureComponent<Props, {}> {
           {getLocale('simpleView')}
         </Link>}
         <Link
-          id='braveShieldsFooter'
+          id='adrbrowsielShieldsFooter'
           onClick={this.openSettings}
           disabled={isBlockedListOpen}
         >

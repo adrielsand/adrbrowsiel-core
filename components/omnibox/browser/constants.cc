@@ -2,9 +2,9 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/components/omnibox/browser/constants.h"
+#include "adrbrowsiel/components/omnibox/browser/constants.h"
 
-namespace brave_toolbar {
+namespace adrbrowsiel_toolbar {
   const char kOriginalInternalUIScheme[] = "chrome";
-  const char kInternalUIScheme[] = "brave";
+  const char kInternalUIScheme[] = "adrbrowsiel";
 }

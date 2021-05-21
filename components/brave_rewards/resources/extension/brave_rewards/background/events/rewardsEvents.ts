@@ -4,18 +4,18 @@
 
 import rewardsPanelActions from '../actions/rewardsPanelActions'
 
-chrome.braveRewards.onPublisherData.addListener((windowId: number, publisher: RewardsExtension.Publisher) => {
+chrome.adrbrowsielRewards.onPublisherData.addListener((windowId: number, publisher: RewardsExtension.Publisher) => {
   rewardsPanelActions.onPublisherData(windowId, publisher)
 
   // Get publisher amounts
   if (publisher && publisher.publisherKey && publisher.status !== 0) {
-    chrome.braveRewards.getPublisherBanner(publisher.publisherKey, ((banner: RewardsExtension.PublisherBanner) => {
+    chrome.adrbrowsielRewards.getPublisherBanner(publisher.publisherKey, ((banner: RewardsExtension.PublisherBanner) => {
       rewardsPanelActions.onPublisherBanner(banner)
     }))
   }
 })
 
-chrome.braveRewards.onPromotions.addListener((result: number, promotions: RewardsExtension.Promotion[]) => {
+chrome.adrbrowsielRewards.onPromotions.addListener((result: number, promotions: RewardsExtension.Promotion[]) => {
   rewardsPanelActions.onPromotions(result, promotions)
 })
 
@@ -33,82 +33,82 @@ chrome.rewardsNotifications.onAllNotificationsDeleted.addListener(() => {
   rewardsPanelActions.onAllNotificationsDeleted()
 })
 
-chrome.braveRewards.onPendingContributionSaved.addListener((result: number) => {
+chrome.adrbrowsielRewards.onPendingContributionSaved.addListener((result: number) => {
   if (result === 0) {
-    chrome.braveRewards.getPendingContributionsTotal(((amount: number) => {
+    chrome.adrbrowsielRewards.getPendingContributionsTotal(((amount: number) => {
       rewardsPanelActions.OnPendingContributionsTotal(amount)
     }))
   }
 })
 
-chrome.braveRewards.onPublisherListNormalized.addListener((properties: RewardsExtension.PublisherNormalized[]) => {
+chrome.adrbrowsielRewards.onPublisherListNormalized.addListener((properties: RewardsExtension.PublisherNormalized[]) => {
   rewardsPanelActions.onPublisherListNormalized(properties)
 })
 
-chrome.braveRewards.onExcludedSitesChanged.addListener((properties: RewardsExtension.ExcludedSitesChanged) => {
+chrome.adrbrowsielRewards.onExcludedSitesChanged.addListener((properties: RewardsExtension.ExcludedSitesChanged) => {
   rewardsPanelActions.onExcludedSitesChanged(properties)
 })
 
-chrome.braveRewards.onRecurringTipSaved.addListener((success: boolean) => {
+chrome.adrbrowsielRewards.onRecurringTipSaved.addListener((success: boolean) => {
   if (success) {
-    chrome.braveRewards.getRecurringTips((tips: RewardsExtension.RecurringTips) => {
+    chrome.adrbrowsielRewards.getRecurringTips((tips: RewardsExtension.RecurringTips) => {
       rewardsPanelActions.onRecurringTips(tips)
     })
   }
 })
 
-chrome.braveRewards.onRecurringTipRemoved.addListener((success: boolean) => {
+chrome.adrbrowsielRewards.onRecurringTipRemoved.addListener((success: boolean) => {
   if (success) {
-    chrome.braveRewards.getRecurringTips((tips: RewardsExtension.RecurringTips) => {
+    chrome.adrbrowsielRewards.getRecurringTips((tips: RewardsExtension.RecurringTips) => {
       rewardsPanelActions.onRecurringTips(tips)
     })
   }
 })
 
-chrome.braveRewards.onReconcileComplete.addListener((result: number, type: number) => {
+chrome.adrbrowsielRewards.onReconcileComplete.addListener((result: number, type: number) => {
   if (result === 0) {
-    chrome.braveRewards.fetchBalance((balance: RewardsExtension.Balance) => {
+    chrome.adrbrowsielRewards.fetchBalance((balance: RewardsExtension.Balance) => {
       rewardsPanelActions.onBalance(balance)
     })
 
-    chrome.braveRewards.getBalanceReport(new Date().getMonth() + 1, new Date().getFullYear(),
+    chrome.adrbrowsielRewards.getBalanceReport(new Date().getMonth() + 1, new Date().getFullYear(),
     (report: RewardsExtension.BalanceReport) => {
       rewardsPanelActions.onBalanceReport(report)
     })
   }
 })
 
-chrome.braveRewards.onDisconnectWallet.addListener((properties: {result: number, walletType: string}) => {
+chrome.adrbrowsielRewards.onDisconnectWallet.addListener((properties: {result: number, walletType: string}) => {
   if (properties.result === 0) {
-    chrome.braveRewards.getExternalWallet((result: number, wallet: RewardsExtension.ExternalWallet) => {
+    chrome.adrbrowsielRewards.getExternalWallet((result: number, wallet: RewardsExtension.ExternalWallet) => {
       rewardsPanelActions.onExternalWallet(wallet)
     })
 
-    chrome.braveRewards.fetchBalance((balance: RewardsExtension.Balance) => {
+    chrome.adrbrowsielRewards.fetchBalance((balance: RewardsExtension.Balance) => {
       rewardsPanelActions.onBalance(balance)
     })
   }
 })
 
-chrome.braveRewards.onUnblindedTokensReady.addListener(() => {
-  chrome.braveRewards.fetchBalance((balance: RewardsExtension.Balance) => {
+chrome.adrbrowsielRewards.onUnblindedTokensReady.addListener(() => {
+  chrome.adrbrowsielRewards.fetchBalance((balance: RewardsExtension.Balance) => {
     rewardsPanelActions.onBalance(balance)
   })
 })
 
-chrome.braveRewards.onPromotionFinish.addListener((result: RewardsExtension.Result, promotion: RewardsExtension.Promotion) => {
+chrome.adrbrowsielRewards.onPromotionFinish.addListener((result: RewardsExtension.Result, promotion: RewardsExtension.Promotion) => {
   rewardsPanelActions.promotionFinished(result, promotion)
 
-  chrome.braveRewards.getBalanceReport(new Date().getMonth() + 1, new Date().getFullYear(),
+  chrome.adrbrowsielRewards.getBalanceReport(new Date().getMonth() + 1, new Date().getFullYear(),
   (report: RewardsExtension.BalanceReport) => {
     rewardsPanelActions.onBalanceReport(report)
   })
 })
 
-chrome.braveRewards.onCompleteReset.addListener((properties: { success: boolean }) => {
+chrome.adrbrowsielRewards.onCompleteReset.addListener((properties: { success: boolean }) => {
   rewardsPanelActions.onCompleteReset(properties.success)
 })
 
-chrome.braveRewards.initialized.addListener((result: RewardsExtension.Result) => {
+chrome.adrbrowsielRewards.initialized.addListener((result: RewardsExtension.Result) => {
   rewardsPanelActions.initialized()
 })

@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wayback_machine/brave_wayback_machine_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/adrbrowsiel_wayback_machine_utils.h"
 
 #include <string>
 #include <vector>
@@ -11,7 +11,7 @@
 #include "base/strings/string_util.h"
 #include "base/strings/stringprintf.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/components/brave_wayback_machine/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/url_constants.h"
 #include "net/base/url_util.h"
 #include "url/gurl.h"
 #include "url/url_util.h"

@@ -32,7 +32,7 @@ export default class Footer extends React.PureComponent<Props, {}> {
         <Link onClick={toggleAdvancedView}>
           {getLocale('advancedView')}
         </Link>}
-        <Link id='braveShieldsFooter' onClick={this.openSettings}>
+        <Link id='adrbrowsielShieldsFooter' onClick={this.openSettings}>
           {getLocale('changeDefaults')}
         </Link>
       </MainFooter>

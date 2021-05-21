@@ -1,32 +1,32 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_component_updater/browser/brave_on_demand_updater.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_on_demand_updater.h"
 
 #include <string>
 
 #include "base/memory/singleton.h"
 
-namespace brave_component_updater {
+namespace adrbrowsiel_component_updater {
 
-BraveOnDemandUpdater* BraveOnDemandUpdater::GetInstance() {
-  return base::Singleton<BraveOnDemandUpdater>::get();
+adrbrowsielOnDemandUpdater* adrbrowsielOnDemandUpdater::GetInstance() {
+  return base::Singleton<adrbrowsielOnDemandUpdater>::get();
 }
 
-BraveOnDemandUpdater::BraveOnDemandUpdater() {}
+adrbrowsielOnDemandUpdater::adrbrowsielOnDemandUpdater() {}
 
-BraveOnDemandUpdater::~BraveOnDemandUpdater() {}
+adrbrowsielOnDemandUpdater::~adrbrowsielOnDemandUpdater() {}
 
-void BraveOnDemandUpdater::OnDemandUpdate(const std::string& id) {
+void adrbrowsielOnDemandUpdater::OnDemandUpdate(const std::string& id) {
   DCHECK(!on_demand_update_callback_.is_null());
   on_demand_update_callback_.Run(id);
 }
 
-void BraveOnDemandUpdater::RegisterOnDemandUpdateCallback(Callback callback) {
+void adrbrowsielOnDemandUpdater::RegisterOnDemandUpdateCallback(Callback callback) {
   on_demand_update_callback_ = callback;
 }
 
 
-}  // namespace brave_component_updater
+}  // namespace adrbrowsiel_component_updater

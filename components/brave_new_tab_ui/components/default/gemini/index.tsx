@@ -82,7 +82,7 @@ import {
   HideIcon
 } from '../exchangeWidget/shared-assets'
 import GeminiLogo from './assets/gemini-logo'
-import { CaratLeftIcon, CaratDownIcon } from 'brave-ui/components/icons'
+import { CaratLeftIcon, CaratDownIcon } from 'adrbrowsiel-ui/components/icons'
 
 // Utils
 import geminiData from './data'

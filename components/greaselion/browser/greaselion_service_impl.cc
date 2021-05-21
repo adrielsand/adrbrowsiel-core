@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/greaselion/browser/greaselion_service_impl.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_service_impl.h"
 
 #include <stddef.h>
 #include <memory>
@@ -27,10 +27,10 @@
 #include "base/task_runner_util.h"
 #include "base/values.h"
 #include "base/version.h"
-#include "brave/components/brave_component_updater/browser/features.h"
-#include "brave/components/brave_component_updater/browser/switches.h"
-#include "brave/components/greaselion/browser/greaselion_download_service.h"
-#include "brave/components/version_info//version_info.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/switches.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_download_service.h"
+#include "adrbrowsiel/components/version_info//version_info.h"
 #include "chrome/browser/extensions/extension_service.h"
 #include "components/version_info/version_info.h"
 #include "crypto/sha2.h"
@@ -85,16 +85,16 @@ ConvertGreaselionRuleToExtensionOnTaskRunner(
   // Create the public key.
   // Greaselion scripts are not signed, but the public key for an extension
   // doubles as its unique identity, and we need one of those, so we add the
-  // rule name to a known Brave domain and hash the result to create a
+  // rule name to a known adrbrowsiel domain and hash the result to create a
   // public key.
   char raw[crypto::kSHA256Length] = {0};
   std::string key;
   std::string script_name = rule.name();
   const base::CommandLine& command_line =
       *base::CommandLine::ForCurrentProcess();
-  if (!command_line.HasSwitch(brave_component_updater::kUseGoUpdateDev) &&
+  if (!command_line.HasSwitch(adrbrowsiel_component_updater::kUseGoUpdateDev) &&
       !base::FeatureList::IsEnabled(
-          brave_component_updater::kUseDevUpdaterUrl)) {
+          adrbrowsiel_component_updater::kUseDevUpdaterUrl)) {
     crypto::SHA256HashString(UPDATER_DEV_ENDPOINT + script_name,
                              raw,
                              crypto::kSHA256Length);
@@ -209,13 +209,13 @@ GreaselionServiceImpl::GreaselionServiceImpl(
       pending_installs_(0),
       task_runner_(std::move(task_runner)),
       browser_version_(
-          version_info::GetBraveVersionWithoutChromiumMajorVersion()),
+          version_info::GetadrbrowsielVersionWithoutChromiumMajorVersion()),
       weak_factory_(this) {
   extension_registry_->AddObserver(this);
   for (int i = FIRST_FEATURE; i != LAST_FEATURE; i++)
     state_[static_cast<GreaselionFeature>(i)] = false;
   // Static-value features
-  state_[GreaselionFeature::SUPPORTS_MINIMUM_BRAVE_VERSION] = true;
+  state_[GreaselionFeature::SUPPORTS_MINIMUM_adrbrowsiel_VERSION] = true;
 }
 
 GreaselionServiceImpl::~GreaselionServiceImpl() {

@@ -22,7 +22,7 @@ export const theme = {
     flexDirection: 'column',
     justifyContent: 'space-between'
   },
-  braveLogo: {
+  adrbrowsielLogo: {
     width: '120px'
   },
   paymentsImage: {

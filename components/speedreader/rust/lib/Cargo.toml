@@ -2,8 +2,8 @@
 name = "speedreader"
 version = "0.1.0"
 authors = [
-    "gpestana <gpestana@brave.com>",
-    "Andrius Aucinas <aaucinas@brave.com>"
+    "gpestana <gpestana@adrbrowsiel.com>",
+    "Andrius Aucinas <aaucinas@adrbrowsiel.com>"
 ]
 edition = "2018"
 
@@ -21,7 +21,7 @@ include = [
 adblock = "0.2.11"
 flate2 = { version = "1.0.20", features = ["rust_backend"], default-features = false }
 html5ever = "0.25.1"
-kuchiki = { git = "https://github.com/brave/kuchiki", branch = "speedreader" }
+kuchiki = { git = "https://github.com/adrbrowsiel/kuchiki", branch = "speedreader" }
 lol_html = "0.2.0"
 regex = "1"
 serde =  { version = "1.0.123", features = ["derive"] }

@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SYNC_BRAVE_SYNC_PREFS_H_
-#define BRAVE_COMPONENTS_BRAVE_SYNC_BRAVE_SYNC_PREFS_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SYNC_adrbrowsiel_SYNC_PREFS_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SYNC_adrbrowsiel_SYNC_PREFS_H_
 
 #include <memory>
 #include <string>
@@ -20,7 +20,7 @@ namespace base {
 class Time;
 }
 
-namespace brave_sync {
+namespace adrbrowsiel_sync {
 
 class Prefs {
  public:
@@ -59,8 +59,8 @@ class Prefs {
   DISALLOW_COPY_AND_ASSIGN(Prefs);
 };
 
-void MigrateBraveSyncPrefs(PrefService* prefs);
+void MigrateadrbrowsielSyncPrefs(PrefService* prefs);
 
-}  // namespace brave_sync
+}  // namespace adrbrowsiel_sync
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SYNC_BRAVE_SYNC_PREFS_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SYNC_adrbrowsiel_SYNC_PREFS_H_

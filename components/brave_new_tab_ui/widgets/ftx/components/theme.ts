@@ -1,6 +1,6 @@
-import IBraveTheme from 'brave-ui/theme/theme-interface'
+import IadrbrowsielTheme from 'adrbrowsiel-ui/theme/theme-interface'
 
-export default function customizeTheme (theme: IBraveTheme): IBraveTheme {
+export default function customizeTheme (theme: IadrbrowsielTheme): IadrbrowsielTheme {
   return {
     ...theme,
     color: {

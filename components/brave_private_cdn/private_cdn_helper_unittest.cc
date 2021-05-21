@@ -1,14 +1,14 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_private_cdn/private_cdn_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_private_cdn/private_cdn_helper.h"
 
 #include "testing/gtest/include/gtest/gtest.h"
 
-TEST(BravePrivateCdnHelper, RemovePadding) {
-  auto* helper = brave::PrivateCdnHelper::GetInstance();
+TEST(adrbrowsielPrivateCdnHelper, RemovePadding) {
+  auto* helper = adrbrowsiel::PrivateCdnHelper::GetInstance();
 
   using std::string_literals::operator""s;
 

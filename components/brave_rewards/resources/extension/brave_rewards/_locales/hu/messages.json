@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave jutalmak",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel jutalmak",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "A Brave Jutalmak egy nagyobb fejlesztésen esett át",
+    "message": "A adrbrowsiel Jutalmak egy nagyobb fejlesztésen esett át",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "felhasználható a Brave Rewardsban a kedvenc tartalomkészítőinek küldött hozzájáruláshoz. A BAT-pontok nem cserélhetők be BAT-ra.",
+    "message": "felhasználható a adrbrowsiel Rewardsban a kedvenc tartalomkészítőinek küldött hozzájáruláshoz. A BAT-pontok nem cserélhetők be BAT-ra.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Ellenőrzött Brave alkotó",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "Ellenőrzött adrbrowsiel alkotó",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Figyelem",
@@ -193,15 +193,15 @@
     "message": "rendben",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Most már elkezdhet pénzt gyűjteni hirdetések megtekintésével.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave hirdetések",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel hirdetések",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Automatikus támogatás",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Készíts biztonsági másolatot Brave pénztárcádról.",
+    "message": "Készíts biztonsági másolatot adrbrowsiel pénztárcádról.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Brave Jutalmak fiókja letétre vár.",
+    "message": "adrbrowsiel Jutalmak fiókja letétre vár.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Nincs fedezet",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Pénztárca létrehozása",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "A Brave Jutalmak problémába ütközött. Próbáld újra később.",
+    "message": "A adrbrowsiel Jutalmak problémába ütközött. Próbáld újra később.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Ez az alkotó még nem regisztrált, hogy hozzájárulásokat fogadjon a Brave felhasználóktól. Minden borravaló, amit küldesz, a pénztárcádban marad, amíg nem igazolnak. ",
+    "message": "Ez az alkotó még nem regisztrált, hogy hozzájárulásokat fogadjon a adrbrowsiel felhasználóktól. Minden borravaló, amit küldesz, a pénztárcádban marad, amíg nem igazolnak. ",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "A Brave Jutalom",
+    "message": "A adrbrowsiel Jutalom",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "és",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Szerezzen jutalmat a böngészésért!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Brave jutalmak engedélyezése",
+    "message": "adrbrowsiel jutalmak engedélyezése",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "A „Brave Jutalmak Engedélyezése\" gombra kattintva jelzi, hogy elolvasta és elfogadja a ",
+    "message": "A „adrbrowsiel Jutalmak Engedélyezése\" gombra kattintva jelzi, hogy elolvasta és elfogadja a ",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Jutalma úton van Brave Rewards pénztárcájához.",
+    "message": "Jutalma úton van adrbrowsiel Rewards pénztárcájához.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Brave Jutalmak kapcsolat bontása",
+    "message": "adrbrowsiel Jutalmak kapcsolat bontása",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Ez a Brave Igazolt Alkotó még nem állította be fiókjában, hogy a Brave Felhasználók hozzájárulásait fogadhassa. Amíg ezt el nem végzi, minden általad küldött borravaló a tárcádban marad.",
+    "message": "Ez a adrbrowsiel Igazolt Alkotó még nem állította be fiókjában, hogy a adrbrowsiel Felhasználók hozzájárulásait fogadhassa. Amíg ezt el nem végzi, minden általad küldött borravaló a tárcádban marad.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Használja a Brave Rewardsot",
+    "message": "Használja a adrbrowsiel Rewardsot",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Üdvözli a Brave Rewards!",
+    "message": "Üdvözli a adrbrowsiel Rewards!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "A Brave privát hirdetések tokenekkel jutalmaznak meg, amivel a hagyományos reklámokkal ellentétben, támogathatod a tartalomkészítőket, és közben személyes adataid rejtve maradnak.",
+    "message": "A adrbrowsiel privát hirdetések tokenekkel jutalmaznak meg, amivel a hagyományos reklámokkal ellentétben, támogathatod a tartalomkészítőket, és közben személyes adataid rejtve maradnak.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "A Brave privát hirdetések szokványos értesítésként jelennek meg. A beállításokban megszabhatod, hogy milyen gyakran jelenjenek meg.",
+    "message": "A adrbrowsiel privát hirdetések szokványos értesítésként jelennek meg. A beállításokban megszabhatod, hogy milyen gyakran jelenjenek meg.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Az aktuális hónap folyamán a Brave privát hirdetésektől szerzett tokenjeidet a következő hónap 5-én kapod meg.",
+    "message": "Az aktuális hónap folyamán a adrbrowsiel privát hirdetésektől szerzett tokenjeidet a következő hónap 5-én kapod meg.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "A Brave Rewards használatával segítesz mindenki számára jobbá tenni az internetet. Ez fantasztikus!",
+    "message": "A adrbrowsiel Rewards használatával segítesz mindenki számára jobbá tenni az internetet. Ez fantasztikus!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "A pénztárcája megerősítésével, valamint annak a bitFlyer-fiókjához kapcsolásával könnyebben tudja tárolni és kezelni a Brave Rewardson keresztül megszerzett tokenjeit.",
+    "message": "A pénztárcája megerősítésével, valamint annak a bitFlyer-fiókjához kapcsolásával könnyebben tudja tárolni és kezelni a adrbrowsiel Rewardson keresztül megszerzett tokenjeit.",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "A Brave Rewards Japánban egy új rendszerre vált!",
+    "message": "A adrbrowsiel Rewards Japánban egy új rendszerre vált!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

@@ -15,8 +15,8 @@ export const root = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 12px;
-  font-family: var(--brave-font-heading);
-  color: var(--brave-palette-white);
+  font-family: var(--adrbrowsiel-font-heading);
+  color: var(--adrbrowsiel-palette-white);
   padding: 28px 16px 18px;
 `
 
@@ -32,7 +32,7 @@ export const close = styled.div`
     cursor: pointer;
 
     .icon {
-      color: var(--brave-palette-white);
+      color: var(--adrbrowsiel-palette-white);
       height: 12px;
       width: 12px;
     }
@@ -49,20 +49,20 @@ export const text = styled.div`
   margin-top: 6px;
   font-size: 14px;
   line-height: 20px;
-  color: var(--brave-palette-neutral000);
+  color: var(--adrbrowsiel-palette-neutral000);
 `
 
 export const action = styled.div`
   margin-top: 12px;
 
   button {
-    background: var(--brave-palette-white);
+    background: var(--adrbrowsiel-palette-white);
     border-radius: 32px;
     font-weight: 600;
     font-size: 13px;
     line-height: 22px;
     padding: 5px 20px;
-    color: var(--brave-color-brandBat);
+    color: var(--adrbrowsiel-color-brandBat);
     border: 0;
     cursor: pointer;
   }

@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -98,7 +98,7 @@ export class IPFSPage extends React.Component<Props, {}> {
           <RepoStats repoStats={this.props.ipfsData.repoStats} daemonStatus={this.props.ipfsData.daemonStatus} garbageCollectionStatus={this.props.ipfsData.garbageCollectionStatus} onGarbageCollection={this.garbageCollection} />
           <NodeInfo nodeInfo={this.props.ipfsData.nodeInfo} />
         </div>
-        <a style={LearnMoreLink} href='https://support.brave.com/hc/en-us/sections/360010974932-InterPlanetary-File-System-IPFS-' target='_blank'>
+        <a style={LearnMoreLink} href='https://support.adrbrowsiel.com/hc/en-us/sections/360010974932-InterPlanetary-File-System-IPFS-' target='_blank'>
           {getLocale('learnMore')}
         </a>
       </div>

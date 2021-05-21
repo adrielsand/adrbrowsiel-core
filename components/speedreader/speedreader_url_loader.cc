@@ -1,9 +1,9 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/speedreader/speedreader_url_loader.h"
+#include "adrbrowsiel/components/speedreader/speedreader_url_loader.h"
 
 #include <memory>
 #include <string>
@@ -13,9 +13,9 @@
 #include "base/metrics/histogram_macros.h"
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
-#include "brave/components/speedreader/rust/ffi/speedreader.h"
-#include "brave/components/speedreader/speedreader_rewriter_service.h"
-#include "brave/components/speedreader/speedreader_throttle.h"
+#include "adrbrowsiel/components/speedreader/rust/ffi/speedreader.h"
+#include "adrbrowsiel/components/speedreader/speedreader_rewriter_service.h"
+#include "adrbrowsiel/components/speedreader/speedreader_throttle.h"
 #include "mojo/public/cpp/bindings/self_owned_receiver.h"
 #include "services/network/public/mojom/url_response_head.mojom.h"
 
@@ -251,7 +251,7 @@ void SpeedReaderURLLoader::MaybeLaunchSpeedreader() {
         base::BindOnce(
             [](std::string data, std::unique_ptr<Rewriter> rewriter,
                const std::string& stylesheet) -> auto {
-              SCOPED_UMA_HISTOGRAM_TIMER("Brave.Speedreader.Distill");
+              SCOPED_UMA_HISTOGRAM_TIMER("adrbrowsiel.Speedreader.Distill");
               int written = rewriter->Write(data.c_str(), data.length());
               // Error occurred
               if (written != 0) {
@@ -261,7 +261,7 @@ void SpeedReaderURLLoader::MaybeLaunchSpeedreader() {
               rewriter->End();
               const std::string& transformed = rewriter->GetOutput();
 
-              // TODO(brave-browser/issues/10372): would be better to pass
+              // TODO(adrbrowsiel-browser/issues/10372): would be better to pass
               // explicit signal back from rewriter to indicate if content was
               // found
               if (transformed.length() < 1024) {

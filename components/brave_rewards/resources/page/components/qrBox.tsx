@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 
 // Components
 import { ModalQRCode } from '../../ui/components'
-import { Button } from 'brave-ui/components'
+import { Button } from 'adrbrowsiel-ui/components'
 import { QRBoxStyle, QRText, QRBoxWrapper } from './style'
 
 // Utils

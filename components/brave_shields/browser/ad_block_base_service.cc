@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/ad_block_base_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_base_service.h"
 
 #include <algorithm>
 #include <string>
@@ -18,15 +18,15 @@
 #include "base/strings/utf_string_conversions.h"
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
-#include "brave/components/adblock_rust_ffi/src/wrapper.h"
-#include "brave/components/brave_component_updater/browser/dat_file_util.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/components/adblock_rust_ffi/src/wrapper.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/dat_file_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 #include "content/public/browser/browser_task_traits.h"
 #include "content/public/browser/browser_thread.h"
 #include "net/base/registry_controlled_domains/registry_controlled_domain.h"
 #include "url/origin.h"
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 using content::BrowserThread;
 using namespace net::registry_controlled_domains;  // NOLINT
 
@@ -100,10 +100,10 @@ std::string ResourceTypeToString(blink::mojom::ResourceType resource_type) {
 
 }  // namespace
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
-AdBlockBaseService::AdBlockBaseService(BraveComponent::Delegate* delegate)
-    : BaseBraveShieldsService(delegate),
+AdBlockBaseService::AdBlockBaseService(adrbrowsielComponent::Delegate* delegate)
+    : BaseadrbrowsielShieldsService(delegate),
       ad_block_client_(new adblock::Engine()),
       weak_factory_(this) {}
 
@@ -218,7 +218,7 @@ base::Optional<base::Value> AdBlockBaseService::HiddenClassIdSelectors(
 void AdBlockBaseService::GetDATFileData(const base::FilePath& dat_file_path) {
   base::ThreadPool::PostTaskAndReplyWithResult(
       FROM_HERE, {base::MayBlock()},
-      base::BindOnce(&brave_component_updater::LoadDATFileData<adblock::Engine>,
+      base::BindOnce(&adrbrowsiel_component_updater::LoadDATFileData<adblock::Engine>,
                      dat_file_path),
       base::BindOnce(&AdBlockBaseService::OnGetDATFileData,
                      weak_factory_.GetWeakPtr()));
@@ -275,4 +275,4 @@ void AdBlockBaseService::ResetForTest(const std::string& rules,
 
 ///////////////////////////////////////////////////////////////////////////////
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

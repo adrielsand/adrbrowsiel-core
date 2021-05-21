@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 import { ComponentType } from 'react'
 import styled from 'styled-components'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 
 interface StyleProps {
   isError?: boolean

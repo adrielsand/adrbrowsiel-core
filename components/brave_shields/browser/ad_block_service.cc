@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
 
 #include <algorithm>
 #include <utility>
@@ -18,13 +18,13 @@
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/threading/thread_restrictions.h"
-#include "brave/components/adblock_rust_ffi/src/wrapper.h"
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
-#include "brave/components/brave_shields/browser/ad_block_regional_service_manager.h"
-#include "brave/components/brave_shields/browser/ad_block_service_helper.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
-#include "brave/components/brave_shields/common/features.h"
-#include "brave/components/brave_shields/common/pref_names.h"
+#include "adrbrowsiel/components/adblock_rust_ffi/src/wrapper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_regional_service_manager.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/pref_names.h"
 #include "components/prefs/pref_change_registrar.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
@@ -33,7 +33,7 @@
 #define DAT_FILE "rs-ABPFilterParserData.dat"
 #define REGIONAL_CATALOG "regional_catalog.json"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 namespace {
 
@@ -163,7 +163,7 @@ base::Optional<base::Value> AdBlockService::HiddenClassIdSelectors(
 
 #if !defined(OS_ANDROID) && !defined(CHROME_OS)
   if (!base::FeatureList::IsEnabled(
-          brave_shields::features::kBraveAdblockCosmeticFilteringNative)) {
+          adrbrowsiel_shields::features::kadrbrowsielAdblockCosmeticFilteringNative)) {
     auto result_list = std::make_unique<base::ListValue>();
     if (hide_selectors && hide_selectors->is_list()) {
       result_list->Append(std::move(*hide_selectors));
@@ -188,21 +188,21 @@ base::Optional<base::Value> AdBlockService::HiddenClassIdSelectors(
 AdBlockRegionalServiceManager* AdBlockService::regional_service_manager() {
   if (!regional_service_manager_)
     regional_service_manager_ =
-        brave_shields::AdBlockRegionalServiceManagerFactory(
+        adrbrowsiel_shields::AdBlockRegionalServiceManagerFactory(
             component_delegate_);
   return regional_service_manager_.get();
 }
 
-brave_shields::AdBlockCustomFiltersService*
+adrbrowsiel_shields::AdBlockCustomFiltersService*
 AdBlockService::custom_filters_service() {
   if (!custom_filters_service_)
     custom_filters_service_ =
-        brave_shields::AdBlockCustomFiltersServiceFactory(component_delegate_);
+        adrbrowsiel_shields::AdBlockCustomFiltersServiceFactory(component_delegate_);
   return custom_filters_service_.get();
 }
 
 AdBlockService::AdBlockService(
-    brave_component_updater::BraveComponent::Delegate* delegate)
+    adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate)
     : AdBlockBaseService(delegate), component_delegate_(delegate) {}
 
 AdBlockService::~AdBlockService() {}
@@ -235,13 +235,13 @@ void AdBlockService::OnComponentReady(const std::string& component_id,
       install_dir.AppendASCII(kAdBlockResourcesFilename);
   base::PostTaskAndReplyWithResult(
       GetTaskRunner().get(), FROM_HERE,
-      base::BindOnce(&brave_component_updater::GetDATFileAsString,
+      base::BindOnce(&adrbrowsiel_component_updater::GetDATFileAsString,
                      resources_file_path),
       base::BindOnce(&AdBlockService::OnResourcesFileDataReady,
                      weak_factory_.GetWeakPtr()));
   base::PostTaskAndReplyWithResult(
       GetTaskRunner().get(), FROM_HERE,
-      base::BindOnce(&brave_component_updater::GetDATFileAsString,
+      base::BindOnce(&adrbrowsiel_component_updater::GetDATFileAsString,
                      regional_catalog_file_path),
       base::BindOnce(&AdBlockService::OnRegionalCatalogFileDataReady,
                      weak_factory_.GetWeakPtr()));
@@ -271,7 +271,7 @@ void AdBlockService::SetComponentIdAndBase64PublicKeyForTest(
 
 // The Adblock service factory.
 std::unique_ptr<AdBlockService> AdBlockServiceFactory(
-    brave_component_updater::BraveComponent::Delegate* delegate) {
+    adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate) {
   return std::make_unique<AdBlockService>(delegate);
 }
 
@@ -281,4 +281,4 @@ void RegisterPrefsForAdBlockService(PrefRegistrySimple* registry) {
   registry->RegisterBooleanPref(prefs::kAdBlockCheckedDefaultRegion, false);
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

@@ -1,14 +1,14 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/eth_requests.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_requests.h"
 
 #include <utility>
 
 #include "base/json/json_writer.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
 
 namespace {
 
@@ -76,7 +76,7 @@ void AddKeyIfNotEmpty(base::Value* dict,
 
 }  // namespace
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 std::string web3_clientVersion() {
   return GetJsonRpcNoParams("web3_clientVersion");
@@ -390,4 +390,4 @@ std::string eth_getLogs(const std::string& from_block_quantity_tag,
   return GetJSON(dictionary);
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

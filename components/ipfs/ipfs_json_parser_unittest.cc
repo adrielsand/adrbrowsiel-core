@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#include "brave/components/ipfs/ipfs_json_parser.h"
+#include "adrbrowsiel/components/ipfs/ipfs_json_parser.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
 typedef testing::Test IPFSJSONParserTest;
@@ -138,24 +138,24 @@ TEST_F(IPFSJSONParserTest, GetGarbageCollectionFromJSON) {
 TEST_F(IPFSJSONParserTest, GetImportResponseFromJSON) {
   ipfs::ImportedData success;
   ASSERT_TRUE(IPFSJSONParser::GetImportResponseFromJSON(R"({
-    "Name":"brave.com",
+    "Name":"adrbrowsiel.com",
     "Hash":"QmYbK4SLaSvTKKAKvNZMwyzYPy4P3GqBPN6CZzbS73FxxU",
     "Size":"567857"
     })",
                                                         &success));
   ASSERT_EQ(success.hash, "QmYbK4SLaSvTKKAKvNZMwyzYPy4P3GqBPN6CZzbS73FxxU");
-  // EXPECT_EQ(success.name, "brave.com");
+  // EXPECT_EQ(success.name, "adrbrowsiel.com");
   ASSERT_EQ(success.size, 567857);
 
   ipfs::ImportedData failed;
   ASSERT_TRUE(IPFSJSONParser::GetImportResponseFromJSON(R"({
-    "Name":"brave.com",
+    "Name":"adrbrowsiel.com",
     "Hash":"",
     "Size":"-1"
     })",
                                                         &failed));
   EXPECT_EQ(failed.hash, "");
-  // EXPECT_EQ(failed.name, "brave.com");
+  // EXPECT_EQ(failed.name, "adrbrowsiel.com");
   ASSERT_EQ(failed.size, -1);
 
   ipfs::ImportedData failed2;

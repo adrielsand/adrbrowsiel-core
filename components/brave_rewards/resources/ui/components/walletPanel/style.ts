@@ -3,9 +3,9 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import palette from 'brave-ui/theme/colors'
+import palette from 'adrbrowsiel-ui/theme/colors'
 
-import { CaratStrongDownIcon } from 'brave-ui/components/icons'
+import { CaratStrongDownIcon } from 'adrbrowsiel-ui/components/icons'
 
 interface StyleProps {
   size?: string

@@ -84,7 +84,7 @@ export default class Header extends React.PureComponent<Props, {}> {
   render () {
     const { enabled, favicon, hostname, isBlockedListOpen } = this.props
     return (
-      <ShieldsHeader id='braveShieldsHeader' status={enabled ? 'enabled' : 'disabled'}>
+      <ShieldsHeader id='adrbrowsielShieldsHeader' status={enabled ? 'enabled' : 'disabled'}>
         <MainToggle status={enabled ? 'enabled' : 'disabled'}>
           <div>
             <MainToggleHeading>

@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled, { css } from 'styled-components'
-import { BatColorIcon } from 'brave-ui/components/icons'
+import { BatColorIcon } from 'adrbrowsiel-ui/components/icons'
 
 import backgroundSrc from './assets/dialog_bg.svg'
 

@@ -3,13 +3,13 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Initial state
-import { defaultState as welcomeData } from '../../components/brave_welcome_ui/storage'
-import { defaultState as rewardsData } from '../../components/brave_rewards/resources/page/storage'
-import { defaultState as adblockData } from '../../components/brave_adblock_ui/storage'
+import { defaultState as welcomeData } from '../../components/adrbrowsiel_welcome_ui/storage'
+import { defaultState as rewardsData } from '../../components/adrbrowsiel_rewards/resources/page/storage'
+import { defaultState as adblockData } from '../../components/adrbrowsiel_adblock_ui/storage'
 
 // Types
-import { Tab } from '../brave_extension/extension/brave_extension/types/state/shieldsPannelState'
-import { BlockDetails } from '../brave_extension/extension/brave_extension/types/actions/shieldsPanelActions'
+import { Tab } from '../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/state/shieldsPannelState'
+import { BlockDetails } from '../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/actions/shieldsPanelActions'
 
 // Helpers
 import * as deepFreeze from 'deep-freeze-node'
@@ -70,9 +70,9 @@ interface Tabs {
 export const tabs: Tabs = {
   2: {
     id: 2,
-    url: 'https://www.brave.com/test',
-    origin: 'https://www.brave.com',
-    hostname: 'www.brave.com',
+    url: 'https://www.adrbrowsiel.com/test',
+    origin: 'https://www.adrbrowsiel.com',
+    hostname: 'www.adrbrowsiel.com',
     ads: 'block',
     adsBlocked: 0,
     trackers: 'block',
@@ -84,7 +84,7 @@ export const tabs: Tabs = {
     httpsRedirected: 0,
     javascriptBlocked: 0,
     fingerprintingBlocked: 0,
-    braveShields: 'block',
+    adrbrowsielShields: 'block',
     trackersBlocked: 0,
     noScriptInfo: {},
     adsBlockedResources: [],
@@ -99,7 +99,7 @@ export const activeTabData = tabs[2]
 export const blockedResource: BlockDetails = {
   blockType: 'shieldsAds',
   tabId: 2,
-  subresource: 'https://www.brave.com/test'
+  subresource: 'https://www.adrbrowsiel.com/test'
 }
 
 // see: https://developer.chrome.com/extensions/events
@@ -115,13 +115,13 @@ type MockSettingsStore = {
 // TODO: do this in individual tests that rely on individual settings,
 //   using the `addMockSetting` function
 let mockSettings: MockSettingsStore = {
-  ['brave.shields.advanced_view_enabled']: {
-    key: 'brave.shields.advanced_view_enabled',
+  ['adrbrowsiel.shields.advanced_view_enabled']: {
+    key: 'adrbrowsiel.shields.advanced_view_enabled',
     type: 'BOOLEAN',
     value: false
   },
-  ['brave.shields.stats_badge_visible']: {
-    key: 'brave.shields.stats_badge_visible',
+  ['adrbrowsiel.shields.stats_badge_visible']: {
+    key: 'adrbrowsiel.shields.stats_badge_visible',
     type: 'BOOLEAN',
     value: true
   }
@@ -139,11 +139,11 @@ export const getMockChrome = () => {
   let mock = {
     send: (methodName: string, ...args: Array<any>) => undefined,
     getVariableValue: () => undefined,
-    braveRewards: {
+    adrbrowsielRewards: {
       getPublisherData: (id: number, url: string, favicon: string) => undefined
     },
-    braveTheme: {
-      setBraveThemeType: function (theme: string) {
+    adrbrowsielTheme: {
+      setadrbrowsielThemeType: function (theme: string) {
         return
       }
     },
@@ -211,12 +211,12 @@ export const getMockChrome = () => {
         return new Promise(() => [])
       }
     },
-    braveShields: {
+    adrbrowsielShields: {
       onBlocked: new ChromeEvent(),
       allowScriptsOnce: function (origins: Array<string>, tabId: number, cb: () => void) {
         setImmediate(cb)
       },
-      getBraveShieldsEnabledAsync: function (url: string) {
+      getadrbrowsielShieldsEnabledAsync: function (url: string) {
         return Promise.resolve(false)
       },
       shouldDoCosmeticFilteringAsync: function (url: string) {
@@ -240,7 +240,7 @@ export const getMockChrome = () => {
       getNoScriptControlTypeAsync: function (url: string) {
         return Promise.resolve('block')
       },
-      setBraveShieldsEnabledAsync: function (url: string, enabled: boolean) {
+      setadrbrowsielShieldsEnabledAsync: function (url: string, enabled: boolean) {
         return new Promise(() => [])
       },
       setAdControlTypeAsync: function (url: string, controlType: string) {
@@ -378,7 +378,7 @@ export const mockSearchProviders = [
     keyword: ':d',
     modelIndex: 1,
     name: 'DuckDuckGo',
-    url: 'https://duckduckgo.com/?q=%s&t=brave',
+    url: 'https://duckduckgo.com/?q=%s&t=adrbrowsiel',
     urlLocked: true
   }
 ]

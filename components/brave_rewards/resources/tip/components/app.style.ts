@@ -7,7 +7,7 @@ import styled from 'styled-components'
 export const root = styled.div`
   display: flex;
   flex-flow: row wrap;
-  font-family: var(--brave-font-heading);
+  font-family: var(--adrbrowsiel-font-heading);
   font-size: 14px;
   line-height: 22px;
 
@@ -31,7 +31,7 @@ export const form = styled.div`
   position: relative;
   flex: 1 0 364px;
   min-height: 454px;
-  background: var(--brave-palette-white);
+  background: var(--adrbrowsiel-palette-white);
 `
 
 export const close = styled.div`
@@ -49,6 +49,6 @@ export const close = styled.div`
   .icon {
     display: block;
     height: 12px;
-    color: var(--brave-palette-grey500);
+    color: var(--adrbrowsiel-palette-grey500);
   }
 `

@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/tor/brave_tor_client_updater.h"
+#include "adrbrowsiel/components/tor/adrbrowsiel_tor_client_updater.h"
 
 #include <memory>
 #include <string>
@@ -18,12 +18,12 @@
 #include "base/task/thread_pool.h"
 #include "base/task_runner.h"
 #include "base/task_runner_util.h"
-#include "brave/components/tor/pref_names.h"
-#include "brave/components/tor/tor_switches.h"
+#include "adrbrowsiel/components/tor/pref_names.h"
+#include "adrbrowsiel/components/tor/tor_switches.h"
 #include "components/prefs/pref_service.h"
 #include "third_party/re2/src/re2/re2.h"
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
 namespace tor {
 
@@ -38,7 +38,7 @@ base::FilePath InitExecutablePath(const base::FilePath& install_dir) {
        current = traversal.Next()) {
     base::FileEnumerator::FileInfo file_info = traversal.GetInfo();
     if (!RE2::FullMatch(file_info.GetName().MaybeAsASCII(),
-                        "tor-\\d+\\.\\d+\\.\\d+\\.\\d+-\\w+-brave-\\d+"))
+                        "tor-\\d+\\.\\d+\\.\\d+\\.\\d+-\\w+-adrbrowsiel-\\d+"))
       continue;
     executable_path = current;
     break;
@@ -71,7 +71,7 @@ void DeleteDir(const base::FilePath& path) {
 }  // namespace
 
 #if defined(OS_WIN)
-const char kTorClientComponentName[] = "Brave Tor Client Updater (Windows)";
+const char kTorClientComponentName[] = "adrbrowsiel Tor Client Updater (Windows)";
 const char kTorClientComponentId[] = "cpoalefficncklhjfpglfiplenlpccdb";
 const char kTorClientComponentBase64PublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1AYAsmR/VoRwkZCsjRpD"
@@ -82,7 +82,7 @@ const char kTorClientComponentBase64PublicKey[] =
     "IuZjyySVzGNcOfASeHkhxhlwMQSQuhCN5mdFW5YBnVZ/5QWx8WzbhqBny/ZynS4e"
     "rQIDAQAB";
 #elif defined(OS_MAC)
-const char kTorClientComponentName[] = "Brave Tor Client Updater (Mac)";
+const char kTorClientComponentName[] = "adrbrowsiel Tor Client Updater (Mac)";
 const char kTorClientComponentId[] = "cldoidikboihgcjfkhdeidbpclkineef";
 const char kTorClientComponentBase64PublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw2QUXSbVuRxYpItYApZ8"
@@ -93,7 +93,7 @@ const char kTorClientComponentBase64PublicKey[] =
     "9CBOMNjaHeCVz0MKxdCWGPieQM0R7S1KvDCVqAkss6NAbLB6AVM0JulqxC9b+hr/"
     "xwIDAQAB";
 #elif defined(OS_LINUX)
-const char kTorClientComponentName[] = "Brave Tor Client Updater (Linux)";
+const char kTorClientComponentName[] = "adrbrowsiel Tor Client Updater (Linux)";
 const char kTorClientComponentId[] = "biahpgbdmdkfgndcmfiipgcebobojjkp";
 const char kTorClientComponentBase64PublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAseuq8dXKawkZC7RSE7xb"
@@ -105,16 +105,16 @@ const char kTorClientComponentBase64PublicKey[] =
     "2QIDAQAB";
 #endif
 
-std::string BraveTorClientUpdater::g_tor_client_component_id_(
+std::string adrbrowsielTorClientUpdater::g_tor_client_component_id_(
     kTorClientComponentId);
-std::string BraveTorClientUpdater::g_tor_client_component_base64_public_key_(
+std::string adrbrowsielTorClientUpdater::g_tor_client_component_base64_public_key_(
     kTorClientComponentBase64PublicKey);
 
-BraveTorClientUpdater::BraveTorClientUpdater(
-    BraveComponent::Delegate* component_delegate,
+adrbrowsielTorClientUpdater::adrbrowsielTorClientUpdater(
+    adrbrowsielComponent::Delegate* component_delegate,
     PrefService* local_state,
     const base::FilePath& user_data_dir)
-    : BraveComponent(component_delegate),
+    : adrbrowsielComponent(component_delegate),
       task_runner_(
           base::ThreadPool::CreateSequencedTaskRunner({base::MayBlock()})),
       registered_(false),
@@ -122,9 +122,9 @@ BraveTorClientUpdater::BraveTorClientUpdater(
       user_data_dir_(user_data_dir),
       weak_ptr_factory_(this) {}
 
-BraveTorClientUpdater::~BraveTorClientUpdater() {}
+adrbrowsielTorClientUpdater::~adrbrowsielTorClientUpdater() {}
 
-void BraveTorClientUpdater::Register() {
+void adrbrowsielTorClientUpdater::Register() {
   const base::CommandLine& command_line =
       *base::CommandLine::ForCurrentProcess();
   if (IsTorDisabled() ||
@@ -133,19 +133,19 @@ void BraveTorClientUpdater::Register() {
     return;
   }
 
-  BraveComponent::Register(kTorClientComponentName,
+  adrbrowsielComponent::Register(kTorClientComponentName,
                            g_tor_client_component_id_,
                            g_tor_client_component_base64_public_key_);
   registered_ = true;
 }
 
-void BraveTorClientUpdater::Unregister() {
-  // We don't call BraveComponent::Unregister here in order to prevent tor
+void adrbrowsielTorClientUpdater::Unregister() {
+  // We don't call adrbrowsielComponent::Unregister here in order to prevent tor
   // executable component from getting deleted when last tor window closed
   registered_ = false;
 }
 
-void BraveTorClientUpdater::Cleanup() {
+void adrbrowsielTorClientUpdater::Cleanup() {
   DCHECK(!user_data_dir_.empty());
   base::FilePath tor_component_dir =
       user_data_dir_.AppendASCII(kTorClientComponentId);
@@ -157,55 +157,55 @@ void BraveTorClientUpdater::Cleanup() {
                          base::BindOnce(&DeleteDir, GetTorWatchPath()));
 }
 
-void BraveTorClientUpdater::SetExecutablePath(const base::FilePath& path) {
+void adrbrowsielTorClientUpdater::SetExecutablePath(const base::FilePath& path) {
   executable_path_ = path;
   for (Observer& observer : observers_)
     observer.OnExecutableReady(path);
 }
 
-base::FilePath BraveTorClientUpdater::GetExecutablePath() const {
+base::FilePath adrbrowsielTorClientUpdater::GetExecutablePath() const {
   return executable_path_;
 }
 
-base::FilePath BraveTorClientUpdater::GetTorDataPath() const {
+base::FilePath adrbrowsielTorClientUpdater::GetTorDataPath() const {
   DCHECK(!user_data_dir_.empty());
   return user_data_dir_.Append(FILE_PATH_LITERAL("tor"))
       .Append(FILE_PATH_LITERAL("data"));
 }
 
-base::FilePath BraveTorClientUpdater::GetTorWatchPath() const {
+base::FilePath adrbrowsielTorClientUpdater::GetTorWatchPath() const {
   DCHECK(!user_data_dir_.empty());
   return user_data_dir_.Append(FILE_PATH_LITERAL("tor"))
       .Append(FILE_PATH_LITERAL("watch"));
 }
 
-void BraveTorClientUpdater::OnComponentReady(
+void adrbrowsielTorClientUpdater::OnComponentReady(
     const std::string& component_id,
     const base::FilePath& install_dir,
     const std::string& manifest) {
   base::PostTaskAndReplyWithResult(
       GetTaskRunner().get(), FROM_HERE,
       base::BindOnce(&InitExecutablePath, install_dir),
-      base::BindOnce(&BraveTorClientUpdater::SetExecutablePath,
+      base::BindOnce(&adrbrowsielTorClientUpdater::SetExecutablePath,
                      weak_ptr_factory_.GetWeakPtr()));
 }
 
-bool BraveTorClientUpdater::IsTorDisabled() {
+bool adrbrowsielTorClientUpdater::IsTorDisabled() {
   if (local_state_)
     return local_state_->GetBoolean(tor::prefs::kTorDisabled);
   return false;
 }
 
-void BraveTorClientUpdater::AddObserver(Observer* observer) {
+void adrbrowsielTorClientUpdater::AddObserver(Observer* observer) {
   observers_.AddObserver(observer);
 }
 
-void BraveTorClientUpdater::RemoveObserver(Observer* observer) {
+void adrbrowsielTorClientUpdater::RemoveObserver(Observer* observer) {
   observers_.RemoveObserver(observer);
 }
 
 // static
-void BraveTorClientUpdater::SetComponentIdAndBase64PublicKeyForTest(
+void adrbrowsielTorClientUpdater::SetComponentIdAndBase64PublicKeyForTest(
     const std::string& component_id,
     const std::string& component_base64_public_key) {
   g_tor_client_component_id_ = component_id;

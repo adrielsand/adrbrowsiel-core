@@ -14,10 +14,10 @@ interface Props {
 const getWalletName = (walletKey: string) => {
   switch (walletKey) {
     case 'anonymous': {
-      return getLocale('processorBraveUserFunds')
+      return getLocale('processoradrbrowsielUserFunds')
     }
     case 'blinded': {
-      return getLocale('processorBraveTokens')
+      return getLocale('processoradrbrowsielTokens')
     }
     case 'uphold': {
       return getLocale('processorUphold')

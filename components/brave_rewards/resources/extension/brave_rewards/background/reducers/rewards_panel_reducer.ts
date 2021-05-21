@@ -84,7 +84,7 @@ export const rewardsPanelReducer: Reducer<RewardsExtension.State | undefined> = 
       if (!publisher || (publisher.tabUrl !== tab.url || !validKey)) {
         // Invalid publisher for tab, re-fetch publisher.
         if (!handledByGreaselion(new URL(tab.url))) {
-          chrome.braveRewards.getPublisherData(
+          chrome.adrbrowsielRewards.getPublisherData(
             tab.id,
             tab.url,
             tab.favIconUrl || '',
@@ -153,7 +153,7 @@ export const rewardsPanelReducer: Reducer<RewardsExtension.State | undefined> = 
       let notifications: Record<string, RewardsExtension.Notification> = state.notifications
 
       // Array check for previous version of state types
-      // (https://github.com/brave/brave-browser/issues/4344)
+      // (https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/4344)
       if (!notifications || Array.isArray(notifications)) {
         notifications = {}
       }
@@ -230,7 +230,7 @@ export const rewardsPanelReducer: Reducer<RewardsExtension.State | undefined> = 
     case types.INCLUDE_IN_AUTO_CONTRIBUTION: {
       let publisherKey = payload.publisherKey
       let exclude = payload.exclude
-      chrome.braveRewards.includeInAutoContribution(publisherKey, exclude)
+      chrome.adrbrowsielRewards.includeInAutoContribution(publisherKey, exclude)
       break
     }
     case types.ON_PENDING_CONTRIBUTIONS_TOTAL: {
@@ -257,7 +257,7 @@ export const rewardsPanelReducer: Reducer<RewardsExtension.State | undefined> = 
     case types.SAVE_ONBOARDING_RESULT: {
       state = { ...state, showOnboarding: false }
       if (payload.result === 'opted-in') {
-        chrome.braveRewards.enableRewards()
+        chrome.adrbrowsielRewards.enableRewards()
       }
       onboardingCompletedStore.save()
       break
@@ -322,7 +322,7 @@ export const rewardsPanelReducer: Reducer<RewardsExtension.State | undefined> = 
       const value = action.payload.value
       if (key) {
         state[key] = value
-        chrome.braveRewards.saveSetting(key, value)
+        chrome.adrbrowsielRewards.saveSetting(key, value)
       }
       break
     }
@@ -331,7 +331,7 @@ export const rewardsPanelReducer: Reducer<RewardsExtension.State | undefined> = 
       if (publisherKey == null) {
         break
       }
-      chrome.braveRewards.removeRecurringTip(publisherKey)
+      chrome.adrbrowsielRewards.removeRecurringTip(publisherKey)
       break
     }
     case types.SAVE_RECURRING_TIP: {
@@ -344,7 +344,7 @@ export const rewardsPanelReducer: Reducer<RewardsExtension.State | undefined> = 
         break
       }
 
-      chrome.braveRewards.saveRecurringTip(publisherKey, newAmount)
+      chrome.adrbrowsielRewards.saveRecurringTip(publisherKey, newAmount)
       break
     }
     case types.ON_RECURRING_TIPS: {
@@ -502,7 +502,7 @@ export const rewardsPanelReducer: Reducer<RewardsExtension.State | undefined> = 
     }
     case types.UPDATE_PREFS: {
       const { prefs } = action.payload
-      chrome.braveRewards.updatePrefs(prefs)
+      chrome.adrbrowsielRewards.updatePrefs(prefs)
       state = { ...state }
       for (let [key, value] of Object.entries(prefs)) {
         switch (key) {

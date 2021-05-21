@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_P3A_BRAVE_P3A_UPLOADER_H_
-#define BRAVE_COMPONENTS_P3A_BRAVE_P3A_UPLOADER_H_
+#ifndef adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_UPLOADER_H_
+#define adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_UPLOADER_H_
 
 #include <memory>
 #include <string>
@@ -18,19 +18,19 @@ class SharedURLLoaderFactory;
 class SimpleURLLoader;
 }  // namespace network
 
-namespace brave {
+namespace adrbrowsiel {
 
-class BraveP3AUploader {
+class adrbrowsielP3AUploader {
  public:
   using UploadCallback = base::RepeatingCallback<void(int, int, bool)>;
 
-  BraveP3AUploader(
+  adrbrowsielP3AUploader(
       scoped_refptr<network::SharedURLLoaderFactory> url_loader_factory,
       const GURL& p3a_endpoint,
       const GURL& p2a_endpoint,
       const UploadCallback& on_upload_complete);
 
-  ~BraveP3AUploader();
+  ~adrbrowsielP3AUploader();
 
   // From metrics::MetricsLogUploader
   void UploadLog(const std::string& compressed_log_data,
@@ -44,9 +44,9 @@ class BraveP3AUploader {
   const GURL p2a_endpoint_;
   const UploadCallback on_upload_complete_;
   std::unique_ptr<network::SimpleURLLoader> url_loader_;
-  DISALLOW_COPY_AND_ASSIGN(BraveP3AUploader);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielP3AUploader);
 };
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_COMPONENTS_P3A_BRAVE_P3A_UPLOADER_H_
+#endif  // adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_UPLOADER_H_

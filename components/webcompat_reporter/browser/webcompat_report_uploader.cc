@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/webcompat_reporter/browser/webcompat_report_uploader.h"
+#include "adrbrowsiel/components/webcompat_reporter/browser/webcompat_report_uploader.h"
 
 #include <memory>
 #include <string>
@@ -11,8 +11,8 @@
 
 #include "base/environment.h"
 #include "base/json/json_writer.h"
-#include "brave/components/brave_referrals/browser/brave_referrals_service.h"
-#include "brave/components/brave_stats/browser/brave_stats_updater_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_stats/browser/adrbrowsiel_stats_updater_util.h"
 #include "content/public/browser/browser_task_traits.h"
 #include "net/base/load_flags.h"
 #include "net/base/privacy_mode.h"
@@ -21,7 +21,7 @@
 #include "services/network/public/mojom/fetch_api.mojom-shared.h"
 #include "url/gurl.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 WebcompatReportUploader::WebcompatReportUploader(
     scoped_refptr<network::SharedURLLoaderFactory> factory)
@@ -30,7 +30,7 @@ WebcompatReportUploader::WebcompatReportUploader(
 WebcompatReportUploader::~WebcompatReportUploader() {}
 
 void WebcompatReportUploader::SubmitReport(std::string report_domain) {
-  std::string api_key = brave_stats::GetAPIKey();
+  std::string api_key = adrbrowsiel_stats::GetAPIKey();
 
   GURL upload_url(WEBCOMPAT_REPORT_ENDPOINT);
 
@@ -60,16 +60,16 @@ void WebcompatReportUploader::CreateAndStartURLLoader(
   net::NetworkTrafficAnnotationTag traffic_annotation =
       net::DefineNetworkTrafficAnnotation("background_performance_tracer", R"(
         semantics {
-          sender: "Brave Web Compatibility Reporting"
+          sender: "adrbrowsiel Web Compatibility Reporting"
           description:
             "A user-initiated report of a website that appears broken as a"
-            "result of having Brave Shields enabled."
+            "result of having adrbrowsiel Shields enabled."
           trigger:
             "Though the 'Report a Broken Site' option of the help menu or"
-            "the Brave Shields panel."
+            "the adrbrowsiel Shields panel."
           data: "Broken domain and IP address."
           destination: OTHER
-          destination_other: "Brave developers"
+          destination_other: "adrbrowsiel developers"
         }
         policy {
           cookies_allowed: NO
@@ -98,4 +98,4 @@ void WebcompatReportUploader::OnSimpleURLLoaderComplete(
   }
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

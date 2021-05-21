@@ -5,8 +5,8 @@ source_set("common") {
   ]
 
   deps = [
-    "//brave/components/brave_shields/common:common",
-    "//brave/extensions:common",
+    "//adrbrowsiel/components/adrbrowsiel_shields/common:common",
+    "//adrbrowsiel/extensions:common",
     "//components/content_settings/core/common",
     "//url",
   ]

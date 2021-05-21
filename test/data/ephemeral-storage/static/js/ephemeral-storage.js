@@ -3,7 +3,7 @@
   const D = W.document
   const L = D.location
   const O = Object
-  const BU = W.BRAVE
+  const BU = W.adrbrowsiel
   const exceptionEncoding = '*exception*'
 
   const storageSettingSelect = D.getElementById('ephemeral-storage-setting')

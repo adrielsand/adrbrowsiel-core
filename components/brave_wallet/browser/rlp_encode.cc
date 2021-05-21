@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/rlp_encode.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/rlp_encode.h"
 
 #include <algorithm>
 #include <utility>
@@ -34,7 +34,7 @@ std::string RLPEncodeLength(size_t length, size_t offset) {
 
 }  // namespace
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 base::Value RLPUint256ToBlobValue(uint256_t input) {
   base::Value::BlobStorage output;
@@ -74,4 +74,4 @@ std::string RLPEncode(base::Value val) {
   return "";
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

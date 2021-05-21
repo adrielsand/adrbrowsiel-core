@@ -7,7 +7,7 @@ import * as React from 'react'
 import { WalletInfo } from './walletInfo'
 import { Balance } from './balance'
 import { ExternalWallet } from './externalWallet'
-import { Button } from 'brave-ui/components'
+import { Button } from 'adrbrowsiel-ui/components'
 import { ButtonWrapper } from '../style'
 
 // Utils

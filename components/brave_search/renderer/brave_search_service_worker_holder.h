@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SEARCH_RENDERER_BRAVE_SEARCH_SERVICE_WORKER_HOLDER_H_
-#define BRAVE_COMPONENTS_BRAVE_SEARCH_RENDERER_BRAVE_SEARCH_SERVICE_WORKER_HOLDER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SEARCH_RENDERER_adrbrowsiel_SEARCH_SERVICE_WORKER_HOLDER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SEARCH_RENDERER_adrbrowsiel_SEARCH_SERVICE_WORKER_HOLDER_H_
 
 #include <memory>
 #include <vector>
@@ -20,18 +20,18 @@ class WebServiceWorkerContextProxy;
 class ThreadSafeBrowserInterfaceBrokerProxy;
 }  // namespace blink
 
-namespace brave_search {
+namespace adrbrowsiel_search {
 
-class BraveSearchJSHandler;
+class adrbrowsielSearchJSHandler;
 
-class BraveSearchServiceWorkerHolder : public content::WorkerThread::Observer {
+class adrbrowsielSearchServiceWorkerHolder : public content::WorkerThread::Observer {
  public:
-  BraveSearchServiceWorkerHolder();
-  BraveSearchServiceWorkerHolder(const BraveSearchServiceWorkerHolder&) =
+  adrbrowsielSearchServiceWorkerHolder();
+  adrbrowsielSearchServiceWorkerHolder(const adrbrowsielSearchServiceWorkerHolder&) =
       delete;
-  BraveSearchServiceWorkerHolder& operator=(
-      const BraveSearchServiceWorkerHolder&) = delete;
-  ~BraveSearchServiceWorkerHolder() override;
+  adrbrowsielSearchServiceWorkerHolder& operator=(
+      const adrbrowsielSearchServiceWorkerHolder&) = delete;
+  ~adrbrowsielSearchServiceWorkerHolder() override;
 
   void SetBrowserInterfaceBrokerProxy(
       blink::ThreadSafeBrowserInterfaceBrokerProxy* broker);
@@ -51,13 +51,13 @@ class BraveSearchServiceWorkerHolder : public content::WorkerThread::Observer {
   // WorkerThread::Observer:
   void WillStopCurrentWorkerThread() override;
 
-  // Implement thread safety by storing each BraveSearchJSHandler in TLS. The
+  // Implement thread safety by storing each adrbrowsielSearchJSHandler in TLS. The
   // vector is called from worker threads.
-  base::ThreadLocalPointer<std::vector<std::unique_ptr<BraveSearchJSHandler>>>
+  base::ThreadLocalPointer<std::vector<std::unique_ptr<adrbrowsielSearchJSHandler>>>
       js_handlers_tls_;
   blink::ThreadSafeBrowserInterfaceBrokerProxy* broker_;  // not owned
 };
 
-}  // namespace brave_search
+}  // namespace adrbrowsiel_search
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SEARCH_RENDERER_BRAVE_SEARCH_SERVICE_WORKER_HOLDER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SEARCH_RENDERER_adrbrowsiel_SEARCH_SERVICE_WORKER_HOLDER_H_

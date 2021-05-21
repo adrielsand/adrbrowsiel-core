@@ -6,8 +6,8 @@ import styled from 'styled-components'
 
 export const root = styled.div`
   background: linear-gradient(328.73deg, #A1A8F2 8.09%, #4C54D2 97.6%);
-  color: var(--brave-palette-white);
-  font-family: var(--brave-font-heading);
+  color: var(--adrbrowsiel-palette-white);
+  font-family: var(--adrbrowsiel-font-heading);
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
@@ -15,7 +15,7 @@ export const root = styled.div`
   padding: 28px 16px 16px;
 
   .icon {
-    color: var(--brave-palette-white);
+    color: var(--adrbrowsiel-palette-white);
   }
 `
 
@@ -45,7 +45,7 @@ export const action = styled.div`
     font-size: 13px;
     line-height: 19px;
     padding: 10px 40px;
-    border: solid 1px var(--brave-palette-white);
+    border: solid 1px var(--adrbrowsiel-palette-white);
     border-radius: 26px;
     background: none;
   }

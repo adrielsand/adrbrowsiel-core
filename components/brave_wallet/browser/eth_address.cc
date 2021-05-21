@@ -1,17 +1,17 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/eth_address.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_address.h"
 
 #include "base/check_op.h"
 #include "base/logging.h"
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/string_util.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 namespace {
 #define ADDRESS_LEN 20
@@ -58,7 +58,7 @@ EthAddress EthAddress::FromHex(const std::string& input) {
 
 std::string EthAddress::ToHex() const {
   const std::string input(bytes_.begin(), bytes_.end());
-  return ::brave_wallet::ToHex(input);
+  return ::adrbrowsiel_wallet::ToHex(input);
 }
 
 std::string EthAddress::ToChecksumAddress(uint8_t eip1191_chaincode) const {
@@ -89,4 +89,4 @@ std::string EthAddress::ToChecksumAddress(uint8_t eip1191_chaincode) const {
   return result;
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

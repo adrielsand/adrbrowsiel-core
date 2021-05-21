@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_ADS_SERVICE_IMPL_H_
-#define BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_ADS_SERVICE_IMPL_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_ADS_SERVICE_IMPL_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_ADS_SERVICE_IMPL_H_
 
 #include <cstdint>
 #include <deque>
@@ -23,12 +23,12 @@
 #include "bat/ads/database.h"
 #include "bat/ads/mojom.h"
 #include "bat/ledger/mojom_structs.h"
-#include "brave/components/brave_ads/browser/ads_service.h"
-#include "brave/components/brave_ads/browser/background_helper.h"
-#include "brave/components/brave_ads/browser/component_updater/resource_component.h"
-#include "brave/components/brave_ads/browser/notification_helper.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service_observer.h"
-#include "brave/components/services/bat_ads/public/interfaces/bat_ads.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/background_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/component_updater/resource_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/notification_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service_observer.h"
+#include "adrbrowsiel/components/services/bat_ads/public/interfaces/bat_ads.mojom.h"
 #include "chrome/browser/notifications/notification_handler.h"
 #include "components/history/core/browser/history_service_observer.h"
 #include "components/prefs/pref_change_registrar.h"
@@ -40,8 +40,8 @@
 
 #include "base/task/cancelable_task_tracker.h"
 
-using brave_ads::ResourceComponent;
-using brave_rewards::RewardsNotificationService;
+using adrbrowsiel_ads::ResourceComponent;
+using adrbrowsiel_rewards::RewardsNotificationService;
 
 class NotificationDisplayService;
 class Profile;
@@ -50,9 +50,9 @@ namespace base {
 class SequencedTaskRunner;
 }  // namespace base
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 class RewardsService;
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
 namespace history {
 class HistoryService;
@@ -62,13 +62,13 @@ namespace network {
 class SimpleURLLoader;
 }  // namespace network
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 class AdsServiceImpl : public AdsService,
                        public ads::AdsClient,
                        public history::HistoryServiceObserver,
                        BackgroundHelper::Observer,
-                       public brave_ads::Observer,
+                       public adrbrowsiel_ads::Observer,
                        public base::SupportsWeakPtr<AdsServiceImpl> {
  public:
   void OnWalletUpdated();
@@ -238,7 +238,7 @@ class AdsServiceImpl : public AdsService,
                             ads::UrlRequestCallback callback,
                             const std::unique_ptr<std::string> response_body);
 
-  void OnGetBraveWallet(ledger::type::BraveWalletPtr wallet);
+  void OnGetadrbrowsielWallet(ledger::type::adrbrowsielWalletPtr wallet);
 
   void OnGetAdsHistory(OnGetAdsHistoryCallback callback,
                        const std::string& json);
@@ -288,9 +288,9 @@ class AdsServiceImpl : public AdsService,
   void MigratePrefsVersion8To9();
   void MigratePrefsVersion9To10();
 
-  bool IsUpgradingFromPreBraveAdsBuild();
+  bool IsUpgradingFromPreadrbrowsielAdsBuild();
 
-  void DisableAdsIfUpgradingFromPreBraveAdsBuild();
+  void DisableAdsIfUpgradingFromPreadrbrowsielAdsBuild();
   void DisableAdsForUnsupportedCountryCodes(
       const std::string& country_code,
       const std::vector<std::string>& country_codes);
@@ -414,7 +414,7 @@ class AdsServiceImpl : public AdsService,
 
   bool is_initialized_ = false;
 
-  bool is_upgrading_from_pre_brave_ads_build_;
+  bool is_upgrading_from_pre_adrbrowsiel_ads_build_;
 
   const scoped_refptr<base::SequencedTaskRunner> file_task_runner_;
 
@@ -439,7 +439,7 @@ class AdsServiceImpl : public AdsService,
   SimpleURLLoaderList url_loaders_;
 
   NotificationDisplayService* display_service_;     // NOT OWNED
-  brave_rewards::RewardsService* rewards_service_;  // NOT OWNED
+  adrbrowsiel_rewards::RewardsService* rewards_service_;  // NOT OWNED
 
   mojo::AssociatedReceiver<bat_ads::mojom::BatAdsClient>
       bat_ads_client_receiver_;
@@ -450,6 +450,6 @@ class AdsServiceImpl : public AdsService,
   base::CancelableTaskTracker task_tracker_;
 };
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_ADS_SERVICE_IMPL_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_ADS_SERVICE_IMPL_H_

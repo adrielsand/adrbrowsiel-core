@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ipfs/import/ipfs_link_import_worker.h"
+#include "adrbrowsiel/components/ipfs/import/ipfs_link_import_worker.h"
 
 #include <utility>
 
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
 #include "base/task_runner_util.h"
-#include "brave/components/ipfs/ipfs_network_utils.h"
+#include "adrbrowsiel/components/ipfs/ipfs_network_utils.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/browser_thread.h"
 #include "net/base/mime_util.h"

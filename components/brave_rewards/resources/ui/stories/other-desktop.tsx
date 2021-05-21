@@ -21,10 +21,10 @@ import {
   Tab
 } from '../components'
 
-import { BatColorIcon, SettingsIcon, UpholdColorIcon } from 'brave-ui/components/icons'
+import { BatColorIcon, SettingsIcon, UpholdColorIcon } from 'adrbrowsiel-ui/components/icons'
 import GrantClaim from '../components/grantClaim'
 
-const favicon = require('./img/brave-favicon.png')
+const favicon = require('./img/adrbrowsiel-favicon.png')
 
 const dummyClick = () => {
   console.log(dummyClick)
@@ -48,12 +48,12 @@ export const box = withState({ checked: false, toggle: true, settings: false }, 
   return (
     <div style={{ width: '595px' }}>
       <Box
-        title={text('Title', 'Brave ads')}
+        title={text('Title', 'adrbrowsiel ads')}
         toggle={boolean('Show toggle', store.state.toggle)}
         checked={boolean('Toggle checked', store.state.checked)}
         type={select<any>('Type', { contribute: 'contribute', donation: 'donation', ads: 'ads' }, 'contribute')}
         description={
-          text('Description', `Earn tokens by seeing ads on Brave. Ads are matched from machine learning and the data temporarily present in your browser without tracking your information or sending it outside.`)
+          text('Description', `Earn tokens by seeing ads on adrbrowsiel. Ads are matched from machine learning and the data temporarily present in your browser without tracking your information or sending it outside.`)
         }
         onToggle={onToggle}
         settingsChild={<div>Settings content</div>}
@@ -125,7 +125,7 @@ export const listToken = () => {
   return (
     <div style={{ width: '400px' }}>
       <ListToken
-        title={text('Title', 'Brave Contribute')}
+        title={text('Title', 'adrbrowsiel Contribute')}
         value={text('Value', '10.0')}
         converted={text('Converted', '0.25')}
         isNegative={boolean('Is negative', false)}
@@ -217,7 +217,7 @@ export const toggleTips = withState({ tipsEnabled: true }, (store) => {
 toggleTips.storyName = 'ToggleTips'
 
 export const tooltip = () => {
-  const braveAdsText = <span>Brave Ads Settings</span>
+  const adrbrowsielAdsText = <span>adrbrowsiel Ads Settings</span>
   const batLogoText = <span>BAT Logo</span>
   const styledUpholdContent = (
     <div>
@@ -232,7 +232,7 @@ export const tooltip = () => {
       <div style={{ position: 'absolute', top: '200px', left: '700px' }}>
         <Tooltip
           id={'tooltip-test'}
-          content={braveAdsText}
+          content={adrbrowsielAdsText}
         >
           <div style={{ width: '30px' }}>
             <SettingsIcon color={'#A1A8F2'} />

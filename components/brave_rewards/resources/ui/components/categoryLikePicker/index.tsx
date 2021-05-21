@@ -16,9 +16,9 @@ import {
   HeartSIcon,
   BlockLIcon,
   BlockSIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 import { Tooltip } from '..'
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 
 interface State {
   itemSelected: number

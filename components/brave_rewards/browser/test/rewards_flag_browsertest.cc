@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,12 +7,12 @@
 
 #include "base/containers/flat_map.h"
 #include "base/run_loop.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_response.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "chrome/test/base/testing_profile.h"
@@ -20,7 +20,7 @@
 #include "net/dns/mock_host_resolver.h"
 #include "testing/gmock/include/gmock/gmock.h"
 
-// npm run test -- brave_browser_tests --filter=RewardsFlagBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=RewardsFlagBrowserTest.*
 
 namespace rewards_browsertest {
 
@@ -42,10 +42,10 @@ class RewardsFlagBrowserTest : public InProcessBrowserTest {
     ASSERT_TRUE(https_server_->Start());
 
     // Rewards service
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     auto* profile = browser()->profile();
-    rewards_service_ = static_cast<brave_rewards::RewardsServiceImpl*>(
-        brave_rewards::RewardsServiceFactory::GetForProfile(profile));
+    rewards_service_ = static_cast<adrbrowsiel_rewards::RewardsServiceImpl*>(
+        adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile));
 
     // Response mock
     base::ScopedAllowBlockingForTesting allow_blocking;
@@ -149,7 +149,7 @@ class RewardsFlagBrowserTest : public InProcessBrowserTest {
   MOCK_METHOD1(OnGetReconcileInterval, void(int32_t));
   MOCK_METHOD1(OnGetShortRetries, void(bool));
 
-  brave_rewards::RewardsServiceImpl* rewards_service_;
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;
   std::unique_ptr<net::EmbeddedTestServer> https_server_;
   std::unique_ptr<RewardsBrowserTestResponse> response_;
   bool callback_called_ = false;

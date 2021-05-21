@@ -11,7 +11,7 @@ import { NewTabLink } from './new_tab_link'
 import * as style from './terms_of_service.style'
 
 const termsURL = 'https://basicattentiontoken.org/user-terms-of-service'
-const privacyURL = 'https://brave.com/privacy/#rewards'
+const privacyURL = 'https://adrbrowsiel.com/privacy/#rewards'
 
 export function TermsOfService () {
   const { getString } = React.useContext(LocaleContext)

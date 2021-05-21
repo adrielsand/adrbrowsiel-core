@@ -37,7 +37,7 @@ function testKnownSeedValuesEndToEnd() {
       const expectedResultArrayBuf =
           expectedResult.buffer.slice(expectedResult.byteOffset,
             expectedResult.byteLength + expectedResult.byteOffset)
-      chrome.braveWallet.getWalletSeed(buf, (resultArrayBuf) => {
+      chrome.adrbrowsielWallet.getWalletSeed(buf, (resultArrayBuf) => {
         if (arrayBufsMatch(resultArrayBuf, expectedResultArrayBuf)) {
           chrome.test.succeed();
         } else {
@@ -66,7 +66,7 @@ function testKnownBitGoSeedValuesEndToEnd() {
       const expectedResultArrayBuf =
           expectedResult.buffer.slice(expectedResult.byteOffset,
             expectedResult.byteLength + expectedResult.byteOffset)
-      chrome.braveWallet.getBitGoSeed(buf, (resultArrayBuf) => {
+      chrome.adrbrowsielWallet.getBitGoSeed(buf, (resultArrayBuf) => {
         if (arrayBufsMatch(resultArrayBuf, expectedResultArrayBuf)) {
           chrome.test.succeed();
         } else {
@@ -80,7 +80,7 @@ function testKnownBitGoSeedValuesEndToEnd() {
 function testProviderIsCryptoWallets() {
   chrome.test.runTests([
     function CryptoWalletsIsProvider() {
-      chrome.braveWallet.getWeb3Provider((provider) => {
+      chrome.adrbrowsielWallet.getWeb3Provider((provider) => {
         if (provider === 'odbfpeeihdkbihmopkbjmoonfanlbfcl') {
           chrome.test.succeed();
         } else {
@@ -94,7 +94,7 @@ function testProviderIsCryptoWallets() {
 function testProviderIsMetaMask() {
   chrome.test.runTests([
     function CryptoWalletsIsProvider() {
-      chrome.braveWallet.getWeb3Provider((provider) => {
+      chrome.adrbrowsielWallet.getWeb3Provider((provider) => {
         if (provider === 'nkbihfbeogaeaoehlefnkodbefgpgknn') {
           chrome.test.succeed();
         } else {
@@ -108,7 +108,7 @@ function testProviderIsMetaMask() {
 function testProviderIsAsk() {
   chrome.test.runTests([
     function CryptoWalletsIsProvider() {
-      chrome.braveWallet.getWeb3Provider((provider) => {
+      chrome.adrbrowsielWallet.getWeb3Provider((provider) => {
         if (provider.length === 0) {
           chrome.test.succeed();
         } else {
@@ -122,7 +122,7 @@ function testProviderIsAsk() {
 function testProviderIsNone() {
   chrome.test.runTests([
     function CryptoWalletsIsProvider() {
-      chrome.braveWallet.getWeb3Provider((provider) => {
+      chrome.adrbrowsielWallet.getWeb3Provider((provider) => {
         if (provider.length === 0) {
           chrome.test.succeed();
         } else {
@@ -133,10 +133,10 @@ function testProviderIsNone() {
   ])
 }
 
-function testProviderIsBraveWallet() {
+function testProviderIsadrbrowsielWallet() {
   chrome.test.runTests([
     function CryptoWalletsIsProvider() {
-      chrome.braveWallet.getWeb3Provider((provider) => {
+      chrome.adrbrowsielWallet.getWeb3Provider((provider) => {
         if (provider === 'odbfpeeihdkbihmopkbjmoonfanlbfcl') {
           chrome.test.succeed();
         } else {
@@ -149,32 +149,32 @@ function testProviderIsBraveWallet() {
 
 function testBasics() {
   chrome.test.runTests([
-    function braveWalletExtensionHasAccess() {
-      if (chrome.braveWallet &&
-          chrome.braveWallet.shouldPromptForSetup &&
-          chrome.braveWallet.loadUI &&
-          chrome.braveWallet.promptToEnableWallet) {
+    function adrbrowsielWalletExtensionHasAccess() {
+      if (chrome.adrbrowsielWallet &&
+          chrome.adrbrowsielWallet.shouldPromptForSetup &&
+          chrome.adrbrowsielWallet.loadUI &&
+          chrome.adrbrowsielWallet.promptToEnableWallet) {
         chrome.test.succeed();
       } else {
         chrome.test.fail();
       }
     },
-    function braveWalletExtensionSeedFunctionHasAccess() {
-      if (chrome.braveWallet && chrome.braveWallet.getWalletSeed &&
-          chrome.braveWallet.getBitGoSeed &&
-          chrome.braveWallet.getProjectID &&
-          chrome.braveWallet.getBraveKey &&
-          chrome.braveWallet.getWeb3Provider) {
+    function adrbrowsielWalletExtensionSeedFunctionHasAccess() {
+      if (chrome.adrbrowsielWallet && chrome.adrbrowsielWallet.getWalletSeed &&
+          chrome.adrbrowsielWallet.getBitGoSeed &&
+          chrome.adrbrowsielWallet.getProjectID &&
+          chrome.adrbrowsielWallet.getadrbrowsielKey &&
+          chrome.adrbrowsielWallet.getWeb3Provider) {
         chrome.test.succeed();
       } else {
         chrome.test.fail();
       }
     },
-    function braveWalletWrongInputKeySizeFails() {
+    function adrbrowsielWalletWrongInputKeySizeFails() {
       const buf = new Uint8Array([...Array(3).keys()])
       const arraybuf = buf.buffer.slice(buf.byteOffset,
           buf.byteLength + buf.byteOffset)
-      chrome.braveWallet.getWalletSeed(arraybuf, (seed) => {
+      chrome.adrbrowsielWallet.getWalletSeed(arraybuf, (seed) => {
         if (!seed) {
           chrome.test.succeed();
           return
@@ -182,11 +182,11 @@ function testBasics() {
         chrome.test.fail();
       })
     },
-    function braveBitGoWrongInputKeySizeFails() {
+    function adrbrowsielBitGoWrongInputKeySizeFails() {
       const buf = new Uint8Array([...Array(3).keys()])
       const arraybuf = buf.buffer.slice(buf.byteOffset,
           buf.byteLength + buf.byteOffset)
-      chrome.braveWallet.getBitGoSeed(arraybuf, (seed) => {
+      chrome.adrbrowsielWallet.getBitGoSeed(arraybuf, (seed) => {
         if (!seed) {
           chrome.test.succeed();
           return
@@ -194,12 +194,12 @@ function testBasics() {
         chrome.test.fail();
       })
     },
-    function braveWalletExtensionGetWalletSeedSameSeedOnMultipleRequests() {
+    function adrbrowsielWalletExtensionGetWalletSeedSameSeedOnMultipleRequests() {
       const buf = new Uint8Array([...Array(32).keys()])
       const arraybuf = buf.buffer.slice(buf.byteOffset,
           buf.byteLength + buf.byteOffset)
-      chrome.braveWallet.getWalletSeed(arraybuf, (firstSeed) => {
-        chrome.braveWallet.getWalletSeed(arraybuf, (secondSeed) => {
+      chrome.adrbrowsielWallet.getWalletSeed(arraybuf, (firstSeed) => {
+        chrome.adrbrowsielWallet.getWalletSeed(arraybuf, (secondSeed) => {
           if (arrayBufsMatch(firstSeed, secondSeed)) {
             chrome.test.succeed();
             return
@@ -209,12 +209,12 @@ function testBasics() {
         })
       })
     },
-    function braveWalletExtensionGetBitGoSeedSameSeedOnMultipleRequests() {
+    function adrbrowsielWalletExtensionGetBitGoSeedSameSeedOnMultipleRequests() {
       const buf = new Uint8Array([...Array(32).keys()])
       const arraybuf = buf.buffer.slice(buf.byteOffset,
           buf.byteLength + buf.byteOffset)
-      chrome.braveWallet.getBitGoSeed(arraybuf, (firstSeed) => {
-        chrome.braveWallet.getBitGoSeed(arraybuf, (secondSeed) => {
+      chrome.adrbrowsielWallet.getBitGoSeed(arraybuf, (firstSeed) => {
+        chrome.adrbrowsielWallet.getBitGoSeed(arraybuf, (secondSeed) => {
           if (arrayBufsMatch(firstSeed, secondSeed)) {
             chrome.test.succeed();
             return
@@ -224,12 +224,12 @@ function testBasics() {
         })
       })
     },
-    function braveWalletExtensionSeedsDiffValues() {
+    function adrbrowsielWalletExtensionSeedsDiffValues() {
       const buf = new Uint8Array([...Array(32).keys()])
       const arraybuf = buf.buffer.slice(buf.byteOffset,
           buf.byteLength + buf.byteOffset)
-      chrome.braveWallet.getWalletSeed(arraybuf, (firstSeed) => {
-        chrome.braveWallet.getBitGoSeed(arraybuf, (secondSeed) => {
+      chrome.adrbrowsielWallet.getWalletSeed(arraybuf, (firstSeed) => {
+        chrome.adrbrowsielWallet.getBitGoSeed(arraybuf, (secondSeed) => {
           if (!arrayBufsMatch(firstSeed, secondSeed)) {
             chrome.test.succeed();
             return
@@ -239,14 +239,14 @@ function testBasics() {
         })
       })
     },
-    function braveWalletExtensionGetWalletSeedDifferentKeysDoesNotWork() {
+    function adrbrowsielWalletExtensionGetWalletSeedDifferentKeysDoesNotWork() {
       const buf = new Uint8Array([...Array(32).keys()])
       const arraybuf = buf.buffer.slice(buf.byteOffset,
           buf.byteLength + buf.byteOffset)
       const buf2 = new Uint8Array([11, ...Array(31).keys()])
       const arraybuf2 = buf2.buffer.slice(buf2.byteOffset, buf2.byteLength + buf2.byteOffset)
-      chrome.braveWallet.getWalletSeed(arraybuf, (firstSeed) => {
-        chrome.braveWallet.getWalletSeed(arraybuf2, (secondSeed) => {
+      chrome.adrbrowsielWallet.getWalletSeed(arraybuf, (firstSeed) => {
+        chrome.adrbrowsielWallet.getWalletSeed(arraybuf2, (secondSeed) => {
           if (firstSeed && !secondSeed) {
             chrome.test.succeed();
             return
@@ -255,14 +255,14 @@ function testBasics() {
         })
       })
     },
-    function braveWalletExtensionGetBitGoSeedDifferentKeysDoesNotWork() {
+    function adrbrowsielWalletExtensionGetBitGoSeedDifferentKeysDoesNotWork() {
       const buf = new Uint8Array([...Array(32).keys()])
       const arraybuf = buf.buffer.slice(buf.byteOffset,
           buf.byteLength + buf.byteOffset)
       const buf2 = new Uint8Array([11, ...Array(31).keys()])
       const arraybuf2 = buf2.buffer.slice(buf2.byteOffset, buf2.byteLength + buf2.byteOffset)
-      chrome.braveWallet.getBitGoSeed(arraybuf, (firstSeed) => {
-        chrome.braveWallet.getBitGoSeed(arraybuf2, (secondSeed) => {
+      chrome.adrbrowsielWallet.getBitGoSeed(arraybuf, (firstSeed) => {
+        chrome.adrbrowsielWallet.getBitGoSeed(arraybuf2, (secondSeed) => {
           if (firstSeed && !secondSeed) {
             chrome.test.succeed();
             return
@@ -271,8 +271,8 @@ function testBasics() {
         })
       })
     },
-    function braveWalletExtensionGetProjectIDWorks() {
-      chrome.braveWallet.getProjectID((projectID) => {
+    function adrbrowsielWalletExtensionGetProjectIDWorks() {
+      chrome.adrbrowsielWallet.getProjectID((projectID) => {
         if (projectID === "test-project-id") {
           chrome.test.succeed();
           return
@@ -281,13 +281,13 @@ function testBasics() {
         chrome.test.fail();
       })
     },
-    function braveWalletExtensionGetBraveKeyWorks() {
-      chrome.braveWallet.getBraveKey((key) => {
-        if (key === "test-brave-key") {
+    function adrbrowsielWalletExtensionGetadrbrowsielKeyWorks() {
+      chrome.adrbrowsielWallet.getadrbrowsielKey((key) => {
+        if (key === "test-adrbrowsiel-key") {
           chrome.test.succeed();
           return
         }
-        console.log('Failure, brave key is: ' + key)
+        console.log('Failure, adrbrowsiel key is: ' + key)
         chrome.test.fail();
       })
     }

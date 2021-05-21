@@ -7,13 +7,13 @@ import { connect } from 'react-redux'
 import * as shieldsPanelActions from '../actions/shieldsPanelActions'
 import * as settingsActions from '../actions/settingsActions'
 import * as shieldsPanelState from '../state/shieldsPanelState'
-import BraveShields from '../containers/braveShields'
+import adrbrowsielShields from '../containers/adrbrowsielShields'
 import { State } from '../types/state/mainState'
 
 const mapStateToProps = (
   state: State,
   ownProps: {
-    settings: chrome.braveShields.BraveShieldsViewPreferences
+    settings: chrome.adrbrowsielShields.adrbrowsielShieldsViewPreferences
   }
 ) => {
   return ({
@@ -34,4 +34,4 @@ const mapDispatchToProps = (dispatch: any) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BraveShields as any) // TODO remove any
+)(adrbrowsielShields as any) // TODO remove any

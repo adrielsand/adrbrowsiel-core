@@ -1,11 +1,11 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // You can obtain one at http://mozilla.org/MPL/2.0/.
 module bat_ledger.mojom;
 
-import "brave/vendor/bat-native-ledger/include/bat/ledger/public/interfaces/ledger.mojom";
-import "brave/vendor/bat-native-ledger/include/bat/ledger/public/interfaces/ledger_database.mojom";
+import "adrbrowsiel/vendor/bat-native-ledger/include/bat/ledger/public/interfaces/ledger.mojom";
+import "adrbrowsiel/vendor/bat-native-ledger/include/bat/ledger/public/interfaces/ledger_database.mojom";
 
 interface BatLedgerService {
   Create(pending_associated_remote<BatLedgerClient> bat_ledger_client,
@@ -155,7 +155,7 @@ interface BatLedger {
 
   GetEventLogs() => (array<ledger.mojom.EventLog> logs);
 
-  GetBraveWallet() => (ledger.mojom.BraveWallet? wallet);
+  GetadrbrowsielWallet() => (ledger.mojom.adrbrowsielWallet? wallet);
 
   GetWalletPassphrase() => (string passphrase);
 };

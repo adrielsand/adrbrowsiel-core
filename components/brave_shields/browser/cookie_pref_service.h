@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_COOKIE_PREF_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_COOKIE_PREF_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_COOKIE_PREF_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_COOKIE_PREF_SERVICE_H_
 
 #include <string>
 
@@ -16,9 +16,9 @@
 class HostContentSettingsMap;
 class PrefService;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
-// sync brave plugin cookie settings with chromium cookie prefs
+// sync adrbrowsiel plugin cookie settings with chromium cookie prefs
 class CookiePrefService : public KeyedService,
                           public content_settings::Observer {
  public:
@@ -56,6 +56,6 @@ class CookiePrefService : public KeyedService,
   DISALLOW_COPY_AND_ASSIGN(CookiePrefService);
 };
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_COOKIE_PREF_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_COOKIE_PREF_SERVICE_H_

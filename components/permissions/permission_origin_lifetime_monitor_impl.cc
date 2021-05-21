@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/permissions/permission_origin_lifetime_monitor_impl.h"
+#include "adrbrowsiel/components/permissions/permission_origin_lifetime_monitor_impl.h"
 
 #include <utility>
 
@@ -18,7 +18,7 @@ PermissionOriginLifetimeMonitorImpl::PermissionOriginLifetimeMonitorImpl(
     content::BrowserContext* browser_context)
     : browser_context_(browser_context) {
   DCHECK(browser_context_);
-  DCHECK(base::FeatureList::IsEnabled(net::features::kBraveEphemeralStorage));
+  DCHECK(base::FeatureList::IsEnabled(net::features::kadrbrowsielEphemeralStorage));
 }
 
 PermissionOriginLifetimeMonitorImpl::~PermissionOriginLifetimeMonitorImpl() =

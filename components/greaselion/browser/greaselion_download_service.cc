@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/greaselion/browser/greaselion_download_service.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_download_service.h"
 
 #include <memory>
 #include <utility>
@@ -23,12 +23,12 @@
 #include "base/task_runner_util.h"
 #include "base/threading/sequenced_task_runner_handle.h"
 #include "base/version.h"
-#include "brave/components/brave_component_updater/browser/dat_file_util.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
-#include "brave/components/greaselion/browser/switches.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/dat_file_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/components/greaselion/browser/switches.h"
 
-using brave_component_updater::LocalDataFilesObserver;
-using brave_component_updater::LocalDataFilesService;
+using adrbrowsiel_component_updater::LocalDataFilesObserver;
+using adrbrowsiel_component_updater::LocalDataFilesService;
 
 #if !defined(OFFICIAL_BUILD)
 namespace {
@@ -56,9 +56,9 @@ const char kURLs[] = "urls";
 const char kScripts[] = "scripts";
 const char kRunAt[] = "run_at";
 const char kMessages[] = "messages";
-// Note(petemill): "brave" instead of "browser" version in order
+// Note(petemill): "adrbrowsiel" instead of "browser" version in order
 // to preserve some sense of cross-browser targetting of the scripts.
-const char kMinimumBraveVersion[] = "minimum_brave_version";
+const char kMinimumadrbrowsielVersion[] = "minimum_adrbrowsiel_version";
 // precondition keys
 const char kRewards[] = "rewards-enabled";
 const char kTwitterTips[] = "twitter-tips-enabled";
@@ -66,8 +66,8 @@ const char kRedditTips[] = "reddit-tips-enabled";
 const char kGithubTips[] = "github-tips-enabled";
 const char kAutoContribution[] = "auto-contribution-enabled";
 const char kAds[] = "ads-enabled";
-const char kSupportsMinimumBraveVersion[] =
-    "supports-minimum-brave-version";
+const char kSupportsMinimumadrbrowsielVersion[] =
+    "supports-minimum-adrbrowsiel-version";
 
 GreaselionRule::GreaselionRule(const std::string& name) : name_(name) {}
 
@@ -88,7 +88,7 @@ void GreaselionRule::Parse(base::DictionaryValue* preconditions_value,
                            base::ListValue* urls_value,
                            base::ListValue* scripts_value,
                            const std::string& run_at_value,
-                           const std::string& minimum_brave_version_value,
+                           const std::string& minimum_adrbrowsiel_version_value,
                            const base::FilePath& messages_value,
                            const base::FilePath& resource_dir) {
   if (preconditions_value) {
@@ -106,8 +106,8 @@ void GreaselionRule::Parse(base::DictionaryValue* preconditions_value,
         preconditions_.auto_contribution_enabled = condition;
       } else if (kv.first == kAds) {
         preconditions_.ads_enabled = condition;
-      } else if (kv.first == kSupportsMinimumBraveVersion) {
-        preconditions_.supports_minimum_brave_version = condition;
+      } else if (kv.first == kSupportsMinimumadrbrowsielVersion) {
+        preconditions_.supports_minimum_adrbrowsiel_version = condition;
       } else {
         LOG(INFO) << "Greaselion encountered an unknown precondition: "
             << kv.first;
@@ -136,7 +136,7 @@ void GreaselionRule::Parse(base::DictionaryValue* preconditions_value,
     }
   }
   run_at_ = run_at_value;
-  minimum_brave_version_ = minimum_brave_version_value;
+  minimum_adrbrowsiel_version_ = minimum_adrbrowsiel_version_value;
   if (!messages_value.empty()) {
     messages_ = resource_dir.Append(messages_value);
   }
@@ -175,16 +175,16 @@ bool GreaselionRule::Matches(
   if (!PreconditionFulfilled(preconditions_.auto_contribution_enabled,
                              state[greaselion::AUTO_CONTRIBUTION]))
     return false;
-  if (!PreconditionFulfilled(preconditions_.supports_minimum_brave_version,
-                          state[greaselion::SUPPORTS_MINIMUM_BRAVE_VERSION]))
+  if (!PreconditionFulfilled(preconditions_.supports_minimum_adrbrowsiel_version,
+                          state[greaselion::SUPPORTS_MINIMUM_adrbrowsiel_VERSION]))
     return false;
   if (!PreconditionFulfilled(preconditions_.ads_enabled,
                              state[greaselion::ADS]))
     return false;
   // Validate against browser version.
-  if (base::Version::IsValidWildcardString(minimum_brave_version_)) {
+  if (base::Version::IsValidWildcardString(minimum_adrbrowsiel_version_)) {
     bool rule_version_is_higher_than_browser =
-        (browser_version.CompareToWildcardString(minimum_brave_version_) < 0);
+        (browser_version.CompareToWildcardString(minimum_adrbrowsiel_version_) < 0);
     if (rule_version_is_higher_than_browser) {
       return false;
     }
@@ -266,7 +266,7 @@ void GreaselionDownloadService::LoadDirectlyFromResourcePath() {
       resource_dir_.AppendASCII(kGreaselionConfigFile);
   base::PostTaskAndReplyWithResult(
       GetTaskRunner().get(), FROM_HERE,
-      base::BindOnce(&brave_component_updater::GetDATFileAsString,
+      base::BindOnce(&adrbrowsiel_component_updater::GetDATFileAsString,
                      dat_file_path),
       base::BindOnce(&GreaselionDownloadService::OnDATFileDataReady,
                      weak_factory_.GetWeakPtr()));
@@ -297,10 +297,10 @@ void GreaselionDownloadService::OnDATFileDataReady(std::string contents) {
     rule_dict->GetList(kScripts, &scripts_value);
     const std::string* run_at_ptr = rule_it.FindStringPath(kRunAt);
     const std::string run_at_value = run_at_ptr ? *run_at_ptr : "";
-    const std::string* minimum_brave_version_ptr = rule_it.FindStringPath(
-        kMinimumBraveVersion);
-    const std::string minimum_brave_version_value =
-        minimum_brave_version_ptr ? *minimum_brave_version_ptr : "";
+    const std::string* minimum_adrbrowsiel_version_ptr = rule_it.FindStringPath(
+        kMinimumadrbrowsielVersion);
+    const std::string minimum_adrbrowsiel_version_value =
+        minimum_adrbrowsiel_version_ptr ? *minimum_adrbrowsiel_version_ptr : "";
     const std::string* messages = rule_it.FindStringPath(kMessages);
     base::FilePath messages_path;
     if (messages) {
@@ -310,7 +310,7 @@ void GreaselionDownloadService::OnDATFileDataReady(std::string contents) {
     std::unique_ptr<GreaselionRule> rule = std::make_unique<GreaselionRule>(
         base::StringPrintf(kRuleNameFormat, rules_.size()));
     rule->Parse(preconditions_value, urls_value, scripts_value, run_at_value,
-        minimum_brave_version_value, messages_path, resource_dir_);
+        minimum_adrbrowsiel_version_value, messages_path, resource_dir_);
     rules_.push_back(std::move(rule));
   }
   for (Observer& observer : observers_)

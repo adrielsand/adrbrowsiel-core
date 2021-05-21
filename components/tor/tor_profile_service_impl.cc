@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/tor/tor_profile_service_impl.h"
+#include "adrbrowsiel/components/tor/tor_profile_service_impl.h"
 
 #include <memory>
 #include <string>
@@ -11,9 +11,9 @@
 
 #include "base/bind.h"
 #include "base/task/post_task.h"
-#include "brave/components/tor/pref_names.h"
-#include "brave/components/tor/tor_constants.h"
-#include "brave/net/proxy_resolution/proxy_config_service_tor.h"
+#include "adrbrowsiel/components/tor/pref_names.h"
+#include "adrbrowsiel/components/tor/tor_constants.h"
+#include "adrbrowsiel/net/proxy_resolution/proxy_config_service_tor.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/browser_task_traits.h"
 #include "content/public/browser/browser_thread.h"
@@ -114,7 +114,7 @@ void OnNewTorCircuit(std::unique_ptr<NewTorCircuitTracker> tracker,
 
 TorProfileServiceImpl::TorProfileServiceImpl(
     content::BrowserContext* context,
-    BraveTorClientUpdater* tor_client_updater)
+    adrbrowsielTorClientUpdater* tor_client_updater)
     : context_(context),
       tor_client_updater_(tor_client_updater),
       tor_launcher_factory_(TorLauncherFactory::GetInstance()),

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef BRAVE_COMPONENTS_BRAVE_PROCHLO_PROCHLO_DATA_H_
-#define BRAVE_COMPONENTS_BRAVE_PROCHLO_PROCHLO_DATA_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_PROCHLO_PROCHLO_DATA_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_PROCHLO_PROCHLO_DATA_H_
 
 #include <cstdint>
 #include <cstddef>
@@ -164,4 +164,4 @@ constexpr size_t kShufflerItemLength = kEncryptedPlainShufflerItemLength;
 
 }  // namespace prochlo
 
-#endif  //  BRAVE_COMPONENTS_BRAVE_PROCHLO_PROCHLO_DATA_H_
+#endif  //  adrbrowsiel_COMPONENTS_adrbrowsiel_PROCHLO_PROCHLO_DATA_H_

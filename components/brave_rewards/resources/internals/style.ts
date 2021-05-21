@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import Heading, { HeadingProps } from 'brave-ui/components/text/heading'
+import Heading, { HeadingProps } from 'adrbrowsiel-ui/components/text/heading'
 import { ComponentType } from 'react'
 
 export const Wrapper = styled('div')<{}>`

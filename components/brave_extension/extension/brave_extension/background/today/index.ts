@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,29 +10,29 @@ import * as Publishers from './publishers'
 import * as PublisherUserPrefs from './publisher-user-prefs'
 import { fetchResource, getUnpaddedAsDataUrl } from './privateCDN'
 
-const SETTINGS_KEY_SHOW_TODAY = 'brave.new_tab_page.show_brave_today'
-const SETTINGS_KEY_OPTED_IN = 'brave.today.opted_in'
-const ALARM_KEY_FEED_UPDATE = 'brave-today-update-feed'
-const ALARM_KEY_PUBLISHERS_UPDATE = 'brave-today-update-publishers'
+const SETTINGS_KEY_SHOW_TODAY = 'adrbrowsiel.new_tab_page.show_adrbrowsiel_today'
+const SETTINGS_KEY_OPTED_IN = 'adrbrowsiel.today.opted_in'
+const ALARM_KEY_FEED_UPDATE = 'adrbrowsiel-today-update-feed'
+const ALARM_KEY_PUBLISHERS_UPDATE = 'adrbrowsiel-today-update-publishers'
 
-// Only do certain things when Brave Today is enabled
+// Only do certain things when adrbrowsiel Today is enabled
 let isStartedUp = false
 
 //
-// This module is the orchestrator for the Brave Today backend.
+// This module is the orchestrator for the adrbrowsiel Today backend.
 // It handles command communication from front-ends, as well
 // as setting up and handling timers, and events from the
 // rest of the browser.
 //
 
 // Handle browser events
-chrome.braveToday.onClearHistory.addListener(async () => {
+chrome.adrbrowsielToday.onClearHistory.addListener(async () => {
   // Parsed and weighted feed items have somewhat history-related
   // data since they have a `score` property which has a different
   // value if the user has visited the article's URL host recently.
   // So, clear the generated scores (and the entire generated feed)
   // when the user clears history.
-  console.debug('Clearing Brave Today feed from cache due to clear history event.')
+  console.debug('Clearing adrbrowsiel Today feed from cache due to clear history event.')
   await Feed.clearCache()
 })
 
@@ -73,17 +73,17 @@ function stopUpdateFrequency () {
 
 // Setup listeners for messages from WebUI
 import MessageTypes = Background.MessageTypes.Today
-import Messages = BraveToday.Messages
+import Messages = adrbrowsielToday.Messages
 
 async function fetchIsUpdateAvailableIfTime () {
-  // When the user is interacting with Brave Today, we check
+  // When the user is interacting with adrbrowsiel Today, we check
   // more frequently than our timer.
   const lastUpdateTime = await Feed.getLastUpdateCheckTime()
   const shouldCheck = !lastUpdateTime ||
     (Date.now() - lastUpdateTime) >= (10 * 60 * 1000) // 10 minutes
   if (shouldCheck) {
     const hasUpdate = await Feed.checkForRemoteUpdate()
-    console.debug(`Brave Today checked for update because it's been used for 10 mins. Update ${hasUpdate ? 'was' : 'was NOT'} available.`)
+    console.debug(`adrbrowsiel Today checked for update because it's been used for 10 mins. Update ${hasUpdate ? 'was' : 'was NOT'} available.`)
     return hasUpdate
   }
   return null
@@ -92,12 +92,12 @@ async function fetchIsUpdateAvailableIfTime () {
 Background.setListener<void>(
   MessageTypes.indicatingOpen,
   async function () {
-    // This will only get called from a page that Brave Today is enabled on.
+    // This will only get called from a page that adrbrowsiel Today is enabled on.
     // Start to fetch data if that hasn't happened yet,
     // but don't use resources returning it when
-    // most NTP opens won't result in reading Brave Today
+    // most NTP opens won't result in reading adrbrowsiel Today
     // content (or changing publisher settings).
-    // Only do this if we've previously interacted with brave today
+    // Only do this if we've previously interacted with adrbrowsiel today
     if (isStartedUp) {
       await Promise.all([
         Feed.getOrFetchData(),
@@ -195,19 +195,19 @@ async function conditionallyStartupOrShutdown () {
     getPreference(SETTINGS_KEY_SHOW_TODAY),
     getPreference(SETTINGS_KEY_OPTED_IN)
   ])
-  let isBraveTodayEnabled = true
+  let isadrbrowsielTodayEnabled = true
   for (const pref of prefs) {
     if (pref.type !== chrome.settingsPrivate.PrefType.BOOLEAN) {
       throw new Error(`Unknown pref type for '${pref.key}'. Expected BOOLEAN but saw ${pref.type}.`)
     }
     if (!pref.value) {
-      isBraveTodayEnabled = false
+      isadrbrowsielTodayEnabled = false
     }
   }
-  if (isBraveTodayEnabled && !isStartedUp) {
+  if (isadrbrowsielTodayEnabled && !isStartedUp) {
     isStartedUp = true
     ensureUpdateFrequency()
-  } else if (!isBraveTodayEnabled && isStartedUp) {
+  } else if (!isadrbrowsielTodayEnabled && isStartedUp) {
     stopUpdateFrequency()
     isStartedUp = false
   }
@@ -219,5 +219,5 @@ chrome.settingsPrivate.onPrefsChanged.addListener(async prefs => {
 
 conditionallyStartupOrShutdown()
 .catch((err) => {
-  console.error('Could not startup Brave News', err)
+  console.error('Could not startup adrbrowsiel News', err)
 })

@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,7 +6,7 @@
 #include <ctime>
 #include <memory>
 
-#include "brave/components/brave_stats/browser/brave_stats_updater_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_stats/browser/adrbrowsiel_stats_updater_util.h"
 
 #include "base/environment.h"
 #include "base/strings/string_number_conversions.h"
@@ -14,7 +14,7 @@
 #include "base/strings/string_split.h"
 #include "base/strings/stringprintf.h"
 
-namespace brave_stats {
+namespace adrbrowsiel_stats {
 
 std::string GetDateAsYMD(const base::Time& time) {
   base::Time::Exploded exploded;
@@ -80,12 +80,12 @@ base::Time GetYMDAsDate(const base::StringPiece& ymd) {
 }
 
 std::string GetAPIKey() {
-  std::string api_key = BRAVE_STATS_API_KEY;
+  std::string api_key = adrbrowsiel_STATS_API_KEY;
   std::unique_ptr<base::Environment> env(base::Environment::Create());
-  if (env->HasVar("BRAVE_STATS_API_KEY"))
-    env->GetVar("BRAVE_STATS_API_KEY", &api_key);
+  if (env->HasVar("adrbrowsiel_STATS_API_KEY"))
+    env->GetVar("adrbrowsiel_STATS_API_KEY", &api_key);
 
   return api_key;
 }
 
-}  // namespace brave_stats
+}  // namespace adrbrowsiel_stats

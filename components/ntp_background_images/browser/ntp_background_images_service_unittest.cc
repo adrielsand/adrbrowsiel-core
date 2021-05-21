@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,14 +7,14 @@
 #include <string>
 
 #include "base/test/task_environment.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_referrals/buildflags/buildflags.h"
-#include "brave/components/brave_referrals/browser/brave_referrals_service.h"
-#include "brave/components/brave_referrals/common/pref_names.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_data.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_service.h"
-#include "brave/components/ntp_background_images/browser/url_constants.h"
-#include "brave/components/ntp_background_images/common/pref_names.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/common/pref_names.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_service.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/url_constants.h"
+#include "adrbrowsiel/components/ntp_background_images/common/pref_names.h"
 #include "components/prefs/testing_pref_service.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
@@ -31,7 +31,7 @@ constexpr char kTestSponsoredImages[] = R"(
         "logo": {
           "imageUrl":  "logo.png",
           "alt": "Technikke: For music lovers",
-          "destinationUrl": "https://www.brave.com/",
+          "destinationUrl": "https://www.adrbrowsiel.com/",
           "companyName": "Technikke"
         },
         "wallpapers": [
@@ -128,7 +128,7 @@ class NTPBackgroundImagesServiceTest : public testing::Test {
   void SetUp() override {
     auto* registry = pref_service_.registry();
     NTPBackgroundImagesService::RegisterLocalStatePrefs(registry);
-    brave::RegisterPrefsForBraveReferralsService(registry);
+    adrbrowsiel::RegisterPrefsForadrbrowsielReferralsService(registry);
   }
 
   void Init() {
@@ -205,7 +205,7 @@ TEST_F(NTPBackgroundImagesServiceTest, InternalDataTest) {
         "logo": {
           "imageUrl":  "logo.png",
           "alt": "Technikke: For music lovers",
-          "destinationUrl": "https://www.brave.com/",
+          "destinationUrl": "https://www.adrbrowsiel.com/",
           "companyName": "Technikke"
         },
         "wallpapers": [
@@ -233,7 +233,7 @@ TEST_F(NTPBackgroundImagesServiceTest, InternalDataTest) {
   service_->RemoveObserver(&observer);
 }
 
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
 
 #if defined(OS_LINUX)
 
@@ -274,7 +274,7 @@ const char kTestSuperReferral[] = R"(
         "imageUrl": "logo.png",
         "alt": "Technikke: For music lovers",
         "companyName": "Technikke",
-        "destinationUrl": "https://www.brave.com/?from-super-referreer-demo"
+        "destinationUrl": "https://www.adrbrowsiel.com/?from-super-referreer-demo"
       },
       "wallpapers": [
         {
@@ -291,10 +291,10 @@ const char kTestSuperReferral[] = R"(
       ],
       "topSites": [
         {
-          "name": "Brave",
-          "destinationUrl": "https://brave.com/",
+          "name": "adrbrowsiel",
+          "destinationUrl": "https://adrbrowsiel.com/",
           "backgroundColor": "#e22919",
-          "iconUrl": "brave.png"
+          "iconUrl": "adrbrowsiel.png"
         },
         {
           "name": "Wiki",
@@ -536,6 +536,6 @@ TEST_F(NTPBackgroundImagesServiceTest,
 
 #endif  // OS_LINUX
 
-#endif  // BUILDFLAG(ENABLE_BRAVE_REFERRALS)
+#endif  // BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
 
 }  // namespace ntp_background_images

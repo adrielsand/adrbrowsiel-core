@@ -1,10 +1,10 @@
-/* Copyright 2016 The Brave Authors. All rights reserved.
+/* Copyright 2016 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_IMPL_H_
-#define BRAVE_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_IMPL_H_
+#ifndef adrbrowsiel_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_IMPL_H_
+#define adrbrowsiel_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_IMPL_H_
 
 #include <map>
 #include <memory>
@@ -18,7 +18,7 @@
 #include "base/memory/weak_ptr.h"
 #include "base/path_service.h"
 #include "base/version.h"
-#include "brave/components/greaselion/browser/greaselion_service.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_service.h"
 #include "extensions/common/extension_id.h"
 #include "url/gurl.h"
 
@@ -96,4 +96,4 @@ class GreaselionServiceImpl : public GreaselionService {
 
 }  // namespace greaselion
 
-#endif  // BRAVE_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_IMPL_H_
+#endif  // adrbrowsiel_COMPONENTS_GREASELION_BROWSER_GREASELION_SERVICE_IMPL_H_

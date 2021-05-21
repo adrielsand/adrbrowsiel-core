@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SPEEDREADER_SPEEDREADER_COMPONENT_H_
-#define BRAVE_COMPONENTS_SPEEDREADER_SPEEDREADER_COMPONENT_H_
+#ifndef adrbrowsiel_COMPONENTS_SPEEDREADER_SPEEDREADER_COMPONENT_H_
+#define adrbrowsiel_COMPONENTS_SPEEDREADER_SPEEDREADER_COMPONENT_H_
 
 #include <memory>
 #include <string>
@@ -12,7 +12,7 @@
 #include "base/files/file_path_watcher.h"
 #include "base/memory/weak_ptr.h"
 #include "base/observer_list.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
 
 namespace base {
 class FilePath;
@@ -23,7 +23,7 @@ class GURL;
 namespace speedreader {
 
 class SpeedreaderComponent
-    : public brave_component_updater::BraveComponent,
+    : public adrbrowsiel_component_updater::adrbrowsielComponent,
       public base::SupportsWeakPtr<SpeedreaderComponent> {
  public:
   class Observer : public base::CheckedObserver {
@@ -48,7 +48,7 @@ class SpeedreaderComponent
   const base::FilePath& GetStylesheetPath() { return stylesheet_path_; }
 
  private:
-  // brave_component_updater::BraveComponent:
+  // adrbrowsiel_component_updater::adrbrowsielComponent:
   void OnComponentReady(const std::string& component_id,
                         const base::FilePath& install_dir,
                         const std::string& manifest) override;
@@ -65,4 +65,4 @@ class SpeedreaderComponent
 
 }  // namespace speedreader
 
-#endif  // BRAVE_COMPONENTS_SPEEDREADER_SPEEDREADER_COMPONENT_H_
+#endif  // adrbrowsiel_COMPONENTS_SPEEDREADER_SPEEDREADER_COMPONENT_H_

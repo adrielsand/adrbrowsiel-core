@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 import { ComponentType } from 'react'
 
 /**
@@ -33,7 +33,7 @@ interface ToggleStateTextProps {
 
 export const ToggleStateText = styled('span')<ToggleStateTextProps>`
   box-sizing: border-box;
-  color: ${p => p.status === 'enabled' ? p => p.theme.color.brandBrave : p.theme.color.disabledResourceBlocked};
+  color: ${p => p.status === 'enabled' ? p => p.theme.color.brandadrbrowsiel : p.theme.color.disabledResourceBlocked};
   font-size: inherit;
   text-transform: uppercase;
   font-style: normal;
@@ -128,7 +128,7 @@ export const BlockedListItemHeaderStats = styled('span')<{}>`
 export const Link = styled('button')<{}>`
   box-sizing: border-box;
   -webkit-appearance: none;
-  color: ${p => p.theme.color.brandBrave};
+  color: ${p => p.theme.color.brandadrbrowsiel};
   border: 0;
   padding: 0;
   background: transparent;
@@ -144,7 +144,7 @@ export const Link = styled('button')<{}>`
   }
 
   &:focus {
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
     outline-width: 2px;
   }
 
@@ -158,7 +158,7 @@ interface LinkActionProps {
 
 export const LinkAction = styled(Link)<LinkActionProps>`
   box-sizing: border-box;
-  color: ${p => p.theme.color.brandBrave};
+  color: ${p => p.theme.color.brandadrbrowsiel};
   font-size: ${p => p.size === 'small' && '12px' || 'inherit'};
   line-height: ${p => p.size === 'small' && '1'};
   font-weight: 500;
@@ -200,7 +200,7 @@ export const DisabledContentText = styled('div')<{}>`
 export const ShieldsButton = styled(Button as ComponentType<ButtonProps>)`
   &:focus {
     outline-offset: 2px;
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
     outline-width: 2px;
   }
 

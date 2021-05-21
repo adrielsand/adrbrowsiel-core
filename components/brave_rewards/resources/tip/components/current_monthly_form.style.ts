@@ -9,7 +9,7 @@ export const root = styled.div`
   padding-top: 45px;
   display: flex;
   flex-direction: column;
-  color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-neutral900);
 `
 
 export const header = styled.div`
@@ -50,7 +50,7 @@ export const cancel = styled.span`
     padding: 10px 22px;
     border: none;
     background: none;
-    color: var(--brave-palette-neutral600);
+    color: var(--adrbrowsiel-palette-neutral600);
     cursor: pointer;
     font-weight: 600;
     font-size: 14px;
@@ -62,7 +62,7 @@ export const changeAmount = styled.span`
   button {
     padding: 9px 21px;
     background: none;
-    color: var(--brave-color-brandBatInteracting);
+    color: var(--adrbrowsiel-color-brandBatInteracting);
     cursor: pointer;
     font-weight: 600;
     font-size: 14px;
@@ -72,7 +72,7 @@ export const changeAmount = styled.span`
   }
 
   button:active {
-    background: var(--brave-color-brandBatActive);
+    background: var(--adrbrowsiel-color-brandBatActive);
   }
 `
 

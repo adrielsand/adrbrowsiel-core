@@ -12,7 +12,7 @@ import { Promotions } from './promotions'
 import { General } from './general'
 import { EventLogs } from './event_logs'
 import { Log } from './log'
-import { Tabs } from 'brave-ui/components'
+import { Tabs } from 'adrbrowsiel-ui/components'
 import { Wrapper, MainTitle, Disclaimer } from '../style'
 
 // Utils

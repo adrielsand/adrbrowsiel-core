@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/p3a/brave_p3a_uploader.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_p3a_uploader.h"
 
 #include <utility>
 
@@ -12,7 +12,7 @@
 #include "services/network/public/cpp/shared_url_loader_factory.h"
 #include "services/network/public/cpp/simple_url_loader.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 namespace {
 
@@ -22,13 +22,13 @@ net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotation(
   if (upload_type == "p3a") {
     return net::DefineNetworkTrafficAnnotation("metrics_report_uma", R"(
         semantics {
-          sender: "Brave Privacy-Preserving Product Analytics Uploader"
+          sender: "adrbrowsiel Privacy-Preserving Product Analytics Uploader"
           description:
             "Report of anonymized usage statistics. For more info, see "
-            "https://brave.com/P3A"
+            "https://adrbrowsiel.com/P3A"
           trigger:
             "Reports are automatically generated on startup and at intervals "
-            "while Brave is running."
+            "while adrbrowsiel is running."
           data:
             "A protocol buffer with anonymized and encrypted usage data."
           destination: WEBSITE
@@ -36,7 +36,7 @@ net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotation(
         policy {
           cookies_allowed: NO
           setting:
-            "Users can enable or disable it in brave://settings/privacy"
+            "Users can enable or disable it in adrbrowsiel://settings/privacy"
            policy_exception_justification:
              "Not implemented."
         })");
@@ -44,13 +44,13 @@ net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotation(
   DCHECK_EQ(upload_type, "p2a");
   return net::DefineNetworkTrafficAnnotation("metrics_report_uma", R"(
       semantics {
-        sender: "Brave Privacy-Preserving Ad Analytics Uploader"
+        sender: "adrbrowsiel Privacy-Preserving Ad Analytics Uploader"
         description:
           "Report of anonymized usage statistics. For more info, see "
-          "https://brave.com/P2A"
+          "https://adrbrowsiel.com/P2A"
         trigger:
           "Reports are automatically generated on startup and at intervals "
-          "while Brave is running."
+          "while adrbrowsiel is running."
         data:
           "A protocol buffer with anonymized and encrypted usage data."
         destination: WEBSITE
@@ -58,8 +58,8 @@ net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotation(
       policy {
         cookies_allowed: NO
         setting:
-          "Users can enable or disable it by enabling or disabling Brave rewards
-         or ads in brave://rewards"
+          "Users can enable or disable it by enabling or disabling adrbrowsiel rewards
+         or ads in adrbrowsiel://rewards"
          policy_exception_justification:
            "Not implemented."
       })");
@@ -67,7 +67,7 @@ net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotation(
 
 }  // namespace
 
-BraveP3AUploader::BraveP3AUploader(
+adrbrowsielP3AUploader::adrbrowsielP3AUploader(
     scoped_refptr<network::SharedURLLoaderFactory> url_loader_factory,
     const GURL& p3a_endpoint,
     const GURL& p2a_endpoint,
@@ -77,17 +77,17 @@ BraveP3AUploader::BraveP3AUploader(
       p2a_endpoint_(p2a_endpoint),
       on_upload_complete_(on_upload_complete) {}
 
-BraveP3AUploader::~BraveP3AUploader() = default;
+adrbrowsielP3AUploader::~adrbrowsielP3AUploader() = default;
 
-void BraveP3AUploader::UploadLog(const std::string& compressed_log_data,
+void adrbrowsielP3AUploader::UploadLog(const std::string& compressed_log_data,
                                  const std::string& upload_type) {
   auto resource_request = std::make_unique<network::ResourceRequest>();
   if (upload_type == "p2a") {
     resource_request->url = p2a_endpoint_;
-    resource_request->headers.SetHeader("X-Brave-P2A", "?1");
+    resource_request->headers.SetHeader("X-adrbrowsiel-P2A", "?1");
   } else if (upload_type == "p3a") {
     resource_request->url = p3a_endpoint_;
-    resource_request->headers.SetHeader("X-Brave-P3A", "?1");
+    resource_request->headers.SetHeader("X-adrbrowsiel-P3A", "?1");
   } else {
     NOTREACHED();
   }
@@ -104,11 +104,11 @@ void BraveP3AUploader::UploadLog(const std::string& compressed_log_data,
 
   url_loader_->DownloadToStringOfUnboundedSizeUntilCrashAndDie(
       url_loader_factory_.get(),
-      base::BindOnce(&BraveP3AUploader::OnUploadComplete,
+      base::BindOnce(&adrbrowsielP3AUploader::OnUploadComplete,
                      base::Unretained(this)));
 }
 
-void BraveP3AUploader::OnUploadComplete(
+void adrbrowsielP3AUploader::OnUploadComplete(
     std::unique_ptr<std::string> response_body) {
   int response_code = -1;
   if (url_loader_->ResponseInfo() && url_loader_->ResponseInfo()->headers)
@@ -121,4 +121,4 @@ void BraveP3AUploader::OnUploadComplete(
   on_upload_complete_.Run(response_code, error_code, was_https);
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

@@ -6,7 +6,7 @@ import * as React from 'react'
 
 // Components
 import { StyledListContent } from './style'
-import { Select } from 'brave-ui/components'
+import { Select } from 'adrbrowsiel-ui/components'
 import { Tokens, List } from '../../components'
 import { BoxMobile } from '../../components/mobile'
 

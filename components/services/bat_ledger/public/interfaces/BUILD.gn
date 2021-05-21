@@ -12,6 +12,6 @@ mojom("interfaces") {
   ]
 
   deps = [
-    "//brave/vendor/bat-native-ledger/include/bat/ledger/public/interfaces"
+    "//adrbrowsiel/vendor/bat-native-ledger/include/bat/ledger/public/interfaces"
   ]
 }

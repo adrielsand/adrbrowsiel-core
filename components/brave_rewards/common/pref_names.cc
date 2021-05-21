@@ -1,74 +1,74 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 namespace prefs {
 
-const char kHideButton[] = "brave.hide_brave_rewards_button";
-const char kEnabled[] = "brave.rewards.enabled";
-const char kNotifications[] = "brave.rewards.notifications";
+const char kHideButton[] = "adrbrowsiel.hide_adrbrowsiel_rewards_button";
+const char kEnabled[] = "adrbrowsiel.rewards.enabled";
+const char kNotifications[] = "adrbrowsiel.rewards.notifications";
 const char kNotificationTimerInterval[]=
-    "brave.rewards.notification_timer_interval";
+    "adrbrowsiel.rewards.notification_timer_interval";
 const char kBackupNotificationInterval[] =
-    "brave.rewards.backup_notification_interval";
-const char kBackupSucceeded[] = "brave.rewards.backup_succeeded";
-const char kUserHasFunded[] = "brave.rewards.user_has_funded";
-const char kUserHasClaimedGrant[] = "brave.rewards.user_has_claimed_grant";
+    "adrbrowsiel.rewards.backup_notification_interval";
+const char kBackupSucceeded[] = "adrbrowsiel.rewards.backup_succeeded";
+const char kUserHasFunded[] = "adrbrowsiel.rewards.user_has_funded";
+const char kUserHasClaimedGrant[] = "adrbrowsiel.rewards.user_has_claimed_grant";
 const char kAddFundsNotification[] =
-    "brave.rewards.add_funds_notification";
+    "adrbrowsiel.rewards.add_funds_notification";
 const char kNotificationStartupDelay[] =
-    "brave.rewards.notification_startup_delay";
-const char kExternalWallets[] = "brave.rewards.external_wallets";
+    "adrbrowsiel.rewards.notification_startup_delay";
+const char kExternalWallets[] = "adrbrowsiel.rewards.external_wallets";
 const char kServerPublisherListStamp[] =
-    "brave.rewards.publisher_prefix_list_stamp";
+    "adrbrowsiel.rewards.publisher_prefix_list_stamp";
 const char kUpholdAnonAddress[] =
-    "brave.rewards.uphold_anon_address";
-const char kBadgeText[] = "brave.rewards.badge_text";
-const char kUseRewardsStagingServer[] = "brave.rewards.use_staging_server";
+    "adrbrowsiel.rewards.uphold_anon_address";
+const char kBadgeText[] = "adrbrowsiel.rewards.badge_text";
+const char kUseRewardsStagingServer[] = "adrbrowsiel.rewards.use_staging_server";
 const char kPromotionLastFetchStamp[] =
-    "brave.rewards.promotion_last_fetch_stamp";
+    "adrbrowsiel.rewards.promotion_last_fetch_stamp";
 const char kPromotionCorruptedMigrated[] =
-    "brave.rewards.promotion_corrupted_migrated2";
-const char kAnonTransferChecked[] =  "brave.rewards.anon_transfer_checked";
-const char kVersion[] =  "brave.rewards.version";
-const char kMinVisitTime[] =  "brave.rewards.ac.min_visit_time";
-const char kMinVisits[] =  "brave.rewards.ac.min_visits";
-const char kAllowNonVerified[] =  "brave.rewards.ac.allow_non_verified";
+    "adrbrowsiel.rewards.promotion_corrupted_migrated2";
+const char kAnonTransferChecked[] =  "adrbrowsiel.rewards.anon_transfer_checked";
+const char kVersion[] =  "adrbrowsiel.rewards.version";
+const char kMinVisitTime[] =  "adrbrowsiel.rewards.ac.min_visit_time";
+const char kMinVisits[] =  "adrbrowsiel.rewards.ac.min_visits";
+const char kAllowNonVerified[] =  "adrbrowsiel.rewards.ac.allow_non_verified";
 const char kAllowVideoContribution[] =
-    "brave.rewards.ac.allow_video_contributions";
-const char kScoreA[] = "brave.rewards.ac.score.a";
-const char kScoreB[] = "brave.rewards.ac.score.b";
-const char kAutoContributeEnabled[] = "brave.rewards.ac.enabled";
-const char kAutoContributeAmount[] = "brave.rewards.ac.amount";
-const char kNextReconcileStamp[] = "brave.rewards.ac.next_reconcile_stamp";
-const char kCreationStamp[] = "brave.rewards.creation_stamp";
-const char kRecoverySeed[] = "brave.rewards.wallet.seed";
-const char kPaymentId[] = "brave.rewards.wallet.payment_id";
-const char kInlineTipRedditEnabled[] = "brave.rewards.inline_tip.reddit";
-const char kInlineTipTwitterEnabled[] = "brave.rewards.inline_tip.twitter";
-const char kInlineTipGithubEnabled[] = "brave.rewards.inline_tip.github";
-const char kParametersRate[] = "brave.rewards.parameters.rate";
+    "adrbrowsiel.rewards.ac.allow_video_contributions";
+const char kScoreA[] = "adrbrowsiel.rewards.ac.score.a";
+const char kScoreB[] = "adrbrowsiel.rewards.ac.score.b";
+const char kAutoContributeEnabled[] = "adrbrowsiel.rewards.ac.enabled";
+const char kAutoContributeAmount[] = "adrbrowsiel.rewards.ac.amount";
+const char kNextReconcileStamp[] = "adrbrowsiel.rewards.ac.next_reconcile_stamp";
+const char kCreationStamp[] = "adrbrowsiel.rewards.creation_stamp";
+const char kRecoverySeed[] = "adrbrowsiel.rewards.wallet.seed";
+const char kPaymentId[] = "adrbrowsiel.rewards.wallet.payment_id";
+const char kInlineTipRedditEnabled[] = "adrbrowsiel.rewards.inline_tip.reddit";
+const char kInlineTipTwitterEnabled[] = "adrbrowsiel.rewards.inline_tip.twitter";
+const char kInlineTipGithubEnabled[] = "adrbrowsiel.rewards.inline_tip.github";
+const char kParametersRate[] = "adrbrowsiel.rewards.parameters.rate";
 const char kParametersAutoContributeChoice[] =
-    "brave.rewards.parameters.ac.choice";
+    "adrbrowsiel.rewards.parameters.ac.choice";
 const char kParametersAutoContributeChoices[] =
-    "brave.rewards.parameters.ac.choices";
+    "adrbrowsiel.rewards.parameters.ac.choices";
 const char kParametersTipChoices[] =
-    "brave.rewards.parameters.tip.choices";
+    "adrbrowsiel.rewards.parameters.tip.choices";
 const char kParametersMonthlyTipChoices[] =
-    "brave.rewards.parameters.tip.monthly_choices";
+    "adrbrowsiel.rewards.parameters.tip.monthly_choices";
 const char kFetchOldBalance[] =
-    "brave.rewards.fetch_old_balance";
+    "adrbrowsiel.rewards.fetch_old_balance";
 const char kEmptyBalanceChecked[] =
-    "brave.rewards.empty_balance_checked";
-const char kWalletBrave[] =
-    "brave.rewards.wallets.brave";
+    "adrbrowsiel.rewards.empty_balance_checked";
+const char kWalletadrbrowsiel[] =
+    "adrbrowsiel.rewards.wallets.adrbrowsiel";
 const char kWalletUphold[] =
-    "brave.rewards.wallets.uphold";
-const char kWalletBitflyer[] = "brave.rewards.wallets.bitflyer";
+    "adrbrowsiel.rewards.wallets.uphold";
+const char kWalletBitflyer[] = "adrbrowsiel.rewards.wallets.bitflyer";
 
 }  // namespace prefs
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

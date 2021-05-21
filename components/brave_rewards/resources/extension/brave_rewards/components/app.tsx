@@ -34,14 +34,14 @@ export class RewardsPanel extends React.Component<Props, State> {
   }
 
   componentDidMount () {
-    chrome.braveRewards.isInitialized((initialized: boolean) => {
+    chrome.adrbrowsielRewards.isInitialized((initialized: boolean) => {
       if (initialized) {
         this.props.actions.initialized()
         this.startRewards()
       }
     })
 
-    chrome.braveRewards.onlyAnonWallet((only: boolean) => {
+    chrome.adrbrowsielRewards.onlyAnonWallet((only: boolean) => {
       this.setState({
         onlyAnonWallet: !!only
       })
@@ -69,10 +69,10 @@ export class RewardsPanel extends React.Component<Props, State> {
         return
       }
 
-      const braveExtensionId = 'mnojpmjdmbbfmejpflffifhffcmidifd'
+      const adrbrowsielExtensionId = 'mnojpmjdmbbfmejpflffifhffcmidifd'
 
       chrome.runtime.sendMessage(
-        braveExtensionId,
+        adrbrowsielExtensionId,
         {
           type: 'GetPublisherPanelInfo',
           tabId: tab.id
@@ -83,7 +83,7 @@ export class RewardsPanel extends React.Component<Props, State> {
   startRewards = () => {
     this.getCurrentTab(this.onCurrentTab)
 
-    chrome.braveRewards.getAllNotifications((list: RewardsExtension.Notification[]) => {
+    chrome.adrbrowsielRewards.getAllNotifications((list: RewardsExtension.Notification[]) => {
       this.props.actions.onAllNotifications(list)
     })
 
@@ -91,15 +91,15 @@ export class RewardsPanel extends React.Component<Props, State> {
 
     utils.getExternalWallet(this.actions, externalWallet)
 
-    chrome.braveRewards.fetchBalance((balance: RewardsExtension.Balance) => {
+    chrome.adrbrowsielRewards.fetchBalance((balance: RewardsExtension.Balance) => {
       this.actions.onBalance(balance)
     })
 
-    chrome.braveRewards.getRewardsParameters((parameters: RewardsExtension.RewardsParameters) => {
+    chrome.adrbrowsielRewards.getRewardsParameters((parameters: RewardsExtension.RewardsParameters) => {
       rewardsPanelActions.onRewardsParameters(parameters)
     })
 
-    chrome.braveRewards.getAllNotifications((list: RewardsExtension.Notification[]) => {
+    chrome.adrbrowsielRewards.getAllNotifications((list: RewardsExtension.Notification[]) => {
       this.props.actions.onAllNotifications(list)
     })
 
@@ -127,7 +127,7 @@ export class RewardsPanel extends React.Component<Props, State> {
       return
     }
 
-    chrome.braveRewards.claimPromotion(promotionId, (properties: RewardsExtension.Captcha) => {
+    chrome.adrbrowsielRewards.claimPromotion(promotionId, (properties: RewardsExtension.Captcha) => {
       this.actions.onClaimPromotion(properties)
     })
   }

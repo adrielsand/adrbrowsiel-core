@@ -2,15 +2,15 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_SWITCHES_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_SWITCHES_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_SWITCHES_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_SWITCHES_H_
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 namespace switches {
 
 extern const char kRewards[];
 
 }  // namespace switches
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_SWITCHES_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_SWITCHES_H_

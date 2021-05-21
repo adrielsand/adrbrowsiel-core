@@ -12,7 +12,7 @@ function getIncludesString (idPrefix, fileList) {
 }
 
 
-function getGrdString (name = 'brave_rewards_resources', idPrefix = 'IDR_BRAVE_REWARDS', fileList = []) {
+function getGrdString (name = 'adrbrowsiel_rewards_resources', idPrefix = 'IDR_adrbrowsiel_REWARDS', fileList = []) {
   const includesString = getIncludesString(idPrefix, fileList)
   return `<?xml version="1.0" encoding="UTF-8"?>
 <grit latest_public_release="0" current_release="1" output_all_resource_defines="false">

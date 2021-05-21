@@ -19,9 +19,9 @@ export default function dappDetectionReducer (state = {}, action: Actions) {
         blacklistedHost = true
       }
 
-      if (chrome.braveWallet && action.isMainFrame && isHttpOrHttps(action.url) &&
+      if (chrome.adrbrowsielWallet && action.isMainFrame && isHttpOrHttps(action.url) &&
           !blacklistedHost) {
-        chrome.braveWallet.shouldCheckForDapps((dappDetection) => {
+        chrome.adrbrowsielWallet.shouldCheckForDapps((dappDetection) => {
           if (!dappDetection) {
             return
           }

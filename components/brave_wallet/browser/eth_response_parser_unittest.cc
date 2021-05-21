@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,10 +7,10 @@
 #include <utility>
 #include <vector>
 
-#include "brave/components/brave_wallet/browser/eth_response_parser.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_response_parser.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 TEST(EthResponseParserUnitTest, ParseEthGetBalance) {
   std::string json(
@@ -55,4 +55,4 @@ TEST(EthResponseParserUnitTest, ParseEthCall) {
   ASSERT_EQ(result, "0x0");
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

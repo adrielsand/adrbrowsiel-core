@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/crypto_dot_com/browser/crypto_dot_com_service.h"
+#include "adrbrowsiel/components/crypto_dot_com/browser/crypto_dot_com_service.h"
 
 #include <algorithm>
 #include <string>
@@ -19,7 +19,7 @@
 #include "base/task_runner_util.h"
 #include "base/time/time.h"
 #include "base/token.h"
-#include "brave/components/crypto_dot_com/browser/crypto_dot_com_json_parser.h"
+#include "adrbrowsiel/components/crypto_dot_com/browser/crypto_dot_com_json_parser.h"
 #include "components/user_prefs/user_prefs.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/storage_partition.h"

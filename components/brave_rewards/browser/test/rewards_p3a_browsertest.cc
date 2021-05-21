@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,28 +9,28 @@
 #include "base/containers/flat_map.h"
 #include "base/test/bind.h"
 #include "base/test/metrics/histogram_tester.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/rewards_service_observer.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_contribution.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_promotion.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_response.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_contribution.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_promotion.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "components/network_session_configurator/common/network_switches.h"
 #include "content/public/test/browser_test.h"
 #include "content/public/test/browser_test_utils.h"
 #include "net/dns/mock_host_resolver.h"
 
-// npm run test -- brave_browser_tests --filter=RewardsP3ABrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=RewardsP3ABrowserTest.*
 
 namespace rewards_browsertest {
 
 class RewardsP3ABrowserTest : public InProcessBrowserTest,
-                              public brave_rewards::RewardsServiceObserver {
+                              public adrbrowsiel_rewards::RewardsServiceObserver {
  public:
   RewardsP3ABrowserTest() {
     contribution_ = std::make_unique<RewardsBrowserTestContribution>();
@@ -55,10 +55,10 @@ class RewardsP3ABrowserTest : public InProcessBrowserTest,
     ASSERT_TRUE(https_server_->Start());
 
     // Rewards service
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     auto* profile = browser()->profile();
-    rewards_service_ = static_cast<brave_rewards::RewardsServiceImpl*>(
-        brave_rewards::RewardsServiceFactory::GetForProfile(profile));
+    rewards_service_ = static_cast<adrbrowsiel_rewards::RewardsServiceImpl*>(
+        adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile));
     rewards_service_->AddObserver(this);
 
     // Response mock
@@ -115,11 +115,11 @@ class RewardsP3ABrowserTest : public InProcessBrowserTest,
   }
 
   void OnRewardsInitialized(
-      brave_rewards::RewardsService* rewards_service) override {
+      adrbrowsiel_rewards::RewardsService* rewards_service) override {
     rewards_initialized_ = true;
   }
 
-  brave_rewards::RewardsServiceImpl* rewards_service_;
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;
   std::unique_ptr<net::EmbeddedTestServer> https_server_;
   std::unique_ptr<RewardsBrowserTestContribution> contribution_;
   std::unique_ptr<RewardsBrowserTestPromotion> promotion_;
@@ -136,10 +136,10 @@ IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest, RewardsDisabled) {
 
   WaitForRewardsInitialization();
 
-  histogram_tester_->ExpectBucketCount("Brave.Rewards.WalletBalance.2", 1, 1);
-  histogram_tester_->ExpectBucketCount("Brave.Rewards.AutoContributionsState.2",
+  histogram_tester_->ExpectBucketCount("adrbrowsiel.Rewards.WalletBalance.2", 1, 1);
+  histogram_tester_->ExpectBucketCount("adrbrowsiel.Rewards.AutoContributionsState.2",
                                        1, 1);
-  histogram_tester_->ExpectBucketCount("Brave.Rewards.TipsState.2", 1, 1);
+  histogram_tester_->ExpectBucketCount("adrbrowsiel.Rewards.TipsState.2", 1, 1);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest,
@@ -152,7 +152,7 @@ IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest,
 
   FetchBalance();
 
-  histogram_tester_->ExpectBucketCount("Brave.Rewards.WalletState", 1, 1);
+  histogram_tester_->ExpectBucketCount("adrbrowsiel.Rewards.WalletState", 1, 1);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest,
@@ -169,7 +169,7 @@ IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest,
 
   FetchBalance();
 
-  histogram_tester_->ExpectBucketCount("Brave.Rewards.WalletState", 2, 1);
+  histogram_tester_->ExpectBucketCount("adrbrowsiel.Rewards.WalletState", 2, 1);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest,
@@ -186,7 +186,7 @@ IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest,
 
   FetchBalance();
 
-  EXPECT_GT(histogram_tester_->GetBucketCount("Brave.Rewards.WalletState", 3),
+  EXPECT_GT(histogram_tester_->GetBucketCount("adrbrowsiel.Rewards.WalletState", 3),
             0);
 }
 
@@ -206,7 +206,7 @@ IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest,
 
   FetchBalance();
 
-  EXPECT_GT(histogram_tester_->GetBucketCount("Brave.Rewards.WalletState", 4),
+  EXPECT_GT(histogram_tester_->GetBucketCount("adrbrowsiel.Rewards.WalletState", 4),
             0);
 }
 
@@ -218,7 +218,7 @@ IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest,
   rewards_service_->SetAdsEnabled(false);
   rewards_service_->SetAutoContributeEnabled(false);
 
-  histogram_tester_->ExpectBucketCount("Brave.Rewards.WalletState", 5, 1);
+  histogram_tester_->ExpectBucketCount("adrbrowsiel.Rewards.WalletState", 5, 1);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest, WalletBalanceLessThan10BAT) {
@@ -235,7 +235,7 @@ IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest, WalletBalanceLessThan10BAT) {
   FetchBalance();
 
   EXPECT_GT(
-      histogram_tester_->GetBucketCount("Brave.Rewards.WalletBalance.2", 2), 0);
+      histogram_tester_->GetBucketCount("adrbrowsiel.Rewards.WalletBalance.2", 2), 0);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest, WalletBalanceLessThan50BAT) {
@@ -252,7 +252,7 @@ IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest, WalletBalanceLessThan50BAT) {
   FetchBalance();
 
   EXPECT_GT(
-      histogram_tester_->GetBucketCount("Brave.Rewards.WalletBalance.2", 3), 0);
+      histogram_tester_->GetBucketCount("adrbrowsiel.Rewards.WalletBalance.2", 3), 0);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest, WalletBalanceMoreThan50BAT) {
@@ -269,7 +269,7 @@ IN_PROC_BROWSER_TEST_F(RewardsP3ABrowserTest, WalletBalanceMoreThan50BAT) {
   FetchBalance();
 
   EXPECT_GT(
-      histogram_tester_->GetBucketCount("Brave.Rewards.WalletBalance.2", 4), 0);
+      histogram_tester_->GetBucketCount("adrbrowsiel.Rewards.WalletBalance.2", 4), 0);
 }
 
 }  // namespace rewards_browsertest

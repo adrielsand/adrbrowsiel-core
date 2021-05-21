@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -19,13 +19,13 @@ module.exports = (env, argv) => ({
     alias: {
       'chrome://resources/mojo': process.env.ROOT_GEN_DIR,
       'chrome://resources/js': path.resolve(path.join(process.env.ROOT_GEN_DIR, './ui/webui/resources/preprocessed/js')),
-      'brave-ui': path.resolve(__dirname, '../../node_modules/brave-ui/src'),
-      // Force same styled-components module for brave-core and brave-ui
+      'adrbrowsiel-ui': path.resolve(__dirname, '../../node_modules/adrbrowsiel-ui/src'),
+      // Force same styled-components module for adrbrowsiel-core and adrbrowsiel-ui
       // which ensure both repos code use the same singletons, e.g. ThemeContext.
       'styled-components': path.resolve(__dirname, '../../node_modules/styled-components'),
     },
     // For explanation of "chromeapp", see:
-    // https://github.com/brave/brave-browser/issues/5587
+    // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5587
     aliasFields: ['chromeapp']
   },
   optimization: {
@@ -43,7 +43,7 @@ module.exports = (env, argv) => ({
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
-        exclude: /node_modules\/(?!brave-ui)/,
+        exclude: /node_modules\/(?!adrbrowsiel-ui)/,
         options: {
           getCustomTransformers: path.join(__dirname, './webpack-ts-transformers.js'),
           allowTsInNodeModules: true,

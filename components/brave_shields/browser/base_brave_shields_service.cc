@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/base_brave_shields_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/base_adrbrowsiel_shields_service.h"
 
 #include <algorithm>
 #include <string>
@@ -16,31 +16,31 @@
 #include "base/macros.h"
 #include "base/memory/ptr_util.h"
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
-BaseBraveShieldsService::BaseBraveShieldsService(
-    BraveComponent::Delegate* delegate)
-    : BraveComponent(delegate),
+BaseadrbrowsielShieldsService::BaseadrbrowsielShieldsService(
+    adrbrowsielComponent::Delegate* delegate)
+    : adrbrowsielComponent(delegate),
       initialized_(false) {
 }
 
-BaseBraveShieldsService::~BaseBraveShieldsService() {
+BaseadrbrowsielShieldsService::~BaseadrbrowsielShieldsService() {
 }
 
-bool BaseBraveShieldsService::IsInitialized() const {
+bool BaseadrbrowsielShieldsService::IsInitialized() const {
   return initialized_;
 }
 
-void BaseBraveShieldsService::InitShields() {
+void BaseadrbrowsielShieldsService::InitShields() {
   if (Init()) {
     std::lock_guard<std::mutex> guard(initialized_mutex_);
     initialized_ = true;
   }
 }
 
-bool BaseBraveShieldsService::Start() {
+bool BaseadrbrowsielShieldsService::Start() {
   if (initialized_) {
     return true;
   }
@@ -49,7 +49,7 @@ bool BaseBraveShieldsService::Start() {
   return false;
 }
 
-void BaseBraveShieldsService::ShouldStartRequest(
+void BaseadrbrowsielShieldsService::ShouldStartRequest(
     const GURL& url,
     blink::mojom::ResourceType resource_type,
     const std::string& tab_host,
@@ -59,4 +59,4 @@ void BaseBraveShieldsService::ShouldStartRequest(
     std::string* mock_data_url) {
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

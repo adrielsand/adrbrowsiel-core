@@ -2,13 +2,13 @@ import("//build/config/features.gni")
 
 source_set("browser") {
   sources = [
-    "brave_search_host.cc",
-    "brave_search_host.h",
+    "adrbrowsiel_search_host.cc",
+    "adrbrowsiel_search_host.h",
   ]
 
   deps = [
     "//base",
-    "//brave/components/brave_search/common:mojom",
+    "//adrbrowsiel/components/adrbrowsiel_search/common:mojom",
     "//net",
     "//services/network/public/cpp",
     "//url",

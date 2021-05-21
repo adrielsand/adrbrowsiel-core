@@ -42,7 +42,7 @@ export const message = styled.div`
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-neutral900);
 `
 
 export const table = styled.div`
@@ -78,9 +78,9 @@ export const share = styled.div`
     font-weight: 600;
     font-size: 13px;
     line-height: 19px;
-    color: var(--brave-palette-white);
+    color: var(--adrbrowsiel-palette-white);
     border: none;
-    background: var(--brave-palette-blue400);
+    background: var(--adrbrowsiel-palette-blue400);
     border-radius: 20.5px;
     text-align: center;
   }
@@ -99,12 +99,12 @@ export const cancelHeader = styled.div`
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-neutral900);
 `
 
 export const cancelText = styled.div`
   margin: 24px 53px 0;
-  color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-neutral900);
 `
 
 export const shareIcon = styled.span`
@@ -115,6 +115,6 @@ export const shareIcon = styled.span`
   margin-right: 5px;
 
   * {
-    fill: var(--brave-palette-white);
+    fill: var(--adrbrowsiel-palette-white);
   }
 `

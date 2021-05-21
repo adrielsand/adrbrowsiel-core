@@ -6,10 +6,10 @@ import * as React from 'react'
 import {
   StyledLink
 } from './style'
-import Table, { Cell, Row } from 'brave-ui/components/dataTables/table/index'
+import Table, { Cell, Row } from 'adrbrowsiel-ui/components/dataTables/table/index'
 import Profile, { Provider } from '../profile/index'
 import Tokens from '../tokens/index'
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 
 interface ProfileCell {
   verified: boolean

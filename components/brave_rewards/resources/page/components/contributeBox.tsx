@@ -7,7 +7,7 @@ import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
 // Components
-import { Checkbox, Grid, Column, Select, ControlWrapper } from 'brave-ui/components'
+import { Checkbox, Grid, Column, Select, ControlWrapper } from 'adrbrowsiel-ui/components'
 import { Box, TableContribute, DisabledContent, List, ModalContribute, Tokens, NextContribution } from '../../ui/components'
 import { Provider } from '../../ui/components/profile'
 

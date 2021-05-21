@@ -1,11 +1,11 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 import * as React from 'react'
 import styled from 'styled-components'
-import { ArrowUpIcon, LoaderIcon } from 'brave-ui/components/icons'
+import { ArrowUpIcon, LoaderIcon } from 'adrbrowsiel-ui/components/icons'
 import { getLocale } from '../../../../../common/locale'
 
 type Props = {
@@ -54,8 +54,8 @@ const Icon = styled('div')`
 
 export default function Refresh (props: Props) {
   const text = props.isFetching
-    ? getLocale('braveTodayStatusFetching')
-    : getLocale('braveTodayActionRefresh')
+    ? getLocale('adrbrowsielTodayStatusFetching')
+    : getLocale('adrbrowsielTodayActionRefresh')
   const graphic = props.isFetching
     ? <LoaderIcon />
     : <ArrowUpIcon />

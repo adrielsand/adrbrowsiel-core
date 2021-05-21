@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ntp_background_images/browser/ntp_background_images_service.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_service.h"
 
 #include <algorithm>
 #include <utility>
@@ -16,25 +16,25 @@
 #include "base/strings/stringprintf.h"
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
-#include "brave/components/brave_component_updater/browser/brave_on_demand_updater.h"
-#include "brave/components/brave_referrals/browser/brave_referrals_service.h"
-#include "brave/components/brave_referrals/buildflags/buildflags.h"
-#include "brave/components/brave_referrals/common/pref_names.h"
-#include "brave/components/l10n/browser/locale_helper.h"
-#include "brave/components/l10n/common/locale_util.h"
-#include "brave/components/ntp_background_images/browser/features.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_component_installer.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_data.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_source.h"
-#include "brave/components/ntp_background_images/browser/sponsored_images_component_data.h"
-#include "brave/components/ntp_background_images/browser/switches.h"
-#include "brave/components/ntp_background_images/browser/url_constants.h"
-#include "brave/components/ntp_background_images/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_on_demand_updater.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/common/pref_names.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper.h"
+#include "adrbrowsiel/components/l10n/common/locale_util.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/features.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_component_installer.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_source.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/sponsored_images_component_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/switches.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/url_constants.h"
+#include "adrbrowsiel/components/ntp_background_images/common/pref_names.h"
 #include "components/component_updater/component_updater_service.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
 
-using brave_component_updater::BraveOnDemandUpdater;
+using adrbrowsiel_component_updater::adrbrowsielOnDemandUpdater;
 
 namespace ntp_background_images {
 
@@ -120,8 +120,8 @@ void NTPBackgroundImagesService::Init() {
     RegisterSponsoredImagesComponent();
   }
 
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
-  if (base::FeatureList::IsEnabled(features::kBraveNTPSuperReferralWallpaper)) {
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
+  if (base::FeatureList::IsEnabled(features::kadrbrowsielNTPSuperReferralWallpaper)) {
     // Flag override for testing or demo purposes
     base::FilePath forced_local_path(
         base::CommandLine::ForCurrentProcess()->GetSwitchValueNative(
@@ -142,14 +142,14 @@ void NTPBackgroundImagesService::Init() {
 void NTPBackgroundImagesService::CheckSIComponentUpdate(
     const std::string& component_id) {
   DVLOG(2) << __func__ << ": Check NTP SI component update";
-  BraveOnDemandUpdater::GetInstance()->OnDemandUpdate(component_id);
+  adrbrowsielOnDemandUpdater::GetInstance()->OnDemandUpdate(component_id);
 }
 
 void NTPBackgroundImagesService::RegisterSponsoredImagesComponent() {
   const std::string locale =
-      brave_l10n::LocaleHelper::GetInstance()->GetLocale();
+      adrbrowsiel_l10n::LocaleHelper::GetInstance()->GetLocale();
   const auto& data = GetSponsoredImagesComponentData(
-      brave_l10n::GetCountryCode(locale));
+      adrbrowsiel_l10n::GetCountryCode(locale));
   if (!data) {
     DVLOG(2) << __func__ << ": Not support NTP SI component for " << locale;
     return;
@@ -240,7 +240,7 @@ void NTPBackgroundImagesService::CheckSuperReferralComponent() {
 
     // This below code is for recover above abnormal situation - Shutdown
     // situation before getting map table or getting initial component.
-    if (brave::BraveReferralsService::IsDefaultReferralCode(code)) {
+    if (adrbrowsiel::adrbrowsielReferralsService::IsDefaultReferralCode(code)) {
       MarkThisInstallIsNotSuperReferralForever();
     } else {
       // If current code is not an default one, let's check it after fetching
@@ -271,7 +271,7 @@ void NTPBackgroundImagesService::OnPreferenceChanged(
   DVLOG(2) << __func__ << ": Got referral promo code: "
                        << new_referral_code;
   DCHECK(!new_referral_code.empty());
-  if (brave::BraveReferralsService::IsDefaultReferralCode(new_referral_code)) {
+  if (adrbrowsiel::adrbrowsielReferralsService::IsDefaultReferralCode(new_referral_code)) {
     DVLOG(2) << __func__ << ": This has default referral promo code.";
     MarkThisInstallIsNotSuperReferralForever();
     return;
@@ -396,7 +396,7 @@ bool NTPBackgroundImagesService::HasObserver(Observer* observer) {
 NTPBackgroundImagesData*
 NTPBackgroundImagesService::GetBackgroundImagesData(bool super_referral) const {
   const bool is_sr_enabled =
-      base::FeatureList::IsEnabled(features::kBraveNTPSuperReferralWallpaper);
+      base::FeatureList::IsEnabled(features::kadrbrowsielNTPSuperReferralWallpaper);
   if (is_sr_enabled) {
     if (super_referral) {
       if (sr_images_data_ && sr_images_data_->IsValid())
@@ -542,7 +542,7 @@ bool NTPBackgroundImagesService::IsSuperReferral() const {
   const auto* value = local_pref_->Get(
       prefs::kNewTabPageCachedSuperReferralComponentInfo);
   return
-      base::FeatureList::IsEnabled(features::kBraveNTPSuperReferralWallpaper) &&
+      base::FeatureList::IsEnabled(features::kadrbrowsielNTPSuperReferralWallpaper) &&
       IsValidSuperReferralComponentInfo(*value);
 }
 
@@ -550,7 +550,7 @@ std::string NTPBackgroundImagesService::GetSuperReferralThemeName() const {
   std::string theme_name;
   const auto* value = local_pref_->Get(
       prefs::kNewTabPageCachedSuperReferralComponentInfo);
-  if (base::FeatureList::IsEnabled(features::kBraveNTPSuperReferralWallpaper) &&
+  if (base::FeatureList::IsEnabled(features::kadrbrowsielNTPSuperReferralWallpaper) &&
       IsValidSuperReferralComponentInfo(*value)) {
     theme_name = *value->FindStringKey(kThemeNameKey);
   }

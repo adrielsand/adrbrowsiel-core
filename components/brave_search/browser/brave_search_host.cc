@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_search/browser/brave_search_host.h"
+#include "adrbrowsiel/components/adrbrowsiel_search/browser/adrbrowsiel_search_host.h"
 
 #include <utility>
 
@@ -14,14 +14,14 @@
 
 namespace {
 net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotationTag() {
-  return net::DefineNetworkTrafficAnnotation("brave_search_host", R"(
+  return net::DefineNetworkTrafficAnnotation("adrbrowsiel_search_host", R"(
       semantics {
-        sender: "Brave Search Host Controller"
+        sender: "adrbrowsiel Search Host Controller"
         description:
           "This controller is used as a backup search "
           "provider for users that have opted into this feature."
         trigger:
-          "Triggered by Brave search if a user has opted in."
+          "Triggered by adrbrowsiel search if a user has opted in."
         data:
           "Local backup provider results."
         destination: WEBSITE
@@ -40,20 +40,20 @@ const unsigned int kRetriesCountOnNetworkChange = 1;
 static GURL backup_provider_for_test;
 }  // namespace
 
-namespace brave_search {
+namespace adrbrowsiel_search {
 
-void BraveSearchHost::SetBackupProviderForTest(const GURL& backup_provider) {
+void adrbrowsielSearchHost::SetBackupProviderForTest(const GURL& backup_provider) {
   backup_provider_for_test = backup_provider;
 }
 
-BraveSearchHost::BraveSearchHost(
+adrbrowsielSearchHost::adrbrowsielSearchHost(
     scoped_refptr<network::SharedURLLoaderFactory> factory)
     : shared_url_loader_factory_(std::move(factory)), weak_factory_(this) {}
 
-BraveSearchHost::~BraveSearchHost() {}
+adrbrowsielSearchHost::~adrbrowsielSearchHost() {}
 
 // [static]
-GURL BraveSearchHost::GetBackupResultURL(const GURL& baseURL,
+GURL adrbrowsielSearchHost::GetBackupResultURL(const GURL& baseURL,
                                          const std::string& query,
                                          const std::string& lang,
                                          const std::string& country,
@@ -73,7 +73,7 @@ GURL BraveSearchHost::GetBackupResultURL(const GURL& baseURL,
   return url;
 }
 
-void BraveSearchHost::FetchBackupResults(const std::string& query,
+void adrbrowsielSearchHost::FetchBackupResults(const std::string& query,
                                          const std::string& lang,
                                          const std::string& country,
                                          const std::string& geo,
@@ -100,13 +100,13 @@ void BraveSearchHost::FetchBackupResults(const std::string& query,
   auto iter = url_loaders_.insert(url_loaders_.begin(), std::move(url_loader));
   iter->get()->DownloadToStringOfUnboundedSizeUntilCrashAndDie(
       shared_url_loader_factory_.get(),
-      base::BindOnce(&BraveSearchHost::OnURLLoaderComplete,
+      base::BindOnce(&adrbrowsielSearchHost::OnURLLoaderComplete,
                      weak_factory_.GetWeakPtr(), iter, std::move(callback)));
 }
 
-void BraveSearchHost::OnURLLoaderComplete(
+void adrbrowsielSearchHost::OnURLLoaderComplete(
     SimpleURLLoaderList::iterator iter,
-    BraveSearchHost::FetchBackupResultsCallback callback,
+    adrbrowsielSearchHost::FetchBackupResultsCallback callback,
     const std::unique_ptr<std::string> response_body) {
   url_loaders_.erase(iter);
   if (response_body) {
@@ -116,4 +116,4 @@ void BraveSearchHost::OnURLLoaderComplete(
   }
 }
 
-}  // namespace brave_search
+}  // namespace adrbrowsiel_search

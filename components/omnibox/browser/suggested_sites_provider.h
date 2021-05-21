@@ -1,23 +1,23 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_OMNIBOX_BROWSER_SUGGESTED_SITES_PROVIDER_H_
-#define BRAVE_COMPONENTS_OMNIBOX_BROWSER_SUGGESTED_SITES_PROVIDER_H_
+#ifndef adrbrowsiel_COMPONENTS_OMNIBOX_BROWSER_SUGGESTED_SITES_PROVIDER_H_
+#define adrbrowsiel_COMPONENTS_OMNIBOX_BROWSER_SUGGESTED_SITES_PROVIDER_H_
 
 #include <vector>
 #include <string>
 
 #include "base/compiler_specific.h"
 #include "base/macros.h"
-#include "brave/components/omnibox/browser/suggested_sites_match.h"
+#include "adrbrowsiel/components/omnibox/browser/suggested_sites_match.h"
 #include "components/omnibox/browser/autocomplete_match.h"
 #include "components/omnibox/browser/autocomplete_provider.h"
 
 class AutocompleteProviderClient;
 
-// This is the provider for Brave Suggested Sites
+// This is the provider for adrbrowsiel Suggested Sites
 class SuggestedSitesProvider : public AutocompleteProvider {
  public:
   explicit SuggestedSitesProvider(AutocompleteProviderClient* client);
@@ -42,4 +42,4 @@ class SuggestedSitesProvider : public AutocompleteProvider {
   DISALLOW_COPY_AND_ASSIGN(SuggestedSitesProvider);
 };
 
-#endif  // BRAVE_COMPONENTS_OMNIBOX_BROWSER_SUGGESTED_SITES_PROVIDER_H_
+#endif  // adrbrowsiel_COMPONENTS_OMNIBOX_BROWSER_SUGGESTED_SITES_PROVIDER_H_

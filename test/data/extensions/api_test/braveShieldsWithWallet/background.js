@@ -4,11 +4,11 @@
 
 function testBasics() {
   chrome.test.runTests([
-    function braveShieldsHasWalletAccessButNotSeed() {
-      if (chrome.braveWallet && !chrome.braveWallet.getWalletSeed &&
-          !chrome.braveWallet.getBitGoSeed &&
-          !chrome.braveWallet.getProjectID &&
-          !chrome.braveWallet.getBraveKey) {
+    function adrbrowsielShieldsHasWalletAccessButNotSeed() {
+      if (chrome.adrbrowsielWallet && !chrome.adrbrowsielWallet.getWalletSeed &&
+          !chrome.adrbrowsielWallet.getBitGoSeed &&
+          !chrome.adrbrowsielWallet.getProjectID &&
+          !chrome.adrbrowsielWallet.getadrbrowsielKey) {
         chrome.test.succeed();
       } else {
         chrome.test.fail();
@@ -20,7 +20,7 @@ function testBasics() {
 function testNoDappCheck() {
   chrome.test.runTests([
     function testNotENabled() {
-      chrome.braveWallet.shouldCheckForDapps((dappDetection) => {
+      chrome.adrbrowsielWallet.shouldCheckForDapps((dappDetection) => {
         if (dappDetection) {
           chrome.test.fail();
         } else {
@@ -34,7 +34,7 @@ function testNoDappCheck() {
 function testDappCheck() {
   chrome.test.runTests([
     function testNotENabled() {
-      chrome.braveWallet.shouldCheckForDapps((dappDetection) => {
+      chrome.adrbrowsielWallet.shouldCheckForDapps((dappDetection) => {
         if (dappDetection) {
           chrome.test.succeed();
         } else {

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -22,21 +22,21 @@ import {
 import { getLocale } from '../../../common/locale'
 
 // Icons
-import { CloseStrokeIcon } from 'brave-ui/components/icons'
+import { CloseStrokeIcon } from 'adrbrowsiel-ui/components/icons'
 import BackgroundImageIcon from './settings/icons/backgroundImage.svg'
-import NraveStatsIcon from './settings/icons/braveStats.svg'
+import NraveStatsIcon from './settings/icons/adrbrowsielStats.svg'
 import TopSitesIcon from './settings/icons/topSites.svg'
 import ClockIcon from './settings/icons/clock.svg'
 import CardsIcon from './settings/icons/cards.svg'
-import TodayIcon from './settings/icons/braveToday.svg'
+import TodayIcon from './settings/icons/adrbrowsielToday.svg'
 
 // Tabs
 const BackgroundImageSettings = React.lazy(() => import('./settings/backgroundImage'))
-const BraveStatsSettings = React.lazy(() => import('./settings/braveStats'))
+const adrbrowsielStatsSettings = React.lazy(() => import('./settings/adrbrowsielStats'))
 const TopSitesSettings = React.lazy(() => import('./settings/topSites'))
 const ClockSettings = React.lazy(() => import('./settings/clock'))
 const CardsSettings = React.lazy(() => import('./settings/cards'))
-const BraveTodaySettings = React.lazy(() => import('./settings/braveToday'))
+const adrbrowsielTodaySettings = React.lazy(() => import('./settings/adrbrowsielToday'))
 
 // Types
 import { NewTabActions } from '../../constants/new_tab_types'
@@ -82,16 +82,16 @@ export interface Props {
   cryptoDotComSupported: boolean
   showFTX: boolean
   ftxSupported: boolean
-  todayPublishers?: BraveToday.Publishers
+  todayPublishers?: adrbrowsielToday.Publishers
   setActiveTab?: TabType
   cardsHidden: boolean
 }
 
 export enum TabType {
   BackgroundImage = 'backgroundImage',
-  BraveStats = 'braveStats',
+  adrbrowsielStats = 'adrbrowsielStats',
   TopSites = 'topSites',
-  BraveToday = 'braveToday',
+  adrbrowsielToday = 'adrbrowsielToday',
   Clock = 'clock',
   Cards = 'cards'
 }
@@ -152,7 +152,7 @@ export default class Settings extends React.PureComponent<Props, State> {
   getInitialTab () {
     let tab = this.props.allowSponsoredWallpaperUI
       ? TabType.BackgroundImage
-      : TabType.BraveStats
+      : TabType.adrbrowsielStats
     if (this.props.setActiveTab) {
       if (this.getActiveTabTypes().includes(this.props.setActiveTab)) {
         tab = this.props.setActiveTab
@@ -190,13 +190,13 @@ export default class Settings extends React.PureComponent<Props, State> {
       case TabType.BackgroundImage:
         srcUrl = BackgroundImageIcon
         break
-      case TabType.BraveStats:
+      case TabType.adrbrowsielStats:
         srcUrl = NraveStatsIcon
         break
       case TabType.TopSites:
         srcUrl = TopSitesIcon
         break
-      case TabType.BraveToday:
+      case TabType.adrbrowsielToday:
         srcUrl = TodayIcon
         break
       case TabType.Clock:
@@ -216,12 +216,12 @@ export default class Settings extends React.PureComponent<Props, State> {
     switch (tab) {
       case TabType.BackgroundImage:
         return 'backgroundImageTitle'
-      case TabType.BraveStats:
+      case TabType.adrbrowsielStats:
         return 'statsTitle'
       case TabType.TopSites:
         return 'topSitesTitle'
-      case TabType.BraveToday:
-        return 'braveTodayTitle'
+      case TabType.adrbrowsielToday:
+        return 'adrbrowsielTodayTitle'
       case TabType.Clock:
         return 'clockTitle'
       case TabType.Cards:
@@ -330,9 +330,9 @@ export default class Settings extends React.PureComponent<Props, State> {
                 ) : null
               }
               {
-                activeTab === TabType.BraveStats
+                activeTab === TabType.adrbrowsielStats
                   ? (
-                    <BraveStatsSettings
+                    <adrbrowsielStatsSettings
                       toggleShowStats={toggleShowStats}
                       showStats={showStats}
                     />
@@ -350,9 +350,9 @@ export default class Settings extends React.PureComponent<Props, State> {
                   ) : null
               }
               {
-                activeTab === TabType.BraveToday
+                activeTab === TabType.adrbrowsielToday
                 ? (
-                  <BraveTodaySettings
+                  <adrbrowsielTodaySettings
                     publishers={this.props.todayPublishers}
                     setPublisherPref={this.props.actions.today.setPublisherPref}
                     onDisplay={this.props.onDisplayTodaySection}

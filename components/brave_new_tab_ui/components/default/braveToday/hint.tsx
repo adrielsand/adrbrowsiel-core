@@ -1,11 +1,11 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 import * as React from 'react'
 import styled from 'styled-components'
-import { CaratStrongDownIcon } from 'brave-ui/components/icons'
+import { CaratStrongDownIcon } from 'adrbrowsiel-ui/components/icons'
 import { getLocale } from '../../../../common/locale'
 
 const Hint = styled('div')`
@@ -26,10 +26,10 @@ const Graphic = styled('div')`
   height: 16px;
 `
 
-export default function BraveTodayHint () {
+export default function adrbrowsielTodayHint () {
   return (
     <Hint>
-      <p>{getLocale('braveTodayScrollHint')}</p>
+      <p>{getLocale('adrbrowsielTodayScrollHint')}</p>
       <Graphic>
         <CaratStrongDownIcon />
       </Graphic>

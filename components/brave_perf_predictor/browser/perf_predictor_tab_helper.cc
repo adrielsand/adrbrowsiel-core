@@ -1,12 +1,12 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_perf_predictor/browser/perf_predictor_tab_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/perf_predictor_tab_helper.h"
 
-#include "brave/components/brave_perf_predictor/browser/named_third_party_registry_factory.h"
-#include "brave/components/brave_perf_predictor/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/named_third_party_registry_factory.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/common/pref_names.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
 #include "components/user_prefs/user_prefs.h"
@@ -17,10 +17,10 @@
 #include "content/public/browser/web_contents_user_data.h"
 
 #if defined(OS_ANDROID)
-#include "brave/browser/android/brave_shields_content_settings.h"
+#include "adrbrowsiel/browser/android/adrbrowsiel_shields_content_settings.h"
 #endif
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 PerfPredictorTabHelper::PerfPredictorTabHelper(
     content::WebContents* web_contents)
@@ -60,7 +60,7 @@ void PerfPredictorTabHelper::DispatchBlockedEvent(
     return;
 
   PerfPredictorTabHelper* blocking_observer =
-      brave_perf_predictor::PerfPredictorTabHelper::FromWebContents(
+      adrbrowsiel_perf_predictor::PerfPredictorTabHelper::FromWebContents(
           web_contents);
   if (blocking_observer) {
     blocking_observer->OnBlockedSubresource(subresource);
@@ -88,7 +88,7 @@ void PerfPredictorTabHelper::RecordSavings() {
       if (bandwidth_tracker_)
         bandwidth_tracker_->RecordSavings(savings);
 #if defined(OS_ANDROID)
-        chrome::android::BraveShieldsContentSettings::DispatchSavedBandwidth(
+        chrome::android::adrbrowsielShieldsContentSettings::DispatchSavedBandwidth(
           savings);
 #endif
     }
@@ -137,4 +137,4 @@ void PerfPredictorTabHelper::WebContentsDestroyed() {
 
 WEB_CONTENTS_USER_DATA_KEY_IMPL(PerfPredictorTabHelper)
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor

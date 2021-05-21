@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Brave Rewards on läbinud suure uuenduskuuri.",
+    "message": "adrbrowsiel Rewards on läbinud suure uuenduskuuri.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "Neid saate kasutada Brave Rewardsis, et toetada lemmiksisuloojaid. BAT-punkte ei saa BAT-i vastu välja vahetada.",
+    "message": "Neid saate kasutada adrbrowsiel Rewardsis, et toetada lemmiksisuloojaid. BAT-punkte ei saa BAT-i vastu välja vahetada.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Brave’i kinnitatud looja",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsiel’i kinnitatud looja",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Tähelepanu",
@@ -193,15 +193,15 @@
     "message": "ok",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Nüüd võid teenida reklaamide vaatamisega.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave'i reklaamid",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel'i reklaamid",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Automaatne panustamine",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Varundage oma Brave'i rahakotti",
+    "message": "Varundage oma adrbrowsiel'i rahakotti",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Teie Brave Rewardsi konto ootab sissemakset.",
+    "message": "Teie adrbrowsiel Rewardsi konto ootab sissemakset.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Ebapiisavad vahendid",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Rahakoti loomine",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave Rewards ei ole praegu saadaval. Proovige hiljem uuesti.",
+    "message": "adrbrowsiel Rewards ei ole praegu saadaval. Proovige hiljem uuesti.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "See looja pole veel end Brave'i kasutajate sissemaksete saajaks registreerinud. Kogu teie saadetud raha jääb kuni kinnitamiseni teie rahakotti.",
+    "message": "See looja pole veel end adrbrowsiel'i kasutajate sissemaksete saajaks registreerinud. Kogu teie saadetud raha jääb kuni kinnitamiseni teie rahakotti.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave Rewards on",
+    "message": "adrbrowsiel Rewards on",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "ja",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Saage sirvimise eest preemiaid!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Luba Brave Rewards",
+    "message": "Luba adrbrowsiel Rewards",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Vajutades \"Luba Brave Rewards\", kinnitate, et olete lugenud ning nõustute",
+    "message": "Vajutades \"Luba adrbrowsiel Rewards\", kinnitate, et olete lugenud ning nõustute",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Preemia saadetakse teie Brave Rewardsi rahakotti.",
+    "message": "Preemia saadetakse teie adrbrowsiel Rewardsi rahakotti.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Katkesta Brave Rewardsi ühendus",
+    "message": "Katkesta adrbrowsiel Rewardsi ühendus",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "See Brave’i kinnitatud looja pole veel oma kontot Brave’i kasutajatelt panuste saamiseks konfigureerinud. Teie saadetud preemiad jäävad teie rahakotti, kuni looja on protsessi lõpetanud.",
+    "message": "See adrbrowsiel’i kinnitatud looja pole veel oma kontot adrbrowsiel’i kasutajatelt panuste saamiseks konfigureerinud. Teie saadetud preemiad jäävad teie rahakotti, kuni looja on protsessi lõpetanud.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Alustage Brave Rewardsi kasutamist",
+    "message": "Alustage adrbrowsiel Rewardsi kasutamist",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Tere tulemast kasutama Brave Rewardsi!",
+    "message": "Tere tulemast kasutama adrbrowsiel Rewardsi!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Erinevalt tavareklaamidest annab Brave'i erareklaamide vaatamine teile sisuloojate toetamiseks tokeneid, samas hoitakse teie isikuandmed privaatsed.",
+    "message": "Erinevalt tavareklaamidest annab adrbrowsiel'i erareklaamide vaatamine teile sisuloojate toetamiseks tokeneid, samas hoitakse teie isikuandmed privaatsed.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Brave'i erareklaamid kuvatakse tavateavitusena. Seadete abil saate reguleerida, kui tihti neid reklaame näete.",
+    "message": "adrbrowsiel'i erareklaamid kuvatakse tavateavitusena. Seadete abil saate reguleerida, kui tihti neid reklaame näete.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Käesoleval kuul Brave'i erareklaamide eest teenitud tokenid saabuvad järgmise kuu 5ndal kuupäeval.",
+    "message": "Käesoleval kuul adrbrowsiel'i erareklaamide eest teenitud tokenid saabuvad järgmise kuu 5ndal kuupäeval.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Brave Rewardsi kasutamisega aitate veebi kõigi jaoks paremaks muuta. Ja see on vinge!",
+    "message": "adrbrowsiel Rewardsi kasutamisega aitate veebi kõigi jaoks paremaks muuta. Ja see on vinge!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Kui kinnitate oma rahakoti ja seote selle bitFlyeri kontoga, saate Brave Rewardsi kaudu teenitud tokeneid lihtsamalt säilitada ja hallata.",
+    "message": "Kui kinnitate oma rahakoti ja seote selle bitFlyeri kontoga, saate adrbrowsiel Rewardsi kaudu teenitud tokeneid lihtsamalt säilitada ja hallata.",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Brave Rewards läheb Jaapanis üle uuele süsteemile.",
+    "message": "adrbrowsiel Rewards läheb Jaapanis üle uuele süsteemile.",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

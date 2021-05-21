@@ -5,7 +5,7 @@
 
 import {
   setBadgeText
-} from '../../../../../brave_rewards/resources/extension/brave_rewards/background/browserAction'
+} from '../../../../../adrbrowsiel_rewards/resources/extension/adrbrowsiel_rewards/background/browserAction'
 
 describe('Rewards Panel extension - Browser Action', () => {
   describe('setBadgeText', () => {

@@ -2,9 +2,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import '../../../../brave_extension/extension/brave_extension/background/events/windowsEvents'
-import actions from '../../../../brave_extension/extension/brave_extension/background/actions/windowActions'
-import * as types from '../../../../brave_extension/extension/brave_extension/constants/windowTypes'
+import '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/events/windowsEvents'
+import actions from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/actions/windowActions'
+import * as types from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/windowTypes'
 
 interface WindowIdEvent extends chrome.events.Event<(windowId: number) => void> {
   emit: (windowId: number) => void

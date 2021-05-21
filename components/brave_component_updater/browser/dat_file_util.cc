@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_component_updater/browser/dat_file_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/dat_file_util.h"
 
 #include <string>
 
@@ -11,7 +11,7 @@
 #include "base/files/file_path.h"
 #include "base/files/file_util.h"
 
-namespace brave_component_updater {
+namespace adrbrowsiel_component_updater {
 
 void GetDATFileData(const base::FilePath& file_path,
                     DATFileDataBuffer* buffer) {
@@ -44,4 +44,4 @@ std::string GetDATFileAsString(const base::FilePath& file_path) {
   return contents;
 }
 
-}  // namespace brave_component_updater
+}  // namespace adrbrowsiel_component_updater

@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/components/p3a/brave_p2a_protocols.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_p2a_protocols.h"
 
 #include <stdint.h>
 
@@ -11,13 +11,13 @@
 
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=P2A*
+// npm run test -- adrbrowsiel_unit_tests --filter=P2A*
 
 namespace {
 const size_t kTrials = 1000;
 }  // namespace
 
-namespace brave {
+namespace adrbrowsiel {
 
 TEST(P2AProtocolsTest, PerturbationTest) {
   // Arrange
@@ -41,4 +41,4 @@ TEST(P2AProtocolsTest, PerturbationTest) {
   EXPECT_TRUE(true_value_count < kTrials);
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

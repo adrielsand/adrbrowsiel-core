@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/omnibox/browser/topsites_provider.h"
+#include "adrbrowsiel/components/omnibox/browser/topsites_provider.h"
 
 #include <stddef.h>
 
@@ -12,7 +12,7 @@
 
 #include "base/strings/string_util.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "components/omnibox/browser/autocomplete_input.h"
 #include "components/omnibox/browser/history_provider.h"
 #include "components/prefs/pref_service.h"

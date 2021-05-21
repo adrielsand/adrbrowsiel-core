@@ -2,8 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import getActions from '../../../brave_new_tab_ui/api/getActions'
-import { types as topSitesTypes } from '../../../brave_new_tab_ui/constants/grid_sites_types'
+import getActions from '../../../adrbrowsiel_new_tab_ui/api/getActions'
+import { types as topSitesTypes } from '../../../adrbrowsiel_new_tab_ui/constants/grid_sites_types'
 
 describe('new tab data api tests', () => {
   describe('getActions', () => {

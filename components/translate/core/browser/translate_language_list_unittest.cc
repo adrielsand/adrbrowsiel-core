@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -11,7 +11,7 @@
 #include "base/run_loop.h"
 #include "base/test/bind.h"
 #include "base/test/task_environment.h"
-#include "brave/browser/translate/buildflags/buildflags.h"
+#include "adrbrowsiel/browser/translate/buildflags/buildflags.h"
 #include "components/translate/core/browser/translate_download_manager.h"
 #include "services/network/public/cpp/weak_wrapper_shared_url_loader_factory.h"
 #include "services/network/test/test_url_loader_factory.h"
@@ -19,7 +19,7 @@
 
 namespace translate {
 
-#if !BUILDFLAG(ENABLE_BRAVE_TRANSLATE_GO)
+#if !BUILDFLAG(ENABLE_adrbrowsiel_TRANSLATE_GO)
 TEST(TranslateLanguageListTest, GetSupportedLanguagesNoFetch) {
   base::test::TaskEnvironment task_environment;
   network::TestURLLoaderFactory test_url_loader_factory;

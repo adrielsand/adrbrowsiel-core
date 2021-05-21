@@ -1,4 +1,4 @@
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
 import("//mojo/public/tools/bindings/mojom.gni")
 
 source_set("common") {
@@ -22,7 +22,7 @@ source_set("common_constants") {
 }
 
 mojom("mojom") {
-  sources = [ "brave_wallet.mojom" ]
+  sources = [ "adrbrowsiel_wallet.mojom" ]
 
   deps = [ "//mojo/public/mojom/base" ]
 }

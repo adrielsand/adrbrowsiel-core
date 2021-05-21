@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Phần thưởng của Brave",
+  "adrbrowsielRewards": {
+    "message": "Phần thưởng của adrbrowsiel",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Chúng tôi đã thực hiện nâng cấp lớn cho Tiền thưởng Brave.",
+    "message": "Chúng tôi đã thực hiện nâng cấp lớn cho Tiền thưởng adrbrowsiel.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "có thể sử dụng trong Brave Rewards để đóng góp cho người sáng tạo nội dung yêu thích của bạn. Điểm BAT không thể quy đổi sang BAT.",
+    "message": "có thể sử dụng trong adrbrowsiel Rewards để đóng góp cho người sáng tạo nội dung yêu thích của bạn. Điểm BAT không thể quy đổi sang BAT.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Người tạo nội dung được Brave Xác minh",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "Người tạo nội dung được adrbrowsiel Xác minh",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Chú ý",
@@ -193,15 +193,15 @@
     "message": "ok",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Giờ đây bạn có thể kiếm tiền bằng cách xem quảng cáo.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Quảng cáo Brave",
+  "adrbrowsielAdsTitle": {
+    "message": "Quảng cáo adrbrowsiel",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Tự động Đóng góp",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Vui lòng sao lưu ví Brave của bạn.",
+    "message": "Vui lòng sao lưu ví adrbrowsiel của bạn.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Tài khoản Tiền thưởng Brave của bạn đang chờ khoản tiền gửi.",
+    "message": "Tài khoản Tiền thưởng adrbrowsiel của bạn đang chờ khoản tiền gửi.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Không đủ Tiền",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Tạo ví",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Phần thưởng Brave đang gặp sự cố. Vui lòng thử lại sau.",
+    "message": "Phần thưởng adrbrowsiel đang gặp sự cố. Vui lòng thử lại sau.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Người sáng tạo này vẫn chưa đăng ký để nhận đóng góp từ người dùng Brave. Bất kỳ khoản tiền tip nào mà bạn gửi sẽ vẫn còn trong ví của bạn cho đến khi họ xác minh.",
+    "message": "Người sáng tạo này vẫn chưa đăng ký để nhận đóng góp từ người dùng adrbrowsiel. Bất kỳ khoản tiền tip nào mà bạn gửi sẽ vẫn còn trong ví của bạn cho đến khi họ xác minh.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Phần thưởng Brave là",
+    "message": "Phần thưởng adrbrowsiel là",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "và",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Nhận thưởng khi lướt web!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Kích hoạt Phần thưởng của Brave",
+    "message": "Kích hoạt Phần thưởng của adrbrowsiel",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Bằng cách nhấp vào \"Bật Tiền thưởng Brave\", bạn cho biết rằng bạn đã đọc và đồng ý với",
+    "message": "Bằng cách nhấp vào \"Bật Tiền thưởng adrbrowsiel\", bạn cho biết rằng bạn đã đọc và đồng ý với",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Điểm thưởng của bạn đang được gửi đến ví Brave Rewards.",
+    "message": "Điểm thưởng của bạn đang được gửi đến ví adrbrowsiel Rewards.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Ngắt kết nối với Brave Rewards",
+    "message": "Ngắt kết nối với adrbrowsiel Rewards",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Người sáng tạo được Brave xác minh này chưa định cấu hình tài khoản của họ để nhận các khoản đóng góp từ Người dùng Brave. Bất kỳ khoản tiền thưởng thêm nào mà bạn gửi sẽ vẫn nằm trong ví của bạn cho đến khi họ hoàn tất quá trình này.",
+    "message": "Người sáng tạo được adrbrowsiel xác minh này chưa định cấu hình tài khoản của họ để nhận các khoản đóng góp từ Người dùng adrbrowsiel. Bất kỳ khoản tiền thưởng thêm nào mà bạn gửi sẽ vẫn nằm trong ví của bạn cho đến khi họ hoàn tất quá trình này.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Bắt đầu sử dụng Brave Rewards",
+    "message": "Bắt đầu sử dụng adrbrowsiel Rewards",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Chào mừng bạn đến với Brave Rewards!",
+    "message": "Chào mừng bạn đến với adrbrowsiel Rewards!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Brave Private Ads thưởng cho bạn các token để ủng hộ những nhà sáng tạo nội dung không giống như các quảng cáo truyền thống, đồng thời giữ bí mật thông tin cá nhân của bạn.",
+    "message": "adrbrowsiel Private Ads thưởng cho bạn các token để ủng hộ những nhà sáng tạo nội dung không giống như các quảng cáo truyền thống, đồng thời giữ bí mật thông tin cá nhân của bạn.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Brave Private Ads sẽ hiển thị như một thông báo thông thường. Bạn kiểm soát tần suất bạn nhìn thấy các quảng cáo này trong phần cài đặt.",
+    "message": "adrbrowsiel Private Ads sẽ hiển thị như một thông báo thông thường. Bạn kiểm soát tần suất bạn nhìn thấy các quảng cáo này trong phần cài đặt.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Các token mà bạn kiếm được từ Brave Private Ads trong suốt tháng này sẽ đến vào ngày 5 của tháng sau.",
+    "message": "Các token mà bạn kiếm được từ adrbrowsiel Private Ads trong suốt tháng này sẽ đến vào ngày 5 của tháng sau.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Khi sử dụng Brave Rewards, bạn đang giúp làm cho trang web trở thành một nơi tốt hơn cho mọi người. Và điều đó thật tuyệt vời!",
+    "message": "Khi sử dụng adrbrowsiel Rewards, bạn đang giúp làm cho trang web trở thành một nơi tốt hơn cho mọi người. Và điều đó thật tuyệt vời!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Với việc xác thực ví của bạn và liên kết ví với một tài khoản bitFlyer, bạn sẽ có thể lưu trữ và quản lý các token mà bạn đã kiếm được thông qua Brave Rewards dễ dàng hơn",
+    "message": "Với việc xác thực ví của bạn và liên kết ví với một tài khoản bitFlyer, bạn sẽ có thể lưu trữ và quản lý các token mà bạn đã kiếm được thông qua adrbrowsiel Rewards dễ dàng hơn",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Brave Rewards ở Nhật Bản đang chuyển sang một hệ thống mới!",
+    "message": "adrbrowsiel Rewards ở Nhật Bản đang chuyển sang một hệ thống mới!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

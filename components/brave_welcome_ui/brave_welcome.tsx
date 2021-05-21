@@ -9,7 +9,7 @@ import { Provider } from 'react-redux'
 
 import welcomeDarkTheme from './theme/welcome-dark'
 import welcomeLightTheme from './theme/welcome-light'
-import BraveCoreThemeProvider from '../common/BraveCoreThemeProvider'
+import adrbrowsielCoreThemeProvider from '../common/adrbrowsielCoreThemeProvider'
 
 // Components
 import App from './containers/app'
@@ -18,7 +18,7 @@ import App from './containers/app'
 import store from './store'
 import * as welcomeActions from './actions/welcome_actions'
 
-window.cr.define('brave_welcome', function () {
+window.cr.define('adrbrowsiel_welcome', function () {
   'use strict'
 
   function loadWelcomeData () {
@@ -29,22 +29,22 @@ window.cr.define('brave_welcome', function () {
 
   function initialize () {
     loadWelcomeData()
-    new Promise(resolve => chrome.braveTheme.getBraveThemeType(resolve))
-    .then((themeType: chrome.braveTheme.ThemeType) => {
+    new Promise(resolve => chrome.adrbrowsielTheme.getadrbrowsielThemeType(resolve))
+    .then((themeType: chrome.adrbrowsielTheme.ThemeType) => {
       render(
         <Provider store={store}>
-          <BraveCoreThemeProvider
+          <adrbrowsielCoreThemeProvider
             initialThemeType={themeType}
             dark={welcomeDarkTheme}
             light={welcomeLightTheme}
           >
             <App />
-          </BraveCoreThemeProvider>
+          </adrbrowsielCoreThemeProvider>
         </Provider>,
         document.getElementById('root'))
     })
     .catch((error) => {
-      console.error('Problem mounting brave welcome', error)
+      console.error('Problem mounting adrbrowsiel welcome', error)
     })
     window.i18nTemplate.process(window.document, window.loadTimeData)
   }
@@ -54,4 +54,4 @@ window.cr.define('brave_welcome', function () {
   }
 })
 
-document.addEventListener('DOMContentLoaded', window.brave_welcome.initialize)
+document.addEventListener('DOMContentLoaded', window.adrbrowsiel_welcome.initialize)

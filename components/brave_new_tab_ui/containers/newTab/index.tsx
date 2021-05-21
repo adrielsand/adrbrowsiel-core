@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -24,8 +24,8 @@ import { FTXWidget as FTX } from '../../widgets/ftx/components'
 import * as Page from '../../components/default/page'
 import BrandedWallpaperLogo from '../../components/default/brandedWallpaper/logo'
 import { brandedWallpaperLogoClicked } from '../../api/brandedWallpaper'
-import BraveTodayHint from '../../components/default/braveToday/hint'
-import BraveToday from '../../components/default/braveToday'
+import adrbrowsielTodayHint from '../../components/default/adrbrowsielToday/hint'
+import adrbrowsielToday from '../../components/default/adrbrowsielToday'
 import BAPDeprecationModal from '../../components/default/rewards/bapDeprecationModal'
 import { addNewTopSite, editTopSite } from '../../api/topSites'
 
@@ -44,7 +44,7 @@ import { getLocale } from '../../../common/locale'
 import currencyData from '../../components/default/binance/data'
 import geminiData from '../../components/default/gemini/data'
 import { NewTabActions } from '../../constants/new_tab_types'
-import { BraveTodayState } from '../../reducers/today'
+import { adrbrowsielTodayState } from '../../reducers/today'
 import { FTXState } from '../../widgets/ftx/ftx_state'
 
 // NTP features
@@ -54,7 +54,7 @@ import { MAX_GRID_SIZE } from '../../constants/new_tab_ui'
 interface Props {
   newTabData: NewTab.State
   gridSitesData: NewTab.GridSitesState
-  todayData: BraveTodayState
+  todayData: adrbrowsielTodayState
   ftx: FTXState
   actions: NewTabActions
   saveShowBackgroundImage: (value: boolean) => void
@@ -115,7 +115,7 @@ class NewTabPage extends React.Component<Props, State> {
     backgroundHasLoaded: false,
     activeSettingsTab: null
   }
-  hasInitBraveToday: boolean = false
+  hasInitadrbrowsielToday: boolean = false
   imageSource?: string = undefined
   timerIdForBrandedWallpaperNotification?: number = undefined
   onVisiblityTimerExpired = () => {
@@ -360,7 +360,7 @@ class NewTabPage extends React.Component<Props, State> {
   buyCrypto = (coin: string, amount: string, fiat: string) => {
     const { userLocale, userTLD } = this.props.newTabData.binanceState
     const refCode = userTLD === 'us' ? '35089877' : '39346846'
-    const refParams = `ref=${refCode}&utm_source=brave`
+    const refParams = `ref=${refCode}&utm_source=adrbrowsiel`
 
     if (userTLD === 'us') {
       window.open(`https://www.binance.us/en/buy-sell-crypto?crypto=${coin}&amount=${amount}&${refParams}`, '_blank', 'noopener')
@@ -396,7 +396,7 @@ class NewTabPage extends React.Component<Props, State> {
   }
 
   startRewards = () => {
-    chrome.braveRewards.enableRewards()
+    chrome.adrbrowsielRewards.enableRewards()
   }
 
   dismissBrandedWallpaperNotification = (isUserAction: boolean) => {
@@ -472,19 +472,19 @@ class NewTabPage extends React.Component<Props, State> {
     this.props.actions.setUserTLDAutoSet()
   }
 
-  onBraveTodayInteracting = () => {
-    if (!this.hasInitBraveToday) {
-      this.hasInitBraveToday = true
+  onadrbrowsielTodayInteracting = () => {
+    if (!this.hasInitadrbrowsielToday) {
+      this.hasInitadrbrowsielToday = true
       this.props.actions.today.interactionBegin()
     }
   }
 
   learnMoreRewards = () => {
-    window.open('https://brave.com/brave-rewards/', '_blank', 'noopener')
+    window.open('https://adrbrowsiel.com/adrbrowsiel-rewards/', '_blank', 'noopener')
   }
 
   learnMoreBinance = () => [
-    window.open('https://brave.com/binance/', '_blank', 'noopener')
+    window.open('https://adrbrowsiel.com/binance/', '_blank', 'noopener')
   ]
 
   setAssetDepositQRCodeSrc = (asset: string, src: string) => {
@@ -856,7 +856,7 @@ class NewTabPage extends React.Component<Props, State> {
     return (
       <Rewards
         {...rewardsState}
-        widgetTitle={getLocale('rewardsWidgetBraveRewards')}
+        widgetTitle={getLocale('rewardsWidgetadrbrowsielRewards')}
         onLearnMore={this.learnMoreRewards}
         menuPosition={'left'}
         isCrypto={true}
@@ -1182,9 +1182,9 @@ class NewTabPage extends React.Component<Props, State> {
             </Page.FooterContent>
           </Page.Footer>
           {newTabData.showToday &&
-          <Page.GridItemNavigationBraveToday>
-            <BraveTodayHint />
-          </Page.GridItemNavigationBraveToday>
+          <Page.GridItemNavigationadrbrowsielToday>
+            <adrbrowsielTodayHint />
+          </Page.GridItemNavigationadrbrowsielToday>
           }
           {isShowingBrandedWallpaper && newTabData.brandedWallpaperData &&
           newTabData.brandedWallpaperData.logo &&
@@ -1195,7 +1195,7 @@ class NewTabPage extends React.Component<Props, State> {
           }
         </Page.Page>
         { newTabData.showToday &&
-        <BraveToday
+        <adrbrowsielToday
           feed={this.props.todayData.feed}
           articleToScrollTo={this.props.todayData.articleScrollTo}
           displayedPageCount={this.props.todayData.currentPageIndex}
@@ -1203,14 +1203,14 @@ class NewTabPage extends React.Component<Props, State> {
           isFetching={this.props.todayData.isFetching === true}
           hasInteracted={this.props.todayData.hasInteracted}
           isUpdateAvailable={this.props.todayData.isUpdateAvailable}
-          isOptedIn={this.props.newTabData.isBraveTodayOptedIn}
+          isOptedIn={this.props.newTabData.isadrbrowsielTodayOptedIn}
           onRefresh={this.props.actions.today.refresh}
           onAnotherPageNeeded={this.props.actions.today.anotherPageNeeded}
-          onInteracting={this.onBraveTodayInteracting}
+          onInteracting={this.onadrbrowsielTodayInteracting}
           onDisable={this.toggleShowToday}
           onFeedItemViewedCountChanged={this.props.actions.today.feedItemViewedCountChanged}
           // tslint:disable-next-line:jsx-no-lambda
-          onCustomizeBraveToday={() => { this.openSettings(SettingsTabType.BraveToday) }}
+          onCustomizeadrbrowsielToday={() => { this.openSettings(SettingsTabType.adrbrowsielToday) }}
           onReadFeedItem={this.props.actions.today.readFeedItem}
           onPromotedItemViewed={this.props.actions.today.promotedItemViewed}
           onSetPublisherPref={this.props.actions.today.setPublisherPref}
@@ -1243,7 +1243,7 @@ class NewTabPage extends React.Component<Props, State> {
           showRewards={newTabData.showRewards}
           showBinance={newTabData.showBinance}
           brandedWallpaperOptIn={newTabData.brandedWallpaperOptIn}
-          allowSponsoredWallpaperUI={newTabData.featureFlagBraveNTPSponsoredImagesWallpaper}
+          allowSponsoredWallpaperUI={newTabData.featureFlagadrbrowsielNTPSponsoredImagesWallpaper}
           toggleShowRewards={this.toggleShowRewards}
           toggleShowBinance={this.toggleShowBinance}
           binanceSupported={newTabData.binanceSupported}

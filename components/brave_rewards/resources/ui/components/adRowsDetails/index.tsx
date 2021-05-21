@@ -16,9 +16,9 @@ import {
   } from './style'
 import {
   CaratTriangleDownSIcon, CaratTriangleRightSIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 import { DetailRow } from '../tableAdsHistory'
-import { Row, Cell } from 'brave-ui/components/dataTables/table'
+import { Row, Cell } from 'adrbrowsiel-ui/components/dataTables/table'
 
 export interface Props {
   id?: string

@@ -29,7 +29,7 @@
 <translation id="985862351129593673">Pielāgot informācijas paneli</translation>
 <translation id="7180865173735832675">Pielāgot</translation>
 <translation id="8522669544471808198">Rādīt fona attēlus</translation>
-<translation id="7275773481201277457">Rādīt Brave statistiku</translation>
+<translation id="7275773481201277457">Rādīt adrbrowsiel statistiku</translation>
 <translation id="6836061097810262923">Rādīt pulksteni</translation>
 <translation id="5912396950572065471">Formāts</translation>
 <translation id="604124094241169006">Automātiski</translation>
@@ -52,27 +52,27 @@
 <translation id="8037713009824540257">Pievienot vietni</translation>
 <translation id="1773147648972887693">Rādīt bieži apmeklētās</translation>
 <translation id="4546260624932151782">Rādīt izlasi</translation>
-<translation id="3446024864193919737">Parādīt Brave balvas</translation>
+<translation id="3446024864193919737">Parādīt adrbrowsiel balvas</translation>
 <translation id="6274899614137380422">Rādīt Binance</translation>
-<translation id="5551238871320268996">Brave Together</translation>
+<translation id="5551238871320268996">adrbrowsiel Together</translation>
 <translation id="5585019845078534178">Kartes</translation>
 <translation id="3870475560794762985">Rādīt sponsorētos attēlus</translation>
 <translation id="2875302873837723333">populāras vietnes</translation>
-<translation id="8173998484743827990">Brave statistika</translation>
+<translation id="8173998484743827990">adrbrowsiel statistika</translation>
 <translation id="383680190590774040">pulkstenis</translation>
-<translation id="3333887201479867589">Brave balvas</translation>
+<translation id="3333887201479867589">adrbrowsiel balvas</translation>
 <translation id="3159285901314605198">Fona attēls</translation>
 <translation id="385051799172605136">Atpakaļ</translation>
-<translation id="9024104284526126630">Pārlūkprogrammā Brave varat sākt privātu zvanu.</translation>
-<translation id="5735801688206890393">Sāciet neierobežotus zvanus ar draugiem un kolēģiem, izmantojot Brave Together.</translation>
+<translation id="9024104284526126630">Pārlūkprogrammā adrbrowsiel varat sākt privātu zvanu.</translation>
+<translation id="5735801688206890393">Sāciet neierobežotus zvanus ar draugiem un kolēģiem, izmantojot adrbrowsiel Together.</translation>
 <translation id="7115051913071512405">Izmēģiniet</translation>
 <translation id="7415602225677446066">Šodienas populārākie stāsti pilnīgi privātā plūsmā tieši jums.</translation>
-<translation id="8607689491789524900">Brave Today atbilst interesēm jūsu ierīcē, tādēļ jūsu personiskā informācija nekad nenonāk tālāk par pārlūkprogrammu. Jauns saturs tiek atjaunināts visas dienas garumā.</translation>
+<translation id="8607689491789524900">adrbrowsiel Today atbilst interesēm jūsu ierīcē, tādēļ jūsu personiskā informācija nekad nenonāk tālāk par pārlūkprogrammu. Jauns saturs tiek atjaunināts visas dienas garumā.</translation>
 <translation id="9164544612367905452">Notiek iegūšana…</translation>
 <translation id="1276592121036104130">Ielādēt jaunu saturu</translation>
-<translation id="4210987321913275328">Ritiniet līdz Brave Today</translation>
-<translation id="3122595178900736207">Atiestatīt Brave Today avotus</translation>
-<translation id="2197023915568148978">Vai atiestatīt visas Brave Today izdevēju izvēles uz to noklusējuma iestatījumiem?</translation>
+<translation id="4210987321913275328">Ritiniet līdz adrbrowsiel Today</translation>
+<translation id="3122595178900736207">Atiestatīt adrbrowsiel Today avotus</translation>
+<translation id="2197023915568148978">Vai atiestatīt visas adrbrowsiel Today izdevēju izvēles uz to noklusējuma iestatījumiem?</translation>
 <translation id="954001034349395856">Visi avoti</translation>
 <translation id="8890516388109605451">Avoti</translation>
 <translation id="5158129253322921540">Atspējot saturu no <ph name="PUBLISHER_NAME"/></translation>
@@ -91,21 +91,21 @@
 <translation id="6248988683584659830">Meklēt iestatījumus</translation>
 <translation id="730042046912793465">Šis ir</translation>
 <translation id="2055363275850890030">Inkognito logs</translation>
-<translation id="9133213713928851646">Brave nesaglabā informāciju par to, ko jūs darāt inkognito logā. Vietnes, ko apmeklējat, neparādīsies jūsu pārlūkošanas vēsturē, un sīkfaili pazudīs, kad iziesiet no pārlūka. Taču inkognito logi nepadara jūs pilnīgi anonīmu tiešsaistē.</translation>
+<translation id="9133213713928851646">adrbrowsiel nesaglabā informāciju par to, ko jūs darāt inkognito logā. Vietnes, ko apmeklējat, neparādīsies jūsu pārlūkošanas vēsturē, un sīkfaili pazudīs, kad iziesiet no pārlūka. Taču inkognito logi nepadara jūs pilnīgi anonīmu tiešsaistē.</translation>
 <translation id="3546750666732517156">Privāts logs ar Tor savienojamību</translation>
-<translation id="5383068818957293256">Brave neatceras, ko jūs darāt privātā logā. Pateicoties Tor savienojamībai, arī jūsu IP adrese tiek paslēpta no vietnēm, kuras apmeklējat. Tomēr, ja jūsu personiskā drošība ir atkarīga no anonimitātes, iesakām tā vietā izmantot Tor pārlūku.</translation>
+<translation id="5383068818957293256">adrbrowsiel neatceras, ko jūs darāt privātā logā. Pateicoties Tor savienojamībai, arī jūsu IP adrese tiek paslēpta no vietnēm, kuras apmeklējat. Tomēr, ja jūsu personiskā drošība ir atkarīga no anonimitātes, iesakām tā vietā izmantot Tor pārlūku.</translation>
 <translation id="778096729652828897">Uzzināt vairāk par inkognito logiem Tor</translation>
 <translation id="7919374705736538787">Meklēt privāti ar</translation>
 <translation id="3135655280958284640">DuckDuckGo</translation>
-<translation id="218839872518145456">Privātā meklēšanā Brave izmantos DuckDuckGo, lai meklētu inkognito logos. DuckDuckGo nesaglabā jūsu meklēšanas vēsturi, tāpēc jūs varat meklēt privāti.</translation>
+<translation id="218839872518145456">Privātā meklēšanā adrbrowsiel izmantos DuckDuckGo, lai meklētu inkognito logos. DuckDuckGo nesaglabā jūsu meklēšanas vēsturi, tāpēc jūs varat meklēt privāti.</translation>
 <translation id="1925197199485958903">Inkognito logā ar Tor DuckDuckGo ir noklusējuma meklētājprogramma. Dažas no populārākajām meklētājprogrammām ir sarežģītāk izmantot ar Tor. DuckDuckGo nesaglabā jūsu meklēšanas vēsturi, ar Tor šī programma pat nezina jūsu IP adresi.</translation>
 <translation id="4371533307685765155">Meklēt ar DuckDuckGo</translation>
 <translation id="548478195417408221">Padariet privātos logus vēl privātākus</translation>
 <translation id="3294503279952534143">Šis privātais logs ir vēl privātāks</translation>
 <translation id="4644024131266615376">ar Tor savienojamību</translation>
 <translation id="8541421872680304667">Tor paslēpj jūsu IP adresi no vietnēm, ko apmeklējat, pārsūtot jūsu pārlūkošanas datus caur vairākiem Tor serveriem, pirms tie sasniedz galamērķi. Tor var palēnināt pārlūkošanu, un atsevišķas vietnes var nedarboties vispār.</translation>
-<translation id="8897548669448660973">Privāto logu izmantošana maina tikai to, ko Brave dara jūsu ierīcē, bet nemaina citu uzvedību. Tor slēpj jūsu IP adresi no vietnēm, ko apmeklējat, tādēļ jūsu ISP vai darba devējam ir grūtāk, bet ne neiespējami redzēt vietnes, ko apmeklējat. Atveriet privātu logu ar Tor izvēlnē vai ar [[ key ]].</translation>
-<translation id="6975708438781948564">Uzzināt vairāk par Tor vietnē Brave</translation>
+<translation id="8897548669448660973">Privāto logu izmantošana maina tikai to, ko adrbrowsiel dara jūsu ierīcē, bet nemaina citu uzvedību. Tor slēpj jūsu IP adresi no vietnēm, ko apmeklējat, tādēļ jūsu ISP vai darba devējam ir grūtāk, bet ne neiespējami redzēt vietnes, ko apmeklējat. Atveriet privātu logu ar Tor izvēlnē vai ar [[ key ]].</translation>
+<translation id="6975708438781948564">Uzzināt vairāk par Tor vietnē adrbrowsiel</translation>
 <translation id="4712050378540986986">Tor statuss</translation>
 <translation id="3368922792935385530">pievienots</translation>
 <translation id="8030169304546394654">Atvienots</translation>
@@ -116,15 +116,15 @@
 <translation id="4673764878177947707">Pielāgotie filtri</translation>
 <translation id="8803682034537762884">Viens katrai rindiņai, filtrs ir aprakstīts Adblock Plus filtru sintaksē</translation>
 <translation id="1209739344687072997">Ziņot par bojātu vietni</translation>
-<translation id="8510478288840333677">Paziņojiet Brave izstrādātājiem, kad šī vietne ar aizsargiem nedarbojas pareizi:</translation>
-<translation id="6013164422534859494">Piezīme: Tiks iesniegta vietnes adrese ar jūsu Brave versijas numuru un jūsu IP adresi (kas netiks saglabāta).</translation>
+<translation id="8510478288840333677">Paziņojiet adrbrowsiel izstrādātājiem, kad šī vietne ar aizsargiem nedarbojas pareizi:</translation>
+<translation id="6013164422534859494">Piezīme: Tiks iesniegta vietnes adrese ar jūsu adrbrowsiel versijas numuru un jūsu IP adresi (kas netiks saglabāta).</translation>
 <translation id="2653659639078652383">Iesniegt</translation>
 <translation id="5299848999918506028">Paldies!</translation>
-<translation id="76550953340008122">Paldies, ka paziņojāt Brave izstrādātājiem par problēmām ar šo vietni. Pacentīsimies to salabot!</translation>
-<translation id="2974339193389078578">Brave —  jaunais internets!</translation>
+<translation id="76550953340008122">Paldies, ka paziņojāt adrbrowsiel izstrādātājiem par problēmām ar šo vietni. Pacentīsimies to salabot!</translation>
+<translation id="2974339193389078578">adrbrowsiel —  jaunais internets!</translation>
 <translation id="7735138632831241257">Pārlūkojiet ātrāk un drošāk ar pārlūku, kas izstrādāts jūsu konfidencialitātes aizsargāšanai.</translation>
 <translation id="6001839398155993679">Uz priekšu!</translation>
-<translation id="4225189922025976867"><ph name="BEGIN_BOLD"/>Nopelniet marķierus<ph name="END_BOLD"/>, apskatot Brave privātās reklāmas, un automātiski atbalstiet satura veidotājus.</translation>
+<translation id="4225189922025976867"><ph name="BEGIN_BOLD"/>Nopelniet marķierus<ph name="END_BOLD"/>, apskatot adrbrowsiel privātās reklāmas, un automātiski atbalstiet satura veidotājus.</translation>
 <translation id="5477721706074111257">Noklikšķinot jūs piekrītat <ph name="BEGIN_LINK"/>pakalpojumu sniegšanas noteikumiem<ph name="END_LINK"/> un <ph name="BEGIN_LINK"/>konfidencialitātes politikai<ph name="END_LINK"/>.</translation>
 <translation id="3505541710659461355">Jebkurā brīdī varat to izslēgt iestatījumos.</translation>
 <translation id="2965798296974325760">Sākt izmantot balvas</translation>
@@ -133,7 +133,7 @@
 <translation id="8275038454117074363">Importēt</translation>
 <translation id="2088479175984386785">Importēt no...</translation>
 <translation id="5540323067375019678">Pārvaldiet savus aizsargus</translation>
-<translation id="3278033011827237847">Brave aizsargi jūs aizsargā no nevēlamām reklāmām un izsekotājiem, kamēr lietojat pārlūku. Ja vietne nedarbojas pareizi, iestatiet aizsargus.</translation>
+<translation id="3278033011827237847">adrbrowsiel aizsargi jūs aizsargā no nevēlamām reklāmām un izsekotājiem, kamēr lietojat pārlūku. Ja vietne nedarbojas pareizi, iestatiet aizsargus.</translation>
 <translation id="3366308997091824722">Aizsarga iestatījumi</translation>
 <translation id="4764692524839457597">noklusējums</translation>
 <translation id="3108122610701115301">Iestatīt kā noklusējumu</translation>
@@ -144,16 +144,16 @@
 <translation id="3829010735958850433">Izlaist iepazīstināšanas tūri</translation>
 <translation id="1201402288615127009">Nākamais</translation>
 <translation id="7954950242989581218">Droša pārlūkošana</translation>
-<translation id="2188651882929633653">Brave Shields bloķē saturu, kas mēģina izsekot jūsu darbībām tīmeklī, tostarp lielāko daļu reklāmu. Iestatiet Shields uz “leju”,  ja kāda vietne nedarbojas. Brave izmanto <ph name="BEGIN_LINK_P3A"/>pilnīgi privātu produktu analīzi<ph name="END_LINK_P3A"/>, lai novērtētu konkrētu funkciju vispārējo lietojumu. Šo opciju varat izslēgt sadaļā <ph name="BEGIN_LINK_P3A_SETTINGS"/>Iestatījumi<ph name="END_LINK_P3A_SETTINGS"/>.</translation>
+<translation id="2188651882929633653">adrbrowsiel Shields bloķē saturu, kas mēģina izsekot jūsu darbībām tīmeklī, tostarp lielāko daļu reklāmu. Iestatiet Shields uz “leju”,  ja kāda vietne nedarbojas. adrbrowsiel izmanto <ph name="BEGIN_LINK_P3A"/>pilnīgi privātu produktu analīzi<ph name="END_LINK_P3A"/>, lai novērtētu konkrētu funkciju vispārējo lietojumu. Šo opciju varat izslēgt sadaļā <ph name="BEGIN_LINK_P3A_SETTINGS"/>Iestatījumi<ph name="END_LINK_P3A_SETTINGS"/>.</translation>
 <translation id="1919345977826869612">Reklāmas</translation>
-<translation id="6769094341455418696">Pelniet [[currency]], aplūkojot Brave Ads. Reklāmas tiek rādītas atbilstoši jūsu interesēm, kas noteiktas pēc jūsu pārlūkošanas darbībām. Personas dati un pārlūkošanas vēsture nekādā gadījumā nepamet jūsu pārlūkprogrammu.</translation>
+<translation id="6769094341455418696">Pelniet [[currency]], aplūkojot adrbrowsiel Ads. Reklāmas tiek rādītas atbilstoši jūsu interesēm, kas noteiktas pēc jūsu pārlūkošanas darbībām. Personas dati un pārlūkošanas vēsture nekādā gadījumā nepamet jūsu pārlūkprogrammu.</translation>
 <translation id="6112368337882254910">Automātiska ziedošana</translation>
-<translation id="3742599705619405136">Automātisks veids izdevēju un satura veidotāju atbalstam. Nosakiet mēneša maksājumu un pārlūkojiet normāli. Brave Verified vietnes, ko apmeklējat, automātiski saņems jūsu ieguldījumu, pateicoties jūsu uzmanībai, ko izmērījis Brave.</translation>
+<translation id="3742599705619405136">Automātisks veids izdevēju un satura veidotāju atbalstam. Nosakiet mēneša maksājumu un pārlūkojiet normāli. adrbrowsiel Verified vietnes, ko apmeklējat, automātiski saņems jūsu ieguldījumu, pateicoties jūsu uzmanībai, ko izmērījis adrbrowsiel.</translation>
 <translation id="20281847067919078">Aptuvenā gaidāmā peļņa</translation>
 <translation id="8593551638387217772">Nākamais maksājuma datums</translation>
 <translation id="4428871418618312983">Šomēnes saņemtās reklāmas</translation>
 <translation id="4229016885653790965">Diemžēl reklāmas vēl nav pieejamas jūsu reģionā.</translation>
-<translation id="2539279826042558064">Jūsu ierīcē pagaidām nav pieejamas Brave balvas un reklāmas.</translation>
+<translation id="2539279826042558064">Jūsu ierīcē pagaidām nav pieejamas adrbrowsiel balvas un reklāmas.</translation>
 <translation id="5421369907811917952">Citi iestatījumi</translation>
 <translation id="654711254769318398">Skatītās reklāmu lapas</translation>
 <translation id="2532127066761785857">Maksimālais rādīto reklāmu skaits</translation>
@@ -163,7 +163,7 @@
 <translation id="905529390827000221">4 reklāmas stundā</translation>
 <translation id="7694167481321619202">5 reklāmas stundā</translation>
 <translation id="8576106690599421723">Valsts līmeņa reklāmu adresēšana</translation>
-<translation id="4775297407519948063">Tas atļauj Brave rādīt reklāmas, kas ir paredzētas tieši jūsu valstij.</translation>
+<translation id="4775297407519948063">Tas atļauj adrbrowsiel rādīt reklāmas, kas ir paredzētas tieši jūsu valstij.</translation>
 <translation id="8446884382197647889">Uzziniet vairāk</translation>
 <translation id="6209514229703649203">Automātiski noteikta kā [[adsSubdivisionTarget]]</translation>
 <translation id="8010081455002666927">Noteikt automātiski</translation>
@@ -174,7 +174,7 @@
 <translation id="8845154268466251503">Pamata uzmanības marķieris (BAT)</translation>
 <translation id="6160106411363856968">BAP</translation>
 <translation id="1081826981536899387">BAT punkti</translation>
-<translation id="2563462925929938015">var izmantot Brave Rewards, lai dotu ieguldījumu jūsu iecienītākajiem satura veidotājiem. BAT punktus nevar samainīt pret BAT.</translation>
+<translation id="2563462925929938015">var izmantot adrbrowsiel Rewards, lai dotu ieguldījumu jūsu iecienītākajiem satura veidotājiem. BAT punktus nevar samainīt pret BAT.</translation>
 <translation id="3390542282753297856">Ierīce ir bezsaistē. Lūdzu, vēlāk mēģiniet vēlreiz.</translation>
 <translation id="4684554059837592728">Ikmēneša maksājums</translation>
 <translation id="2846354907189538">Nākamais ziedošanas datums</translation>
@@ -222,21 +222,21 @@
 <translation id="2195074481553016770">Gandrīz pabeigts...</translation>
 <translation id="5254740304961202261">Pierādiet, ka esat cilvēks!</translation>
 <translation id="2187043784382239974">Hmm... Ne gluži...</translation>
-<translation id="7510166204621526816">Brave balvu serveris nereaģē. Mēs to salabosim, cik vien drīz iespējams.</translation>
+<translation id="7510166204621526816">adrbrowsiel balvu serveris nereaģē. Mēs to salabosim, cik vien drīz iespējams.</translation>
 <translation id="2323069945529668668">Ak vai!</translation>
 <translation id="717952606991220586">Ups, izskatās, ka radās kļūda. Lūdzu, mēģiniet vēlreiz vēlāk.</translation>
 <translation id="6965382102122355670">Labi</translation>
-<translation id="7210234701206674260">Brave dāvanās ir radusies kļūda. Lūdzu, mēģiniet vēlreiz vēlāk.</translation>
+<translation id="7210234701206674260">adrbrowsiel dāvanās ir radusies kļūda. Lūdzu, mēģiniet vēlreiz vēlāk.</translation>
 <translation id="5549059668721746831">Nākamais ikmēneša ziedošanas datums</translation>
-<translation id="6231182869178328516">Es tikko pieskāros <ph name="NAME"/>, kurš lieto Brave pārlūkprogrammu. Apskatiet to tīmekļa vietnē: https://brave.com/tips.</translation>
-<translation id="8404935570206006581">Sūtiet dzeramnaudu ar Brave</translation>
+<translation id="6231182869178328516">Es tikko pieskāros <ph name="NAME"/>, kurš lieto adrbrowsiel pārlūkprogrammu. Apskatiet to tīmekļa vietnē: https://adrbrowsiel.com/tips.</translation>
+<translation id="8404935570206006581">Sūtiet dzeramnaudu ar adrbrowsiel</translation>
 <translation id="3113653894794167793">Atvainojiet, apstrādājot jūsu pieprasījumu, radās problēma, lūdzu, mēģiniet vēlreiz.</translation>
 <translation id="3082557070674409251">Uzklikšķināts</translation>
 <translation id="7119308337584989771">Noraidīts</translation>
 <translation id="6805660603861526473">Aplūkots</translation>
 <translation id="2359865110462963929">BAT pašlaik netiek atbalstīts jūsu reģionā. Lūdzu, skatiet jaunāko informāciju <ph name="BEGIN_LINK"/>šeit<ph name="END_LINK"/>.</translation>
 <translation id="1737873393693460829">Ieslēdzot [[title]], jūs piekrītat <ph name="BEGIN_LINK1"/>pakalpojumu sniegšanas noteikumiem<ph name="END_LINK1"/> un <ph name="BEGIN_LINK2"/>konfidencialitātes politikai<ph name="END_LINK2"/>.</translation>
-<translation id="2564425876266960486">Kļūda, veidojot Brave pārlūka BAT karti</translation>
+<translation id="2564425876266960486">Kļūda, veidojot adrbrowsiel pārlūka BAT karti</translation>
 <translation id="6473583070570450185">Lai pieteiktos, jums vajag verificētu maku</translation>
 <translation id="5949995321533425416">Lai izveidotu Uphold maku, jums nepieciešami vismaz <ph name="AMOUNT"/> BAT. Lūdzu, mēģiniet vēlreiz pēc maka verificēšanas pie Uphold.</translation>
 <translation id="7422678632904904341">Summa:</translation>
@@ -359,21 +359,21 @@
 <translation id="7532131110478098401">(reklāmas stundā)</translation>
 <translation id="2951964054390325080">Cik lielu atbalstu katru mēnesi vēlaties sniegt saviem iecienītākajiem veidotājiem?</translation>
 <translation id="3164498053837913829">(no savas reklāmu peļņas)</translation>
-<translation id="2070991379950719711">Sākt izmantot Brave Rewards</translation>
+<translation id="2070991379950719711">Sākt izmantot adrbrowsiel Rewards</translation>
 <translation id="6318696841371191107">Izejiet ātru tūri</translation>
 <translation id="8465790416279415448">Turpinot jūs piekrītat <ph name="TOS_LINK_BEGIN"/>pakalpojumu sniegšanas noteikumiem<ph name="TOS_LINK_END"/> un <ph name="PP_LINK_BEGIN"/>konfidencialitātes politikai<ph name="PP_LINK_END"/>.</translation>
-<translation id="2404165674840145940">Piešķiriet dzeramnaudas ar Brave balvām</translation>
-<translation id="5820285701794581330">Izmantojot Brave balvas, jūs sāksiet iegūt BAT, ko varēsiet izmantot, lai piešķirtu dzeramnaudas veidotājiem.</translation>
+<translation id="2404165674840145940">Piešķiriet dzeramnaudas ar adrbrowsiel balvām</translation>
+<translation id="5820285701794581330">Izmantojot adrbrowsiel balvas, jūs sāksiet iegūt BAT, ko varēsiet izmantot, lai piešķirtu dzeramnaudas veidotājiem.</translation>
 <translation id="5705882733397021510">Doties atpakaļ</translation>
 <translation id="185034574799484512">Iziesim ātru tūri</translation>
 <translation id="8281886186245836920">Izlaist</translation>
 <translation id="1377600615067678409">Pagaidām izlaist</translation>
-<translation id="7930505144430343145">Laipni lūdzam pakalpojumā Brave Rewards!</translation>
-<translation id="3477340970981564961">Brave privātās reklāmas atalgo jūs ar žetoniem, atbalstot satura veidotājus, atšķirībā no parastajām reklāmām, vienlaikus ievērojot jūsu personiskās informācijas konfidencialitāti.</translation>
+<translation id="7930505144430343145">Laipni lūdzam pakalpojumā adrbrowsiel Rewards!</translation>
+<translation id="3477340970981564961">adrbrowsiel privātās reklāmas atalgo jūs ar žetoniem, atbalstot satura veidotājus, atšķirībā no parastajām reklāmām, vienlaikus ievērojot jūsu personiskās informācijas konfidencialitāti.</translation>
 <translation id="6973095375773523904">Kur tiek rādītas reklāmas?</translation>
-<translation id="7556325460112047619">Brave privātās reklāmas tiks rādītas kā parasts paziņojums. To, cik bieži redzat šīs reklāmas, jūs kontrolējat iestatījumos.</translation>
+<translation id="7556325460112047619">adrbrowsiel privātās reklāmas tiks rādītas kā parasts paziņojums. To, cik bieži redzat šīs reklāmas, jūs kontrolējat iestatījumos.</translation>
 <translation id="6897083627729802351">Kad jūs saņemat balvas</translation>
-<translation id="310863932297733723">Jūsu nopelnītie žetoni par Brave privātajām reklāmām visā šī mēneša laikā tiks saņemti nākamā mēneša 5. datumā.</translation>
+<translation id="310863932297733723">Jūsu nopelnītie žetoni par adrbrowsiel privātajām reklāmām visā šī mēneša laikā tiks saņemti nākamā mēneša 5. datumā.</translation>
 <translation id="7712287524451429139">Vienkārša atdošana</translation>
 <translation id="105037569026952831">Veidotāji jūsu žetonu ziedojumus saņem automātiski, pamatojoties uz jūsu iesaistīšanās līmeņiem, kurus mēs mērām kā ‘Attention’.</translation>
 <translation id="5323267338679539010">Pateicieties ar dzeramnaudu</translation>
@@ -383,17 +383,17 @@
 <translation id="1402530520078693620">Visbeidzot izveidosim jums pamata iestatījumus</translation>
 <translation id="3494356595346329740">Vēlāk varēsiet to mainīt.</translation>
 <translation id="827315274423079662">Hei, jūs esat gatavs!</translation>
-<translation id="8268038362451312235">Izmantojot Brave Rewards, jūs palīdzat tīmekli padarīt par labāku vietu ikvienam. Tas ir lieliski!</translation>
+<translation id="8268038362451312235">Izmantojot adrbrowsiel Rewards, jūs palīdzat tīmekli padarīt par labāku vietu ikvienam. Tas ir lieliski!</translation>
 <translation id="9146355483497231818">Verificējiet savu maku</translation>
 <translation id="8913591412117692523">Lai izņemtu žetonus, ko nopelnījāt, skatoties reklāmas, jums būs jāveic sava maka verifikācija.</translation>
 <translation id="9168436347345867845">Izdarīt to vēlāk</translation>
 <translation id="5468234114288973517">Verificēt maku</translation>
 <translation id="6609621505400013054">bitFlyer maks ir pakalpojums, ko pārvalda bitFlyer, Inc.</translation>
-<translation id="7258399883616914635">Pēc jūsu maka verifikācijas un savienošanas ar bitFlyer kontu jūs varēsit vienkāršāk uzglabāt un pārvaldīt žetonus, izmantojot Brave Rewards</translation>
+<translation id="7258399883616914635">Pēc jūsu maka verifikācijas un savienošanas ar bitFlyer kontu jūs varēsit vienkāršāk uzglabāt un pārvaldīt žetonus, izmantojot adrbrowsiel Rewards</translation>
 <translation id="5094577350232361255">par</translation>
 <translation id="4918086044614829423">Pieņemt</translation>
-<translation id="5916290544882167205">“Brave Software”. Brave ir “Brave Software” reģistrēta preču zīme. Vietņu nosaukumi var būt vietnes īpašnieka preču zīmes vai reģistrētas preču zīmes.</translation>
-<translation id="9026369588205476247">Lai aizsargātu Jūsu konfidencialitāti, šis Brave balvu paziņojums netiek saglabāts, ierakstīts vai reģistrēts nekur citur, kā tikai Jūsu ierīcē (šajā datorā). Jūsu ierīces datu zuduma gadījumā, to nevar atgūt no Brave.</translation>
+<translation id="5916290544882167205">“adrbrowsiel Software”. adrbrowsiel ir “adrbrowsiel Software” reģistrēta preču zīme. Vietņu nosaukumi var būt vietnes īpašnieka preču zīmes vai reģistrētas preču zīmes.</translation>
+<translation id="9026369588205476247">Lai aizsargātu Jūsu konfidencialitāti, šis adrbrowsiel balvu paziņojums netiek saglabāts, ierakstīts vai reģistrēts nekur citur, kā tikai Jūsu ierīcē (šajā datorā). Jūsu ierīces datu zuduma gadījumā, to nevar atgūt no adrbrowsiel.</translation>
 <translation id="1036277985068412734">pievienot līdzekļus</translation>
 <translation id="3587482841069643663">Visi</translation>
 <translation id="4241224519481557898">Kategorija</translation>
@@ -404,13 +404,13 @@
 <translation id="2777306694585938662">Par reklāmām saņemtā peļņa</translation>
 <translation id="5212777575344695266">Atzīmēt kā neatbilstošu</translation>
 <translation id="2111256234277361810">Atzīmēt kā neatbilstošu ✓</translation>
-<translation id="8988332871810963281">Šobrīd vēsturē nav Brave reklāmu</translation>
+<translation id="8988332871810963281">Šobrīd vēsturē nav adrbrowsiel reklāmu</translation>
 <translation id="5345727496083327478">Jūs vairs nesaņemsiet šīs kategorijas reklāmas</translation>
 <translation id="2827387977307390755">Atļaut dzeramnaudas par</translation>
 <translation id="3819257035322786455">Dublējums</translation>
 <translation id="1312977698678162065">Nopelniet, skatoties saistītu reklāmu, kas ciena Jūsu konfidencialitāti.</translation>
 <translation id="4396256076373444156">Savāciet punktus, skatoties saistītas reklāmas, kas ciena Jūsu konfidencialitāti.</translation>
-<translation id="2975780980638932742">Brave reklāmas ir klāt!</translation>
+<translation id="2975780980638932742">adrbrowsiel reklāmas ir klāt!</translation>
 <translation id="3361548743396744457">Atbalstiet savas iecienītās vietnes, vienkārši pārlūkojot, vai iedodiet vietnei dzeramnaudu, kad vien vēlaties.</translation>
 <translation id="6976444672879155794">Automātiska ziedošana [[processor]]</translation>
 <translation id="4493850495402472953">un</translation>
@@ -423,7 +423,7 @@
 <translation id="516395624550019162">Jā, aiziet!</translation>
 <translation id="529572070778367192">Iegūstiet balvas par pārlūkošanu!</translation>
 <translation id="128450776206759934">Kā tas darbojas...</translation>
-<translation id="3825698830825612308">Brave apstiprināti publicētāji</translation>
+<translation id="3825698830825612308">adrbrowsiel apstiprināti publicētāji</translation>
 <translation id="7262285991915892790">Velciet BAT ikonu uz</translation>
 <translation id="7656781188259414093">mērķis.</translation>
 <translation id="1555514580945108302">Hmm… Ne gluži. Mēģiniet vēlreiz.</translation>
@@ -441,7 +441,7 @@
 <translation id="5860033963881614850">Izsl.</translation>
 <translation id="2039417478970545937">Iestatījumi.</translation>
 <translation id="1651355182880886661">Šobrīd jūs pārlūkošanas laikā nesaņemat nekādas balvas. Ieslēdziet atpakaļ balvu saņemšanas funkciju.</translation>
-<translation id="8605272644314973683">Brave balvas ir</translation>
+<translation id="8605272644314973683">adrbrowsiel balvas ir</translation>
 <translation id="2157162992285072267">Velciet un nometiet šo logotipu uz</translation>
 <translation id="4805054577224376281">mērķis</translation>
 <translation id="1346059596910821859">Dzeramnauda</translation>
@@ -457,7 +457,7 @@
 <translation id="418343137736963579">Kopējais vietņu skaits, kas ir izslēgtas no automātiskās ziedošanas:</translation>
 <translation id="1759104587873258696">derīguma termiņš beidzas</translation>
 <translation id="6149218349077925111">kam</translation>
-<translation id="8802504113265057166">[[currency]], kas netiek izmantota līdz derīguma termiņa beigām, tiks automātiski atgriezta programmā Brave User Growth Pool.</translation>
+<translation id="8802504113265057166">[[currency]], kas netiek izmantota līdz derīguma termiņa beigām, tiks automātiski atgriezta programmā adrbrowsiel User Growth Pool.</translation>
 <translation id="279567716178902927">Piešķīruma derīguma beigu termiņš</translation>
 <translation id="2104073734684466851">Piešķīrumi</translation>
 <translation id="6476729769006815569">Sveiki, [[name]]!</translation>
@@ -529,18 +529,18 @@
 <translation id="5939518447894949180">Atiestatīt</translation>
 <translation id="3157931365184549694">Atjaunot</translation>
 <translation id="1797334173232638045">Jūsu piespraustās vietnes ir pārvietotas uz</translation>
-<translation id="6803187280799213426">Jūsu Brave makā esošie līdzekļi ir virtuāli, un tos nav nepieciešams dublēt. Tie jums ir pieejami tērēšanai tikai šajā pārlūkprogrammā.</translation>
+<translation id="6803187280799213426">Jūsu adrbrowsiel makā esošie līdzekļi ir virtuāli, un tos nav nepieciešams dublēt. Tie jums ir pieejami tērēšanai tikai šajā pārlūkprogrammā.</translation>
 <translation id="5290348443732633227">Ja vēlaties aizsargāt visus savus līdzekļus pārlūkprogrammas tīrās instalēšanas vai ierīces maiņas gaidījumā, kā arī iegūt citas priekšrocības, piemēram, līdzekļu papildināšanu, izņemšanu un pārskaitīšanu, mēs iesakām</translation>
 <translation id="467041382895390784">tiek veidots savienojums ar verificētu <ph name="PROVIDER"/> maku.</translation>
 <translation id="5717619667204259673">Turiet šo atkopšanas atslēgu drošībā.</translation>
 <translation id="4699702339303280827">Jūs vienmēr varat izmantot šo atslēgu, lai atgūtu savu maku, ja ar jūsu pārlūkprogrammu vai datoru kaut kas ir noticis.  Taču parūpējieties par tās drošību — ikviens, kas iegūst šo atslēgu, var nozagt jūsu maku. Visdrošāk būtu to pierakstīt uz papīra vai turēt vietā, kur glabājat svarīgu informāciju.</translation>
 <translation id="8979401359137062629">Piezīme.</translation>
-<translation id="7934806082615382155">Daļu no līdzekļiem nav iespējams saņemt no Brave, un tie nav iekļauti dublējumā, jo tas nav nepieciešams. Tie jums ir pieejami tērēšanai tikai šajā pārlūkprogrammā.</translation>
+<translation id="7934806082615382155">Daļu no līdzekļiem nav iespējams saņemt no adrbrowsiel, un tie nav iekļauti dublējumā, jo tas nav nepieciešams. Tie jums ir pieejami tērēšanai tikai šajā pārlūkprogrammā.</translation>
 <translation id="7354412786785889047">Jūs varat atbalstīt šo satura veidotāju, nosūtot dzeramnaudu. Tas ir veids, kā pateikties viņiem par lielisku saturu. Verificētiem satura veidotājiem dzeramnauda tiek izmaksāta katra kalendārā mēneša pirmajā nedēļā.</translation>
-<translation id="972846019534552366">Varat arī Brave balvu panelī iestatīt ikmēneša ziedojumu.</translation>
+<translation id="972846019534552366">Varat arī adrbrowsiel balvu panelī iestatīt ikmēneša ziedojumu.</translation>
 <translation id="3074127054582480056">Uzmanību</translation>
 <translation id="5010112177773747965">bez jūsu piekrišanas.</translation>
-<translation id="7147673045905733351">Šodien Brave ielūdz jūs apskatīt jauno interneta pārlūkprogrammu.</translation>
+<translation id="7147673045905733351">Šodien adrbrowsiel ielūdz jūs apskatīt jauno interneta pārlūkprogrammu.</translation>
 <translation id="1350763070659630336">Šeit jūsu laiks tiek novērtēts, tiek ievērota jūsu personas datu konfidencialitāte, un jums ir iespēja pat nopelnīt par veltīto uzmanību.</translation>
 <translation id="880341991877949255">Ar jūsu veco pārlūkprogrammu jūs maksājāt, lai pārlūkotu tīmekli, veltot reklāmām savu uzmanību. Jūs tērējāt savu vērtīgo laiku, lejupielādējot agresīvas reklāmu tehnoloģijas, kas pārraida jūsu vērtīgos konfidenciālos datus reklāmu izvietotājiem — bez jūsu piekrišanas.</translation>
 <translation id="3610794092923555181">Diemžēl pagaidām nav punktu.</translation>
@@ -548,12 +548,12 @@
 <translation id="7359258898775969374">Trīs veidi, ka papildināt maku:</translation>
 <translation id="8087614920008846901">Jūs varat pievienot līdzekļus.</translation>
 <translation id="996024295464837691">Jūs varat pelnīt marķierus, apskatot reklāmas.</translation>
-<translation id="8014425282125849700">Ik pa laikam Brave Jums piedāvās bezmaksas marķiera piešķīrumu. Nepalaidiet garām paziņojumu!</translation>
-<translation id="2185598236335233939">Turpinot izmantot Brave, meklējiet paziņojumus par reklāmām. Jūsu BAT punktu bilance palielināsies pēc katras skatītās reklāmas.</translation>
+<translation id="8014425282125849700">Ik pa laikam adrbrowsiel Jums piedāvās bezmaksas marķiera piešķīrumu. Nepalaidiet garām paziņojumu!</translation>
+<translation id="2185598236335233939">Turpinot izmantot adrbrowsiel, meklējiet paziņojumus par reklāmām. Jūsu BAT punktu bilance palielināsies pēc katras skatītās reklāmas.</translation>
 <translation id="1370034647041840967">Nopelniet marķierus par savu reklāmām veltīto uzmanību un maksājiet ar tiem, lai atbalstītu satura veidotājus, kuri Jums patīk!</translation>
 <translation id="4919888432594361029">Pievienojiet, izņemiet un pārvaldiet līdzekļus ar <ph name="PROVIDER"/>.</translation>
-<translation id="3092054349246483285">Jūsu Brave maku nodrošina <ph name="PROVIDER"/>.</translation>
-<translation id="6401272292123354754">Brave balvu pamatā ir Basic Attention Token (Pamata uzmanības marķieris). Uzziniet vairāk par BAT</translation>
+<translation id="3092054349246483285">Jūsu adrbrowsiel maku nodrošina <ph name="PROVIDER"/>.</translation>
+<translation id="6401272292123354754">adrbrowsiel balvu pamatā ir Basic Attention Token (Pamata uzmanības marķieris). Uzziniet vairāk par BAT</translation>
 <translation id="7823359893981882407">šeit</translation>
 <translation id="4483635855837696643">Atjaunot maku</translation>
 <translation id="459721429458957031">Izmantojiet savu atkopšanas atslēgu, lai atjaunotu maku.</translation>
@@ -588,11 +588,11 @@
 <translation id="1193434225710679930">Punktu piešķīrumi</translation>
 <translation id="4395099108822007284">Notiek attēla ielāde...</translation>
 <translation id="3535654229833214438">Pārskaitījumi</translation>
-<translation id="244362569344671266">Nopelniet žetonus, apskatot Brave privātās reklāmas, un automātiski atbalstiet satura veidotājus.</translation>
+<translation id="244362569344671266">Nopelniet žetonus, apskatot adrbrowsiel privātās reklāmas, un automātiski atbalstiet satura veidotājus.</translation>
 <translation id="3903419925307046908">Pelnīt žetonus un atdot atpakaļ</translation>
 <translation id="8987812599455325915">Tas iespējo gan reklāmas, gan automātisko ziedošanu. Jūs jebkurā laikā varat tās individuāli ieslēgt vai izslēgt.</translation>
 <translation id="1485484147452131556">Aktivizēt balvas</translation>
-<translation id="8772672608371898774">Brave apstiprināts publicētājs</translation>
+<translation id="8772672608371898774">adrbrowsiel apstiprināts publicētājs</translation>
 <translation id="5050370287908180130">Apskatīt ikmēneša informācijas paziņojumu</translation>
 <translation id="8615803647903750175">Maka aktivitāte</translation>
 <translation id="2620624773940447728">Maka adrese</translation>
@@ -606,15 +606,15 @@
 <translation id="8787500234852052352">Nopelniet par reklāmu aplūkošanu un maksājiet to tālāk, lai atbalstītu savus iecienītos satura veidotājus.</translation>
 <translation id="4282161221635140902">Tagad varat iegūt punktus par privātumu ievērojošu reklāmu skatīšanos.</translation>
 <translation id="318487899513214296">Apskatiet uzlabojumus</translation>
-<translation id="4083384190339959182">Esam sagādājuši lielu jauninājumu Brave maksājumiem.</translation>
+<translation id="4083384190339959182">Esam sagādājuši lielu jauninājumu adrbrowsiel maksājumiem.</translation>
 <translation id="5395851053710553429">Esiet gatavi izbaudīt nākamo internetu.</translation>
-<translation id="63956545637156715">Kāpēc Brave balvas?</translation>
+<translation id="63956545637156715">Kāpēc adrbrowsiel balvas?</translation>
 <translation id="8494748383523030337">Jūsu atlikums</translation>
 <translation id="3780605330121608425">Jūsu maks</translation>
 <translation id="6727483290601442544">Skatīt informāciju</translation>
 <translation id="1988679729106502285">PIEZĪME.</translation>
-<translation id="5815103311506128988">Šis satura veidotājs vēl nav pierakstījies ziedojumu saņemšanai no Brave lietotājiem. Jūsu pārlūkprogramma atkārtoti mēģinās veikt ziedojumu līdz brīdim, kad tas tiks apstiprināts vai būs pagājušas 90 dienas.</translation>
-<translation id="7461596279975181413">Šis Brave apstiprinātais veidotājs vēl nav konfigurējis savu kontu, lai saņemtu ieguldījumus no Brave lietotājiem. Jūsu pārlūkprogramma mēģinās nosūtīt ieguldījumu 90 dienas vai līdz brīdim, kad lietotājs veiks apstiprināšanu.</translation>
+<translation id="5815103311506128988">Šis satura veidotājs vēl nav pierakstījies ziedojumu saņemšanai no adrbrowsiel lietotājiem. Jūsu pārlūkprogramma atkārtoti mēģinās veikt ziedojumu līdz brīdim, kad tas tiks apstiprināts vai būs pagājušas 90 dienas.</translation>
+<translation id="7461596279975181413">Šis adrbrowsiel apstiprinātais veidotājs vēl nav konfigurējis savu kontu, lai saņemtu ieguldījumus no adrbrowsiel lietotājiem. Jūsu pārlūkprogramma mēģinās nosūtīt ieguldījumu 90 dienas vai līdz brīdim, kad lietotājs veiks apstiprināšanu.</translation>
 <translation id="4292832015778676417">nopelnīts no reklāmām</translation>
 <translation id="3197752845651180812">Neapmaksātie ziedojumi</translation>
 <translation id="6964891561514920613">Rādīt visus neapmaksātos ziedojumus</translation>
@@ -628,7 +628,7 @@
 <translation id="923467487918828349">Rādīt visus</translation>
 <translation id="5113531205597573951">Apskatītās vietnes</translation>
 <translation id="4560448935659791043">Jūs esat nopelnījis Ads Reward!</translation>
-<translation id="4947094120398792493">Jūsu atlīdzība ir ceļā uz Brave Rewards maku.</translation>
+<translation id="4947094120398792493">Jūsu atlīdzība ir ceļā uz adrbrowsiel Rewards maku.</translation>
 <translation id="39734939514946950">Jūsu atlīdzības summa</translation>
 <translation id="2151535059686617995">Jums šodien veicas!</translation>
 <translation id="6436689611575806470">Drīzumā saņemsiet savu marķiera [[currency]] piešķīrumu.</translation>
@@ -638,17 +638,17 @@
 <translation id="543510923939676996">Maks verificēts</translation>
 <translation id="2659764755126740206">Doties uz manu <ph name="PROVIDER"/> kontu</translation>
 <translation id="3699674790322420653">Pabeigt maka verifikāciju</translation>
-<translation id="9200453331904391567">Atspējot Brave balvas</translation>
+<translation id="9200453331904391567">Atspējot adrbrowsiel balvas</translation>
 <translation id="46988480989545156">Verificēt maku</translation>
 <translation id="5796169459825124737">Mūsu maka pakalpojumu nodrošina <ph name="PROVIDER"/>.</translation>
 <translation id="6771734945114850124">Lūdzu, sagatavojiet savu valdības izdoto personu apliecinošo dokumentu.</translation>
 <translation id="8697510149346635496">Izņemt BAT, ko jūs nopelnāt no privātumu ievērojošu reklāmu skatījumiem</translation>
 <translation id="1481480653609649134">Iegādāties papildu BAT ar kredītkarti un citiem avotiem</translation>
-<translation id="9096003370755878766">Izņemt BAT, ko jūs varētu iepriekš būt pievienojis savam Brave atlīdzību makam</translation>
+<translation id="9096003370755878766">Izņemt BAT, ko jūs varētu iepriekš būt pievienojis savam adrbrowsiel atlīdzību makam</translation>
 <translation id="8558636200953226885">Bet pēc verificēšanas varēsiet...</translation>
 <translation id="3354315693758743702">Maka verificēšana nav obligāta.</translation>
 <translation id="4872388810065331182"><ph name="PROVIDER"/> var lūgt, lai jūs verificējat savu identitāti atkarībā no pieprasītajiem pakalpojumiem.</translation>
-<translation id="6938217233488972952">“Brave Software Inc.” neapstrādā, neuzglabā un nepiekļūst jūsu personas datiem, kurus iesniedzat <ph name="PROVIDER"/>, kad tajā izveidojat kontu.</translation>
+<translation id="6938217233488972952">“adrbrowsiel Software Inc.” neapstrādā, neuzglabā un nepiekļūst jūsu personas datiem, kurus iesniedzat <ph name="PROVIDER"/>, kad tajā izveidojat kontu.</translation>
 <translation id="2415586822982819406">Piezīme. Kad jūs autorizējaties, <ph name="PROVIDER"/> var redzēt jūsu darījumus; piemēram, tas var redzēt jūsu dzeramnaudu saņēmēju un summu.</translation>
 <translation id="7404779623219601861">Izpirkt BAT, iegādājoties dāvanu kartes</translation>
 <translation id="6215565499749144110">Izmantojot TAP Network, jūs varat izpirkt savus BAT, iegādājoties populāru zīmolu dāvanu kartes.</translation>
@@ -657,25 +657,25 @@
 <translation id="1109729143147368573">Sūtiet kripto un citus līdzekļus gandrīz 50 miljoniem tirgotāju un bankomātu visā pasaulē. Sūtiet kripto, lai saņemtu kripto!</translation>
 <translation id="7840362246306242214">Uphold pieejama ASV akciju tirdzniecība</translation>
 <translation id="3345432088196080137">Ieguldiet kaut vai tikai $1 populārās akcijās un biržā tirgotos fondos, piemēram, AAPL, TSLA vai AMZN</translation>
-<translation id="4360054110030715117"><ph name="LINK_BEGIN"/>Uzzināt vairāk<ph name="LINK_END"/> par Brave Rewards</translation>
-<translation id="7443190393462029180">Noklikšķinot uz Sākt izmantot Brave Rewards, jūs piekrītat <ph name="TOS_LINK_BEGIN"/>pakalpojumu sniegšanas noteikumiem<ph name="TOS_LINK_END"/> un <ph name="PP_LINK_BEGIN"/>konfidencialitātes politikai<ph name="PP_LINK_END"/>.</translation>
+<translation id="4360054110030715117"><ph name="LINK_BEGIN"/>Uzzināt vairāk<ph name="LINK_END"/> par adrbrowsiel Rewards</translation>
+<translation id="7443190393462029180">Noklikšķinot uz Sākt izmantot adrbrowsiel Rewards, jūs piekrītat <ph name="TOS_LINK_BEGIN"/>pakalpojumu sniegšanas noteikumiem<ph name="TOS_LINK_END"/> un <ph name="PP_LINK_BEGIN"/>konfidencialitātes politikai<ph name="PP_LINK_END"/>.</translation>
 <translation id="8344084848798035850">Aptuvenā peļņa šomēnes līdz šīm</translation>
 <translation id="5235444069025581717">Dzeramnauda un ziedojumi šomēnes</translation>
 <translation id="1210965535849006928">Pieprasīt savas balvas</translation>
 <translation id="4609518959946843710">Nopelniet balvas, aplūkojot šo sponsorēto fona attēlu.</translation>
-<translation id="5311968438376723685">Ieslēdziet Brave reklāmas, lai pieprasītu savu daļu. Jūs arī varat izvēlēties <ph name="LINK_BEGIN"/>hide sponsored images<ph name="LINK_END"/>.</translation>
+<translation id="5311968438376723685">Ieslēdziet adrbrowsiel reklāmas, lai pieprasītu savu daļu. Jūs arī varat izvēlēties <ph name="LINK_BEGIN"/>hide sponsored images<ph name="LINK_END"/>.</translation>
 <translation id="8568666589217601917">Tieši tā!</translation>
 <translation id="764235488372037377">Ir pieejamas Jūsu balvas no reklāmām</translation>
-<translation id="7091215606170476659">Jums pieejams UGP piešķīrums no Brave.</translation>
+<translation id="7091215606170476659">Jums pieejams UGP piešķīrums no adrbrowsiel.</translation>
 <translation id="6759185676704303656">Jūs nopelnāt, aplūkojot šo fona attēlu.</translation>
-<translation id="1749232564087138444"><ph name="LINK_BEGIN"/>Uzzināt vairāk<ph name="LINK_END"/> par Brave Rewards pakalpojumā sponsorētajiem attēliem.</translation>
+<translation id="1749232564087138444"><ph name="LINK_BEGIN"/>Uzzināt vairāk<ph name="LINK_END"/> par adrbrowsiel Rewards pakalpojumā sponsorētajiem attēliem.</translation>
 <translation id="6113004497629356998">Paslēpt sponsorētos attēlus</translation>
 <translation id="8587285254008006694">Šīs pārejas ietvaros dzeramnaudas un ziedošanas funkcijas,
         sākot no 13. marta, pārlūkā īslaicīgi nebūs pieejamas, un
         BAP atlikums būs 0,0, līdz aprīlī veiksiet atjaunināšanu uz jauno
         sistēmu. Jaunajā sistēmā jums būs jauni
         žetoni!</translation>
-<translation id="6232491755501685494">Brave balvas Japānā pāriet uz jaunu sistēmu!</translation>
+<translation id="6232491755501685494">adrbrowsiel balvas Japānā pāriet uz jaunu sistēmu!</translation>
 <translation id="3787061634640932557">Rediģēt kartes</translation>
 <translation id="8511604585939286108">Nokllikšķinot uz [[title]], jūs piekrītat <ph name="BEGIN_LINK1"/>pakalpojumu sniegšanas noteikumiem<ph name="END_LINK1"/> un <ph name="BEGIN_LINK2"/>konfidencialitātes politikai<ph name="END_LINK2"/>.</translation>
 <translation id="5977237145327845546">Sāciet privātu video zvanu ar saviem draugiem un kolēģiem.</translation>
@@ -740,9 +740,9 @@
 <translation id="1833248467354516560">Vienības cena</translation>
 <translation id="4763179765154524864">Kopā izdots</translation>
 <translation id="8851480289992540512">Kopā saņemts</translation>
-<translation id="616639131065447379">Laipni lūdzam Brave kripto makos!</translation>
-<translation id="1740464057879304704">Kripto maki ļauj Brave vidē strādāt ar kriptovalūtām un saistītajiem aktīviem. Kripto maki atbalsta tādus Ethereum marķierus kā ETH un BAT, kā arī citas kolekcionējamās vienības, kā arī ļauj strādāt ar Ðlietotnēm un citiem viedajiem līgumiem. Visas šīs funkcijas ir paredzētas cilvēkiem, kuri pārzina Ethereum un citas blokķēžu sistēmas — vai vēlas tās apgūt.</translation>
-<translation id="4855440621031541830">Izmantojiet kripto makus tikai tad, ja piekrītat, ka pilnībā atbildat par visiem ar šī pakalpojuma izmantošanu saistītajiem riskiem un Brave Software nekādā veidā neatbild par jebkādiem zaudējumiem, tai skaitā nejaušiem vai secīgiem zaudējumiem, kas jums var rasties šī pakalpojuma lietošanas rezultātā, un tam nav nekādu saistību attiecībā uz šādiem zaudējumiem.</translation>
+<translation id="616639131065447379">Laipni lūdzam adrbrowsiel kripto makos!</translation>
+<translation id="1740464057879304704">Kripto maki ļauj adrbrowsiel vidē strādāt ar kriptovalūtām un saistītajiem aktīviem. Kripto maki atbalsta tādus Ethereum marķierus kā ETH un BAT, kā arī citas kolekcionējamās vienības, kā arī ļauj strādāt ar Ðlietotnēm un citiem viedajiem līgumiem. Visas šīs funkcijas ir paredzētas cilvēkiem, kuri pārzina Ethereum un citas blokķēžu sistēmas — vai vēlas tās apgūt.</translation>
+<translation id="4855440621031541830">Izmantojiet kripto makus tikai tad, ja piekrītat, ka pilnībā atbildat par visiem ar šī pakalpojuma izmantošanu saistītajiem riskiem un adrbrowsiel Software nekādā veidā neatbild par jebkādiem zaudējumiem, tai skaitā nejaušiem vai secīgiem zaudējumiem, kas jums var rasties šī pakalpojuma lietošanas rezultātā, un tam nav nekādu saistību attiecībā uz šādiem zaudējumiem.</translation>
 <translation id="3187473319809074178">Tie visi ir pilnībā nošķirti no</translation>
 <translation id="8327818101454798856">Ja vēlējāties atbalstīt savas iecienītākās vietnes, dodieties uz tām.</translation>
 <translation id="412480955826088549">Lejupielādē komponentu...</translation>
@@ -758,18 +758,18 @@
 <translation id="5337526542182802976">Atbalstītie pāri</translation>
 <translation id="1164622162816276433">24 h apjoms</translation>
 <translation id="7534079972563542000">Neapturamie domēni</translation>
-<translation id="4492298165410552103">Vai iespējot neapturamo domēnu atbalstu sistēmā Brave?</translation>
-<translation id="3470923752115324276">Brave var nodrošināt iespēju apmeklēt .crypto domēnus, izmantojot Cloudflare, lai atrisinātu .crypto domēna nosaukuma uzmeklēšanas pieprasījumus, izmantojot DNS protokolā HTTPS. Ja to iespējojat, Cloudflare redz .crypto domēnu, kuru mēģināt apmeklēt, bet neredz citus domēnus. Skatiet Cloudflare <ph name="BEGIN_CF_TOU_LINK"/>lietošanas noteikumus<ph name="END_CF_TOU_LINK"/> un <ph name="BEGIN_CF_PRIVACY_LINK"/>privātuma politiku<ph name="END_CF_PRIVACY_LINK"/>.</translation>
+<translation id="4492298165410552103">Vai iespējot neapturamo domēnu atbalstu sistēmā adrbrowsiel?</translation>
+<translation id="3470923752115324276">adrbrowsiel var nodrošināt iespēju apmeklēt .crypto domēnus, izmantojot Cloudflare, lai atrisinātu .crypto domēna nosaukuma uzmeklēšanas pieprasījumus, izmantojot DNS protokolā HTTPS. Ja to iespējojat, Cloudflare redz .crypto domēnu, kuru mēģināt apmeklēt, bet neredz citus domēnus. Skatiet Cloudflare <ph name="BEGIN_CF_TOU_LINK"/>lietošanas noteikumus<ph name="END_CF_TOU_LINK"/> un <ph name="BEGIN_CF_PRIVACY_LINK"/>privātuma politiku<ph name="END_CF_PRIVACY_LINK"/>.</translation>
 <translation id="6513892817556267573">Ethereum Name Service</translation>
-<translation id="4335039108389860301">Vai iespējot Ethereum Name Service (ENS) atbalstu sistēmā Brave?</translation>
-<translation id="618766505813078707">Brave var nodrošināt iespēju apmeklēt .eth domēnus, izmantojot Cloudflare, lai atrisinātu .eth domēna nosaukuma uzmeklēšanas pieprasījumus, izmantojot DNS protokolā HTTPS. Ja to iespējojat, Cloudflare redz .eth domēnu, kuru mēģināt apmeklēt, bet neredz citus domēnus. Skatiet Cloudflare <ph name="BEGIN_CF_TOU_LINK"/>lietošanas noteikumus<ph name="END_CF_TOU_LINK"/> un <ph name="BEGIN_CF_PRIVACY_LINK"/>privātuma politiku<ph name="END_CF_PRIVACY_LINK"/>.</translation>
+<translation id="4335039108389860301">Vai iespējot Ethereum Name Service (ENS) atbalstu sistēmā adrbrowsiel?</translation>
+<translation id="618766505813078707">adrbrowsiel var nodrošināt iespēju apmeklēt .eth domēnus, izmantojot Cloudflare, lai atrisinātu .eth domēna nosaukuma uzmeklēšanas pieprasījumus, izmantojot DNS protokolā HTTPS. Ja to iespējojat, Cloudflare redz .eth domēnu, kuru mēģināt apmeklēt, bet neredz citus domēnus. Skatiet Cloudflare <ph name="BEGIN_CF_TOU_LINK"/>lietošanas noteikumus<ph name="END_CF_TOU_LINK"/> un <ph name="BEGIN_CF_PRIVACY_LINK"/>privātuma politiku<ph name="END_CF_PRIVACY_LINK"/>.</translation>
 <translation id="5636651007798897342">Turpināt izmantot Cloudflare serveri</translation>
 <translation id="2356070529366658676">Vaicāt</translation>
 <translation id="2218918398178303658">DNS ir pārāks par HTTPS</translation>
 <translation id="1448289340149908413">Ethereum</translation>
 <translation id="2468755552460246661">Domēns bloķēts</translation>
 <translation id="6393849031898466746">Šī vietne var mēģināt jūs izsekot citās vietnēs</translation>
-<translation id="983774928604730749">Brave novērsa šīs vietnes ielādi:</translation>
+<translation id="983774928604730749">adrbrowsiel novērsa šīs vietnes ielādi:</translation>
 <translation id="4781961723893779890">Šī vietne var mēģināt saistīt daļu jūsu personas datu ar sīkfailu, pirms tā parāda saturu.</translation>
 <translation id="2459038234784107183">Vairs nebrīdināt mani par šo vietni</translation>
 <translation id="8242426110754782860">Turpināt</translation>
@@ -811,7 +811,7 @@
 <translation id="3373798179786163193">Turpināt, izmantojot publisko vārteju</translation>
 <translation id="1974060860693918893">Papildu</translation>
 <translation id="9096577886148726047">Paslēpt papildu iespējas</translation>
-<translation id="7716995370131231171">Brave nevar ielādēt pieprasītos IPFS resursus vai nu tāpēc, ka vietējais mezgls netika palaists, vai tāpēc, ka šobrīd nav pieejami vienranga pieslēgumi. Ja izvēlēsieties “Turpināt”, Brave automātiski izmantos noklusējuma publisko vārteju, ja neizdosies izmantot vietējo mezglu. Šo darbību Brave iestatījumos var mainīt jebkurā laikā.</translation>
+<translation id="7716995370131231171">adrbrowsiel nevar ielādēt pieprasītos IPFS resursus vai nu tāpēc, ka vietējais mezgls netika palaists, vai tāpēc, ka šobrīd nav pieejami vienranga pieslēgumi. Ja izvēlēsieties “Turpināt”, adrbrowsiel automātiski izmantos noklusējuma publisko vārteju, ja neizdosies izmantot vietējo mezglu. Šo darbību adrbrowsiel iestatījumos var mainīt jebkurā laikā.</translation>
 <translation id="8026038288183400906">IPFS preference</translation>
 <translation id="2058855456574089690">Iestatiet savu IPFS preferenci</translation>
 <translation id="4447758690649023734">Izmantot vietējo mezglu</translation>
@@ -827,14 +827,14 @@
 <translation id="1675751799495331928">Esam pārsnieguši mēģinājumu skaitu, vēlāk mēģiniet vēlreiz.</translation>
 <translation id="4499666752625407848">Atjaunināšanas laikā radās kļūda.</translation>
 <translation id="62991515067726424">Šis saturs tika ielādēts, izmantojot IPFS protokolu</translation>
-<translation id="7263366446813126341">InterPlanetary File System (IPFS) ir publisks tīkls vienādranga datu uzglabāšanai un piegādei. Jūs jebkurā laikā varat uzzināt vairāk par Brave integrāciju vai konfigurēt savus IPFS iestatījumus.</translation>
+<translation id="7263366446813126341">InterPlanetary File System (IPFS) ir publisks tīkls vienādranga datu uzglabāšanai un piegādei. Jūs jebkurā laikā varat uzzināt vairāk par adrbrowsiel integrāciju vai konfigurēt savus IPFS iestatījumus.</translation>
 <translation id="3862600063748690056">IPFS importēšana pabeigta</translation>
 <translation id="8263749381887932384">IPFS importēšana daļēji pabeigta</translation>
 <translation id="2145699434318651911">IPFS importēšana neizdevās</translation>
 <translation id="5525148540855044244">Nokopēta kopīgojama saite: <ph name="SHAREABLE_LINK"/></translation>
 <translation id="3741998951694470470">Neizdevās ienest datus importēšanai</translation>
 <translation id="7900950536120202771">IPFS mezgla iekšējā kļūda</translation>
-<translation id="1036635552229153800">Dati tika veiksmīgi augšupielādēti, bet netika pārvietoti uz direktoriju brave-import. Jūs to varat izdarīt manuāli importēšanas iestatījumu lapā.</translation>
+<translation id="1036635552229153800">Dati tika veiksmīgi augšupielādēti, bet netika pārvietoti uz direktoriju adrbrowsiel-import. Jūs to varat izdarīt manuāli importēšanas iestatījumu lapā.</translation>
 <translation id="7789840864192026963">Sniegt atļauju</translation>
 <translation id="7978789143098237970">līdz šo lapu aizvēršu</translation>
 <translation id="3523195733429162409">uz 24 stundām</translation>

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,7 +10,7 @@ import { Button } from '../default'
 
 type Props = {
   show: boolean
-  onCustomizeBraveToday: () => any
+  onCustomizeadrbrowsielToday: () => any
 }
 
 const Hideable = styled('div')<Props>`
@@ -28,7 +28,7 @@ export default function Customize (props: Props) {
       <Button
         aria-hidden={!props.show}
         disabled={!props.show}
-        onClick={props.onCustomizeBraveToday}
+        onClick={props.onCustomizeadrbrowsielToday}
       >
         {getLocale('customize')}
       </Button>

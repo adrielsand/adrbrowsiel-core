@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 
-import { TwitterColorIcon, RedditColorIcon } from 'brave-ui/components/icons'
+import { TwitterColorIcon, RedditColorIcon } from 'adrbrowsiel-ui/components/icons'
 
 import { TipKind, MediaMetaData } from '../lib/interfaces'
 import { HostContext } from '../lib/host_context'

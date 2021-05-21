@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SYNC_NETWORK_TIME_HELPER_H_
-#define BRAVE_COMPONENTS_BRAVE_SYNC_NETWORK_TIME_HELPER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SYNC_NETWORK_TIME_HELPER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SYNC_NETWORK_TIME_HELPER_H_
 
 #include "base/callback.h"
 #include "base/memory/singleton.h"
@@ -15,7 +15,7 @@ namespace network_time {
 class NetworkTimeTracker;
 }  // namespace network_time
 
-namespace brave_sync {
+namespace adrbrowsiel_sync {
 
 class NetworkTimeHelper {
  public:
@@ -49,6 +49,6 @@ class NetworkTimeHelper {
   DISALLOW_COPY_AND_ASSIGN(NetworkTimeHelper);
 };
 
-}  // namespace brave_sync
+}  // namespace adrbrowsiel_sync
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SYNC_NETWORK_TIME_HELPER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SYNC_NETWORK_TIME_HELPER_H_

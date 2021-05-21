@@ -4,7 +4,7 @@ import("//ui/webui/webui_features.gni")
 
 grit("resources") {
   defines = [ "optimize_webui=$optimize_webui" ]
-  source = "brave_webui_resources.grd"
+  source = "adrbrowsiel_webui_resources.grd"
 
   deps = [ ":modulize" ]
 
@@ -12,13 +12,13 @@ grit("resources") {
   enable_input_discovery_for_gn_analyze = true
 
   outputs = [
-    "grit/brave_webui_resources.h",
-    "grit/brave_webui_resources_map.cc",
-    "grit/brave_webui_resources_map.h",
-    "brave_webui_resources.pak",
+    "grit/adrbrowsiel_webui_resources.h",
+    "grit/adrbrowsiel_webui_resources_map.cc",
+    "grit/adrbrowsiel_webui_resources_map.h",
+    "adrbrowsiel_webui_resources.pak",
   ]
 
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 
   grit_flags = [
     "-E",
@@ -31,7 +31,7 @@ copy("rollup_resources") {
 
   sources = [ "polymer_overriding.js" ]
 
-  outputs = [ "$root_gen_dir/brave/ui/webui/resources/{{source_file_part}}" ]
+  outputs = [ "$root_gen_dir/adrbrowsiel/ui/webui/resources/{{source_file_part}}" ]
 }
 
 copy("override_resources") {
@@ -43,7 +43,7 @@ copy("override_resources") {
   ]
 
   outputs = [
-    "$root_gen_dir/brave/ui/webui/resources/overrides/{{source_file_part}}",
+    "$root_gen_dir/adrbrowsiel/ui/webui/resources/overrides/{{source_file_part}}",
   ]
 }
 

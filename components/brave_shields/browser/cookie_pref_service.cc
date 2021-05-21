@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/cookie_pref_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/cookie_pref_service.h"
 
 #include <string>
 
 #include "base/bind.h"
 #include "base/notreached.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 #include "components/content_settings/core/browser/cookie_settings.h"
 #include "components/content_settings/core/browser/host_content_settings_map.h"
 #include "components/content_settings/core/common/content_settings.h"
@@ -19,7 +19,7 @@
 #include "components/prefs/pref_service.h"
 #include "url/gurl.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 namespace {
 
@@ -30,7 +30,7 @@ ControlType CookieControlsModeToControlType(
       return ControlType::ALLOW;
     case content_settings::CookieControlsMode::kBlockThirdParty:
       return ControlType::BLOCK_THIRD_PARTY;
-    // There shouldn't be a way to set kIncognitoOnly in Brave.
+    // There shouldn't be a way to set kIncognitoOnly in adrbrowsiel.
     case content_settings::CookieControlsMode::kIncognitoOnly:
     default:
       NOTREACHED() << "Unexpected cookie controls mode.";
@@ -143,7 +143,7 @@ void CookiePrefService::OnContentSettingChanged(
     ContentSettingsType content_type) {
   if (primary_pattern == ContentSettingsPattern::Wildcard() &&
       secondary_pattern == ContentSettingsPattern::Wildcard() &&
-      content_type == ContentSettingsType::BRAVE_COOKIES) {
+      content_type == ContentSettingsType::adrbrowsiel_COOKIES) {
     if (lock_.Try()) {
       SetCookiePrefDefaults(host_content_settings_map_, prefs_);
       lock_.Release();
@@ -151,4 +151,4 @@ void CookiePrefService::OnContentSettingChanged(
   }
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

@@ -2,10 +2,10 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#ifndef BRAVE_COMPONENTS_TOOLBAR_CONSTANTS_H_
-#define BRAVE_COMPONENTS_TOOLBAR_CONSTANTS_H_
+#ifndef adrbrowsiel_COMPONENTS_TOOLBAR_CONSTANTS_H_
+#define adrbrowsiel_COMPONENTS_TOOLBAR_CONSTANTS_H_
 
-namespace brave_toolbar {
+namespace adrbrowsiel_toolbar {
   extern const char kOriginalInternalUIScheme[];
   extern const char kInternalUIScheme[];
 }

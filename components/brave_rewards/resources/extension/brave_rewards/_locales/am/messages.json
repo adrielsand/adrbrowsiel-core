@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "ናይ Brave ሽልማታት",
+  "adrbrowsielRewards": {
+    "message": "ናይ adrbrowsiel ሽልማታት",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "ለ Brave Rewards ትልቅ ዝመና ሰጥተናል።",
+    "message": "ለ adrbrowsiel Rewards ትልቅ ዝመና ሰጥተናል።",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "ለተወዳጅ ይዘት ፈጣሪዎችዎ አስተዋጽኦ ለማድረግ Brave Rewards ውስጥ ሊያገለግል ይችላል። የ BAT ነጥቦችን በ BAT መለወጥ አይቻልም።",
+    "message": "ለተወዳጅ ይዘት ፈጣሪዎችዎ አስተዋጽኦ ለማድረግ adrbrowsiel Rewards ውስጥ ሊያገለግል ይችላል። የ BAT ነጥቦችን በ BAT መለወጥ አይቻልም።",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "በ Brave የተረጋገጠ ፈጣሪ ",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "በ adrbrowsiel የተረጋገጠ ፈጣሪ ",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "ትኩረት",
@@ -193,15 +193,15 @@
     "message": "እሺ",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "አሁን ማስታወቂያዎችን በማየት ገቢ ማግኘት ይችላሉ።",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
+  "adrbrowsielAdsTitle": {
     "message": "የብሬቭ ማስታቂያዎች",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "የራስ-አስተዋፅዎ",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "እባክዎትን ለBrave walletዎ ምትኬ ያድርጉ።",
+    "message": "እባክዎትን ለadrbrowsiel walletዎ ምትኬ ያድርጉ።",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "የእርስዎ Brave Rewards መለያ ተቀማጭ ገንዘብ በመጠባበቅ ላይ ነው።",
+    "message": "የእርስዎ adrbrowsiel Rewards መለያ ተቀማጭ ገንዘብ በመጠባበቅ ላይ ነው።",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "በቂ ያልሆነ ተቀማጭ",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "ቋት መፍጠር ",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "ይህ ፈጣር ከ Brave ተጠቃሚዎች መዋጮዎችን ለመቀበል ገና አልተመዘገበም። እስከሚያረጋግጥ ድረስ ምንም አይነት መወጮ በእርሶ ዋሌት ውስጥ ይቆያል።",
+    "message": "ይህ ፈጣር ከ adrbrowsiel ተጠቃሚዎች መዋጮዎችን ለመቀበል ገና አልተመዘገበም። እስከሚያረጋግጥ ድረስ ምንም አይነት መወጮ በእርሶ ዋሌት ውስጥ ይቆያል።",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "የ Brave ሽልማት ማለት",
+    "message": "የ adrbrowsiel ሽልማት ማለት",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "እና",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "ብሮዝ ስላደረጉ ይሸለሙ!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": " 'Enable Brave Rewards'ን ጠቅ በማድረግ፤ ማንበብዎን እና መስማማትዎን ያመለክታሉ በ ላይ",
+    "message": " 'Enable adrbrowsiel Rewards'ን ጠቅ በማድረግ፤ ማንበብዎን እና መስማማትዎን ያመለክታሉ በ ላይ",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "ሽልማትዎ ወደ ከ Brave የሽልማቶች ዋሌትዎ የመጣ ነው።",
+    "message": "ሽልማትዎ ወደ ከ adrbrowsiel የሽልማቶች ዋሌትዎ የመጣ ነው።",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "ከ Brave ሽልማቶች ጋር ግንኙነትዎን ያቋርጡ",
+    "message": "ከ adrbrowsiel ሽልማቶች ጋር ግንኙነትዎን ያቋርጡ",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "የ Brave የተረጋገጠ ፈጣሪ ከ Brave ተጠቃሚዎች መዋጮዎችን ለመቀበል መለያቸውን እስካሁን አላዋቀሩም። እርስዎ የሚልኩት ማንኛውም የመረጃ ፍንጭ ይህ ሒደት እስከሚጠናቀቅ ድረስ ዋሌትዎ ውስጥ ይቆያል።",
+    "message": "የ adrbrowsiel የተረጋገጠ ፈጣሪ ከ adrbrowsiel ተጠቃሚዎች መዋጮዎችን ለመቀበል መለያቸውን እስካሁን አላዋቀሩም። እርስዎ የሚልኩት ማንኛውም የመረጃ ፍንጭ ይህ ሒደት እስከሚጠናቀቅ ድረስ ዋሌትዎ ውስጥ ይቆያል።",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "የ Brave ወሮታዎች ን መጠቀም ይጀምሩ",
+    "message": "የ adrbrowsiel ወሮታዎች ን መጠቀም ይጀምሩ",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "ወደ Brave ወሮታዎች እንኳን በደህና መጡ!",
+    "message": "ወደ adrbrowsiel ወሮታዎች እንኳን በደህና መጡ!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "የግል መረጃዎን በሚስጥር እየጠበቀ፣ የ Brave የግል ማስታወቂያዎች ከባህላዊ ማስታወቂያዎች በተለየ የይዘት ፈጣሪዎችን ለመደገፍ ቶከኖች ይሸልምዎታል።",
+    "message": "የግል መረጃዎን በሚስጥር እየጠበቀ፣ የ adrbrowsiel የግል ማስታወቂያዎች ከባህላዊ ማስታወቂያዎች በተለየ የይዘት ፈጣሪዎችን ለመደገፍ ቶከኖች ይሸልምዎታል።",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "የ Brave የግል ማስታወቂያዎች እንደ መደበኛ ማሳወቂያ ይታያሉ። እነዚህን ማስታወቂያዎች ምን ያህል ጊዜ ማየት እንደሚፈልጉ በቅንብሮች ውስጥ ይቆጣጠራሉ።",
+    "message": "የ adrbrowsiel የግል ማስታወቂያዎች እንደ መደበኛ ማሳወቂያ ይታያሉ። እነዚህን ማስታወቂያዎች ምን ያህል ጊዜ ማየት እንደሚፈልጉ በቅንብሮች ውስጥ ይቆጣጠራሉ።",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "በዚህ ወሩ ውስጥ ከ Brave የግል ማስታወቂያዎች ያገኙዋቸው ምልክቶች በሚቀጥለው ወር 5ኛ ቀን ላይ ይደርስዎታል።",
+    "message": "በዚህ ወሩ ውስጥ ከ adrbrowsiel የግል ማስታወቂያዎች ያገኙዋቸው ምልክቶች በሚቀጥለው ወር 5ኛ ቀን ላይ ይደርስዎታል።",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Brave Rewards ን በመጠቀም ድሩ ለሁሉም ሰው የተሻለ ቦታ እንዲሆን እየረዱ ነው። እና ያ ግሩም ነው!",
+    "message": "adrbrowsiel Rewards ን በመጠቀም ድሩ ለሁሉም ሰው የተሻለ ቦታ እንዲሆን እየረዱ ነው። እና ያ ግሩም ነው!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "ዋለትዎን በማረጋገጥ እና ከ bitFlyer መለያ ጋር በማገናኘት በ Brave Rewards ያገኙዋቸውን ቶከንዎችን የበለጠ በቀላሉ ለማከማቸት እና ለማስተዳደር ይችላሉ።",
+    "message": "ዋለትዎን በማረጋገጥ እና ከ bitFlyer መለያ ጋር በማገናኘት በ adrbrowsiel Rewards ያገኙዋቸውን ቶከንዎችን የበለጠ በቀላሉ ለማከማቸት እና ለማስተዳደር ይችላሉ።",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "በጃፓን ውስጥ የሚገኙ Brave ወሮታዎች ወደ አዲስ ስርዓት እየተቀየሩ ነው!",
+    "message": "በጃፓን ውስጥ የሚገኙ adrbrowsiel ወሮታዎች ወደ አዲስ ስርዓት እየተቀየሩ ነው!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

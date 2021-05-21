@@ -18,7 +18,7 @@ import {
   StyledSitesLink,
   StyledMobileSettingsContainer
 } from './style'
-import { ControlWrapper, Checkbox } from 'brave-ui/components'
+import { ControlWrapper, Checkbox } from 'adrbrowsiel-ui/components'
 import { BoxMobile, SelectMobile } from '../../components/mobile'
 import { DetailRow as ContributeDetailRow } from '../../components/tableContribute'
 
@@ -26,7 +26,7 @@ import { DetailRow as ContributeDetailRow } from '../../components/tableContribu
 import locale from './fakeLocale'
 
 // Assets
-const favicon = require('../img/brave-favicon.png')
+const favicon = require('../img/adrbrowsiel-favicon.png')
 const buzz = require('../img/buzz.jpg')
 const ddgo = require('../img/ddgo.jpg')
 const guardian = require('../img/guardian.jpg')
@@ -168,7 +168,7 @@ class ContributeBoxMobile extends React.Component<Props, State> {
           provider: 'youtube',
           src: favicon
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 40,
         onRemove: this.doNothing
       },
@@ -178,7 +178,7 @@ class ContributeBoxMobile extends React.Component<Props, State> {
           verified: true,
           src: ddgo
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 20,
         onRemove: this.doNothing
       },
@@ -188,7 +188,7 @@ class ContributeBoxMobile extends React.Component<Props, State> {
           verified: false,
           src: buzz
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 10,
         onRemove: this.doNothing
       },
@@ -198,7 +198,7 @@ class ContributeBoxMobile extends React.Component<Props, State> {
           verified: true,
           src: guardian
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 5,
         onRemove: this.doNothing
       },
@@ -208,7 +208,7 @@ class ContributeBoxMobile extends React.Component<Props, State> {
           verified: false,
           src: wiki
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 4,
         onRemove: this.doNothing
       },
@@ -218,7 +218,7 @@ class ContributeBoxMobile extends React.Component<Props, State> {
           verified: true,
           src: ddgo
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 20,
         onRemove: this.doNothing
       },
@@ -228,7 +228,7 @@ class ContributeBoxMobile extends React.Component<Props, State> {
           verified: false,
           src: buzz
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 10,
         onRemove: this.doNothing
       },
@@ -238,7 +238,7 @@ class ContributeBoxMobile extends React.Component<Props, State> {
           verified: true,
           src: guardian
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 5,
         onRemove: this.doNothing
       },
@@ -248,7 +248,7 @@ class ContributeBoxMobile extends React.Component<Props, State> {
           verified: false,
           src: wiki
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 4,
         onRemove: this.doNothing
       }

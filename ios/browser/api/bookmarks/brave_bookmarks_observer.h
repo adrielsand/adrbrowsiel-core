@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_IOS_BROWSER_API_BOOKMARKS_BRAVE_BOOKMARKS_OBSERVER_H_
-#define BRAVE_IOS_BROWSER_API_BOOKMARKS_BRAVE_BOOKMARKS_OBSERVER_H_
+#ifndef adrbrowsiel_IOS_BROWSER_API_BOOKMARKS_adrbrowsiel_BOOKMARKS_OBSERVER_H_
+#define adrbrowsiel_IOS_BROWSER_API_BOOKMARKS_adrbrowsiel_BOOKMARKS_OBSERVER_H_
 
 #import <Foundation/Foundation.h>
 
@@ -40,4 +40,4 @@ OBJC_EXPORT
 
 NS_ASSUME_NONNULL_END
 
-#endif /* BRAVE_IOS_BROWSER_API_BOOKMARKS_BRAVE_BOOKMARKS_OBSERVER_H_ */
+#endif /* adrbrowsiel_IOS_BROWSER_API_BOOKMARKS_adrbrowsiel_BOOKMARKS_OBSERVER_H_ */

@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_ads/browser/background_helper_mac.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/background_helper_mac.h"
 
 #import <Cocoa/Cocoa.h>
 
@@ -17,7 +17,7 @@
 
 @interface BackgroundHelperDelegate : NSObject {
  @private
-  brave_ads::BackgroundHelper* helper_;  // NOT OWNED
+  adrbrowsiel_ads::BackgroundHelper* helper_;  // NOT OWNED
 }
 
 - (void)appDidBecomeActive:(NSNotification*)notification;
@@ -27,7 +27,7 @@
 
 @implementation BackgroundHelperDelegate
 
-- (id)initWithHelper:(brave_ads::BackgroundHelper*)helper {
+- (id)initWithHelper:(adrbrowsiel_ads::BackgroundHelper*)helper {
   if ((self = [super init])) {
     helper_ = helper;
 
@@ -55,7 +55,7 @@
 
 @end
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 BackgroundHelperMac::BackgroundHelperMac() {
   delegate_.reset([[BackgroundHelperDelegate alloc] initWithHelper:this]);
@@ -75,4 +75,4 @@ BackgroundHelper* BackgroundHelper::GetInstance() {
   return BackgroundHelperMac::GetInstance();
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

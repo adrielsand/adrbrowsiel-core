@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 import { StyledWrapper, StyledTitle, StyledContent, StyledCenter } from './style'
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 import coins from './assets/coins'
 
 interface Props {

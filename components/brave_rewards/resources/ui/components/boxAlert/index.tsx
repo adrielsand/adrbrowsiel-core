@@ -5,7 +5,7 @@
 
 // Utils
 import * as React from 'react'
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 
 // Components
 import {
@@ -25,9 +25,9 @@ import {
   StyledButton,
   StyledButtonContainer
 } from './style'
-import { Modal } from 'brave-ui/components'
-import { AlertCircleIcon, RewardsSendTipsIcon } from 'brave-ui/components/icons'
-import Button from 'brave-ui/components/buttonsIndicators/button'
+import { Modal } from 'adrbrowsiel-ui/components'
+import { AlertCircleIcon, RewardsSendTipsIcon } from 'adrbrowsiel-ui/components/icons'
+import Button from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 
 export type Type = 'tips' | 'ads'
 

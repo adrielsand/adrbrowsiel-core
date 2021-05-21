@@ -1,17 +1,17 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_rewards/browser/rewards_p3a.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_p3a.h"
 
 #include "base/logging.h"
 #include "base/metrics/histogram_macros.h"
 #include "base/strings/string_number_conversions.h"
 #include "base/values.h"
-#include "brave/components/brave_ads/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/common/pref_names.h"
 #include "bat/ads/pref_names.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
 #include "components/prefs/pref_service.h"
 
 namespace {
@@ -26,7 +26,7 @@ uint64_t RoundProbiToUint64(base::StringPiece probi) {
 
 }  // namespace
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 namespace p3a {
 
 void RecordWalletState(const WalletState& state) {
@@ -45,7 +45,7 @@ void RecordWalletState(const WalletState& state) {
       answer = 1;
     }
   }
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Rewards.WalletState", answer, 5);
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Rewards.WalletState", answer, 5);
 }
 
 void RecordWalletBalance(bool wallet_created, bool rewards_enabled, size_t b) {
@@ -62,7 +62,7 @@ void RecordWalletBalance(bool wallet_created, bool rewards_enabled, size_t b) {
       answer = 4;
     }
   }
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Rewards.WalletBalance.2", answer, 4);
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Rewards.WalletBalance.2", answer, 4);
 }
 
 void RecordAutoContributionsState(AutoContributionsState state, int count) {
@@ -92,7 +92,7 @@ void RecordAutoContributionsState(AutoContributionsState state, int count) {
     default:
       NOTREACHED();
   }
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Rewards.AutoContributionsState.2", answer,
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Rewards.AutoContributionsState.2", answer,
                              5);
 }
 
@@ -118,11 +118,11 @@ void RecordTipsState(bool wallet_created,
       answer = 4;
     }
   }
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.Rewards.TipsState.2", answer, 5);
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.Rewards.TipsState.2", answer, 5);
 }
 
 void RecordAdsState(AdsState state) {
-  UMA_HISTOGRAM_ENUMERATION("Brave.Rewards.AdsState.2", state);
+  UMA_HISTOGRAM_ENUMERATION("adrbrowsiel.Rewards.AdsState.2", state);
 }
 
 void UpdateAdsStateOnPreferenceChange(PrefService* prefs,
@@ -131,20 +131,20 @@ void UpdateAdsStateOnPreferenceChange(PrefService* prefs,
   if (pref == ads::prefs::kEnabled) {
     if (ads_enabled) {
       RecordAdsState(AdsState::kAdsEnabled);
-      prefs->SetBoolean(brave_ads::prefs::kAdsWereDisabled, false);
+      prefs->SetBoolean(adrbrowsiel_ads::prefs::kAdsWereDisabled, false);
     } else {
       // Apparently, the pref was disabled.
       RecordAdsState(AdsState::kAdsEnabledThenDisabledRewardsOn);
-      prefs->SetBoolean(brave_ads::prefs::kAdsWereDisabled, true);
+      prefs->SetBoolean(adrbrowsiel_ads::prefs::kAdsWereDisabled, true);
     }
   }
 }
 
 void MaybeRecordInitialAdsState(PrefService* prefs) {
-  if (!prefs->GetBoolean(brave_ads::prefs::kHasAdsP3AState)) {
+  if (!prefs->GetBoolean(adrbrowsiel_ads::prefs::kHasAdsP3AState)) {
     const bool ads_state = prefs->GetBoolean(ads::prefs::kEnabled);
     RecordAdsState(ads_state ? AdsState::kAdsEnabled : AdsState::kAdsDisabled);
-    prefs->SetBoolean(brave_ads::prefs::kHasAdsP3AState, true);
+    prefs->SetBoolean(adrbrowsiel_ads::prefs::kHasAdsP3AState, true);
   }
 }
 
@@ -221,4 +221,4 @@ void ExtractAndLogStats(const base::DictionaryValue& dict) {
 }
 
 }  // namespace p3a
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

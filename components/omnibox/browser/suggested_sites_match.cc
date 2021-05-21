@@ -1,11 +1,11 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/omnibox/browser/suggested_sites_match.h"
+#include "adrbrowsiel/components/omnibox/browser/suggested_sites_match.h"
 
-// This is the provider for Brave Suggested Sites
+// This is the provider for adrbrowsiel Suggested Sites
 SuggestedSitesMatch::SuggestedSitesMatch(const std::string& match_string,
                                          const GURL& destination_url,
                                          const GURL& stripped_destination_url,

@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_BRAVE_SHIELDS_UTIL_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_BRAVE_SHIELDS_UTIL_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_adrbrowsiel_SHIELDS_UTIL_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_adrbrowsiel_SHIELDS_UTIL_H_
 
 #include <stdint.h>
 #include <string>
@@ -21,7 +21,7 @@ class GURL;
 class HostContentSettingsMap;
 class PrefService;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 enum ControlType {
   ALLOW = 0,
@@ -36,14 +36,14 @@ ContentSettingsPattern GetPatternFromURL(const GURL& url);
 std::string ControlTypeToString(ControlType type);
 ControlType ControlTypeFromString(const std::string& string);
 
-void SetBraveShieldsEnabled(HostContentSettingsMap* map,
+void SetadrbrowsielShieldsEnabled(HostContentSettingsMap* map,
                             bool enable,
                             const GURL& url,
                             PrefService* local_state = nullptr);
 // reset to the default value
-void ResetBraveShieldsEnabled(HostContentSettingsMap* map,
+void ResetadrbrowsielShieldsEnabled(HostContentSettingsMap* map,
                               const GURL& url);
-bool GetBraveShieldsEnabled(HostContentSettingsMap* map, const GURL& url);
+bool GetadrbrowsielShieldsEnabled(HostContentSettingsMap* map, const GURL& url);
 
 void SetAdControlType(HostContentSettingsMap* map,
                       ControlType type,
@@ -106,6 +106,6 @@ bool MaybeChangeReferrer(
     content::Referrer* output_referrer);
 
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_BRAVE_SHIELDS_UTIL_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_adrbrowsiel_SHIELDS_UTIL_H_

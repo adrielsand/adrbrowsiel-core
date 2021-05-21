@@ -37,7 +37,7 @@
 <translation id="1113869188872983271">&amp;Volgorde wijzigen ongedaan maken</translation>
 <translation id="1125573121925420732">Wanneer de beveiliging van websites wordt geüpdatet, worden vaak waarschuwingen weergegeven. Dit wordt binnenkort verbeterd.</translation>
 <translation id="112840717907525620">Cachegeheugen van beleid is OK</translation>
-<translation id="3186248837008742887">Knop 'Pagina vertalen'. Druk op Enter om deze pagina te vertalen met Brave Translate.</translation>
+<translation id="3186248837008742887">Knop 'Pagina vertalen'. Druk op Enter om deze pagina te vertalen met adrbrowsiel Translate.</translation>
 <translation id="1131264053432022307">Afbeelding die je hebt gekopieerd</translation>
 <translation id="1150979032973867961">De server kan niet bewijzen dat dit <ph name="DOMAIN"/> is. Het beveiligingscertificaat van de server wordt niet vertrouwd door het besturingssysteem van je computer. Dit kan worden veroorzaakt door een verkeerde configuratie of een aanvaller die je verbinding onderschept.</translation>
 <translation id="1151972924205500581">Wachtwoord vereist</translation>
@@ -70,7 +70,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="1240347957665416060">De naam van je apparaat</translation>
 <translation id="124116460088058876">Meer talen</translation>
 <translation id="1243027604378859286">Auteur:</translation>
-<translation id="1052005765108026699">Sla je pas, naam en factuuradres op in je Brave-account zodat je de volgende keer sneller kunt betalen.</translation>
+<translation id="1052005765108026699">Sla je pas, naam en factuuradres op in je adrbrowsiel-account zodat je de volgende keer sneller kunt betalen.</translation>
 <translation id="1253921432148366685"><ph name="TYPE_1"/>, <ph name="TYPE_2"/> (gesynchroniseerd)</translation>
 <translation id="1256368399071562588">&lt;p&gt;Als je een website wilt bezoeken en deze niet wordt geopend, kun je eerst zelf proberen het probleem op te lossen aan de hand van de volgende stappen:&lt;/p&gt;
     &lt;ol&gt;
@@ -89,7 +89,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="1270502636509132238">Ophaalmethode</translation>
 <translation id="1281476433249504884">Stapeleenheid 1</translation>
 <translation id="1285320974508926690">Deze site nooit vertalen</translation>
-<translation id="1209478311331937175">'Software op je computer voorkomt dat Brave veilig verbinding kan maken met internet' (alleen Windows-computers)</translation>
+<translation id="1209478311331937175">'Software op je computer voorkomt dat adrbrowsiel veilig verbinding kan maken met internet' (alleen Windows-computers)</translation>
 <translation id="1294154142200295408">Opdrachtregelvarianten</translation>
 <translation id="129553762522093515">Recent gesloten</translation>
 <translation id="129863573139666797"><ph name="BEGIN_LINK"/>Probeer je cookies te wissen<ph name="END_LINK"/></translation>
@@ -136,7 +136,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="1442386063175183758">Gatefold rechts</translation>
 <translation id="1442987760062738829">Perforeren</translation>
 <translation id="1447067628680007684">(x86_64)</translation>
-<translation id="7408760246081928496">Tekst die je plakt of bijvoegt, wordt voor analyse naar Brave Cloud of naar derden gestuurd. De tekst kan bijvoorbeeld worden gescand op gevoelige gegevens of malware.</translation>
+<translation id="7408760246081928496">Tekst die je plakt of bijvoegt, wordt voor analyse naar adrbrowsiel Cloud of naar derden gestuurd. De tekst kan bijvoorbeeld worden gescand op gevoelige gegevens of malware.</translation>
 <translation id="1455413310270022028">Gum</translation>
 <translation id="1462245070427461050">JIS B9</translation>
 <translation id="1462951478840426066">Gebruik de lettertypen op je computer voor de fraaiste weergave van je content</translation>
@@ -149,13 +149,13 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="1476595624592550506">Je wachtwoord wijzigen</translation>
 <translation id="1484290072879560759">Verzendadres kiezen</translation>
 <translation id="1492194039220927094">Pushen van beleid:</translation>
-<translation id="1812569385220097122">Passen uit je Brave-account tonen</translation>
+<translation id="1812569385220097122">Passen uit je adrbrowsiel-account tonen</translation>
 <translation id="1507202001669085618">&lt;p&gt;J​e ​zi​et​ d​ez​e ​fo​ut​ a​ls​ j​e ​ee​n ​wi​fi​-p​or​ta​l ​ge​br​ui​kt​ w​aa​ro​p ​je​ m​oe​t ​in​lo​gg​en​ v​oo​rd​at​ j​e ​on​li​ne​ k​un​t ​ga​an​.&lt;/p&gt;
    &lt;p&gt;​K​li​k ​op​ &lt;​st​ro​ng​&gt;V​er​bi​nd​in​g ​ma​ke​n&lt;​/s​tr​on​g&gt;​ o​p ​de​ p​ag​in​a ​di​e ​je​ p​ro​be​er​t ​te​ o​pe​ne​n ​om​ d​ez​e ​fo​ut​ o​p ​te​ l​os​se​n.​&lt;/p&gt;</translation>
 <translation id="1513706915089223971">Lijst met geschiedenisitems</translation>
 <translation id="1517433312004943670">Telefoonnummer vereist</translation>
 <translation id="1519264250979466059">Datum van build</translation>
-<translation id="5524011986660000129">Brave Spreadsheets</translation>
+<translation id="5524011986660000129">adrbrowsiel Spreadsheets</translation>
 <translation id="1527263332363067270">Wachten op verbinding...</translation>
 <translation id="1529521330346880926">10x15 (envelop)</translation>
 <translation id="1529789484829130889">Lade 8</translation>
@@ -167,7 +167,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="154408704832528245">Afleveradres kiezen</translation>
 <translation id="1549470594296187301">JavaScript moet aanstaan om deze functie te kunnen gebruiken.</translation>
 <translation id="155039086686388498">Engineering-D</translation>
-<translation id="1705567146636171298">Brave updaten</translation>
+<translation id="1705567146636171298">adrbrowsiel updaten</translation>
 <translation id="1555130319947370107">Blauw</translation>
 <translation id="1559447966090556585">Meldingen ontvangen?</translation>
 <translation id="1559528461873125649">Dit bestand of deze directory bestaat niet</translation>
@@ -197,10 +197,10 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="1644574205037202324">Geschiedenis</translation>
 <translation id="1645368109819982629">Niet-ondersteund protocol</translation>
 <translation id="1652415888492971589">JIS B8</translation>
-<translation id="3848846802033604519">Brave heeft deze pagina vereenvoudigd om deze beter leesbaar te maken. Brave heeft de originele pagina opgehaald via een beveiligde verbinding.</translation>
+<translation id="3848846802033604519">adrbrowsiel heeft deze pagina vereenvoudigd om deze beter leesbaar te maken. adrbrowsiel heeft de originele pagina opgehaald via een beveiligde verbinding.</translation>
 <translation id="1656489000284462475">Ophaaltijd</translation>
 <translation id="1662550410081243962">Betaalmethoden opslaan en invullen</translation>
-<translation id="1838576226863399477">Passen en adressen zijn afkomstig uit Brave. Je kunt ze beheren in <ph name="BEGIN_LINK"/>Instellingen<ph name="END_LINK"/>.</translation>
+<translation id="1838576226863399477">Passen en adressen zijn afkomstig uit adrbrowsiel. Je kunt ze beheren in <ph name="BEGIN_LINK"/>Instellingen<ph name="END_LINK"/>.</translation>
 <translation id="1671391448414634642">Pagina's in het <ph name="SOURCE_LANGUAGE"/> worden vanaf nu vertaald naar het <ph name="TARGET_LANGUAGE"/>.</translation>
 <translation id="1682696192498422849">Korte zijde eerst</translation>
 <translation id="168693727862418163">Deze beleidswaarde kan niet worden gevalideerd op basis van het bijbehorende schema en wordt genegeerd.</translation>
@@ -237,7 +237,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="1778646502362731194">JIS B0</translation>
 <translation id="1783075131180517613">Update je wachtwoordzin voor synchronisatie.</translation>
 <translation id="1787142507584202372">Je geopende tabbladen zie je hier</translation>
-<translation id="3480410886581896628">Brave Smart Lock</translation>
+<translation id="3480410886581896628">adrbrowsiel Smart Lock</translation>
 <translation id="1798447301915465742"><ph name="MULTIPLE_ACTIONS_FOCUSED_FRIENDLY_MATCH_TEXT"/>, er zijn meerdere acties beschikbaar, druk op 'Tab' om erdoorheen te bladeren</translation>
 <translation id="1800473098294731951">B9</translation>
 <translation id="1803264062614276815">Naam kaarthouder</translation>
@@ -253,7 +253,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="1842969606798536927">Betalen</translation>
 <translation id="1871208020102129563">Proxy is ingesteld op het gebruik van vaste proxyservers, niet op een script-URL van het PAC-type.</translation>
 <translation id="1871284979644508959">Verplicht veld</translation>
-<translation id="85321348617848915">Brave Formulieren</translation>
+<translation id="85321348617848915">adrbrowsiel Formulieren</translation>
 <translation id="187918866476621466">Startpagina's openen</translation>
 <translation id="1883255238294161206">Lijst samenvouwen</translation>
 <translation id="1898423065542865115">Filteren</translation>
@@ -264,12 +264,12 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="1914326953223720820">Uitpakservice</translation>
 <translation id="1915697529809968049">Touch ID gebruiken in plaats van CVC?</translation>
 <translation id="1916770123977586577">Laad deze pagina opnieuw om je geüpdatete instellingen toe te passen op deze site</translation>
-<translation id="688541908229382784">Je wachtwoord is gelekt bij een gegevenslek op een site of in een app. Brave raadt je aan je wachtwoord op <ph name="ORIGIN"/> nu te wijzigen.</translation>
+<translation id="688541908229382784">Je wachtwoord is gelekt bij een gegevenslek op een site of in een app. adrbrowsiel raadt je aan je wachtwoord op <ph name="ORIGIN"/> nu te wijzigen.</translation>
 <translation id="1919345977826869612">Advertenties</translation>
 <translation id="1919367280705858090">Hulp bij een specifieke foutmelding</translation>
 <translation id="192020519938775529">{COUNT,plural, =0{Geen}=1{1 site}other{# sites}}</translation>
 <translation id="1947454675006758438">Nietje rechtsboven</translation>
-<translation id="990584554013599191">Help de beveiliging op internet te verbeteren voor iedereen door <ph name="BEGIN_WHITEPAPER_LINK"/>URL's van sommige pagina's die je bezoekt, beperkte systeemgegevens en bepaalde paginacontent<ph name="END_WHITEPAPER_LINK"/> naar Brave te sturen. <ph name="BEGIN_PRIVACY_PAGE_LINK"/>Privacybeleid<ph name="END_PRIVACY_PAGE_LINK"/></translation>
+<translation id="990584554013599191">Help de beveiliging op internet te verbeteren voor iedereen door <ph name="BEGIN_WHITEPAPER_LINK"/>URL's van sommige pagina's die je bezoekt, beperkte systeemgegevens en bepaalde paginacontent<ph name="END_WHITEPAPER_LINK"/> naar adrbrowsiel te sturen. <ph name="BEGIN_PRIVACY_PAGE_LINK"/>Privacybeleid<ph name="END_PRIVACY_PAGE_LINK"/></translation>
 <translation id="1962204205936693436">Bookmarks voor <ph name="DOMAIN"/></translation>
 <translation id="1973335181906896915">Serialisatiefout</translation>
 <translation id="1974060860693918893">Geavanceerd</translation>
@@ -285,7 +285,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="2025186561304664664">Proxy is ingesteld op automatische configuratie.</translation>
 <translation id="2032962459168915086"><ph name="BEGIN_LINK"/>Controleer de proxy en firewall<ph name="END_LINK"/></translation>
 <translation id="2042213636306070719">Lade 7</translation>
-<translation id="3163988908275223348">Inloggen om wachtwoorden te gebruiken die zijn opgeslagen in je Brave-account</translation>
+<translation id="3163988908275223348">Inloggen om wachtwoorden te gebruiken die zijn opgeslagen in je adrbrowsiel-account</translation>
 <translation id="2053111141626950936">Pagina's in het <ph name="LANGUAGE"/> worden niet vertaald.</translation>
 <translation id="2053553514270667976">Postcode</translation>
 <translation id="2064691555167957331">{COUNT,plural, =1{1 suggestie}other{# suggesties}}</translation>
@@ -355,7 +355,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="2289385804009217824">Bijsnijden</translation>
 <translation id="2292556288342944218">Je toegang tot internet wordt geblokkeerd</translation>
 <translation id="2293443924986248631">Als deze optie aanstaat, kunnen sites geen cookies gebruiken die je volgen op internet. Functies op bepaalde sites werken mogelijk niet meer.</translation>
-<translation id="6148139222908395733">URL's van pagina's die je bezoekt, worden voor analyse naar Brave Cloud of derden gestuurd. Ze kunnen bijvoorbeeld worden gescand om niet-beveiligde websites te detecteren.</translation>
+<translation id="6148139222908395733">URL's van pagina's die je bezoekt, worden voor analyse naar adrbrowsiel Cloud of derden gestuurd. Ze kunnen bijvoorbeeld worden gescand om niet-beveiligde websites te detecteren.</translation>
 <translation id="2297722699537546652">B5 (envelop)</translation>
 <translation id="2300306941146563769">Niet geüpload</translation>
 <translation id="2310021320168182093">Chou2 (envelop)</translation>
@@ -373,10 +373,10 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="2359629602545592467">Meerdere</translation>
 <translation id="2359808026110333948">Doorgaan</translation>
 <translation id="2367567093518048410">Niveau</translation>
-<translation id="3759641402938286697">Nadat je hebt bevestigd, worden de kaartgegevens uit je Brave-account gedeeld met deze site. Je vindt de CVC in de details van je Plex-account.</translation>
+<translation id="3759641402938286697">Nadat je hebt bevestigd, worden de kaartgegevens uit je adrbrowsiel-account gedeeld met deze site. Je vindt de CVC in de details van je Plex-account.</translation>
 <translation id="2380886658946992094">Legal</translation>
 <translation id="2384307209577226199">Zakelijk standaard</translation>
-<translation id="5244533701344680487">Brave updaten in de Brave-instellingen</translation>
+<translation id="5244533701344680487">adrbrowsiel updaten in de adrbrowsiel-instellingen</translation>
 <translation id="2386255080630008482">Het servercertificaat is ingetrokken.</translation>
 <translation id="2392959068659972793">Beleid zonder ingestelde waarde tonen</translation>
 <translation id="239429038616798445">Deze verzendmethode is niet beschikbaar. Kies een andere methode.</translation>
@@ -398,7 +398,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="2491120439723279231">Het servercertificaat bevat fouten.</translation>
 <translation id="2493640343870896922">Letter-Plus</translation>
 <translation id="2495083838625180221">JSON Parser</translation>
-<translation id="5047769237368272183">Als deze optie is aangevinkt, bewaart Brave een exemplaar van je pas op dit apparaat om formulieren sneller te kunnen invullen.</translation>
+<translation id="5047769237368272183">Als deze optie is aangevinkt, bewaart adrbrowsiel een exemplaar van je pas op dit apparaat om formulieren sneller te kunnen invullen.</translation>
 <translation id="2498091847651709837">Nieuwe pas scannen</translation>
 <translation id="2501278716633472235">Terug</translation>
 <translation id="2505268675989099013">Account beschermen</translation>
@@ -425,11 +425,11 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="2609632851001447353">Varianten</translation>
 <translation id="2618023639789766142">C10 (envelop)</translation>
 <translation id="2625385379895617796">Je klok loopt voor</translation>
-<translation id="2915787201097107005"><ph name="BEGIN_ENHANCED_PROTECTION_LINK"/>Zet de geoptimaliseerde beveiliging aan<ph name="END_ENHANCED_PROTECTION_LINK"/> om het hoogste beveiligingsniveau van Brave te gebruiken</translation>
+<translation id="2915787201097107005"><ph name="BEGIN_ENHANCED_PROTECTION_LINK"/>Zet de geoptimaliseerde beveiliging aan<ph name="END_ENHANCED_PROTECTION_LINK"/> om het hoogste beveiligingsniveau van adrbrowsiel te gebruiken</translation>
 <translation id="2634124572758952069">Het IP-adres van de server van <ph name="HOST_NAME"/> kan niet worden gevonden.</translation>
 <translation id="2639739919103226564">Status:</translation>
 <translation id="2649204054376361687"><ph name="CITY"/>, <ph name="COUNTRY"/></translation>
-<translation id="9078005688100552065"><ph name="CLEAR_BROWSING_DATA_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om je browsegeschiedenis, cookies, cache en meer te wissen in de Brave-instellingen.</translation>
+<translation id="9078005688100552065"><ph name="CLEAR_BROWSING_DATA_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om je browsegeschiedenis, cookies, cache en meer te wissen in de adrbrowsiel-instellingen.</translation>
 <translation id="2650446666397867134">Toegang tot het bestand is geweigerd</translation>
 <translation id="2653659639078652383">Verzenden</translation>
 <translation id="2660779039299703961">Gebeurtenis</translation>
@@ -452,7 +452,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="2705137772291741111">De in het cachegeheugen opgeslagen versie van deze site is niet bereikbaar.</translation>
 <translation id="2709516037105925701">Automatisch invullen</translation>
 <translation id="2713444072780614174">Wit</translation>
-<translation id="4131157740532436004"><ph name="UPDATE_CREDIT_CARD_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om je betalingen en creditcardgegevens te beheren in de Brave-instellingen.</translation>
+<translation id="4131157740532436004"><ph name="UPDATE_CREDIT_CARD_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om je betalingen en creditcardgegevens te beheren in de adrbrowsiel-instellingen.</translation>
 <translation id="2721148159707890343">Verzoek geslaagd</translation>
 <translation id="272451190272506600">Raak de sensor aan om te betalen</translation>
 <translation id="2728127805433021124">Het certificaat van de server is ondertekend met een zwak ondertekeningsalgoritme.</translation>
@@ -465,7 +465,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="277133753123645258">Verzendmethode</translation>
 <translation id="277499241957683684">Apparaatrecord ontbreekt</translation>
 <translation id="2775884851269838147">Eerste afdrukpagina</translation>
-<translation id="5152275065296016556">Brave Pay</translation>
+<translation id="5152275065296016556">adrbrowsiel Pay</translation>
 <translation id="2784949926578158345">De verbinding is opnieuw ingesteld.</translation>
 <translation id="2792012897584536778">De beheerders van dit apparaat hebben beveiligingscertificaten ingesteld waarmee ze de content kunnen bekijken van websites die je bezoekt.</translation>
 <translation id="2799020568854403057">De volgende site bevat schadelijke apps</translation>
@@ -512,7 +512,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="2991174974383378012">Delen met websites</translation>
 <translation id="2991571918955627853">Je kunt <ph name="SITE"/> momenteel niet bezoeken, omdat de website HSTS gebruikt. Netwerkfouten en aanvallen zijn doorgaans tijdelijk, dus deze pagina werkt later waarschijnlijk correct.</translation>
 <translation id="2995517112308048736">Bestandsgrootte:</translation>
-<translation id="6683975920571472553">Suggesties van Brave</translation>
+<translation id="6683975920571472553">Suggesties van adrbrowsiel</translation>
 <translation id="3002501248619246229">Materiaal in de invoerlade controleren</translation>
 <translation id="3005723025932146533">Opgeslagen kopie tonen</translation>
 <translation id="3008447029300691911">Geef de CVC-code voor <ph name="CREDIT_CARD"/> op. Zodra je bevestigt, worden je creditcardgegevens gedeeld met deze site.</translation>
@@ -575,7 +575,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="3286372614333682499">staand</translation>
 <translation id="3287510313208355388">Downloaden wanneer online</translation>
 <translation id="3293642807462928945">Meer informatie over het beleid <ph name="POLICY_NAME"/></translation>
-<translation id="5894665462526421022">Je wachtwoorden bekijken en beheren in de Brave-instellingen</translation>
+<translation id="5894665462526421022">Je wachtwoorden bekijken en beheren in de adrbrowsiel-instellingen</translation>
 <translation id="3303855915957856445">Geen zoekresultaten gevonden</translation>
 <translation id="3308006649705061278">Organisatie-eenheid (OU)</translation>
 <translation id="3320021301628644560">Factuuradres toevoegen</translation>
@@ -584,7 +584,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="3338095232262050444">Beveiligd</translation>
 <translation id="3355823806454867987">Proxyinstellingen wijzigen...</translation>
 <translation id="3360103848165129075">Blad voor betalingshandler</translation>
-<translation id="669410734497476819">De volgende gegevens worden <ph name="BEGIN_EMPHASIS"/>niet opgeslagen<ph name="END_EMPHASIS"/> in Brave:
+<translation id="669410734497476819">De volgende gegevens worden <ph name="BEGIN_EMPHASIS"/>niet opgeslagen<ph name="END_EMPHASIS"/> in adrbrowsiel:
         <ph name="BEGIN_LIST"/>
           <ph name="LIST_ITEM"/>Je browsegeschiedenis
           <ph name="LIST_ITEM"/>Cookies en sitegegevens
@@ -609,7 +609,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="3399952811970034796">Bezorgadres</translation>
 <translation id="3402261774528610252">De verbinding waarmee deze site is geladen, gebruikte TLS 1.0 of TLS 1.1. Deze versies zijn verouderd en worden in de toekomst niet meer gebruikt. Dan kunnen gebruikers deze site niet meer laden. Voor de server moet TLS 1.2 of hoger worden gebruikt.</translation>
 <translation id="3414952576877147120">Grootte:</translation>
-<translation id="25726459489263481">Bestanden die je uploadt of bijvoegt, worden voor analyse naar Brave Cloud of derden gestuurd. De bestanden kunnen bijvoorbeeld worden gescand op gevoelige gegevens of malware.</translation>
+<translation id="25726459489263481">Bestanden die je uploadt of bijvoegt, worden voor analyse naar adrbrowsiel Cloud of derden gestuurd. De bestanden kunnen bijvoorbeeld worden gescand op gevoelige gegevens of malware.</translation>
 <translation id="3422248202833853650">Probeer andere programma's af te sluiten om geheugen vrij te maken.</translation>
 <translation id="3422472998109090673"><ph name="HOST_NAME"/> is momenteel niet bereikbaar.</translation>
 <translation id="3423742043356668186">Systeem opgegeven</translation>
@@ -618,7 +618,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="3428151540071562330">Een of meer van de servertemplate-URI's voor DnsOverHttpsTemplates zijn ongeldig en worden niet gebruikt.</translation>
 <translation id="3431636764301398940">Deze creditcard opslaan op dit apparaat</translation>
 <translation id="3432601291244612633">Pagina sluiten</translation>
-<translation id="4527130811319726464">Wachtwoorden gebruiken die zijn opgeslagen in je Brave-account</translation>
+<translation id="4527130811319726464">Wachtwoorden gebruiken die zijn opgeslagen in je adrbrowsiel-account</translation>
 <translation id="3443726618221119081">Juuro-Ku-Kai</translation>
 <translation id="3447661539832366887">De eigenaar van dit apparaat heeft de dinosaurusgame uitgezet.</translation>
 <translation id="3447884698081792621">Certificaat tonen (uitgegeven door <ph name="ISSUER"/>)</translation>
@@ -650,7 +650,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="3567778190852720481">Kan niet inschrijven met werkaccount (werkaccount komt niet in aanmerking).</translation>
 <translation id="3574305903863751447"><ph name="CITY"/>, <ph name="STATE"/> <ph name="COUNTRY"/></translation>
 <translation id="3576616784287504635">Een ingesloten pagina op <ph name="SITE"/> meldt het volgende</translation>
-<translation id="230476913390177517">Brave laat je weten wanneer de pagina klaar is. &lt;a&gt;Annuleren&lt;/a&gt;</translation>
+<translation id="230476913390177517">adrbrowsiel laat je weten wanneer de pagina klaar is. &lt;a&gt;Annuleren&lt;/a&gt;</translation>
 <translation id="3582930987043644930">Voeg naam toe</translation>
 <translation id="3583757800736429874">&amp;Opnieuw verplaatsen</translation>
 <translation id="3584299510153766161">Twee perforaties onder</translation>
@@ -668,7 +668,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="3630155396527302611">Als dit programma al wordt vermeld als een programma dat toegang heeft tot het netwerk, kun je proberen het uit de lijst te verwijderen en het opnieuw toe te voegen.</translation>
 <translation id="3630699740441428070">De beheerders van dit apparaat hebben je netwerkverbinding ingesteld, waardoor ze mogelijk je netwerkverkeer kunnen bekijken, zoals welke websites je bezoekt.</translation>
 <translation id="3631244953324577188">Biometrische systemen</translation>
-<translation id="1367445511302842209">Knop 'Brave updaten'. Druk op Enter om Brave te updaten via de instellingen van Brave.</translation>
+<translation id="1367445511302842209">Knop 'adrbrowsiel updaten'. Druk op Enter om adrbrowsiel te updaten via de instellingen van adrbrowsiel.</translation>
 <translation id="3634530185120165534">Lade 5</translation>
 <translation id="3640766068866876100">Index-4x6-Ext</translation>
 <translation id="3642638418806704195">App:</translation>
@@ -694,7 +694,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="373042150751172459">B4 (envelop)</translation>
 <translation id="3736520371357197498">Als je de beveiligingsrisico's begrijpt, kun je <ph name="BEGIN_LINK"/>deze onveilige site bezoeken<ph name="END_LINK"/> voordat de gevaarlijke programma's zijn verwijderd.</translation>
 <translation id="3738166223076830879">Je browser wordt beheerd door je beheerder.</translation>
-<translation id="4098534208927606680">Nadat je hebt bevestigd, worden de kaartgegevens uit je Brave-account gedeeld met deze site.</translation>
+<translation id="4098534208927606680">Nadat je hebt bevestigd, worden de kaartgegevens uit je adrbrowsiel-account gedeeld met deze site.</translation>
 <translation id="3748148204939282805">Cybercriminelen op <ph name="BEGIN_BOLD"/><ph name="SITE"/><ph name="END_BOLD"/> kunnen proberen om je te misleiden zodat je iets gevaarlijks doet, bijvoorbeeld software installeren of je persoonlijke informatie bekendmaken (zoals wachtwoorden, telefoonnummers of creditcardgegevens). <ph name="BEGIN_LEARN_MORE_LINK"/>Meer informatie<ph name="END_LEARN_MORE_LINK"/></translation>
 <translation id="3754210790023674521">Scherm-in-scherm afsluiten</translation>
 <translation id="3759461132968374835">Je hebt geen onlangs gemelde crashes. Crashes die zich voordeden toen de crashrapportage was uitgezet, worden hier niet weergegeven.</translation>
@@ -703,7 +703,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="3765032636089507299">De Safe Browsing-pagina is in aanbouw.</translation>
 <translation id="3765588406864124894">Mailbox 9</translation>
 <translation id="3767485424735936570">Deze content kopiëren en plakken in <ph name="VM_NAME"/> wordt afgeraden op basis van het beheerdersbeleid</translation>
-<translation id="5141491707451394486">Wil je deze pas opslaan in je Brave-account en op dit apparaat?</translation>
+<translation id="5141491707451394486">Wil je deze pas opslaan in je adrbrowsiel-account en op dit apparaat?</translation>
 <translation id="3780694243617746492">Uitvoerbak</translation>
 <translation id="3781428340399460090">Felroze</translation>
 <translation id="3783418713923659662">Mastercard</translation>
@@ -736,7 +736,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="3901925938762663762">De pas is verlopen</translation>
 <translation id="3906600011954732550">B5-Extra</translation>
 <translation id="3906954721959377182">Tablet</translation>
-<translation id="2650609753175229582"><ph name="URL"/> wil beschermde content afspelen. De identiteit van je apparaat wordt geverifieerd door Brave en is mogelijk toegankelijk voor deze site.</translation>
+<translation id="2650609753175229582"><ph name="URL"/> wil beschermde content afspelen. De identiteit van je apparaat wordt geverifieerd door adrbrowsiel en is mogelijk toegankelijk voor deze site.</translation>
 <translation id="3909695131102177774"><ph name="LABEL"/> <ph name="ERROR"/></translation>
 <translation id="3939773374150895049">WebAuthn gebruiken in plaats van CVC?</translation>
 <translation id="3946209740501886391">Altijd vragen op deze site</translation>
@@ -751,7 +751,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="3964661563329879394">{COUNT,plural, =0{Geen}=1{Van één site }other{Van # sites }}</translation>
 <translation id="397105322502079400">Berekenen...</translation>
 <translation id="3973234410852337861"><ph name="HOST_NAME"/> wordt geblokkeerd</translation>
-<translation id="2321540973325616220">Brave heeft vastgesteld dat deze site mogelijk nep of bedrieglijk is.
+<translation id="2321540973325616220">adrbrowsiel heeft vastgesteld dat deze site mogelijk nep of bedrieglijk is.
 
     Als je denkt dat deze waarschuwing onterecht is, ga je naar https://bugs.chromium.org/p/chromium/issues/entry?template=Safety+Tips+Appeals.</translation>
 <translation id="3987940399970879459">Minder dan 1 MB</translation>
@@ -827,7 +827,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="4270541775497538019">Stapeleenheid 6</translation>
 <translation id="4275830172053184480">Je apparaat opnieuw opstarten</translation>
 <translation id="4277028893293644418">Wachtwoord opnieuw instellen</translation>
-<translation id="8314946990939758167">{NUM_CARDS,plural, =1{Deze pas is opgeslagen in je Brave-account}other{Deze passen zijn opgeslagen in je Brave-account}}</translation>
+<translation id="8314946990939758167">{NUM_CARDS,plural, =1{Deze pas is opgeslagen in je adrbrowsiel-account}other{Deze passen zijn opgeslagen in je adrbrowsiel-account}}</translation>
 <translation id="4297502707443874121">Miniatuur voor pagina <ph name="THUMBNAIL_PAGE"/></translation>
 <translation id="42981349822642051">Uitvouwen</translation>
 <translation id="4300675098767811073">Meerdere perforaties rechts</translation>
@@ -844,14 +844,14 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="4329871760342656885">Fout bij parseren van het beleid: <ph name="ERROR"/></translation>
 <translation id="4331519897422864041">Stapeleenheid 5</translation>
 <translation id="4331708818696583467">Niet beveiligd</translation>
-<translation id="6116812392674177288">Deze computer is niet gedetecteerd als een zakelijk beheerde computer. Overeenkomstig het beleid kunnen alleen automatisch extensies worden geïnstalleerd die worden gehost in de Brave Web Store. De update-URL van de Brave Web Store is <ph name="CWS_UPDATE_URL"/>.</translation>
+<translation id="6116812392674177288">Deze computer is niet gedetecteerd als een zakelijk beheerde computer. Overeenkomstig het beleid kunnen alleen automatisch extensies worden geïnstalleerd die worden gehost in de adrbrowsiel Web Store. De update-URL van de adrbrowsiel Web Store is <ph name="CWS_UPDATE_URL"/>.</translation>
 <translation id="4346197816712207223">Geaccepteerde creditcards</translation>
 <translation id="4346833872170306413">Roc-16K</translation>
 <translation id="4356973930735388585">Cybercriminelen op deze site proberen mogelijk gevaarlijke programma's op je computer te installeren waarmee je gegevens worden gestolen of verwijderd (bijvoorbeeld foto's, wachtwoorden, berichten en creditcards).</translation>
 <translation id="4358059973562876591">De gespecificeerde templates worden misschien niet toegepast door een fout met het beleid DnsOverHttpsMode.</translation>
 <translation id="4358461427845829800">Betaalmethoden beheren...</translation>
 <translation id="4367563149485757821">Number-12 (envelop)</translation>
-<translation id="7954571639479265338">{1,plural, =0{Je opgeslagen wachtwoord voor <ph name="ORIGIN"/> is gelekt bij een gegevenslek op een site of in een app. Brave raadt je aan je wachtwoord op <ph name="ORIGIN"/> nu te wijzigen.}=1{Je opgeslagen wachtwoord voor <ph name="ORIGIN"/> en één andere site is gelekt bij een gegevenslek op een site of in een app. Brave raadt je aan je opgeslagen wachtwoorden nu na te lopen.}other{Je opgeslagen wachtwoord voor <ph name="ORIGIN"/> en <ph name="SITES_COUNT"/> andere sites is gelekt bij een gegevenslek op een site of in een app. Brave raadt je aan je opgeslagen wachtwoorden nu na te lopen.}}</translation>
+<translation id="7954571639479265338">{1,plural, =0{Je opgeslagen wachtwoord voor <ph name="ORIGIN"/> is gelekt bij een gegevenslek op een site of in een app. adrbrowsiel raadt je aan je wachtwoord op <ph name="ORIGIN"/> nu te wijzigen.}=1{Je opgeslagen wachtwoord voor <ph name="ORIGIN"/> en één andere site is gelekt bij een gegevenslek op een site of in een app. adrbrowsiel raadt je aan je opgeslagen wachtwoorden nu na te lopen.}other{Je opgeslagen wachtwoord voor <ph name="ORIGIN"/> en <ph name="SITES_COUNT"/> andere sites is gelekt bij een gegevenslek op een site of in een app. adrbrowsiel raadt je aan je opgeslagen wachtwoorden nu na te lopen.}}</translation>
 <translation id="437058704415269440">Accountsaldo</translation>
 <translation id="4372516964750095882">Fanfold-Us</translation>
 <translation id="4372948949327679948">Verwachte <ph name="VALUE_TYPE"/> waarde.</translation>
@@ -872,16 +872,16 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="4477350412780666475">Volgend nummer</translation>
 <translation id="4482953324121162758">Deze site wordt niet vertaald.</translation>
 <translation id="4490717597759821841">A7</translation>
-<translation id="3614771894046523359">Deze functies staan standaard uit. Ze zijn niet meer beschikbaar in toekomstige versies van Brave.</translation>
+<translation id="3614771894046523359">Deze functies staan standaard uit. Ze zijn niet meer beschikbaar in toekomstige versies van adrbrowsiel.</translation>
 <translation id="4493480324863638523">Ongeldige URL. Dit moet een URL met een standaardschema zijn, zoals http://example.com of https://example.com.</translation>
 <translation id="4503882053543859973">Architecture-D</translation>
 <translation id="4506176782989081258">Validatiefout: <ph name="VALIDATION_ERROR"/></translation>
 <translation id="4506599922270137252">Neem contact op met de systeembeheerder</translation>
 <translation id="450710068430902550">Delen met beheerder</translation>
 <translation id="4508814173490746936">Kan Touch ID niet gebruiken</translation>
-<translation id="7581711177899574338"><ph name="TRANSLATE_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om deze pagina te vertalen met Brave Translate.</translation>
+<translation id="7581711177899574338"><ph name="TRANSLATE_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om deze pagina te vertalen met adrbrowsiel Translate.</translation>
 <translation id="4510487217173779431">Chou4 (envelop)</translation>
-<translation id="4892470328555495647">Passen en adressen zijn afkomstig uit Brave en je Brave-account (<ph name="ACCOUNT_EMAIL"/>). Je kunt ze beheren in <ph name="BEGIN_LINK"/>Instellingen<ph name="END_LINK"/>.</translation>
+<translation id="4892470328555495647">Passen en adressen zijn afkomstig uit adrbrowsiel en je adrbrowsiel-account (<ph name="ACCOUNT_EMAIL"/>). Je kunt ze beheren in <ph name="BEGIN_LINK"/>Instellingen<ph name="END_LINK"/>.</translation>
 <translation id="4517607026994743406">Comm-10 (envelop)</translation>
 <translation id="4521157617044179198"><ph name="WIDTH"/> × <ph name="HEIGHT"/> mm (<ph name="ORIENTATION"/>)</translation>
 <translation id="4522570452068850558">Details</translation>
@@ -908,10 +908,10 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="4658638640878098064">Nietje linksboven</translation>
 <translation id="4668929960204016307">,</translation>
 <translation id="4670064810192446073">Virtual reality</translation>
-<translation id="5554243581036241411">Je ziet geen Brave-profielgegevens in de gastmodus. Je kunt <ph name="LINK_BEGIN"/>inloggen<ph name="LINK_END"/> voor toegang tot je Brave-accountgegevens zoals wachtwoorden en betaalmethoden.</translation>
+<translation id="5554243581036241411">Je ziet geen adrbrowsiel-profielgegevens in de gastmodus. Je kunt <ph name="LINK_BEGIN"/>inloggen<ph name="LINK_END"/> voor toegang tot je adrbrowsiel-accountgegevens zoals wachtwoorden en betaalmethoden.</translation>
 <translation id="467662567472608290">De server kan niet bewijzen dat dit <ph name="DOMAIN"/> is. Het beveiligingscertificaat van de server bevat fouten. Dit kan worden veroorzaakt door een verkeerde configuratie of een aanvaller die je verbinding onderschept.</translation>
 <translation id="4677585247300749148"><ph name="URL"/> wil reageren op toegankelijkheidsfunctionaliteit</translation>
-<translation id="8197094463444457125">Brave Presentaties</translation>
+<translation id="8197094463444457125">adrbrowsiel Presentaties</translation>
 <translation id="4690462567478992370">Stoppen met het gebruik van een ongeldig certificaat</translation>
 <translation id="4691835149146451662">Architecture-A (envelop)</translation>
 <translation id="4701488924964507374"><ph name="SENTENCE1"/> <ph name="SENTENCE2"/></translation>
@@ -945,11 +945,11 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="4791134497475588553">Linux-apps die zijn geïnstalleerd en wanneer ze voor het laatst zijn gebruikt</translation>
 <translation id="4792686369684665359">De gegevens die je wilt sturen, zijn niet beveiligd</translation>
 <translation id="4796594887379589189">Taakaccount-ID</translation>
-<translation id="7110430050177876111">Geef de vervaldatum en CVC-code voor <ph name="CREDIT_CARD"/> op om je creditcardgegevens te updaten. Nadat je hebt bevestigd, worden de creditcardgegevens uit je Brave-account gedeeld met deze site.</translation>
+<translation id="7110430050177876111">Geef de vervaldatum en CVC-code voor <ph name="CREDIT_CARD"/> op om je creditcardgegevens te updaten. Nadat je hebt bevestigd, worden de creditcardgegevens uit je adrbrowsiel-account gedeeld met deze site.</translation>
 <translation id="4800132727771399293">Controleer je vervaldatum en CVC-code en probeer het opnieuw</translation>
 <translation id="480334179571489655">Fout met beleid van oorsprong</translation>
 <translation id="4803924862070940586"><ph name="CURRENCY_CODE"/> <ph name="FORMATTED_TOTAL_AMOUNT"/></translation>
-<translation id="8896585555528145662">Je kunt <ph name="SITE"/> op dit moment niet bezoeken, omdat de website gecodeerde inloggegevens heeft verzonden die niet door Brave kunnen worden verwerkt. Netwerkfouten en aanvallen zijn meestal tijdelijk, dus deze pagina werkt later waarschijnlijk weer correct.</translation>
+<translation id="8896585555528145662">Je kunt <ph name="SITE"/> op dit moment niet bezoeken, omdat de website gecodeerde inloggegevens heeft verzonden die niet door adrbrowsiel kunnen worden verwerkt. Netwerkfouten en aanvallen zijn meestal tijdelijk, dus deze pagina werkt later waarschijnlijk weer correct.</translation>
 <translation id="4809079943450490359">Instructies van de beheerder van je apparaat:</translation>
 <translation id="4813512666221746211">Netwerkfout</translation>
 <translation id="4816492930507672669">Aanpassen aan pagina</translation>
@@ -992,7 +992,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="4989809363548539747">Deze plug-in wordt niet ondersteund</translation>
 <translation id="4995216769782533993">Bevestig de beveiligingscode om je kaartgegevens met deze site te delen</translation>
 <translation id="4995474875135717171">Aangepast:</translation>
-<translation id="3676215163710610678">Als deze optie aanstaat, slaat Brave een kopie van je pas op dit apparaat op zodat formulieren sneller kunnen worden ingevuld.</translation>
+<translation id="3676215163710610678">Als deze optie aanstaat, slaat adrbrowsiel een kopie van je pas op dit apparaat op zodat formulieren sneller kunnen worden ingevuld.</translation>
 <translation id="5011561501798487822">Waargenomen taal</translation>
 <translation id="5015510746216210676">Naam apparaat:</translation>
 <translation id="5017554619425969104">Tekst die je hebt gekopieerd</translation>
@@ -1002,7 +1002,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="5029568752722684782">Kopie wissen</translation>
 <translation id="5030338702439866405">Verleend door</translation>
 <translation id="503069730517007720">Er is een rootcertificaat voor '<ph name="SOFTWARE_NAME"/>' vereist, maar niet geïnstalleerd. Je IT-beheerder moet de configuratie-instructies voor '<ph name="SOFTWARE_NAME"/>' raadplegen om dit probleem op te lossen. <ph name="FURTHER_EXPLANATION"/></translation>
-<translation id="6425384654920630035">Over Brave Translate</translation>
+<translation id="6425384654920630035">Over adrbrowsiel Translate</translation>
 <translation id="503498442187459473"><ph name="HOST"/> wil gebruikmaken van je camera en microfoon</translation>
 <translation id="5039762155821394373">Lettergrootte</translation>
 <translation id="5039804452771397117">Toestaan</translation>
@@ -1020,7 +1020,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="5088142053160410913">Bericht aan bediener</translation>
 <translation id="5089810972385038852">Staat</translation>
 <translation id="5093232627742069661">Zigzagvouw</translation>
-<translation id="4906192414477726331">De server kan niet bewijzen dat dit <ph name="DOMAIN"/> is. Het beveiligingscertificaat van de server wordt niet vertrouwd door Brave. Dit kan worden veroorzaakt door een verkeerde configuratie of een aanvaller die je verbinding onderschept.</translation>
+<translation id="4906192414477726331">De server kan niet bewijzen dat dit <ph name="DOMAIN"/> is. Het beveiligingscertificaat van de server wordt niet vertrouwd door adrbrowsiel. Dit kan worden veroorzaakt door een verkeerde configuratie of een aanvaller die je verbinding onderschept.</translation>
 <translation id="5095208057601539847">Provincie</translation>
 <translation id="5097099694988056070">Apparaatstatistieken zoals CPU-/RAM-gebruik rapporteren</translation>
 <translation id="5097501891273180634">A2</translation>
@@ -1032,7 +1032,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="5126510351761255129">Je kaart verifiëren</translation>
 <translation id="5135404736266831032">Adressen beheren...</translation>
 <translation id="5138227688689900538">Minder tonen</translation>
-<translation id="7186167407612593632">Gesynchroniseerde wachtwoorden versleutelen met je Brave-aanmeldingsgegevens</translation>
+<translation id="7186167407612593632">Gesynchroniseerde wachtwoorden versleutelen met je adrbrowsiel-aanmeldingsgegevens</translation>
 <translation id="5145883236150621069">Foutcode aanwezig in de beleidsreactie</translation>
 <translation id="5146995429444047494">Meldingen voor <ph name="ORIGIN"/> zijn geblokkeerd</translation>
 <translation id="5148809049217731050">Met de bedrukte zijde omhoog</translation>
@@ -1041,8 +1041,8 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="5161334686036120870">Onderwerp:</translation>
 <translation id="5161506081086828129">Stapeleenheid 9</translation>
 <translation id="5164798890604758545">Tekst wordt ingevoerd</translation>
-<translation id="2996889577833788807">Geef de CVC-code voor <ph name="CREDIT_CARD"/> op. Nadat je hebt bevestigd, worden de creditcardgegevens uit je Brave-account gedeeld met deze site.</translation>
-<translation id="8515152881111950319">Je kunt de toegang tot het account van je organisatie kwijtraken of slachtoffer worden van identiteitsdiefstal. Brave raadt je aan je wachtwoord nu te wijzigen.</translation>
+<translation id="2996889577833788807">Geef de CVC-code voor <ph name="CREDIT_CARD"/> op. Nadat je hebt bevestigd, worden de creditcardgegevens uit je adrbrowsiel-account gedeeld met deze site.</translation>
+<translation id="8515152881111950319">Je kunt de toegang tot het account van je organisatie kwijtraken of slachtoffer worden van identiteitsdiefstal. adrbrowsiel raadt je aan je wachtwoord nu te wijzigen.</translation>
 <translation id="5171045022955879922">Zoek of typ een URL</translation>
 <translation id="5171689220826475070">Fanfold-European</translation>
 <translation id="5172758083709347301">Computer</translation>
@@ -1051,7 +1051,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="5201306358585911203">Een ingesloten pagina op deze pagina meldt het volgende</translation>
 <translation id="5205222826937269299">Naam vereist</translation>
 <translation id="5209518306177824490">SHA-1-vingerafdruk</translation>
-<translation id="1051285409463218679">Betaalmethoden en adressen die Brave Pay gebruiken</translation>
+<translation id="1051285409463218679">Betaalmethoden en adressen die adrbrowsiel Pay gebruiken</translation>
 <translation id="5215363486134917902">Folio-Sp</translation>
 <translation id="5222812217790122047">E-mailadres vereist</translation>
 <translation id="5230733896359313003">Verzendadres</translation>
@@ -1076,7 +1076,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="5287456746628258573">Deze site gebruikt een verouderde beveiligingsconfiguratie, waardoor je gegevens (zoals wachtwoorden of creditcardnummers) openbaar kunnen worden gemaakt als ze naar deze site worden gestuurd.</translation>
 <translation id="5288108484102287882">Tijdens de validatie van de beleidswaarden zijn er waarschuwingen geconstateerd</translation>
 <translation id="5289384342738547352">Verwerking van meerdere documenten</translation>
-<translation id="3764885446986388155">Je wachtwoord is gelekt bij een gegevenslek op een site of in een app. Brave raadt je aan je opgeslagen wachtwoorden nu te controleren.</translation>
+<translation id="3764885446986388155">Je wachtwoord is gelekt bij een gegevenslek op een site of in een app. adrbrowsiel raadt je aan je opgeslagen wachtwoorden nu te controleren.</translation>
 <translation id="5299298092464848405">Fout bij het parseren van het beleid</translation>
 <translation id="5300589172476337783">Tonen</translation>
 <translation id="5306593769196050043">Beide bladen</translation>
@@ -1134,14 +1134,14 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="5523118979700054094">Beleidsnaam</translation>
 <translation id="55293785478302737">Inbinden met nietjes</translation>
 <translation id="553484882784876924">Prc6 (envelop)</translation>
-<translation id="6477838366754392112">Knop 'Browsegegevens wissen'. Druk op Enter om je browsegeschiedenis, cookies, cache en meer te wissen in de Brave-instellingen.</translation>
+<translation id="6477838366754392112">Knop 'Browsegegevens wissen'. Druk op Enter om je browsegeschiedenis, cookies, cache en meer te wissen in de adrbrowsiel-instellingen.</translation>
 <translation id="5536214594743852365">Gedeelte <ph name="SECTION"/> tonen</translation>
 <translation id="5539243836947087108">Raft</translation>
 <translation id="5540224163453853">Kan het gevraagde artikel niet vinden.</translation>
 <translation id="5541086400771735334">Mailbox 7</translation>
 <translation id="5541546772353173584">E-mailadres toevoegen</translation>
 <translation id="5545756402275714221">Artikelen voor jou</translation>
-<translation id="6084314943327785510">Brave vergelijkt periodiek je wachtwoorden met lijsten die online zijn gepubliceerd. Als dit wordt gedaan, zijn je wachtwoorden en gebruikersnamen versleuteld, zodat ze door niemand (inclusief Brave) kunnen worden gelezen.</translation>
+<translation id="6084314943327785510">adrbrowsiel vergelijkt periodiek je wachtwoorden met lijsten die online zijn gepubliceerd. Als dit wordt gedaan, zijn je wachtwoorden en gebruikersnamen versleuteld, zodat ze door niemand (inclusief adrbrowsiel) kunnen worden gelezen.</translation>
 <translation id="5556459405103347317">Opnieuw laden</translation>
 <translation id="5560088892362098740">Vervaldatum</translation>
 <translation id="55635442646131152">Documentoverzicht</translation>
@@ -1158,13 +1158,13 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="5607240918979444548">Architecture-C</translation>
 <translation id="5610142619324316209">Controleer de verbinding</translation>
 <translation id="5610807607761827392">Je kunt passen en adressen beheren in <ph name="BEGIN_LINK"/>Instellingen<ph name="END_LINK"/>.</translation>
-<translation id="2012723355262040739">Deze pagina vertalen met Brave Translate</translation>
+<translation id="2012723355262040739">Deze pagina vertalen met adrbrowsiel Translate</translation>
 <translation id="5612720917913232150"><ph name="URL"/> wil de locatie van je computer gebruiken</translation>
 <translation id="5617949217645503996"><ph name="HOST_NAME"/> heeft je te vaak omgeleid.</translation>
 <translation id="5624120631404540903">Wachtwoorden beheren</translation>
 <translation id="5629630648637658800">Laden van beleidsinstellingen is mislukt</translation>
 <translation id="5631439013527180824">Ongeldige token voor apparaatbeheer</translation>
-<translation id="2590378115732684772">Je gegevens zijn vanaf <ph name="TIME"/> versleuteld met je <ph name="BEGIN_LINK"/>Brave-wachtwoord<ph name="END_LINK"/>. Geef het wachtwoord op om de synchronisatie te starten.</translation>
+<translation id="2590378115732684772">Je gegevens zijn vanaf <ph name="TIME"/> versleuteld met je <ph name="BEGIN_LINK"/>adrbrowsiel-wachtwoord<ph name="END_LINK"/>. Geef het wachtwoord op om de synchronisatie te starten.</translation>
 <translation id="5633066919399395251">Cybercriminelen op <ph name="BEGIN_BOLD"/><ph name="SITE"/><ph name="END_BOLD"/> proberen mogelijk gevaarlijke programma's op je computer te installeren waarmee je gegevens kunnen worden gestolen of verwijderd (bijvoorbeeld foto's, wachtwoorden, berichten en creditcardgegevens). <ph name="BEGIN_LEARN_MORE_LINK"/>Meer informatie<ph name="END_LEARN_MORE_LINK"/></translation>
 <translation id="563324245173044180">Misleidende content geblokkeerd.</translation>
 <translation id="5644090287519800334">Beeldverschuiving X van zijde 1</translation>
@@ -1188,8 +1188,8 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="571403275720188526">(arm64)</translation>
 <translation id="5720705177508910913">Huidige gebruiker</translation>
 <translation id="5728056243719941842">C5 (envelop)</translation>
-<translation id="3006790309890592320">Brave raadt je aan je wachtwoord opnieuw in te stellen als je het voor andere sites hebt hergebruikt.</translation>
-<translation id="5576538372759072019">{NUM_CARDS,plural, =1{Pas opslaan in je Brave-account}other{Passen opslaan in je Brave-account}}</translation>
+<translation id="3006790309890592320">adrbrowsiel raadt je aan je wachtwoord opnieuw in te stellen als je het voor andere sites hebt hergebruikt.</translation>
+<translation id="5576538372759072019">{NUM_CARDS,plural, =1{Pas opslaan in je adrbrowsiel-account}other{Passen opslaan in je adrbrowsiel-account}}</translation>
 <translation id="5745980000221562234">{NUM_CARDS,plural, =1{Een virtueel nummer voor deze kaart gebruiken}other{Selecteer een kaart}}</translation>
 <translation id="5759751709240058861">De camera gebruiken en bewegen</translation>
 <translation id="5763042198335101085">Geef een geldig e-mailadres op</translation>
@@ -1232,7 +1232,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="59174027418879706">Aangezet</translation>
 <translation id="5919090499915321845">B10</translation>
 <translation id="5921185718311485855">Aan</translation>
-<translation id="2687595201721621314">Pas opslaan in Brave-account?</translation>
+<translation id="2687595201721621314">Pas opslaan in adrbrowsiel-account?</translation>
 <translation id="5922853866070715753">Bijna klaar</translation>
 <translation id="5932224571077948991">Site toont opdringerige of misleidende advertenties</translation>
 <translation id="5938793338444039872">Troy</translation>
@@ -1285,10 +1285,10 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="6104072995492677441">JIS B6</translation>
 <translation id="6106989379647458772">De webpagina op <ph name="PAGE"/> is mogelijk tijdelijk niet beschikbaar of is permanent verplaatst naar een nieuw webadres.</translation>
 <translation id="6107012941649240045">Verleend aan</translation>
-<translation id="8233947174119245051">Er kunnen andere vormen van browsegeschiedenis zijn opgeslagen voor je Brave-account op <ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/>.</translation>
+<translation id="8233947174119245051">Er kunnen andere vormen van browsegeschiedenis zijn opgeslagen voor je adrbrowsiel-account op <ph name="BEGIN_LINK"/>myactivity.google.com<ph name="END_LINK"/>.</translation>
 <translation id="6116338172782435947">Tekst en afbeeldingen bekijken die naar het klembord zijn gekopieerd</translation>
 <translation id="6120179357481664955">Weet je je UPI-ID nog?</translation>
-<translation id="5972135347314259717">Brave Enterprise-connectors</translation>
+<translation id="5972135347314259717">adrbrowsiel Enterprise-connectors</translation>
 <translation id="6146055958333702838">Controleer alle kabels en start alle routers, modems of andere netwerkapparaten die je gebruikt, opnieuw op.</translation>
 <translation id="614940544461990577">Probeer dit eens:</translation>
 <translation id="6150036310511284407">Drie perforaties links</translation>
@@ -1300,11 +1300,11 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="6180316780098470077">Interval voor nieuwe poging</translation>
 <translation id="6196640612572343990">Cookies van derden blokkeren</translation>
 <translation id="6203231073485539293">Controleer je internetverbinding</translation>
-<translation id="8385639954311581596">Adres verwijderen uit Brave?</translation>
+<translation id="8385639954311581596">Adres verwijderen uit adrbrowsiel?</translation>
 <translation id="622039917539443112">Parallelvouw</translation>
 <translation id="6221345481584921695">Google Safe Browsing heeft onlangs <ph name="BEGIN_LINK"/>malware gedetecteerd<ph name="END_LINK"/> op <ph name="SITE"/>. Websites die normaal gesproken veilig zijn, worden soms geïnfecteerd met malware. De schadelijke content is afkomstig van <ph name="SUBRESOURCE_HOST"/>, een bekende distributeur van malware.</translation>
 <translation id="6234122620015464377">Bijsnijden na elk document</translation>
-<translation id="4765229189146046954">Brave Pay-logo</translation>
+<translation id="4765229189146046954">adrbrowsiel Pay-logo</translation>
 <translation id="6241121617266208201">Suggesties verbergen</translation>
 <translation id="624499991300733384">Print Compositor Service</translation>
 <translation id="6254436959401408446">Onvoldoende geheugen om deze pagina te openen</translation>
@@ -1314,15 +1314,15 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="6264485186158353794">Terug naar veilige website</translation>
 <translation id="6265794661083428563">Kopieer de waarde van het <ph name="POLICY_NAME"/>-beleid</translation>
 <translation id="6266934640124581640">Lichtblauwgroen</translation>
-<translation id="9136010393039243713">Brave Update</translation>
+<translation id="9136010393039243713">adrbrowsiel Update</translation>
 <translation id="6276112860590028508">Pagina's uit je leeslijst zie je hier</translation>
-<translation id="7954557091400543500">Sla je pas en factuuradres op in je Brave-account zodat je de volgende keer sneller kunt betalen.</translation>
+<translation id="7954557091400543500">Sla je pas en factuuradres op in je adrbrowsiel-account zodat je de volgende keer sneller kunt betalen.</translation>
 <translation id="6280223929691119688">Kan niet bezorgen op dit adres. Selecteer een ander adres.</translation>
 <translation id="6282194474023008486">Postcode</translation>
 <translation id="6289939620939689042">Paginakleur</translation>
 <translation id="6290238015253830360">Je voorgestelde artikelen zie je hier</translation>
 <translation id="6293309776179964942">JIS B5</translation>
-<translation id="5880900081429361525">De Brave Assistent in Brave wordt gestopt</translation>
+<translation id="5880900081429361525">De adrbrowsiel Assistent in adrbrowsiel wordt gestopt</translation>
 <translation id="6305205051461490394"><ph name="URL"/> is niet bereikbaar.</translation>
 <translation id="6312113039770857350">Webpagina niet beschikbaar</translation>
 <translation id="6321917430147971392">Controleer je DNS-instellingen</translation>
@@ -1350,7 +1350,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="6401136357288658127">Dit beleid is beëindigd. Gebruik in plaats daarvan dit beleid: <ph name="NEW_POLICY"/>.</translation>
 <translation id="6404511346730675251">Bookmark bewerken</translation>
 <translation id="6406765186087300643">C0 (envelop)</translation>
-<translation id="9018981925326888629">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. Brave raadt je aan om je wachtwoord nu te wijzigen.</translation>
+<translation id="9018981925326888629">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. adrbrowsiel raadt je aan om je wachtwoord nu te wijzigen.</translation>
 <translation id="6410264514553301377">Geef de vervaldatum en CVC-code op voor <ph name="CREDIT_CARD"/></translation>
 <translation id="6423385022588644828">Bevestig je kaarten sneller door vanaf nu Touch ID te gebruiken</translation>
 <translation id="6425092077175753609">Material</translation>
@@ -1374,7 +1374,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="6489534406876378309">Uploaden van crashes starten</translation>
 <translation id="6499038740797743453">Wachtwoord opnieuw instellen?</translation>
 <translation id="6502991525169604759">Zonder jouw wijzigingen</translation>
-<translation id="3960299545138990065">Brave opnieuw starten</translation>
+<translation id="3960299545138990065">adrbrowsiel opnieuw starten</translation>
 <translation id="6517596291481585650">Waarschuwing: Dit beleid is niet samengevoegd als lijst zoals gespecificeerd door het beleid, omdat het geen lijst is.</translation>
 <translation id="6518133107902771759">Controleren</translation>
 <translation id="6521745193039995384">Niet actief</translation>
@@ -1402,8 +1402,8 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="663260587451432563">JIS B4</translation>
 <translation id="6643016212128521049">Wissen</translation>
 <translation id="6645291930348198241">Toegang krijgen tot cookies en sitegegevens.</translation>
-<translation id="1375868315964791309">{COUNT,plural, =0{Geen}=1{Van 1 site (je wordt niet uitgelogd bij je Brave-account)}other{Van # sites (je wordt niet uitgelogd bij je Brave-account)}}</translation>
-<translation id="6678472970290886941">Je beheerder kan je browserinstellingen op afstand wijzigen. Activiteit op dit apparaat kan ook buiten Brave worden beheerd.</translation>
+<translation id="1375868315964791309">{COUNT,plural, =0{Geen}=1{Van 1 site (je wordt niet uitgelogd bij je adrbrowsiel-account)}other{Van # sites (je wordt niet uitgelogd bij je adrbrowsiel-account)}}</translation>
+<translation id="6678472970290886941">Je beheerder kan je browserinstellingen op afstand wijzigen. Activiteit op dit apparaat kan ook buiten adrbrowsiel worden beheerd.</translation>
 <translation id="6648524591329069940">Serif-lettertype</translation>
 <translation id="6651270836885078973">Beheerd door:</translation>
 <translation id="6652101503459149953">Windows Hello gebruiken</translation>
@@ -1413,7 +1413,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="6685834062052613830">Uitloggen en configuratie voltooien</translation>
 <translation id="6687335167692595844">Lettergrootte aangevraagd</translation>
 <translation id="6689249931105087298">Relatief met zwartpuntcompressie</translation>
-<translation id="5406652219015697259">Brave biedt aan je kaarten in je Brave-account op te slaan omdat je bent ingelogd. Je kunt dit wijzigen in de instellingen. De naam van de kaarthouder is afkomstig uit je account.</translation>
+<translation id="5406652219015697259">adrbrowsiel biedt aan je kaarten in je adrbrowsiel-account op te slaan omdat je bent ingelogd. Je kunt dit wijzigen in de instellingen. De naam van de kaarthouder is afkomstig uit je account.</translation>
 <translation id="6698381487523150993">Gemaakt:</translation>
 <translation id="6702919718839027939">Presenteren</translation>
 <translation id="6710213216561001401">Vorige</translation>
@@ -1446,7 +1446,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="6874604403660855544">&amp;Opnieuw toevoegen</translation>
 <translation id="6884662655240309489">Grootte 1</translation>
 <translation id="6886577214605505410"><ph name="LOCATION_TITLE"/> <ph name="SHORT_URL"/></translation>
-<translation id="7265969755975834932">Brave heeft deze pagina vereenvoudigd om deze beter leesbaar te maken. Brave heeft de originele pagina opgehaald via een niet-beveiligde verbinding.</translation>
+<translation id="7265969755975834932">adrbrowsiel heeft deze pagina vereenvoudigd om deze beter leesbaar te maken. adrbrowsiel heeft de originele pagina opgehaald via een niet-beveiligde verbinding.</translation>
 <translation id="6891596781022320156">Beleidsniveau wordt niet ondersteund.</translation>
 <translation id="6895330447102777224">Je creditcard is bevestigd</translation>
 <translation id="6897140037006041989">User-agent</translation>
@@ -1454,7 +1454,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="6907293445143367439">Toestaan dat <ph name="SITE_NAME"/> het volgende doet:</translation>
 <translation id="6910240653697687763"><ph name="URL"/> wil volledig beheer van je MIDI-apparaten hebben</translation>
 <translation id="6915804003454593391">Gebruiker:</translation>
-<translation id="6722453239914327220">Dit is de naam die in je Brave-account staat</translation>
+<translation id="6722453239914327220">Dit is de naam die in je adrbrowsiel-account staat</translation>
 <translation id="6944692733090228304">Je hebt je wachtwoord ingevoerd op een site die niet door <ph name="BEGIN_BOLD"/><ph name="ORG_NAME"/><ph name="END_BOLD"/> wordt beheerd. Ter bescherming van je account kun je je wachtwoord beter niet hergebruiken voor andere apps en sites.</translation>
 <translation id="6945221475159498467">Selecteren</translation>
 <translation id="6948701128805548767">Selecteer een adres om ophaalmethoden en vereisten te bekijken</translation>
@@ -1471,10 +1471,10 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="6972629891077993081">HID-apparaten</translation>
 <translation id="6973656660372572881">Zowel vaste proxyservers als een pac-script-URL worden gespecificeerd.</translation>
 <translation id="6973932557599545801">Ik kan je helaas niet helpen. Ga zelf verder.</translation>
-<translation id="846000886289004690">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. Brave raadt je aan naar <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/> en andere sites te gaan waarop je dit wachtwoord hebt gebruikt en je wachtwoord nu te wijzigen.</translation>
+<translation id="846000886289004690">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. adrbrowsiel raadt je aan naar <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/> en andere sites te gaan waarop je dit wachtwoord hebt gebruikt en je wachtwoord nu te wijzigen.</translation>
 <translation id="6979158407327259162">Google Drive</translation>
 <translation id="6979440798594660689">Geluid uitzetten (standaard)</translation>
-<translation id="1714833602699685456">Bestanden die je downloadt, worden voor analyse naar Brave Cloud of naar derden gestuurd. De bestanden kunnen bijvoorbeeld worden gescand op gevoelige gegevens of malware.</translation>
+<translation id="1714833602699685456">Bestanden die je downloadt, worden voor analyse naar adrbrowsiel Cloud of naar derden gestuurd. De bestanden kunnen bijvoorbeeld worden gescand op gevoelige gegevens of malware.</translation>
 <translation id="6989763994942163495">Geavanceerde instellingen tonen...</translation>
 <translation id="6993898126790112050">6x9 (envelop)</translation>
 <translation id="6996312675313362352"><ph name="ORIGINAL_LANGUAGE"/> altijd vertalen</translation>
@@ -1532,7 +1532,7 @@ Anders wordt dit geblokkeerd door je privacyinstellingen. Hierdoor werkt de cont
 <translation id="7219179957768738017">De verbinding maakt gebruik van <ph name="SSL_VERSION"/>.</translation>
 <translation id="7220786058474068424">Verwerken</translation>
 <translation id="7221855153210829124">Meldingen tonen</translation>
-<translation id="3619365259205518877">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. Brave raadt je aan je opgeslagen wachtwoorden voor <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/>, <ph name="WEBSITE_3"/> en andere sites waarop je dit wachtwoord gebruikt, nu te checken.</translation>
+<translation id="3619365259205518877">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. adrbrowsiel raadt je aan je opgeslagen wachtwoorden voor <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/>, <ph name="WEBSITE_3"/> en andere sites waarop je dit wachtwoord gebruikt, nu te checken.</translation>
 <translation id="7233592378249864828">Bevestigingsblad afdrukken</translation>
 <translation id="7238585580608191973">SHA-256-vingerafdruk</translation>
 <translation id="7240120331469437312">Alternatieve naam voor entiteit van certificaat</translation>
@@ -1554,7 +1554,7 @@ Aanvullende informatie:
 <translation id="7320336641823683070">Hulp bij verbinding maken</translation>
 <translation id="7323804146520582233">Het gedeelte '<ph name="SECTION"/>' verbergen</translation>
 <translation id="733354035281974745">Lokaal account op apparaat overschrijven</translation>
-<translation id="8539546768943490744">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. Brave raadt je aan naar <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/>, <ph name="WEBSITE_3"/> en andere sites te gaan waarop je dit wachtwoord hebt gebruikt en je wachtwoord nu te wijzigen.</translation>
+<translation id="8539546768943490744">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. adrbrowsiel raadt je aan naar <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/>, <ph name="WEBSITE_3"/> en andere sites te gaan waarop je dit wachtwoord hebt gebruikt en je wachtwoord nu te wijzigen.</translation>
 <translation id="7334320624316649418">&amp;Opnieuw volgorde wijzigen</translation>
 <translation id="7337706099755338005">Niet beschikbaar op je platform.</translation>
 <translation id="733923710415886693">Het certificaat van de server is niet bekendgemaakt via Certificaattransparantie.</translation>
@@ -1565,9 +1565,9 @@ Aanvullende informatie:
 <translation id="7359588939039777303">Advertenties geblokkeerd.</translation>
 <translation id="7365849542400970216">Laten weten wanneer je dit apparaat gebruikt?</translation>
 <translation id="7372973238305370288">zoekresultaat</translation>
-<translation id="3898257577441589237">Dit probleem doet zich voor als gevolg van een certificaat dat jij of iemand anders heeft geïnstalleerd op je apparaat. Het certificaat staat erom bekend dat het wordt gebruikt voor netwerkmonitoring en -onderschepping en wordt niet vertrouwd door Brave. Hoewel er ook legitieme certificaten bestaan, bijvoorbeeld op een school- of zakelijk netwerk, wil Brave zeker weten dat je begrijpt wat er gebeurt, ook als je het niet kunt tegenhouden. Monitoring kan plaatsvinden in elke browser of app met toegang tot internet.</translation>
+<translation id="3898257577441589237">Dit probleem doet zich voor als gevolg van een certificaat dat jij of iemand anders heeft geïnstalleerd op je apparaat. Het certificaat staat erom bekend dat het wordt gebruikt voor netwerkmonitoring en -onderschepping en wordt niet vertrouwd door adrbrowsiel. Hoewel er ook legitieme certificaten bestaan, bijvoorbeeld op een school- of zakelijk netwerk, wil adrbrowsiel zeker weten dat je begrijpt wat er gebeurt, ook als je het niet kunt tegenhouden. Monitoring kan plaatsvinden in elke browser of app met toegang tot internet.</translation>
 <translation id="7375818412732305729">Bestand wordt bijgevoegd</translation>
-<translation id="5859172549848239531">Als er beveiligingsgebeurtenissen door Brave Enterprise Connectors worden gemarkeerd, worden relevante gegevens over de gebeurtenissen naar je beheerder gestuurd. Deze gegevens zijn bijvoorbeeld URL's van pagina's die je hebt bezocht in Brave, bestandsnamen of metadata en de gebruikersnaam die je gebruikt om in te loggen op je apparaat en bij Brave.</translation>
+<translation id="5859172549848239531">Als er beveiligingsgebeurtenissen door adrbrowsiel Enterprise Connectors worden gemarkeerd, worden relevante gegevens over de gebeurtenissen naar je beheerder gestuurd. Deze gegevens zijn bijvoorbeeld URL's van pagina's die je hebt bezocht in adrbrowsiel, bestandsnamen of metadata en de gebruikersnaam die je gebruikt om in te loggen op je apparaat en bij adrbrowsiel.</translation>
 <translation id="7377249249140280793"><ph name="RELATIVE_DATE"/> - <ph name="FULL_DATE"/></translation>
 <translation id="7378594059915113390">Mediabediening</translation>
 <translation id="7378627244592794276">Nee</translation>
@@ -1584,7 +1584,7 @@ Aanvullende informatie:
       &lt;li&gt;Selecteer onder &lt;strong&gt;Opstarttype&lt;/strong&gt; de optie &lt;strong&gt;Uitgezet&lt;/strong&gt;
       &lt;li&gt;Klik onder &lt;strong&gt;Servicestatus&lt;/strong&gt; op de optie &lt;strong&gt;Stoppen&lt;/strong&gt;
       &lt;li&gt;Klik op &lt;strong&gt;Toepassen&lt;/strong&gt; en vervolgens op &lt;strong&gt;OK&lt;/strong&gt;
-      &lt;li&gt;Ga naar het &lt;a href="https://support.google.com/chrome/answer/6098869"&gt;Helpcentrum van Brave&lt;/a&gt; voor meer informatie over hoe je de software definitief van je computer kunt verwijderen
+      &lt;li&gt;Ga naar het &lt;a href="https://support.google.com/chrome/answer/6098869"&gt;Helpcentrum van adrbrowsiel&lt;/a&gt; voor meer informatie over hoe je de software definitief van je computer kunt verwijderen
       &lt;/ol&gt;</translation>
 <translation id="741007362987735528">Wide-Format</translation>
 <translation id="7416351320495623771">Wachtwoorden beheren…</translation>
@@ -1601,7 +1601,7 @@ Aanvullende informatie:
 <translation id="7473891865547856676">Nee, bedankt</translation>
 <translation id="7481312909269577407">Vooruit</translation>
 <translation id="7485870689360869515">Geen gegevens gevonden.</translation>
-<translation id="3692186536781145635">Je wachtwoord is gelekt bij een gegevenslek op een site of in een app. Brave raadt je aan je opgeslagen wachtwoorden te controleren en je wachtwoord op <ph name="ORIGIN"/> nu te wijzigen.</translation>
+<translation id="3692186536781145635">Je wachtwoord is gelekt bij een gegevenslek op een site of in een app. adrbrowsiel raadt je aan je opgeslagen wachtwoorden te controleren en je wachtwoord op <ph name="ORIGIN"/> nu te wijzigen.</translation>
 <translation id="7495528107193238112">Deze content is geblokkeerd. Neem contact op met de site-eigenaar om het probleem op te lossen.</translation>
 <translation id="7498234416455752244">Doorgaan met bewerken</translation>
 <translation id="7508255263130623398">Geretourneerde apparaat-ID voor beleid is leeg of komt niet overeen met de huidige apparaat-ID</translation>
@@ -1621,13 +1621,13 @@ Aanvullende informatie:
 <translation id="7542995811387359312">Het automatisch invullen van creditcardnummers staat uit omdat dit formulier geen beveiligde verbinding gebruikt.</translation>
 <translation id="7548892272833184391">Verbindingsfouten oplossen</translation>
 <translation id="7549584377607005141">Deze webpagina kan alleen correct worden weergegeven op basis van gegevens die je eerder hebt opgegeven. Je kunt deze gegevens opnieuw verzenden, maar hierdoor worden de acties herhaald die eerder op deze pagina zijn uitgevoerd.</translation>
-<translation id="5474381306981932386">De gebruikersnaam van je apparaat en je Brave-gebruikersnaam</translation>
+<translation id="5474381306981932386">De gebruikersnaam van je apparaat en je adrbrowsiel-gebruikersnaam</translation>
 <translation id="7552846755917812628">Probeer de volgende tips:</translation>
 <translation id="7554791636758816595">Nieuw tabblad</translation>
 <translation id="7567204685887185387">De server kan niet bewijzen dat dit <ph name="DOMAIN"/> is. Het beveiligingscertificaat van de server is mogelijk frauduleus verstrekt. Dit kan worden veroorzaakt door een verkeerde configuratie of een aanvaller die je verbinding onderschept.</translation>
 <translation id="7569983096843329377">Zwart</translation>
 <translation id="7575207903026901870">Suggestieknop verwijderen, druk op Enter om deze suggestie te verwijderen</translation>
-<translation id="405970181812690156">Betaal op verschillende apparaten snel op sites en in apps met passen die je hebt opgeslagen via Brave.</translation>
+<translation id="405970181812690156">Betaal op verschillende apparaten snel op sites en in apps met passen die je hebt opgeslagen via adrbrowsiel.</translation>
 <translation id="7581199239021537589">Beeldverschuiving Y van zijde 2</translation>
 <translation id="7591636454931265313"><ph name="EMBEDDED_URL"/> wil cookies en sitegegevens gebruiken op <ph name="TOP_LEVEL_URL"/></translation>
 <translation id="7592362899630581445">Het certificaat van de server is in strijd met naambeperkingen.</translation>
@@ -1636,13 +1636,13 @@ Aanvullende informatie:
 <translation id="7600965453749440009"><ph name="LANGUAGE"/> nooit vertalen</translation>
 <translation id="7610193165460212391">Waarde <ph name="VALUE"/> is buiten bereik.</translation>
 <translation id="7613889955535752492">Vervaldatum: <ph name="EXPIRATION_MONTH"/>/<ph name="EXPIRATION_YEAR"/></translation>
-<translation id="5704205738724476508"><ph name="MANAGE_PASSWORDS_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om je wachtwoorden te beheren in de Brave-instellingen.</translation>
-<translation id="6994126885316933886">Je hebt al gegevens die zijn gecodeerd met een andere versie van het wachtwoord voor je Brave-account. Geef dit wachtwoord hieronder op.</translation>
-<translation id="8565825862287624454">Je beheerder heeft Brave Enterprise Connectors voor je browser ingesteld. Deze connectors hebben toegang tot sommige van je gegevens.</translation>
+<translation id="5704205738724476508"><ph name="MANAGE_PASSWORDS_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om je wachtwoorden te beheren in de adrbrowsiel-instellingen.</translation>
+<translation id="6994126885316933886">Je hebt al gegevens die zijn gecodeerd met een andere versie van het wachtwoord voor je adrbrowsiel-account. Geef dit wachtwoord hieronder op.</translation>
+<translation id="8565825862287624454">Je beheerder heeft adrbrowsiel Enterprise Connectors voor je browser ingesteld. Deze connectors hebben toegang tot sommige van je gegevens.</translation>
 <translation id="7619838219691048931">Eindblad</translation>
 <translation id="762844065391966283">Eén tegelijk</translation>
 <translation id="7633909222644580952">Prestatiegegevens en crashrapporten</translation>
-<translation id="6386821459680628976">Creditcard verwijderen uit Brave?</translation>
+<translation id="6386821459680628976">Creditcard verwijderen uit adrbrowsiel?</translation>
 <translation id="7637586430889951925">{COUNT,plural, =0{Geen}=1{1 wachtwoord in je account (voor <ph name="DOMAIN_LIST"/>)}other{# wachtwoorden in je account (voor <ph name="DOMAIN_LIST"/>)}}</translation>
 <translation id="7638605456503525968">Seriële poorten</translation>
 <translation id="7639968568612851608">Donkergrijs</translation>
@@ -1696,7 +1696,7 @@ Aanvullende informatie:
 <translation id="780301667611848630">Nee, bedankt</translation>
 <translation id="7805768142964895445">Status</translation>
 <translation id="7812922009395017822">Mir</translation>
-<translation id="4670564340385807132">Formuliersuggestie verwijderen uit Brave?</translation>
+<translation id="4670564340385807132">Formuliersuggestie verwijderen uit adrbrowsiel?</translation>
 <translation id="781440967107097262">Klembord delen?</translation>
 <translation id="7815407501681723534"><ph name="NUMBER_OF_RESULTS"/> <ph name="SEARCH_RESULTS"/> gevonden voor '<ph name="SEARCH_STRING"/>'</translation>
 <translation id="782886543891417279">Het is mogelijk dat je de inlogpagina moet bezoeken van het wifi-netwerk (<ph name="WIFI_NAME"/>) dat je gebruikt.</translation>
@@ -1705,7 +1705,7 @@ Aanvullende informatie:
 <translation id="7855695075675558090"><ph name="TOTAL_LABEL"/> <ph name="CURRENCY_CODE"/> <ph name="FORMATTED_TOTAL_AMOUNT"/></translation>
 <translation id="7862185352068345852">Site verlaten?</translation>
 <translation id="7865448901209910068">Beste snelheid</translation>
-<translation id="1012292338579042608">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. Brave raadt je aan je opgeslagen wachtwoorden voor <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/> en andere sites waarop je dit wachtwoord gebruikt, nu te checken.</translation>
+<translation id="1012292338579042608">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. adrbrowsiel raadt je aan je opgeslagen wachtwoorden voor <ph name="WEBSITE_1"/>, <ph name="WEBSITE_2"/> en andere sites waarop je dit wachtwoord gebruikt, nu te checken.</translation>
 <translation id="7878562273885520351">Je wachtwoord is mogelijk gehackt</translation>
 <translation id="7882421473871500483">Bruin</translation>
 <translation id="7887683347370398519">Controleer je CVC-code en probeer het opnieuw</translation>
@@ -1717,7 +1717,7 @@ Aanvullende informatie:
 <translation id="7932579305932748336">Coaten</translation>
 <translation id="79338296614623784">Geef een geldig telefoonnummer op</translation>
 <translation id="7934052535022478634">Betaling voltooid</translation>
-<translation id="8329449853370113380"><ph name="URL"/> wil beschermde content afspelen. De identiteit van je apparaat wordt geverifieerd door Brave.</translation>
+<translation id="8329449853370113380"><ph name="URL"/> wil beschermde content afspelen. De identiteit van je apparaat wordt geverifieerd door adrbrowsiel.</translation>
 <translation id="7935031712718413217">Mogelijke spoofing-URL</translation>
 <translation id="7935318582918952113">DOM Distiller</translation>
 <translation id="7937554595067888181">Verloopt op <ph name="EXPIRATION_DATE_ABBR"/></translation>
@@ -1753,7 +1753,7 @@ Aanvullende informatie:
 <translation id="8042918947222776840">Ophaalmethode kiezen</translation>
 <translation id="8057711352706143257">'<ph name="SOFTWARE_NAME"/>' is niet correct geconfigureerd. Als je '<ph name="SOFTWARE_NAME"/>' verwijdert, wordt het probleem meestal opgelost. <ph name="FURTHER_EXPLANATION"/></translation>
 <translation id="8066955247577885446">Er is iets misgegaan.</translation>
-<translation id="5442778523450464826">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. Brave kan je laten zien wat je nu kunt doen. Klik op 'Account beschermen' om je wachtwoord te wijzigen en Brave te laten weten dat je account mogelijk gevaar loopt.</translation>
+<translation id="5442778523450464826">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. adrbrowsiel kan je laten zien wat je nu kunt doen. Klik op 'Account beschermen' om je wachtwoord te wijzigen en adrbrowsiel te laten weten dat je account mogelijk gevaar loopt.</translation>
 <translation id="8074253406171541171">10x13 (envelop)</translation>
 <translation id="8078141288243656252">Kan geen aantekeningen maken als het document is gedraaid</translation>
 <translation id="8079031581361219619">Site opnieuw laden?</translation>
@@ -1776,7 +1776,7 @@ Aanvullende informatie:
 <translation id="8150722005171944719">Het bestand op <ph name="URL"/> is onleesbaar. Het bestand is mogelijk verwijderd of verplaatst of de bestandsrechten zorgen ervoor dat het bestand niet kan worden geopend.</translation>
 <translation id="8157295877370077682">Site verlaten</translation>
 <translation id="8163866351304776260">Vier perforaties links</translation>
-<translation id="4351627595884993315">Brave biedt aan je passen in je Brave-account op te slaan omdat je bent ingelogd. Je kunt dit wijzigen in de instellingen.</translation>
+<translation id="4351627595884993315">adrbrowsiel biedt aan je passen in je adrbrowsiel-account op te slaan omdat je bent ingelogd. Je kunt dit wijzigen in de instellingen.</translation>
 <translation id="8184538546369750125">Algemene standaardinstelling gebruiken (Toestaan)</translation>
 <translation id="8194797478851900357">&amp;Verplaatsen ongedaan maken</translation>
 <translation id="8201077131113104583">Ongeldige update-URL voor de extensie met de ID '<ph name="EXTENSION_ID"/>'.</translation>
@@ -1787,7 +1787,7 @@ Aanvullende informatie:
 <translation id="8213464188712611711">Herinneringen</translation>
 <translation id="8218327578424803826">Toegewezen locatie:</translation>
 <translation id="8220146938470311105">C7/C6 (envelop)</translation>
-<translation id="3272614036080146686">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. Brave raadt je aan naar <ph name="WEBSITE_1"/> en andere sites te gaan waarop je dit wachtwoord hebt gebruikt en je wachtwoord nu te wijzigen.</translation>
+<translation id="3272614036080146686">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. adrbrowsiel raadt je aan naar <ph name="WEBSITE_1"/> en andere sites te gaan waarop je dit wachtwoord hebt gebruikt en je wachtwoord nu te wijzigen.</translation>
 <translation id="8228419419708659934">Weergave met twee pagina's</translation>
 <translation id="822964464349305906"><ph name="TYPE_1"/>, <ph name="TYPE_2"/></translation>
 <translation id="8232343881378637145">Temperatuur van plateau</translation>
@@ -1817,7 +1817,7 @@ Aanvullende informatie:
 <translation id="830498451218851433">Enkele vouw</translation>
 <translation id="8307358339886459768">Kleine foto</translation>
 <translation id="8307888238279532626">Geïnstalleerde apps en hoe vaak ze zijn gebruikt</translation>
-<translation id="8390490312179389407">Deze pagina is verdacht (gemarkeerd door Brave).</translation>
+<translation id="8390490312179389407">Deze pagina is verdacht (gemarkeerd door adrbrowsiel).</translation>
 <translation id="831997045666694187">Avond</translation>
 <translation id="8332188693563227489">Toegang tot <ph name="HOST_NAME"/> is geweigerd</translation>
 <translation id="833262891116910667">Markeren</translation>
@@ -1850,16 +1850,16 @@ Aanvullende informatie:
 <translation id="8473863474539038330">Adressen en meer</translation>
 <translation id="8474910779563686872">Ontwikkelaarsgegevens tonen</translation>
 <translation id="8479754468255770962">Nietje linksonder</translation>
-<translation id="5142582872611298328">Log in bij Brave om passen uit je Brave-account te gebruiken</translation>
+<translation id="5142582872611298328">Log in bij adrbrowsiel om passen uit je adrbrowsiel-account te gebruiken</translation>
 <translation id="8488350697529856933">Van toepassing op</translation>
 <translation id="8490137692873530638">Stapeleenheid 10</translation>
 <translation id="8498891568109133222">Het duurt te lang voordat <ph name="HOST_NAME"/> reageert.</translation>
-<translation id="230699814587342492">Brave-wachtwoorden</translation>
+<translation id="230699814587342492">adrbrowsiel-wachtwoorden</translation>
 <translation id="8503813439785031346">Gebruikersnaam</translation>
 <translation id="8507227106804027148">Opdrachtregel</translation>
 <translation id="8508648098325802031">Zoekpictogram</translation>
-<translation id="1426902392270366682">Brave kan je helpen je Brave-account te beschermen en je wachtwoord te wijzigen.</translation>
-<translation id="1215802963054007211">Je browsegeschiedenis, cookies, cache en meer wissen in de Brave-instellingen</translation>
+<translation id="1426902392270366682">adrbrowsiel kan je helpen je adrbrowsiel-account te beschermen en je wachtwoord te wijzigen.</translation>
+<translation id="1215802963054007211">Je browsegeschiedenis, cookies, cache en meer wissen in de adrbrowsiel-instellingen</translation>
 <translation id="8533619373899488139">Ga naar &lt;strong&gt;chrome://policy&lt;/strong&gt; om de lijst met geblokkeerde URL's en andere beleidsregels te bekijken die worden afgedwongen door je systeembeheerder.</translation>
 <translation id="8541158209346794904">Bluetooth-apparaat</translation>
 <translation id="8542014550340843547">Drie nietjes onder</translation>
@@ -1908,32 +1908,32 @@ Aanvullende informatie:
 <translation id="8725066075913043281">Opnieuw proberen</translation>
 <translation id="8726549941689275341">Paginagrootte:</translation>
 <translation id="8730621377337864115">Klaar</translation>
-<translation id="1769647018144434441">Knop 'Wachtwoorden beheren'. Druk op Enter om je wachtwoorden te bekijken en te beheren in de Brave-instellingen.</translation>
+<translation id="1769647018144434441">Knop 'Wachtwoorden beheren'. Druk op Enter om je wachtwoorden te bekijken en te beheren in de adrbrowsiel-instellingen.</translation>
 <translation id="8734529307927223492">Je <ph name="DEVICE_TYPE"/> wordt beheerd door <ph name="MANAGER"/></translation>
-<translation id="6326805297893828864">Als je een beveiligde verbinding tot stand wilt brengen, moet je klok goed zijn ingesteld. Dit moet omdat de certificaten die deze websites gebruiken om zichzelf te identificeren, slechts gedurende bepaalde perioden geldig zijn. Aangezien de klok van je apparaat niet goed is ingesteld, kan Brave deze certificaten niet verifiëren.</translation>
+<translation id="6326805297893828864">Als je een beveiligde verbinding tot stand wilt brengen, moet je klok goed zijn ingesteld. Dit moet omdat de certificaten die deze websites gebruiken om zichzelf te identificeren, slechts gedurende bepaalde perioden geldig zijn. Aangezien de klok van je apparaat niet goed is ingesteld, kan adrbrowsiel deze certificaten niet verifiëren.</translation>
 <translation id="8740359287975076522">Het &lt;abbr id="dnsDefinition"&gt;DNS-adres&lt;/abbr&gt; van <ph name="HOST_NAME"/> kan niet worden gevonden. Er wordt een diagnose van het probleem uitgevoerd.</translation>
 <translation id="8742371904523228557">Je code voor <ph name="ORIGIN"/> is<ph name="ONE_TIME_CODE"/>.</translation>
 <translation id="874918643257405732">Bookmark toevoegen voor dit tabblad</translation>
 <translation id="8751426954251315517">Probeer het de volgende keer opnieuw</translation>
-<translation id="6994163263933300131">Brave Pay-aanbieding beschikbaar</translation>
+<translation id="6994163263933300131">adrbrowsiel Pay-aanbieding beschikbaar</translation>
 <translation id="8759274551635299824">Deze pas is verlopen</translation>
 <translation id="87601671197631245">Deze site gebruikt een verouderde beveiligingsconfiguratie, waardoor je gegevens (zoals wachtwoorden, berichten of creditcardnummers) openbaar kunnen worden gemaakt als ze naar deze site worden gestuurd.</translation>
 <translation id="8761567432415473239">Google Safe Browsing heeft onlangs <ph name="BEGIN_LINK"/>schadelijke programma's gevonden<ph name="END_LINK"/> op <ph name="SITE"/>.</translation>
 <translation id="8763927697961133303">USB-apparaat</translation>
-<translation id="565908431635579039">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. Brave raadt je aan je opgeslagen wachtwoorden voor <ph name="WEBSITE_1"/> en andere sites waarop je dit wachtwoord gebruikt, nu te checken.</translation>
+<translation id="565908431635579039">Je hebt zojuist je wachtwoord opgegeven op een misleidende site. adrbrowsiel raadt je aan je opgeslagen wachtwoorden voor <ph name="WEBSITE_1"/> en andere sites waarop je dit wachtwoord gebruikt, nu te checken.</translation>
 <translation id="877985182522063539">A4</translation>
 <translation id="8790007591277257123">&amp;Opnieuw verwijderen</translation>
-<translation id="5304100303568917877">Je kunt de toegang tot je account van <ph name="ORG_NAME"/> kwijtraken of slachtoffer worden van identiteitsdiefstal. Brave raadt je aan je wachtwoord nu te wijzigen.</translation>
-<translation id="9156291179464624174"><ph name="ENROLLMENT_DOMAIN"/> heeft Brave Enterprise Connectors voor je browser aangezet. Deze connectors hebben toegang tot sommige van je gegevens.</translation>
+<translation id="5304100303568917877">Je kunt de toegang tot je account van <ph name="ORG_NAME"/> kwijtraken of slachtoffer worden van identiteitsdiefstal. adrbrowsiel raadt je aan je wachtwoord nu te wijzigen.</translation>
+<translation id="9156291179464624174"><ph name="ENROLLMENT_DOMAIN"/> heeft adrbrowsiel Enterprise Connectors voor je browser aangezet. Deze connectors hebben toegang tot sommige van je gegevens.</translation>
 <translation id="8798099450830957504">Standaard</translation>
 <translation id="8805819170075074995">Lijstitem '<ph name="LANGUAGE_ID"/>': Item is genegeerd omdat dit ook is opgenomen in het beleid SpellcheckLanguage.</translation>
 <translation id="8807160976559152894">Bijsnijden na elke pagina</translation>
-<translation id="7674607358106534914"><ph name="UPDATE_CHROME_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om Brave te updaten via je Brave-instellingen</translation>
+<translation id="7674607358106534914"><ph name="UPDATE_CHROME_FOCUSED_FRIENDLY_MATCH_TEXT"/>. Druk op Tab en vervolgens op Enter om adrbrowsiel te updaten via je adrbrowsiel-instellingen</translation>
 <translation id="883848425547221593">Andere bookmarks</translation>
 <translation id="884264119367021077">Verzendadres</translation>
 <translation id="884923133447025588">Geen intrekkingsmechanisme gevonden.</translation>
-<translation id="7487066225574140895">Delen met Brave</translation>
-<translation id="4764754838347156633">Brave raadt je aan het wachtwoord voor <ph name="BEGIN_BOLD"/><ph name="ORG_NAME"/><ph name="END_BOLD"/> opnieuw in te stellen als je het voor andere sites hebt hergebruikt.</translation>
+<translation id="7487066225574140895">Delen met adrbrowsiel</translation>
+<translation id="4764754838347156633">adrbrowsiel raadt je aan het wachtwoord voor <ph name="BEGIN_BOLD"/><ph name="ORG_NAME"/><ph name="END_BOLD"/> opnieuw in te stellen als je het voor andere sites hebt hergebruikt.</translation>
 <translation id="885906927438988819">Als de spelling klopt, <ph name="BEGIN_LINK"/>voer je een Windows-netwerkcontrole uit<ph name="END_LINK"/>.</translation>
 <translation id="8866481888320382733">Fout bij het parseren van beleidsinstellingen</translation>
 <translation id="8866928039507595380">Vouwen</translation>
@@ -1946,12 +1946,12 @@ Aanvullende informatie:
 <translation id="8903921497873541725">Inzoomen</translation>
 <translation id="890485472659500557">Engineering-C</translation>
 <translation id="890493561996401738">Suggestieknop verwijderen, druk op Enter om te verwijderen, <ph name="REMOVE_BUTTON_FOCUSED_FRIENDLY_MATCH_TEXT"/></translation>
-<translation id="2684652081942622950">Brave-account</translation>
-<translation id="4102271590580840789">Knop 'Betaalmethoden beheren'. Druk op Enter om je betalingen en creditcardgegevens te beheren in de Brave-instellingen.</translation>
+<translation id="2684652081942622950">adrbrowsiel-account</translation>
+<translation id="4102271590580840789">Knop 'Betaalmethoden beheren'. Druk op Enter om je betalingen en creditcardgegevens te beheren in de adrbrowsiel-instellingen.</translation>
 <translation id="8918231688545606538">Deze pagina is verdacht</translation>
 <translation id="8922013791253848639">Altijd advertenties op deze site toestaan</translation>
 <translation id="892588693504540538">Perforatie rechtsboven</translation>
-<translation id="7757992844965332255">Wil je deze pas opslaan in je Brave-account?</translation>
+<translation id="7757992844965332255">Wil je deze pas opslaan in je adrbrowsiel-account?</translation>
 <translation id="8932102934695377596">Je klok loopt achter</translation>
 <translation id="893332455753468063">Naam toevoegen</translation>
 <translation id="8942355029279167844">Je beheerder heeft toegestaan dat <ph name="APP_NAME"/> diagnostische gegevens verzamelt om de productfunctionaliteit te verbeteren. Zie <ph name="BEGIN_LINK"/>https://www.parallels.com/pcep<ph name="END_LINK"/> voor meer informatie.</translation>
@@ -1964,7 +1964,7 @@ Aanvullende informatie:
 <translation id="8975012916872825179">Inclusief informatie als telefoonnummers, e-mailadressen en verzendadressen</translation>
 <translation id="8975263830901772334">Namen van bestanden die je afdrukt</translation>
 <translation id="8978053250194585037">Google Safe Browsing heeft onlangs <ph name="BEGIN_LINK"/>phishing gedetecteerd<ph name="END_LINK"/> op <ph name="SITE"/>. Phishingsites doen zich voor als een andere website om je te misleiden.</translation>
-<translation id="5889706513445719653">Betaalmethoden en adressen die Brave Pay gebruiken</translation>
+<translation id="5889706513445719653">Betaalmethoden en adressen die adrbrowsiel Pay gebruiken</translation>
 <translation id="8987927404178983737">Maand</translation>
 <translation id="8989148748219918422"><ph name="ORGANIZATION"/> [<ph name="COUNTRY"/>]</translation>
 <translation id="899688752321268742"><ph name="URL"/> wil weten wanneer je dit apparaat actief gebruikt</translation>
@@ -1996,12 +1996,12 @@ Aanvullende informatie:
 <translation id="9089260154716455634">Beleid buiten gebruikstijd:</translation>
 <translation id="9095388113577226029">Meer talen...</translation>
 <translation id="9101630580131696064">Lade 1</translation>
-<translation id="6373940988468425649"><ph name="SITE"/> gebruikt gewoonlijk versleuteling om je gegevens te beschermen. Toen Brave deze keer probeerde verbinding te maken met <ph name="SITE"/>, retourneerde de website ongewone en onjuiste inloggegevens. Dit gebeurt wanneer een aanvaller probeert zich als <ph name="SITE"/> voor te doen of wanneer een wifi-inlogscherm de verbinding heeft verbroken. Je gegevens zijn nog steeds beveiligd omdat Brave de verbinding heeft beëindigd voordat er gegevens konden worden uitgewisseld.</translation>
+<translation id="6373940988468425649"><ph name="SITE"/> gebruikt gewoonlijk versleuteling om je gegevens te beschermen. Toen adrbrowsiel deze keer probeerde verbinding te maken met <ph name="SITE"/>, retourneerde de website ongewone en onjuiste inloggegevens. Dit gebeurt wanneer een aanvaller probeert zich als <ph name="SITE"/> voor te doen of wanneer een wifi-inlogscherm de verbinding heeft verbroken. Je gegevens zijn nog steeds beveiligd omdat adrbrowsiel de verbinding heeft beëindigd voordat er gegevens konden worden uitgewisseld.</translation>
 <translation id="9106062320799175032">Factuuradres toevoegen</translation>
 <translation id="9107467864910557787">Je browser wordt beheerd door <ph name="MANAGER"/></translation>
 <translation id="91108059142052966">Op basis van het beheerdersbeleid wordt scherm delen met <ph name="APPLICATION_TITLE"/> uitgezet als er vertrouwelijke content zichtbaar is</translation>
 <translation id="9114524666733003316">Creditcard bevestigen...</translation>
-<translation id="3582535072753734287">Deze browser wordt niet beheerd door een bedrijf of andere organisatie. Activiteit op dit apparaat kan buiten Brave worden beheerd. <ph name="BEGIN_LINK"/>Meer informatie<ph name="END_LINK"/></translation>
+<translation id="3582535072753734287">Deze browser wordt niet beheerd door een bedrijf of andere organisatie. Activiteit op dit apparaat kan buiten adrbrowsiel worden beheerd. <ph name="BEGIN_LINK"/>Meer informatie<ph name="END_LINK"/></translation>
 <translation id="9119042192571987207">Geüpload</translation>
 <translation id="9128016270925453879">Beleid is geladen</translation>
 <translation id="9128870381267983090">Verbinding maken met netwerk</translation>
@@ -2010,7 +2010,7 @@ Aanvullende informatie:
 <translation id="9148088599418889305">Verzendmethode kiezen</translation>
 <translation id="9148507642005240123">&amp;Bewerken ongedaan maken</translation>
 <translation id="9150045010208374699">Je camera gebruiken</translation>
-<translation id="5874192512642998555">Je beheerder kan je browserinstellingen op afstand wijzigen. Activiteit op dit apparaat kan ook buiten Brave worden beheerd. <ph name="BEGIN_LINK"/>Meer informatie<ph name="END_LINK"/></translation>
+<translation id="5874192512642998555">Je beheerder kan je browserinstellingen op afstand wijzigen. Activiteit op dit apparaat kan ook buiten adrbrowsiel worden beheerd. <ph name="BEGIN_LINK"/>Meer informatie<ph name="END_LINK"/></translation>
 <translation id="9154194610265714752">Bijgewerkt</translation>
 <translation id="9157595877708044936">Bezig met instellen...</translation>
 <translation id="9158625974267017556">C6 (envelop)</translation>
@@ -2022,20 +2022,20 @@ Aanvullende informatie:
 <translation id="9173282814238175921">Eén document/nieuw blad</translation>
 <translation id="917450738466192189">Het servercertificaat is ongeldig.</translation>
 <translation id="9174917557437862841">Schakelknop voor tabbladen, druk op Enter om naar dit tabblad te schakelen</translation>
-<translation id="5129795253416930127">Je betalingen en creditcardgegevens beheren in de Brave-instellingen</translation>
-<translation id="9183302530794969518">Brave Documenten</translation>
+<translation id="5129795253416930127">Je betalingen en creditcardgegevens beheren in de adrbrowsiel-instellingen</translation>
+<translation id="9183302530794969518">adrbrowsiel Documenten</translation>
 <translation id="9183425211371246419"><ph name="HOST_NAME"/> gebruikt een niet-ondersteund protocol.</translation>
 <translation id="9191834167571392248">Perforatie linksonder</translation>
 <translation id="9199905725844810519">Afdrukken is geblokkeerd</translation>
 <translation id="9205078245616868884">Je gegevens zijn versleuteld met je wachtwoordzin voor synchronisatie. Geef deze op om de synchronisatie te starten.</translation>
 <translation id="9207861905230894330">Kan artikel niet toevoegen.</translation>
 <translation id="9213433120051936369">Weergave aanpassen</translation>
-<translation id="2206050430829841793">Een app voorkomt dat Brave veilig verbinding kan maken met deze site</translation>
+<translation id="2206050430829841793">Een app voorkomt dat adrbrowsiel veilig verbinding kan maken met deze site</translation>
 <translation id="9219103736887031265">Afbeeldingen</translation>
 <translation id="933712198907837967">Diners Club</translation>
 <translation id="935608979562296692">FORMULIER LEEGMAKEN</translation>
 <translation id="936474030629450166">Super-B</translation>
-<translation id="7486559383537872796">Je kunt de toegang tot je Brave-account kwijtraken. Brave raadt je aan je wachtwoord nu te wijzigen. Je wordt gevraagd in te loggen op je account.</translation>
+<translation id="7486559383537872796">Je kunt de toegang tot je adrbrowsiel-account kwijtraken. adrbrowsiel raadt je aan je wachtwoord nu te wijzigen. Je wordt gevraagd in te loggen op je account.</translation>
 <translation id="939736085109172342">Nieuwe map</translation>
 <translation id="945522503751344254">Feedback sturen</translation>
 <translation id="945855313015696284">Controleer de informatie hieronder en verwijder alle ongeldige passen</translation>
@@ -2061,7 +2061,7 @@ Aanvullende informatie:
     &lt;li&gt;Maak verbinding met een ander netwerk&lt;/li&gt;
     &lt;/ul&gt;</translation>
 <translation id="994346157028146140">JIS B1</translation>
-<translation id="6771143571626203666">Van Brave Pay</translation>
+<translation id="6771143571626203666">Van adrbrowsiel Pay</translation>
 <translation id="8820817407110198400">Bladwijzers</translation>
 <translation id="8362995731815961365">Het profiel van degene die de computer heeft opgezet heeft ervoor gekozen deze site te blokkeren.</translation>
 <translation id="4075123085690634698">Open pagina in een nieuwe Privé venster (⇧⌘N)</translation>
@@ -2085,11 +2085,11 @@ Aanvullende informatie:
     &lt;/ol&gt;
     &lt;h4&gt;Stap 2: Open the pagina in Prive modus (alleen voor computers)&lt;/h4&gt;
     &lt;p&gt;Open de pagina die je bezocht in het Prive venster.&lt;/p&gt;
-    &lt;p&gt;Als de pagina opent, en een Brave extensie niet goed werkt. Om het probleem te verhelpen, schakel de extensie uit.&lt;/p&gt;
+    &lt;p&gt;Als de pagina opent, en een adrbrowsiel extensie niet goed werkt. Om het probleem te verhelpen, schakel de extensie uit.&lt;/p&gt;
     &lt;h4&gt;Stap 3: Werk je besturingssysteem bij&lt;/h4&gt;
     &lt;p&gt;Zorg dat je apparaat is bijgewerkt.&lt;/p&gt;
     &lt;h4&gt;Stap 4: Schakel tijdelijk je antivirus uit&lt;/h4&gt;
-    &lt;p&gt;Je ziet deze fout als je een antivirusprogramma hebt die  "HTTPS protection" of "HTTPS scanning" verschaft. Het antivirusprogramma verhindert Brave om beveiliging te verschaffen.&lt;/p&gt;
+    &lt;p&gt;Je ziet deze fout als je een antivirusprogramma hebt die  "HTTPS protection" of "HTTPS scanning" verschaft. Het antivirusprogramma verhindert adrbrowsiel om beveiliging te verschaffen.&lt;/p&gt;
     &lt;p&gt;Om het probleem te verhelpen, schakel je antivirusprogramma uit. Als de pagina werkt na het uitschakelen van het programma, schakel dan dit programma uit als je beveiligde sites bezoekt.&lt;/p&gt;
     &lt;p&gt;Onthoud om je antivirusprogramma weer in te schakelen als je klaar bent.&lt;/p&gt;
     &lt;h4&gt;Stap 5: Verkrijg extra hulp&lt;/h4&gt;

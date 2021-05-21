@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { torrentObj } from '../testData'
-import TorrentViewerFooter from '../../../brave_webtorrent/extension/components/torrentViewerFooter'
+import TorrentViewerFooter from '../../../adrbrowsiel_webtorrent/extension/components/torrentViewerFooter'
 
 describe('torrentViewerFooter component', () => {
 

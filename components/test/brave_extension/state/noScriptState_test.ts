@@ -3,15 +3,15 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Types
-import { NoScriptInfo } from '../../../brave_extension/extension/brave_extension/types/other/noScriptInfo'
-import { State } from '../../../brave_extension/extension/brave_extension/types/state/shieldsPannelState'
+import { NoScriptInfo } from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/other/noScriptInfo'
+import { State } from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/state/shieldsPannelState'
 
 // State helpers
-import * as noScriptState from '../../../brave_extension/extension/brave_extension/state/noScriptState'
+import * as noScriptState from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/state/noScriptState'
 
 // Helpers
 import * as deepFreeze from 'deep-freeze-node'
-import { getHostname, getOrigin } from '../../../brave_extension/extension/brave_extension/helpers/urlUtils'
+import { getHostname, getOrigin } from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/helpers/urlUtils'
 
 const url1: string = 'http://aaaa.com/script1.js'
 const url2: string = 'http://aaaa.com/script2.js'
@@ -27,7 +27,7 @@ const noScriptInfo: NoScriptInfo = {
   [url5]: { actuallyBlocked: true, willBlock: true, userInteracted: false }
 }
 
-const url: string = 'https://brave.com'
+const url: string = 'https://adrbrowsiel.com'
 const tabId: number = 2
 const state: State = deepFreeze({
   tabs: { [tabId]: { origin: url, id: tabId, noScriptInfo } },

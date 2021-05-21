@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,7 +7,7 @@
 
 #include "base/strings/stringprintf.h"
 #include "bat/ledger/internal/common/request_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
 #include "content/public/test/browser_test_utils.h"
 
 namespace rewards_browsertest_util {
@@ -119,7 +119,7 @@ std::string GetUpholdCard(
         "balance": "%s",
         "currency": "BAT",
         "id": "%s",
-        "label": "Brave Browser",
+        "label": "adrbrowsiel Browser",
         "lastTransactionAt": null,
         "settings": {
           "position": 31,
@@ -162,7 +162,7 @@ std::string GetOrderCreateResponse(ledger::type::SKUOrderPtr sku_order) {
         "currency": "BAT",
         "updatedAt": "2020-04-08T08:22:26.288974Z",
         "totalPrice": "%g",
-        "location": "brave.com",
+        "location": "adrbrowsiel.com",
         "status": "pending",
         "items": [%s]
       })",

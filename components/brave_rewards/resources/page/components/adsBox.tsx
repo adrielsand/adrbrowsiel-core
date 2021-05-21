@@ -17,7 +17,7 @@ import {
   ShowAdsHistory,
   Tokens
 } from '../../ui/components'
-import { Grid, Column, Select, ControlWrapper } from 'brave-ui/components'
+import { Grid, Column, Select, ControlWrapper } from 'adrbrowsiel-ui/components'
 
 // Utils
 import * as utils from '../utils'
@@ -205,7 +205,7 @@ class AdsBox extends React.Component<Props, State> {
               </ControlWrapper>
             </Column>
             <div>
-              {getLocale('adsSubdivisionTargetingDescription')} <a href={'https://support.brave.com/hc/en-us/articles/360026361072-Brave-Ads-FAQ'} target={'_blank'}>{getLocale('adsSubdivisionTargetingLearn')}</a>
+              {getLocale('adsSubdivisionTargetingDescription')} <a href={'https://support.adrbrowsiel.com/hc/en-us/articles/360026361072-adrbrowsiel-Ads-FAQ'} target={'_blank'}>{getLocale('adsSubdivisionTargetingLearn')}</a>
             </div>
           </> : null }
       </Grid>
@@ -415,7 +415,7 @@ class AdsBox extends React.Component<Props, State> {
           toggle={toggle}
           checked={enabled}
           settingsChild={this.adsSettings(enabled)}
-          testId={'braveAdsSettings'}
+          testId={'adrbrowsielAdsSettings'}
           disabledContent={showDisabled ? this.adsDisabled() : null}
           onToggle={this.onAdsSettingChange.bind(this, 'adsEnabled', '')}
           settingsOpened={this.state.settings}

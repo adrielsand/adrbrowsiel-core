@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "ನಿಮ್ಮ ಮೆಚ್ಚಿನ ವಿಷಯ ರಚನೆಕಾರರಿಗೆ ಕೊಡುಗೆಯನ್ನು ನೀಡಲು Brave Rewards ನಲ್ಲಿ ಬಳಸಬಹುದು. BAT ಪಾಯಿಂಟ್‌ಗಳನ್ನು BAT ಗೆ ವಿನಿಮಯ ಮಾಡಲಾಗುವುದಿಲ್ಲ.",
+    "message": "ನಿಮ್ಮ ಮೆಚ್ಚಿನ ವಿಷಯ ರಚನೆಕಾರರಿಗೆ ಕೊಡುಗೆಯನ್ನು ನೀಡಲು adrbrowsiel Rewards ನಲ್ಲಿ ಬಳಸಬಹುದು. BAT ಪಾಯಿಂಟ್‌ಗಳನ್ನು BAT ಗೆ ವಿನಿಮಯ ಮಾಡಲಾಗುವುದಿಲ್ಲ.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Brave ಪರಿಶೀಲಿಸಿದ ರಚನೆಕಾರ",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsiel ಪರಿಶೀಲಿಸಿದ ರಚನೆಕಾರ",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "ಗಮನ",
@@ -193,15 +193,15 @@
     "message": "ಸರಿ",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "ನೀವು ಈಗ ಜಾಹೀರಾತುಗಳನ್ನು ನೋಡುವ ಮೂಲಕ ಗಳಿಸಬಹುದು.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave ಜಾಹೀರಾತುಗಳು",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel ಜಾಹೀರಾತುಗಳು",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "ಸ್ವಯಂ-ಕೊಡುಗೆ",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "ದಯವಿಟ್ಟು ನಿಮ್ಮ Brave ವ್ಯಾಲೆಟ್ ಅನ್ನು ಬ್ಯಾಕಪ್ ಮಾಡಿ.",
+    "message": "ದಯವಿಟ್ಟು ನಿಮ್ಮ adrbrowsiel ವ್ಯಾಲೆಟ್ ಅನ್ನು ಬ್ಯಾಕಪ್ ಮಾಡಿ.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -255,7 +255,7 @@
     "message": "ಫಂಡ್‌ಗಳು ಸಾಕಷ್ಟಿಲ್ಲ",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "ವಾಲೆಟ್ ರಚಿಸಲಾಗುತ್ತಿದೆ",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave Rewards ಏನೋ ಸಮಸ್ಯೆ ಎದುರಿಸುತ್ತಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ.",
+    "message": "adrbrowsiel Rewards ಏನೋ ಸಮಸ್ಯೆ ಎದುರಿಸುತ್ತಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Brave ಬಳಕೆದಾರರಿಂದ ಕೊಡುಗೆಗಳನ್ನು ಸ್ವೀಕರಿಸಲು ಈ ರಚನೆಕಾರ ಇನ್ನೂ ಸೈನ್ ಅಪ್ ಮಾಡಿಲ್ಲ. ನಿಮ್ಮ ವ್ಯಾಲೆಟ್ ಅನ್ನು ಪರಿಶೀಲಿಸುವವರೆಗೆ ನೀವು ಕಳುಹಿಸಿದ ಟಿಪ್‌ಗಳು ಉಳಿಯುತ್ತವೆ.",
+    "message": "adrbrowsiel ಬಳಕೆದಾರರಿಂದ ಕೊಡುಗೆಗಳನ್ನು ಸ್ವೀಕರಿಸಲು ಈ ರಚನೆಕಾರ ಇನ್ನೂ ಸೈನ್ ಅಪ್ ಮಾಡಿಲ್ಲ. ನಿಮ್ಮ ವ್ಯಾಲೆಟ್ ಅನ್ನು ಪರಿಶೀಲಿಸುವವರೆಗೆ ನೀವು ಕಳುಹಿಸಿದ ಟಿಪ್‌ಗಳು ಉಳಿಯುತ್ತವೆ.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave Rewards ಇದಾಗಿದೆ",
+    "message": "adrbrowsiel Rewards ಇದಾಗಿದೆ",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "ಮತ್ತು",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "ಬ್ರೌಸಿಂಗ್ ಮಾಡಿ, ಪುರಸ್ಕಾರ ಪಡೆಯಿರಿ!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Brave Rewards ಸಕ್ರಿಯಗೊಳಿಸಿ",
+    "message": "adrbrowsiel Rewards ಸಕ್ರಿಯಗೊಳಿಸಿ",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "ನಿಮ್ಮ ರಿವಾರ್ಡ್ ನಿಮ್ಮ Brave Rewards ವ್ಯಾಲೆಟ್‌ನಲ್ಲಿ ಇನ್ನೇನು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ.",
+    "message": "ನಿಮ್ಮ ರಿವಾರ್ಡ್ ನಿಮ್ಮ adrbrowsiel Rewards ವ್ಯಾಲೆಟ್‌ನಲ್ಲಿ ಇನ್ನೇನು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Brave ರಿವಾರ್ಡ್‌ಗಳಿಂದ ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಿ",
+    "message": "adrbrowsiel ರಿವಾರ್ಡ್‌ಗಳಿಂದ ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಿ",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Brave ಬಳಕೆದಾರರಿಂದ ಕೊಡುಗೆಗಳನ್ನು ಸ್ವೀಕರಿಸಲು ಈ ಪರಿಶೀಲಿತ Brave ರಚನೆಕಾರ ಇನ್ನೂ ಕಾನ್ಫಿಗರ್ ಮಾಡಿಲ್ಲ. ನೀವು ಕಳುಹಿಸುವ ಯಾವುದೇ ಸಲಹೆಗಳು ಈ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸುವವರೆಗೆ ನಿಮ್ಮ ವಾಲೆಟ್‌ನಲ್ಲಿ ಉಳಿಯುತ್ತವೆ.",
+    "message": "adrbrowsiel ಬಳಕೆದಾರರಿಂದ ಕೊಡುಗೆಗಳನ್ನು ಸ್ವೀಕರಿಸಲು ಈ ಪರಿಶೀಲಿತ adrbrowsiel ರಚನೆಕಾರ ಇನ್ನೂ ಕಾನ್ಫಿಗರ್ ಮಾಡಿಲ್ಲ. ನೀವು ಕಳುಹಿಸುವ ಯಾವುದೇ ಸಲಹೆಗಳು ಈ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸುವವರೆಗೆ ನಿಮ್ಮ ವಾಲೆಟ್‌ನಲ್ಲಿ ಉಳಿಯುತ್ತವೆ.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Brave Rewards ಬಳಸಲು ಪ್ರಾರಂಭಿಸಿ",
+    "message": "adrbrowsiel Rewards ಬಳಸಲು ಪ್ರಾರಂಭಿಸಿ",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Brave Rewards ಗೆ ಸ್ವಾಗತ!",
+    "message": "adrbrowsiel Rewards ಗೆ ಸ್ವಾಗತ!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ಖಾಸಗಿಯಾಗಿಟ್ಟುಕೊಂಡು ಸಾಂಪ್ರದಾಯಿಕ ಜಾಹೀರಾತುಗಳಿಗಿಂತ ಭಿನ್ನವಾಗಿ ವಿಷಯ ರಚನೆಕಾರರನ್ನು ಬೆಂಬಲಿಸಲು Brave ಖಾಸಗಿ ಜಾಹೀರಾತುಗಳು ನಿಮಗೆ ಟೋಕನ್‌ಗಳನ್ನು ನೀಡುತ್ತವೆ.",
+    "message": "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ಖಾಸಗಿಯಾಗಿಟ್ಟುಕೊಂಡು ಸಾಂಪ್ರದಾಯಿಕ ಜಾಹೀರಾತುಗಳಿಗಿಂತ ಭಿನ್ನವಾಗಿ ವಿಷಯ ರಚನೆಕಾರರನ್ನು ಬೆಂಬಲಿಸಲು adrbrowsiel ಖಾಸಗಿ ಜಾಹೀರಾತುಗಳು ನಿಮಗೆ ಟೋಕನ್‌ಗಳನ್ನು ನೀಡುತ್ತವೆ.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Brave ಖಾಸಗಿ ಜಾಹೀರಾತುಗಳು ಸಾಮಾನ್ಯ ಅಧಿಸೂಚನೆಯಂತೆ ಗೋಚರಿಸುತ್ತವೆ. ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಈ ಜಾಹೀರಾತುಗಳನ್ನು ನೀವು ಎಷ್ಟು ಬಾರಿ ನೋಡುತ್ತೀರಿ ಎಂಬುದನ್ನು ನೀವು ನಿಯಂತ್ರಿಸುತ್ತೀರಿ.",
+    "message": "adrbrowsiel ಖಾಸಗಿ ಜಾಹೀರಾತುಗಳು ಸಾಮಾನ್ಯ ಅಧಿಸೂಚನೆಯಂತೆ ಗೋಚರಿಸುತ್ತವೆ. ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಈ ಜಾಹೀರಾತುಗಳನ್ನು ನೀವು ಎಷ್ಟು ಬಾರಿ ನೋಡುತ್ತೀರಿ ಎಂಬುದನ್ನು ನೀವು ನಿಯಂತ್ರಿಸುತ್ತೀರಿ.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "ಪ್ರಸ್ತುತ ತಿಂಗಳಿನಾದ್ಯಂತ Brave ಖಾಸಗಿ ಜಾಹೀರಾತುಗಳಿಂದ ನೀವು ಗಳಿಸಿದ ಟೋಕನ್‌ಗಳು ಮುಂದಿನ ತಿಂಗಳು 5 ರಂದು ಬರಲಿವೆ.",
+    "message": "ಪ್ರಸ್ತುತ ತಿಂಗಳಿನಾದ್ಯಂತ adrbrowsiel ಖಾಸಗಿ ಜಾಹೀರಾತುಗಳಿಂದ ನೀವು ಗಳಿಸಿದ ಟೋಕನ್‌ಗಳು ಮುಂದಿನ ತಿಂಗಳು 5 ರಂದು ಬರಲಿವೆ.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Brave Rewards ಬಳಸುವ ಮೂಲಕ, ಎಲ್ಲರಿಗೂ ವೆಬ್ ಅನ್ನು ಉತ್ತಮ ಸ್ಥಳವನ್ನಾಗಿ ಮಾಡಲು ನೀವು ಸಹಾಯ ಮಾಡುತ್ತಿದ್ದೀರಿ ಮತ್ತು ಅದು ಅದ್ಭುತವಾಗಿದೆ!",
+    "message": "adrbrowsiel Rewards ಬಳಸುವ ಮೂಲಕ, ಎಲ್ಲರಿಗೂ ವೆಬ್ ಅನ್ನು ಉತ್ತಮ ಸ್ಥಳವನ್ನಾಗಿ ಮಾಡಲು ನೀವು ಸಹಾಯ ಮಾಡುತ್ತಿದ್ದೀರಿ ಮತ್ತು ಅದು ಅದ್ಭುತವಾಗಿದೆ!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,7 +816,7 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "ನಿಮ್ಮ ವ್ಯಾಲೆಟ್ ಅನ್ನು ಪರಿಶೀಲಿಸುವ ಮೂಲಕ ಮತ್ತು ಅದನ್ನು bitFlyer ಖಾತೆಗೆ ಲಿಂಕ್ ಮಾಡುವ ಮೂಲಕ, ನೀವು ಹೆಚ್ಚು ಸುಲಭವಾಗಿ Brave Rewards ಮೂಲಕ ಗಳಿಸಿದ ಟೋಕನ್ಗಳನ್ನು ಸಂಗ್ರಹಿಸಲು ಮತ್ತು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ",
+    "message": "ನಿಮ್ಮ ವ್ಯಾಲೆಟ್ ಅನ್ನು ಪರಿಶೀಲಿಸುವ ಮೂಲಕ ಮತ್ತು ಅದನ್ನು bitFlyer ಖಾತೆಗೆ ಲಿಂಕ್ ಮಾಡುವ ಮೂಲಕ, ನೀವು ಹೆಚ್ಚು ಸುಲಭವಾಗಿ adrbrowsiel Rewards ಮೂಲಕ ಗಳಿಸಿದ ಟೋಕನ್ಗಳನ್ನು ಸಂಗ್ರಹಿಸಲು ಮತ್ತು ನಿರ್ವಹಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ",
     "description": ""
   },
   "bapDeprecationHeader": {

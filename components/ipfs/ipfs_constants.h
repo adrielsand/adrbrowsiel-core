@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_IPFS_IPFS_CONSTANTS_H_
-#define BRAVE_COMPONENTS_IPFS_IPFS_CONSTANTS_H_
+#ifndef adrbrowsiel_COMPONENTS_IPFS_IPFS_CONSTANTS_H_
+#define adrbrowsiel_COMPONENTS_IPFS_IPFS_CONSTANTS_H_
 
 namespace ipfs {
 
@@ -43,7 +43,7 @@ extern const char kDirectoryMimeType[];
 extern const char kIPFSImportTextMimeType[];
 
 // Keep it synced with IPFSResolveMethodTypes in
-// browser/resources/settings/brave_ipfs_page/brave_ipfs_page.js
+// browser/resources/settings/adrbrowsiel_ipfs_page/adrbrowsiel_ipfs_page.js
 enum class IPFSResolveMethodTypes {
   IPFS_ASK,
   IPFS_GATEWAY,
@@ -53,4 +53,4 @@ enum class IPFSResolveMethodTypes {
 
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_IPFS_IPFS_CONSTANTS_H_
+#endif  // adrbrowsiel_COMPONENTS_IPFS_IPFS_CONSTANTS_H_

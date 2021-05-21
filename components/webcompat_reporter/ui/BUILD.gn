@@ -1,4 +1,4 @@
-import("//brave/components/common/typescript.gni")
+import("//adrbrowsiel/components/common/typescript.gni")
 
 transpile_web_ui("ui") {
   entry_points = [
@@ -10,7 +10,7 @@ transpile_web_ui("ui") {
 
 pack_web_resources("generated_resources") {
   resource_name = "webcompat_reporter"
-  output_dir = "$root_gen_dir/brave/components/webcompat_reporter/resources"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/webcompat_reporter/resources"
   deps = [
     ":ui"
   ]

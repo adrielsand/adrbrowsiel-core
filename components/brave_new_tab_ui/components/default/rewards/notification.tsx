@@ -11,7 +11,7 @@ import {
   NotificationWrapper,
   NotificationButton
 } from './style'
-import { CloseStrokeIcon } from 'brave-ui/components/icons'
+import { CloseStrokeIcon } from 'adrbrowsiel-ui/components/icons'
 import { getLocale } from '../../../../common/locale'
 
 interface NotificationProps {
@@ -28,7 +28,7 @@ export default class RewardsNotification extends React.PureComponent<Notificatio
 
   onNotificationAction = () => {
     this.dismissNotification()
-    chrome.braveRewards.openBrowserActionUI(`brave_rewards_panel.html#grant_${this.props.promotion.promotionId}`)
+    chrome.adrbrowsielRewards.openBrowserActionUI(`adrbrowsiel_rewards_panel.html#grant_${this.props.promotion.promotionId}`)
   }
 
   render () {

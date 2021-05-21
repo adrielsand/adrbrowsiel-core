@@ -3,9 +3,9 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* global chrome */
 
-import reducers from '../../../../brave_rewards/resources/page/reducers/index'
-import { types } from '../../../../brave_rewards/resources/page/constants/rewards_types'
-import { defaultState } from '../../../../brave_rewards/resources/page/storage'
+import reducers from '../../../../adrbrowsiel_rewards/resources/page/reducers/index'
+import { types } from '../../../../adrbrowsiel_rewards/resources/page/constants/rewards_types'
+import { defaultState } from '../../../../adrbrowsiel_rewards/resources/page/storage'
 
 describe('Promotion Reducer', () => {
 

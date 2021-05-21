@@ -11,13 +11,13 @@ export const header = styled.div`
   display: flex;
   padding: 13px 18px 5px 20px;
   border-radius: 8px 8px 0 0;
-  color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-neutral900);
   background: rgba(255, 255, 255, 0.65);
 `
 
 export const title = styled.div`
   flex: 1 1 auto;
-  color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-neutral900);
   font-weight: 600;
   font-size: 16px;
   line-height: 26px;
@@ -28,7 +28,7 @@ export const date = styled.div`
   text-align: right;
   font-size: 14px;
   line-height: 24px;
-  color: var(--brave-palette-grey700);
+  color: var(--adrbrowsiel-palette-grey700);
 `
 
 export const icon = styled.span`
@@ -45,7 +45,7 @@ export const text = styled.div`
   padding: 19px 21px;
   text-overflow: ellipsis;
   white-space: pre-wrap;
-  background: var(--brave-palette-white);
+  background: var(--adrbrowsiel-palette-white);
   border-radius: 0 0 8px 8px;
-  color: var(--brave-palette-black);
+  color: var(--adrbrowsiel-palette-black);
 `

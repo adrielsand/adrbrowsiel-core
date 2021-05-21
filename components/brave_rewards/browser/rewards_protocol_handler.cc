@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_rewards/browser/rewards_protocol_handler.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_protocol_handler.h"
 
 #include <string>
 #include <utility>
@@ -11,7 +11,7 @@
 #include "base/strings/strcat.h"
 #include "base/strings/string_util.h"
 #include "base/task/post_task.h"
-#include "brave/components/brave_rewards/common/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/url_constants.h"
 #include "content/public/browser/browser_task_traits.h"
 #include "content/public/browser/browser_thread.h"
 #include "net/base/escape.h"
@@ -86,7 +86,7 @@ void LoadRewardsURL(
 
 }  // namespace
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 void HandleRewardsProtocol(const GURL& url,
                            content::WebContents::OnceGetter web_contents_getter,
@@ -103,4 +103,4 @@ bool IsRewardsProtocol(const GURL& url) {
   return url.SchemeIs(kRewardsScheme);
 }
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

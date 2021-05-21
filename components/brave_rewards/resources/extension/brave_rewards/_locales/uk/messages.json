@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Винагороди Brave ",
+  "adrbrowsielRewards": {
+    "message": "Винагороди adrbrowsiel ",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Ми зробили велике оновлення Винагород Brave.",
+    "message": "Ми зробили велике оновлення Винагород adrbrowsiel.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "можуть бути використані у Brave Rewards для підтримки ваших улюблених творців контенту. BAT Points не можуть бути обміняні на BAT.",
+    "message": "можуть бути використані у adrbrowsiel Rewards для підтримки ваших улюблених творців контенту. BAT Points не можуть бути обміняні на BAT.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Перевірений автор Brave",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "Перевірений автор adrbrowsiel",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Увага",
@@ -193,15 +193,15 @@
     "message": "ОК",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Тепер ви можете заробляти, переглядаючи рекламу.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Реклама Brave",
+  "adrbrowsielAdsTitle": {
+    "message": "Реклама adrbrowsiel",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Автоматичний внесок",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Будь ласка, зробіть резервну копію гаманця Brave.",
+    "message": "Будь ласка, зробіть резервну копію гаманця adrbrowsiel.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Ваш обліковий запис Винагород Brave Rewards очікує на депозит.",
+    "message": "Ваш обліковий запис Винагород adrbrowsiel Rewards очікує на депозит.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Недостатньо коштів",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Створення гаманця",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "У Винагород Brave сталася проблема. Будь ласка, спробуйте пізніше.",
+    "message": "У Винагород adrbrowsiel сталася проблема. Будь ласка, спробуйте пізніше.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Цей творець ще не зареєструвався на отримання внесків від користувачів Brave. Всі кошти, які ви надсилатимете, залишатимуться у вашому гаманці, доки вони не верифіковані. ",
+    "message": "Цей творець ще не зареєструвався на отримання внесків від користувачів adrbrowsiel. Всі кошти, які ви надсилатимете, залишатимуться у вашому гаманці, доки вони не верифіковані. ",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Винагороди Brave -  це",
+    "message": "Винагороди adrbrowsiel -  це",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "та",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Отримуйте винагороду за перегляд сайтів!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Увімкнути винагороди Brave",
+    "message": "Увімкнути винагороди adrbrowsiel",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Натиснувши \"Ввімкнути Brave Rewards\", ви вказуєте, що прочитали та згодні з",
+    "message": "Натиснувши \"Ввімкнути adrbrowsiel Rewards\", ви вказуєте, що прочитали та згодні з",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Ваша Нагорода прямує до вашого гаманця Brave Rewards.",
+    "message": "Ваша Нагорода прямує до вашого гаманця adrbrowsiel Rewards.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Від'єднатись від Винагород Brave",
+    "message": "Від'єднатись від Винагород adrbrowsiel",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Цей Перевірений Творець Brave ще не налаштував свй обліковий запис для отримання внесків від користувачів Brave. Усі надіслані вами чайові залишаться у вашому гаманці, доки він не завершить цей процес.",
+    "message": "Цей Перевірений Творець adrbrowsiel ще не налаштував свй обліковий запис для отримання внесків від користувачів adrbrowsiel. Усі надіслані вами чайові залишаться у вашому гаманці, доки він не завершить цей процес.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Почати користуватися Brave Rewards",
+    "message": "Почати користуватися adrbrowsiel Rewards",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Ласкаво просимо до Brave Rewards!",
+    "message": "Ласкаво просимо до adrbrowsiel Rewards!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "На відміну від звичайних рекламних оголошень, приватна реклама Brave не порушує конфіденційність вашої особистої інформації та винагороджує токенами, якими можна підтримувати творців контенту. ",
+    "message": "На відміну від звичайних рекламних оголошень, приватна реклама adrbrowsiel не порушує конфіденційність вашої особистої інформації та винагороджує токенами, якими можна підтримувати творців контенту. ",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Приватна реклама Brave з'являтиметься у вигляді звичайних сповіщень. Частоту їхньої появи можна змінити у налаштуваннях.",
+    "message": "Приватна реклама adrbrowsiel з'являтиметься у вигляді звичайних сповіщень. Частоту їхньої появи можна змінити у налаштуваннях.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Токени, зароблені за перегляд приватної реклами Brave цього місяця, будуть нараховані вам 5-го числа наступного місяця.",
+    "message": "Токени, зароблені за перегляд приватної реклами adrbrowsiel цього місяця, будуть нараховані вам 5-го числа наступного місяця.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Користуючись нагородами Brave, ви допомагаєте зробити мережу кращим місцем для кожного. І це чудово!",
+    "message": "Користуючись нагородами adrbrowsiel, ви допомагаєте зробити мережу кращим місцем для кожного. І це чудово!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Виконавши верифікацію гаманця та прив’язавши його до облікового запису bitFlyer, ви зможете зберігати зароблені за допомогою Винагород Brave токени і керувати ними в більш простий спосіб.",
+    "message": "Виконавши верифікацію гаманця та прив’язавши його до облікового запису bitFlyer, ви зможете зберігати зароблені за допомогою Винагород adrbrowsiel токени і керувати ними в більш простий спосіб.",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Brave Rewards у Японії переходять на нову систему!",
+    "message": "adrbrowsiel Rewards у Японії переходять на нову систему!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

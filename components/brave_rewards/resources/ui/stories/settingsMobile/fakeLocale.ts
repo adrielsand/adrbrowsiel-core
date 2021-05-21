@@ -3,13 +3,13 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 const locale = {
-  adsDesc: 'Earn tokens by seeing ads on Brave. Ads are matched from machine learning and the data temporarily present in your browser without tracking your information or sending it outside.',
+  adsDesc: 'Earn tokens by seeing ads on adrbrowsiel. Ads are matched from machine learning and the data temporarily present in your browser without tracking your information or sending it outside.',
   adsDisabledText: 'Coming soon',
   adsDisplayed: 'Ads displayed',
   adsEarnings: 'Earnings this month',
   adsFreq: 'Ad Frequency',
   adsMode: 'Ad mode',
-  adsTitle: 'Brave Ads',
+  adsTitle: 'adrbrowsiel Ads',
   contributionOther: 'Other settings',
   contributionDesc: 'A simple way to support content creators. Set monthly allowance and browse normally. Your favorite sites (content sites only) receive your contributions automatically. You can exclude sites from funding here.',
   contributionHideAll: 'Hide all',
@@ -25,7 +25,7 @@ const locale = {
   contributionTime5: '5 seconds',
   contributionTime60: '60 seconds',
   contributionTime8: '8 seconds',
-  contributionTitle: 'Brave Contribute',
+  contributionTitle: 'adrbrowsiel Contribute',
   contributionVideos: 'Allow contribution to videos',
   contributionVisit10: '10 visits',
   contributionVisit1: '1 visit',
@@ -34,8 +34,8 @@ const locale = {
   donationTitle: 'Tips',
   donationTotal: 'Total tips this month',
   rewardsDisabledDescOne: 'With conventional browsers, you pay to browse the web by viewing ads with your valuable attention, spending your valuable time downloading invasive ad technology, that transmits your valuable private data to advertisers — without your consent.',
-  rewardsDisabledDescTwo: 'Today, Brave welcomes you to the new internet. One where your time is valued, your personal data is kept private, and you actually get paid for your attention.',
-  whyBraveRewards: 'Why Brave Rewards?'
+  rewardsDisabledDescTwo: 'Today, adrbrowsiel welcomes you to the new internet. One where your time is valued, your personal data is kept private, and you actually get paid for your attention.',
+  whyadrbrowsielRewards: 'Why adrbrowsiel Rewards?'
 }
 
 export default locale

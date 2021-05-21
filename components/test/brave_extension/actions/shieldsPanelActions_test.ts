@@ -3,23 +3,23 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Types
-import * as types from '../../../brave_extension/extension/brave_extension/constants/shieldsPanelTypes'
-import { ShieldDetails, BlockDetails } from '../../../brave_extension/extension/brave_extension/types/actions/shieldsPanelActions'
+import * as types from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/shieldsPanelTypes'
+import { ShieldDetails, BlockDetails } from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/actions/shieldsPanelActions'
 import {
   BlockOptions,
   BlockFPOptions,
   BlockCookiesOptions
-} from '../../../brave_extension/extension/brave_extension/types/other/blockTypes'
+} from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/other/blockTypes'
 
 // Actions
-import * as actions from '../../../brave_extension/extension/brave_extension/actions/shieldsPanelActions'
+import * as actions from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/actions/shieldsPanelActions'
 
 const details: ShieldDetails = {
   ads: 'allow',
   trackers: 'block',
   httpUpgradableResources: 'allow',
-  origin: 'https://www.brave.com',
-  hostname: 'www.brave.com',
+  origin: 'https://www.adrbrowsiel.com',
+  hostname: 'www.adrbrowsiel.com',
   id: 1,
   javascript: 'allow',
   fingerprinting: 'allow',
@@ -62,7 +62,7 @@ describe('shieldsPanelActions', () => {
     const details: BlockDetails = {
       blockType: 'shieldsAds',
       tabId: 2,
-      subresource: 'https://www.brave.com/test'
+      subresource: 'https://www.adrbrowsiel.com/test'
     }
     expect(actions.resourceBlocked(details)).toEqual({
       type: types.RESOURCE_BLOCKED,

@@ -1,18 +1,18 @@
-import("//brave/components/common/typescript.gni")
+import("//adrbrowsiel/components/common/typescript.gni")
 import("//build/config/features.gni")
 import("//tools/grit/grit_rule.gni")
 import("//tools/grit/repack.gni")
 import("buildflags/buildflags.gni")
 
 declare_args() {
-  brave_sync_endpoint = ""
+  adrbrowsiel_sync_endpoint = ""
 }
 
-if (is_official_build) { assert(brave_sync_endpoint != "") }
+if (is_official_build) { assert(adrbrowsiel_sync_endpoint != "") }
 
-config("brave_sync_config") {
+config("adrbrowsiel_sync_config") {
   defines = [
-    "BRAVE_SYNC_ENDPOINT=\"$brave_sync_endpoint\""
+    "adrbrowsiel_SYNC_ENDPOINT=\"$adrbrowsiel_sync_endpoint\""
   ]
 }
 
@@ -24,8 +24,8 @@ source_set("crypto") {
 
   deps = [
     "//base",
-    "//brave/vendor/bat-native-tweetnacl:tweetnacl",
-    "//brave/vendor/bip39wally-core-native:bip39wally-core",
+    "//adrbrowsiel/vendor/bat-native-tweetnacl:tweetnacl",
+    "//adrbrowsiel/vendor/bip39wally-core-native:bip39wally-core",
     "//crypto",
     "//third_party/boringssl",
   ]
@@ -48,7 +48,7 @@ source_set("features") {
 }
 
 source_set("network_time_helper") {
-  # Remove when https://github.com/brave/brave-browser/issues/10650 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10650 is resolved
   check_includes = false
   sources = [
     "network_time_helper.cc",
@@ -63,8 +63,8 @@ source_set("network_time_helper") {
 
 source_set("prefs") {
   sources = [
-    "brave_sync_prefs.cc",
-    "brave_sync_prefs.h",
+    "adrbrowsiel_sync_prefs.cc",
+    "adrbrowsiel_sync_prefs.h",
   ]
 
   deps = [
@@ -87,7 +87,7 @@ source_set("profile_sync_service_helper") {
   ]
 }
 
-group("brave_sync") {
+group("adrbrowsiel_sync") {
   deps = [
     ":crypto",
     ":features",
@@ -99,5 +99,5 @@ group("brave_sync") {
 }
 
 group("constants") {
-  public_configs = [ ":brave_sync_config" ]
+  public_configs = [ ":adrbrowsiel_sync_config" ]
 }

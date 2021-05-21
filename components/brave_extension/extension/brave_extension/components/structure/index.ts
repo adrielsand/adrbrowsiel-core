@@ -136,7 +136,7 @@ export const BlockedInfoRowSummary = styled(BlockedInfoRow.withComponent('summar
   }
 
   &:focus {
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
     outline-offset: -3px;
     outline-width: 2px;
   }
@@ -165,7 +165,7 @@ export const BlockedInfoRowForSelectSummary = styled(BlockedInfoRowForSelect.wit
   }
 
   &:focus {
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
     outline-offset: -3px;
     outline-width: 2px;
   }
@@ -200,23 +200,23 @@ export const BlockedInfoRowData = styled('div')<BlockedInfoRowDataProps>`
   &:focus {
     outline-width: 2px;
     outline-offset: -3px;
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
   }
 
   &:hover {
     cursor: pointer;
-    color: ${p => p.theme.color.brandBrave};
+    color: ${p => p.theme.color.brandadrbrowsiel};
 
     ${BlockedInfoRowStats} {
-      color: ${p => p.theme.color.brandBrave};
+      color: ${p => p.theme.color.brandadrbrowsiel};
     }
     ${BlockedInfoRowText} {
-      color: ${p => p.theme.color.brandBrave};
+      color: ${p => p.theme.color.brandadrbrowsiel};
     }
   }
 
   &:hover svg {
-    color: ${p => p.theme.color.brandBrave};
+    color: ${p => p.theme.color.brandadrbrowsiel};
   }
 `
 
@@ -281,7 +281,7 @@ export const BlockedListSummary = styled('summary')<BlockedListSummaryProps>`
   &:focus {
     outline-width: 2px;
     outline-offset: -3px;
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
   }
 
   &:active {
@@ -404,7 +404,7 @@ export const BlockedListItemSummary = styled(BlockedListItemWithOptions.withComp
   &:focus {
     outline-width: 2px;
     outline-offset: -3px;
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
   }
 `
 

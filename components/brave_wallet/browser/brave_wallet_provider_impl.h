@@ -1,30 +1,30 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_PROVIDER_IMPL_H_
-#define BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_PROVIDER_IMPL_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_adrbrowsiel_WALLET_PROVIDER_IMPL_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_adrbrowsiel_WALLET_PROVIDER_IMPL_H_
 
 #include <map>
 #include <memory>
 #include <string>
 
 #include "base/memory/weak_ptr.h"
-#include "brave/components/brave_wallet/common/brave_wallet.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/common/adrbrowsiel_wallet.mojom.h"
 
-class BraveWalletService;
+class adrbrowsielWalletService;
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
-class BraveWalletProviderImpl final
-    : public brave_wallet::mojom::BraveWalletProvider {
+class adrbrowsielWalletProviderImpl final
+    : public adrbrowsiel_wallet::mojom::adrbrowsielWalletProvider {
  public:
-  BraveWalletProviderImpl(const BraveWalletProviderImpl&) = delete;
-  BraveWalletProviderImpl& operator=(const BraveWalletProviderImpl&) = delete;
-  explicit BraveWalletProviderImpl(
-      base::WeakPtr<BraveWalletService> wallet_service);
-  ~BraveWalletProviderImpl() override;
+  adrbrowsielWalletProviderImpl(const adrbrowsielWalletProviderImpl&) = delete;
+  adrbrowsielWalletProviderImpl& operator=(const adrbrowsielWalletProviderImpl&) = delete;
+  explicit adrbrowsielWalletProviderImpl(
+      base::WeakPtr<adrbrowsielWalletService> wallet_service);
+  ~adrbrowsielWalletProviderImpl() override;
 
   void Request(const std::string& json_payload,
                RequestCallback callback) override;
@@ -34,11 +34,11 @@ class BraveWalletProviderImpl final
                   const std::map<std::string, std::string>& headers);
 
  private:
-  base::WeakPtr<BraveWalletService> wallet_service_;
+  base::WeakPtr<adrbrowsielWalletService> wallet_service_;
 
-  base::WeakPtrFactory<BraveWalletProviderImpl> weak_factory_;
+  base::WeakPtrFactory<adrbrowsielWalletProviderImpl> weak_factory_;
 };
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_PROVIDER_IMPL_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_adrbrowsiel_WALLET_PROVIDER_IMPL_H_

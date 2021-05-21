@@ -94,7 +94,7 @@ export const Content = styled('section')<ContentProps>`
     this is needed because due to our animation transition, the parent container
     cannot have "display: none" and is using "opacity: 0" instead, making invisible
     elements still accessible via keyboard, creating an a11y issue.
-    see https://github.com/brave/brave-browser/issues/5504
+    see https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5504
   */
   > * {
     display: ${p => p.active === false && 'none'};

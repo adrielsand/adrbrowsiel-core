@@ -1,13 +1,13 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_ads/browser/notification_helper_linux.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/notification_helper_linux.h"
 
-#include "brave/components/brave_ads/browser/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/features.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 NotificationHelperLinux::NotificationHelperLinux() = default;
 
@@ -18,7 +18,7 @@ bool NotificationHelperLinux::ShouldShowNotifications() {
     return true;
   }
 
-  // TODO(https://github.com/brave/brave-browser/issues/5542): Investigate how
+  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5542): Investigate how
   // we can detect if notifications are enabled within the Linux operating
   // system
 
@@ -41,4 +41,4 @@ NotificationHelper* NotificationHelper::GetInstanceImpl() {
   return NotificationHelperLinux::GetInstanceImpl();
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

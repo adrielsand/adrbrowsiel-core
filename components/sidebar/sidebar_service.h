@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SIDEBAR_SIDEBAR_SERVICE_H_
-#define BRAVE_COMPONENTS_SIDEBAR_SIDEBAR_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_SIDEBAR_SIDEBAR_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_SIDEBAR_SIDEBAR_SERVICE_H_
 
 #include <string>
 #include <vector>
 
 #include "base/observer_list.h"
-#include "brave/components/sidebar/sidebar_item.h"
+#include "adrbrowsiel/components/sidebar/sidebar_item.h"
 #include "components/keyed_service/core/keyed_service.h"
 #include "components/prefs/pref_change_registrar.h"
 
@@ -78,4 +78,4 @@ class SidebarService : public KeyedService {
 
 }  // namespace sidebar
 
-#endif  // BRAVE_COMPONENTS_SIDEBAR_SIDEBAR_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_SIDEBAR_SIDEBAR_SERVICE_H_

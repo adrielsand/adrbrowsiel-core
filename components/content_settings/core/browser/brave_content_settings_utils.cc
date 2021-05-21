@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/content_settings/core/browser/brave_content_settings_utils.h"
+#include "adrbrowsiel/components/content_settings/core/browser/adrbrowsiel_content_settings_utils.h"
 
 #include <algorithm>
 
@@ -11,20 +11,20 @@
 #include "base/optional.h"
 #include "base/strings/string_number_conversions.h"
 #include "base/values.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
 #include "url/gurl.h"
 
 namespace {
 
 const std::vector<ContentSettingsType> kShieldsContentSettingsTypes{
-    ContentSettingsType::BRAVE_ADS,
-    ContentSettingsType::BRAVE_COSMETIC_FILTERING,
-    ContentSettingsType::BRAVE_TRACKERS,
-    ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES,
-    ContentSettingsType::BRAVE_FINGERPRINTING_V2,
-    ContentSettingsType::BRAVE_SHIELDS,
-    ContentSettingsType::BRAVE_REFERRERS,
-    ContentSettingsType::BRAVE_COOKIES};
+    ContentSettingsType::adrbrowsiel_ADS,
+    ContentSettingsType::adrbrowsiel_COSMETIC_FILTERING,
+    ContentSettingsType::adrbrowsiel_TRACKERS,
+    ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES,
+    ContentSettingsType::adrbrowsiel_FINGERPRINTING_V2,
+    ContentSettingsType::adrbrowsiel_SHIELDS,
+    ContentSettingsType::adrbrowsiel_REFERRERS,
+    ContentSettingsType::adrbrowsiel_COOKIES};
 
 bool CanPatternBeConvertedToWildcardSchemeAndPort(
     const ContentSettingsPattern& pattern) {
@@ -62,22 +62,22 @@ const std::vector<ContentSettingsType>& GetShieldsContentSettingsTypes() {
 
 std::string GetShieldsContentTypeName(const ContentSettingsType& content_type) {
   switch (content_type) {
-    case ContentSettingsType::BRAVE_ADS:
-      return brave_shields::kAds;
-    case ContentSettingsType::BRAVE_COSMETIC_FILTERING:
-      return brave_shields::kCosmeticFiltering;
-    case ContentSettingsType::BRAVE_TRACKERS:
-      return brave_shields::kTrackers;
-    case ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES:
-      return brave_shields::kHTTPUpgradableResources;
-    case ContentSettingsType::BRAVE_FINGERPRINTING_V2:
-      return brave_shields::kFingerprintingV2;
-    case ContentSettingsType::BRAVE_SHIELDS:
-      return brave_shields::kBraveShields;
-    case ContentSettingsType::BRAVE_REFERRERS:
-      return brave_shields::kReferrers;
-    case ContentSettingsType::BRAVE_COOKIES:
-      return brave_shields::kCookies;
+    case ContentSettingsType::adrbrowsiel_ADS:
+      return adrbrowsiel_shields::kAds;
+    case ContentSettingsType::adrbrowsiel_COSMETIC_FILTERING:
+      return adrbrowsiel_shields::kCosmeticFiltering;
+    case ContentSettingsType::adrbrowsiel_TRACKERS:
+      return adrbrowsiel_shields::kTrackers;
+    case ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES:
+      return adrbrowsiel_shields::kHTTPUpgradableResources;
+    case ContentSettingsType::adrbrowsiel_FINGERPRINTING_V2:
+      return adrbrowsiel_shields::kFingerprintingV2;
+    case ContentSettingsType::adrbrowsiel_SHIELDS:
+      return adrbrowsiel_shields::kadrbrowsielShields;
+    case ContentSettingsType::adrbrowsiel_REFERRERS:
+      return adrbrowsiel_shields::kReferrers;
+    case ContentSettingsType::adrbrowsiel_COOKIES:
+      return adrbrowsiel_shields::kCookies;
     default:
       NOTREACHED();
       return std::string();
@@ -111,7 +111,7 @@ base::Optional<ContentSettingsPattern> ConvertPatternToWildcardSchemeAndPort(
   return new_pattern;
 }
 
-// Returns the full path in the user preferences store to the Brave Shields
+// Returns the full path in the user preferences store to the adrbrowsiel Shields
 // setting identified by it's name (i.e. |name|).
 std::string GetShieldsSettingUserPrefsPath(const std::string& name) {
   return std::string("profile.content_settings.exceptions.").append(name);

@@ -5,7 +5,7 @@
 import styled from 'styled-components'
 
 export const panelText = styled.div`
-  color: var(--brave-color-brandBat);
+  color: var(--adrbrowsiel-color-brandBat);
   font-size: 14px;
   line-height: 20px;
   margin-top: -5px;
@@ -25,17 +25,17 @@ export const section = styled.div`
 `
 
 export const label = styled.div`
-  color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-neutral900);
 `
 
 export const sublabel = styled.div`
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
 `
 
 export const optionBar = styled.div`
   margin-top: 10px;
   background: rgba(241, 236, 255, 0.5);
-  border: 2px solid var(--brave-palette-purple300);
+  border: 2px solid var(--adrbrowsiel-palette-purple300);
   border-radius: 2px;
   display: flex;
 
@@ -45,19 +45,19 @@ export const optionBar = styled.div`
     font-weight: 600;
     font-size: 18px;
     line-height: 27px;
-    color: var(--brave-palette-neutral700);
+    color: var(--adrbrowsiel-palette-neutral700);
     border: 0;
     border-radius: 2px;
     background: none;
     cursor: pointer;
 
     &.selected {
-      color: var(--brave-palette-white);
-      background: var(--brave-palette-purple400);
+      color: var(--adrbrowsiel-palette-white);
+      background: var(--adrbrowsiel-palette-purple400);
       cursor: default;
 
       * {
-        color: var(--brave-palette-white);
+        color: var(--adrbrowsiel-palette-white);
       }
     }
   }

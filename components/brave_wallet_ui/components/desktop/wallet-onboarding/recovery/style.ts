@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { AlertCircleIcon } from 'brave-ui/components/icons'
+import { AlertCircleIcon } from 'adrbrowsiel-ui/components/icons'
 
 export const StyledWrapper = styled.div`
   display: flex;

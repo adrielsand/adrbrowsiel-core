@@ -12,7 +12,7 @@ import {
   StyledDisclaimer,
   StyleRight
 } from './style'
-import { CloseStrokeIcon } from 'brave-ui/components/icons'
+import { CloseStrokeIcon } from 'adrbrowsiel-ui/components/icons'
 
 export interface Props {
   title: string

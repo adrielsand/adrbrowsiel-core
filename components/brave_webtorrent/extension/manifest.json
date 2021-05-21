@@ -1,15 +1,15 @@
 {
   "version": "1.0.0",
-  "name": "Brave WebTorrent",
+  "name": "adrbrowsiel WebTorrent",
   "manifest_version": 2,
   "description": "WebTorrent extension",
   "background" : {
-    "scripts": ["extension/out/brave_webtorrent_background.bundle.js"],
+    "scripts": ["extension/out/adrbrowsiel_webtorrent_background.bundle.js"],
     "persistent": false
   },
   "web_accessible_resources": [
-    "extension/brave_webtorrent.html",
-    "extension/brave_webtorrent2.html"
+    "extension/adrbrowsiel_webtorrent.html",
+    "extension/adrbrowsiel_webtorrent2.html"
   ],
   "permissions": [
     "downloads",

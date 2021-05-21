@@ -16,10 +16,10 @@ import {
   WalletWrapper
 } from '../../components'
 import { WalletState } from '../../components/walletWrapper'
-import { WalletAddIcon, WalletWithdrawIcon } from 'brave-ui/components/icons'
+import { WalletAddIcon, WalletWithdrawIcon } from 'adrbrowsiel-ui/components/icons'
 
 // Assets
-const favicon = require('../img/brave-favicon.png')
+const favicon = require('../img/adrbrowsiel-favicon.png')
 const buzz = require('../img/buzz.jpg')
 const ddgo = require('../img/ddgo.jpg')
 const guardian = require('../img/guardian.jpg')
@@ -59,7 +59,7 @@ class PageWallet extends React.Component<Props, State> {
           provider: 'youtube',
           src: favicon
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         amount: {
           tokens: '5.0',
           converted: '5.00'
@@ -72,7 +72,7 @@ class PageWallet extends React.Component<Props, State> {
           verified: true,
           src: ddgo
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         amount: {
           tokens: '4.0',
           converted: '11.00'
@@ -85,7 +85,7 @@ class PageWallet extends React.Component<Props, State> {
           verified: false,
           src: buzz
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         amount: {
           tokens: '3.0',
           converted: '15.00'
@@ -98,7 +98,7 @@ class PageWallet extends React.Component<Props, State> {
           verified: true,
           src: guardian
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         amount: {
           tokens: '2.0',
           converted: '17.00'
@@ -111,7 +111,7 @@ class PageWallet extends React.Component<Props, State> {
           verified: false,
           src: wiki
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         amount: {
           tokens: '1.0',
           converted: '11.00'
@@ -126,7 +126,7 @@ class PageWallet extends React.Component<Props, State> {
       {
         date: 1576066103000,
         type: 'ads',
-        description: 'Brave Ads payment for May',
+        description: 'adrbrowsiel Ads payment for May',
         amount: {
           value: '5.0',
           converted: '5.00'

@@ -19,7 +19,7 @@ const informTabOfCosmeticRulesToConsider = (tabId: number, selectors: string[]) 
 
 // Fires when content-script calls hiddenClassIdSelectors
 export const injectClassIdStylesheet = (tabId: number, classes: string[], ids: string[], exceptions: string[], hide1pContent: boolean) => {
-  chrome.braveShields.hiddenClassIdSelectors(classes, ids, exceptions, (selectors, forceHideSelectors) => {
+  chrome.adrbrowsielShields.hiddenClassIdSelectors(classes, ids, exceptions, (selectors, forceHideSelectors) => {
     if (hide1pContent) {
       forceHideSelectors.push(...selectors)
     } else {
@@ -40,7 +40,7 @@ export const injectClassIdStylesheet = (tabId: number, classes: string[], ids: s
 
 // Fires on content-script loaded
 export const applyAdblockCosmeticFilters = (tabId: number, frameId: number, url: string, hide1pContent: boolean) => {
-  chrome.braveShields.urlCosmeticResources(url, async (resources) => {
+  chrome.adrbrowsielShields.urlCosmeticResources(url, async (resources) => {
     if (chrome.runtime.lastError) {
       console.warn('Unable to get cosmetic filter data for the current host', chrome.runtime.lastError)
       return
@@ -77,13 +77,13 @@ export const applyAdblockCosmeticFilters = (tabId: number, frameId: number, url:
 //
 // If any of these legacy cosmetic filters are still present, this function
 // will migrate them to share the adblock-rust infrastructure used by the
-// custom filters engine from brave://adblock.
+// custom filters engine from adrbrowsiel://adblock.
 const tryMigratingLegacyCosmeticFilters = () => {
   chrome.storage.local.get('cosmeticFilterList', (storeData = {}) => {
     if (storeData.cosmeticFilterList !== undefined) {
       const cosmeticFilterList = storeData.cosmeticFilterList
       console.error(JSON.stringify(cosmeticFilterList))
-      chrome.braveShields.migrateLegacyCosmeticFilters(cosmeticFilterList, (success) => {
+      chrome.adrbrowsielShields.migrateLegacyCosmeticFilters(cosmeticFilterList, (success) => {
         if (success) {
           chrome.storage.local.remove('cosmeticFilterList')
         } else {
@@ -95,13 +95,13 @@ const tryMigratingLegacyCosmeticFilters = () => {
 }
 
 export const addSiteCosmeticFilter = (host: string, cssSelector: string) => {
-  chrome.braveShields.addSiteCosmeticFilter(host, cssSelector)
+  chrome.adrbrowsielShields.addSiteCosmeticFilter(host, cssSelector)
 }
 
 export const openFilterManagementPage = () => {
-  chrome.braveShields.openFilterManagementPage()
+  chrome.adrbrowsielShields.openFilterManagementPage()
 }
 
-// Attempt to run the legacy filters migration during brave_extension
+// Attempt to run the legacy filters migration during adrbrowsiel_extension
 // initialization.
 tryMigratingLegacyCosmeticFilters()

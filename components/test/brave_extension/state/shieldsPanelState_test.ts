@@ -2,11 +2,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { State, PersistentData } from '../../../brave_extension/extension/brave_extension/types/state/shieldsPannelState'
+import { State, PersistentData } from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/state/shieldsPannelState'
 import * as deepFreeze from 'deep-freeze-node'
-import * as shieldsPanelState from '../../../brave_extension/extension/brave_extension/state/shieldsPanelState'
-import * as noScriptState from '../../../brave_extension/extension/brave_extension/state/noScriptState'
-import * as shieldsAPI from '../../../brave_extension/extension/brave_extension/background/api/shieldsAPI'
+import * as shieldsPanelState from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/state/shieldsPanelState'
+import * as noScriptState from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/state/noScriptState'
+import * as shieldsAPI from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/api/shieldsAPI'
 
 const state: State = deepFreeze({
   currentWindowId: 1,
@@ -20,13 +20,13 @@ const state: State = deepFreeze({
   tabs: {
     2: {
       id: 2,
-      hostname: 'https://brave.com',
-      origin: 'https://brave.com',
-      url: 'https://brave.com',
+      hostname: 'https://adrbrowsiel.com',
+      origin: 'https://adrbrowsiel.com',
+      url: 'https://adrbrowsiel.com',
       ads: 'block',
       adsBlocked: 0,
       adsBlockedResources: [],
-      braveShields: 'allow',
+      adrbrowsielShields: 'allow',
       controlsOpen: true,
       trackers: 'block',
       trackersBlocked: 0,
@@ -71,28 +71,28 @@ describe('shieldsPanelState test', () => {
       const assertion = shieldsPanelState.isShieldsActive(state, 123123123123)
       expect(assertion).toBe(false)
     })
-    it('returns false if braveShields is set to `block`', () => {
+    it('returns false if adrbrowsielShields is set to `block`', () => {
       const newState: State = deepFreeze({
         ...state,
         tabs: {
           ...state.tabs,
           2: {
             ...state.tabs[2],
-            braveShields: 'block'
+            adrbrowsielShields: 'block'
           }
         }
       })
       const assertion = shieldsPanelState.isShieldsActive(newState, 2)
       expect(assertion).toBe(false)
     })
-    it('returns true if braveShields is not set to block', () => {
+    it('returns true if adrbrowsielShields is not set to block', () => {
       const newState: State = deepFreeze({
         ...state,
         tabs: {
           ...state.tabs,
           2: {
             ...state.tabs[2],
-            braveShields: 'allow'
+            adrbrowsielShields: 'allow'
           }
         }
       })
@@ -201,7 +201,7 @@ describe('shieldsPanelState test', () => {
         tabs: {
           [this.tabId]: {
             ...state.tabs[this.tabId],
-            braveShields: 'block',
+            adrbrowsielShields: 'block',
             adsBlocked: 3,
             trackersBlocked: 4444,
             httpsRedirected: 5,
@@ -212,12 +212,12 @@ describe('shieldsPanelState test', () => {
           3: {
             ...state.tabs[2],
             id: 3,
-            braveShields: 'block'
+            adrbrowsielShields: 'block'
           },
           4: {
             ...state.tabs[2],
             id: 4,
-            braveShields: 'block'
+            adrbrowsielShields: 'block'
           }
         }
       }
@@ -231,9 +231,9 @@ describe('shieldsPanelState test', () => {
         ...state,
         tabs: {
           ...state.tabs,
-          2: { ...state.tabs[2], braveShields: 'block' },
-          3: { ...state.tabs[2], id: 3, braveShields: 'block' },
-          4: { ...state.tabs[2], id: 4, braveShields: 'block' }
+          2: { ...state.tabs[2], adrbrowsielShields: 'block' },
+          3: { ...state.tabs[2], id: 3, adrbrowsielShields: 'block' },
+          4: { ...state.tabs[2], id: 4, adrbrowsielShields: 'block' }
         }
       })
     })
@@ -246,7 +246,7 @@ describe('shieldsPanelState test', () => {
           [this.tabId]: {
             ...state.tabs[2],
             id: 4,
-            braveShields: 'block',
+            adrbrowsielShields: 'block',
             adsBlocked: 3,
             httpsRedirected: 5,
             javascriptBlocked: 5,
@@ -263,7 +263,7 @@ describe('shieldsPanelState test', () => {
           [this.tabId]: {
             ...state.tabs[2],
             id: 4,
-            braveShields: 'block'
+            adrbrowsielShields: 'block'
           }
         }
       })
@@ -272,7 +272,7 @@ describe('shieldsPanelState test', () => {
   describe('updateResourceBlocked', () => {
     it('can update ads blocked count', () => {
       this.tabId = 2
-      expect(shieldsPanelState.updateResourceBlocked(state, this.tabId, 'shieldsAds', 'https://test.brave.com')).toEqual({
+      expect(shieldsPanelState.updateResourceBlocked(state, this.tabId, 'shieldsAds', 'https://test.adrbrowsiel.com')).toEqual({
         ...state,
         tabs: {
           ...state.tabs,
@@ -280,7 +280,7 @@ describe('shieldsPanelState test', () => {
             ...state.tabs[this.tabId],
             adsBlocked: 1,
             adsBlockedResources: [
-              'https://test.brave.com'
+              'https://test.adrbrowsiel.com'
             ]
           }
         }
@@ -288,7 +288,7 @@ describe('shieldsPanelState test', () => {
     })
     it('can update tracking protection blocked count', () => {
       this.tabId = 2
-      expect(shieldsPanelState.updateResourceBlocked(state, this.tabId, 'trackers', 'https://test.brave.com'))
+      expect(shieldsPanelState.updateResourceBlocked(state, this.tabId, 'trackers', 'https://test.adrbrowsiel.com'))
       .toEqual({
         ...state,
         tabs: {
@@ -297,7 +297,7 @@ describe('shieldsPanelState test', () => {
             ...state.tabs[this.tabId],
             trackersBlocked: 1,
             trackersBlockedResources: [
-              'https://test.brave.com'
+              'https://test.adrbrowsiel.com'
             ]
           }
         }
@@ -305,7 +305,7 @@ describe('shieldsPanelState test', () => {
     })
     it('can update javascript blocked count and noScriptInfo', () => {
       this.tabId = 2
-      expect(shieldsPanelState.updateResourceBlocked(state, this.tabId, 'javascript', 'https://test.brave.com')).toEqual({
+      expect(shieldsPanelState.updateResourceBlocked(state, this.tabId, 'javascript', 'https://test.adrbrowsiel.com')).toEqual({
         ...state,
         tabs: {
           ...state.tabs,
@@ -313,7 +313,7 @@ describe('shieldsPanelState test', () => {
             ...state.tabs[this.tabId],
             javascriptBlocked: 1,
             noScriptInfo: {
-              'https://test.brave.com': { actuallyBlocked: true, willBlock: true, userInteracted: false }
+              'https://test.adrbrowsiel.com': { actuallyBlocked: true, willBlock: true, userInteracted: false }
             }
           }
         }
@@ -345,7 +345,7 @@ describe('shieldsPanelState test', () => {
     it('reset noScriptInfo for a specific tab without navigating away', () => {
       this.tabId = 2
       expect(noScriptState.resetNoScriptInfo(
-        stateWithAllowedScriptOrigins, this.tabId, 'https://brave.com')).toEqual({
+        stateWithAllowedScriptOrigins, this.tabId, 'https://adrbrowsiel.com')).toEqual({
           ...state,
           tabs: {
             ...state.tabs,
@@ -370,7 +370,7 @@ describe('shieldsPanelState test', () => {
     it('reset noScriptInfo for a specific tab with navigating away', () => {
       this.tabId = 2
       expect(noScriptState.resetNoScriptInfo(
-        stateWithAllowedScriptOrigins, this.tabId, 'https://test.brave.com')).toEqual({
+        stateWithAllowedScriptOrigins, this.tabId, 'https://test.adrbrowsiel.com')).toEqual({
           ...state,
           tabs: {
             ...state.tabs,

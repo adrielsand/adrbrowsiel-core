@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -89,7 +89,7 @@ if (!document.querySelector('script[data-dapp-detection]')) {
   (document.head || document.documentElement).appendChild(scriptEl)
 
   // If a website tries to access window.ethereum within the first 2 seconds,
-  // then we prompt to install Brave Crypto Wallets.
+  // then we prompt to install adrbrowsiel Crypto Wallets.
   // If a website does not try to access window.ethereum, then we will not prompt.
   window.setTimeout(() => {
     const isDapp = document.querySelector('meta[name="dapp-detected"]')

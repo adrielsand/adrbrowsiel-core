@@ -24,12 +24,12 @@
     "description": "Message telling the user to disable shields if a site appears broken"
   },
   "disabledMessage": {
-    "message": "Pregleđujete ovaj sajt bez zaštite privatnosti i bezbednosne zaštite od strane aplikacije Brave. Zar to ne funkcioniše ispravno sa „Shields up”?",
+    "message": "Pregleđujete ovaj sajt bez zaštite privatnosti i bezbednosne zaštite od strane aplikacije adrbrowsiel. Zar to ne funkcioniše ispravno sa „Shields up”?",
     "description": "Message telling the user that shields are disabled, and prompting them towards reporting an issue if necessary"
   },
   "reportBrokenSite": {
     "message": "Prijavite raskinutu vezu sa sajtom",
-    "description": "Message for the button allowing users to report a broken site to Brave developers"
+    "description": "Message for the button allowing users to report a broken site to adrbrowsiel developers"
   },
   "itemsBlocked": {
     "message": "Stavke je blokirane",
@@ -192,8 +192,8 @@
     "description": "Message for the simple view option"
   },
   "shieldsExplanation": {
-    "message": "Sajtovi često uključuju kolačiće i skripte koji pokušavaju da identifikuju Vas i Vaš uređaj (često su ugrađeni u oglase). Žele da saznaju ko ste i pratite vas po vebu - prate šta radite na svakom sajtu. Brave blokira ove stvari tako da možete da pregledate a da Vas ne prate okolo.",
-    "description": "Message in read-only view explaining what Brave Shields do"
+    "message": "Sajtovi često uključuju kolačiće i skripte koji pokušavaju da identifikuju Vas i Vaš uređaj (često su ugrađeni u oglase). Žele da saznaju ko ste i pratite vas po vebu - prate šta radite na svakom sajtu. adrbrowsiel blokira ove stvari tako da možete da pregledate a da Vas ne prate okolo.",
+    "description": "Message in read-only view explaining what adrbrowsiel Shields do"
   },
   "blockedResoucesExplanation": {
     "message": "Praćenja sajtova i ostale grozne stvari su blokirane",

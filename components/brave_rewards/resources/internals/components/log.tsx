@@ -5,7 +5,7 @@
 import * as React from 'react'
 
 // Components
-import { Checkbox, Button } from 'brave-ui/components'
+import { Checkbox, Button } from 'adrbrowsiel-ui/components'
 import { LogTextArea, LogControls, ButtonGroup, Notice } from '../style'
 
 // Utils
@@ -59,7 +59,7 @@ export class Log extends React.Component<Props, State> {
   }
 
   downloadFile = (log: string) => {
-    const filename = 'brave_rewards_log.txt'
+    const filename = 'adrbrowsiel_rewards_log.txt'
     let element = document.createElement('a')
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(log))
     element.setAttribute('download', filename)

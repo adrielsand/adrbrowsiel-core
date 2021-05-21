@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { MoreVertRIcon } from 'brave-ui/components/icons'
+import { MoreVertRIcon } from 'adrbrowsiel-ui/components/icons'
 
 export const StyledWrapper = styled.div`
   display: flex;

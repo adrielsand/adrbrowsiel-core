@@ -3,10 +3,10 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Types
-import { NoScriptInfo } from '../../../brave_extension/extension/brave_extension/types/other/noScriptInfo'
+import { NoScriptInfo } from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/other/noScriptInfo'
 
 // Helpers
-import * as noScriptUtils from '../../../brave_extension/extension/brave_extension/helpers/noScriptUtils'
+import * as noScriptUtils from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/helpers/noScriptUtils'
 
 const url1: string = 'http://aaaa.com/script1.js'
 const url2: string = 'http://aaaa.com/script2.js'

@@ -11,13 +11,13 @@ import { getActions as getUtilActions, setActions } from './utils'
 // Components
 import App from './components/app'
 import { ThemeProvider } from 'styled-components'
-import Theme from 'brave-ui/theme/brave-default'
+import Theme from 'adrbrowsiel-ui/theme/adrbrowsiel-default'
 
 // Utils
 import store from './store'
 import * as rewardsInternalsActions from './actions/rewards_internals_actions'
 
-window.cr.define('brave_rewards_internals', function () {
+window.cr.define('adrbrowsiel_rewards_internals', function () {
   'use strict'
 
   function getActions () {
@@ -88,4 +88,4 @@ window.cr.define('brave_rewards_internals', function () {
   }
 })
 
-document.addEventListener('DOMContentLoaded', window.brave_rewards_internals.initialize)
+document.addEventListener('DOMContentLoaded', window.adrbrowsiel_rewards_internals.initialize)

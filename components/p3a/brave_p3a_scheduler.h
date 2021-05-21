@@ -1,22 +1,22 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_P3A_BRAVE_P3A_SCHEDULER_H_
-#define BRAVE_COMPONENTS_P3A_BRAVE_P3A_SCHEDULER_H_
+#ifndef adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_SCHEDULER_H_
+#define adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_SCHEDULER_H_
 
 #include "base/callback_forward.h"
 #include "components/metrics/metrics_scheduler.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
-class BraveP3AScheduler : public metrics::MetricsScheduler {
+class adrbrowsielP3AScheduler : public metrics::MetricsScheduler {
  public:
-  explicit BraveP3AScheduler(
+  explicit adrbrowsielP3AScheduler(
       const base::Closure& upload_callback,
       const base::Callback<base::TimeDelta(void)>& get_interval_callback);
-  ~BraveP3AScheduler() override;
+  ~adrbrowsielP3AScheduler() override;
 
   void UploadFinished(bool ok);
 
@@ -30,9 +30,9 @@ class BraveP3AScheduler : public metrics::MetricsScheduler {
   // Time to wait for the next upload attempt if the next one fails.
   base::TimeDelta backoff_interval_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveP3AScheduler);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielP3AScheduler);
 };
 
-}  // namespace brave
+}  // namespace adrbrowsiel
 
-#endif  // BRAVE_COMPONENTS_P3A_BRAVE_P3A_SCHEDULER_H_
+#endif  // adrbrowsiel_COMPONENTS_P3A_adrbrowsiel_P3A_SCHEDULER_H_

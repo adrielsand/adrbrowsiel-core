@@ -30,9 +30,9 @@ export default class PaymentsBox extends React.PureComponent<Props, {}> {
         isPrevious={index <= currentScreen}
       >
         <WelcomeRewardsImage />
-        <Title>{locale.enableBraveRewards}</Title>
+        <Title>{locale.enableadrbrowsielRewards}</Title>
         <Paragraph>
-          <strong>Earn tokens</strong> by viewing Brave Private Ads and support
+          <strong>Earn tokens</strong> by viewing adrbrowsiel Private Ads and support
           content creators automatically.
         </Paragraph>
         <TermsOfService>

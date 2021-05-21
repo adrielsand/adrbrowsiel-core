@@ -1,11 +1,11 @@
 <script>
-  var brave_detected = false;
-  navigator.brave.isBrave().then((response) => {
+  var adrbrowsiel_detected = false;
+  navigator.adrbrowsiel.isadrbrowsiel().then((response) => {
     if (response === true) {
-      brave_detected = true;
+      adrbrowsiel_detected = true;
     }
   });
-  function getBraveDetected() {
-    return brave_detected;
+  function getadrbrowsielDetected() {
+    return adrbrowsiel_detected;
   }
 </script>

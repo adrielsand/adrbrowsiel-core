@@ -7,8 +7,8 @@ import {
   StyledTHLast,
   StyledProvider
 } from './style'
-import Table, { Row } from 'brave-ui/components/dataTables/table/index'
-import { getLocale } from 'brave-ui/helpers'
+import Table, { Row } from 'adrbrowsiel-ui/components/dataTables/table/index'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 import Tokens, { Type as TokenType } from '../tokens'
 import { SummaryType as TransactionType } from '../modalActivity'
 

@@ -1,20 +1,20 @@
-# Copyright (c) 2021 The Brave Authors. All rights reserved.
+# Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import("//brave/build/config.gni")
+import("//adrbrowsiel/build/config.gni")
 import("//testing/test.gni")
 
-source_set("brave_wallet_response_unit_tests") {
+source_set("adrbrowsiel_wallet_response_unit_tests") {
   testonly = true
-  sources = [ "//brave/components/brave_wallet/renderer/brave_wallet_response_helpers_unittest.cc" ]
+  sources = [ "//adrbrowsiel/components/adrbrowsiel_wallet/renderer/adrbrowsiel_wallet_response_helpers_unittest.cc" ]
 
   deps = [
     "//base",
     "//base/test:test_support",
-    "//brave/components/brave_wallet/common:mojom",
-    "//brave/components/brave_wallet/renderer",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/common:mojom",
+    "//adrbrowsiel/components/adrbrowsiel_wallet/renderer",
     "//content/public/renderer",
     "//gin",
     "//mojo/public/cpp/bindings",
@@ -22,4 +22,4 @@ source_set("brave_wallet_response_unit_tests") {
     "//third_party/blink/public/common",
     "//v8",
   ]
-}  # source_set("brave_wallet_response_unit_tests")
+}  # source_set("adrbrowsiel_wallet_response_unit_tests")

@@ -17,10 +17,10 @@ import {
   WalletSummarySlider,
   WalletWrapper
 } from '../components'
-import { BatColorIcon, WalletAddIcon } from 'brave-ui/components/icons'
+import { BatColorIcon, WalletAddIcon } from 'adrbrowsiel-ui/components/icons'
 import { Notification, WalletState } from '../components/walletWrapper'
 
-const favicon = require('./img/brave-favicon.png')
+const favicon = require('./img/adrbrowsiel-favicon.png')
 
 const captchaDrop = require('./img/captchaDrop.png')
 
@@ -251,7 +251,7 @@ storiesOf('Rewards/Concepts/Desktop', module)
           walletProvider={'Uphold'}
           onVerifyClick={onVerifyClick}
           onDisconnectClick={onDisconnectClick}
-          greetings={text('Greetings', 'Hello, Brave!')}
+          greetings={text('Greetings', 'Hello, adrbrowsiel!')}
           onlyAnonWallet={boolean('Anon Wallet Only', false)}
         >
           <WalletSummarySlider

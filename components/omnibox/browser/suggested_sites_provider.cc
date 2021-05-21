@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/omnibox/browser/suggested_sites_provider.h"
+#include "adrbrowsiel/components/omnibox/browser/suggested_sites_provider.h"
 
 #include <algorithm>
 #include <utility>
 
 #include "base/strings/string_util.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "components/omnibox/browser/autocomplete_input.h"
 #include "components/omnibox/browser/autocomplete_provider_client.h"
 #include "components/prefs/pref_service.h"
@@ -29,7 +29,7 @@ void SuggestedSitesProvider::Start(const AutocompleteInput& input,
                                    bool minimal_changes) {
   matches_.clear();
   auto* prefs = client_->GetPrefs();
-  if (!prefs || !prefs->GetBoolean(kBraveSuggestedSiteSuggestionsEnabled)) {
+  if (!prefs || !prefs->GetBoolean(kadrbrowsielSuggestedSiteSuggestionsEnabled)) {
     return;
   }
 

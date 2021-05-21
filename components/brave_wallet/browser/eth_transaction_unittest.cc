@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,11 +8,11 @@
 
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/string_util.h"
-#include "brave/components/brave_wallet/browser/eth_transaction.h"
-#include "brave/components/brave_wallet/browser/hd_key.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_transaction.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/hd_key.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 TEST(EthTransactionUnitTest, GetMessageToSign) {
   std::vector<uint8_t> data;
@@ -148,4 +148,4 @@ TEST(EthTransactionUnitTest, GetSignedTransaction) {
             "67CBE9D8997F761AECB703304B3800CCF555C9F3DC64214B297FB1966A3B6D83");
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

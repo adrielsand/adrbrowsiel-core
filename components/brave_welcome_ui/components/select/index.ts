@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled, { css } from 'styled-components'
-import palette from 'brave-ui/theme/colors'
+import palette from 'adrbrowsiel-ui/theme/colors'
 import caratUrl from './carat.svg'
 
 export interface SelectBoxProps {
@@ -37,12 +37,12 @@ export const SelectBox = styled('select')<SelectBoxProps>`
   -webkit-padding-start: 10px;
   -webkit-padding-end: 32px;
   outline-width: 2px;
-  outline-color: ${p => p.theme.color.brandBrave};
+  outline-color: ${p => p.theme.color.brandadrbrowsiel};
   cursor: pointer;
   margin: 0 16px;
 
   > option {
-    /* see https://github.com/brave/brave-browser/issues/4213 for info */
+    /* see https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/4213 for info */
     color: ${palette.black};
   }
 

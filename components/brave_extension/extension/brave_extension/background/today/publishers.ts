@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -9,7 +9,7 @@ import { fetchResource } from './privateCDN'
 import { getPrefs as getPublisherPrefs, addPrefsChangedListener } from './publisher-user-prefs'
 import { getSourcesUrl } from './urls'
 
-let memoryData: BraveToday.Publishers | undefined
+let memoryData: adrbrowsielToday.Publishers | undefined
 let readLock: Promise<void> | null
 const publishersEvents = new Events()
 const eventNameChanged = 'publishers-changed'
@@ -25,7 +25,7 @@ async function isValidStorageData (data: {[key: string]: any}) {
   )
 }
 
-async function setPublishersCache (publishers: BraveToday.Publishers) {
+async function setPublishersCache (publishers: adrbrowsielToday.Publishers) {
   chrome.storage.local.set({
     [storageKey]: {
       storageSchemaVersion: STORAGE_SCHEMA_VERSION,
@@ -48,9 +48,9 @@ function getPublishersFromCache () {
 
 const getLocalDataLock: Promise<void> = getPublishersFromCache()
 
-async function convertToObject (publishers: BraveToday.Publisher[]): Promise<BraveToday.Publishers> {
+async function convertToObject (publishers: adrbrowsielToday.Publisher[]): Promise<adrbrowsielToday.Publishers> {
   const prefs = await getPublisherPrefs()
-  const data: BraveToday.Publishers = {}
+  const data: adrbrowsielToday.Publishers = {}
   for (const publisher of publishers) {
     data[publisher.publisher_id] = {
       ...publisher,
@@ -74,20 +74,20 @@ function performUpdate (notify: boolean = true) {
       // same publisher list. Save Etag in storage.
       const feedResponse = await fetchResource(await getSourcesUrl())
       if (feedResponse.ok) {
-        const feedContents: BraveToday.Publisher[] = await feedResponse.json()
+        const feedContents: adrbrowsielToday.Publisher[] = await feedResponse.json()
         console.debug('fetched today publishers', feedContents)
         memoryData = await convertToObject(feedContents)
         resolve()
         await setPublishersCache(memoryData)
         // Notify
         if (notify) {
-          publishersEvents.dispatchEvent<BraveToday.Publishers>(eventNameChanged, memoryData)
+          publishersEvents.dispatchEvent<adrbrowsielToday.Publishers>(eventNameChanged, memoryData)
         }
       } else {
         throw new Error(`Not ok when fetching publishers. Status ${feedResponse.status} (${feedResponse.statusText})`)
       }
     } catch (e) {
-      console.error('Could not process Brave Today sources contents')
+      console.error('Could not process adrbrowsiel Today sources contents')
       reject(e)
     } finally {
       readLock = null
@@ -122,9 +122,9 @@ export async function update (force: boolean = false, notify: boolean = true) {
 }
 
 // Allow subscribers to observe when we have new data
-type changeListener = (publishers: BraveToday.Publishers) => any
+type changeListener = (publishers: adrbrowsielToday.Publishers) => any
 export function addPublishersChangedListener (listener: changeListener) {
-  publishersEvents.addEventListener<BraveToday.Publishers>(eventNameChanged, listener)
+  publishersEvents.addEventListener<adrbrowsielToday.Publishers>(eventNameChanged, listener)
 }
 
 const updateOnPrefsChanged = debounce(async () => {

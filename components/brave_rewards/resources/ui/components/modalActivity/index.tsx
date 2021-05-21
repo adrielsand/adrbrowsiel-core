@@ -25,13 +25,13 @@ import {
 } from './style'
 import TableActivity, { DetailRow as ActivityRow } from '../tableActivity'
 import TableTransactions, { DetailRow as TransactionRow } from '../tableTransactions'
-import { Select, ControlWrapper, Modal } from 'brave-ui/components'
-import { PrintIcon } from 'brave-ui/components/icons'
+import { Select, ControlWrapper, Modal } from 'adrbrowsiel-ui/components'
+import { PrintIcon } from 'adrbrowsiel-ui/components/icons'
 import ListToken from '../listToken'
 import { Type as TokenType } from '../tokens'
 
 // Utils
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 
 export interface Token {
   value: string
@@ -110,7 +110,7 @@ export default class ModalActivity extends React.PureComponent<Props, State> {
   get modalTitle () {
     return (
       <StyledTitle>
-        {getLocale('braveRewards')} <StyledSubTitle>{getLocale('walletActivity')}</StyledSubTitle>
+        {getLocale('adrbrowsielRewards')} <StyledSubTitle>{getLocale('walletActivity')}</StyledSubTitle>
       </StyledTitle>
     )
   }

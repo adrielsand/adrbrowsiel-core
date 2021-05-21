@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,9 +10,9 @@
 #include "base/run_loop.h"
 #include "base/test/bind.h"
 #include "bat/ledger/mojom_structs.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/test/base/ui_test_utils.h"
 #include "components/prefs/pref_service.h"
@@ -21,27 +21,27 @@ namespace rewards_browsertest_util {
 
 void GetTestDataDir(base::FilePath* test_data_dir) {
   base::ScopedAllowBlockingForTesting allow_blocking;
-  ASSERT_TRUE(base::PathService::Get(brave::DIR_TEST_DATA, test_data_dir));
+  ASSERT_TRUE(base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, test_data_dir));
   *test_data_dir = test_data_dir->AppendASCII("rewards-data");
   ASSERT_TRUE(base::PathExists(*test_data_dir));
 }
 
 GURL GetRewardsUrl() {
-  GURL url("brave://rewards");
+  GURL url("adrbrowsiel://rewards");
   return url;
 }
 
 GURL GetRewardsInternalsUrl() {
-  GURL url("brave://rewards-internals");
+  GURL url("adrbrowsiel://rewards-internals");
   return url;
 }
 
 GURL GetNewTabUrl() {
-  GURL url("brave://newtab");
+  GURL url("adrbrowsiel://newtab");
   return url;
 }
 
-void StartProcess(brave_rewards::RewardsServiceImpl* rewards_service) {
+void StartProcess(adrbrowsiel_rewards::RewardsServiceImpl* rewards_service) {
   DCHECK(rewards_service);
   base::RunLoop run_loop;
   rewards_service->StartProcess(
@@ -89,7 +89,7 @@ void NavigateToPublisherPage(
       ui_test_utils::BROWSER_TEST_WAIT_FOR_LOAD_STOP);
 }
 
-void WaitForLedgerStop(brave_rewards::RewardsServiceImpl* rewards_service) {
+void WaitForLedgerStop(adrbrowsiel_rewards::RewardsServiceImpl* rewards_service) {
   base::RunLoop run_loop;
   rewards_service->StopLedger(
       base::BindLambdaForTesting([&](const ledger::type::Result) {
@@ -98,7 +98,7 @@ void WaitForLedgerStop(brave_rewards::RewardsServiceImpl* rewards_service) {
   run_loop.Run();
 }
 
-void CreateWallet(brave_rewards::RewardsServiceImpl* rewards_service) {
+void CreateWallet(adrbrowsiel_rewards::RewardsServiceImpl* rewards_service) {
   DCHECK(rewards_service);
   base::RunLoop run_loop;
   bool success = false;
@@ -117,7 +117,7 @@ void SetOnboardingBypassed(Browser* browser, bool bypassed) {
   DCHECK(browser);
   // Rewards onboarding will be skipped if the rewards enabled flag is set
   PrefService* prefs = browser->profile()->GetPrefs();
-  prefs->SetBoolean(brave_rewards::prefs::kEnabled, bypassed);
+  prefs->SetBoolean(adrbrowsiel_rewards::prefs::kEnabled, bypassed);
 }
 
 }  // namespace rewards_browsertest_util

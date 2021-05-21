@@ -12,7 +12,7 @@ import {
   GitHubColorIcon,
   YoutubeColorIcon,
   VimeoColorIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 
 import {
   PublisherInfo,
@@ -190,12 +190,12 @@ function showUnverifiedNotice (
       return externalWalletInfo.type !== 'bitflyer'
   }
 
-  // Show the notice if the user does not have any brave funds
-  const hasBraveFunds = Boolean(balanceInfo && (
+  // Show the notice if the user does not have any adrbrowsiel funds
+  const hasadrbrowsielFunds = Boolean(balanceInfo && (
     balanceInfo.wallets['anonymous'] ||
     balanceInfo.wallets['blinded']))
 
-  return !hasBraveFunds
+  return !hasadrbrowsielFunds
 }
 
 function getUnverifiedNotice (
@@ -222,7 +222,7 @@ function getUnverifiedNotice (
       <style.unverifiedNoticeText>
         <strong>{getString('siteBannerNoticeNote')}</strong>&nbsp;
         {text}&nbsp;
-        <NewTabLink href='https://brave.com/faq/#unclaimed-funds'>
+        <NewTabLink href='https://adrbrowsiel.com/faq/#unclaimed-funds'>
           {getString('unverifiedTextMore')}
         </NewTabLink>
       </style.unverifiedNoticeText>

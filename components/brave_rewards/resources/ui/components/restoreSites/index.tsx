@@ -4,7 +4,7 @@
 */
 
 import * as React from 'react'
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 import {
   StyledExcludedText,
   StyledRestore

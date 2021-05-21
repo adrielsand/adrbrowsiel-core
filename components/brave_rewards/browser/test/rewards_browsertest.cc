@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,17 +10,17 @@
 #include "base/test/bind.h"
 #include "bat/ledger/global_constants.h"
 #include "bat/ledger/internal/uphold/uphold_util.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_helper.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_contribution.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_promotion.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_response.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_contribution.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_promotion.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "chrome/test/base/testing_profile.h"
@@ -29,7 +29,7 @@
 #include "content/public/test/browser_test.h"
 #include "net/dns/mock_host_resolver.h"
 
-// npm run test -- brave_browser_tests --filter=RewardsBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=RewardsBrowserTest.*
 
 namespace rewards_browsertest {
 
@@ -56,10 +56,10 @@ class RewardsBrowserTest : public InProcessBrowserTest {
     ASSERT_TRUE(https_server_->Start());
 
     // Rewards service
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     auto* profile = browser()->profile();
-    rewards_service_ = static_cast<brave_rewards::RewardsServiceImpl*>(
-        brave_rewards::RewardsServiceFactory::GetForProfile(profile));
+    rewards_service_ = static_cast<adrbrowsiel_rewards::RewardsServiceImpl*>(
+        adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile));
 
     // Response mock
     base::ScopedAllowBlockingForTesting allow_blocking;
@@ -123,7 +123,7 @@ class RewardsBrowserTest : public InProcessBrowserTest {
     return total;
   }
 
-  brave_rewards::RewardsServiceImpl* rewards_service_;
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;
   std::unique_ptr<net::EmbeddedTestServer> https_server_;
   std::unique_ptr<RewardsBrowserTestResponse> response_;
   std::unique_ptr<RewardsBrowserTestContribution> contribution_;
@@ -131,7 +131,7 @@ class RewardsBrowserTest : public InProcessBrowserTest {
   std::unique_ptr<RewardsBrowserTestContextHelper> context_helper_;
 };
 
-// https://github.com/brave/brave-browser/issues/12632
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12632
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ActivateSettingsModal) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
 
@@ -143,7 +143,7 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ActivateSettingsModal) {
       "#modal");
 }
 
-// https://github.com/brave/brave-browser/issues/12988
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12988
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ToggleAutoContribute) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
 
@@ -206,7 +206,7 @@ IN_PROC_BROWSER_TEST_F(
   ASSERT_EQ(tip_options, std::vector<double>({ 5, 10, 20 }));
 }
 
-// Disabled in https://github.com/brave/brave-browser/issues/10789
+// Disabled in https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10789
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_NotVerifiedWallet) {
   contribution_->AddBalance(promotion_->ClaimPromotionViaCode());
   contribution_->IsBalanceCorrect();
@@ -317,7 +317,7 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, ZeroBalanceWalletClaimNotCalled) {
   run_loop.Run();
 }
 
-// https://github.com/brave/brave-browser/issues/12987
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12987
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest,
                        DISABLED_BackupRestoreModalHasNotice) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
@@ -390,7 +390,7 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, ResetRewards) {
       "Your Rewards data will");
 }
 
-// https://github.com/brave/brave-browser/issues/12607
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12607
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ResetRewardsWithBAT) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
   rewards_browsertest_util::CreateWallet(rewards_service_);
@@ -413,7 +413,7 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ResetRewardsWithBAT) {
       "Your 30 BAT and other Rewards");
 }
 
-// https://github.com/brave/brave-browser/issues/12704
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12704
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_UpholdLimitNoBAT) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
   rewards_browsertest_util::WaitForElementThenClick(
@@ -444,8 +444,8 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_UpholdLimitNoBAT) {
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, EnableRewardsWithBalance) {
   // Make sure rewards, ads, and AC prefs are off
   auto* prefs = browser()->profile()->GetPrefs();
-  prefs->SetBoolean(brave_rewards::prefs::kEnabled, false);
-  prefs->SetBoolean(brave_rewards::prefs::kAutoContributeEnabled, false);
+  prefs->SetBoolean(adrbrowsiel_rewards::prefs::kEnabled, false);
+  prefs->SetBoolean(adrbrowsiel_rewards::prefs::kAutoContributeEnabled, false);
 
   // Load a balance into the user's wallet
   rewards_browsertest_util::StartProcess(rewards_service_);
@@ -458,8 +458,8 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, EnableRewardsWithBalance) {
   base::RunLoop().RunUntilIdle();
 
   // Ensure that AC is not enabled
-  EXPECT_TRUE(prefs->GetBoolean(brave_rewards::prefs::kEnabled));
-  EXPECT_FALSE(prefs->GetBoolean(brave_rewards::prefs::kAutoContributeEnabled));
+  EXPECT_TRUE(prefs->GetBoolean(adrbrowsiel_rewards::prefs::kEnabled));
+  EXPECT_FALSE(prefs->GetBoolean(adrbrowsiel_rewards::prefs::kAutoContributeEnabled));
 }
 
 }  // namespace rewards_browsertest

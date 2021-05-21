@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #import <Cocoa/Cocoa.h>
 
-// TODO(https://github.com/brave/brave-browser/issues/5541): Uncomment below
+// TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5541): Uncomment below
 // code when notification_platform_bridge_mac.mm has been updated to use
 // UNUserNotificationCenter
 // #import <UserNotifications/UserNotifications.h>
@@ -13,11 +13,11 @@
 #include "base/feature_list.h"
 #include "base/logging.h"
 #include "base/mac/mac_util.h"
-#include "brave/components/brave_ads/browser/features.h"
-#include "brave/components/brave_ads/browser/notification_helper_mac.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/notification_helper_mac.h"
 #include "chrome/common/chrome_features.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 NotificationHelperMac::NotificationHelperMac() = default;
 
@@ -72,7 +72,7 @@ NotificationHelper* NotificationHelper::GetInstanceImpl() {
 ///////////////////////////////////////////////////////////////////////////////
 
 bool NotificationHelperMac::IsAuthorized() const {
-  // TODO(https://github.com/brave/brave-browser/issues/5541): Uncomment below
+  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5541): Uncomment below
   // code when notification_platform_bridge_mac.mm has been updated to use
   // UNUserNotificationCenter
   return true;
@@ -126,7 +126,7 @@ bool NotificationHelperMac::IsAuthorized() const {
 }
 
 bool NotificationHelperMac::IsEnabled() const {
-  // TODO(https://github.com/brave/brave-browser/issues/5541): Uncomment below
+  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5541): Uncomment below
   // code when notification_platform_bridge_mac.mm has been updated to use
   // UNUserNotificationCenter
   return true;
@@ -196,4 +196,4 @@ bool NotificationHelperMac::IsEnabled() const {
   // #endif
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

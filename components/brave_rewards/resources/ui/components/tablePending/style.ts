@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import palette from 'brave-ui/theme/colors'
+import palette from 'adrbrowsiel-ui/theme/colors'
 
 export const StyledRemove = styled('button')<{}>`
   padding: 0;

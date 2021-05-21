@@ -27,7 +27,7 @@
 #include "third_party/boringssl/src/include/openssl/pem.h"
 #include "third_party/boringssl/src/include/openssl/rand.h"
 
-#include "brave/components/brave_prochlo/prochlo_crypto.h"
+#include "adrbrowsiel/components/adrbrowsiel_prochlo/prochlo_crypto.h"
 
 namespace prochlo {
 

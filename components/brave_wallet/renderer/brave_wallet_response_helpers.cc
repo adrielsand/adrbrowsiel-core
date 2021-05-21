@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/renderer/brave_wallet_response_helpers.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/renderer/adrbrowsiel_wallet_response_helpers.h"
 
 #include <utility>
 
 #include "base/json/json_reader.h"
 #include "base/json/json_writer.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 std::unique_ptr<base::Value> FormProviderResponse(ProviderErrors code,
                                                   const std::string& message) {
@@ -83,4 +83,4 @@ std::string FormProviderErrorResponse(const std::string& controller_response) {
   return error_response;
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

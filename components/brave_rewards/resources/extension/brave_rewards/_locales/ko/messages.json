@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "저희가 Brave Rewards를 크게 업그레이드하였습니다.",
+    "message": "저희가 adrbrowsiel Rewards를 크게 업그레이드하였습니다.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "Brave 리워드에서 사용하여 가장 좋아하는 콘텐츠 제작자들에게 기부할 수 있습니다. BAT 포인트는 BAT로 환전될 수 없습니다.",
+    "message": "adrbrowsiel 리워드에서 사용하여 가장 좋아하는 콘텐츠 제작자들에게 기부할 수 있습니다. BAT 포인트는 BAT로 환전될 수 없습니다.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Brave 인증 창작자",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsiel 인증 창작자",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "주의",
@@ -193,15 +193,15 @@
     "message": "확인",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "이제 광고를 보고 수익을 올릴 수 있습니다.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave 광고",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel 광고",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "자동 기부",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "귀하의 Brave Rewards 계정이 입금을 기다리고 있습니다.",
+    "message": "귀하의 adrbrowsiel Rewards 계정이 입금을 기다리고 있습니다.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "부족한 자금",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "지갑 생성 중",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave Rewards에 문제가 있습니다. 나중에 다시 시도해 주세요.",
+    "message": "adrbrowsiel Rewards에 문제가 있습니다. 나중에 다시 시도해 주세요.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -379,7 +379,7 @@
     "message": "및",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "브라우징하고 보상 받기!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Brave Rewards 사용",
+    "message": "adrbrowsiel Rewards 사용",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "'Brave Rewards 활성화'를 클릭하심으로서, 귀하께서는 다음을 읽고 동의하시는 것이 됩니다: ",
+    "message": "'adrbrowsiel Rewards 활성화'를 클릭하심으로서, 귀하께서는 다음을 읽고 동의하시는 것이 됩니다: ",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "귀하의 리워드는 귀하의 Brave 리워드 월렛으로 이동하는 중입니다.",
+    "message": "귀하의 리워드는 귀하의 adrbrowsiel 리워드 월렛으로 이동하는 중입니다.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Brave Rewards에서 접속 해제됨.",
+    "message": "adrbrowsiel Rewards에서 접속 해제됨.",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Brave Verified Creator가 Brave 사용자로부터 기부금을 수령하도록 아직 계정을 구성하지 않았습니다. 귀하가 보내는 모든 팁은 이 프로세스가 완료될 때까지 귀하의 지갑에 남아 있을 것입니다.",
+    "message": "adrbrowsiel Verified Creator가 adrbrowsiel 사용자로부터 기부금을 수령하도록 아직 계정을 구성하지 않았습니다. 귀하가 보내는 모든 팁은 이 프로세스가 완료될 때까지 귀하의 지갑에 남아 있을 것입니다.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Brave Rewards 사용 시작",
+    "message": "adrbrowsiel Rewards 사용 시작",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Brave Rewards에 오신 것을 환영합니다!",
+    "message": "adrbrowsiel Rewards에 오신 것을 환영합니다!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Brave 프라이빗 광고는 종전의 광고와는 달리 콘텐츠 제작자를 지원할 수 있도록 여러분께 토큰을 리워드로 지급하며, 이 과정에서 여러분의 개인 정보는 안전하게 보호됩니다.",
+    "message": "adrbrowsiel 프라이빗 광고는 종전의 광고와는 달리 콘텐츠 제작자를 지원할 수 있도록 여러분께 토큰을 리워드로 지급하며, 이 과정에서 여러분의 개인 정보는 안전하게 보호됩니다.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Brave 프라이빗 광고는 일반 알림의 형태로 나타나게 됩니다. 설정에서 이 광고를 얼마나 자주 볼 것인지에 대해 조정할 수 있습니다.",
+    "message": "adrbrowsiel 프라이빗 광고는 일반 알림의 형태로 나타나게 됩니다. 설정에서 이 광고를 얼마나 자주 볼 것인지에 대해 조정할 수 있습니다.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "이번 달 동안 Brave 프라이빗 광고를 통해 획득하신 토큰은 다음 달 5일에 지급됩니다.",
+    "message": "이번 달 동안 adrbrowsiel 프라이빗 광고를 통해 획득하신 토큰은 다음 달 5일에 지급됩니다.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Brave Rewards를 사용함에 따라 여러분은 웹을 모두를 위한 더 나은 장소로 만드는 데 한 몫을 거들고 있습니다. 대단한 일이지요!",
+    "message": "adrbrowsiel Rewards를 사용함에 따라 여러분은 웹을 모두를 위한 더 나은 장소로 만드는 데 한 몫을 거들고 있습니다. 대단한 일이지요!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "월렛을 검증하여 bitFlyer 계정에 연결하면 Brave Rewards를 통해 적립된 토큰을 더욱 쉽게 저장하고 관리할 수 있습니다.",
+    "message": "월렛을 검증하여 bitFlyer 계정에 연결하면 adrbrowsiel Rewards를 통해 적립된 토큰을 더욱 쉽게 저장하고 관리할 수 있습니다.",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "일본의 Brave 리워드가 새로운 시스템으로 전환 중입니다!",
+    "message": "일본의 adrbrowsiel 리워드가 새로운 시스템으로 전환 중입니다!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

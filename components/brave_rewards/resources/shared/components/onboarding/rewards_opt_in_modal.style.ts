@@ -10,9 +10,9 @@ export const root = styled.div`
   flex: 0 0 auto;
   max-width: 335px;
   padding: 17px;
-  font-family: var(--brave-font-heading);
+  font-family: var(--adrbrowsiel-font-heading);
   text-align: center;
-  background-color: var(--brave-palette-white);
+  background-color: var(--adrbrowsiel-palette-white);
   background-image: url(${modalBackground});
   background-repeat: no-repeat;
   background-position: 4px -11px;
@@ -22,7 +22,7 @@ export const root = styled.div`
 `
 
 export const close = styled.div`
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
   text-align: right;
 
   button {
@@ -42,7 +42,7 @@ export const close = styled.div`
 
 export const header = styled.div`
   margin-top: 17px;
-  color: var(--brave-palette-black);
+  color: var(--adrbrowsiel-palette-black);
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
@@ -57,14 +57,14 @@ export const header = styled.div`
 
 export const text = styled.div`
   margin: 8px 6px 0;
-  color: var(--brave-palette-neutral700);
+  color: var(--adrbrowsiel-palette-neutral700);
   font-size: 14px;
   line-height: 24px;
 `
 
 export const takeTour = styled.div`
   margin-top: 20px;
-  color: var(--brave-color-brandBat);
+  color: var(--adrbrowsiel-color-brandBat);
 
   button {
     font-weight: 600;
@@ -84,12 +84,12 @@ export const enable = styled.div`
 
 export const terms = styled.div`
   margin: 50px 14px 15px;
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
   font-size: 11px;
   line-height: 16px;
 
   a {
-    color: var(--brave-color-brandBat);
+    color: var(--adrbrowsiel-color-brandBat);
     font-weight: 600;
     text-decoration: none;
   }

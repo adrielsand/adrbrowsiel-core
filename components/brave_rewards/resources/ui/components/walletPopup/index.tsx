@@ -5,7 +5,7 @@
 import * as React from 'react'
 
 // Helpers
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 import { WalletState } from '../walletWrapper/index'
 
 // Styled Components
@@ -19,7 +19,7 @@ import {
 } from './style'
 import {
   UpholdColorIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 
 import { BitflyerIconWithText } from '../../../shared/components/icons/bitflyer_icon'
 

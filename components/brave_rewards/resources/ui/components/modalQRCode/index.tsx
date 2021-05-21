@@ -7,9 +7,9 @@ import {
   QRImage,
   ImageWrapper
 } from './style'
-import { Modal } from 'brave-ui/components'
+import { Modal } from 'adrbrowsiel-ui/components'
 import * as qr from 'qr-image'
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 
 export interface Props {
   paymentId: string

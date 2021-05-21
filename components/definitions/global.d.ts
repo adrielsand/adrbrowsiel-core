@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -39,14 +39,14 @@ declare global {
     i18nTemplate: {
       process: (document: Document, translations: loadTimeData) => void
     }
-    brave_adblock: {
+    adrbrowsiel_adblock: {
       initialize: () => void
     }
-    brave_new_tab: {
+    adrbrowsiel_new_tab: {
       initialize: () => void
       statsUpdated: () => void
     }
-    brave_rewards: {
+    adrbrowsiel_rewards: {
       initialize: () => void
       parameters: chrome.events.Event<(properties: Rewards.RewardsParameters) => void>
       recoverWalletData: chrome.events.Event<(result: number) => void>
@@ -55,13 +55,13 @@ declare global {
       contributeList: chrome.events.Event<(list: Rewards.Publisher[]) => void>
       balanceReports: chrome.events.Event<(reports: Record<string, Rewards.BalanceReport>) => void>
     }
-    brave_welcome: {
+    adrbrowsiel_welcome: {
       initialize: () => void
     }
-    brave_rewards_tip: {
+    adrbrowsiel_rewards_tip: {
       initialize: () => void
     }
-    brave_rewards_internals: {
+    adrbrowsiel_rewards_internals: {
       initialize: () => void
     }
     ipfs: {

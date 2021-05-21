@@ -4,7 +4,7 @@
 
 import styled from 'styled-components'
 import { Type } from './index'
-import palette from 'brave-ui/theme/colors'
+import palette from 'adrbrowsiel-ui/theme/colors'
 
 interface StyleProps {
   selected?: boolean
@@ -81,7 +81,7 @@ export const StyledText = styled('div')<StyleProps>`
   text-align: center;
   user-select: none;
   color: ${p => p.selected
-    ? p.type === 'contribute' ? palette.blurple500 : p.theme.color.brandBrave
+    ? p.type === 'contribute' ? palette.blurple500 : p.theme.color.brandadrbrowsiel
     : p.theme.color.subtleActive
   };
   font-weight: ${p => p.selected ? '500' : 'normal'};

@@ -8,8 +8,8 @@ export const root = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: var(--brave-palette-white);
-  font-family: var(--brave-font-heading);
+  background: var(--adrbrowsiel-palette-white);
+  font-family: var(--adrbrowsiel-font-heading);
   text-align: center;
 `
 
@@ -34,7 +34,7 @@ export const heading = styled.div`
 
 export const text = styled.div`
   margin: 4px auto 0;
-  color: var(--brave-palette-neutral700);
+  color: var(--adrbrowsiel-palette-neutral700);
   font-size: 14px;
   line-height: 24px;
   max-width: 300px;
@@ -42,7 +42,7 @@ export const text = styled.div`
 
 export const takeTour = styled.div`
   margin-top: 20px;
-  color: var(--brave-color-brandBat);
+  color: var(--adrbrowsiel-color-brandBat);
 
   button {
     font-weight: 600;
@@ -67,7 +67,7 @@ export const dismiss = styled.div`
     border: 0;
     padding: 0;
     background: none;
-    color: var(--brave-palette-neutral600);
+    color: var(--adrbrowsiel-palette-neutral600);
     font-weight: 600;
     font-size: 14px;
     line-height: 22px;
@@ -78,12 +78,12 @@ export const dismiss = styled.div`
 export const footer = styled.div`
   flex: 0 0 auto;
   padding: 30px 40px 20px;
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
   font-size: 11px;
   line-height: 16px;
 
   a {
-    color: var(--brave-color-brandBat);
+    color: var(--adrbrowsiel-color-brandBat);
     font-weight: 600;
     text-decoration: none;
   }

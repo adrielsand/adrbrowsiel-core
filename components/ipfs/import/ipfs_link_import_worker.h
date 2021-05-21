@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_IPFS_IMPORT_IPFS_LINK_IMPORT_WORKER_H_
-#define BRAVE_COMPONENTS_IPFS_IMPORT_IPFS_LINK_IMPORT_WORKER_H_
+#ifndef adrbrowsiel_COMPONENTS_IPFS_IMPORT_IPFS_LINK_IMPORT_WORKER_H_
+#define adrbrowsiel_COMPONENTS_IPFS_IMPORT_IPFS_LINK_IMPORT_WORKER_H_
 
 #include <list>
 #include <memory>
@@ -12,8 +12,8 @@
 #include <utility>
 #include <vector>
 
-#include "brave/components/ipfs/import/imported_data.h"
-#include "brave/components/ipfs/import/ipfs_import_worker_base.h"
+#include "adrbrowsiel/components/ipfs/import/imported_data.h"
+#include "adrbrowsiel/components/ipfs/import/ipfs_import_worker_base.h"
 #include "url/gurl.h"
 
 namespace ipfs {
@@ -47,4 +47,4 @@ class IpfsLinkImportWorker : public IpfsImportWorkerBase {
 
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_IPFS_IMPORT_IPFS_LINK_IMPORT_WORKER_H_
+#endif  // adrbrowsiel_COMPONENTS_IPFS_IMPORT_IPFS_LINK_IMPORT_WORKER_H_

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_H_
-#define BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_H_
 
 #include <string>
 #include <tuple>
@@ -14,7 +14,7 @@
 #include "base/values.h"
 #include "components/keyed_service/core/keyed_service.h"
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 // Retrieves publicly known Third Party (organisation) for a given URL, using
 // data from the Third Party Web repository
@@ -50,6 +50,6 @@ class NamedThirdPartyRegistry : public KeyedService {
   base::WeakPtrFactory<NamedThirdPartyRegistry> weak_factory_{this};
 };
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor
 
-#endif  // BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_NAMED_THIRD_PARTY_REGISTRY_H_

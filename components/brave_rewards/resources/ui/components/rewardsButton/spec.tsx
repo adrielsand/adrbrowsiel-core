@@ -7,7 +7,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { create } from 'react-test-renderer'
 import RewardsButton from './index'
-import { TestThemeProvider } from 'brave-ui/theme'
+import { TestThemeProvider } from 'adrbrowsiel-ui/theme'
 
 describe('TipButton tests', () => {
   const baseComponent = (props?: object) => <TestThemeProvider><RewardsButton id='tipbutton' {...props} /></TestThemeProvider>

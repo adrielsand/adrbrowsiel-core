@@ -31,7 +31,7 @@ export const createServer = (torrent: WebTorrent.Torrent, cb: (serverURL: string
     // active torrents.
     origin: window.location.origin,
     // Use hostname option to mitigate DNS rebinding
-    // Ref: https://github.com/brave/browser-laptop/issues/12616
+    // Ref: https://github.com/adrbrowsiel/browser-laptop/issues/12616
     hostname: '127.0.0.1'
   }
   const server = torrent.createServer(opts)

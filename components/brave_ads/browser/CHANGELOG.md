@@ -4,7 +4,7 @@
 ### New API (4th November 2019)
 ##### Related PR
 
-[https://github.com/brave/brave-core/pull/3805](https://github.com/brave/brave-core/pull/3805)
+[https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3805](https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3805)
 
 ##### Description
 
@@ -21,7 +21,7 @@ bool AdsService::IsNewlySupportedLocale()
 ### New API (21st February 2020)
 ##### Related PR
 
-[https://github.com/brave/brave-core/pull/4685](https://github.com/brave/brave-core/pull/4685)
+[https://github.com/adrbrowsiel/adrbrowsiel-core/pull/4685](https://github.com/adrbrowsiel/adrbrowsiel-core/pull/4685)
 
 ##### Description
 

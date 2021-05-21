@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -16,9 +16,9 @@
 #include "bat/ledger/internal/publisher/protos/publisher_prefix_list.pb.h"
 #include "bat/ledger/internal/common/request_util.h"
 #include "bat/ledger/internal/uphold/uphold_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_response.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
 #include "chrome/test/base/ui_test_utils.h"
 
 namespace {
@@ -220,7 +220,7 @@ void RewardsBrowserTestResponse::Get(
   requests_.emplace_back(url, method);
   DCHECK(response_status_code && response);
 
-  if (url.find("/v3/wallet/brave") != std::string::npos) {
+  if (url.find("/v3/wallet/adrbrowsiel") != std::string::npos) {
     *response = wallet_;
     *response_status_code = net::HTTP_CREATED;
     return;

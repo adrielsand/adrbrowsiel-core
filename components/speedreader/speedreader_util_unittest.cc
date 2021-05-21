@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/speedreader/speedreader_util.h"
+#include "adrbrowsiel/components/speedreader/speedreader_util.h"
 #include "third_party/googletest/src/googletest/include/gtest/gtest.h"
 #include "url/gurl.h"
 
@@ -11,7 +11,7 @@ namespace speedreader {
 
 TEST(SpeedreaderUtilTest, URLHasHints) {
   EXPECT_FALSE(URLReadableHintExtractor::GetInstance()->HasHints(
-      GURL("https://github.com/brave/brave-core")));
+      GURL("https://github.com/adrbrowsiel/adrbrowsiel-core")));
 
   // URL has date in path
   EXPECT_TRUE(URLReadableHintExtractor::GetInstance()->HasHints(

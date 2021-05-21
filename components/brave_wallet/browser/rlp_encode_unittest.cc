@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,8 +7,8 @@
 #include <string>
 #include <utility>
 
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/components/brave_wallet/browser/rlp_encode.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/rlp_encode.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
 namespace {
@@ -81,25 +81,25 @@ base::Value RLPTestStringToValue(const std::string& s) {
 
 }  // namespace
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 TEST(RLPEncodeTest, EmptyString) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("''"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("''"));
   ASSERT_EQ(ToHex(v), "0x80");
 }
 
 TEST(RLPEncodeTest, SingleChar) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("'d'"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("'d'"));
   ASSERT_EQ(ToHex(v), "0x64");
 }
 
 TEST(RLPEncodeTest, ShortString) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("'dog'"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("'dog'"));
   ASSERT_EQ(ToHex(v), "0x83646f67");
 }
 
 TEST(RLPEncodeTest, ShortString2) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue(
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue(
       "'Lorem ipsum dolor sit amet, consectetur adipisicing eli'"));
   ASSERT_EQ(ToHex(v),
             "0xb74c6f72656d20697073756d20646f6c6f722073697420616d65742c20636f6e"
@@ -107,7 +107,7 @@ TEST(RLPEncodeTest, ShortString2) {
 }
 
 TEST(RLPEncodeTest, LongString) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue(
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue(
       "'Lorem ipsum dolor sit amet, consectetur adipisicing elit'"));
   ASSERT_EQ(ToHex(v),
             "0xb8384c6f72656d20697073756d20646f6c6f722073697420616d65742c20636f"
@@ -115,7 +115,7 @@ TEST(RLPEncodeTest, LongString) {
 }
 
 TEST(RLPEncodeTest, LongString2) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue(
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue(
       "'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur "
       "mauris magna, suscipit sed vehicula non, iaculis faucibus tortor. Proin "
       "suscipit ultricies malesuada. Duis tortor elit, dictum quis tristique "
@@ -165,48 +165,48 @@ TEST(RLPEncodeTest, LongString2) {
 }
 
 TEST(RLPEncodeTest, Zero) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("0"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("0"));
   ASSERT_EQ(ToHex(v), "0x80");
 }
 
 TEST(RLPEncodeTest, SmallInt1) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("1"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("1"));
   ASSERT_EQ(ToHex(v), "0x01");
 }
 
 TEST(RLPEncodeTest, SmallInt2) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("16"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("16"));
   ASSERT_EQ(ToHex(v), "0x10");
 }
 
 TEST(RLPEncodeTest, SmallInt3) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("79"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("79"));
   ASSERT_EQ(ToHex(v), "0x4f");
 }
 
 TEST(RLPEncodeTest, SmallInt4) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("127"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("127"));
   ASSERT_EQ(ToHex(v), "0x7f");
 }
 
 TEST(RLPEncodeTest, MediumInt1) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("128"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("128"));
   ASSERT_EQ(ToHex(v), "0x8180");
 }
 
 TEST(RLPEncodeTest, MediumInt2) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("1000"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("1000"));
   ASSERT_EQ(ToHex(v), "0x8203e8");
 }
 
 TEST(RLPEncodeTest, MediumInt3) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("100000"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("100000"));
   ASSERT_EQ(ToHex(v), "0x830186a0");
 }
 
 TEST(RLPEncodeTest, BlobStorage) {
   base::Value::BlobStorage input{0, 255, 33, 127, 0, 128};
-  std::string v = brave_wallet::RLPEncode(base::Value(input));
+  std::string v = adrbrowsiel_wallet::RLPEncode(base::Value(input));
   ASSERT_EQ(ToHex(v), "0x8600ff217f0080");
 }
 
@@ -220,7 +220,7 @@ TEST(RLPEncodeTest, MediumInt4) {
   input += static_cast<uint256_t>(9681528633);
   input *= ten_billion;
   input += static_cast<uint256_t>(1701780722);
-  std::string v = brave_wallet::RLPEncode(RLPUint256ToBlobValue(input));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPUint256ToBlobValue(input));
   ASSERT_EQ(ToHex(v), "0x8f102030405060708090a0b0c0d0e0f2");
 }
 
@@ -240,7 +240,7 @@ TEST(RLPEncodeTest, MediumInt5) {
   input += static_cast<uint256_t>(6297482234);
   input *= ten_billion;
   input += static_cast<uint256_t>(7068935681);
-  std::string v = brave_wallet::RLPEncode(RLPUint256ToBlobValue(input));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPUint256ToBlobValue(input));
   ASSERT_EQ(ToHex(v),
             "0x9c0100020003000400050006000700080009000a000b000c000d000e01");
 }
@@ -263,7 +263,7 @@ TEST(RLPEncodeTest, BigInt) {
   input += static_cast<uint256_t>(5758400791);
   input *= ten_billion;
   input += static_cast<uint256_t>(3129639935);
-  std::string v = brave_wallet::RLPEncode(RLPUint256ToBlobValue(input));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPUint256ToBlobValue(input));
   ASSERT_EQ(
       ToHex(v),
       "0xa0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
@@ -271,35 +271,35 @@ TEST(RLPEncodeTest, BigInt) {
 
 TEST(RLPEncodeTest, ByteString00) {
   std::string bytestring = {0};
-  std::string v = brave_wallet::RLPEncode(base::Value(bytestring));
+  std::string v = adrbrowsiel_wallet::RLPEncode(base::Value(bytestring));
   ASSERT_EQ(ToHex(v), "0x00");
 }
 
 TEST(RLPEncodeTest, ByteString01) {
   std::string bytestring = {1};
-  std::string v = brave_wallet::RLPEncode(base::Value(bytestring));
+  std::string v = adrbrowsiel_wallet::RLPEncode(base::Value(bytestring));
   ASSERT_EQ(ToHex(v), "0x01");
 }
 
 TEST(RLPEncodeTest, ByteString7f) {
   std::string bytestring = {0x7f};
-  std::string v = brave_wallet::RLPEncode(base::Value(bytestring));
+  std::string v = adrbrowsiel_wallet::RLPEncode(base::Value(bytestring));
   ASSERT_EQ(ToHex(v), "0x7f");
 }
 
 TEST(RLPEncodeTest, EmptyList) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue("[]"));
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("[]"));
   ASSERT_EQ(ToHex(v), "0xc0");
 }
 
 TEST(RLPEncodeTest, StringList) {
   std::string v =
-      brave_wallet::RLPEncode(RLPTestStringToValue("['dog', 'god', 'cat']"));
+      adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("['dog', 'god', 'cat']"));
   ASSERT_EQ(ToHex(v), "0xcc83646f6783676f6483636174");
 }
 
 TEST(RLPEncodeTest, ShortListMax1) {
-  std::string v = brave_wallet::RLPEncode(
+  std::string v = adrbrowsiel_wallet::RLPEncode(
       RLPTestStringToValue("['asdf', 'qwer', 'zxcv', 'asdf', 'qwer', 'zxcv', "
                            "'asdf', 'qwer', 'zxcv', 'asdf', 'qwer']"));
   ASSERT_EQ(ToHex(v),
@@ -308,7 +308,7 @@ TEST(RLPEncodeTest, ShortListMax1) {
 }
 
 TEST(RLPEncodeTest, LongList1) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue(
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue(
       "[['asdf', 'qwer', 'zxcv'], ['asdf', 'qwer', 'zxcv'], ['asdf', 'qwer', "
       "'zxcv'], ['asdf', 'qwer', 'zxcv']]"));
   ASSERT_EQ(
@@ -318,7 +318,7 @@ TEST(RLPEncodeTest, LongList1) {
 }
 
 TEST(RLPEncodeTest, LongList2) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue(
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue(
       "[['asdf', 'qwer', 'zxcv'], ['asdf', 'qwer', 'zxcv'], ['asdf', 'qwer', "
       "'zxcv'], ['asdf', 'qwer', 'zxcv'], ['asdf', 'qwer', 'zxcv'], ['asdf', "
       "'qwer', 'zxcv'], ['asdf', 'qwer', 'zxcv'], ['asdf', 'qwer', 'zxcv'], "
@@ -352,24 +352,24 @@ TEST(RLPEncodeTest, LongList2) {
 
 TEST(RLPEncodeTest, Multilist) {
   std::string v =
-      brave_wallet::RLPEncode(RLPTestStringToValue("['zw', [4], 1]"));
+      adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("['zw', [4], 1]"));
   ASSERT_EQ(ToHex(v), "0xc6827a77c10401");
 }
 
 TEST(RLPEncodeTest, ListOfLists) {
   std::string v =
-      brave_wallet::RLPEncode(RLPTestStringToValue("[[[], []], []]"));
+      adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("[[[], []], []]"));
   ASSERT_EQ(ToHex(v), "0xc4c2c0c0c0");
 }
 
 TEST(RLPEncodeTest, ListOfLists2) {
   std::string v =
-      brave_wallet::RLPEncode(RLPTestStringToValue("[[], [[]], [[], [[]]]]"));
+      adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue("[[], [[]], [[], [[]]]]"));
   ASSERT_EQ(ToHex(v), "0xc7c0c1c0c3c0c1c0");
 }
 
 TEST(RLPEncodeTest, DictTest1) {
-  std::string v = brave_wallet::RLPEncode(
+  std::string v = adrbrowsiel_wallet::RLPEncode(
       RLPTestStringToValue("[['key1', 'val1'], ['key2', 'val2'], ['key3', "
                            "'val3'], ['key4', 'val4']]"));
   ASSERT_EQ(ToHex(v),
@@ -378,7 +378,7 @@ TEST(RLPEncodeTest, DictTest1) {
 }
 
 TEST(RLPEncodeTest, ComplexStructure) {
-  std::string v = brave_wallet::RLPEncode(RLPTestStringToValue(
+  std::string v = adrbrowsiel_wallet::RLPEncode(RLPTestStringToValue(
       "['cat',['puppy', 'cow'], 'horse', [[]], 'pig', [''], 'sheep']"));
   ASSERT_EQ(ToHex(v),
             "0xe383636174ca85707570707983636f7785686f727365c1c083706967c1808573"
@@ -388,7 +388,7 @@ TEST(RLPEncodeTest, ComplexStructure) {
 TEST(RLPEncodeTest, DictionaryValueNotSupported) {
   base::DictionaryValue d;
   d.SetBoolean("test", true);
-  ASSERT_TRUE(brave_wallet::RLPEncode(std::move(d)).empty());
+  ASSERT_TRUE(adrbrowsiel_wallet::RLPEncode(std::move(d)).empty());
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

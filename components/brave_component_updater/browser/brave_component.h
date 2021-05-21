@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_COMPONENT_UPDATER_BROWSER_BRAVE_COMPONENT_H_
-#define BRAVE_COMPONENTS_BRAVE_COMPONENT_UPDATER_BROWSER_BRAVE_COMPONENT_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_COMPONENT_UPDATER_BROWSER_adrbrowsiel_COMPONENT_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_COMPONENT_UPDATER_BROWSER_adrbrowsiel_COMPONENT_H_
 
 #include <string>
 
@@ -17,9 +17,9 @@
 
 class PrefService;
 
-namespace brave_component_updater {
+namespace adrbrowsiel_component_updater {
 
-class BraveComponent {
+class adrbrowsielComponent {
  public:
   using ReadyCallback = base::RepeatingCallback<void(const base::FilePath&,
                                                 const std::string& manifest)>;
@@ -48,8 +48,8 @@ class BraveComponent {
     virtual PrefService* local_state() = 0;
   };
 
-  explicit BraveComponent(Delegate* delegate);
-  virtual ~BraveComponent();
+  explicit adrbrowsielComponent(Delegate* delegate);
+  virtual ~adrbrowsielComponent();
   void Register(const std::string& component_name,
                 const std::string& component_id,
                 const std::string& component_base64_public_key);
@@ -82,11 +82,11 @@ class BraveComponent {
   std::string component_id_;
   std::string component_base64_public_key_;
   Delegate* delegate_;  // NOT OWNED
-  base::WeakPtrFactory<BraveComponent> weak_factory_;
+  base::WeakPtrFactory<adrbrowsielComponent> weak_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveComponent);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielComponent);
 };
 
-}  // namespace brave_component_updater
+}  // namespace adrbrowsiel_component_updater
 
-#endif  // BRAVE_COMPONENTS_BRAVE_COMPONENT_UPDATER_BROWSER_BRAVE_COMPONENT_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_COMPONENT_UPDATER_BROWSER_adrbrowsiel_COMPONENT_H_

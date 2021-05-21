@@ -1,4 +1,4 @@
-import("//brave/build/config.gni")
+import("//adrbrowsiel/build/config.gni")
 
 source_set("common") {
   sources = [

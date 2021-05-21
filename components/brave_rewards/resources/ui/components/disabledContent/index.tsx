@@ -13,7 +13,7 @@ import {
   AutoContributeIcon,
   MonthlyContributionsIcon,
   TipsIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 
 export type Type = 'ads' | 'contribute' | 'donation' | 'monthly'
 

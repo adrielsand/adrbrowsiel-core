@@ -33,7 +33,7 @@ export const blockedResourcesSize = (blockedResources: number) => {
   return blockedResources.toString()
 }
 
-export const isShieldsEnabled = (braveShields: BlockOptions) => braveShields !== 'block'
+export const isShieldsEnabled = (adrbrowsielShields: BlockOptions) => adrbrowsielShields !== 'block'
 
 export const getTabIndexValueBasedOnProps = (
   isBlockedListOpen: boolean,

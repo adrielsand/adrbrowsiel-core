@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SYNC_ENGINE_BRAVE_MODEL_TYPE_WORKER_H_
-#define BRAVE_COMPONENTS_SYNC_ENGINE_BRAVE_MODEL_TYPE_WORKER_H_
+#ifndef adrbrowsiel_COMPONENTS_SYNC_ENGINE_adrbrowsiel_MODEL_TYPE_WORKER_H_
+#define adrbrowsiel_COMPONENTS_SYNC_ENGINE_adrbrowsiel_MODEL_TYPE_WORKER_H_
 
 #include <memory>
 
@@ -23,18 +23,18 @@ class ModelTypeProcessor;
 
 namespace features {
 
-extern const base::Feature kBraveSyncResetProgressMarker;
+extern const base::Feature kadrbrowsielSyncResetProgressMarker;
 
 }  // namespace features
 
-FORWARD_DECLARE_TEST(BraveModelTypeWorkerTest, ResetProgressMarker);
-FORWARD_DECLARE_TEST(BraveModelTypeWorkerTest, ResetProgressMarkerMaxPeriod);
-FORWARD_DECLARE_TEST(BraveModelTypeWorkerTest,
+FORWARD_DECLARE_TEST(adrbrowsielModelTypeWorkerTest, ResetProgressMarker);
+FORWARD_DECLARE_TEST(adrbrowsielModelTypeWorkerTest, ResetProgressMarkerMaxPeriod);
+FORWARD_DECLARE_TEST(adrbrowsielModelTypeWorkerTest,
                      ResetProgressMarkerDisabledFeature);
 
-class BraveModelTypeWorker : public ModelTypeWorker {
+class adrbrowsielModelTypeWorker : public ModelTypeWorker {
  public:
-  BraveModelTypeWorker(ModelType type,
+  adrbrowsielModelTypeWorker(ModelType type,
                        const sync_pb::ModelTypeState& initial_state,
                        bool trigger_initial_sync,
                        Cryptographer* cryptographer,
@@ -42,15 +42,15 @@ class BraveModelTypeWorker : public ModelTypeWorker {
                        NudgeHandler* nudge_handler,
                        std::unique_ptr<ModelTypeProcessor> model_type_processor,
                        CancelationSignal* cancelation_signal);
-  ~BraveModelTypeWorker() override;
-  BraveModelTypeWorker(const BraveModelTypeWorker&) = delete;
-  BraveModelTypeWorker& operator=(const BraveModelTypeWorker&) = delete;
+  ~adrbrowsielModelTypeWorker() override;
+  adrbrowsielModelTypeWorker(const adrbrowsielModelTypeWorker&) = delete;
+  adrbrowsielModelTypeWorker& operator=(const adrbrowsielModelTypeWorker&) = delete;
 
  private:
-  FRIEND_TEST_ALL_PREFIXES(BraveModelTypeWorkerTest, ResetProgressMarker);
-  FRIEND_TEST_ALL_PREFIXES(BraveModelTypeWorkerTest,
+  FRIEND_TEST_ALL_PREFIXES(adrbrowsielModelTypeWorkerTest, ResetProgressMarker);
+  FRIEND_TEST_ALL_PREFIXES(adrbrowsielModelTypeWorkerTest,
                            ResetProgressMarkerMaxPeriod);
-  FRIEND_TEST_ALL_PREFIXES(BraveModelTypeWorkerTest,
+  FRIEND_TEST_ALL_PREFIXES(adrbrowsielModelTypeWorkerTest,
                            ResetProgressMarkerDisabledFeature);
 
   void OnCommitResponse(
@@ -69,4 +69,4 @@ class BraveModelTypeWorker : public ModelTypeWorker {
 
 }  // namespace syncer
 
-#endif  // BRAVE_COMPONENTS_SYNC_ENGINE_BRAVE_MODEL_TYPE_WORKER_H_
+#endif  // adrbrowsiel_COMPONENTS_SYNC_ENGINE_adrbrowsiel_MODEL_TYPE_WORKER_H_

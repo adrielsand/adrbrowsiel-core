@@ -1,86 +1,86 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_ads/browser/ads_p2a.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_p2a.h"
 
 #include <cstdint>
 #include <map>
 #include <string>
 
 #include "base/metrics/histogram_functions.h"
-#include "brave/components/brave_ads/common/pref_names.h"
-#include "brave/components/weekly_storage/weekly_storage.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/common/pref_names.h"
+#include "adrbrowsiel/components/weekly_storage/weekly_storage.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 namespace {
 
 constexpr const char* kP2AQuestionNameList[] = {
     // Ad Opportunities
-    "Brave.P2A.TotalAdOpportunities",
-    "Brave.P2A.AdOpportunitiesPerSegment.architecture",
-    "Brave.P2A.AdOpportunitiesPerSegment.artsentertainment",
-    "Brave.P2A.AdOpportunitiesPerSegment.automotive",
-    "Brave.P2A.AdOpportunitiesPerSegment.business",
-    "Brave.P2A.AdOpportunitiesPerSegment.careers",
-    "Brave.P2A.AdOpportunitiesPerSegment.cellphones",
-    "Brave.P2A.AdOpportunitiesPerSegment.crypto",
-    "Brave.P2A.AdOpportunitiesPerSegment.education",
-    "Brave.P2A.AdOpportunitiesPerSegment.familyparenting",
-    "Brave.P2A.AdOpportunitiesPerSegment.fashion",
-    "Brave.P2A.AdOpportunitiesPerSegment.folklore",
-    "Brave.P2A.AdOpportunitiesPerSegment.fooddrink",
-    "Brave.P2A.AdOpportunitiesPerSegment.gaming",
-    "Brave.P2A.AdOpportunitiesPerSegment.healthfitness",
-    "Brave.P2A.AdOpportunitiesPerSegment.history",
-    "Brave.P2A.AdOpportunitiesPerSegment.hobbiesinterests",
-    "Brave.P2A.AdOpportunitiesPerSegment.home",
-    "Brave.P2A.AdOpportunitiesPerSegment.law",
-    "Brave.P2A.AdOpportunitiesPerSegment.military",
-    "Brave.P2A.AdOpportunitiesPerSegment.other",
-    "Brave.P2A.AdOpportunitiesPerSegment.personalfinance",
-    "Brave.P2A.AdOpportunitiesPerSegment.pets",
-    "Brave.P2A.AdOpportunitiesPerSegment.realestate",
-    "Brave.P2A.AdOpportunitiesPerSegment.science",
-    "Brave.P2A.AdOpportunitiesPerSegment.sports",
-    "Brave.P2A.AdOpportunitiesPerSegment.technologycomputing",
-    "Brave.P2A.AdOpportunitiesPerSegment.travel",
-    "Brave.P2A.AdOpportunitiesPerSegment.weather",
-    "Brave.P2A.AdOpportunitiesPerSegment.untargeted",
+    "adrbrowsiel.P2A.TotalAdOpportunities",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.architecture",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.artsentertainment",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.automotive",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.business",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.careers",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.cellphones",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.crypto",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.education",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.familyparenting",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.fashion",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.folklore",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.fooddrink",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.gaming",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.healthfitness",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.history",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.hobbiesinterests",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.home",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.law",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.military",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.other",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.personalfinance",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.pets",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.realestate",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.science",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.sports",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.technologycomputing",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.travel",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.weather",
+    "adrbrowsiel.P2A.AdOpportunitiesPerSegment.untargeted",
     // Ad Impressions
-    "Brave.P2A.TotalAdImpressions",
-    "Brave.P2A.AdImpressionsPerSegment.architecture",
-    "Brave.P2A.AdImpressionsPerSegment.artsentertainment",
-    "Brave.P2A.AdImpressionsPerSegment.automotive",
-    "Brave.P2A.AdImpressionsPerSegment.business",
-    "Brave.P2A.AdImpressionsPerSegment.careers",
-    "Brave.P2A.AdImpressionsPerSegment.cellphones",
-    "Brave.P2A.AdImpressionsPerSegment.crypto",
-    "Brave.P2A.AdImpressionsPerSegment.education",
-    "Brave.P2A.AdImpressionsPerSegment.familyparenting",
-    "Brave.P2A.AdImpressionsPerSegment.fashion",
-    "Brave.P2A.AdImpressionsPerSegment.folklore",
-    "Brave.P2A.AdImpressionsPerSegment.fooddrink",
-    "Brave.P2A.AdImpressionsPerSegment.gaming",
-    "Brave.P2A.AdImpressionsPerSegment.healthfitness",
-    "Brave.P2A.AdImpressionsPerSegment.history",
-    "Brave.P2A.AdImpressionsPerSegment.hobbiesinterests",
-    "Brave.P2A.AdImpressionsPerSegment.home",
-    "Brave.P2A.AdImpressionsPerSegment.law",
-    "Brave.P2A.AdImpressionsPerSegment.military",
-    "Brave.P2A.AdImpressionsPerSegment.other",
-    "Brave.P2A.AdImpressionsPerSegment.personalfinance",
-    "Brave.P2A.AdImpressionsPerSegment.pets",
-    "Brave.P2A.AdImpressionsPerSegment.realestate",
-    "Brave.P2A.AdImpressionsPerSegment.science",
-    "Brave.P2A.AdImpressionsPerSegment.sports",
-    "Brave.P2A.AdImpressionsPerSegment.technologycomputing",
-    "Brave.P2A.AdImpressionsPerSegment.travel",
-    "Brave.P2A.AdImpressionsPerSegment.weather",
-    "Brave.P2A.AdImpressionsPerSegment.untargeted"};
+    "adrbrowsiel.P2A.TotalAdImpressions",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.architecture",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.artsentertainment",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.automotive",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.business",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.careers",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.cellphones",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.crypto",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.education",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.familyparenting",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.fashion",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.folklore",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.fooddrink",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.gaming",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.healthfitness",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.history",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.hobbiesinterests",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.home",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.law",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.military",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.other",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.personalfinance",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.pets",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.realestate",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.science",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.sports",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.technologycomputing",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.travel",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.weather",
+    "adrbrowsiel.P2A.AdImpressionsPerSegment.untargeted"};
 
 const uint16_t kIntervalBuckets[] = {0, 5, 10, 20, 50, 100, 250, 500};
 
@@ -128,4 +128,4 @@ void SuspendP2AHistograms() {
   }
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

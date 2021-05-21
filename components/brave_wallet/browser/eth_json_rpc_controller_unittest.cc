@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,14 +6,14 @@
 #include <memory>
 #include <vector>
 
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
-#include "brave/components/brave_wallet/browser/eth_json_rpc_controller.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_json_rpc_controller.h"
 #include "content/public/test/browser_task_environment.h"
 #include "content/public/test/test_browser_context.h"
 #include "testing/gtest/include/gtest/gtest.h"
 #include "url/gurl.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 class EthJsonRpcControllerUnitTest : public testing::Test {
  public:
@@ -32,32 +32,32 @@ TEST_F(EthJsonRpcControllerUnitTest, SetNetwork) {
   EthJsonRpcController controller(context(), Network::kRinkeby);
   ASSERT_EQ(controller.GetNetwork(), Network::kRinkeby);
   ASSERT_EQ(controller.GetNetworkURL().GetOrigin(),
-            "https://rinkeby-infura.brave.com/");
+            "https://rinkeby-infura.adrbrowsiel.com/");
 
   controller.SetNetwork(Network::kMainnet);
   ASSERT_EQ(controller.GetNetwork(), Network::kMainnet);
   ASSERT_EQ(controller.GetNetworkURL().GetOrigin(),
-            "https://mainnet-infura.brave.com/");
+            "https://mainnet-infura.adrbrowsiel.com/");
 
   controller.SetNetwork(Network::kRinkeby);
   ASSERT_EQ(controller.GetNetwork(), Network::kRinkeby);
   ASSERT_EQ(controller.GetNetworkURL().GetOrigin(),
-            "https://rinkeby-infura.brave.com/");
+            "https://rinkeby-infura.adrbrowsiel.com/");
 
   controller.SetNetwork(Network::kRopsten);
   ASSERT_EQ(controller.GetNetwork(), Network::kRopsten);
   ASSERT_EQ(controller.GetNetworkURL().GetOrigin(),
-            "https://ropsten-infura.brave.com/");
+            "https://ropsten-infura.adrbrowsiel.com/");
 
   controller.SetNetwork(Network::kGoerli);
   ASSERT_EQ(controller.GetNetwork(), Network::kGoerli);
   ASSERT_EQ(controller.GetNetworkURL().GetOrigin(),
-            "https://goerli-infura.brave.com/");
+            "https://goerli-infura.adrbrowsiel.com/");
 
   controller.SetNetwork(Network::kKovan);
   ASSERT_EQ(controller.GetNetwork(), Network::kKovan);
   ASSERT_EQ(controller.GetNetworkURL().GetOrigin(),
-            "https://kovan-infura.brave.com/");
+            "https://kovan-infura.adrbrowsiel.com/");
 
   controller.SetNetwork(Network::kLocalhost);
   ASSERT_EQ(controller.GetNetwork(), Network::kLocalhost);
@@ -72,4 +72,4 @@ TEST_F(EthJsonRpcControllerUnitTest, SetCustomNetwork) {
   ASSERT_EQ(controller.GetNetworkURL(), custom_network);
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

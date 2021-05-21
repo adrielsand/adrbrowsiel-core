@@ -2,7 +2,7 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-import("//brave/build/cargo.gni")
+import("//adrbrowsiel/build/cargo.gni")
 
 rust_ffi("adblock_rust_ffi") {
   shared_library_define = "ADBLOCK_SHARED_LIBRARY"

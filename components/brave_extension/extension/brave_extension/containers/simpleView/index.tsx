@@ -60,8 +60,8 @@ export default class ShieldsSimpleView extends React.PureComponent<Props, {}> {
   }
 
   get isShieldsEnabled (): boolean {
-    const { braveShields } = this.props.shieldsPanelTabData
-    return isShieldsEnabled(braveShields)
+    const { adrbrowsielShields } = this.props.shieldsPanelTabData
+    return isShieldsEnabled(adrbrowsielShields)
   }
 
   render () {

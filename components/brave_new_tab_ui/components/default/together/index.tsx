@@ -19,7 +19,7 @@ import {
   PrivacyLink
 } from './style'
 import { StyledTitleTab } from '../widgetTitleTab'
-import BraveTogetherIcon from './assets/brave-together-icon'
+import adrbrowsielTogetherIcon from './assets/adrbrowsiel-together-icon'
 
 interface Props {
   showContent: boolean
@@ -38,7 +38,7 @@ class Together extends React.PureComponent<Props, {}> {
       <Header>
         <StyledTitle>
           <TogetherIcon>
-            <BraveTogetherIcon />
+            <adrbrowsielTogetherIcon />
           </TogetherIcon>
           <>
             {getLocale('togetherWidgetTitle')}
@@ -60,7 +60,7 @@ class Together extends React.PureComponent<Props, {}> {
 
   shouldCreateCall = (event: any) => {
     event.preventDefault()
-    window.open(`https://together.brave.com/widget`, '_self', 'noopener')
+    window.open(`https://together.adrbrowsiel.com/widget`, '_self', 'noopener')
   }
 
   render () {
@@ -87,7 +87,7 @@ class Together extends React.PureComponent<Props, {}> {
                 <PrivacyLink
                   rel={'noopener'}
                   target={'_blank'}
-                  href={'https://brave.com/privacy/#brave-together-learn'}
+                  href={'https://adrbrowsiel.com/privacy/#adrbrowsiel-together-learn'}
                 >
                   {getLocale('togetherWidgetAboutData')}
                 </PrivacyLink>

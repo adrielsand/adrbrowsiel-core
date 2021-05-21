@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_perf_predictor/browser/named_third_party_registry.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/named_third_party_registry.h"
 
 #include <tuple>
 
@@ -17,13 +17,13 @@
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
 #include "base/values.h"
-#include "brave/components/brave_perf_predictor/browser/bandwidth_linreg_parameters.h"
-#include "components/grit/brave_components_resources.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/bandwidth_linreg_parameters.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
 #include "net/base/registry_controlled_domains/registry_controlled_domain.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "url/gurl.h"
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 namespace {
 
@@ -89,7 +89,7 @@ std::tuple<base::flat_map<std::string, std::string>,
 ParseFromResource(int resource_id) {
   // TODO(AndriusA): insert trace event here
   SCOPED_UMA_HISTOGRAM_TIMER(
-      "Brave.Savings.NamedThirdPartyRegistry.LoadTimeMS");
+      "adrbrowsiel.Savings.NamedThirdPartyRegistry.LoadTimeMS");
   auto& resource_bundle = ui::ResourceBundle::GetSharedInstance();
   std::string data_resource =
       resource_bundle.LoadDataResourceString(resource_id);
@@ -163,4 +163,4 @@ void NamedThirdPartyRegistry::InitializeDefault() {
                      weak_factory_.GetWeakPtr()));
 }
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor

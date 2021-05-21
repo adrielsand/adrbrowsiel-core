@@ -28,8 +28,8 @@ import {
   StyledRefreshFinished,
   StyledVerifiedDivider
 } from './style'
-import { getLocale } from 'brave-ui/helpers'
-import { VerifiedSIcon, UnVerifiedSIcon, LoaderIcon, CheckmarkCircleS } from 'brave-ui/components/icons'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
+import { VerifiedSIcon, UnVerifiedSIcon, LoaderIcon, CheckmarkCircleS } from 'adrbrowsiel-ui/components/icons'
 
 export type Provider = 'twitter' | 'youtube' | 'twitch' | 'reddit' | 'vimeo' | 'github'
 

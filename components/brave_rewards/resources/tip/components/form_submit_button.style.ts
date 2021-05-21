@@ -10,16 +10,16 @@ export const root = styled.div`
     padding: 19px 0;
     cursor: pointer;
     border: none;
-    background: var(--brave-color-brandBatInteracting);
+    background: var(--adrbrowsiel-color-brandBatInteracting);
     font-size: 14px;
     line-height: 21px;
     font-weight: 600;
-    color: var(--brave-palette-white);
+    color: var(--adrbrowsiel-palette-white);
     outline: none;
   }
 
   button:active {
-    background: var(--brave-palette-blurple400);
+    background: var(--adrbrowsiel-palette-blurple400);
   }
 
   button:focus-visible {

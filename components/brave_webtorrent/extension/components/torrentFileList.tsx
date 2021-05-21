@@ -3,9 +3,9 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import { Heading, Table } from 'brave-ui/components'
-import { Cell, Row } from 'brave-ui/components/dataTables/table/index'
-import { LoaderIcon } from 'brave-ui/components/icons'
+import { Heading, Table } from 'adrbrowsiel-ui/components'
+import { Cell, Row } from 'adrbrowsiel-ui/components/dataTables/table/index'
+import { LoaderIcon } from 'adrbrowsiel-ui/components/icons'
 import * as prettierBytes from 'prettier-bytes'
 
 // Constants

@@ -10,7 +10,7 @@ import { types } from '../constants/rewards_types'
 const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State, action) => {
   switch (action.type) {
     case types.GET_REWARDS_PARAMETERS:
-      chrome.send('brave_rewards.getRewardsParameters')
+      chrome.send('adrbrowsiel_rewards.getRewardsParameters')
       break
     case types.ON_REWARDS_PARAMETERS: {
       state = { ...state }
@@ -31,7 +31,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.GET_BALANCE_REPORT: {
-      chrome.send('brave_rewards.getBalanceReport', [
+      chrome.send('adrbrowsiel_rewards.getBalanceReport', [
         action.payload.month,
         action.payload.year
       ])
@@ -43,7 +43,7 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.GET_CONTRIBUTION_AMOUNT: {
-      chrome.send('brave_rewards.getContributionAmount')
+      chrome.send('adrbrowsiel_rewards.getContributionAmount')
       break
     }
     case types.ON_CONTRIBUTION_AMOUNT: {
@@ -52,11 +52,11 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.GET_RECONCILE_STAMP: {
-      chrome.send('brave_rewards.getReconcileStamp')
+      chrome.send('adrbrowsiel_rewards.getReconcileStamp')
       break
     }
     case types.GET_PENDING_CONTRIBUTIONS: {
-      chrome.send('brave_rewards.getPendingContributions')
+      chrome.send('adrbrowsiel_rewards.getPendingContributions')
       break
     }
     case types.ON_PENDING_CONTRIBUTIONS: {
@@ -70,17 +70,17 @@ const walletReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State,
       break
     }
     case types.REMOVE_PENDING_CONTRIBUTION: {
-      chrome.send('brave_rewards.removePendingContribution', [
+      chrome.send('adrbrowsiel_rewards.removePendingContribution', [
         action.payload.id
       ])
       break
     }
     case types.REMOVE_ALL_PENDING_CONTRIBUTION: {
-      chrome.send('brave_rewards.removeAllPendingContribution')
+      chrome.send('adrbrowsiel_rewards.removeAllPendingContribution')
       break
     }
     case types.GET_BALANCE: {
-      chrome.send('brave_rewards.fetchBalance')
+      chrome.send('adrbrowsiel_rewards.fetchBalance')
       break
     }
     case types.ON_BALANCE: {

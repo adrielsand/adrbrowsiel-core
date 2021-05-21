@@ -9,8 +9,8 @@ import {
   StyledAdMenuOptionDropContent,
   StyledAdMenuOptionDropContentText
 } from './style'
-import { MoreVertLIcon } from 'brave-ui/components/icons'
-import { getLocale } from 'brave-ui/helpers'
+import { MoreVertLIcon } from 'adrbrowsiel-ui/components/icons'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 
 interface State {
   menuOpen: boolean

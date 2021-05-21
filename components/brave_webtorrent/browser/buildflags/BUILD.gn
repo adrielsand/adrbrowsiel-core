@@ -4,7 +4,7 @@ import("buildflags.gni")
 buildflag_header("buildflags") {
   header = "buildflags.h"
   flags = [
-    "ENABLE_BRAVE_WEBTORRENT=$enable_brave_webtorrent",
+    "ENABLE_adrbrowsiel_WEBTORRENT=$enable_adrbrowsiel_webtorrent",
   ]
 }
 

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_adrbrowsiel_WALLET_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_adrbrowsiel_WALLET_SERVICE_H_
 
 #include <list>
 #include <map>
@@ -21,7 +21,7 @@
 #include "base/observer_list.h"
 #include "base/scoped_observer.h"
 #include "base/values.h"
-#include "brave/components/brave_wallet/browser/eth_json_rpc_controller.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_json_rpc_controller.h"
 #include "components/keyed_service/core/keyed_service.h"
 #include "extensions/buildflags/buildflags.h"
 #include "url/gurl.h"
@@ -31,7 +31,7 @@
 #include "extensions/browser/extension_registry_observer.h"
 #endif
 
-class BraveWalletDelegate;
+class adrbrowsielWalletDelegate;
 class PrefChangeRegistrar;
 class PrefService;
 
@@ -44,19 +44,19 @@ namespace content {
 class BrowserContext;
 }  // namespace content
 
-class BraveWalletService : public KeyedService,
+class adrbrowsielWalletService : public KeyedService,
 #if BUILDFLAG(ENABLE_EXTENSIONS)
                            public extensions::ExtensionRegistryObserver,
 #endif
-                           public base::SupportsWeakPtr<BraveWalletService> {
+                           public base::SupportsWeakPtr<adrbrowsielWalletService> {
  public:
-  explicit BraveWalletService(
+  explicit adrbrowsielWalletService(
       content::BrowserContext* context,
-      std::unique_ptr<BraveWalletDelegate> brave_wallet_delegate);
-  ~BraveWalletService() override;
+      std::unique_ptr<adrbrowsielWalletDelegate> adrbrowsiel_wallet_delegate);
+  ~adrbrowsielWalletService() override;
   using LoadUICallback = base::OnceCallback<void()>;
 
-  brave_wallet::EthJsonRpcController* controller() const;
+  adrbrowsiel_wallet::EthJsonRpcController* controller() const;
 
   void ResetCryptoWallets();
   std::string GetWalletSeed(std::vector<uint8_t> key);
@@ -110,8 +110,8 @@ class BraveWalletService : public KeyedService,
 
   content::BrowserContext* context_;
   std::unique_ptr<PrefChangeRegistrar> pref_change_registrar_;
-  std::unique_ptr<BraveWalletDelegate> brave_wallet_delegate_;
-  std::unique_ptr<brave_wallet::EthJsonRpcController> controller_;
+  std::unique_ptr<adrbrowsielWalletDelegate> adrbrowsiel_wallet_delegate_;
+  std::unique_ptr<adrbrowsiel_wallet::EthJsonRpcController> controller_;
 #if BUILDFLAG(ENABLE_EXTENSIONS)
   ScopedObserver<extensions::ExtensionRegistry,
                  extensions::ExtensionRegistryObserver>
@@ -119,7 +119,7 @@ class BraveWalletService : public KeyedService,
 #endif
   scoped_refptr<base::SequencedTaskRunner> file_task_runner_;
   LoadUICallback load_ui_callback_;
-  DISALLOW_COPY_AND_ASSIGN(BraveWalletService);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielWalletService);
 };
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_adrbrowsiel_WALLET_SERVICE_H_

@@ -4,7 +4,7 @@
 
 import styled from 'styled-components'
 
-import { CaratStrongLeftIcon } from 'brave-ui/components/icons'
+import { CaratStrongLeftIcon } from 'adrbrowsiel-ui/components/icons'
 
 export const Container = styled.span`
   display: inline-block;

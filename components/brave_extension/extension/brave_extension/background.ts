@@ -36,11 +36,11 @@ promisifyAll(chrome.storage, [
   'local'
 ])
 
-bluebird.promisifyAll(chrome.braveShields, { promisifier })
+bluebird.promisifyAll(chrome.adrbrowsielShields, { promisifier })
 
 require('./background/api')
 require('./background/events')
 require('./background/store')
 if (chrome.test) {
-  chrome.test.sendMessage('brave-extension-enabled')
+  chrome.test.sendMessage('adrbrowsiel-extension-enabled')
 }

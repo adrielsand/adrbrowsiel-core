@@ -3,8 +3,8 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import Heading from 'brave-ui/components/text/heading'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
+import Heading from 'adrbrowsiel-ui/components/text/heading'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 import { ComponentType } from 'react'
 
 interface StyleProps {

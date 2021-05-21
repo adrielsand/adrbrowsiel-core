@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -10,12 +10,12 @@
 #include "base/strings/stringprintf.h"
 #include "base/test/bind.h"
 #include "bat/ledger/mojom_structs.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_response.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 #include "chrome/common/chrome_paths.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -23,7 +23,7 @@
 #include "content/public/test/browser_test.h"
 #include "net/dns/mock_host_resolver.h"
 
-// npm run test -- brave_browser_tests --filter=RewardsStateBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=RewardsStateBrowserTest.*
 
 namespace rewards_browsertest {
 
@@ -53,10 +53,10 @@ class RewardsStateBrowserTest : public InProcessBrowserTest {
     ASSERT_TRUE(https_server_->Start());
 
     // Rewards service
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     profile_ = browser()->profile();
-    rewards_service_ = static_cast<brave_rewards::RewardsServiceImpl*>(
-        brave_rewards::RewardsServiceFactory::GetForProfile(profile_));
+    rewards_service_ = static_cast<adrbrowsiel_rewards::RewardsServiceImpl*>(
+        adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile_));
 
     // Response mock
     base::ScopedAllowBlockingForTesting allow_blocking;
@@ -131,7 +131,7 @@ class RewardsStateBrowserTest : public InProcessBrowserTest {
   void GetTestFile(const std::string& file_name, base::FilePath* path) const {
     base::FilePath test_path;
     base::PathService::Get(base::DIR_SOURCE_ROOT, &test_path);
-    test_path = test_path.Append(FILE_PATH_LITERAL("brave"));
+    test_path = test_path.Append(FILE_PATH_LITERAL("adrbrowsiel"));
     test_path = test_path.Append(FILE_PATH_LITERAL("test"));
     test_path = test_path.Append(FILE_PATH_LITERAL("data"));
     test_path = test_path.Append(FILE_PATH_LITERAL("rewards-data"));
@@ -166,30 +166,30 @@ class RewardsStateBrowserTest : public InProcessBrowserTest {
     ASSERT_TRUE(base::CopyFile(test_path, profile_path));
   }
 
-  brave_rewards::RewardsServiceImpl* rewards_service_;
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;
   Profile* profile_;
   std::unique_ptr<net::EmbeddedTestServer> https_server_;
   std::unique_ptr<RewardsBrowserTestResponse> response_;
 };
 
 IN_PROC_BROWSER_TEST_F(RewardsStateBrowserTest, State_1) {
-  profile_->GetPrefs()->SetInteger("brave.rewards.version", -1);
+  profile_->GetPrefs()->SetInteger("adrbrowsiel.rewards.version", -1);
   rewards_browsertest_util::StartProcess(rewards_service_);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetInteger("brave.rewards.ac.min_visit_time"),
+      profile_->GetPrefs()->GetInteger("adrbrowsiel.rewards.ac.min_visit_time"),
       5);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetInteger("brave.rewards.ac.min_visits"),
+      profile_->GetPrefs()->GetInteger("adrbrowsiel.rewards.ac.min_visits"),
       5);
   EXPECT_EQ(profile_->GetPrefs()->GetBoolean(
-      "brave.rewards.ac.allow_non_verified"),
+      "adrbrowsiel.rewards.ac.allow_non_verified"),
           false);
   EXPECT_EQ(profile_->GetPrefs()->GetBoolean(
-      "brave.rewards.ac.allow_video_contributions"),
+      "adrbrowsiel.rewards.ac.allow_video_contributions"),
           false);
-  EXPECT_EQ(profile_->GetPrefs()->GetDouble("brave.rewards.ac.score.a"),
+  EXPECT_EQ(profile_->GetPrefs()->GetDouble("adrbrowsiel.rewards.ac.score.a"),
       14500.0);
-  EXPECT_EQ(profile_->GetPrefs()->GetDouble("brave.rewards.ac.score.b"),
+  EXPECT_EQ(profile_->GetPrefs()->GetDouble("adrbrowsiel.rewards.ac.score.b"),
       -14000.0);
 
   rewards_service_->GetBalanceReport(
@@ -222,72 +222,72 @@ IN_PROC_BROWSER_TEST_F(RewardsStateBrowserTest, State_1) {
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsStateBrowserTest, State_2) {
-  profile_->GetPrefs()->SetInteger("brave.rewards.version", -1);
+  profile_->GetPrefs()->SetInteger("adrbrowsiel.rewards.version", -1);
   rewards_browsertest_util::StartProcess(rewards_service_);
   const std::string wallet = R"({"payment_id":"eea767c4-cd27-4411-afd4-78a9c6b54dbc","recovery_seed":"PgFfhazUJuf8dX+8ckTjrtK1KMLyrfXmKJFDiS1Ad3I="})";  // NOLINT
   EXPECT_EQ(
-      rewards_service_->GetEncryptedStringState("wallets.brave"),
+      rewards_service_->GetEncryptedStringState("wallets.adrbrowsiel"),
       wallet);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetUint64("brave.rewards.creation_stamp"),
+      profile_->GetPrefs()->GetUint64("adrbrowsiel.rewards.creation_stamp"),
       1590484778ul);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetUint64("brave.rewards.ac.next_reconcile_stamp"),
+      profile_->GetPrefs()->GetUint64("adrbrowsiel.rewards.ac.next_reconcile_stamp"),
       2593076778ul);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetDouble("brave.rewards.ac.amount"),
+      profile_->GetPrefs()->GetDouble("adrbrowsiel.rewards.ac.amount"),
       20.0);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetBoolean("brave.rewards.ac.enabled"),
+      profile_->GetPrefs()->GetBoolean("adrbrowsiel.rewards.ac.enabled"),
       true);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetBoolean("brave.rewards.inline_tip.reddit"),
+      profile_->GetPrefs()->GetBoolean("adrbrowsiel.rewards.inline_tip.reddit"),
       true);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetBoolean("brave.rewards.inline_tip.twitter"),
+      profile_->GetPrefs()->GetBoolean("adrbrowsiel.rewards.inline_tip.twitter"),
       false);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetBoolean("brave.rewards.inline_tip.github"),
+      profile_->GetPrefs()->GetBoolean("adrbrowsiel.rewards.inline_tip.github"),
       false);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsStateBrowserTest, V8RewardsEnabledACEnabled) {
-  profile_->GetPrefs()->SetInteger("brave.rewards.version", -1);
-  profile_->GetPrefs()->SetBoolean("brave.rewards.enabled", true);
-  profile_->GetPrefs()->SetBoolean("brave.rewards.ac.enabled", true);
+  profile_->GetPrefs()->SetInteger("adrbrowsiel.rewards.version", -1);
+  profile_->GetPrefs()->SetBoolean("adrbrowsiel.rewards.enabled", true);
+  profile_->GetPrefs()->SetBoolean("adrbrowsiel.rewards.ac.enabled", true);
   rewards_browsertest_util::StartProcess(rewards_service_);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetBoolean("brave.rewards.ac.enabled"),
+      profile_->GetPrefs()->GetBoolean("adrbrowsiel.rewards.ac.enabled"),
       true);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsStateBrowserTest, V8RewardsEnabledACDisabled) {
-  profile_->GetPrefs()->SetInteger("brave.rewards.version", -1);
-  profile_->GetPrefs()->SetBoolean("brave.rewards.enabled", true);
-  profile_->GetPrefs()->SetBoolean("brave.rewards.ac.enabled", false);
+  profile_->GetPrefs()->SetInteger("adrbrowsiel.rewards.version", -1);
+  profile_->GetPrefs()->SetBoolean("adrbrowsiel.rewards.enabled", true);
+  profile_->GetPrefs()->SetBoolean("adrbrowsiel.rewards.ac.enabled", false);
   rewards_browsertest_util::StartProcess(rewards_service_);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetBoolean("brave.rewards.ac.enabled"),
+      profile_->GetPrefs()->GetBoolean("adrbrowsiel.rewards.ac.enabled"),
       false);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsStateBrowserTest, V8RewardsDisabledACEnabled) {
-  profile_->GetPrefs()->SetInteger("brave.rewards.version", -1);
-  profile_->GetPrefs()->SetBoolean("brave.rewards.enabled", false);
-  profile_->GetPrefs()->SetBoolean("brave.rewards.ac.enabled", true);
+  profile_->GetPrefs()->SetInteger("adrbrowsiel.rewards.version", -1);
+  profile_->GetPrefs()->SetBoolean("adrbrowsiel.rewards.enabled", false);
+  profile_->GetPrefs()->SetBoolean("adrbrowsiel.rewards.ac.enabled", true);
   rewards_browsertest_util::StartProcess(rewards_service_);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetBoolean("brave.rewards.ac.enabled"),
+      profile_->GetPrefs()->GetBoolean("adrbrowsiel.rewards.ac.enabled"),
       false);
 }
 
 IN_PROC_BROWSER_TEST_F(RewardsStateBrowserTest, V8RewardsDisabledACDisabled) {
-  profile_->GetPrefs()->SetInteger("brave.rewards.version", -1);
-  profile_->GetPrefs()->SetBoolean("brave.rewards.enabled", false);
-  profile_->GetPrefs()->SetBoolean("brave.rewards.ac.enabled", false);
+  profile_->GetPrefs()->SetInteger("adrbrowsiel.rewards.version", -1);
+  profile_->GetPrefs()->SetBoolean("adrbrowsiel.rewards.enabled", false);
+  profile_->GetPrefs()->SetBoolean("adrbrowsiel.rewards.ac.enabled", false);
   rewards_browsertest_util::StartProcess(rewards_service_);
   EXPECT_EQ(
-      profile_->GetPrefs()->GetBoolean("brave.rewards.ac.enabled"),
+      profile_->GetPrefs()->GetBoolean("adrbrowsiel.rewards.ac.enabled"),
       false);
 }
 

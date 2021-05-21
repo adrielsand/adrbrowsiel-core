@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_NTP_BACKGROUND_IMAGES_SERVICE_H_
-#define BRAVE_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_NTP_BACKGROUND_IMAGES_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_NTP_BACKGROUND_IMAGES_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_NTP_BACKGROUND_IMAGES_SERVICE_H_
 
 #include <memory>
 #include <string>
@@ -151,7 +151,7 @@ class NTPBackgroundImagesService {
   // The reason is |kNewTabPageCachedSuperReferralComponentInfo| is used to
   // check whether initial download is finished or not. Knowing initial download
   // is done is important for super referral. If this is SR install, we should
-  // not show SI images until user chooses Brave default images. So, we should
+  // not show SI images until user chooses adrbrowsiel default images. So, we should
   // know the exact timing whether SR assets is ready to use or not.
   base::Value initial_sr_component_info_;
   base::WeakPtrFactory<NTPBackgroundImagesService> weak_factory_;
@@ -159,4 +159,4 @@ class NTPBackgroundImagesService {
 
 }  // namespace ntp_background_images
 
-#endif  // BRAVE_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_NTP_BACKGROUND_IMAGES_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_NTP_BACKGROUND_IMAGES_BROWSER_NTP_BACKGROUND_IMAGES_SERVICE_H_

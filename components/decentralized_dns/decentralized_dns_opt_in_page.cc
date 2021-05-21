@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/decentralized_dns/decentralized_dns_opt_in_page.h"
+#include "adrbrowsiel/components/decentralized_dns/decentralized_dns_opt_in_page.h"
 
 #include <utility>
 #include <vector>
@@ -13,10 +13,10 @@
 #include "base/strings/string_util.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/values.h"
-#include "brave/components/decentralized_dns/decentralized_dns_interstitial_controller_client.h"
-#include "brave/components/decentralized_dns/utils.h"
-#include "components/grit/brave_components_resources.h"
-#include "components/grit/brave_components_strings.h"
+#include "adrbrowsiel/components/decentralized_dns/decentralized_dns_interstitial_controller_client.h"
+#include "adrbrowsiel/components/decentralized_dns/utils.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/security_interstitials/content/security_interstitial_controller_client.h"
 #include "ui/base/l10n/l10n_util.h"
 

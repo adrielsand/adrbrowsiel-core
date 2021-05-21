@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Recompensas Brave",
+  "adrbrowsielRewards": {
+    "message": "Recompensas adrbrowsiel",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "As Recompensas do Brave passaram por um grande upgrade.",
+    "message": "As Recompensas do adrbrowsiel passaram por um grande upgrade.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "podem ser usadas no Brave Rewards para contribuir com seus criadores de conteúdo favoritos. Não é possível trocar pontos BAT por BAT.",
+    "message": "podem ser usadas no adrbrowsiel Rewards para contribuir com seus criadores de conteúdo favoritos. Não é possível trocar pontos BAT por BAT.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Criador Verificado pelo Brave",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "Criador Verificado pelo adrbrowsiel",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Atenção",
@@ -193,15 +193,15 @@
     "message": "está bem",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Agora você pode ganhar dinheiro visualizando anúncios.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
+  "adrbrowsielAdsTitle": {
     "message": "Anúncios Corajosos",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Contribuição Automática",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Faça o backup da sua carteira Brave.",
+    "message": "Faça o backup da sua carteira adrbrowsiel.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Sua conta de Recompensas do Brave está aguardando um depósito.",
+    "message": "Sua conta de Recompensas do adrbrowsiel está aguardando um depósito.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Fundos Insuficientes",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Criando carteira",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "O Brave Rewards está enfrentando um problema. Tente novamente mais tarde.",
+    "message": "O adrbrowsiel Rewards está enfrentando um problema. Tente novamente mais tarde.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Esse criador ainda não se inscreveu para receber contribuições de usuários do Brave. Todas as gorjetas que você enviar vão permanecer na sua carteira até que eles sejam verificados.",
+    "message": "Esse criador ainda não se inscreveu para receber contribuições de usuários do adrbrowsiel. Todas as gorjetas que você enviar vão permanecer na sua carteira até que eles sejam verificados.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "O Brave Rewards é",
+    "message": "O adrbrowsiel Rewards é",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "e",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Seja recompensado pela sua navegação!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Ativar Recompensas Brave",
+    "message": "Ativar Recompensas adrbrowsiel",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Ao clicar em \"Habilitar Recompensas do Brave\", você  indica que leu e concorda com",
+    "message": "Ao clicar em \"Habilitar Recompensas do adrbrowsiel\", você  indica que leu e concorda com",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Sua recompensa vai chegar em breve na sua carteira Brave Rewards.",
+    "message": "Sua recompensa vai chegar em breve na sua carteira adrbrowsiel Rewards.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Desconectar de Brave Rewards",
+    "message": "Desconectar de adrbrowsiel Rewards",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Este Criador Verificado do Brave ainda não configurou sua conta para receber contribuições de Usuários do Brave. Qualquer contribuição que você enviar permanecerá em sua carteira até ele concluir esse processo.",
+    "message": "Este Criador Verificado do adrbrowsiel ainda não configurou sua conta para receber contribuições de Usuários do adrbrowsiel. Qualquer contribuição que você enviar permanecerá em sua carteira até ele concluir esse processo.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Ativar o Programa de Recompensas Brave",
+    "message": "Ativar o Programa de Recompensas adrbrowsiel",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Bem-vindo ao Programa de Recompensas Brave!",
+    "message": "Bem-vindo ao Programa de Recompensas adrbrowsiel!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Ao contrário dos anúncios tradicionais, os Anúncios Privados do Brave o recompensam com tokens para apoiar criadores de conteúdo, ao mesmo tempo que mantêm a privacidade de suas informações.",
+    "message": "Ao contrário dos anúncios tradicionais, os Anúncios Privados do adrbrowsiel o recompensam com tokens para apoiar criadores de conteúdo, ao mesmo tempo que mantêm a privacidade de suas informações.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Os Anúncios Privados do Brave aparecerão como uma notificação normal. Você controla a frequência com que deseja ver esses anúncios nas configurações.",
+    "message": "Os Anúncios Privados do adrbrowsiel aparecerão como uma notificação normal. Você controla a frequência com que deseja ver esses anúncios nas configurações.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Os tokens que você ganhou através dos Anúncios Privados do Brave ao longo do mês atual serão disponibilizados no dia 5 do próximo mês.",
+    "message": "Os tokens que você ganhou através dos Anúncios Privados do adrbrowsiel ao longo do mês atual serão disponibilizados no dia 5 do próximo mês.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Utilizando as Recompensas Brave, você está ajudando a transformar a web em um lugar melhor para todos. E isso é incrível!",
+    "message": "Utilizando as Recompensas adrbrowsiel, você está ajudando a transformar a web em um lugar melhor para todos. E isso é incrível!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Ao verificar sua carteira e vinculá-la a uma conta da bitFlyer, você poderá armazenar e gerenciar com mais facilidade os tokens que ganhou por meio do Brave Rewards",
+    "message": "Ao verificar sua carteira e vinculá-la a uma conta da bitFlyer, você poderá armazenar e gerenciar com mais facilidade os tokens que ganhou por meio do adrbrowsiel Rewards",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "As Recompensas Brave no Japão estão mudando para um novo sistema!",
+    "message": "As Recompensas adrbrowsiel no Japão estão mudando para um novo sistema!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

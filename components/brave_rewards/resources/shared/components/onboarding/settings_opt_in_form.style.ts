@@ -9,18 +9,18 @@ import modalBackground from './assets/opt_in_modal_bg.svg'
 export const root = styled.div`
   height: 100%;
   width: 100%;
-  background-color: var(--brave-palette-white);
+  background-color: var(--adrbrowsiel-palette-white);
   background-image: url('${modalBackground}');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: auto 220px;
   border-radius: 4px;
-  font-family: var(--brave-font-heading);
+  font-family: var(--adrbrowsiel-font-heading);
   text-align: center;
   padding: 90px 0;
 
   a {
-    color: var(--brave-color-brandBat);
+    color: var(--adrbrowsiel-color-brandBat);
     font-weight: 600;
     text-decoration: none;
   }
@@ -42,12 +42,12 @@ export const heading = styled.div`
 export const subHeading = styled.div`
   font-size: 18px;
   line-height: 24px;
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
 `
 
 export const text = styled.div`
   margin: 19px auto 0;
-  color: var(--brave-palette-neutral700);
+  color: var(--adrbrowsiel-palette-neutral700);
   font-size: 14px;
   line-height: 22px;
   max-width: 325px;
@@ -55,7 +55,7 @@ export const text = styled.div`
 
 export const takeTour = styled.div`
   margin-top: 20px;
-  color: var(--brave-color-brandBat);
+  color: var(--adrbrowsiel-color-brandBat);
 
   button {
     font-weight: 600;
@@ -80,7 +80,7 @@ export const enable = styled.div`
 export const footer = styled.div`
   width: 320px;
   margin: 10px auto;
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
   font-size: 12px;
   line-height: 18px;
 `

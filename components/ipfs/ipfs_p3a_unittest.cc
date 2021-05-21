@@ -1,12 +1,12 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/components/ipfs/ipfs_p3a.h"
+#include "adrbrowsiel/components/ipfs/ipfs_p3a.h"
 
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #include "components/prefs/testing_pref_service.h"
 #include "testing/gtest/include/gtest/gtest.h"
 

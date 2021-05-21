@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import warningCircleImage from './assets/warning_circle.svg'
 
 export const formText = styled.div`
-  color: var(--brave-color-brandBat);
+  color: var(--adrbrowsiel-color-brandBat);
   font-size: 14px;
   line-height: 20px;
   margin-top: -5px;
@@ -55,12 +55,12 @@ export const verifyActions = styled.div`
 
   button.verify-now {
     border: none;
-    background: var(--brave-color-brandBat);
-    color: var(--brave-palette-white);
+    background: var(--adrbrowsiel-color-brandBat);
+    color: var(--adrbrowsiel-palette-white);
   }
 
   button:active {
-    background: var(--brave-color-brandBatActive);
+    background: var(--adrbrowsiel-color-brandBatActive);
   }
 `
 
@@ -71,7 +71,7 @@ export const verifyLearnMore = styled.div`
   padding-bottom: 20px;
 
   a {
-    color: var(--brave-color-brandBat);
+    color: var(--adrbrowsiel-color-brandBat);
     text-decoration: none;
     font-weight: 600;
   }

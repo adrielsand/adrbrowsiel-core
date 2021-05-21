@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_ads/browser/ads_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service_impl.h"
 
 #include <algorithm>
 #include <limits>
@@ -40,27 +40,27 @@
 #include "bat/ads/pref_names.h"
 #include "bat/ads/resources/grit/bat_ads_resources.h"
 #include "bat/ads/statement_info.h"
-#include "brave/browser/brave_ads/notifications/ad_notification_platform_bridge.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/browser/profiles/profile_util.h"
-#include "brave/common/brave_channel_info.h"
-#include "brave/components/brave_ads/browser/ads_p2a.h"
-#include "brave/components/brave_ads/browser/features.h"
-#include "brave/components/brave_ads/browser/frequency_capping_helper.h"
-#include "brave/components/brave_ads/browser/notification_helper.h"
-#include "brave/components/brave_ads/common/pref_names.h"
-#include "brave/components/brave_ads/common/switches.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service.h"
-#include "brave/components/brave_rewards/browser/rewards_p3a.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
-#include "brave/components/l10n/browser/locale_helper.h"
-#include "brave/components/l10n/common/locale_util.h"
-#include "brave/components/rpill/common/rpill.h"
-#include "brave/components/services/bat_ads/public/cpp/ads_client_mojo_bridge.h"
-#include "brave/components/services/bat_ads/public/interfaces/bat_ads.mojom.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/notifications/ad_notification_platform_bridge.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/profiles/profile_util.h"
+#include "adrbrowsiel/common/adrbrowsiel_channel_info.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_p2a.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/frequency_capping_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/notification_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/common/switches.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_p3a.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper.h"
+#include "adrbrowsiel/components/l10n/common/locale_util.h"
+#include "adrbrowsiel/components/rpill/common/rpill.h"
+#include "adrbrowsiel/components/services/bat_ads/public/cpp/ads_client_mojo_bridge.h"
+#include "adrbrowsiel/components/services/bat_ads/public/interfaces/bat_ads.mojom.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "build/build_config.h"
 #include "chrome/browser/browser_process.h"
 #include "chrome/browser/notifications/notification_display_service.h"
@@ -93,16 +93,16 @@
 #include "ui/message_center/public/cpp/notifier_id.h"
 
 #if defined(OS_ANDROID)
-#include "brave/browser/notifications/brave_notification_platform_bridge_helper_android.h"
+#include "adrbrowsiel/browser/notifications/adrbrowsiel_notification_platform_bridge_helper_android.h"
 #include "chrome/browser/android/service_tab_launcher.h"
 #include "chrome/browser/android/tab_android.h"
 #include "chrome/browser/ui/android/tab_model/tab_model_list.h"
 #include "content/public/browser/page_navigator.h"
 #endif
 
-using brave_rewards::RewardsNotificationService;
+using adrbrowsiel_rewards::RewardsNotificationService;
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 namespace {
 
@@ -112,7 +112,7 @@ const unsigned int kRetriesCountOnNetworkChange = 1;
 
 namespace {
 
-constexpr char kAdNotificationUrlPrefix[] = "https://www.brave.com/ads/?";
+constexpr char kAdNotificationUrlPrefix[] = "https://www.adrbrowsiel.com/ads/?";
 
 static std::map<std::string, int> g_schema_resource_ids = {
     {ads::g_catalog_schema_resource_id, IDR_ADS_CATALOG_SCHEMA}};
@@ -181,9 +181,9 @@ bool ResetOnFileTaskRunner(const base::FilePath& path) {
 net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotationTag() {
   return net::DefineNetworkTrafficAnnotation("ads_service_impl", R"(
       semantics {
-        sender: "Brave Ads Service"
+        sender: "adrbrowsiel Ads Service"
         description:
-          "This service is used to communicate with Brave servers "
+          "This service is used to communicate with adrbrowsiel servers "
           "to send and retrieve information for Ads."
         trigger:
           "Triggered by user viewing ads or at various intervals."
@@ -194,7 +194,7 @@ net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotationTag() {
       policy {
         cookies_allowed: NO
         setting:
-          "You can enable or disable this feature by visiting brave://rewards."
+          "You can enable or disable this feature by visiting adrbrowsiel://rewards."
         policy_exception_justification:
           "Not implemented."
       }
@@ -215,11 +215,11 @@ AdsServiceImpl::AdsServiceImpl(Profile* profile,
       last_idle_time_(0),
       display_service_(NotificationDisplayService::GetForProfile(profile_)),
       rewards_service_(
-          brave_rewards::RewardsServiceFactory::GetForProfile(profile_)),
+          adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile_)),
       bat_ads_client_receiver_(new bat_ads::AdsClientMojoBridge(this)) {
   DCHECK(profile_);
   DCHECK(history_service_);
-  DCHECK(brave::IsRegularProfile(profile_));
+  DCHECK(adrbrowsiel::IsRegularProfile(profile_));
 
   MigratePrefs();
 
@@ -373,7 +373,7 @@ void AdsServiceImpl::OnTabUpdated(const SessionID& tab_id,
     return;
   }
 
-  const bool is_incognito = !brave::IsRegularProfile(profile_);
+  const bool is_incognito = !adrbrowsiel::IsRegularProfile(profile_);
 
   bat_ads_->OnTabUpdated(tab_id.id(), url.spec(), is_active, is_browser_active,
                          is_incognito);
@@ -392,11 +392,11 @@ void AdsServiceImpl::OnWalletUpdated() {
     return;
   }
 
-  rewards_service_->GetBraveWallet(
-      base::BindOnce(&AdsServiceImpl::OnGetBraveWallet, AsWeakPtr()));
+  rewards_service_->GetadrbrowsielWallet(
+      base::BindOnce(&AdsServiceImpl::OnGetadrbrowsielWallet, AsWeakPtr()));
 }
 
-void AdsServiceImpl::OnGetBraveWallet(ledger::type::BraveWalletPtr wallet) {
+void AdsServiceImpl::OnGetadrbrowsielWallet(ledger::type::adrbrowsielWalletPtr wallet) {
   if (!wallet) {
     VLOG(0) << "Failed to get wallet";
     return;
@@ -557,7 +557,7 @@ void AdsServiceImpl::Shutdown() {
 
   BackgroundHelper::GetInstance()->RemoveObserver(this);
 
-  g_brave_browser_process->resource_component()->RemoveObserver(this);
+  g_adrbrowsiel_browser_process->resource_component()->RemoveObserver(this);
 
   url_loaders_.clear();
 
@@ -650,7 +650,7 @@ void AdsServiceImpl::Initialize() {
       base::Bind(&AdsServiceImpl::OnPrefsChanged, base::Unretained(this)));
 
   profile_pref_change_registrar_.Add(
-      brave_rewards::prefs::kWalletBrave,
+      adrbrowsiel_rewards::prefs::kWalletadrbrowsiel,
       base::Bind(&AdsServiceImpl::OnPrefsChanged, base::Unretained(this)));
 
   MaybeStart(false);
@@ -768,7 +768,7 @@ void AdsServiceImpl::Stop() {
 void AdsServiceImpl::ResetState() {
   VLOG(1) << "Resetting ads state";
 
-  profile_->GetPrefs()->ClearPrefsWithPrefixSilently("brave.brave_ads");
+  profile_->GetPrefs()->ClearPrefsWithPrefixSilently("adrbrowsiel.adrbrowsiel_ads");
 
   base::PostTaskAndReplyWithResult(
       file_task_runner_.get(), FROM_HERE,
@@ -815,7 +815,7 @@ void AdsServiceImpl::OnResetAllState(const bool success) {
 void AdsServiceImpl::DetectUncertainFuture() {
   auto callback =
       base::BindOnce(&AdsServiceImpl::OnDetectUncertainFuture, AsWeakPtr());
-  brave_rpill::DetectUncertainFuture(base::BindOnce(std::move(callback)));
+  adrbrowsiel_rpill::DetectUncertainFuture(base::BindOnce(std::move(callback)));
 }
 
 void AdsServiceImpl::OnDetectUncertainFuture(const bool is_uncertain_future) {
@@ -841,7 +841,7 @@ void AdsServiceImpl::OnEnsureBaseDirectoryExists(const bool success) {
     return;
   }
 
-  g_brave_browser_process->resource_component()->AddObserver(this);
+  g_adrbrowsiel_browser_process->resource_component()->AddObserver(this);
 
   BackgroundHelper::GetInstance()->AddObserver(this);
 
@@ -871,7 +871,7 @@ void AdsServiceImpl::SetEnvironment() {
 #endif
 
 #if defined(OS_ANDROID)
-  if (GetBooleanPref(brave_rewards::prefs::kUseRewardsStagingServer)) {
+  if (GetBooleanPref(adrbrowsiel_rewards::prefs::kUseRewardsStagingServer)) {
     environment = ads::Environment::STAGING;
   }
 #else
@@ -891,7 +891,7 @@ void AdsServiceImpl::SetEnvironment() {
 
 void AdsServiceImpl::SetBuildChannel() {
   ads::BuildChannelPtr build_channel = ads::BuildChannel::New();
-  build_channel->name = brave::GetChannelName();
+  build_channel->name = adrbrowsiel::GetChannelName();
   build_channel->is_release = build_channel->name == "release" ? true : false;
 
   bat_ads_service_->SetBuildChannel(std::move(build_channel),
@@ -1099,7 +1099,7 @@ void AdsServiceImpl::NotificationTimedOut(const std::string& uuid) {
 
 void AdsServiceImpl::RegisterResourceComponentsForLocale(
     const std::string& locale) {
-  g_brave_browser_process->resource_component()->RegisterComponentsForLocale(
+  g_adrbrowsiel_browser_process->resource_component()->RegisterComponentsForLocale(
       locale);
 }
 
@@ -1313,13 +1313,13 @@ void AdsServiceImpl::OnSaved(const ads::ResultCallback& callback,
 }
 
 void AdsServiceImpl::MigratePrefs() {
-  is_upgrading_from_pre_brave_ads_build_ = IsUpgradingFromPreBraveAdsBuild();
-  if (is_upgrading_from_pre_brave_ads_build_) {
-    VLOG(1) << "Migrating ads preferences from pre Brave Ads build";
+  is_upgrading_from_pre_adrbrowsiel_ads_build_ = IsUpgradingFromPreadrbrowsielAdsBuild();
+  if (is_upgrading_from_pre_adrbrowsiel_ads_build_) {
+    VLOG(1) << "Migrating ads preferences from pre adrbrowsiel Ads build";
 
     // Force migration of preferences from version 1 if
-    // |is_upgrading_from_pre_brave_ads_build_| is set to true to fix
-    // "https://github.com/brave/brave-browser/issues/5434"
+    // |is_upgrading_from_pre_adrbrowsiel_ads_build_| is set to true to fix
+    // "https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5434"
     SetIntegerPref(prefs::kVersion, 1);
   } else {
     VLOG(1) << "Migrating ads preferences";
@@ -1417,11 +1417,11 @@ void AdsServiceImpl::MigratePrefsVersion1To2() {
 
 void AdsServiceImpl::MigratePrefsVersion2To3() {
   const auto locale = GetLocale();
-  const auto country_code = brave_l10n::GetCountryCode(locale);
+  const auto country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
-  // Disable ads if upgrading from a pre brave ads build due to a bug where ads
+  // Disable ads if upgrading from a pre adrbrowsiel ads build due to a bug where ads
   // were always enabled
-  DisableAdsIfUpgradingFromPreBraveAdsBuild();
+  DisableAdsIfUpgradingFromPreadrbrowsielAdsBuild();
 
   // Disable ads for unsupported legacy country_codes due to a bug where ads
   // were enabled even if the users country code was not supported
@@ -1438,7 +1438,7 @@ void AdsServiceImpl::MigratePrefsVersion2To3() {
 
 void AdsServiceImpl::MigratePrefsVersion3To4() {
   const auto locale = GetLocale();
-  const auto country_code = brave_l10n::GetCountryCode(locale);
+  const auto country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Disable ads for unsupported legacy country codes due to a bug where ads
   // were enabled even if the users country code was not supported
@@ -1458,7 +1458,7 @@ void AdsServiceImpl::MigratePrefsVersion3To4() {
 
 void AdsServiceImpl::MigratePrefsVersion4To5() {
   const auto locale = GetLocale();
-  const auto country_code = brave_l10n::GetCountryCode(locale);
+  const auto country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   // Disable ads for unsupported legacy country codes due to a bug where ads
   // were enabled even if the users country code was not supported
@@ -1508,7 +1508,7 @@ void AdsServiceImpl::MigratePrefsVersion6To7() {
   // enabled even if the users country code was not supported
 
   const auto locale = GetLocale();
-  const auto country_code = brave_l10n::GetCountryCode(locale);
+  const auto country_code = adrbrowsiel_l10n::GetCountryCode(locale);
 
   const std::vector<std::string> legacy_country_codes = {
       "US",  // United States of America
@@ -1549,7 +1549,7 @@ void AdsServiceImpl::MigratePrefsVersion6To7() {
                 country_code) != legacy_country_codes.end();
 
   if (is_a_legacy_country_code) {
-    // Do not disable Brave Ads for legacy country codes introduced before
+    // Do not disable adrbrowsiel Ads for legacy country codes introduced before
     // version 1.3.x
     return;
   }
@@ -1558,7 +1558,7 @@ void AdsServiceImpl::MigratePrefsVersion6To7() {
       GetIntegerPref(prefs::kSupportedCountryCodesLastSchemaVersion);
 
   if (last_schema_version >= 4) {
-    // Do not disable Brave Ads if |kSupportedCountryCodesLastSchemaVersion|
+    // Do not disable adrbrowsiel Ads if |kSupportedCountryCodesLastSchemaVersion|
     // is newer than or equal to schema version 4. This can occur if a user is
     // upgrading from an older version of 1.3.x or above
     return;
@@ -1568,7 +1568,7 @@ void AdsServiceImpl::MigratePrefsVersion6To7() {
 }
 
 void AdsServiceImpl::MigratePrefsVersion7To8() {
-  const bool rewards_enabled = GetBooleanPref(brave_rewards::prefs::kEnabled);
+  const bool rewards_enabled = GetBooleanPref(adrbrowsiel_rewards::prefs::kEnabled);
   if (!rewards_enabled) {
     SetEnabled(false);
   }
@@ -1594,15 +1594,15 @@ void AdsServiceImpl::MigratePrefsVersion9To10() {
   SetUint64Pref(ads::prefs::kAdsPerHour, 0);
 }
 
-bool AdsServiceImpl::IsUpgradingFromPreBraveAdsBuild() {
-  // Brave ads was hidden in 0.62.x however due to a bug |prefs::kEnabled| was
-  // set to true causing "https://github.com/brave/brave-browser/issues/5434"
+bool AdsServiceImpl::IsUpgradingFromPreadrbrowsielAdsBuild() {
+  // adrbrowsiel ads was hidden in 0.62.x however due to a bug |prefs::kEnabled| was
+  // set to true causing "https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5434"
 
   // |prefs::kIdleTimeThreshold| was not serialized in 0.62.x
 
   // |prefs::kVersion| was introduced in 0.63.x
 
-  // We can detect if we are upgrading from a pre Brave ads build by checking
+  // We can detect if we are upgrading from a pre adrbrowsiel ads build by checking
   // |prefs::kEnabled| is set to true, |prefs::kIdleTimeThreshold| does not
   // exist, |prefs::kVersion| does not exist and it is not the first time the
   // browser has run for this user
@@ -1615,8 +1615,8 @@ bool AdsServiceImpl::IsUpgradingFromPreBraveAdsBuild() {
 #endif
 }
 
-void AdsServiceImpl::DisableAdsIfUpgradingFromPreBraveAdsBuild() {
-  if (!is_upgrading_from_pre_brave_ads_build_) {
+void AdsServiceImpl::DisableAdsIfUpgradingFromPreadrbrowsielAdsBuild() {
+  if (!is_upgrading_from_pre_adrbrowsiel_ads_build_) {
     return;
   }
 
@@ -1682,7 +1682,7 @@ void AdsServiceImpl::OnPrefsChanged(const std::string& pref) {
     } else {
       // Record "special value" to prevent sending this week's data to P2A
       // server. Matches INT_MAX - 1 for |kSuspendedMetricValue| in
-      // |brave_p3a_service.cc|
+      // |adrbrowsiel_p3a_service.cc|
       SuspendP2AHistograms();
       VLOG(1) << "P2A histograms suspended";
 
@@ -1690,11 +1690,11 @@ void AdsServiceImpl::OnPrefsChanged(const std::string& pref) {
     }
 
     // Record P3A.
-    brave_rewards::p3a::UpdateAdsStateOnPreferenceChange(profile_->GetPrefs(),
+    adrbrowsiel_rewards::p3a::UpdateAdsStateOnPreferenceChange(profile_->GetPrefs(),
                                                          pref);
   } else if (pref == ads::prefs::kIdleTimeThreshold) {
     StartCheckIdleStateTimer();
-  } else if (pref == brave_rewards::prefs::kWalletBrave) {
+  } else if (pref == adrbrowsiel_rewards::prefs::kWalletadrbrowsiel) {
     OnWalletUpdated();
   }
 }
@@ -1722,7 +1722,7 @@ bool AdsServiceImpl::IsFullScreen() const {
 }
 
 std::string AdsServiceImpl::GetLocale() const {
-  return brave_l10n::LocaleHelper::GetInstance()->GetLocale();
+  return adrbrowsiel_l10n::LocaleHelper::GetInstance()->GetLocale();
 }
 
 std::string AdsServiceImpl::LoadDataResourceAndDecompressIfNeeded(
@@ -1788,7 +1788,7 @@ void AdsServiceImpl::ShowNotification(const ads::AdNotificationInfo& info) {
     notification->set_never_timeout(true);
 #endif
 
-    display_service_->Display(NotificationHandler::Type::BRAVE_ADS,
+    display_service_->Display(NotificationHandler::Type::adrbrowsiel_ADS,
                               *notification, /*metadata=*/nullptr);
   }
 
@@ -1848,13 +1848,13 @@ void AdsServiceImpl::CloseNotification(const std::string& uuid) {
     platform_bridge->CloseAdNotification(uuid);
   } else {
 #if defined(OS_ANDROID)
-    const std::string brave_ads_url_prefix = kAdNotificationUrlPrefix;
+    const std::string adrbrowsiel_ads_url_prefix = kAdNotificationUrlPrefix;
     const GURL service_worker_scope =
-        GURL(brave_ads_url_prefix.substr(0, brave_ads_url_prefix.size() - 1));
-    BraveNotificationPlatformBridgeHelperAndroid::MaybeRegenerateNotification(
+        GURL(adrbrowsiel_ads_url_prefix.substr(0, adrbrowsiel_ads_url_prefix.size() - 1));
+    adrbrowsielNotificationPlatformBridgeHelperAndroid::MaybeRegenerateNotification(
         uuid, service_worker_scope);
 #endif
-    display_service_->Close(NotificationHandler::Type::BRAVE_ADS, uuid);
+    display_service_->Close(NotificationHandler::Type::adrbrowsiel_ADS, uuid);
   }
 }
 
@@ -1924,7 +1924,7 @@ void AdsServiceImpl::LoadAdsResource(const std::string& id,
                                      const int version,
                                      ads::LoadCallback callback) {
   const base::Optional<base::FilePath> path =
-      g_brave_browser_process->resource_component()->GetPath(id, version);
+      g_adrbrowsiel_browser_process->resource_component()->GetPath(id, version);
 
   if (!path) {
     callback(ads::Result::FAILED, "");
@@ -2151,4 +2151,4 @@ void AdsServiceImpl::OnForeground() {
   bat_ads_->OnForeground();
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

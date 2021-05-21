@@ -6,8 +6,8 @@ include_rules = [
   "+extensions/common",
   "+services/network/public/cpp",
   "+third_party/boringssl",
-  "+brave/third_party/bitcoin-core/src/src/base58.h",
-  "+brave/third_party/bitcoin-core/src/src/crypto/ripemd160.h",
-  "+brave/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1.h",
-  "+brave/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1_recovery.h",
+  "+adrbrowsiel/third_party/bitcoin-core/src/src/base58.h",
+  "+adrbrowsiel/third_party/bitcoin-core/src/src/crypto/ripemd160.h",
+  "+adrbrowsiel/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1.h",
+  "+adrbrowsiel/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1_recovery.h",
 ]

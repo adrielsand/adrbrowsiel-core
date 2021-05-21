@@ -3,21 +3,21 @@
   const D = document
   const isDebug = false
 
-  const braveSoftwareOrigin = 'dev-pages.bravesoftware.com'
-  const braveSoftwareComOrigin = 'dev-pages.brave.software'
+  const adrbrowsielSoftwareOrigin = 'dev-pages.adrbrowsielsoftware.com'
+  const adrbrowsielSoftwareComOrigin = 'dev-pages.adrbrowsiel.software'
 
   let thisOrigin = document.location.host
   const bodyElm = document.body
   let otherOrigin
 
-  if (thisOrigin.startsWith(braveSoftwareOrigin)) {
-      thisOrigin = braveSoftwareOrigin
-      otherOrigin = braveSoftwareComOrigin
-      bodyElm.className += ' brave-software-com'
-  } else if (thisOrigin.startsWith(braveSoftwareComOrigin)) {
-      thisOrigin = braveSoftwareComOrigin
-      otherOrigin = braveSoftwareOrigin
-      bodyElm.className += ' brave-software'
+  if (thisOrigin.startsWith(adrbrowsielSoftwareOrigin)) {
+      thisOrigin = adrbrowsielSoftwareOrigin
+      otherOrigin = adrbrowsielSoftwareComOrigin
+      bodyElm.className += ' adrbrowsiel-software-com'
+  } else if (thisOrigin.startsWith(adrbrowsielSoftwareComOrigin)) {
+      thisOrigin = adrbrowsielSoftwareComOrigin
+      otherOrigin = adrbrowsielSoftwareOrigin
+      bodyElm.className += ' adrbrowsiel-software'
   }
 
   const classToOrigin = {
@@ -120,7 +120,7 @@
     W.addEventListener('message', onMessage, false)
   }
 
-  W.BRAVE = {
+  W.adrbrowsiel = {
     logger,
     thisOriginUrl,
     otherOriginUrl,

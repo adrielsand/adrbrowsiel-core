@@ -1,27 +1,27 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import("//brave/build/config.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/build/config.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
 import("//testing/test.gni")
 
-source_set("brave_ipfs_unit_tests") {
+source_set("adrbrowsiel_ipfs_unit_tests") {
   testonly = true
   if (ipfs_enabled) {
     sources = [
-      "//brave/components/ipfs/ipfs_cookie_store_unittest.cc",
-      "//brave/components/ipfs/ipfs_json_parser_unittest.cc",
-      "//brave/components/ipfs/ipfs_network_utils_unittest.cc",
-      "//brave/components/ipfs/ipfs_p3a_unittest.cc",
-      "//brave/components/ipfs/ipfs_ports_unittest.cc",
-      "//brave/components/ipfs/ipfs_utils_unittest.cc",
+      "//adrbrowsiel/components/ipfs/ipfs_cookie_store_unittest.cc",
+      "//adrbrowsiel/components/ipfs/ipfs_json_parser_unittest.cc",
+      "//adrbrowsiel/components/ipfs/ipfs_network_utils_unittest.cc",
+      "//adrbrowsiel/components/ipfs/ipfs_p3a_unittest.cc",
+      "//adrbrowsiel/components/ipfs/ipfs_ports_unittest.cc",
+      "//adrbrowsiel/components/ipfs/ipfs_utils_unittest.cc",
     ]
 
     deps = [
       "//base/test:test_support",
-      "//brave/components/ipfs",
+      "//adrbrowsiel/components/ipfs",
       "//components/prefs",
       "//components/prefs:test_support",
       "//components/user_prefs",
@@ -34,4 +34,4 @@ source_set("brave_ipfs_unit_tests") {
       "//url",
     ]
   }  # if (ipfs_enabled)
-}  # source_set("brave_ipfs_unit_tests")
+}  # source_set("adrbrowsiel_ipfs_unit_tests")

@@ -2,10 +2,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import actions from '../../../../brave_extension/extension/brave_extension/background/actions/shieldsPanelActions'
-import * as shieldsAPI from '../../../../brave_extension/extension/brave_extension/background/api/shieldsAPI'
+import actions from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/actions/shieldsPanelActions'
+import * as shieldsAPI from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/api/shieldsAPI'
 import { activeTabData } from '../../../testData'
-import { ShieldDetails } from '../../../../brave_extension/extension/brave_extension/types/actions/shieldsPanelActions'
+import { ShieldDetails } from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/actions/shieldsPanelActions'
 
 describe('Shields API', () => {
   describe('getShieldSettingsForTabData', () => {
@@ -18,7 +18,7 @@ describe('Shields API', () => {
 
     it('resolves the returned promise with shield settings for the tab data', (cb) => {
       const tab: chrome.tabs.Tab = {
-        url: 'https://www.brave.com/serg/dont/know/pokemon',
+        url: 'https://www.adrbrowsiel.com/serg/dont/know/pokemon',
         id: 5,
         index: 1,
         pinned: false,
@@ -34,10 +34,10 @@ describe('Shields API', () => {
       expect.assertions(1)
       shieldsAPI.getShieldSettingsForTabData(tab).then((data) => {
         expect(data).toEqual({
-          url: 'https://www.brave.com/serg/dont/know/pokemon',
-          origin: 'https://www.brave.com',
-          hostname: 'www.brave.com',
-          braveShields: 'block',
+          url: 'https://www.adrbrowsiel.com/serg/dont/know/pokemon',
+          origin: 'https://www.adrbrowsiel.com',
+          hostname: 'www.adrbrowsiel.com',
+          adrbrowsielShields: 'block',
           ads: 'block',
           trackers: 'block',
           cosmeticFiltering: true,
@@ -101,8 +101,8 @@ describe('Shields API', () => {
         cosmeticFiltering: true,
         firstPartyCosmeticFiltering: false,
         httpUpgradableResources: 'block',
-        origin: 'https://www.brave.com',
-        hostname: 'www.brave.com',
+        origin: 'https://www.adrbrowsiel.com',
+        hostname: 'www.adrbrowsiel.com',
         id: 2,
         javascript: 'block',
         fingerprinting: 'block',
@@ -115,8 +115,8 @@ describe('Shields API', () => {
           expect(spy).toBeCalledTimes(1)
           expect(spy.mock.calls[0][0]).toEqual({
             ...details,
-            url: 'https://www.brave.com/test',
-            braveShields: 'block'
+            url: 'https://www.adrbrowsiel.com/test',
+            adrbrowsielShields: 'block'
           })
           cb()
         })
@@ -129,13 +129,13 @@ describe('Shields API', () => {
   describe('setAllowAds', () => {
     let spy: jest.SpyInstance
     beforeEach(() => {
-      spy = jest.spyOn(chrome.braveShields, 'setAdControlTypeAsync')
+      spy = jest.spyOn(chrome.adrbrowsielShields, 'setAdControlTypeAsync')
     })
     afterEach(() => {
       spy.mockRestore()
     })
-    it('calls chrome.braveShields.setAdControlTypeAsync with the correct args', () => {
-      shieldsAPI.setAllowAds('https://www.brave.com', 'block')
+    it('calls chrome.adrbrowsielShields.setAdControlTypeAsync with the correct args', () => {
+      shieldsAPI.setAllowAds('https://www.adrbrowsiel.com', 'block')
         .catch(() => {
           expect(true).toBe(false)
         })
@@ -143,20 +143,20 @@ describe('Shields API', () => {
       const arg1 = spy.mock.calls[0][1]
       expect.assertions(2)
       expect(arg0).toEqual('block')
-      expect(arg1).toEqual('https://www.brave.com')
+      expect(arg1).toEqual('https://www.adrbrowsiel.com')
     })
   })
 
   describe('setAllowHTTPUpgradableResource', () => {
     let spy: jest.SpyInstance
     beforeEach(() => {
-      spy = jest.spyOn(chrome.braveShields, 'setHTTPSEverywhereEnabledAsync')
+      spy = jest.spyOn(chrome.adrbrowsielShields, 'setHTTPSEverywhereEnabledAsync')
     })
     afterEach(() => {
       spy.mockRestore()
     })
-    it('calls chrome.braveShields.setHTTPSEverywhereEnabledAsync with the correct args', () => {
-      shieldsAPI.setAllowHTTPUpgradableResources('https://www.brave.com', 'block')
+    it('calls chrome.adrbrowsielShields.setHTTPSEverywhereEnabledAsync with the correct args', () => {
+      shieldsAPI.setAllowHTTPUpgradableResources('https://www.adrbrowsiel.com', 'block')
         .catch(() => {
           expect(true).toBe(false)
         })
@@ -164,20 +164,20 @@ describe('Shields API', () => {
       const arg1 = spy.mock.calls[0][1]
       expect.assertions(2)
       expect(arg0).toEqual(true)
-      expect(arg1).toEqual('https://www.brave.com')
+      expect(arg1).toEqual('https://www.adrbrowsiel.com')
     })
   })
 
   describe('setAllowJavaScript', () => {
     let spy: jest.SpyInstance
     beforeEach(() => {
-      spy = jest.spyOn(chrome.braveShields, 'setNoScriptControlTypeAsync')
+      spy = jest.spyOn(chrome.adrbrowsielShields, 'setNoScriptControlTypeAsync')
     })
     afterEach(() => {
       spy.mockRestore()
     })
-    it('calls chrome.braveShields.setNoScriptControlTypeAsync with the correct args', () => {
-      shieldsAPI.setAllowJavaScript('https://www.brave.com', 'block')
+    it('calls chrome.adrbrowsielShields.setNoScriptControlTypeAsync with the correct args', () => {
+      shieldsAPI.setAllowJavaScript('https://www.adrbrowsiel.com', 'block')
         .catch(() => {
           expect(true).toBe(false)
         })
@@ -185,20 +185,20 @@ describe('Shields API', () => {
       const arg1 = spy.mock.calls[0][1]
       expect.assertions(2)
       expect(arg0).toEqual('block')
-      expect(arg1).toEqual('https://www.brave.com')
+      expect(arg1).toEqual('https://www.adrbrowsiel.com')
     })
   })
 
   describe('setAllowFingerprinting', () => {
     let spy: jest.SpyInstance
     beforeEach(() => {
-      spy = jest.spyOn(chrome.braveShields, 'setFingerprintingControlTypeAsync')
+      spy = jest.spyOn(chrome.adrbrowsielShields, 'setFingerprintingControlTypeAsync')
     })
     afterEach(() => {
       spy.mockRestore()
     })
-    it('calls chrome.braveShields.setFingerprintingControlTypeAsync with the correct args', () => {
-      shieldsAPI.setAllowFingerprinting('https://www.brave.com', 'block')
+    it('calls chrome.adrbrowsielShields.setFingerprintingControlTypeAsync with the correct args', () => {
+      shieldsAPI.setAllowFingerprinting('https://www.adrbrowsiel.com', 'block')
         .catch(() => {
           expect(true).toBe(false)
         })
@@ -206,20 +206,20 @@ describe('Shields API', () => {
       const arg1 = spy.mock.calls[0][1]
       expect.assertions(2)
       expect(arg0).toEqual('block')
-      expect(arg1).toEqual('https://www.brave.com')
+      expect(arg1).toEqual('https://www.adrbrowsiel.com')
     })
   })
 
   describe('setAllowCookies', () => {
     let spy: jest.SpyInstance
     beforeEach(() => {
-      spy = jest.spyOn(chrome.braveShields, 'setCookieControlTypeAsync')
+      spy = jest.spyOn(chrome.adrbrowsielShields, 'setCookieControlTypeAsync')
     })
     afterEach(() => {
       spy.mockRestore()
     })
-    it('calls chrome.braveShields.setCookieControlTypeAsync with the correct args', () => {
-      shieldsAPI.setAllowCookies('https://www.brave.com', 'block')
+    it('calls chrome.adrbrowsielShields.setCookieControlTypeAsync with the correct args', () => {
+      shieldsAPI.setAllowCookies('https://www.adrbrowsiel.com', 'block')
         .catch(() => {
           expect(true).toBe(false)
         })
@@ -227,7 +227,7 @@ describe('Shields API', () => {
       const arg1 = spy.mock.calls[0][1]
       expect.assertions(2)
       expect(arg0).toEqual('block')
-      expect(arg1).toEqual('https://www.brave.com')
+      expect(arg1).toEqual('https://www.adrbrowsiel.com')
     })
   })
 
@@ -243,12 +243,12 @@ describe('Shields API', () => {
   describe('setAllowScriptOriginsOnce', () => {
     let spy: jest.SpyInstance
     beforeEach(() => {
-      spy = jest.spyOn(chrome.braveShields, 'allowScriptsOnce')
+      spy = jest.spyOn(chrome.adrbrowsielShields, 'allowScriptsOnce')
     })
     afterEach(() => {
       spy.mockRestore()
     })
-    it('calls chrome.braveShields.allowScriptsOnce with the correct args', () => {
+    it('calls chrome.adrbrowsielShields.allowScriptsOnce with the correct args', () => {
       shieldsAPI.setAllowScriptOriginsOnce(['https://a.com/', 'https://b.com/'], 2)
         .catch(() => {
           expect(true).toBe(false)
@@ -259,7 +259,7 @@ describe('Shields API', () => {
       const arg1 = spy.mock.calls[0][1]
       expect(arg1).toBe(2)
     })
-    it('passes 3 args to chrome.braveShields.allowScriptsOnce', () => {
+    it('passes 3 args to chrome.adrbrowsielShields.allowScriptsOnce', () => {
       shieldsAPI.setAllowScriptOriginsOnce(['https://a.com/', 'https://b.com/'], 2)
         .catch(() => {
           expect(true).toBe(false)

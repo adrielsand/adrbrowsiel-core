@@ -8,7 +8,7 @@ export const root = styled.div`
   text-align: left;
   font-size: 14px;
   line-height: 20px;
-  color: var(--brave-palette-neutral700);
+  color: var(--adrbrowsiel-palette-neutral700);
 `
 
 export const header = styled.div`
@@ -30,7 +30,7 @@ export const header = styled.div`
     cursor: pointer;
 
     .icon {
-      color: var(--brave-palette-grey500);
+      color: var(--adrbrowsiel-palette-grey500);
       height: 100%;
       width: auto;
       display: block;
@@ -51,7 +51,7 @@ export const amountBox = styled.div`
   position: relative;
   height: 40px;
   border-radius: 4px;
-  border: solid 1px var(--brave-palette-grey500);
+  border: solid 1px var(--adrbrowsiel-palette-grey500);
   display: flex;
 
   input {
@@ -75,7 +75,7 @@ export const example = styled.div`
   margin: 4px 0 0 10px;
   font-size: 12px;
   line-height: 18px;
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
 `
 
 export const swap = styled.div`
@@ -99,9 +99,9 @@ export const swap = styled.div`
 export const exhangeBox = styled.div`
   flex: 1 0 calc(50% - 56px);
   height: 40px;
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
   border-radius: 4px;
-  border: solid 1px var(--brave-palette-neutral200);
+  border: solid 1px var(--adrbrowsiel-palette-neutral200);
   background: rgba(233, 233, 244, 0.16);
   padding: 10px 9px 10px 18px;
   display: flex;

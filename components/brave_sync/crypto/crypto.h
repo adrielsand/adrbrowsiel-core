@@ -1,14 +1,14 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-#ifndef BRAVE_COMPONENTS_BRAVE_SYNC_CRYPTO_CRYPTO_H_
-#define BRAVE_COMPONENTS_BRAVE_SYNC_CRYPTO_CRYPTO_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SYNC_CRYPTO_CRYPTO_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SYNC_CRYPTO_CRYPTO_H_
 
 #include <string>
 #include <vector>
 
-namespace brave_sync {
+namespace adrbrowsiel_sync {
 namespace crypto {
 
 #define DEFAULT_SEED_SIZE 32
@@ -97,6 +97,6 @@ bool PassphraseToBytes32(const std::string& passphrase,
                          std::vector<uint8_t>* bytes);
 
 }  // namespace crypto
-}  // namespace brave_sync
+}  // namespace adrbrowsiel_sync
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SYNC_CRYPTO_CRYPTO_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SYNC_CRYPTO_CRYPTO_H_

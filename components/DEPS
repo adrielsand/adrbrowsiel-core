@@ -1,5 +1,5 @@
 include_rules = [
-  # Do not add chrome/ or brave/ as an allowed include.
+  # Do not add chrome/ or adrbrowsiel/ as an allowed include.
 
   # TODO(bridiver) - narrow this down
   "+components",

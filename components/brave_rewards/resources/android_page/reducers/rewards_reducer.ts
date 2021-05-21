@@ -11,11 +11,11 @@ import { defaultState } from '../storage'
 const rewardsReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State, action) => {
   switch (action.type) {
     case types.IS_INITIALIZED: {
-      chrome.send('brave_rewards.isInitialized')
+      chrome.send('adrbrowsiel_rewards.isInitialized')
       break
     }
     case types.GET_AUTO_CONTRIBUTE_PROPERTIES: {
-      chrome.send('brave_rewards.getAutoContributeProperties')
+      chrome.send('adrbrowsiel_rewards.getAutoContributeProperties')
       break
     }
     case types.ON_AUTO_CONTRIBUTE_PROPERTIES: {
@@ -48,7 +48,7 @@ const rewardsReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State
       const value = action.payload.value
       if (key) {
         state[key] = value
-        chrome.send('brave_rewards.saveSetting', [key, value.toString()])
+        chrome.send('adrbrowsiel_rewards.saveSetting', [key, value.toString()])
       }
       break
     case types.ON_MODAL_BACKUP_CLOSE: {
@@ -90,16 +90,16 @@ const rewardsReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State
       break
     }
     case types.GET_TIP_TABLE: {
-      chrome.send('brave_rewards.getRecurringTips')
-      chrome.send('brave_rewards.getOneTimeTips')
+      chrome.send('adrbrowsiel_rewards.getRecurringTips')
+      chrome.send('adrbrowsiel_rewards.getOneTimeTips')
       break
     }
     case types.GET_CONTRIBUTE_LIST: {
-      chrome.send('brave_rewards.getContributionList')
+      chrome.send('adrbrowsiel_rewards.getContributionList')
       break
     }
     case types.GET_ADS_DATA: {
-      chrome.send('brave_rewards.getAdsData')
+      chrome.send('adrbrowsiel_rewards.getAdsData')
       break
     }
     case types.ON_ADS_DATA: {
@@ -128,7 +128,7 @@ const rewardsReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State
       const value = action.payload.value
       if (key) {
         state[key] = value
-        chrome.send('brave_rewards.saveAdsSetting', [key, value.toString()])
+        chrome.send('adrbrowsiel_rewards.saveAdsSetting', [key, value.toString()])
 
         if (key === 'adsEnabledMigrated') {
           state.enabledAdsMigrated = true
@@ -138,7 +138,7 @@ const rewardsReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State
     }
     case types.GET_STATEMENT:
     case types.ON_STATEMENT_CHANGED: {
-      chrome.send('brave_rewards.getStatement', [])
+      chrome.send('adrbrowsiel_rewards.getStatement', [])
       break
     }
     case types.ON_STATEMENT: {
@@ -177,7 +177,7 @@ const rewardsReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State
       let inlineTip = state.inlineTip
 
       inlineTip[key] = value
-      chrome.send('brave_rewards.setInlineTippingPlatformEnabled', [key, value.toString()])
+      chrome.send('adrbrowsiel_rewards.setInlineTippingPlatformEnabled', [key, value.toString()])
 
       state = {
         ...state,
@@ -187,7 +187,7 @@ const rewardsReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State
       break
     }
     case types.ONLY_ANON_WALLET: {
-      chrome.send('brave_rewards.onlyAnonWallet')
+      chrome.send('adrbrowsiel_rewards.onlyAnonWallet')
       break
     }
     case types.ON_ONLY_ANON_WALLET: {
@@ -206,7 +206,7 @@ const rewardsReducer: Reducer<Rewards.State | undefined> = (state: Rewards.State
         ...state,
         initializing: false
       }
-      chrome.send('brave_rewards.getReconcileStamp')
+      chrome.send('adrbrowsiel_rewards.getReconcileStamp')
       break
     }
   }

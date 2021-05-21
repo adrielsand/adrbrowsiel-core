@@ -22,21 +22,21 @@ export const getShieldSettingsForTabData = (tabData?: chrome.tabs.Tab) => {
   const hostname = url.hostname
 
   return Promise.all([
-    chrome.braveShields.getBraveShieldsEnabledAsync(tabData.url),
-    chrome.braveShields.getAdControlTypeAsync(tabData.url),
-    chrome.braveShields.shouldDoCosmeticFilteringAsync(tabData.url),
-    chrome.braveShields.isFirstPartyCosmeticFilteringEnabledAsync(tabData.url),
-    chrome.braveShields.getHTTPSEverywhereEnabledAsync(tabData.url),
-    chrome.braveShields.getNoScriptControlTypeAsync(tabData.url),
-    chrome.braveShields.getFingerprintingControlTypeAsync(tabData.url),
-    chrome.braveShields.getCookieControlTypeAsync(tabData.url)
+    chrome.adrbrowsielShields.getadrbrowsielShieldsEnabledAsync(tabData.url),
+    chrome.adrbrowsielShields.getAdControlTypeAsync(tabData.url),
+    chrome.adrbrowsielShields.shouldDoCosmeticFilteringAsync(tabData.url),
+    chrome.adrbrowsielShields.isFirstPartyCosmeticFilteringEnabledAsync(tabData.url),
+    chrome.adrbrowsielShields.getHTTPSEverywhereEnabledAsync(tabData.url),
+    chrome.adrbrowsielShields.getNoScriptControlTypeAsync(tabData.url),
+    chrome.adrbrowsielShields.getFingerprintingControlTypeAsync(tabData.url),
+    chrome.adrbrowsielShields.getCookieControlTypeAsync(tabData.url)
   ]).then((details) => {
     return {
       url: url.href,
       origin,
       hostname,
       id: tabData.id,
-      braveShields: details[0] ? 'allow' : 'block',
+      adrbrowsielShields: details[0] ? 'allow' : 'block',
       ads: details[1],
       trackers: details[1],
       cosmeticFiltering: details[2],
@@ -52,7 +52,7 @@ export const getShieldSettingsForTabData = (tabData?: chrome.tabs.Tab) => {
       origin,
       hostname,
       id: tabData.id,
-      braveShields: 'block',
+      adrbrowsielShields: 'block',
       ads: 0,
       trackers: 0,
       cosmeticFiltering: 0,
@@ -107,13 +107,13 @@ export const requestShieldPanelData = (tabId: number) =>
     .catch((error: any) => console.error('[Shields]: Can\'t request shields panel data.', error))
 
 /**
- * Changes the brave shields setting at origin to be allowed or blocked.
+ * Changes the adrbrowsiel shields setting at origin to be allowed or blocked.
  * @param {string} origin the origin of the site to change the setting for
  * @param {string} setting 'allow' or 'block'
  * @return a promise which resolves when the setting is set
  */
-export const setAllowBraveShields = (origin: string, setting: string) =>
-  chrome.braveShields.setBraveShieldsEnabledAsync(setting === 'allow' ? true : false, origin)
+export const setAllowadrbrowsielShields = (origin: string, setting: string) =>
+  chrome.adrbrowsielShields.setadrbrowsielShieldsEnabledAsync(setting === 'allow' ? true : false, origin)
 
 /**
  * Changes the ads at origin to be allowed or blocked.
@@ -123,7 +123,7 @@ export const setAllowBraveShields = (origin: string, setting: string) =>
  * @return a promise which resolves when the setting is set
  */
 export const setAllowAds = (origin: string, setting: string) =>
-  chrome.braveShields.setAdControlTypeAsync(setting, origin)
+  chrome.adrbrowsielShields.setAdControlTypeAsync(setting, origin)
 
 /**
  * Changes the trackers at origin to be allowed or blocked.
@@ -133,7 +133,7 @@ export const setAllowAds = (origin: string, setting: string) =>
  * @return a promise which resolves with the setting is set
  */
 export const setAllowTrackers = (origin: string, setting: string) => {
-  return chrome.braveShields.setAdControlTypeAsync(setting, origin)
+  return chrome.adrbrowsielShields.setAdControlTypeAsync(setting, origin)
 }
 
 /**
@@ -144,7 +144,7 @@ export const setAllowTrackers = (origin: string, setting: string) => {
  * @return a promise which resolves with the setting is set
  */
 export const setAllowCosmeticFiltering = (origin: string, setting: string) => {
-  return chrome.braveShields.setCosmeticFilteringControlTypeAsync(setting, origin)
+  return chrome.adrbrowsielShields.setCosmeticFilteringControlTypeAsync(setting, origin)
 }
 
 /**
@@ -154,7 +154,7 @@ export const setAllowCosmeticFiltering = (origin: string, setting: string) => {
  * @return a promise which resolves when the setting is set
  */
 export const setAllowHTTPUpgradableResources = (origin: string, setting: BlockOptions) =>
-  chrome.braveShields.setHTTPSEverywhereEnabledAsync(setting === 'allow' ? false : true, origin)
+  chrome.adrbrowsielShields.setHTTPSEverywhereEnabledAsync(setting === 'allow' ? false : true, origin)
 
 /**
  * Changes the Javascript to be on (allow) or off (block)
@@ -163,7 +163,7 @@ export const setAllowHTTPUpgradableResources = (origin: string, setting: BlockOp
  * @return a promise which resolves when the setting is set
  */
 export const setAllowJavaScript = (origin: string, setting: string) =>
-  chrome.braveShields.setNoScriptControlTypeAsync(setting, origin)
+  chrome.adrbrowsielShields.setNoScriptControlTypeAsync(setting, origin)
 
 /**
  * Changes the fingerprinting at origin to be allowed or blocked.
@@ -172,7 +172,7 @@ export const setAllowJavaScript = (origin: string, setting: string) =>
  * @return a promise which resolves with the setting is set
  */
 export const setAllowFingerprinting = (origin: string, setting: string) =>
-  chrome.braveShields.setFingerprintingControlTypeAsync(setting, origin)
+  chrome.adrbrowsielShields.setFingerprintingControlTypeAsync(setting, origin)
 
 /**
  * Changes the cookie at origin to be allowed or blocked.
@@ -180,7 +180,7 @@ export const setAllowFingerprinting = (origin: string, setting: string) =>
  * @return a promise which resolves with the setting is set
  */
 export const setAllowCookies = (origin: string, setting: string) =>
-  chrome.braveShields.setCookieControlTypeAsync(setting, origin)
+  chrome.adrbrowsielShields.setCookieControlTypeAsync(setting, origin)
 
 /**
  * Toggles the input value between allow and block
@@ -197,17 +197,17 @@ export const toggleShieldsValue = (value: BlockOptions) =>
  */
 export const setAllowScriptOriginsOnce = (origins: Array<string>, tabId: number) =>
   new Promise<void>((resolve) => {
-    chrome.braveShields.allowScriptsOnce(origins, tabId, () => {
+    chrome.adrbrowsielShields.allowScriptsOnce(origins, tabId, () => {
       resolve()
     })
   })
 
 /**
- * Open a prompt that allows the user to submit a report telling Brave that the current website is broken by Shields.
+ * Open a prompt that allows the user to submit a report telling adrbrowsiel that the current website is broken by Shields.
  * @param {number} tabId ID of the tab whose contents are being reported
  */
 export const reportBrokenSite = (tabId: number) =>
-  chrome.braveShields.reportBrokenSite(tabId)
+  chrome.adrbrowsielShields.reportBrokenSite(tabId)
 
 export type GetViewPreferencesData = {
   showAdvancedView: boolean
@@ -215,8 +215,8 @@ export type GetViewPreferencesData = {
 }
 
 const settingsKeys = {
-  showAdvancedView: { key: 'brave.shields.advanced_view_enabled', type: chrome.settingsPrivate.PrefType.BOOLEAN },
-  statsBadgeVisible: { key: 'brave.shields.stats_badge_visible', type: chrome.settingsPrivate.PrefType.BOOLEAN }
+  showAdvancedView: { key: 'adrbrowsiel.shields.advanced_view_enabled', type: chrome.settingsPrivate.PrefType.BOOLEAN },
+  statsBadgeVisible: { key: 'adrbrowsiel.shields.stats_badge_visible', type: chrome.settingsPrivate.PrefType.BOOLEAN }
 }
 export async function getViewPreferences (): Promise<GetViewPreferencesData> {
   let newSettings = {} as GetViewPreferencesData
@@ -256,5 +256,5 @@ export async function setViewPreferences (preferences: SetViewPreferencesData): 
 
 export const onShieldsPanelShown = () =>
   new Promise<void>((resolve) => {
-    chrome.braveShields.onShieldsPanelShown()
+    chrome.adrbrowsielShields.onShieldsPanelShown()
   })

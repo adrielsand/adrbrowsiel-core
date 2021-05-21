@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Расширение Brave",
+    "message": "Расширение adrbrowsiel",
     "description": "The name of the the extension."
   },
   "shields": {
@@ -24,12 +24,12 @@
     "description": "Message telling the user to disable shields if a site appears broken"
   },
   "disabledMessage": {
-    "message": "Вы просматриваете этот сайт без использования средств приватности и безопасности Brave. Может быть, у вас проблемы с настройкой Защиты?",
+    "message": "Вы просматриваете этот сайт без использования средств приватности и безопасности adrbrowsiel. Может быть, у вас проблемы с настройкой Защиты?",
     "description": "Message telling the user that shields are disabled, and prompting them towards reporting an issue if necessary"
   },
   "reportBrokenSite": {
     "message": "Сообщить о неисправности сайта",
-    "description": "Message for the button allowing users to report a broken site to Brave developers"
+    "description": "Message for the button allowing users to report a broken site to adrbrowsiel developers"
   },
   "itemsBlocked": {
     "message": "объектов заблокировано",
@@ -192,8 +192,8 @@
     "description": "Message for the simple view option"
   },
   "shieldsExplanation": {
-    "message": "Сайты используют куки-файлы и скрипты, чтобы идентифицировать вас и ваше устройство (часто они встраиваются в рекламу). Они хотят выяснить, кто вы, а также отслеживать вас и ваши действия на других сайтах по всему интернету. Brave блокирует подобное поведение, чтобы вы могли посещать веб-страницы без постоянной слежки.\n",
-    "description": "Message in read-only view explaining what Brave Shields do"
+    "message": "Сайты используют куки-файлы и скрипты, чтобы идентифицировать вас и ваше устройство (часто они встраиваются в рекламу). Они хотят выяснить, кто вы, а также отслеживать вас и ваши действия на других сайтах по всему интернету. adrbrowsiel блокирует подобное поведение, чтобы вы могли посещать веб-страницы без постоянной слежки.\n",
+    "description": "Message in read-only view explaining what adrbrowsiel Shields do"
   },
   "blockedResoucesExplanation": {
     "message": "Заблокировано глобальных трекеров и других нежелательных элементов",

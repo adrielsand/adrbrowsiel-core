@@ -8,7 +8,7 @@ export const root = styled.div`
   max-width: 335px;
   min-height: 530px;
   padding: 17px;
-  background-color: var(--brave-palette-white);
+  background-color: var(--adrbrowsiel-palette-white);
   box-shadow: 0px 0px 16px rgba(99, 105, 110, 0.2);
   border-radius: 8px;
   display: flex;

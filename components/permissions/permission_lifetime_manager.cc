@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/permissions/permission_lifetime_manager.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_manager.h"
 
 #include <algorithm>
 #include <utility>
@@ -11,7 +11,7 @@
 #include "base/auto_reset.h"
 #include "base/stl_util.h"
 #include "base/threading/sequenced_task_runner_handle.h"
-#include "brave/components/permissions/permission_lifetime_pref_names.h"
+#include "adrbrowsiel/components/permissions/permission_lifetime_pref_names.h"
 #include "components/content_settings/core/browser/content_settings_registry.h"
 #include "components/content_settings/core/browser/content_settings_utils.h"
 #include "components/content_settings/core/browser/website_settings_info.h"

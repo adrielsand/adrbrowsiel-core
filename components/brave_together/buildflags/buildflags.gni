@@ -1,5 +1,5 @@
-import("//brave/build/config.gni")
+import("//adrbrowsiel/build/config.gni")
 
 declare_args() {
-  brave_together_enabled = brave_channel == "nightly"
+  adrbrowsiel_together_enabled = adrbrowsiel_channel == "nightly"
 }

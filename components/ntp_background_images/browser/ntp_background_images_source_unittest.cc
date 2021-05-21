@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,12 +7,12 @@
 #include <string>
 
 #include "base/test/task_environment.h"
-#include "brave/components/brave_referrals/browser/brave_referrals_service.h"
-#include "brave/components/brave_referrals/buildflags/buildflags.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_data.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_service.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_source.h"
-#include "brave/components/ntp_background_images/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/browser/adrbrowsiel_referrals_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_service.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_source.h"
+#include "adrbrowsiel/components/ntp_background_images/common/pref_names.h"
 #include "components/prefs/testing_pref_service.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
@@ -25,7 +25,7 @@ class NTPBackgroundImagesSourceTest : public testing::Test {
   void SetUp() override {
     auto* registry = local_pref_.registry();
     NTPBackgroundImagesService::RegisterLocalStatePrefs(registry);
-    brave::RegisterPrefsForBraveReferralsService(registry);
+    adrbrowsiel::RegisterPrefsForadrbrowsielReferralsService(registry);
     service_.reset(new NTPBackgroundImagesService(nullptr, &local_pref_));
     source_.reset(new NTPBackgroundImagesSource(service_.get()));
     local_pref_.Set(prefs::kNewTabPageCachedSuperReferralComponentInfo,
@@ -46,7 +46,7 @@ TEST_F(NTPBackgroundImagesSourceTest, BasicTest) {
           "imageUrl": "logo.png",
           "alt": "Technikke: For music lovers",
           "companyName": "Technikke",
-          "destinationUrl": "https://www.brave.com/?from-super-referreer-demo"
+          "destinationUrl": "https://www.adrbrowsiel.com/?from-super-referreer-demo"
         },
         "wallpapers": [
           {
@@ -65,7 +65,7 @@ TEST_F(NTPBackgroundImagesSourceTest, BasicTest) {
   service_->OnGetComponentJsonData(false, test_json_string_referral);
   EXPECT_FALSE(source_->AllowCaching());
   EXPECT_TRUE(source_->IsWallpaperPath("sponsored-images/wallpaper-1.jpg"));
-  EXPECT_FALSE(source_->IsValidPath("super-duper/brave.png"));
+  EXPECT_FALSE(source_->IsValidPath("super-duper/adrbrowsiel.png"));
   EXPECT_FALSE(source_->IsValidPath("sponsored-images/abcd.png"));
   EXPECT_EQ("image/png", source_->GetMimeType("sponsored-images/logo.png"));
   EXPECT_EQ(
@@ -78,7 +78,7 @@ TEST_F(NTPBackgroundImagesSourceTest, BasicTest) {
       source_->GetWallpaperIndexFromPath("sponsored-images/wallpaper-3.jpg"));
 }
 
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
 
 #if !defined(OS_LINUX)
 TEST_F(NTPBackgroundImagesSourceTest, BasicSuperReferralDataTest) {
@@ -91,7 +91,7 @@ TEST_F(NTPBackgroundImagesSourceTest, BasicSuperReferralDataTest) {
           "imageUrl": "logo.png",
           "alt": "Technikke: For music lovers",
           "companyName": "Technikke",
-          "destinationUrl": "https://www.brave.com/?from-super-referreer-demo"
+          "destinationUrl": "https://www.adrbrowsiel.com/?from-super-referreer-demo"
         },
         "wallpapers": [
           {
@@ -108,9 +108,9 @@ TEST_F(NTPBackgroundImagesSourceTest, BasicSuperReferralDataTest) {
         ],
         "topSites": [
           {
-            "name": "Brave",
-            "destinationUrl": "https://brave.com/",
-            "iconUrl": "brave.png"
+            "name": "adrbrowsiel",
+            "destinationUrl": "https://adrbrowsiel.com/",
+            "iconUrl": "adrbrowsiel.png"
           },
           {
             "name": "Wiki",
@@ -129,8 +129,8 @@ TEST_F(NTPBackgroundImagesSourceTest, BasicSuperReferralDataTest) {
   EXPECT_TRUE(source_->IsTopSiteFaviconPath("super-referral/bat.png"));
   EXPECT_FALSE(source_->IsTopSiteFaviconPath("super-referral/logo.png"));
   EXPECT_TRUE(source_->IsWallpaperPath("super-referral/wallpaper-1.jpg"));
-  EXPECT_TRUE(source_->IsValidPath("super-referral/brave.png"));
-  EXPECT_FALSE(source_->IsValidPath("super-duper/brave.png"));
+  EXPECT_TRUE(source_->IsValidPath("super-referral/adrbrowsiel.png"));
+  EXPECT_FALSE(source_->IsValidPath("super-duper/adrbrowsiel.png"));
   EXPECT_FALSE(source_->IsValidPath("super-referral/abcd.png"));
   EXPECT_EQ("image/png", source_->GetMimeType("super-referral/logo.png"));
   EXPECT_EQ(
@@ -142,6 +142,6 @@ TEST_F(NTPBackgroundImagesSourceTest, BasicSuperReferralDataTest) {
 }
 #endif
 
-#endif  // ENABLE_BRAVE_REFERRALS
+#endif  // ENABLE_adrbrowsiel_REFERRALS
 
 }  // namespace ntp_background_images

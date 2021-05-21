@@ -1,13 +1,13 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
 #include "base/scoped_observer.h"
-#include "brave/browser/crypto_dot_com/crypto_dot_com_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/crypto_dot_com/browser/crypto_dot_com_service.h"
+#include "adrbrowsiel/browser/crypto_dot_com/crypto_dot_com_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/crypto_dot_com/browser/crypto_dot_com_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -19,7 +19,7 @@
 #include "net/test/embedded_test_server/http_request.h"
 #include "net/test/embedded_test_server/http_response.h"
 
-// npm run test -- brave_browser_tests --filter=CryptoDotComAPIBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=CryptoDotComAPIBrowserTest.*
 
 namespace {
 
@@ -168,9 +168,9 @@ class CryptoDotComAPIBrowserTest : public InProcessBrowserTest {
 
     ResetHTTPSServer(base::BindRepeating(&HandleRequest));
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
   }
 
   ~CryptoDotComAPIBrowserTest() override {

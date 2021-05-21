@@ -1,5 +1,5 @@
 include_rules = [
-  "+brave/components/version_info",
+  "+adrbrowsiel/components/version_info",
   "+content/public/browser",
   "+services/network/public",
   "+third_party/metrics_proto",

@@ -1,10 +1,10 @@
-import("//brave/components/common/typescript.gni")
+import("//adrbrowsiel/components/common/typescript.gni")
 import("//tools/grit/grit_rule.gni")
 import("//tools/grit/repack.gni")
 
 pack_web_resources("internals_generated_resources") {
   resource_name = "tor_internals"
-  output_dir = "$root_gen_dir/brave/components/tor/resources"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/tor/resources"
 
   # need webpack and GRD generation first
   deps = [ "internals" ]
@@ -23,9 +23,9 @@ grit("static_resources") {
     "root_gen_dir=" + rebase_path(root_gen_dir, root_build_dir),
   ]
 
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 
-  output_dir = "$root_gen_dir/brave/components/tor/resources"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/tor/resources"
 }
 
 repack("resources") {
@@ -35,9 +35,9 @@ repack("resources") {
   ]
 
   sources = [
-    "$root_gen_dir/brave/components/tor/resources/tor_internals_generated.pak",
-    "$root_gen_dir/brave/components/tor/resources/tor_static.pak",
+    "$root_gen_dir/adrbrowsiel/components/tor/resources/tor_internals_generated.pak",
+    "$root_gen_dir/adrbrowsiel/components/tor/resources/tor_static.pak",
   ]
 
-  output = "$root_gen_dir/brave/components/tor/resources/tor_resources.pak"
+  output = "$root_gen_dir/adrbrowsiel/components/tor/resources/tor_resources.pak"
 }

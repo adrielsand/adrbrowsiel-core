@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_DOMAIN_BLOCK_TAB_STORAGE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_DOMAIN_BLOCK_TAB_STORAGE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_DOMAIN_BLOCK_TAB_STORAGE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_DOMAIN_BLOCK_TAB_STORAGE_H_
 
 #include "base/macros.h"
 #include "content/public/browser/web_contents_user_data.h"
@@ -13,7 +13,7 @@ namespace content {
 class WebContents;
 }  // namespace content
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 // A short-lived, per tab storage for mixed form interstitials, that stores a
 // flag while proceeding, so a new interstitial is not shown immediately.
@@ -42,6 +42,6 @@ class DomainBlockTabStorage
   bool is_proceeding_ = false;
 };
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_DOMAIN_BLOCK_TAB_STORAGE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_DOMAIN_BLOCK_TAB_STORAGE_H_

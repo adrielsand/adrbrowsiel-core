@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import reducers from '../../../brave_welcome_ui/reducers/index'
+import reducers from '../../../adrbrowsiel_welcome_ui/reducers/index'
 import { newTabInitialState } from '../../testData'
 
 describe('new tab reducers test', () => {

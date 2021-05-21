@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
 
 #include <stdint.h>
 #include <string>
@@ -38,25 +38,25 @@
 #include "bat/ads/pref_names.h"
 #include "bat/ledger/global_constants.h"
 #include "bat/ledger/ledger_database.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/ui/webui/brave_rewards_source.h"
-#include "brave/components/brave_ads/browser/ads_service.h"
-#include "brave/components/brave_ads/browser/buildflags/buildflags.h"
-#include "brave/components/brave_rewards/browser/android_util.h"
-#include "brave/components/brave_rewards/browser/diagnostic_log.h"
-#include "brave/components/brave_rewards/browser/logging.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service_impl.h"
-#include "brave/components/brave_rewards/browser/rewards_p3a.h"
-#include "brave/components/brave_rewards/browser/rewards_service_observer.h"
-#include "brave/components/brave_rewards/browser/static_values.h"
-#include "brave/components/brave_rewards/browser/switches.h"
-#include "brave/components/brave_rewards/common/features.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
-#include "brave/components/brave_rewards/resources/grit/brave_rewards_resources.h"
-#include "brave/components/ipfs/buildflags/buildflags.h"
-#include "brave/components/services/bat_ledger/public/cpp/ledger_client_mojo_bridge.h"
-#include "brave/grit/brave_generated_resources.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/ui/webui/adrbrowsiel_rewards_source.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/android_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/diagnostic_log.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/logging.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_p3a.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/static_values.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/switches.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/resources/grit/adrbrowsiel_rewards_resources.h"
+#include "adrbrowsiel/components/ipfs/buildflags/buildflags.h"
+#include "adrbrowsiel/components/services/bat_ledger/public/cpp/ledger_client_mojo_bridge.h"
+#include "adrbrowsiel/grit/adrbrowsiel_generated_resources.h"
 #include "chrome/browser/bitmap_fetcher/bitmap_fetcher_service_factory.h"
 #include "chrome/browser/browser_process_impl.h"
 #include "chrome/browser/favicon/favicon_service_factory.h"
@@ -65,7 +65,7 @@
 #include "components/country_codes/country_codes.h"
 #include "components/favicon/core/favicon_service.h"
 #include "components/favicon_base/favicon_types.h"
-#include "components/grit/brave_components_resources.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
 #include "components/os_crypt/os_crypt.h"
 #include "components/prefs/pref_service.h"
 #include "content/public/browser/browser_task_traits.h"
@@ -85,15 +85,15 @@
 #include "url/url_util.h"
 
 #if BUILDFLAG(ENABLE_GREASELION)
-#include "brave/components/greaselion/browser/greaselion_service.h"
+#include "adrbrowsiel/components/greaselion/browser/greaselion_service.h"
 #endif
 #if BUILDFLAG(IPFS_ENABLED)
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
 #endif
 using net::registry_controlled_domains::INCLUDE_PRIVATE_REGISTRIES;
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 static const unsigned int kRetriesCountOnNetworkChange = 1;
 
@@ -102,7 +102,7 @@ namespace {
 const int kDiagnosticLogMaxVerboseLevel = 6;
 const int kDiagnosticLogKeepNumLines = 20000;
 const int kDiagnosticLogMaxFileSize = 10 * (1024 * 1024);
-const char pref_prefix[] = "brave.rewards";
+const char pref_prefix[] = "adrbrowsiel.rewards";
 
 std::string URLMethodToRequestType(ledger::type::UrlMethod method) {
   switch (method) {
@@ -190,10 +190,10 @@ std::string LoadOnFileTaskRunner(const base::FilePath& path) {
 net::NetworkTrafficAnnotationTag
 GetNetworkTrafficAnnotationTagForFaviconFetch() {
   return net::DefineNetworkTrafficAnnotation(
-      "brave_rewards_favicon_fetcher", R"(
+      "adrbrowsiel_rewards_favicon_fetcher", R"(
       semantics {
         sender:
-          "Brave Rewards Media Fetcher"
+          "adrbrowsiel Rewards Media Fetcher"
         description:
           "Fetches favicon for media publishers in Rewards."
         trigger:
@@ -213,13 +213,13 @@ GetNetworkTrafficAnnotationTagForFaviconFetch() {
 net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotationTagForURLLoad() {
   return net::DefineNetworkTrafficAnnotation("rewards_service_impl", R"(
       semantics {
-        sender: "Brave Rewards service"
+        sender: "adrbrowsiel Rewards service"
         description:
           "This service lets users anonymously support the sites they visit by "
           "tallying the attention spent on visited sites and dividing up a "
           "monthly BAT contribution."
         trigger:
-          "User-initiated for direct tipping or on a set interval while Brave "
+          "User-initiated for direct tipping or on a set interval while adrbrowsiel "
           "is running for monthly contributions."
         data:
           "Publisher and contribution data."
@@ -229,7 +229,7 @@ net::NetworkTrafficAnnotationTag GetNetworkTrafficAnnotationTagForURLLoad() {
         cookies_allowed: NO
         setting:
           "You can enable or disable this feature via the BAT icon in the URL "
-          "bar or by visiting brave://rewards/."
+          "bar or by visiting adrbrowsiel://rewards/."
         policy_exception_justification:
           "Not implemented."
       })");
@@ -330,7 +330,7 @@ RewardsServiceImpl::RewardsServiceImpl(Profile* profile)
       next_timer_id_(0) {
   // Set up the rewards data source
   content::URLDataSource::Add(profile_,
-                              std::make_unique<BraveRewardsSource>(profile_));
+                              std::make_unique<adrbrowsielRewardsSource>(profile_));
   ready_ = std::make_unique<base::OneShotEvent>();
 
   if (base::FeatureList::IsEnabled(features::kVerboseLoggingFeature))
@@ -436,7 +436,7 @@ void RewardsServiceImpl::OnPreferenceChanged(const std::string& key) {
 
 void RewardsServiceImpl::CheckPreferences() {
   const bool is_ac_enabled = profile_->GetPrefs()->GetBoolean(
-      brave_rewards::prefs::kAutoContributeEnabled);
+      adrbrowsiel_rewards::prefs::kAutoContributeEnabled);
   const bool is_ads_enabled = profile_->GetPrefs()->GetBoolean(
       ads::prefs::kEnabled);
 
@@ -847,16 +847,16 @@ void RewardsServiceImpl::OnLedgerInitialized(ledger::type::Result result) {
     p3a::RecordRewardsDisabledForSomeMetrics();
   }
 
-  GetBraveWallet(
-      base::BindOnce(&RewardsServiceImpl::OnGetBraveWalletForP3A, AsWeakPtr()));
+  GetadrbrowsielWallet(
+      base::BindOnce(&RewardsServiceImpl::OnGetadrbrowsielWalletForP3A, AsWeakPtr()));
 
   for (auto& observer : observers_) {
     observer.OnRewardsInitialized(this);
   }
 }
 
-void RewardsServiceImpl::OnGetBraveWalletForP3A(
-    ledger::type::BraveWalletPtr wallet) {
+void RewardsServiceImpl::OnGetadrbrowsielWalletForP3A(
+    ledger::type::adrbrowsielWalletPtr wallet) {
   if (!wallet) {
     p3a::RecordNoWalletCreatedForAllMetrics();
   }
@@ -1336,7 +1336,7 @@ void RewardsServiceImpl::OnAttestPromotion(
   }
 
   if (promotion->type == ledger::type::PromotionType::ADS) {
-    auto* ads_service = brave_ads::AdsServiceFactory::GetForProfile(profile_);
+    auto* ads_service = adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile_);
     if (ads_service) {
       ads_service->ReconcileAdRewards();
     }
@@ -1682,7 +1682,7 @@ bool RewardsServiceImpl::ShouldShowOnboarding() const {
 
   bool ads_enabled = false;
   bool ads_supported = true;
-  auto* ads_service = brave_ads::AdsServiceFactory::GetForProfile(profile_);
+  auto* ads_service = adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile_);
   if (ads_service) {
     ads_enabled = ads_service->IsEnabled();
     ads_supported = ads_service->IsSupportedLocale();
@@ -2431,7 +2431,7 @@ void RewardsServiceImpl::HandleFlags(const std::string& options) {
     }
 
     // The "persist-logs" command-line flag is deprecated and will be removed
-    // in a future version. Use --enable-features=BraveRewardsVerboseLogging
+    // in a future version. Use --enable-features=adrbrowsielRewardsVerboseLogging
     // instead.
     if (name == "persist-logs") {
       const std::string lower = base::ToLowerASCII(value);
@@ -2529,7 +2529,7 @@ void RewardsServiceImpl::PrepareLedgerEnvForTesting() {
   SetPublisherMinVisitTime(1);
   SetShortRetries(true);
 
-  // this is needed because we are using braveledger_request_util::buildURL
+  // this is needed because we are using adrbrowsielledger_request_util::buildURL
   // directly in RewardsBrowserTest
   #if defined(OFFICIAL_BUILD)
   ledger::_environment = ledger::type::Environment::PRODUCTION;
@@ -2902,7 +2902,7 @@ void RewardsServiceImpl::ProcessRewardsPageUrl(
 
   base::flat_map<std::string, std::string> query_map;
 
-  const auto url = GURL("brave:/" + path + query);
+  const auto url = GURL("adrbrowsiel:/" + path + query);
   for (net::QueryIterator it(url); !it.IsAtEnd(); it.Advance()) {
     query_map[it.GetKey()] = it.GetUnescapedValue();
   }
@@ -3264,7 +3264,7 @@ void RewardsServiceImpl::ClearAllNotifications() {
 void RewardsServiceImpl::CompleteReset(SuccessCallback callback) {
   resetting_rewards_ = true;
 
-  auto* ads_service = brave_ads::AdsServiceFactory::GetForProfile(profile_);
+  auto* ads_service = adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile_);
   if (ads_service) {
     ads_service->ResetAllState(/* should_shutdown */ true);
   }
@@ -3374,21 +3374,21 @@ std::string RewardsServiceImpl::GetEncryptedStringState(
   return value;
 }
 
-void RewardsServiceImpl::GetBraveWallet(GetBraveWalletCallback callback) {
+void RewardsServiceImpl::GetadrbrowsielWallet(GetadrbrowsielWalletCallback callback) {
   if (!Connected()) {
     std::move(callback).Run(nullptr);
     return;
   }
 
-  bat_ledger_->GetBraveWallet(
-    base::BindOnce(&RewardsServiceImpl::OnGetBraveWallet,
+  bat_ledger_->GetadrbrowsielWallet(
+    base::BindOnce(&RewardsServiceImpl::OnGetadrbrowsielWallet,
         AsWeakPtr(),
         std::move(callback)));
 }
 
-void RewardsServiceImpl::OnGetBraveWallet(
-    GetBraveWalletCallback callback,
-    ledger::type::BraveWalletPtr wallet) {
+void RewardsServiceImpl::OnGetadrbrowsielWallet(
+    GetadrbrowsielWalletCallback callback,
+    ledger::type::adrbrowsielWalletPtr wallet) {
   std::move(callback).Run(std::move(wallet));
 }
 
@@ -3409,7 +3409,7 @@ void RewardsServiceImpl::GetWalletPassphrase(
 
 void RewardsServiceImpl::SetAdsEnabled(const bool is_enabled) {
   if (!is_enabled) {
-    auto* ads_service = brave_ads::AdsServiceFactory::GetForProfile(profile_);
+    auto* ads_service = adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile_);
     if (ads_service) {
       ads_service->SetEnabled(is_enabled);
     }
@@ -3451,7 +3451,7 @@ void RewardsServiceImpl::OnWalletCreatedForSetAdsEnabled(
     return;
   }
 
-  auto* ads_service = brave_ads::AdsServiceFactory::GetForProfile(profile_);
+  auto* ads_service = adrbrowsiel_ads::AdsServiceFactory::GetForProfile(profile_);
   if (ads_service) {
     ads_service->SetEnabled(ads_service->IsSupportedLocale());
   }
@@ -3478,4 +3478,4 @@ std::string RewardsServiceImpl::GetExternalWalletType() const {
   return ledger::constant::kWalletUphold;
 }
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

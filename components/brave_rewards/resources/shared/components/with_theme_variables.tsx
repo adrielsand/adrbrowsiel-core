@@ -4,19 +4,19 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
-import defaultTheme from 'brave-ui/theme/brave-default'
+import defaultTheme from 'adrbrowsiel-ui/theme/adrbrowsiel-default'
 
 function createThemeRules () {
   let list = []
 
   for (const [key, value] of Object.entries(defaultTheme.color)) {
-    list.push(`--brave-color-${key}: ${String(value)};`)
+    list.push(`--adrbrowsiel-color-${key}: ${String(value)};`)
   }
   for (const [key, value] of Object.entries(defaultTheme.palette)) {
-    list.push(`--brave-palette-${key}: ${String(value)};`)
+    list.push(`--adrbrowsiel-palette-${key}: ${String(value)};`)
   }
   for (const [key, value] of Object.entries(defaultTheme.fontFamily)) {
-    list.push(`--brave-font-${key}: ${String(value)};`)
+    list.push(`--adrbrowsiel-font-${key}: ${String(value)};`)
   }
 
   return list.join('\n')

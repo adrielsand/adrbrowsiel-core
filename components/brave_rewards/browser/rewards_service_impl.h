@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_IMPL_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_IMPL_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_IMPL_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_IMPL_H_
 
 #include <functional>
 #include <list>
@@ -24,11 +24,11 @@
 #include "base/values.h"
 #include "bat/ledger/ledger.h"
 #include "bat/ledger/ledger_client.h"
-#include "brave/components/brave_rewards/browser/diagnostic_log.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/components/brave_rewards/browser/rewards_service_private_observer.h"
-#include "brave/components/greaselion/browser/buildflags/buildflags.h"
-#include "brave/components/services/bat_ledger/public/interfaces/bat_ledger.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/diagnostic_log.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_private_observer.h"
+#include "adrbrowsiel/components/greaselion/browser/buildflags/buildflags.h"
+#include "adrbrowsiel/components/services/bat_ledger/public/interfaces/bat_ledger.mojom.h"
 #include "chrome/browser/bitmap_fetcher/bitmap_fetcher_service.h"
 #include "components/prefs/pref_change_registrar.h"
 #include "content/public/browser/browser_thread.h"
@@ -38,7 +38,7 @@
 #include "ui/gfx/image/image.h"
 
 #if defined(OS_ANDROID)
-#include "brave/components/safetynet/safetynet_check.h"
+#include "adrbrowsiel/components/safetynet/safetynet_check.h"
 #endif
 
 namespace base {
@@ -70,7 +70,7 @@ class GreaselionService;
 class Profile;
 class RewardsFlagBrowserTest;
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 class RewardsNotificationServiceImpl;
 class RewardsBrowserTest;
@@ -336,7 +336,7 @@ class RewardsServiceImpl : public RewardsService,
       const std::string& name,
       const std::string& value) override;
 
-  void GetBraveWallet(GetBraveWalletCallback callback) override;
+  void GetadrbrowsielWallet(GetadrbrowsielWalletCallback callback) override;
 
   void StartProcess(base::OnceClosure callback) override;
 
@@ -688,7 +688,7 @@ class RewardsServiceImpl : public RewardsService,
       const std::string& publisher_key,
       const std::string& publisher_name) override;
 
-  void OnGetBraveWalletForP3A(ledger::type::BraveWalletPtr wallet);
+  void OnGetadrbrowsielWalletForP3A(ledger::type::adrbrowsielWalletPtr wallet);
 
   bool Connected() const;
   void ConnectionClosed();
@@ -745,9 +745,9 @@ class RewardsServiceImpl : public RewardsService,
       GetEventLogsCallback callback,
       ledger::type::EventLogs logs);
 
-  void OnGetBraveWallet(
-      GetBraveWalletCallback callback,
-      ledger::type::BraveWalletPtr wallet);
+  void OnGetadrbrowsielWallet(
+      GetadrbrowsielWalletCallback callback,
+      ledger::type::adrbrowsielWalletPtr wallet);
 
 #if defined(OS_ANDROID)
   ledger::type::Environment GetServerEnvironmentForAndroid();
@@ -800,6 +800,6 @@ class RewardsServiceImpl : public RewardsService,
   DISALLOW_COPY_AND_ASSIGN(RewardsServiceImpl);
 };
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_IMPL_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_IMPL_H_

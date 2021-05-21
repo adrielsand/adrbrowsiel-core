@@ -1,12 +1,12 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 import * as React from 'react'
-import AutoSizer from '@brave/react-virtualized-auto-sizer'
+import AutoSizer from '@adrbrowsiel/react-virtualized-auto-sizer'
 import { VariableSizeList } from 'react-window'
-import { isPublisherContentAllowed } from '../../../../../common/braveToday'
+import { isPublisherContentAllowed } from '../../../../../common/adrbrowsielToday'
 import {
   SettingsRow,
   SettingsText
@@ -20,13 +20,13 @@ export const DynamicListContext = React.createContext<
 
 type PublisherPrefsProps = {
   setPublisherPref: (publisherId: string, enabled: boolean) => any
-  publishers: BraveToday.Publisher[]
+  publishers: adrbrowsielToday.Publisher[]
 }
 
 type ListItemProps = {
   index: number
   width: number
-  data: BraveToday.Publisher[]
+  data: adrbrowsielToday.Publisher[]
   style: React.CSSProperties
   setPublisherPref: (publisherId: string, enabled: boolean) => any
 }

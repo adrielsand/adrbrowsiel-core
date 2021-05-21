@@ -109,9 +109,9 @@ declare namespace Rewards {
 
   export enum Processor {
     NONE = 0,
-    BRAVE_TOKENS = 1,
+    adrbrowsiel_TOKENS = 1,
     UPHOLD = 2,
-    BRAVE_USER_FUNDS = 3,
+    adrbrowsiel_USER_FUNDS = 3,
     BITFLYER = 4
   }
 

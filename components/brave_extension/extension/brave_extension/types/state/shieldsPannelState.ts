@@ -20,7 +20,7 @@ export interface Tab {
   javascript: BlockOptions
   javascriptBlocked: number
   origin: string
-  braveShields: BlockOptions
+  adrbrowsielShields: BlockOptions
   trackers: BlockOptions
   trackersBlocked: number
   url: string

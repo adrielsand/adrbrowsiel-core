@@ -1,36 +1,36 @@
 import * as React from 'react'
 import { ThemeProvider } from 'styled-components'
-import IBraveTheme from 'brave-ui/theme/theme-interface'
+import IadrbrowsielTheme from 'adrbrowsiel-ui/theme/theme-interface'
 
 export type Props = {
-  initialThemeType?: chrome.braveTheme.ThemeType
-  dark: IBraveTheme,
-  light: IBraveTheme
+  initialThemeType?: chrome.adrbrowsielTheme.ThemeType
+  dark: IadrbrowsielTheme,
+  light: IadrbrowsielTheme
 }
 type State = {
-  themeType?: chrome.braveTheme.ThemeType
+  themeType?: chrome.adrbrowsielTheme.ThemeType
 }
 
-function themeTypeToState (themeType: chrome.braveTheme.ThemeType): State {
+function themeTypeToState (themeType: chrome.adrbrowsielTheme.ThemeType): State {
   return {
     themeType
   }
 }
 
-export default class BraveCoreThemeProvider extends React.Component<Props, State> {
+export default class adrbrowsielCoreThemeProvider extends React.Component<Props, State> {
   constructor (props: Props) {
     super(props)
     if (props.initialThemeType) {
       this.state = themeTypeToState(props.initialThemeType)
     }
-    // Ensure we have access to braveTheme before updating.
+    // Ensure we have access to adrbrowsielTheme before updating.
     // Otherwise this would break Storybook.
-    if (chrome.braveTheme) {
-      chrome.braveTheme.onBraveThemeTypeChanged.addListener(this.setThemeState)
+    if (chrome.adrbrowsielTheme) {
+      chrome.adrbrowsielTheme.onadrbrowsielThemeTypeChanged.addListener(this.setThemeState)
     }
   }
 
-  setThemeState = (themeType: chrome.braveTheme.ThemeType) => {
+  setThemeState = (themeType: chrome.adrbrowsielTheme.ThemeType) => {
     this.setState(themeTypeToState(themeType))
   }
 
@@ -38,7 +38,7 @@ export default class BraveCoreThemeProvider extends React.Component<Props, State
     // Update theme based on React prop changes.
     // This only runs on storybook and is needed
     // since it has no access to chrome.* APIs
-    if (chrome.braveTheme) {
+    if (chrome.adrbrowsielTheme) {
       return
     }
     if (prevProps.initialThemeType !== this.props.initialThemeType) {

@@ -1,16 +1,16 @@
-import("//brave/components/common/typescript.gni")
+import("//adrbrowsiel/components/common/typescript.gni")
 
-transpile_web_ui("generate_brave_webtorrent") {
+transpile_web_ui("generate_adrbrowsiel_webtorrent") {
   entry_points = [
-    ["brave_webtorrent", rebase_path("brave_webtorrent.tsx")],
-    ["brave_webtorrent_background", rebase_path("background.ts")]
+    ["adrbrowsiel_webtorrent", rebase_path("adrbrowsiel_webtorrent.tsx")],
+    ["adrbrowsiel_webtorrent_background", rebase_path("background.ts")]
   ]
 
-  resource_name = "brave_webtorrent"
+  resource_name = "adrbrowsiel_webtorrent"
 
   # Must match the relative path from the static GRD to the manifest.json
   # plus any other relative path we want these files to live in the extension
-  extra_relative_path = "/brave_webtorrent/extension/out"
+  extra_relative_path = "/adrbrowsiel_webtorrent/extension/out"
 
   public_asset_path = "/extension/out/"
 }

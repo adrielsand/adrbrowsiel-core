@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
-import { AdsMegaphoneIcon } from 'brave-ui/components/icons'
+import { AdsMegaphoneIcon } from 'adrbrowsiel-ui/components/icons'
 import { getLocale } from '../../../../common/locale'
 
 const Styled = styled.div`

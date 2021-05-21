@@ -1,20 +1,20 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_BACKGROUND_HELPER_WIN_H_
-#define BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_BACKGROUND_HELPER_WIN_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_BACKGROUND_HELPER_WIN_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_BACKGROUND_HELPER_WIN_H_
 
 #include <windows.h>
 #include <memory>
 
 #include "base/macros.h"
 #include "base/memory/singleton.h"
-#include "brave/components/brave_ads/browser/background_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/background_helper.h"
 #include "ui/gfx/win/singleton_hwnd_observer.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 class BackgroundHelperWin : public BackgroundHelper {
  public:
@@ -37,6 +37,6 @@ class BackgroundHelperWin : public BackgroundHelper {
   bool IsForeground() const override;
 };
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_BACKGROUND_HELPER_WIN_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_BACKGROUND_HELPER_WIN_H_

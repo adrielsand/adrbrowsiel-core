@@ -21,7 +21,7 @@ import * as noScriptState from '../../state/noScriptState'
 
 // APIs
 import {
-  setAllowBraveShields,
+  setAllowadrbrowsielShields,
   setAllowAds,
   setAllowTrackers,
   setAllowCosmeticFiltering,
@@ -111,7 +111,7 @@ export default function shieldsPanelReducer (
       state = shieldsPanelState.updateTabShieldsData(state, action.details.id, action.details)
       shieldsPanelState.updateShieldsIcon(state)
       if (chrome.test && shieldsPanelState.getActiveTabData(state)) {
-        chrome.test.sendMessage('brave-extension-shields-data-ready')
+        chrome.test.sendMessage('adrbrowsiel-extension-shields-data-ready')
       }
       break
     }
@@ -122,7 +122,7 @@ export default function shieldsPanelReducer (
         console.error('Active tab not found')
         break
       }
-      setAllowBraveShields(tabData.origin, action.setting)
+      setAllowadrbrowsielShields(tabData.origin, action.setting)
         .then(() => {
           reloadTab(tabId, true).catch(() => {
             console.error('Tab reload was not successful')
@@ -133,7 +133,7 @@ export default function shieldsPanelReducer (
           console.error('Could not set shields')
         })
       state = shieldsPanelState
-        .updateTabShieldsData(state, tabId, { braveShields: action.setting })
+        .updateTabShieldsData(state, tabId, { adrbrowsielShields: action.setting })
       break
     }
     case shieldsPanelTypes.REPORT_BROKEN_SITE: {
@@ -357,7 +357,7 @@ export default function shieldsPanelReducer (
     }
     case shieldsPanelTypes.SHIELDS_READY: {
       onShieldsPanelShown().catch(() => {
-        console.error('error calling `chrome.braveShields.onShieldsPanelShown()`')
+        console.error('error calling `chrome.adrbrowsielShields.onShieldsPanelShown()`')
       })
       break
     }
@@ -405,7 +405,7 @@ export default function shieldsPanelReducer (
         console.error('Active tab not found')
         break
       }
-      Promise.all([chrome.braveShields.shouldDoCosmeticFilteringAsync(action.url), chrome.braveShields.isFirstPartyCosmeticFilteringEnabledAsync(action.url)])
+      Promise.all([chrome.adrbrowsielShields.shouldDoCosmeticFilteringAsync(action.url), chrome.adrbrowsielShields.isFirstPartyCosmeticFilteringEnabledAsync(action.url)])
         .then(([doCosmeticBlocking, hide1pContent]: [boolean, boolean]) => {
           if (doCosmeticBlocking) {
             applyAdblockCosmeticFilters(action.tabId, action.frameId, action.url, hide1pContent)

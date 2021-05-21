@@ -1,29 +1,29 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_CUSTOM_FILTERS_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_CUSTOM_FILTERS_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_CUSTOM_FILTERS_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_CUSTOM_FILTERS_SERVICE_H_
 
 #include <map>
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "brave/components/brave_shields/browser/ad_block_base_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_base_service.h"
 
 class AdBlockServiceTest;
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
-// The brave shields service in charge of custom filter ad-block
+// The adrbrowsiel shields service in charge of custom filter ad-block
 // checking and init.
 class AdBlockCustomFiltersService : public AdBlockBaseService {
  public:
-  explicit AdBlockCustomFiltersService(BraveComponent::Delegate* delegate);
+  explicit AdBlockCustomFiltersService(adrbrowsielComponent::Delegate* delegate);
   ~AdBlockCustomFiltersService() override;
 
   std::string GetCustomFilters();
@@ -43,8 +43,8 @@ class AdBlockCustomFiltersService : public AdBlockBaseService {
 
 // Creates the AdBlockCustomFiltersService
 std::unique_ptr<AdBlockCustomFiltersService>
-AdBlockCustomFiltersServiceFactory(BraveComponent::Delegate* delegate);
+AdBlockCustomFiltersServiceFactory(adrbrowsielComponent::Delegate* delegate);
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_CUSTOM_FILTERS_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_CUSTOM_FILTERS_SERVICE_H_

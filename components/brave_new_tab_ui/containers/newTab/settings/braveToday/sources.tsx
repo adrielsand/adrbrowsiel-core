@@ -1,10 +1,10 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 import * as React from 'react'
-import { CaratRightIcon } from 'brave-ui/components/icons'
+import { CaratRightIcon } from 'adrbrowsiel-ui/components/icons'
 import { getLocale } from '../../../../../common/locale'
 import {
   SettingsRow,
@@ -32,7 +32,7 @@ function CategoryList (props: CategoryListProps) {
   }, [props.categories, props.setCategory])
   return (
     <>
-      <SettingsSectionTitle>{getLocale('braveTodaySourcesTitle')}</SettingsSectionTitle>
+      <SettingsSectionTitle>{getLocale('adrbrowsielTodaySourcesTitle')}</SettingsSectionTitle>
       {props.categories.map(category => {
         return (
           <SettingsRow key={category} isInteractive={true} onClick={clickFunctions[category]}>
@@ -49,7 +49,7 @@ function CategoryList (props: CategoryListProps) {
 
 type CategoryProps = {
   category: string
-  publishers: BraveToday.Publisher[]
+  publishers: adrbrowsielToday.Publisher[]
   onBack: () => any
   setPublisherPref: (publisherId: string, enabled: boolean) => any
 }
@@ -71,7 +71,7 @@ function Category (props: CategoryProps) {
   )
 }
 
-const categoryNameAll = getLocale('braveTodayCategoryNameAll')
+const categoryNameAll = getLocale('adrbrowsielTodayCategoryNameAll')
 
 type SourcesProps = Props & {
   category: string
@@ -79,8 +79,8 @@ type SourcesProps = Props & {
 }
 
 export default function Sources (props: SourcesProps) {
-  const publishersByCategory = React.useMemo<Map<string, BraveToday.Publisher[]>>(() => {
-    const result = new Map<string, BraveToday.Publisher[]>()
+  const publishersByCategory = React.useMemo<Map<string, adrbrowsielToday.Publisher[]>>(() => {
+    const result = new Map<string, adrbrowsielToday.Publisher[]>()
     result.set(categoryNameAll, [])
     if (!props.publishers) {
       return result

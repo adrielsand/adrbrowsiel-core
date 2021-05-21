@@ -5,8 +5,8 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 import { Type } from './index'
-import Card, { CardProps } from 'brave-ui/components/layout/card'
-import { AlertCircleIcon } from 'brave-ui/components/icons'
+import Card, { CardProps } from 'adrbrowsiel-ui/components/layout/card'
+import { AlertCircleIcon } from 'adrbrowsiel-ui/components/icons'
 import TOSAndPP, { Props as TOSProps } from '../../TOSAndPP'
 
 interface StyleProps {

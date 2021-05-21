@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -11,16 +11,16 @@ import useReadArticleClickHandler from '../../useReadArticleClickHandler'
 import { OnReadFeedItem } from '../../'
 
 interface Props {
-  content: (BraveToday.Article)[]
-  publishers: BraveToday.Publishers
+  content: (adrbrowsielToday.Article)[]
+  publishers: adrbrowsielToday.Publishers
   categoryName: string
-  articleToScrollTo?: BraveToday.FeedItem
+  articleToScrollTo?: adrbrowsielToday.FeedItem
   onReadFeedItem: OnReadFeedItem
 }
 
 type ListItemProps = {
-  item: BraveToday.Article
-  publisher?: BraveToday.Publisher
+  item: adrbrowsielToday.Article
+  publisher?: adrbrowsielToday.Publisher
   onReadFeedItem: OnReadFeedItem
   shouldScrollIntoView: boolean
 }

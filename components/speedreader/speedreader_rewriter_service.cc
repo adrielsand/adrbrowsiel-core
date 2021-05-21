@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/speedreader/speedreader_rewriter_service.h"
+#include "adrbrowsiel/components/speedreader/speedreader_rewriter_service.h"
 
 #include <utility>
 
@@ -14,10 +14,10 @@
 #include "base/strings/string_util.h"
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
-#include "brave/components/speedreader/features.h"
-#include "brave/components/speedreader/speedreader_component.h"
-#include "brave/components/speedreader/speedreader_util.h"
-#include "components/grit/brave_components_resources.h"
+#include "adrbrowsiel/components/speedreader/features.h"
+#include "adrbrowsiel/components/speedreader/speedreader_component.h"
+#include "adrbrowsiel/components/speedreader/speedreader_util.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "url/gurl.h"
 
@@ -35,13 +35,13 @@ std::string GetDistilledPageStylesheet(const base::FilePath& stylesheet_path) {
         IDR_SPEEDREADER_STYLE_DESKTOP);
   }
 
-  return "<style id=\"brave_speedreader_style\">" + stylesheet + "</style>";
+  return "<style id=\"adrbrowsiel_speedreader_style\">" + stylesheet + "</style>";
 }
 
 }  // namespace
 
 SpeedreaderRewriterService::SpeedreaderRewriterService(
-    brave_component_updater::BraveComponent::Delegate* delegate)
+    adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate)
     : component_(new speedreader::SpeedreaderComponent(delegate)),
       speedreader_(new speedreader::SpeedReader) {
   if (base::FeatureList::IsEnabled(kSpeedreaderLegacyBackend)) {
@@ -50,7 +50,7 @@ SpeedreaderRewriterService::SpeedreaderRewriterService(
 
   // Load the built-in stylesheet as the default
   content_stylesheet_ =
-      "<style id=\"brave_speedreader_style\">" +
+      "<style id=\"adrbrowsiel_speedreader_style\">" +
       ui::ResourceBundle::GetSharedInstance().LoadDataResourceString(
           IDR_SPEEDREADER_STYLE_DESKTOP) +
       "</style>";
@@ -77,7 +77,7 @@ void SpeedreaderRewriterService::OnWhitelistReady(const base::FilePath& path) {
   base::ThreadPool::PostTaskAndReplyWithResult(
       FROM_HERE, {base::MayBlock()},
       base::BindOnce(
-          &brave_component_updater::LoadDATFileData<speedreader::SpeedReader>,
+          &adrbrowsiel_component_updater::LoadDATFileData<speedreader::SpeedReader>,
           path),
       base::BindOnce(&SpeedreaderRewriterService::OnLoadDATFileData,
                      weak_factory_.GetWeakPtr()));

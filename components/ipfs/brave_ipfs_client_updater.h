@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_IPFS_BRAVE_IPFS_CLIENT_UPDATER_H_
-#define BRAVE_COMPONENTS_IPFS_BRAVE_IPFS_CLIENT_UPDATER_H_
+#ifndef adrbrowsiel_COMPONENTS_IPFS_adrbrowsiel_IPFS_CLIENT_UPDATER_H_
+#define adrbrowsiel_COMPONENTS_IPFS_adrbrowsiel_IPFS_CLIENT_UPDATER_H_
 
 #include <memory>
 #include <string>
@@ -14,18 +14,18 @@
 #include "base/observer_list.h"
 #include "base/scoped_observation.h"
 #include "base/sequenced_task_runner.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
 #include "components/component_updater/component_updater_service.h"
 
-class BraveIpfsClientUpdaterTest;
+class adrbrowsielIpfsClientUpdaterTest;
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
 namespace ipfs {
 
 #if defined(OS_WIN)
 static const char kIpfsClientComponentName[] =
-    "Brave Ipfs Client Updater (Windows)";
+    "adrbrowsiel Ipfs Client Updater (Windows)";
 static const char kIpfsClientComponentId[] = "lnbclahgobmjphilkalbhebakmblnbij";
 static const char kIpfsClientComponentBase64PublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuLxVDZm1QIzpMUFMBYym"
@@ -37,7 +37,7 @@ static const char kIpfsClientComponentBase64PublicKey[] =
     "/QIDAQAB";
 #elif defined(OS_MAC)
 static const char kIpfsClientComponentName[] =
-    "Brave Ipfs Client Updater (Mac)";
+    "adrbrowsiel Ipfs Client Updater (Mac)";
 static const char kIpfsClientComponentId[] = "nljcddpbnaianmglkpkneakjaapinabi";
 static const char kIpfsClientComponentBase64PublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu4gvE67b2T0U0i5awN5Q"
@@ -49,7 +49,7 @@ static const char kIpfsClientComponentBase64PublicKey[] =
     "gwIDAQAB";
 #elif defined(OS_LINUX)
 static const char kIpfsClientComponentName[] =
-    "Brave Ipfs Client Updater (Linux)";
+    "adrbrowsiel Ipfs Client Updater (Linux)";
 static const char kIpfsClientComponentId[] = "oecghfpdmkjlhnfpmmjegjacfimiafjp";
 static const char kIpfsClientComponentBase64PublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuG1akBG8ka37Pdx0F21r"
@@ -66,22 +66,22 @@ static const char kIpfsClientComponentId[] = "";
 static const char kIpfsClientComponentBase64PublicKey[] = "";
 #endif
 
-class BraveIpfsClientUpdater : public BraveComponent,
-                               public BraveComponent::ComponentObserver {
+class adrbrowsielIpfsClientUpdater : public adrbrowsielComponent,
+                               public adrbrowsielComponent::ComponentObserver {
  public:
   class Observer : public base::CheckedObserver {
    public:
     virtual void OnExecutableReady(const base::FilePath& path) = 0;
     virtual void OnInstallationEvent(
-        BraveComponent::ComponentObserver::Events event) = 0;
+        adrbrowsielComponent::ComponentObserver::Events event) = 0;
 
    protected:
     ~Observer() override = default;
   };
 
-  explicit BraveIpfsClientUpdater(BraveComponent::Delegate* delegate,
+  explicit adrbrowsielIpfsClientUpdater(adrbrowsielComponent::Delegate* delegate,
                                   const base::FilePath& user_data_dir);
-  ~BraveIpfsClientUpdater() override;
+  ~adrbrowsielIpfsClientUpdater() override;
 
   void Register();
   base::FilePath GetExecutablePath() const;
@@ -98,11 +98,11 @@ class BraveIpfsClientUpdater : public BraveComponent,
                         const base::FilePath& install_dir,
                         const std::string& manifest) override;
 
-  // BraveComponent::ComponentObserver
+  // adrbrowsielComponent::ComponentObserver
   void OnEvent(Events event, const std::string& id) override;
 
  private:
-  friend class ::BraveIpfsClientUpdaterTest;
+  friend class ::adrbrowsielIpfsClientUpdaterTest;
   static std::string g_ipfs_client_component_name_;
   static std::string g_ipfs_client_component_id_;
   static std::string g_ipfs_client_component_base64_public_key_;
@@ -116,19 +116,19 @@ class BraveIpfsClientUpdater : public BraveComponent,
   base::FilePath user_data_dir_;
   base::FilePath executable_path_;
   base::ObserverList<Observer> observers_;
-  base::ScopedObservation<BraveComponent, BraveComponent::ComponentObserver>
+  base::ScopedObservation<adrbrowsielComponent, adrbrowsielComponent::ComponentObserver>
       updater_observer_{this};
 
-  base::WeakPtrFactory<BraveIpfsClientUpdater> weak_ptr_factory_;
+  base::WeakPtrFactory<adrbrowsielIpfsClientUpdater> weak_ptr_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveIpfsClientUpdater);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielIpfsClientUpdater);
 };
 
-// Creates the BraveIpfsClientUpdater
-std::unique_ptr<BraveIpfsClientUpdater> BraveIpfsClientUpdaterFactory(
-    BraveComponent::Delegate* delegate,
+// Creates the adrbrowsielIpfsClientUpdater
+std::unique_ptr<adrbrowsielIpfsClientUpdater> adrbrowsielIpfsClientUpdaterFactory(
+    adrbrowsielComponent::Delegate* delegate,
     const base::FilePath& user_data_dir);
 
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_IPFS_BRAVE_IPFS_CLIENT_UPDATER_H_
+#endif  // adrbrowsiel_COMPONENTS_IPFS_adrbrowsiel_IPFS_CLIENT_UPDATER_H_

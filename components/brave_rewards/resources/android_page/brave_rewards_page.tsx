@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { initLocale } from 'brave-ui'
+import { initLocale } from 'adrbrowsiel-ui'
 import { bindActionCreators } from 'redux'
 require('emptykit.css')
 
@@ -17,11 +17,11 @@ require('../../../../ui/webui/resources/fonts/poppins.css')
 // Utils
 import store from './store'
 import { ThemeProvider } from 'styled-components'
-import Theme from 'brave-ui/theme/brave-default'
+import Theme from 'adrbrowsiel-ui/theme/adrbrowsiel-default'
 import { getActions as getUtilActions, getCurrentBalanceReport, setActions } from './utils'
 import * as rewardsActions from './actions/rewards_actions'
 
-window.cr.define('brave_rewards', function () {
+window.cr.define('adrbrowsiel_rewards', function () {
   'use strict'
 
   function initialize () {
@@ -139,14 +139,14 @@ window.cr.define('brave_rewards', function () {
   }
 
   function reconcileComplete (properties: {type: number, result: number}) {
-    chrome.send('brave_rewards.getReconcileStamp')
+    chrome.send('adrbrowsiel_rewards.getReconcileStamp')
     getActions().getContributeList()
     getActions().getBalance()
     getActions().getRewardsParameters()
     getCurrentBalanceReport()
 
     if (properties.type === 8) { // Rewards.RewardsType.ONE_TIME_TIP
-      chrome.send('brave_rewards.getOneTimeTips')
+      chrome.send('adrbrowsiel_rewards.getOneTimeTips')
     }
   }
 
@@ -192,4 +192,4 @@ window.cr.define('brave_rewards', function () {
   }
 })
 
-document.addEventListener('DOMContentLoaded', window.brave_rewards.initialize)
+document.addEventListener('DOMContentLoaded', window.adrbrowsiel_rewards.initialize)

@@ -3,9 +3,9 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* global chrome */
 
-import reducers from '../../../../../../brave_rewards/resources/extension/brave_rewards/background/reducers'
-import { types } from '../../../../../../brave_rewards/resources/extension/brave_rewards/constants/rewards_panel_types'
-import { defaultState } from '../../../../../../brave_rewards/resources/extension/brave_rewards/background/storage'
+import reducers from '../../../../../../adrbrowsiel_rewards/resources/extension/adrbrowsiel_rewards/background/reducers'
+import { types } from '../../../../../../adrbrowsiel_rewards/resources/extension/adrbrowsiel_rewards/constants/rewards_panel_types'
+import { defaultState } from '../../../../../../adrbrowsiel_rewards/resources/extension/adrbrowsiel_rewards/background/storage'
 
 describe('rewards panel reducer', () => {
   const constantDate = new Date('2018-01-01T12:00:00')
@@ -182,7 +182,7 @@ describe('rewards panel reducer', () => {
           publishers: {
             key_1: {
               tabId: 1,
-              tabUrl: 'https://brave.com'
+              tabUrl: 'https://adrbrowsiel.com'
             }
           }
         }
@@ -191,7 +191,7 @@ describe('rewards panel reducer', () => {
           type: types.ON_TAB_RETRIEVED,
           payload: {
             tab: {
-              url: 'https://brave.com',
+              url: 'https://adrbrowsiel.com',
               incognito: false,
               active: true,
               id: 1
@@ -309,22 +309,22 @@ describe('rewards panel reducer', () => {
     it('publisher is update accordingly', () => {
       const list = [
         {
-          publisherKey: 'brave.com',
+          publisherKey: 'adrbrowsiel.com',
           percentage: 50,
           status: 2
         },
         {
-          publisherKey: 'brave1.com',
+          publisherKey: 'adrbrowsiel1.com',
           percentage: 30,
           status: 2
         },
         {
-          publisherKey: 'brave2.com',
+          publisherKey: 'adrbrowsiel2.com',
           percentage: 10,
           status: 2
         },
         {
-          publisherKey: 'brave3.com',
+          publisherKey: 'adrbrowsiel3.com',
           percentage: 10,
           status: 2
         }
@@ -334,15 +334,15 @@ describe('rewards panel reducer', () => {
         ...defaultState,
         publishers: {
           key_1: {
-            tabUrl: 'https://brave.com',
-            publisherKey: 'brave.com',
+            tabUrl: 'https://adrbrowsiel.com',
+            publisherKey: 'adrbrowsiel.com',
             percentage: 30,
             status: 0,
             excluded: true
           },
           key_2: {
-            tabUrl: 'https://brave4.com',
-            publisherKey: 'brave4.com',
+            tabUrl: 'https://adrbrowsiel4.com',
+            publisherKey: 'adrbrowsiel4.com',
             percentage: 40,
             status: 2
           }
@@ -352,15 +352,15 @@ describe('rewards panel reducer', () => {
         ...defaultState,
         publishers: {
           key_1: {
-            tabUrl: 'https://brave.com',
-            publisherKey: 'brave.com',
+            tabUrl: 'https://adrbrowsiel.com',
+            publisherKey: 'adrbrowsiel.com',
             percentage: 50,
             status: 2,
             excluded: false
           },
           key_2: {
-            tabUrl: 'https://brave4.com',
-            publisherKey: 'brave4.com',
+            tabUrl: 'https://adrbrowsiel4.com',
+            publisherKey: 'adrbrowsiel4.com',
             percentage: 0,
             status: 2
           }
@@ -408,15 +408,15 @@ describe('rewards panel reducer', () => {
         ...defaultState,
         publishers: {
           key_1: {
-            tabUrl: 'https://brave.com',
-            publisherKey: 'brave.com',
+            tabUrl: 'https://adrbrowsiel.com',
+            publisherKey: 'adrbrowsiel.com',
             percentage: 30,
             status: 2,
             excluded: true
           },
           key_2: {
-            tabUrl: 'https://brave4.com',
-            publisherKey: 'brave4.com',
+            tabUrl: 'https://adrbrowsiel4.com',
+            publisherKey: 'adrbrowsiel4.com',
             percentage: 40,
             status: 2
           }
@@ -426,15 +426,15 @@ describe('rewards panel reducer', () => {
         ...defaultState,
         publishers: {
           key_1: {
-            tabUrl: 'https://brave.com',
-            publisherKey: 'brave.com',
+            tabUrl: 'https://adrbrowsiel.com',
+            publisherKey: 'adrbrowsiel.com',
             percentage: 30,
             status: 2,
             excluded: false
           },
           key_2: {
-            tabUrl: 'https://brave4.com',
-            publisherKey: 'brave4.com',
+            tabUrl: 'https://adrbrowsiel4.com',
+            publisherKey: 'adrbrowsiel4.com',
             percentage: 40,
             status: 2
           }
@@ -445,7 +445,7 @@ describe('rewards panel reducer', () => {
         type: types.ON_EXCLUDED_SITES_CHANGED,
         payload: {
           properties: {
-            publisherKey: 'brave.com',
+            publisherKey: 'adrbrowsiel.com',
             excluded: false
           }
         }

@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "เราได้ทำการอัปเกรดครั้งใหญ่ให้กับ Brave Rewards",
+    "message": "เราได้ทำการอัปเกรดครั้งใหญ่ให้กับ adrbrowsiel Rewards",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "สามารถใช้ใน Brave Rewards เพื่อส่งรายได้ให้แก่ผู้สร้างสรรค์เนื้อหาคนโปรดของคุณ แต้ม BAT ไม่สามารถแลกเปลี่ยนเป็น BAT ได้",
+    "message": "สามารถใช้ใน adrbrowsiel Rewards เพื่อส่งรายได้ให้แก่ผู้สร้างสรรค์เนื้อหาคนโปรดของคุณ แต้ม BAT ไม่สามารถแลกเปลี่ยนเป็น BAT ได้",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "ผู้สร้าง Brave ที่ยืนยันแล้ว",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "ผู้สร้าง adrbrowsiel ที่ยืนยันแล้ว",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "โปรดระวัง",
@@ -193,15 +193,15 @@
     "message": "ตกลง",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "คุณสามารถรับรายได้ผ่านการชมโฆษณาได้แล้วตอนนี้",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "เบรฟ แอดส์ (Brave Ads)",
+  "adrbrowsielAdsTitle": {
+    "message": "เบรฟ แอดส์ (adrbrowsiel Ads)",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "มีส่วนร่วมอัตโนมัติ",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "โปรดสำรองข้อมูล Brave วอลเล็ทของคุณ",
+    "message": "โปรดสำรองข้อมูล adrbrowsiel วอลเล็ทของคุณ",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "บัญชี Brave Rewards ของคุณกำลังรอเงินฝาก",
+    "message": "บัญชี adrbrowsiel Rewards ของคุณกำลังรอเงินฝาก",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "ยอดเงินไม่พอ",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "การสร้างกระเป๋าสตางค์",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave Rewards มีปัญหาอยู่ในขณะนี้ โปรดลองใหม่ภายหลัง",
+    "message": "adrbrowsiel Rewards มีปัญหาอยู่ในขณะนี้ โปรดลองใหม่ภายหลัง",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "ผู้สร้างคนนี้ยังไม่ได้ลงทะเบียนรับเงินสนับสนุนจากผู้ใช้ Brave ทิปทั้งหมดที่คุณส่งให้จะยังคงอยู่ในวอลเล็ทของคุณจนกว่าผู้สร้างจะยืนยัน",
+    "message": "ผู้สร้างคนนี้ยังไม่ได้ลงทะเบียนรับเงินสนับสนุนจากผู้ใช้ adrbrowsiel ทิปทั้งหมดที่คุณส่งให้จะยังคงอยู่ในวอลเล็ทของคุณจนกว่าผู้สร้างจะยืนยัน",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave Rewards คือ",
+    "message": "adrbrowsiel Rewards คือ",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "และ",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "รับรางวัลจากการท่องเน็ต!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "เปิด Brave Rewards",
+    "message": "เปิด adrbrowsiel Rewards",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "การคลิก 'เปิดใช้ Brave Rewards' จะถือเป็นการบ่งชี้ว่าคุณได้อ่านและยอมรับใน",
+    "message": "การคลิก 'เปิดใช้ adrbrowsiel Rewards' จะถือเป็นการบ่งชี้ว่าคุณได้อ่านและยอมรับใน",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "รางวัลของคุณกำลังอยู่ระหว่างทางไปสู่กระเป๋าสตางค์ Brave Rewards ของคุณ",
+    "message": "รางวัลของคุณกำลังอยู่ระหว่างทางไปสู่กระเป๋าสตางค์ adrbrowsiel Rewards ของคุณ",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "ยกเลิกการเชื่อมต่อกับ Brave Rewards",
+    "message": "ยกเลิกการเชื่อมต่อกับ adrbrowsiel Rewards",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "ครีเอเตอร์ Brave รายนี้ได้ผ่านการรับรองแล้ว แต่ยังไม่กำหนดค่าบัญชีของตนเพื่อรับเงินสนับสนุนจากผู้ใช้ Brave ทิปที่คุณส่งให้จะยังคงอยู่ในกระเป๋าสตางค์ของคุณจนกว่าขั้นตอนนี้จะเสร็จสมบูรณ์",
+    "message": "ครีเอเตอร์ adrbrowsiel รายนี้ได้ผ่านการรับรองแล้ว แต่ยังไม่กำหนดค่าบัญชีของตนเพื่อรับเงินสนับสนุนจากผู้ใช้ adrbrowsiel ทิปที่คุณส่งให้จะยังคงอยู่ในกระเป๋าสตางค์ของคุณจนกว่าขั้นตอนนี้จะเสร็จสมบูรณ์",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "เริ่มต้นใช้ Brave Reward",
+    "message": "เริ่มต้นใช้ adrbrowsiel Reward",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "ยินดีต้อนรับสู่ Brave Reward",
+    "message": "ยินดีต้อนรับสู่ adrbrowsiel Reward",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "โฆษณาส่วนตัวของ Brave ให้ Reward เป็นโทเค็นสำหรับนำไปสนับสนุนผู้สร้างคอนเทนต์ ซึ่งจะต่างจากโฆษณาทั่วไป แต่ยังคงรักษาความเป็นส่วนตัวให้กับข้อมูลส่วนตัวของคุณไว้ในทุกๆ ส่วน",
+    "message": "โฆษณาส่วนตัวของ adrbrowsiel ให้ Reward เป็นโทเค็นสำหรับนำไปสนับสนุนผู้สร้างคอนเทนต์ ซึ่งจะต่างจากโฆษณาทั่วไป แต่ยังคงรักษาความเป็นส่วนตัวให้กับข้อมูลส่วนตัวของคุณไว้ในทุกๆ ส่วน",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "โฆษณาส่วนตัวของ Brave จะปรากฏในรูปการแจ้งเตือนตามปกติ คุณสามารถควบคุมความถี่ในการเห็นโฆษณาเหล่านี้ได้ในการตั้งค่า",
+    "message": "โฆษณาส่วนตัวของ adrbrowsiel จะปรากฏในรูปการแจ้งเตือนตามปกติ คุณสามารถควบคุมความถี่ในการเห็นโฆษณาเหล่านี้ได้ในการตั้งค่า",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "โทเค็นที่คุณได้รับจากโฆษณาส่วนตัวของ Brave ตลอดทั้งเดือนนี้จะเข้าบัญชีในวันที่ 5 ของเดือนถัดไป",
+    "message": "โทเค็นที่คุณได้รับจากโฆษณาส่วนตัวของ adrbrowsiel ตลอดทั้งเดือนนี้จะเข้าบัญชีในวันที่ 5 ของเดือนถัดไป",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "การใช้งาน Brave Reward จะช่วยส่งเสริมให้เว็บนี้เป็นพื้นที่ที่ดีขึ้นสำหรับทุกคน ซึ่งนับว่าเยี่ยมยอดไปเลย!",
+    "message": "การใช้งาน adrbrowsiel Reward จะช่วยส่งเสริมให้เว็บนี้เป็นพื้นที่ที่ดีขึ้นสำหรับทุกคน ซึ่งนับว่าเยี่ยมยอดไปเลย!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "เมื่อยืนยันกระเป๋าเงินของคุณและเชื่อมโยงกับบัญชี bitFlyer คุณจะสามารถจัดเก็บและจัดการโทเค็นที่คุณได้รับผ่าน Brave Rewards ได้ง่ายขึ้น",
+    "message": "เมื่อยืนยันกระเป๋าเงินของคุณและเชื่อมโยงกับบัญชี bitFlyer คุณจะสามารถจัดเก็บและจัดการโทเค็นที่คุณได้รับผ่าน adrbrowsiel Rewards ได้ง่ายขึ้น",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Brave Rewards ในญี่ปุ่นกำลังเปลี่ยนไปใช้ระบบใหม่!",
+    "message": "adrbrowsiel Rewards ในญี่ปุ่นกำลังเปลี่ยนไปใช้ระบบใหม่!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

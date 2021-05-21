@@ -1,17 +1,17 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_RENDER_FRAME_OBSERVER_H_
-#define BRAVE_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_RENDER_FRAME_OBSERVER_H_
+#ifndef adrbrowsiel_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_RENDER_FRAME_OBSERVER_H_
+#define adrbrowsiel_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_RENDER_FRAME_OBSERVER_H_
 
 #include <memory>
 
 #include "base/memory/weak_ptr.h"
 #include "base/one_shot_event.h"
 #include "base/optional.h"
-#include "brave/components/cosmetic_filters/renderer/cosmetic_filters_js_handler.h"
+#include "adrbrowsiel/components/cosmetic_filters/renderer/cosmetic_filters_js_handler.h"
 #include "content/public/renderer/render_frame.h"
 #include "content/public/renderer/render_frame_observer.h"
 #include "content/public/renderer/render_frame_observer_tracker.h"
@@ -73,4 +73,4 @@ class CosmeticFiltersJsRenderFrameObserver
 
 }  // namespace cosmetic_filters
 
-#endif  // BRAVE_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_RENDER_FRAME_OBSERVER_H_
+#endif  // adrbrowsiel_COMPONENTS_COSMETIC_FILTERS_RENDERER_COSMETIC_FILTERS_JS_RENDER_FRAME_OBSERVER_H_

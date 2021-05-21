@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -21,7 +21,7 @@ const allBehaviorsMap = {}
 const allPropertiesMap = {}
 const componentPropertyModifications = {}
 
-function addBraveBehaviors(moduleName, component) {
+function addadrbrowsielBehaviors(moduleName, component) {
   if (allBehaviorsMap[moduleName]) {
     component.behaviors = component.behaviors || []
     component.behaviors.push(...allBehaviorsMap[moduleName])
@@ -29,7 +29,7 @@ function addBraveBehaviors(moduleName, component) {
   }
 }
 
-function addBraveProperties(moduleName, component) {
+function addadrbrowsielProperties(moduleName, component) {
   if (allPropertiesMap[moduleName]) {
     component.properties = component.properties || {}
     component.properties = {
@@ -42,9 +42,9 @@ function addBraveProperties(moduleName, component) {
   }
 }
 
-const allBraveTemplateModificationsMap = {}
+const alladrbrowsielTemplateModificationsMap = {}
 
-function addBraveTemplateModifications(moduleName, component, modifyFn) {
+function addadrbrowsielTemplateModifications(moduleName, component, modifyFn) {
   const template = component.template || component._template
   if (template) {
     const templateContent = template.content
@@ -58,9 +58,9 @@ function addBraveTemplateModifications(moduleName, component, modifyFn) {
   }
 }
 
-const styleOverridePrefix = 'brave-override-style-'
+const styleOverridePrefix = 'adrbrowsiel-override-style-'
 
-function addBraveStyleOverride(moduleName, component) {
+function addadrbrowsielStyleOverride(moduleName, component) {
   // does have template style element?
   const template = component.template || component._template
   if (!template) {
@@ -78,7 +78,7 @@ function addBraveStyleOverride(moduleName, component) {
     `${styleElement.getAttribute('include')} ${overrideModuleName}`
   )
   if (debug)
-    console.log(`Brave Style Override added for ${moduleName}`, styleElement)
+    console.log(`adrbrowsiel Style Override added for ${moduleName}`, styleElement)
 }
 
 export function RegisterPolymerComponentBehaviors(behaviorsMap) {
@@ -95,7 +95,7 @@ export function RegisterPolymerComponentProperties(propertiesMap) {
   Object.assign(allPropertiesMap, propertiesMap)
   for (const componentName in propertiesMap) {
     if (componentPropertyModifications[componentName]) {
-        addBraveProperties(componentName, componentPropertyModifications[componentName])
+        addadrbrowsielProperties(componentName, componentPropertyModifications[componentName])
     }
   }
 }
@@ -113,9 +113,9 @@ export function RegisterPolymerTemplateModifications(modificationsMap) {
       continue
     }
     // Component is already defined, modify now.
-    addBraveTemplateModifications(componentName, existingComponent, modifyFn)
+    addadrbrowsielTemplateModifications(componentName, existingComponent, modifyFn)
   }
-  Object.assign(allBraveTemplateModificationsMap, awaitingComponentModifications)
+  Object.assign(alladrbrowsielTemplateModificationsMap, awaitingComponentModifications)
 }
 
 const moduleNamesWithStyleOverrides = []
@@ -143,7 +143,7 @@ export async function RegisterStyleOverride(componentName, styleTemplate) {
   // then modify the template as soon as possible.
   const existingComponent = window.customElements.get(componentName)
   if (existingComponent) {
-    addBraveStyleOverride(componentName, existingComponent)
+    addadrbrowsielStyleOverride(componentName, existingComponent)
   } else {
     // Cannot await CustomElementRegistry.whenDefined here
     // since getting in the async queue will mean this template
@@ -174,21 +174,21 @@ export function OverrideIronIcons(iconSetName, overridingIconSetName, iconOverri
   for (const chromiumIconName in iconOverrides) {
     const chromiumIcon = srcIconSet.querySelector(`#${chromiumIconName}`)
     if (!chromiumIcon) {
-      console.error(`[brave overrides] Could not find chromium icon '${chromiumIconName}' in iconset '${iconSetName}' for replacement!`)
+      console.error(`[adrbrowsiel overrides] Could not find chromium icon '${chromiumIconName}' in iconset '${iconSetName}' for replacement!`)
       continue
     }
-    const braveIconName = iconOverrides[chromiumIconName]
-    const braveIcon = overrideIconSet.querySelector(`#${braveIconName}`)
-    if (!braveIcon) {
-      console.error(`[brave overrides] Could not find brave icon '${braveIconName}' in iconset '${overridingIconSetName}' for replacement!`)
+    const adrbrowsielIconName = iconOverrides[chromiumIconName]
+    const adrbrowsielIcon = overrideIconSet.querySelector(`#${adrbrowsielIconName}`)
+    if (!adrbrowsielIcon) {
+      console.error(`[adrbrowsiel overrides] Could not find adrbrowsiel icon '${adrbrowsielIconName}' in iconset '${overridingIconSetName}' for replacement!`)
       continue
     }
     // replace
     while (chromiumIcon.firstChild) {
       chromiumIcon.firstChild.remove()
     }
-    while (braveIcon.firstChild) {
-      chromiumIcon.appendChild(braveIcon.firstChild)
+    while (adrbrowsielIcon.firstChild) {
+      chromiumIcon.appendChild(adrbrowsielIcon.firstChild)
     }
   }
   // Ensure icons get re-parsed if already parseds
@@ -198,19 +198,19 @@ export function OverrideIronIcons(iconSetName, overridingIconSetName, iconOverri
   srcIconSet.getIconNames()
 }
 
-function PerformBraveModifications(name, component) {
+function PerformadrbrowsielModifications(name, component) {
   if (debug) {
     console.debug(`Polymer component registering: ${name}`, component)
   }
-  addBraveBehaviors(name, component)
-  addBraveProperties(name, component)
-  const templateModifyFn = allBraveTemplateModificationsMap[name]
+  addadrbrowsielBehaviors(name, component)
+  addadrbrowsielProperties(name, component)
+  const templateModifyFn = alladrbrowsielTemplateModificationsMap[name]
   if (templateModifyFn) {
-    addBraveTemplateModifications(name, component, templateModifyFn)
-    delete allBraveTemplateModificationsMap[name]
+    addadrbrowsielTemplateModifications(name, component, templateModifyFn)
+    delete alladrbrowsielTemplateModificationsMap[name]
   }
   if (moduleNamesWithStyleOverrides.includes(name)) {
-    addBraveStyleOverride(name, component)
+    addadrbrowsielStyleOverride(name, component)
   }
 }
 
@@ -239,7 +239,7 @@ Polymer.Class = function (info, mixin) {
   if (debug) {
     console.log('defined', name)
   }
-  PerformBraveModifications(name, info)
+  PerformadrbrowsielModifications(name, info)
   return oldClass(info, mixin)
 }
 

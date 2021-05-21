@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -20,7 +20,7 @@ interface Props {
 }
 
 const isDarkTheme = (p: any) => {
-  return p.theme.name === 'Brave Dark'
+  return p.theme.name === 'adrbrowsiel Dark'
 }
 
 const getTopSiteCustomizationImage = (dark: boolean, selected: boolean, favorites: boolean) => {
@@ -80,7 +80,7 @@ export const SettingsSidebarActiveButtonSlider =
   left: 0;
   height: 48px;
   width: 4px;
-  background: linear-gradient(93.83deg, ${p => p.theme.color.brandBrave} -3.53%, ${p => p.theme.palette.magenta500} 110.11%);
+  background: linear-gradient(93.83deg, ${p => p.theme.color.brandadrbrowsiel} -3.53%, ${p => p.theme.palette.magenta500} 110.11%);
   border-radius: 0px 2px 2px 0px;
   transform: translateY(${p => p.translateTo * 48}px);
   transition-delay: 0.05s;
@@ -121,7 +121,7 @@ export const SettingsSidebarSVGContent = styled('div')<SettingsSidebarSVGContent
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(93.83deg, ${p => p.theme.color.brandBrave} -3.53%, ${p => p.theme.palette.magenta500} 110.11%);
+    background: linear-gradient(93.83deg, ${p => p.theme.color.brandadrbrowsiel} -3.53%, ${p => p.theme.palette.magenta500} 110.11%);
     -webkit-mask-image: url(${p => p.src});
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
@@ -147,7 +147,7 @@ export const SettingsSidebarButtonText = styled('span')<{ isActive: boolean }>`
               font-weight var(--sidebar-button-transition-timing) ease-in-out;
 
   &:hover {
-    color: ${p => p.theme.color.brandBrave};
+    color: ${p => p.theme.color.brandadrbrowsiel};
   }
 
   ${p => p.isActive && css`
@@ -175,7 +175,7 @@ export const SettingsSidebarButtonText = styled('span')<{ isActive: boolean }>`
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(93.83deg, ${p => p.theme.color.brandBrave} -3.53%, ${p => p.theme.palette.magenta500} 110.11%);
+    background-image: linear-gradient(93.83deg, ${p => p.theme.color.brandadrbrowsiel} -3.53%, ${p => p.theme.palette.magenta500} 110.11%);
     overflow: hidden;
     text-overflow: ellipsis;
     transition: opacity var(--sidebar-button-transition-timing) ease-in-out,
@@ -203,10 +203,10 @@ export const SettingsSidebarButton = styled('button')<SettingsSidebarButtonProps
 
   &:hover {
     ${SettingsSidebarSVGContent} {
-      background: ${p => p.theme.color.brandBrave};
+      background: ${p => p.theme.color.brandadrbrowsiel};
     }
     ${SettingsSidebarButtonText} {
-      color: ${p => p.theme.color.brandBrave};
+      color: ${p => p.theme.color.brandadrbrowsiel};
     }
   }
 
@@ -221,7 +221,7 @@ export const SettingsSidebarButton = styled('button')<SettingsSidebarButtonProps
 
   &:focus-visible {
     outline-style: solid;
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
     outline-width: 1px;
   }
 `
@@ -261,12 +261,12 @@ export const SettingsCloseIcon = styled('button')<{}>`
   outline: none;
 
   &:active {
-    color: ${p => p.theme.color.brandBraveActive};
+    color: ${p => p.theme.color.brandadrbrowsielActive};
   }
 
   &:focus-visible {
     outline-style: solid;
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
     outline-width: 2px;
   }
 `
@@ -290,13 +290,13 @@ export const SettingsRow = styled('div')<SettingsRowProps>`
   ${p => p.isInteractive && css`
     cursor: pointer;
     &:focus-visible {
-      outline: solid 1px ${p => p.theme.color.brandBrave};
+      outline: solid 1px ${p => p.theme.color.brandadrbrowsiel};
     }
     &:hover {
-      color: ${p => p.theme.color.brandBraveInteracting}
+      color: ${p => p.theme.color.brandadrbrowsielInteracting}
     }
     &:active {
-      color: ${p => p.theme.color.brandBraveActive}
+      color: ${p => p.theme.color.brandadrbrowsielActive}
     }
   `}
 
@@ -422,7 +422,7 @@ export const StyledWidgetToggle = styled('button')<WidgetToggleProps>`
 
   &:focus-visible {
     outline-style: solid;
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
     outline-width: 1px;
   }
 `
@@ -499,7 +499,7 @@ export const StyledTopSitesCustomizationSettingsOption = styled('button')<{}>`
 
   &:focus-visible {
     outline-style: solid;
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
     outline-width: 1px;
   }
 `

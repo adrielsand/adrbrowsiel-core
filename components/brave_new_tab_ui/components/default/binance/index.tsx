@@ -82,7 +82,7 @@ import {
 import { StyledTitleTab } from '../widgetTitleTab'
 import currencyData from './data'
 import BinanceLogo from './assets/binance-logo'
-import { CaratLeftIcon, CaratDownIcon } from 'brave-ui/components/icons'
+import { CaratLeftIcon, CaratDownIcon } from 'adrbrowsiel-ui/components/icons'
 import { getLocale } from '../../../../common/locale'
 import cryptoColors from '../exchangeWidget/colors'
 

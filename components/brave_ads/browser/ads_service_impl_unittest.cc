@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,24 +7,24 @@
 
 #include "base/containers/flat_map.h"
 #include "base/files/scoped_temp_dir.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/components/brave_ads/browser/test_util.h"
-#include "brave/components/brave_rewards/browser/rewards_service_private_observer.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/test_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_private_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "components/prefs/pref_service.h"
 #include "content/public/test/browser_task_environment.h"
 #include "testing/gmock/include/gmock/gmock.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=AdsServiceTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=AdsServiceTest.*
 
-using brave_ads::AdsService;
-using brave_ads::AdsServiceFactory;
-using brave_rewards::RewardsService;
-using brave_rewards::RewardsServiceFactory;
-using brave_rewards::RewardsServicePrivateObserver;
+using adrbrowsiel_ads::AdsService;
+using adrbrowsiel_ads::AdsServiceFactory;
+using adrbrowsiel_rewards::RewardsService;
+using adrbrowsiel_rewards::RewardsServiceFactory;
+using adrbrowsiel_rewards::RewardsServicePrivateObserver;
 
 using ::testing::_;
 
@@ -35,24 +35,24 @@ class MockRewardsService : public RewardsService {
 
   MOCK_METHOD0(IsInitialized, bool());
   MOCK_METHOD1(GetRewardsParameters,
-               void(brave_rewards::GetRewardsParametersCallback callback));
+               void(adrbrowsiel_rewards::GetRewardsParametersCallback callback));
   MOCK_METHOD4(GetActivityInfoList,
                void(const uint32_t,
                     const uint32_t,
                     ledger::type::ActivityInfoFilterPtr,
-                    const brave_rewards::GetPublisherInfoListCallback&));
+                    const adrbrowsiel_rewards::GetPublisherInfoListCallback&));
   MOCK_METHOD1(GetExcludedList,
-               void(const brave_rewards::GetPublisherInfoListCallback&));
+               void(const adrbrowsiel_rewards::GetPublisherInfoListCallback&));
   MOCK_METHOD0(FetchPromotions, void());
   MOCK_METHOD2(ClaimPromotion,
-               void(const std::string&, brave_rewards::ClaimPromotionCallback));
+               void(const std::string&, adrbrowsiel_rewards::ClaimPromotionCallback));
   MOCK_METHOD2(ClaimPromotion,
                void(const std::string&,
-                    brave_rewards::AttestPromotionCallback));
+                    adrbrowsiel_rewards::AttestPromotionCallback));
   MOCK_METHOD3(AttestPromotion,
                void(const std::string&,
                     const std::string&,
-                    brave_rewards::AttestPromotionCallback));
+                    adrbrowsiel_rewards::AttestPromotionCallback));
   MOCK_METHOD1(RecoverWallet, void(const std::string&));
   MOCK_METHOD0(RestorePublishers, void());
   MOCK_METHOD2(OnLoad, void(SessionID, const GURL&));
@@ -70,23 +70,23 @@ class MockRewardsService : public RewardsService {
                     const GURL&,
                     const std::string&));
   MOCK_METHOD1(GetReconcileStamp,
-               void(const brave_rewards::GetReconcileStampCallback&));
+               void(const adrbrowsiel_rewards::GetReconcileStampCallback&));
   MOCK_METHOD1(GetPublisherMinVisitTime,
-               void(const brave_rewards::GetPublisherMinVisitTimeCallback&));
+               void(const adrbrowsiel_rewards::GetPublisherMinVisitTimeCallback&));
   MOCK_CONST_METHOD1(SetPublisherMinVisitTime, void(int));
   MOCK_METHOD1(GetPublisherMinVisits,
-               void(const brave_rewards::GetPublisherMinVisitsCallback&));
+               void(const adrbrowsiel_rewards::GetPublisherMinVisitsCallback&));
   MOCK_CONST_METHOD1(SetPublisherMinVisits, void(int));
   MOCK_METHOD1(
       GetPublisherAllowNonVerified,
-      void(const brave_rewards::GetPublisherAllowNonVerifiedCallback&));
+      void(const adrbrowsiel_rewards::GetPublisherAllowNonVerifiedCallback&));
   MOCK_CONST_METHOD1(SetPublisherAllowNonVerified, void(bool));
   MOCK_METHOD1(GetPublisherAllowVideos,
-               void(const brave_rewards::GetPublisherAllowVideosCallback&));
+               void(const adrbrowsiel_rewards::GetPublisherAllowVideosCallback&));
   MOCK_CONST_METHOD1(SetPublisherAllowVideos, void(bool));
   MOCK_CONST_METHOD1(SetAutoContributionAmount, void(double));
   MOCK_METHOD1(GetAutoContributeEnabled,
-               void(brave_rewards::GetAutoContributeEnabledCallback));
+               void(adrbrowsiel_rewards::GetAutoContributeEnabledCallback));
   MOCK_METHOD1(SetAutoContributeEnabled, void(bool));
   MOCK_CONST_METHOD0(ShouldShowOnboarding, bool());
   MOCK_METHOD0(EnableRewards, void());
@@ -97,10 +97,10 @@ class MockRewardsService : public RewardsService {
                     const std::string&,
                     const std::string&));
   MOCK_METHOD1(GetAutoContributionAmount,
-               void(const brave_rewards::GetAutoContributionAmountCallback&));
+               void(const adrbrowsiel_rewards::GetAutoContributionAmountCallback&));
   MOCK_METHOD2(GetPublisherBanner,
                void(const std::string&,
-                    brave_rewards::GetPublisherBannerCallback));
+                    adrbrowsiel_rewards::GetPublisherBannerCallback));
   MOCK_METHOD3(OnTip, void(const std::string&, double, bool));
   MOCK_METHOD4(OnTip,
                void(const std::string&,
@@ -108,75 +108,75 @@ class MockRewardsService : public RewardsService {
                     bool,
                     ledger::type::PublisherInfoPtr publisher));
   MOCK_METHOD1(RemoveRecurringTip, void(const std::string&));
-  MOCK_METHOD1(GetRecurringTips, void(brave_rewards::GetRecurringTipsCallback));
-  MOCK_METHOD1(GetOneTimeTips, void(brave_rewards::GetOneTimeTipsCallback));
+  MOCK_METHOD1(GetRecurringTips, void(adrbrowsiel_rewards::GetRecurringTipsCallback));
+  MOCK_METHOD1(GetOneTimeTips, void(adrbrowsiel_rewards::GetOneTimeTipsCallback));
   MOCK_METHOD2(SetPublisherExclude, void(const std::string&, bool));
   MOCK_CONST_METHOD0(GetNotificationService,
-                     brave_rewards::RewardsNotificationService*());
+                     adrbrowsiel_rewards::RewardsNotificationService*());
   MOCK_METHOD0(CheckImported, bool());
   MOCK_METHOD0(SetBackupCompleted, void());
   MOCK_METHOD1(GetAutoContributeProperties,
-               void(const brave_rewards::GetAutoContributePropertiesCallback&));
+               void(const adrbrowsiel_rewards::GetAutoContributePropertiesCallback&));
   MOCK_METHOD1(
       GetPendingContributionsTotal,
-      void(const brave_rewards::GetPendingContributionsTotalCallback&));
+      void(const adrbrowsiel_rewards::GetPendingContributionsTotalCallback&));
   MOCK_METHOD1(GetRewardsInternalsInfo,
-               void(brave_rewards::GetRewardsInternalsInfoCallback));
+               void(adrbrowsiel_rewards::GetRewardsInternalsInfoCallback));
   MOCK_METHOD3(SaveRecurringTip,
                void(const std::string&,
                     const double,
-                    brave_rewards::SaveRecurringTipCallback));
+                    adrbrowsiel_rewards::SaveRecurringTipCallback));
   MOCK_METHOD2(RefreshPublisher,
                void(const std::string&,
-                    brave_rewards::RefreshPublisherCallback));
+                    adrbrowsiel_rewards::RefreshPublisherCallback));
   MOCK_METHOD1(OnAdsEnabled, void(bool));
   MOCK_METHOD0(GetAllNotifications,
-               const brave_rewards::RewardsNotificationService::
+               const adrbrowsiel_rewards::RewardsNotificationService::
                    RewardsNotificationsMap&());
   MOCK_METHOD3(SaveInlineMediaInfo,
                void(const std::string&,
                     const base::flat_map<std::string, std::string>&,
-                    brave_rewards::SaveMediaInfoCallback));
+                    adrbrowsiel_rewards::SaveMediaInfoCallback));
   MOCK_METHOD4(
       UpdateMediaDuration,
       void(const uint64_t, const std::string&, const uint64_t, const bool));
   MOCK_METHOD2(GetPublisherInfo,
                void(const std::string&,
-                    brave_rewards::GetPublisherInfoCallback callback));
+                    adrbrowsiel_rewards::GetPublisherInfoCallback callback));
   MOCK_METHOD2(GetPublisherPanelInfo,
                void(const std::string&,
-                    brave_rewards::GetPublisherInfoCallback callback));
+                    adrbrowsiel_rewards::GetPublisherInfoCallback callback));
   MOCK_METHOD3(SavePublisherInfo,
                void(const uint64_t,
                     ledger::type::PublisherInfoPtr,
-                    brave_rewards::SavePublisherInfoCallback callback));
+                    adrbrowsiel_rewards::SavePublisherInfoCallback callback));
   MOCK_METHOD2(SetInlineTippingPlatformEnabled,
                void(const std::string& key, bool enabled));
   MOCK_METHOD2(GetInlineTippingPlatformEnabled,
                void(const std::string& key,
-                    brave_rewards::GetInlineTippingPlatformEnabledCallback));
+                    adrbrowsiel_rewards::GetInlineTippingPlatformEnabledCallback));
   MOCK_METHOD2(GetShareURL,
                void(const base::flat_map<std::string, std::string>& args,
-                    brave_rewards::GetShareURLCallback callback));
+                    adrbrowsiel_rewards::GetShareURLCallback callback));
   MOCK_METHOD1(GetPendingContributions,
-               void(brave_rewards::GetPendingContributionsCallback));
+               void(adrbrowsiel_rewards::GetPendingContributionsCallback));
   MOCK_METHOD1(RemovePendingContribution, void(const uint64_t));
   MOCK_METHOD0(RemoveAllPendingContributions, void());
 
   MOCK_METHOD1(FetchBalance,
-               void(brave_rewards::FetchBalanceCallback callback));
+               void(adrbrowsiel_rewards::FetchBalanceCallback callback));
 
   MOCK_METHOD2(SaveRedditPublisherInfo,
                void(const std::map<std::string, std::string>&,
-                    brave_rewards::SaveMediaInfoCallback));
+                    adrbrowsiel_rewards::SaveMediaInfoCallback));
 
   MOCK_METHOD1(GetExternalWallet,
-               void(brave_rewards::GetExternalWalletCallback callback));
+               void(adrbrowsiel_rewards::GetExternalWalletCallback callback));
 
   MOCK_METHOD3(ProcessRewardsPageUrl,
                void(const std::string& path,
                     const std::string& query,
-                    brave_rewards::ProcessRewardsPageUrlCallback callback));
+                    adrbrowsiel_rewards::ProcessRewardsPageUrlCallback callback));
 
   MOCK_METHOD0(DisconnectWallet, void());
 
@@ -188,26 +188,26 @@ class MockRewardsService : public RewardsService {
                void(RewardsServicePrivateObserver* observer));
 
   MOCK_METHOD1(GetAnonWalletStatus,
-               void(brave_rewards::GetAnonWalletStatusCallback callback));
+               void(adrbrowsiel_rewards::GetAnonWalletStatusCallback callback));
 
   MOCK_METHOD3(GetBalanceReport,
                void(const uint32_t month,
                     const uint32_t year,
-                    brave_rewards::GetBalanceReportCallback callback));
+                    adrbrowsiel_rewards::GetBalanceReportCallback callback));
 
   MOCK_METHOD3(GetMonthlyReport,
                void(const uint32_t month,
                     const uint32_t year,
-                    brave_rewards::GetMonthlyReportCallback callback));
+                    adrbrowsiel_rewards::GetMonthlyReportCallback callback));
 
   MOCK_METHOD1(GetAllMonthlyReportIds,
-               void(brave_rewards::GetAllMonthlyReportIdsCallback callback));
+               void(adrbrowsiel_rewards::GetAllMonthlyReportIdsCallback callback));
 
   MOCK_METHOD1(GetAllContributions,
-               void(brave_rewards::GetAllContributionsCallback callback));
+               void(adrbrowsiel_rewards::GetAllContributionsCallback callback));
 
   MOCK_METHOD1(GetAllPromotions,
-               void(brave_rewards::GetAllPromotionsCallback callback));
+               void(adrbrowsiel_rewards::GetAllPromotionsCallback callback));
 
   MOCK_METHOD4(WriteDiagnosticLog,
                void(const std::string& file,
@@ -217,29 +217,29 @@ class MockRewardsService : public RewardsService {
 
   MOCK_METHOD2(LoadDiagnosticLog,
                void(const int num_lines,
-                    brave_rewards::LoadDiagnosticLogCallback callback));
+                    adrbrowsiel_rewards::LoadDiagnosticLogCallback callback));
 
   MOCK_METHOD1(ClearDiagnosticLog,
-               void(brave_rewards::ClearDiagnosticLogCallback callback));
+               void(adrbrowsiel_rewards::ClearDiagnosticLogCallback callback));
 
-  MOCK_METHOD1(CompleteReset, void(brave_rewards::SuccessCallback callback));
+  MOCK_METHOD1(CompleteReset, void(adrbrowsiel_rewards::SuccessCallback callback));
 
   MOCK_METHOD1(GetEventLogs,
-               void(brave_rewards::GetEventLogsCallback callback));
+               void(adrbrowsiel_rewards::GetEventLogsCallback callback));
 
   MOCK_METHOD1(GetEncryptedStringState, std::string(const std::string&));
 
   MOCK_METHOD2(SetEncryptedStringState,
                bool(const std::string&, const std::string&));
 
-  MOCK_METHOD1(GetBraveWallet, void(brave_rewards::GetBraveWalletCallback));
+  MOCK_METHOD1(GetadrbrowsielWallet, void(adrbrowsiel_rewards::GetadrbrowsielWalletCallback));
 
-  MOCK_METHOD1(CreateWallet, void(brave_rewards::CreateWalletCallback));
+  MOCK_METHOD1(CreateWallet, void(adrbrowsiel_rewards::CreateWalletCallback));
 
   MOCK_METHOD1(StartProcess, void(base::OnceClosure));
 
   MOCK_METHOD1(GetWalletPassphrase,
-               void(brave_rewards::GetWalletPassphraseCallback));
+               void(adrbrowsiel_rewards::GetWalletPassphraseCallback));
 
   MOCK_METHOD1(SetAdsEnabled, void(const bool is_enabled));
 
@@ -256,7 +256,7 @@ class AdsServiceTest : public testing::Test {
  protected:
   void SetUp() override {
     ASSERT_TRUE(temp_dir_.CreateUniqueTempDir());
-    profile_ = brave_ads::CreateBraveAdsProfile(temp_dir_.GetPath());
+    profile_ = adrbrowsiel_ads::CreateadrbrowsielAdsProfile(temp_dir_.GetPath());
     ASSERT_TRUE(profile_.get() != NULL);
     RewardsServiceFactory::SetServiceForTesting(new MockRewardsService());
     rewards_service_ = static_cast<MockRewardsService*>(

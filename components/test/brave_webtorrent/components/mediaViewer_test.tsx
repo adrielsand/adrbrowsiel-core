@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { torrentObj } from '../testData'
-import MediaViewer from '../../../brave_webtorrent/extension/components/mediaViewer'
+import MediaViewer from '../../../adrbrowsiel_webtorrent/extension/components/mediaViewer'
 
 describe('mediaViewer component', () => {
   describe('mediaViewer dumb component', () => {

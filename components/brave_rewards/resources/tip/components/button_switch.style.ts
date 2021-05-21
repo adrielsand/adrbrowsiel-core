@@ -19,26 +19,26 @@ export const option = styled.div`
     line-height: 21px;
     border-radius: 30px;
     border: 1px solid rgba(115, 122, 222, 0.55);
-    background: var(--brave-palette-white);
-    color: var(--brave-color-brandBatInteracting);
+    background: var(--adrbrowsiel-palette-white);
+    color: var(--adrbrowsiel-color-brandBatInteracting);
     cursor: pointer;
     outline: none;
   }
 
   button:active {
-    background: var(--brave-color-brandBatActive);
-    color: var(--brave-color-brandBatInteracting);
+    background: var(--adrbrowsiel-color-brandBatActive);
+    color: var(--adrbrowsiel-color-brandBatInteracting);
   }
 
   &.selected button {
-    background: var(--brave-color-brandBatInteracting);
-    color: var(--brave-palette-white);
+    background: var(--adrbrowsiel-color-brandBatInteracting);
+    color: var(--adrbrowsiel-palette-white);
     cursor: default;
   }
 
   button:focus-visible {
     outline-style: auto;
-    outline-color: var(--brave-color-brandBatInteracting);
+    outline-color: var(--adrbrowsiel-color-brandBatInteracting);
     outline-offset: 2px;
   }
 `
@@ -48,5 +48,5 @@ export const caption = styled.div`
   text-align: center;
   font-size: 12px;
   line-height: 18px;
-  color: var(--brave-palette-grey700);
+  color: var(--adrbrowsiel-palette-grey700);
 `

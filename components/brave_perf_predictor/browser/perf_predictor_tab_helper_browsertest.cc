@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,13 +6,13 @@
 #include "base/path_service.h"
 #include "base/task/post_task.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/common/brave_paths.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/brave_component_updater/browser/local_data_files_service.h"
-#include "brave/components/brave_perf_predictor/common/pref_names.h"
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/local_data_files_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -29,7 +29,7 @@ namespace {
 
 uint64_t getProfileBandwidthSaved(Browser* browser) {
   return browser->profile()->GetPrefs()->GetUint64(
-      brave_perf_predictor::prefs::kBandwidthSavedBytes);
+      adrbrowsiel_perf_predictor::prefs::kBandwidthSavedBytes);
 }
 
 uint64_t getProfileAdsBlocked(Browser* browser) {
@@ -56,15 +56,15 @@ class PerfPredictorTabHelperTest : public InProcessBrowserTest {
   void PreRunTestOnMainThread() override {
     InProcessBrowserTest::PreRunTestOnMainThread();
     // Need ad_block_service to be available to get blocking savings predictions
-    ASSERT_TRUE(g_brave_browser_process->ad_block_service()->IsInitialized());
+    ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_service()->IsInitialized());
   }
 
   void TearDown() override { InProcessBrowserTest::TearDown(); }
 
   void InitEmbeddedTestServer() {
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
     content::SetupCrossSiteRedirector(embedded_test_server());
     ASSERT_TRUE(embedded_test_server()->Start());
@@ -89,7 +89,7 @@ IN_PROC_BROWSER_TEST_F(PerfPredictorTabHelperTest, NoBlockNoSavings) {
 }
 
 IN_PROC_BROWSER_TEST_F(PerfPredictorTabHelperTest, ScriptBlockHasSavings) {
-  ASSERT_TRUE(g_brave_browser_process->ad_block_custom_filters_service()
+  ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_custom_filters_service()
                   ->UpdateCustomFilters("*analytics.js"));
   EXPECT_EQ(getProfileBandwidthSaved(browser()), 0ULL);
 
@@ -110,7 +110,7 @@ IN_PROC_BROWSER_TEST_F(PerfPredictorTabHelperTest, ScriptBlockHasSavings) {
 }
 
 IN_PROC_BROWSER_TEST_F(PerfPredictorTabHelperTest, NewNavigationStoresSavings) {
-  ASSERT_TRUE(g_brave_browser_process->ad_block_custom_filters_service()
+  ASSERT_TRUE(g_adrbrowsiel_browser_process->ad_block_custom_filters_service()
                   ->UpdateCustomFilters("*analytics.js"));
   EXPECT_EQ(getProfileBandwidthSaved(browser()), 0ULL);
 

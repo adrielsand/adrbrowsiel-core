@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_ETH_JSON_RPC_CONTROLLER_H_
-#define BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_ETH_JSON_RPC_CONTROLLER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_ETH_JSON_RPC_CONTROLLER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_ETH_JSON_RPC_CONTROLLER_H_
 
 #include <list>
 #include <map>
@@ -13,7 +13,7 @@
 #include <vector>
 
 #include "base/callback.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_constants.h"
 #include "url/gurl.h"
 
 namespace content {
@@ -24,7 +24,7 @@ namespace network {
 class SimpleURLLoader;
 }  // namespace network
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 class EthJsonRpcController {
  public:
@@ -94,6 +94,6 @@ class EthJsonRpcController {
   Network network_;
 };
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_ETH_JSON_RPC_CONTROLLER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_ETH_JSON_RPC_CONTROLLER_H_

@@ -21,9 +21,9 @@ import {
   StyledTOS
 } from './style'
 import { Tooltip } from '../'
-import Toggle from 'brave-ui/components/formControls/toggle/index'
-import { getLocale } from 'brave-ui/helpers'
-import { CloseCircleOIcon, SettingsIcon } from 'brave-ui/components/icons'
+import Toggle from 'adrbrowsiel-ui/components/formControls/toggle/index'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
+import { CloseCircleOIcon, SettingsIcon } from 'adrbrowsiel-ui/components/icons'
 
 export type Type = 'ads' | 'contribute' | 'donation'
 

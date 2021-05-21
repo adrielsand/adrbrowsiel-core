@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_perf_predictor/browser/bandwidth_linreg.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/bandwidth_linreg.h"
 
 #include <algorithm>
 #include <cmath>
@@ -11,9 +11,9 @@
 #include <utility>
 
 #include "base/logging.h"
-#include "brave/components/brave_perf_predictor/browser/bandwidth_linreg_parameters.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/bandwidth_linreg_parameters.h"
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 namespace {
 
@@ -75,4 +75,4 @@ double LinregPredictNamed(const base::flat_map<std::string, double>& features) {
   return LinregPredictVector(feature_vector);
 }
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor

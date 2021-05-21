@@ -46,7 +46,7 @@ const promotionReducer: Reducer<Rewards.State | undefined> = (state: Rewards.Sta
   const payload = action.payload
   switch (action.type) {
     case types.FETCH_PROMOTIONS: {
-      chrome.send('brave_rewards.fetchPromotions')
+      chrome.send('adrbrowsiel_rewards.fetchPromotions')
       break
     }
     case types.ON_PROMOTIONS: {
@@ -84,7 +84,7 @@ const promotionReducer: Reducer<Rewards.State | undefined> = (state: Rewards.Sta
       if (!promotionId) {
         break
       }
-      chrome.send('brave_rewards.claimPromotion', [promotionId])
+      chrome.send('adrbrowsiel_rewards.claimPromotion', [promotionId])
       break
     }
     case types.ON_CLAIM_PROMOTION: {
@@ -125,7 +125,7 @@ const promotionReducer: Reducer<Rewards.State | undefined> = (state: Rewards.Sta
         break
       }
 
-      chrome.send('brave_rewards.attestPromotion', [promotionId, JSON.stringify({
+      chrome.send('adrbrowsiel_rewards.attestPromotion', [promotionId, JSON.stringify({
         captchaId: currentPromotion.captchaId,
         x: parseInt(payload.x, 10),
         y: parseInt(payload.y, 10)
@@ -221,7 +221,7 @@ const promotionReducer: Reducer<Rewards.State | undefined> = (state: Rewards.Sta
             ui
           }
 
-          chrome.send('brave_rewards.fetchBalance')
+          chrome.send('adrbrowsiel_rewards.fetchBalance')
           getCurrentBalanceReport()
           break
         case 6:
@@ -229,7 +229,7 @@ const promotionReducer: Reducer<Rewards.State | undefined> = (state: Rewards.Sta
           if (!promotionId) {
             break
           }
-          chrome.send('brave_rewards.claimPromotion', [promotionId])
+          chrome.send('adrbrowsiel_rewards.claimPromotion', [promotionId])
           break
         default:
           newPromotion.captchaStatus = 'generalError'

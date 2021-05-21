@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -51,9 +51,9 @@ const RandomContentOrder = [
 export const groupItemCount = PageContentOrder.length + RandomContentOrder.length
 
 type Props = {
-  content: BraveToday.Page
-  publishers: BraveToday.Publishers
-  articleToScrollTo?: BraveToday.FeedItem
+  content: adrbrowsielToday.Page
+  publishers: adrbrowsielToday.Publishers
+  articleToScrollTo?: adrbrowsielToday.FeedItem
   itemStartingDisplayIndex: number
   onReadFeedItem: OnReadFeedItem
   onSetPublisherPref: OnSetPublisherPref
@@ -63,7 +63,7 @@ type Props = {
 
 type CardProps = Props & {
   cardType: CardType
-  headlines: BraveToday.Article[]
+  headlines: adrbrowsielToday.Article[]
 }
 
 function Card (props: CardProps) {

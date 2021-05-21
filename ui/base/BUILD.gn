@@ -1,5 +1,5 @@
 group("chromium_deps") {
   deps = [
-    "//brave/ui/webui/resources",
+    "//adrbrowsiel/ui/webui/resources",
   ]
 }

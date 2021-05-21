@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { SettingsAdvancedIcon } from 'brave-ui/components/icons'
+import { SettingsAdvancedIcon } from 'adrbrowsiel-ui/components/icons'
 import { LockIconD } from '../../../assets/svg-icons/nav-button-icons'
 
 interface StyleProps {

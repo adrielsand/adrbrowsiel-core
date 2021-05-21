@@ -1,14 +1,14 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/hd_key.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/hd_key.h"
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/string_util.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 namespace {
 bool IsPublicKeyEmpty(const std::vector<uint8_t> public_key) {
@@ -331,4 +331,4 @@ TEST(HDKeyUnitTest, DeriveChildFromPath) {
   }
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

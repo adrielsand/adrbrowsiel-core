@@ -18,23 +18,23 @@ function getMediaMetaData (type: MediaType): MediaMetaData {
     case 'twitter':
       return {
         mediaType: 'twitter',
-        publisherName: 'brave',
+        publisherName: 'adrbrowsiel',
         postId: '1234',
         postTimestamp: new Date(Date.now() - 6000000).toString(),
-        postText: 'It\'s all bravey baby'
+        postText: 'It\'s all adrbrowsiely baby'
       }
     case 'github':
       return {
         mediaType: 'github',
-        publisherName: 'brave',
-        publisherScreenName: 'brave'
+        publisherName: 'adrbrowsiel',
+        publisherScreenName: 'adrbrowsiel'
       }
     case 'reddit':
       return {
         mediaType: 'reddit',
-        publisherName: 'brave',
+        publisherName: 'adrbrowsiel',
         postTimestamp: new Date().toISOString(),
-        postText: 'It\'s all bravey baby'
+        postText: 'It\'s all adrbrowsiely baby'
       }
     default:
       return {
@@ -55,20 +55,20 @@ function createDialogArgs (): DialogArgs {
 function createHostState (): HostState {
   return {
     publisherInfo: {
-      publisherKey: 'brave.com',
-      name: 'brave.com',
-      title: 'Brave Software',
-      description: 'Thanks for stopping by. Brave is on a mission to fix ' +
+      publisherKey: 'adrbrowsiel.com',
+      name: 'adrbrowsiel.com',
+      title: 'adrbrowsiel Software',
+      description: 'Thanks for stopping by. adrbrowsiel is on a mission to fix ' +
         'the web by giving users a safer, faster and better browsing experience ' +
         'while growing support for content creators through a new attention-based ' +
         'ecosystem of rewards. Join us. It’s time to fix the web together!',
       background: '',
-      logo: 'https://rewards.brave.com/LH3yQwkb78iP28pJDSSFPJwU',
+      logo: 'https://rewards.adrbrowsiel.com/LH3yQwkb78iP28pJDSSFPJwU',
       amounts: [0.25, 2, 10],
       provider: '',
       links: {
-        twitter: 'https://twitter.com/brave',
-        youtube: 'https://www.youtube.com/bravesoftware'
+        twitter: 'https://twitter.com/adrbrowsiel',
+        youtube: 'https://www.youtube.com/adrbrowsielsoftware'
       },
       status: 2
     },

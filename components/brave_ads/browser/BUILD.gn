@@ -1,13 +1,13 @@
-import("//brave/build/config.gni")
-import("//brave/components/brave_ads/browser/buildflags/buildflags.gni")
-import("//brave/components/brave_rewards/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/build/config.gni")
+import("//adrbrowsiel/components/adrbrowsiel_ads/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.gni")
 
 source_set("browser") {
-  # Remove when https://github.com/brave/brave-browser/issues/10639 is resolved
+  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10639 is resolved
   check_includes = false
   public_deps = [
     "buildflags",
-    "//brave/components/brave_rewards/browser",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/browser",
   ]
 
   sources = [
@@ -18,11 +18,11 @@ source_set("browser") {
 
   deps = [
     "//base",
-    "//brave/common",
-    "//brave/components/brave_ads/common",
-    "//brave/components/brave_rewards/common",
-    "//brave/components/l10n/browser",
-    "//brave/components/rpill/common",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/components/adrbrowsiel_ads/common",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/common",
+    "//adrbrowsiel/components/l10n/browser",
+    "//adrbrowsiel/components/rpill/common",
     "//chrome/common:buildflags",
 
     # for profile.h
@@ -36,7 +36,7 @@ source_set("browser") {
     "//url",
   ]
 
-  if (brave_ads_enabled) {
+  if (adrbrowsiel_ads_enabled) {
     sources += [
       "ads_p2a.cc",
       "ads_p2a.h",
@@ -61,17 +61,17 @@ source_set("browser") {
       "notification_helper.h",
     ]
 
-    public_deps += [ "//brave/vendor/bat-native-ads" ]
+    public_deps += [ "//adrbrowsiel/vendor/bat-native-ads" ]
 
     deps += [
       "//base",
-      "//brave/app:brave_generated_resources_grit",
-      "//brave/browser/notifications",
-      "//brave/components/brave_ads/resources",
-      "//brave/components/brave_component_updater/browser",
-      "//brave/components/l10n/browser",
-      "//brave/components/l10n/common",
-      "//brave/components/services/bat_ads/public/cpp",
+      "//adrbrowsiel/app:adrbrowsiel_generated_resources_grit",
+      "//adrbrowsiel/browser/notifications",
+      "//adrbrowsiel/components/adrbrowsiel_ads/resources",
+      "//adrbrowsiel/components/adrbrowsiel_component_updater/browser",
+      "//adrbrowsiel/components/l10n/browser",
+      "//adrbrowsiel/components/l10n/common",
+      "//adrbrowsiel/components/services/bat_ads/public/cpp",
       "//components/history/core/browser",
       "//components/history/core/common",
       "//components/wifi",
@@ -84,16 +84,16 @@ source_set("browser") {
 
     if (is_android) {
       sources += [
-        "//brave/browser/brave_ads/android/brave_ads_native_helper.cc",
-        "//brave/browser/brave_ads/android/brave_ads_native_helper.h",
+        "//adrbrowsiel/browser/adrbrowsiel_ads/android/adrbrowsiel_ads_native_helper.cc",
+        "//adrbrowsiel/browser/adrbrowsiel_ads/android/adrbrowsiel_ads_native_helper.h",
         "background_helper_android.cc",
         "background_helper_android.h",
         "notification_helper_android.cc",
         "notification_helper_android.h",
       ]
       deps += [
-        "//brave/browser/brave_ads/android:jni_headers",
-        "//brave/build/android:jni_headers",
+        "//adrbrowsiel/browser/adrbrowsiel_ads/android:jni_headers",
+        "//adrbrowsiel/build/android:jni_headers",
         "//chrome/android:jni_headers",
       ]
     }
@@ -138,17 +138,17 @@ source_set("testutil") {
   deps = [
     ":browser",
     "//base",
-    "//brave/browser/brave_ads",
-    "//brave/components/brave_rewards/browser:browser",
+    "//adrbrowsiel/browser/adrbrowsiel_ads",
+    "//adrbrowsiel/components/adrbrowsiel_rewards/browser:browser",
     "//chrome/test:test_support",
     "//content/public/browser",
     "//testing/gtest",
   ]
 
-  if (brave_ads_enabled) {
-    deps += [ "//brave/vendor/bat-native-ads" ]
+  if (adrbrowsiel_ads_enabled) {
+    deps += [ "//adrbrowsiel/vendor/bat-native-ads" ]
 
-    configs += [ "//brave/vendor/bat-native-ads:internal_config" ]
+    configs += [ "//adrbrowsiel/vendor/bat-native-ads:internal_config" ]
   }
 
   sources = [

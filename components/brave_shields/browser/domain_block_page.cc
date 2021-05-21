@@ -1,21 +1,21 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/domain_block_page.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_page.h"
 
 #include <utility>
 
 #include "base/notreached.h"
 #include "base/strings/string_number_conversions.h"
-#include "brave/components/brave_shields/browser/domain_block_controller_client.h"
-#include "components/grit/brave_components_resources.h"
-#include "components/grit/brave_components_strings.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_controller_client.h"
+#include "components/grit/adrbrowsiel_components_resources.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/security_interstitials/content/security_interstitial_controller_client.h"
 #include "ui/base/l10n/l10n_util.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 // static
 const security_interstitials::SecurityInterstitialPage::TypeID
@@ -99,4 +99,4 @@ DomainBlockPage::GetTypeForTesting() {
   return DomainBlockPage::kTypeForTesting;
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

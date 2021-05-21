@@ -1,26 +1,26 @@
-brave_components_permissions_sources = [
-  "//brave/components/permissions/permission_expiration_key.cc",
-  "//brave/components/permissions/permission_expiration_key.h",
-  "//brave/components/permissions/permission_expirations.cc",
-  "//brave/components/permissions/permission_expirations.h",
-  "//brave/components/permissions/permission_lifetime_manager.cc",
-  "//brave/components/permissions/permission_lifetime_manager.h",
-  "//brave/components/permissions/permission_lifetime_options.cc",
-  "//brave/components/permissions/permission_lifetime_options.h",
-  "//brave/components/permissions/permission_lifetime_pref_names.h",
-  "//brave/components/permissions/permission_lifetime_utils.cc",
-  "//brave/components/permissions/permission_lifetime_utils.h",
-  "//brave/components/permissions/permission_origin_lifetime_monitor.h",
-  "//brave/components/permissions/permission_origin_lifetime_monitor_impl.cc",
-  "//brave/components/permissions/permission_origin_lifetime_monitor_impl.h",
-  "//brave/components/permissions/permission_origins.cc",
-  "//brave/components/permissions/permission_origins.h",
+adrbrowsiel_components_permissions_sources = [
+  "//adrbrowsiel/components/permissions/permission_expiration_key.cc",
+  "//adrbrowsiel/components/permissions/permission_expiration_key.h",
+  "//adrbrowsiel/components/permissions/permission_expirations.cc",
+  "//adrbrowsiel/components/permissions/permission_expirations.h",
+  "//adrbrowsiel/components/permissions/permission_lifetime_manager.cc",
+  "//adrbrowsiel/components/permissions/permission_lifetime_manager.h",
+  "//adrbrowsiel/components/permissions/permission_lifetime_options.cc",
+  "//adrbrowsiel/components/permissions/permission_lifetime_options.h",
+  "//adrbrowsiel/components/permissions/permission_lifetime_pref_names.h",
+  "//adrbrowsiel/components/permissions/permission_lifetime_utils.cc",
+  "//adrbrowsiel/components/permissions/permission_lifetime_utils.h",
+  "//adrbrowsiel/components/permissions/permission_origin_lifetime_monitor.h",
+  "//adrbrowsiel/components/permissions/permission_origin_lifetime_monitor_impl.cc",
+  "//adrbrowsiel/components/permissions/permission_origin_lifetime_monitor_impl.h",
+  "//adrbrowsiel/components/permissions/permission_origins.cc",
+  "//adrbrowsiel/components/permissions/permission_origins.h",
 ]
 
-brave_components_permissions_deps = [
+adrbrowsiel_components_permissions_deps = [
   "//base",
   "//base/util/timer",
-  "//brave/components/resources:strings_grit",
+  "//adrbrowsiel/components/resources:strings_grit",
   "//components/content_settings/core/browser",
   "//components/content_settings/core/common",
   "//components/keyed_service/core",
@@ -31,6 +31,6 @@ brave_components_permissions_deps = [
 ]
 
 if (is_android) {
-  brave_components_permissions_deps +=
-      [ "//brave/components/permissions/android:jni_headers" ]
+  adrbrowsiel_components_permissions_deps +=
+      [ "//adrbrowsiel/components/permissions/android:jni_headers" ]
 }

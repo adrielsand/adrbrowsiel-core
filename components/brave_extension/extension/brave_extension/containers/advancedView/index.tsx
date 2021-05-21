@@ -73,8 +73,8 @@ export default class Shields extends React.PureComponent<Props, State> {
   }
 
   get isShieldsEnabled (): boolean {
-    const { braveShields } = this.props.shieldsPanelTabData
-    return isShieldsEnabled(braveShields)
+    const { adrbrowsielShields } = this.props.shieldsPanelTabData
+    return isShieldsEnabled(adrbrowsielShields)
   }
 
   setBlockedListOpen = () => {
@@ -90,7 +90,7 @@ export default class Shields extends React.PureComponent<Props, State> {
     }
 
     return (
-      <ShieldsPanel data-test-id='brave-shields-panel' style={{ width: '370px' }}>
+      <ShieldsPanel data-test-id='adrbrowsiel-shields-panel' style={{ width: '370px' }}>
         {
           persistentData.isFirstAccess
             && <WebCompatWarning setAdvancedViewFirstAccess={actions.setAdvancedViewFirstAccess} />

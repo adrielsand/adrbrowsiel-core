@@ -1,17 +1,17 @@
-import("//brave/components/common/typescript.gni")
+import("//adrbrowsiel/components/common/typescript.gni")
 
-transpile_web_ui("brave_new_tab_ui") {
+transpile_web_ui("adrbrowsiel_new_tab_ui") {
   entry_points = [
-    ["brave_new_tab", rebase_path("brave_new_tab.tsx")]
+    ["adrbrowsiel_new_tab", rebase_path("adrbrowsiel_new_tab.tsx")]
   ]
 
-  resource_name = "brave_new_tab"
+  resource_name = "adrbrowsiel_new_tab"
 }
 
 pack_web_resources("generated_resources") {
-  resource_name = "brave_new_tab"
-  output_dir = "$root_gen_dir/brave/components/brave_new_tab/resources"
+  resource_name = "adrbrowsiel_new_tab"
+  output_dir = "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_new_tab/resources"
   deps = [
-    ":brave_new_tab_ui"
+    ":adrbrowsiel_new_tab_ui"
   ]
 }

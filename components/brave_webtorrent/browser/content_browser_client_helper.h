@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WEBTORRENT_BROWSER_CONTENT_BROWSER_CLIENT_HELPER_H_
-#define BRAVE_COMPONENTS_BRAVE_WEBTORRENT_BROWSER_CONTENT_BROWSER_CLIENT_HELPER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WEBTORRENT_BROWSER_CONTENT_BROWSER_CLIENT_HELPER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WEBTORRENT_BROWSER_CONTENT_BROWSER_CLIENT_HELPER_H_
 
 #include <string>
 #include <utility>
@@ -12,8 +12,8 @@
 #include "base/strings/strcat.h"
 #include "base/strings/string_util.h"
 #include "base/task/post_task.h"
-#include "brave/common/url_constants.h"
-#include "brave/components/brave_webtorrent/browser/webtorrent_util.h"
+#include "adrbrowsiel/common/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/webtorrent_util.h"
 #include "chrome/browser/external_protocol/external_protocol_handler.h"
 #include "content/public/browser/browser_task_traits.h"
 #include "content/public/browser/browser_thread.h"
@@ -29,8 +29,8 @@ namespace webtorrent {
 static GURL TranslateMagnetURL(const GURL& url) {
   GURL extension_page_url(
       base::StrCat({extensions::kExtensionScheme, "://",
-        brave_webtorrent_extension_id,
-        "/extension/brave_webtorrent.html?%s"}));
+        adrbrowsiel_webtorrent_extension_id,
+        "/extension/adrbrowsiel_webtorrent.html?%s"}));
   std::string translatedSpec(extension_page_url.spec());
   base::ReplaceFirstSubstringAfterOffset(
       &translatedSpec, 0, "%s",
@@ -50,8 +50,8 @@ static GURL TranslateTorrentUIURLReversed(const GURL& url) {
 static bool HandleTorrentURLReverseRewrite(GURL* url,
     content::BrowserContext* browser_context) {
   if (url->SchemeIs(extensions::kExtensionScheme) &&
-      url->host() == brave_webtorrent_extension_id &&
-      url->ExtractFileName() == "brave_webtorrent.html" &&
+      url->host() == adrbrowsiel_webtorrent_extension_id &&
+      url->ExtractFileName() == "adrbrowsiel_webtorrent.html" &&
       GURL(url->query()).SchemeIsHTTPOrHTTPS()) {
     *url =  TranslateTorrentUIURLReversed(*url);
     return true;
@@ -71,8 +71,8 @@ static bool HandleTorrentURLRewrite(GURL* url,
   // for updating the virtual URL.
   if (url->SchemeIsHTTPOrHTTPS() ||
       (url->SchemeIs(extensions::kExtensionScheme) &&
-       url->host() == brave_webtorrent_extension_id &&
-       url->ExtractFileName() == "brave_webtorrent.html" &&
+       url->host() == adrbrowsiel_webtorrent_extension_id &&
+       url->ExtractFileName() == "adrbrowsiel_webtorrent.html" &&
        GURL(url->query()).SchemeIsHTTPOrHTTPS())) {
     return true;
   }
@@ -130,4 +130,4 @@ static bool IsMagnetProtocol(const GURL& url) {
 
 }  // namespace webtorrent
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WEBTORRENT_BROWSER_CONTENT_BROWSER_CLIENT_HELPER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WEBTORRENT_BROWSER_CONTENT_BROWSER_CLIENT_HELPER_H_

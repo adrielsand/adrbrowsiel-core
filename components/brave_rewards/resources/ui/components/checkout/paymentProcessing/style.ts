@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import { LoaderIcon } from 'brave-ui/components/icons'
+import { LoaderIcon } from 'adrbrowsiel-ui/components/icons'
 
 export const Container = styled.div`
   text-align: center;

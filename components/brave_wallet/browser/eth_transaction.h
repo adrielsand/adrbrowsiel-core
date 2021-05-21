@@ -1,19 +1,19 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_ETH_TRANSACTION_H_
-#define BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_ETH_TRANSACTION_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_ETH_TRANSACTION_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_ETH_TRANSACTION_H_
 
 #include <string>
 #include <vector>
 
 #include "base/gtest_prod_util.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_types.h"
-#include "brave/components/brave_wallet/browser/eth_address.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_types.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_address.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 FORWARD_DECLARE_TEST(EthTransactionTest, GetSignedTransaction);
 
 class EthTransaction {
@@ -64,5 +64,5 @@ class EthTransaction {
   std::vector<uint8_t> s_;
 };
 
-}  // namespace brave_wallet
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_ETH_TRANSACTION_H_
+}  // namespace adrbrowsiel_wallet
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_ETH_TRANSACTION_H_

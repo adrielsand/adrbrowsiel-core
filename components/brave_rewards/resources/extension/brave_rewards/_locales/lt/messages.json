@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "„Brave Rewards“",
+  "adrbrowsielRewards": {
+    "message": "„adrbrowsiel Rewards“",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Iš esmės atnaujinome „Brave Rewards“.",
+    "message": "Iš esmės atnaujinome „adrbrowsiel Rewards“.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "gali būti naudojami „Brave Rewards“ norint prisidėti prie savo mėgstamų turinio kūrėjų. BAT taškų negalima keisti į BAT.",
+    "message": "gali būti naudojami „adrbrowsiel Rewards“ norint prisidėti prie savo mėgstamų turinio kūrėjų. BAT taškų negalima keisti į BAT.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "„Brave“ patvirtintas kūrėjas",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "„adrbrowsiel“ patvirtintas kūrėjas",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Dėmesys",
@@ -193,15 +193,15 @@
     "message": "gerai",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Dabar galite užsidirbti už reklamos peržiūrą.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "„Brave“ reklamos",
+  "adrbrowsielAdsTitle": {
+    "message": "„adrbrowsiel“ reklamos",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Automatinis indėlis",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Sukurkite savo „Brave“ piniginės atsarginę kopiją.",
+    "message": "Sukurkite savo „adrbrowsiel“ piniginės atsarginę kopiją.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Jūsų „Brave Rewards“ paskyroje laukiama įnašo.",
+    "message": "Jūsų „adrbrowsiel Rewards“ paskyroje laukiama įnašo.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Nepakanka lėšų",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Kuriama piniginė",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Kilo problemų su „Brave Rewards“. Bandykite dar kartą vėliau.",
+    "message": "Kilo problemų su „adrbrowsiel Rewards“. Bandykite dar kartą vėliau.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Šis kūrėjas dar neužsiregistravo, kad gautų „Brave“ naudotojų aukas. Visi jūsų išsiųsti arbatpinigiai liks jūsų piniginėje, kol galiausiai jie patvirtins.",
+    "message": "Šis kūrėjas dar neužsiregistravo, kad gautų „adrbrowsiel“ naudotojų aukas. Visi jūsų išsiųsti arbatpinigiai liks jūsų piniginėje, kol galiausiai jie patvirtins.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "„Brave Rewards“ yra",
+    "message": "„adrbrowsiel Rewards“ yra",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "ir",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Gaukite atlygį už naršymą!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Aktyvinti „Brave Rewards“",
+    "message": "Aktyvinti „adrbrowsiel Rewards“",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Spustelėdami „Aktyvinti „Brave Rewards“ patvirtinate, kad perskaitėte toliau nurodytą dokumentą ir jam pritariate:",
+    "message": "Spustelėdami „Aktyvinti „adrbrowsiel Rewards“ patvirtinate, kad perskaitėte toliau nurodytą dokumentą ir jam pritariate:",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Jūsų atlygis yra pakeliui į jūsų „Brave Rewards“ piniginę.",
+    "message": "Jūsų atlygis yra pakeliui į jūsų „adrbrowsiel Rewards“ piniginę.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Atsijungti nuo „Brave Rewards“",
+    "message": "Atsijungti nuo „adrbrowsiel Rewards“",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Šis „Brave“ patvirtintas kūrėjas dar nesukonfigūravo savo sąskaitos indėliams iš „Brave“ naudotojų gauti. Visi jūsų siunčiami arbatpinigiai liks jūsų piniginėje, kol jis užbaigs šį procesą.",
+    "message": "Šis „adrbrowsiel“ patvirtintas kūrėjas dar nesukonfigūravo savo sąskaitos indėliams iš „adrbrowsiel“ naudotojų gauti. Visi jūsų siunčiami arbatpinigiai liks jūsų piniginėje, kol jis užbaigs šį procesą.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Pradėti naudotis „Brave Rewards“",
+    "message": "Pradėti naudotis „adrbrowsiel Rewards“",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Sveiki, tai – „Brave Rewars“!",
+    "message": "Sveiki, tai – „adrbrowsiel Rewars“!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "„Brave Private Ads“, skirtingai nuo įprastinių reklamų, skiria jums žetonų, kuriais galite paremti turinio kūrėjus. Visa tai vyksta saugant jūsų asmens duomenų privatumą.",
+    "message": "„adrbrowsiel Private Ads“, skirtingai nuo įprastinių reklamų, skiria jums žetonų, kuriais galite paremti turinio kūrėjus. Visa tai vyksta saugant jūsų asmens duomenų privatumą.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "„Brave Private Ads“ rodomos kaip įprastas pranešimas. Nuostatų skiltyje galite pasirinkti, kaip dažnai norite matyti šias reklamas.",
+    "message": "„adrbrowsiel Private Ads“ rodomos kaip įprastas pranešimas. Nuostatų skiltyje galite pasirinkti, kaip dažnai norite matyti šias reklamas.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Žetonai, kuriuos iš „Brave Private Ads“ gavote per einamąjį mėnesį, jus pasieks kito mėnesio 5 dieną.",
+    "message": "Žetonai, kuriuos iš „adrbrowsiel Private Ads“ gavote per einamąjį mėnesį, jus pasieks kito mėnesio 5 dieną.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Naudodami „Brave Rewards“ padedate siekti, kad žiniatinklis visiems taptų geresne vieta. Juk tai puiku!",
+    "message": "Naudodami „adrbrowsiel Rewards“ padedate siekti, kad žiniatinklis visiems taptų geresne vieta. Juk tai puiku!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Patvirtindami savo piniginę ir susiedami ją su „bitFlyer“ paskyra, galėsite lengviau laikyti ir tvarkyti žetonus, pelnytus per „Brave Rewards“",
+    "message": "Patvirtindami savo piniginę ir susiedami ją su „bitFlyer“ paskyra, galėsite lengviau laikyti ir tvarkyti žetonus, pelnytus per „adrbrowsiel Rewards“",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "„Brave Rewards“ Japonijoje pereina prie naujos sistemos!",
+    "message": "„adrbrowsiel Rewards“ Japonijoje pereina prie naujos sistemos!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

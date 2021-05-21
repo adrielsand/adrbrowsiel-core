@@ -1,4 +1,4 @@
-brave_components_permissions_java_sources = [
-  "//brave/components/permissions/android/java/src/org/chromium/components/permissions/BravePermissionDialogDelegate.java",
-  "//brave/components/permissions/android/java/src/org/chromium/components/permissions/BravePermissionDialogModel.java",
+adrbrowsiel_components_permissions_java_sources = [
+  "//adrbrowsiel/components/permissions/android/java/src/org/chromium/components/permissions/adrbrowsielPermissionDialogDelegate.java",
+  "//adrbrowsiel/components/permissions/android/java/src/org/chromium/components/permissions/adrbrowsielPermissionDialogModel.java",
 ]

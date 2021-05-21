@@ -1,12 +1,12 @@
 {
   "version": "1.0.0",
-  "name": "Brave",
+  "name": "adrbrowsiel",
   "manifest_version": 2,
   "description": "__MSG_appName__",
   "default_locale": "en_US",
   "browser_action": {
-    "default_title": "Brave Shields",
-    "default_popup": "braveShieldsPanel.html"
+    "default_title": "adrbrowsiel Shields",
+    "default_popup": "adrbrowsielShieldsPanel.html"
   },
   "icons": {
     "16": "assets/img/icon-16.png",
@@ -21,7 +21,7 @@
     "elementPicker.js"
   ],
   "background": {
-    "scripts": ["out/brave_extension_background.bundle.js"],
+    "scripts": ["out/adrbrowsiel_extension_background.bundle.js"],
     "persistent": true
   },
   "externally_connectable": {
@@ -82,7 +82,7 @@
     "chrome://favicon/*",
     "<all_urls>"
   ],
-  "content_security_policy": "default-src 'self'; font-src 'self' data:; script-src 'self'; style-src 'unsafe-inline'; img-src 'self' data: chrome://favicon/; connect-src https://pcdn.brave.com https://brave-today-cdn.brave.com https://pcdn.bravesoftware.com https://brave-today-cdn.bravesoftware.com https://pcdn.brave.software https://brave-today-cdn.brave.software https://api.twitter.com 'self';",
+  "content_security_policy": "default-src 'self'; font-src 'self' data:; script-src 'self'; style-src 'unsafe-inline'; img-src 'self' data: chrome://favicon/; connect-src https://pcdn.adrbrowsiel.com https://adrbrowsiel-today-cdn.adrbrowsiel.com https://pcdn.adrbrowsielsoftware.com https://adrbrowsiel-today-cdn.adrbrowsielsoftware.com https://pcdn.adrbrowsiel.software https://adrbrowsiel-today-cdn.adrbrowsiel.software https://api.twitter.com 'self';",
   "incognito": "split",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAupOLMy5Fd4dCSOtjcApsAQOnuBdTs+OvBVt/3P93noIrf068x0xXkvxbn+fpigcqfNamiJ5CjGyfx9zAIs7zcHwbxjOw0Uih4SllfgtK+svNTeE0r5atMWE0xR489BvsqNuPSxYJUmW28JqhaSZ4SabYrRx114KcU6ko7hkjyPkjQa3P+chStJjIKYgu5tWBiMJp5QVLelKoM+xkY6S7efvJ8AfajxCViLGyDQPDviGr2D0VvIBob0D1ZmAoTvYOWafcNCaqaejPDybFtuLFX3pZBqfyOCyyzGhucyCmfBXJALKbhjRAqN5glNsUmGhhPK87TuGATQfVuZtenMvXMQIDAQAB"
 }

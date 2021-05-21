@@ -34,7 +34,7 @@ const publishersReducer: Reducer<Rewards.State | undefined> = (state: Rewards.St
         break
       }
 
-      chrome.send('brave_rewards.excludePublisher', [publisherKey])
+      chrome.send('adrbrowsiel_rewards.excludePublisher', [publisherKey])
       break
     }
     case types.ON_RESTORE_PUBLISHER: {
@@ -43,12 +43,12 @@ const publishersReducer: Reducer<Rewards.State | undefined> = (state: Rewards.St
         break
       }
 
-      chrome.send('brave_rewards.restorePublisher', [publisherKey])
+      chrome.send('adrbrowsiel_rewards.restorePublisher', [publisherKey])
       break
     }
     case types.ON_RESTORE_PUBLISHERS:
       state = { ...state }
-      chrome.send('brave_rewards.restorePublishers', [])
+      chrome.send('adrbrowsiel_rewards.restorePublishers', [])
       break
     case types.ON_RECURRING_TIPS:
       state = { ...state }
@@ -63,7 +63,7 @@ const publishersReducer: Reducer<Rewards.State | undefined> = (state: Rewards.St
       if (!action.payload.publisherKey) {
         break
       }
-      chrome.send('brave_rewards.removeRecurringTip', [action.payload.publisherKey])
+      chrome.send('adrbrowsiel_rewards.removeRecurringTip', [action.payload.publisherKey])
       break
     case types.ON_CURRENT_TIPS:
       state = { ...state }
@@ -76,10 +76,10 @@ const publishersReducer: Reducer<Rewards.State | undefined> = (state: Rewards.St
       break
     case types.ON_RECURRING_TIP_SAVED:
     case types.ON_RECURRING_TIP_REMOVED:
-      chrome.send('brave_rewards.getRecurringTips')
+      chrome.send('adrbrowsiel_rewards.getRecurringTips')
       break
     case types.GET_EXCLUDED_SITES:
-      chrome.send('brave_rewards.getExcludedSites')
+      chrome.send('adrbrowsiel_rewards.getExcludedSites')
       break
   }
 

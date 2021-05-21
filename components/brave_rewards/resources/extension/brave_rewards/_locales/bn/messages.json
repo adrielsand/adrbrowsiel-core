@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave রিওয়ার্ডস",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel রিওয়ার্ডস",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -16,7 +16,7 @@
     "description": "Entry text for welcome screen in the panel, existing user"
   },
   "welcomeDescTwo": {
-    "message": "আপনি এখন গোপনীয়তা কেন্দ্রিক Brave বিজ্ঞাপন দেখে টোকেন উপার্জন করতে পারেন| আপনার অবদান একই থাকে|",
+    "message": "আপনি এখন গোপনীয়তা কেন্দ্রিক adrbrowsiel বিজ্ঞাপন দেখে টোকেন উপার্জন করতে পারেন| আপনার অবদান একই থাকে|",
     "description": "Entry text for welcome screen in the panel, new user"
   },
   "welcomeDescPoints": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "আমরা Brave পুরস্কারগুলিকে একটি বড় আপগ্রেড প্রদান করেছি|",
+    "message": "আমরা adrbrowsiel পুরস্কারগুলিকে একটি বড় আপগ্রেড প্রদান করেছি|",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "আপনার পছন্দের বিষয়বস্তু প্রস্তুতকারকদের অবদান রাখতে Brave পুরস্কারগুলি ব্যবহার করা যাবে। BAT পয়েন্টগুলি BAT এ বিনিময় করা যাবে না।",
+    "message": "আপনার পছন্দের বিষয়বস্তু প্রস্তুতকারকদের অবদান রাখতে adrbrowsiel পুরস্কারগুলি ব্যবহার করা যাবে। BAT পয়েন্টগুলি BAT এ বিনিময় করা যাবে না।",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Brave যাচাইকৃত স্রষ্টা",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsiel যাচাইকৃত স্রষ্টা",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "মনোযোগ",
@@ -166,7 +166,7 @@
     "description": "Title for point grant section in wallet summary"
   },
   "earningsAds": {
-    "message": "Brave বিজ্ঞাপন থেকে করা উপার্জন",
+    "message": "adrbrowsiel বিজ্ঞাপন থেকে করা উপার্জন",
     "description": "Title for ads section in wallet summary"
   },
   "rewardsContribute": {
@@ -193,15 +193,15 @@
     "message": "ঠিক আছে",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "এখন আপনি বিজ্ঞাপন দেখে উপার্জন করতে পারেন।",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave বিজ্ঞাপন",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel বিজ্ঞাপন",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "স্বতঃ-প্রদান",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "অনুগ্রহ করে আপনার Brave ওয়ালেটটিতে ব্যাকআপ নিন।",
+    "message": "অনুগ্রহ করে আপনার adrbrowsiel ওয়ালেটটিতে ব্যাকআপ নিন।",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "আপনার Brave পুরস্কারের অ্যাকাউন্ট একটি জমার জন্য অপেক্ষা করছে।",
+    "message": "আপনার adrbrowsiel পুরস্কারের অ্যাকাউন্ট একটি জমার জন্য অপেক্ষা করছে।",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "অপর্যাপ্ত তহবিল",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "ওয়ালেট তৈরি করা হচ্ছে",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave পুরস্কারে একটি সমস্যা হচ্ছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।",
+    "message": "adrbrowsiel পুরস্কারে একটি সমস্যা হচ্ছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "এই নির্মাতাটি Brave ব্যবহারকারীদের থেকে অবদানগুলি পেতে এখনও সাইন আপ করেনি। আপনার পাঠানো যে কোনও টিপস যাচাই না হওয়া অবধি আপনার ওয়ালেটে থেকে যাবে।",
+    "message": "এই নির্মাতাটি adrbrowsiel ব্যবহারকারীদের থেকে অবদানগুলি পেতে এখনও সাইন আপ করেনি। আপনার পাঠানো যে কোনও টিপস যাচাই না হওয়া অবধি আপনার ওয়ালেটে থেকে যাবে।",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave রিওয়ার্ডস হল",
+    "message": "adrbrowsiel রিওয়ার্ডস হল",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "এবং",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "ব্রাউজ করার জন্য পুরস্কৃত হন!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Brave রিওয়ার্ডস সক্ষম করুন",
+    "message": "adrbrowsiel রিওয়ার্ডস সক্ষম করুন",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "'Brave পুরস্কারগুলি সক্রিয় করুন' এ ক্লিক করে, আপনি নির্দেশ করছেন যে আপনি এটি পড়েছেন এবং গোপনীয়তা নীতির সাথে",
+    "message": "'adrbrowsiel পুরস্কারগুলি সক্রিয় করুন' এ ক্লিক করে, আপনি নির্দেশ করছেন যে আপনি এটি পড়েছেন এবং গোপনীয়তা নীতির সাথে",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "আপনার পুরস্কারগুলি আপনার Brave পুরস্কারের ওয়ালেটে আসছে।",
+    "message": "আপনার পুরস্কারগুলি আপনার adrbrowsiel পুরস্কারের ওয়ালেটে আসছে।",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Brave পুরষ্কারগুলি থেকে সংযোগ বিচ্ছিন্ন করুন",
+    "message": "adrbrowsiel পুরষ্কারগুলি থেকে সংযোগ বিচ্ছিন্ন করুন",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "এই Brave যাচাইকৃত নির্মাতাগণ Brave ব্যবহারকারীদের থেকে অবদানগুলি পেতে এখনও তাদের অ্যকাউন্ট কনফিগার করেন নি। আপনার পাঠানো যে কোনও টিপস তারা প্রক্রিয়াটি সম্পূর্ণ না করা অবধি আপনার ওয়ালেটে থেকে যাবে।",
+    "message": "এই adrbrowsiel যাচাইকৃত নির্মাতাগণ adrbrowsiel ব্যবহারকারীদের থেকে অবদানগুলি পেতে এখনও তাদের অ্যকাউন্ট কনফিগার করেন নি। আপনার পাঠানো যে কোনও টিপস তারা প্রক্রিয়াটি সম্পূর্ণ না করা অবধি আপনার ওয়ালেটে থেকে যাবে।",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Brave Rewards ব্যবহার শুরু করা হল ",
+    "message": "adrbrowsiel Rewards ব্যবহার শুরু করা হল ",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Brave Rewards এ স্বাগতম",
+    "message": "adrbrowsiel Rewards এ স্বাগতম",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Brave এর  ব্যক্তিগত বিজ্ঞাপনগুলি আপনাকে প্রচলিত বিজ্ঞাপনগুলির বিপরীতে সামগ্রী নির্মাতাদের সমর্থন করার জন্য টোকেন দিয়ে পুরস্কৃত করে, আপনার ব্যক্তিগত তথ্য ব্যক্তিগত রাখার সময়।",
+    "message": "adrbrowsiel এর  ব্যক্তিগত বিজ্ঞাপনগুলি আপনাকে প্রচলিত বিজ্ঞাপনগুলির বিপরীতে সামগ্রী নির্মাতাদের সমর্থন করার জন্য টোকেন দিয়ে পুরস্কৃত করে, আপনার ব্যক্তিগত তথ্য ব্যক্তিগত রাখার সময়।",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Brave এর ব্যক্তিগত বিজ্ঞাপনগুলি একটি সাধারণ বিজ্ঞপ্তি হিসাবে উপস্থিত হবে।আপনি এই বিজ্ঞাপনগুলি কতবার দেখেন তা সেটিংসে গিয়ে নিয়ন্ত্রণ করুন।",
+    "message": "adrbrowsiel এর ব্যক্তিগত বিজ্ঞাপনগুলি একটি সাধারণ বিজ্ঞপ্তি হিসাবে উপস্থিত হবে।আপনি এই বিজ্ঞাপনগুলি কতবার দেখেন তা সেটিংসে গিয়ে নিয়ন্ত্রণ করুন।",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Brave রিওয়ার্ডস ব্যবহার করে আপনি ওয়েবকে সবার জন্য আরও ভাল জায়গা করতে সহায়তা করছেন। এবং এটি দুর্দান্ত!",
+    "message": "adrbrowsiel রিওয়ার্ডস ব্যবহার করে আপনি ওয়েবকে সবার জন্য আরও ভাল জায়গা করতে সহায়তা করছেন। এবং এটি দুর্দান্ত!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "আপনার ওয়ালেট ভেরিফাই করে এবং সেটি একটি bitFlyer অ্যাকাউন্টের সাথে লিঙ্ক করে, Brave Rewards এর মাধ্যমে আপনার উপার্জিত টোকেনগুলো আপনি আরও সহজে সংরক্ষণ ও পরিচালনা করতে পারবেন",
+    "message": "আপনার ওয়ালেট ভেরিফাই করে এবং সেটি একটি bitFlyer অ্যাকাউন্টের সাথে লিঙ্ক করে, adrbrowsiel Rewards এর মাধ্যমে আপনার উপার্জিত টোকেনগুলো আপনি আরও সহজে সংরক্ষণ ও পরিচালনা করতে পারবেন",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "জাপানে Brave পুরষ্কারগুলি একটি নতুন সিস্টেমে স্যুইচ করছে!",
+    "message": "জাপানে adrbrowsiel পুরষ্কারগুলি একটি নতুন সিস্টেমে স্যুইচ করছে!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

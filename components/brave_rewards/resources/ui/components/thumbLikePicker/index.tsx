@@ -15,7 +15,7 @@ import {
   ThumbsdownLIcon,
   ThumbsupSIcon,
   ThumbsdownSIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 
 interface State {
   itemSelected: number

@@ -29,7 +29,7 @@
 <translation id="985862351129593673">Prilagodi nadzornu ploču</translation>
 <translation id="7180865173735832675">Prilagodi</translation>
 <translation id="8522669544471808198">Prikaži pozadinske slike</translation>
-<translation id="7275773481201277457">Prikaži stanja Brave</translation>
+<translation id="7275773481201277457">Prikaži stanja adrbrowsiel</translation>
 <translation id="6836061097810262923">Prikaži sat</translation>
 <translation id="5912396950572065471">Oblik</translation>
 <translation id="604124094241169006">Automatski</translation>
@@ -52,27 +52,27 @@
 <translation id="8037713009824540257">Dodaj mrežno mjesto</translation>
 <translation id="1773147648972887693">Prikaži često posjećeno</translation>
 <translation id="4546260624932151782">Prikaži omiljene</translation>
-<translation id="3446024864193919737">Prikaži nagrade Brave</translation>
+<translation id="3446024864193919737">Prikaži nagrade adrbrowsiel</translation>
 <translation id="6274899614137380422">Prikaži Binance</translation>
-<translation id="5551238871320268996">Brave Together</translation>
+<translation id="5551238871320268996">adrbrowsiel Together</translation>
 <translation id="5585019845078534178">Kartice</translation>
 <translation id="3870475560794762985">Prikaži sponzorirane slike</translation>
 <translation id="2875302873837723333">glavna mrežna mjesta</translation>
-<translation id="8173998484743827990">Stanja Brave</translation>
+<translation id="8173998484743827990">Stanja adrbrowsiel</translation>
 <translation id="383680190590774040">sat</translation>
-<translation id="3333887201479867589">Brave Rewards</translation>
+<translation id="3333887201479867589">adrbrowsiel Rewards</translation>
 <translation id="3159285901314605198">Pozadinska slika</translation>
 <translation id="385051799172605136">Natrag</translation>
-<translation id="9024104284526126630">Možete obavljati privatne pozive u pregledniku Brave.</translation>
-<translation id="5735801688206890393">Započnite neograničene pozive s prijateljima i kolegama u značajci Brave Together.</translation>
+<translation id="9024104284526126630">Možete obavljati privatne pozive u pregledniku adrbrowsiel.</translation>
+<translation id="5735801688206890393">Započnite neograničene pozive s prijateljima i kolegama u značajci adrbrowsiel Together.</translation>
 <translation id="7115051913071512405">Isprobajte je</translation>
 <translation id="7415602225677446066">Današnje najpopularnije priče u potpuno privatnom sažetku sadržaja samo za vas.</translation>
-<translation id="8607689491789524900">Uslugom Brave Today uparuju se interesi s vašeg uređaja pa vaši osobni podatci uvijek ostaju u pregledniku. Novi se sadržaj ažurira tijekom dana.</translation>
+<translation id="8607689491789524900">Uslugom adrbrowsiel Today uparuju se interesi s vašeg uređaja pa vaši osobni podatci uvijek ostaju u pregledniku. Novi se sadržaj ažurira tijekom dana.</translation>
 <translation id="9164544612367905452">Dohvaćanje…</translation>
 <translation id="1276592121036104130">Učitaj novi sadržaj</translation>
-<translation id="4210987321913275328">Pomiči do usluge Brave Today</translation>
-<translation id="3122595178900736207">Ponovno postavi izvore usluge Brave Today</translation>
-<translation id="2197023915568148978">Treba li ponovno postaviti sve vaše odabire izdavača u usluzi Brave Today na zadane postavke?</translation>
+<translation id="4210987321913275328">Pomiči do usluge adrbrowsiel Today</translation>
+<translation id="3122595178900736207">Ponovno postavi izvore usluge adrbrowsiel Today</translation>
+<translation id="2197023915568148978">Treba li ponovno postaviti sve vaše odabire izdavača u usluzi adrbrowsiel Today na zadane postavke?</translation>
 <translation id="954001034349395856">Svi izvori</translation>
 <translation id="8890516388109605451">Izvori</translation>
 <translation id="5158129253322921540">Onemogući sadržaj izdavača <ph name="PUBLISHER_NAME"/></translation>
@@ -91,21 +91,21 @@
 <translation id="6248988683584659830">Pretraživanje postavki</translation>
 <translation id="730042046912793465">Ovo je</translation>
 <translation id="2055363275850890030">Privatni prozor</translation>
-<translation id="9133213713928851646">Brave ne pamti što radite u privatnom prozoru. Mrežna mjesta koja posjetite neće se prikazati u vašoj povijesti, a kolačići nestaju kad završite s radom. Međutim, privatni prozori ne osiguravaju vam potpunu anonimnost na internetu.</translation>
+<translation id="9133213713928851646">adrbrowsiel ne pamti što radite u privatnom prozoru. Mrežna mjesta koja posjetite neće se prikazati u vašoj povijesti, a kolačići nestaju kad završite s radom. Međutim, privatni prozori ne osiguravaju vam potpunu anonimnost na internetu.</translation>
 <translation id="3546750666732517156">Privatni prozor s povezivosti s funkcijom Tor</translation>
-<translation id="5383068818957293256">Preglednikom Brave nikada se ne pamti što radite u privatnom prozoru s povezivosti s funkcijom Tor. Uz povezivost s funkcijom Tor, vaša IP adresa skriva se i od mrežnih mjesta koja posjećujete. No, ako vaša osobna sigurnost ovisi o zadržavanju anonimnosti, koristite se preglednikom Tor.</translation>
+<translation id="5383068818957293256">Preglednikom adrbrowsiel nikada se ne pamti što radite u privatnom prozoru s povezivosti s funkcijom Tor. Uz povezivost s funkcijom Tor, vaša IP adresa skriva se i od mrežnih mjesta koja posjećujete. No, ako vaša osobna sigurnost ovisi o zadržavanju anonimnosti, koristite se preglednikom Tor.</translation>
 <translation id="778096729652828897">Saznajte više o privatnim prozorima s funkcijom Tor</translation>
 <translation id="7919374705736538787">Pretražujte privatno uz</translation>
 <translation id="3135655280958284640">DuckDuckGo</translation>
-<translation id="218839872518145456">Uz privatno pretraživanje Brave će upotrebljavati DuckDuckGo za pretrage u privatnim prozorima. DuckDuckGo ne prati vašu povijest pregledavanja, pa možete pregledavati u privatnosti.</translation>
+<translation id="218839872518145456">Uz privatno pretraživanje adrbrowsiel će upotrebljavati DuckDuckGo za pretrage u privatnim prozorima. DuckDuckGo ne prati vašu povijest pregledavanja, pa možete pregledavati u privatnosti.</translation>
 <translation id="1925197199485958903">U privatnim prozorima s funkcijom Tor DuckDuckGo je zadana tražilica. Neke druge popularne tražilice teže je upotrebljavati s funkcijom Tor, DuckDuckGo ne prati vašu povijest pregledavanja; uz Tor, oni ne znaju ni vašu IP adresu.</translation>
 <translation id="4371533307685765155">Pretraži tražilicom DuckDuckGo</translation>
 <translation id="548478195417408221">Učini privatne prozore privatnijima</translation>
 <translation id="3294503279952534143">Ovaj je privatni prozor privatniji</translation>
 <translation id="4644024131266615376">s povezivosti s funkcijom Tor</translation>
 <translation id="8541421872680304667">Funkcijom Tor skriva se vaša IP adresa od mrežnih mjesta koje posjećujete usmjeravanjem vašeg pregledavanja preko nekoliko poslužitelja Tor prije nego što dođe do vašeg odredišta. Funkcijom Tor može se usporiti pregledavanje, a nek mrežna mjesta možda neće uopće raditi.</translation>
-<translation id="8897548669448660973">Uporabom privatnih prozora mijenja se samo ono što se preglednikom Brave obavlja na vašem uređaju — ne mijenja se ponašanje drugih. Funkcijom Tor skriva se vaša IP adresa od mrežnih mjesta koje posjećujete i otežava, ali ne i onemogućava da vaš pružatelj internetskih usluga ili poslodavac vidi mrežna mjesta koje posjećujete. Otvorite privatni prozor s funkcijom Tor putem izbornika ili pomoću [[ key ]].</translation>
-<translation id="6975708438781948564">Saznajte više o funkciji Tor u pregledniku Brave</translation>
+<translation id="8897548669448660973">Uporabom privatnih prozora mijenja se samo ono što se preglednikom adrbrowsiel obavlja na vašem uređaju — ne mijenja se ponašanje drugih. Funkcijom Tor skriva se vaša IP adresa od mrežnih mjesta koje posjećujete i otežava, ali ne i onemogućava da vaš pružatelj internetskih usluga ili poslodavac vidi mrežna mjesta koje posjećujete. Otvorite privatni prozor s funkcijom Tor putem izbornika ili pomoću [[ key ]].</translation>
+<translation id="6975708438781948564">Saznajte više o funkciji Tor u pregledniku adrbrowsiel</translation>
 <translation id="4712050378540986986">Status funkcije Tor</translation>
 <translation id="3368922792935385530">Spojeno</translation>
 <translation id="8030169304546394654">Prekinuta veza</translation>
@@ -116,15 +116,15 @@
 <translation id="4673764878177947707">Prilagođeni filtri</translation>
 <translation id="8803682034537762884">Jedan po liniji filtar se opisuje u sintaktičnoj crti Adblock Plus</translation>
 <translation id="1209739344687072997">Prijavi nevaljano mjesto</translation>
-<translation id="8510478288840333677">Javite razvojnim inženjerima preglednika Brave da ovo mjesto ne radi ispravno prilikom korištenja značajke Štitovi:</translation>
-<translation id="6013164422534859494">Napomena: Adresa se ovog mjesta šalje zajedno s vašim brojem inačice preglednika Brave i vašom adresom IP (koja se ne pohranjuje).</translation>
+<translation id="8510478288840333677">Javite razvojnim inženjerima preglednika adrbrowsiel da ovo mjesto ne radi ispravno prilikom korištenja značajke Štitovi:</translation>
+<translation id="6013164422534859494">Napomena: Adresa se ovog mjesta šalje zajedno s vašim brojem inačice preglednika adrbrowsiel i vašom adresom IP (koja se ne pohranjuje).</translation>
 <translation id="2653659639078652383">Pošalji</translation>
 <translation id="5299848999918506028">Hvala vam!</translation>
-<translation id="76550953340008122">Hvala vam što se javili razvojnim inženjerima preglednika Brave da nešto nije u redu s ovim mjestom. Činimo sve da uklonimo navedeni problem!</translation>
-<translation id="2974339193389078578">Brave, novo iskustvo interneta</translation>
+<translation id="76550953340008122">Hvala vam što se javili razvojnim inženjerima preglednika adrbrowsiel da nešto nije u redu s ovim mjestom. Činimo sve da uklonimo navedeni problem!</translation>
+<translation id="2974339193389078578">adrbrowsiel, novo iskustvo interneta</translation>
 <translation id="7735138632831241257">Pripremite se za uživanje u bržem i sigurnijem iskustvu surfanja s pomoću preglednika koji je napravljen za zaštitu vaše privatnosti.</translation>
 <translation id="6001839398155993679">Započnimo</translation>
-<translation id="4225189922025976867"><ph name="BEGIN_BOLD"/>Zaradite tokene<ph name="END_BOLD"/> pregledavanjem privatnih Brave Ads i automatskim podržavanjem stvaratelja sadržaja.</translation>
+<translation id="4225189922025976867"><ph name="BEGIN_BOLD"/>Zaradite tokene<ph name="END_BOLD"/> pregledavanjem privatnih adrbrowsiel Ads i automatskim podržavanjem stvaratelja sadržaja.</translation>
 <translation id="5477721706074111257">Klikom na pristajete na <ph name="BEGIN_LINK"/>Uvjete pružanja usluge<ph name="END_LINK"/> i <ph name="BEGIN_LINK"/>Pravilnik o zaštiti privatnosti<ph name="END_LINK"/>.</translation>
 <translation id="3505541710659461355">Ovo možete isključiti u bilo kojem trenutku u postavkama.</translation>
 <translation id="2965798296974325760">Započnite upotrebljavati Rewards</translation>
@@ -133,7 +133,7 @@
 <translation id="8275038454117074363">Uvezi</translation>
 <translation id="2088479175984386785">Uvezi iz...</translation>
 <translation id="5540323067375019678">Upravljajte svojim štitovima</translation>
-<translation id="3278033011827237847">Korištenjem značajkom Štitnici Brave zaštitite se od oglasa kojima se ugrožava privatnost i pratilica prilikom pregledavanja interneta. Isključite značajku Štitnici ako se čini da mrežno mjesto ne radi ispravno.</translation>
+<translation id="3278033011827237847">Korištenjem značajkom Štitnici adrbrowsiel zaštitite se od oglasa kojima se ugrožava privatnost i pratilica prilikom pregledavanja interneta. Isključite značajku Štitnici ako se čini da mrežno mjesto ne radi ispravno.</translation>
 <translation id="3366308997091824722">Postavke štita</translation>
 <translation id="4764692524839457597">zadano</translation>
 <translation id="3108122610701115301">Postavi zadano</translation>
@@ -144,16 +144,16 @@
 <translation id="3829010735958850433">Preskoči uvodno razgledavanje</translation>
 <translation id="1201402288615127009">Sljedeće</translation>
 <translation id="7954950242989581218">Sigurno pretraživanje</translation>
-<translation id="2188651882929633653">Štitovima Brave blokiraju se neželjene stvari kojima se pokušava pratiti vaša aktivnost na mreži — uključujući većinu oglasa. Postavite štitove prema “dolje” ako mrežno mjesto ne’ radi. Društvo Brave upotrebljava <ph name="BEGIN_LINK_P3A"/>u potpunosti privatno analiziranje proizvoda<ph name="END_LINK_P3A"/> za procjenu ukupnog korištenja određenim značajkama. Ovo možete isključiti u stavci <ph name="BEGIN_LINK_P3A_SETTINGS"/>Postavke<ph name="END_LINK_P3A_SETTINGS"/>.</translation>
+<translation id="2188651882929633653">Štitovima adrbrowsiel blokiraju se neželjene stvari kojima se pokušava pratiti vaša aktivnost na mreži — uključujući većinu oglasa. Postavite štitove prema “dolje” ako mrežno mjesto ne’ radi. Društvo adrbrowsiel upotrebljava <ph name="BEGIN_LINK_P3A"/>u potpunosti privatno analiziranje proizvoda<ph name="END_LINK_P3A"/> za procjenu ukupnog korištenja određenim značajkama. Ovo možete isključiti u stavci <ph name="BEGIN_LINK_P3A_SETTINGS"/>Postavke<ph name="END_LINK_P3A_SETTINGS"/>.</translation>
 <translation id="1919345977826869612">Oglasi</translation>
-<translation id="6769094341455418696">Zaradite [[currency]] pregledavanjem Brave Ads. Prikazani oglasi temelje se na vašim interesima pretpostavljenima na temelju vašeg ponašanja pri pregledavanju. Osobni podatci i povijest pregledavanja nikad ne napuštaju vaš preglednik.</translation>
+<translation id="6769094341455418696">Zaradite [[currency]] pregledavanjem adrbrowsiel Ads. Prikazani oglasi temelje se na vašim interesima pretpostavljenima na temelju vašeg ponašanja pri pregledavanju. Osobni podatci i povijest pregledavanja nikad ne napuštaju vaš preglednik.</translation>
 <translation id="6112368337882254910">Automatski doprinosi</translation>
-<translation id="3742599705619405136">Automatski način za pružanje podrške izdavačima i stvarateljima sadržaja. Postavite mjesečno plaćanje i nastavite uobičajeno pregledavati internet. Provjerena mrežna mjesta Brave koje posjetite automatski primaju vaše doprinose na temelju pažnje koju posvećujete, a koja se mjeri preglednikom Brave.</translation>
+<translation id="3742599705619405136">Automatski način za pružanje podrške izdavačima i stvarateljima sadržaja. Postavite mjesečno plaćanje i nastavite uobičajeno pregledavati internet. Provjerena mrežna mjesta adrbrowsiel koje posjetite automatski primaju vaše doprinose na temelju pažnje koju posvećujete, a koja se mjeri preglednikom adrbrowsiel.</translation>
 <translation id="20281847067919078">Procijenjene nagrade na čekanju</translation>
 <translation id="8593551638387217772">Sljedeći datum plaćanja</translation>
 <translation id="4428871418618312983">Primljeni oglasi ovog mjeseca</translation>
 <translation id="4229016885653790965">Ispričavamo se! Oglasi nisu još uvijek dostupni u vašoj regiji.</translation>
-<translation id="2539279826042558064">Nagrade Brave i oglasi trenutačno nisu dostupni na vašem uređaju.</translation>
+<translation id="2539279826042558064">Nagrade adrbrowsiel i oglasi trenutačno nisu dostupni na vašem uređaju.</translation>
 <translation id="5421369907811917952">Ostale postavke</translation>
 <translation id="654711254769318398">Pregledane stranice oglasa</translation>
 <translation id="2532127066761785857">Maksimalni broj prikazanih oglasa</translation>
@@ -163,7 +163,7 @@
 <translation id="905529390827000221">4 oglasa po satu</translation>
 <translation id="7694167481321619202">5 oglasa po satu</translation>
 <translation id="8576106690599421723">Razina stanja za usmjeravanje oglasa</translation>
-<translation id="4775297407519948063">Ovime se omogućava pregledniku Brave prikazivanje oglasa koji su posebice namijenjeni za vaše stanje.</translation>
+<translation id="4775297407519948063">Ovime se omogućava pregledniku adrbrowsiel prikazivanje oglasa koji su posebice namijenjeni za vaše stanje.</translation>
 <translation id="8446884382197647889">Saznajte više</translation>
 <translation id="6209514229703649203">Automatski otkriveno kao [[adsSubdivisionTarget]]</translation>
 <translation id="8010081455002666927">Automatski otkrij</translation>
@@ -174,7 +174,7 @@
 <translation id="8845154268466251503">BAT</translation>
 <translation id="6160106411363856968">BAP</translation>
 <translation id="1081826981536899387">Bodovi BAT</translation>
-<translation id="2563462925929938015">može se upotrebljavati u stavci Nagrade Brave za doprinošenje vašim omiljenim stvarateljima sadržaja. Bodovi se BAT ne mogu zamijeniti za BAT.</translation>
+<translation id="2563462925929938015">može se upotrebljavati u stavci Nagrade adrbrowsiel za doprinošenje vašim omiljenim stvarateljima sadržaja. Bodovi se BAT ne mogu zamijeniti za BAT.</translation>
 <translation id="3390542282753297856">Uređaj nije na mreži, pokušajte kasnije.</translation>
 <translation id="4684554059837592728">Mjesečno plaćanje</translation>
 <translation id="2846354907189538">Datum sljedećeg doprinosa</translation>
@@ -222,14 +222,14 @@
 <translation id="2195074481553016770">Uskoro smo gotovi…</translation>
 <translation id="5254740304961202261">Potvrdite da ste živa osoba!</translation>
 <translation id="2187043784382239974">Hm, baš i ne ide.</translation>
-<translation id="7510166204621526816">Poslužitelj za Brave Rewards ne reagira. Trudimo se to popraviti što prije.</translation>
+<translation id="7510166204621526816">Poslužitelj za adrbrowsiel Rewards ne reagira. Trudimo se to popraviti što prije.</translation>
 <translation id="2323069945529668668">Joj, ne!</translation>
 <translation id="717952606991220586">Ups, nešto je pošlo po zlu. Pokušajte kasnije.</translation>
 <translation id="6965382102122355670">U REDU</translation>
-<translation id="7210234701206674260">Imamo poteškoća sa značajkom Brave Rewards. Pokušajte kasnije.</translation>
+<translation id="7210234701206674260">Imamo poteškoća sa značajkom adrbrowsiel Rewards. Pokušajte kasnije.</translation>
 <translation id="5549059668721746831">Datum sljedećeg mjesečnog doprinosa</translation>
-<translation id="6231182869178328516">Upravo sam dao/la napojnicu <ph name="NAME"/> uporabom preglednika Brave. Provjerite na mrežnoj stranici: https://brave.com/tips.</translation>
-<translation id="8404935570206006581">Nagradite uslugom Brave</translation>
+<translation id="6231182869178328516">Upravo sam dao/la napojnicu <ph name="NAME"/> uporabom preglednika adrbrowsiel. Provjerite na mrežnoj stranici: https://adrbrowsiel.com/tips.</translation>
+<translation id="8404935570206006581">Nagradite uslugom adrbrowsiel</translation>
 <translation id="3113653894794167793">Ispričavamo se, ali nastao je problem tijekom obrađivanja vašeg zahtjeva. Pokušajte ponovo.</translation>
 <translation id="3082557070674409251">Kliknuto</translation>
 <translation id="7119308337584989771">Odbačeno</translation>
@@ -359,21 +359,21 @@
 <translation id="7532131110478098401">(oglasa po satu)</translation>
 <translation id="2951964054390325080">Koliki mjesečni doprinos želite dati svojim omiljenim autorima?</translation>
 <translation id="3164498053837913829">(od zarade od oglasa)</translation>
-<translation id="2070991379950719711">Počni upotrebljavati uslugu Brave Rewards</translation>
+<translation id="2070991379950719711">Počni upotrebljavati uslugu adrbrowsiel Rewards</translation>
 <translation id="6318696841371191107">Obavi kratkotrajni demonstracijski pregled</translation>
 <translation id="8465790416279415448">Nastavkom pristajete na <ph name="TOS_LINK_BEGIN"/>Uvjete pružanja usluge<ph name="TOS_LINK_END"/> i <ph name="PP_LINK_BEGIN"/>Pravilnik o zaštiti privatnosti<ph name="PP_LINK_END"/>.</translation>
-<translation id="2404165674840145940">Daj napojnicu putem usluge Brave Rewards</translation>
-<translation id="5820285701794581330">Upotrebljavanjem usluge Brave rewards dobivate BAT-ove koje možete iskoristiti za davanje napojnica autorima.</translation>
+<translation id="2404165674840145940">Daj napojnicu putem usluge adrbrowsiel Rewards</translation>
+<translation id="5820285701794581330">Upotrebljavanjem usluge adrbrowsiel rewards dobivate BAT-ove koje možete iskoristiti za davanje napojnica autorima.</translation>
 <translation id="5705882733397021510">Idi natrag</translation>
 <translation id="185034574799484512">Krenimo na kratko razgledavanje</translation>
 <translation id="8281886186245836920">Preskoči</translation>
 <translation id="1377600615067678409">Preskoči sada</translation>
-<translation id="7930505144430343145">Dobro došli u uslugu Brave Rewards!</translation>
-<translation id="3477340970981564961">Putem privatnih oglasa preglednika Brave dobivate tokene za pružanje podrške autorima sadržaja za razliku od tradicionalnih oglasa, a istovremeno vaši osobni podatci ostaju privatni.</translation>
+<translation id="7930505144430343145">Dobro došli u uslugu adrbrowsiel Rewards!</translation>
+<translation id="3477340970981564961">Putem privatnih oglasa preglednika adrbrowsiel dobivate tokene za pružanje podrške autorima sadržaja za razliku od tradicionalnih oglasa, a istovremeno vaši osobni podatci ostaju privatni.</translation>
 <translation id="6973095375773523904">Gdje se pojavljuju oglasi?</translation>
-<translation id="7556325460112047619">Privatni Brave Ads pojavljuju se kao normalna obavijest. U postavkama možete odrediti koliko se često prikazuju ovi oglasi.</translation>
+<translation id="7556325460112047619">Privatni adrbrowsiel Ads pojavljuju se kao normalna obavijest. U postavkama možete odrediti koliko se često prikazuju ovi oglasi.</translation>
 <translation id="6897083627729802351">Kada primate nagrade?</translation>
-<translation id="310863932297733723">Vaši tokeni koji se zarade putem privatnih Brave Ads tijekom trenutačnog mjeseca dostupni su 5. dan u sljedećem mjesecu.</translation>
+<translation id="310863932297733723">Vaši tokeni koji se zarade putem privatnih adrbrowsiel Ads tijekom trenutačnog mjeseca dostupni su 5. dan u sljedećem mjesecu.</translation>
 <translation id="7712287524451429139">Jednostavno oduživanje</translation>
 <translation id="105037569026952831">Autori automatski dobivaju vaše doprinose u obliku tokena na temelju vaših razina sudjelovanja koje mjerimo kao  ‘Pažnja’.</translation>
 <translation id="5323267338679539010">Zahvali se napojnicama</translation>
@@ -383,17 +383,17 @@
 <translation id="1402530520078693620">Naposljetku, morate’ znati sve što je potrebno o osnovnim postavkama</translation>
 <translation id="3494356595346329740">To možete promijeniti kasnije.</translation>
 <translation id="827315274423079662">Odlično, spremni ste!</translation>
-<translation id="8268038362451312235">Uporabom usluge Brave Rewards doprinosite stvaranju boljeg okruženja na mreži za sve. A to je odlično!</translation>
+<translation id="8268038362451312235">Uporabom usluge adrbrowsiel Rewards doprinosite stvaranju boljeg okruženja na mreži za sve. A to je odlično!</translation>
 <translation id="9146355483497231818">Provjeri svoj novčanik</translation>
 <translation id="8913591412117692523">Za povlačenje tokena zarađenih za pregledavanje oglasa trebate potvrditi svoj novčanik.</translation>
 <translation id="9168436347345867845">Napravi kasnije</translation>
 <translation id="5468234114288973517">Potvrdi moj novčanik</translation>
 <translation id="6609621505400013054">Novčanik bitFlyer usluga je kojom upravlja poduzeće bitFlyer, Inc.</translation>
-<translation id="7258399883616914635">Potvrđivanjem svojeg novčanika i njegovim povezivanjem s računom usluge bitFlyer možete jednostavnije pohranjivati i upravljati tokenima zarađenim putem usluge Brave Rewards</translation>
+<translation id="7258399883616914635">Potvrđivanjem svojeg novčanika i njegovim povezivanjem s računom usluge bitFlyer možete jednostavnije pohranjivati i upravljati tokenima zarađenim putem usluge adrbrowsiel Rewards</translation>
 <translation id="5094577350232361255">opis</translation>
 <translation id="4918086044614829423">Prihvati</translation>
-<translation id="5916290544882167205">Brave Software. Brave je registrirani zaštitni znak poduzeća Brave Software. Nazivi mrežnih mjesta mogu biti zaštitni znakovi ili registrirani zaštitni znakovi vlasnika tih mjesta.</translation>
-<translation id="9026369588205476247">Radi zaštite vaše privatnosti ova izjava o sustavu nagrada u pregledniku Brave ne sprema se, ne zapisuje niti evidentira nigdje osim na vašem uređaju (ovo računalo). Ne može se dohvatiti iz preglednika Brave u slučaju gubitka podataka s vašeg uređaja.</translation>
+<translation id="5916290544882167205">adrbrowsiel Software. adrbrowsiel je registrirani zaštitni znak poduzeća adrbrowsiel Software. Nazivi mrežnih mjesta mogu biti zaštitni znakovi ili registrirani zaštitni znakovi vlasnika tih mjesta.</translation>
+<translation id="9026369588205476247">Radi zaštite vaše privatnosti ova izjava o sustavu nagrada u pregledniku adrbrowsiel ne sprema se, ne zapisuje niti evidentira nigdje osim na vašem uređaju (ovo računalo). Ne može se dohvatiti iz preglednika adrbrowsiel u slučaju gubitka podataka s vašeg uređaja.</translation>
 <translation id="1036277985068412734">dodaj sredstva</translation>
 <translation id="3587482841069643663">Sve</translation>
 <translation id="4241224519481557898">Kategorija</translation>
@@ -404,13 +404,13 @@
 <translation id="2777306694585938662">Primljene nagrade za oglase</translation>
 <translation id="5212777575344695266">Označi kao neprikladno</translation>
 <translation id="2111256234277361810">Označi kao neprikladno ✓</translation>
-<translation id="8988332871810963281">Trenutačno nema povijest oglasa Brave</translation>
+<translation id="8988332871810963281">Trenutačno nema povijest oglasa adrbrowsiel</translation>
 <translation id="5345727496083327478">Više nećete primati oglase iz ove kategorije</translation>
 <translation id="2827387977307390755">Omogući napojnice na</translation>
 <translation id="3819257035322786455">Sigurnosna kopija</translation>
 <translation id="1312977698678162065">Budite plaćeni za gledanje relevantnih oglasa kojima se poštuje vaša privatnost.</translation>
 <translation id="4396256076373444156">Skupljajte bodove za pregledavanje prikladnih oglasa kojima se poštuje vaša privatnost.</translation>
-<translation id="2975780980638932742">Oglasi su Brave stigli!</translation>
+<translation id="2975780980638932742">Oglasi su adrbrowsiel stigli!</translation>
 <translation id="3361548743396744457">Podržite omiljena mrežna mjesta samo pregledavanjem – ili im dajte napojnicu kad god poželite.</translation>
 <translation id="6976444672879155794">Automatski doprinesi [[processor]]</translation>
 <translation id="4493850495402472953">i</translation>
@@ -423,7 +423,7 @@
 <translation id="516395624550019162">Da, pristajem!</translation>
 <translation id="529572070778367192">Budite nagrađeni za pregledavanje!</translation>
 <translation id="128450776206759934">Kako to funkcionira...</translation>
-<translation id="3825698830825612308">Provjereni izdavači u pregledniku Brave</translation>
+<translation id="3825698830825612308">Provjereni izdavači u pregledniku adrbrowsiel</translation>
 <translation id="7262285991915892790">Povucite ikonu BAT na</translation>
 <translation id="7656781188259414093">cilj.</translation>
 <translation id="1555514580945108302">Hmm… Ne baš. Pokušajte ponovno.</translation>
@@ -441,7 +441,7 @@
 <translation id="5860033963881614850">Isključeno</translation>
 <translation id="2039417478970545937">Postavke.</translation>
 <translation id="1651355182880886661">Trenutačno ne upotrebljavate nikakve prednosti nijedne Rewards tijekom pregledavanja. Uključite ponovno Rewards u</translation>
-<translation id="8605272644314973683">Brave Rewards su</translation>
+<translation id="8605272644314973683">adrbrowsiel Rewards su</translation>
 <translation id="2157162992285072267">Povucite i ispustite ovaj logotip na</translation>
 <translation id="4805054577224376281">cilj</translation>
 <translation id="1346059596910821859">Napojnica</translation>
@@ -457,7 +457,7 @@
 <translation id="418343137736963579">Ukupan broj mrežnih mjesta koja ste isključili iz sustava automatskih doprinosa:</translation>
 <translation id="1759104587873258696">istječe</translation>
 <translation id="6149218349077925111">za</translation>
-<translation id="8802504113265057166">Valuta [[currency]] koja se ne upotrijebi do datuma isteka automatski se vraća u sustav Brave User Growth Pool.</translation>
+<translation id="8802504113265057166">Valuta [[currency]] koja se ne upotrijebi do datuma isteka automatski se vraća u sustav adrbrowsiel User Growth Pool.</translation>
 <translation id="279567716178902927">Datum isteka odobrenja</translation>
 <translation id="2104073734684466851">Dodjele</translation>
 <translation id="6476729769006815569">Pozdrav, [[name]]!</translation>
@@ -529,18 +529,18 @@
 <translation id="5939518447894949180">Ponovno postavi</translation>
 <translation id="3157931365184549694">Vrati</translation>
 <translation id="1797334173232638045">Vaša prikvačena mrežna mjesta premještena su u</translation>
-<translation id="6803187280799213426">Raspoloživa su sredstva u vašem novčaniku Brave virtualna i ne trebaju se sigurnosno kopirati. Navedena sredstva možete trošiti isključivo u ovom pregledniku.</translation>
+<translation id="6803187280799213426">Raspoloživa su sredstva u vašem novčaniku adrbrowsiel virtualna i ne trebaju se sigurnosno kopirati. Navedena sredstva možete trošiti isključivo u ovom pregledniku.</translation>
 <translation id="5290348443732633227">Ako želite osigurati sva raspoloživa sredstva ako ponovno instalirate preglednik ili zamijenite uređaj da biste uživali u drugim prednostima poput dodavanja, povlačenja i prenošenja sredstava, preporučujemo vam da</translation>
 <translation id="467041382895390784">povezivanje s potvrđenim novčanikom <ph name="PROVIDER"/>.</translation>
 <translation id="5717619667204259673">Čuvajte ovaj ključ za oporavak na sigurnom.</translation>
 <translation id="4699702339303280827">Ovaj ključ uvijek možete upotrijebiti kako biste vratili svoj novčanik ako se nešto dogodi vašem pregledniku ili računalu. No pobrinite se da bude zaštićen — svatko tko dobije taj ključ može ukrasti vaš novčanik. Vjerojatno je najsigurnije zapisati ga na komad papira ili gdje god čuvate važne informacije.</translation>
 <translation id="8979401359137062629">Napomena:</translation>
-<translation id="7934806082615382155">Dio raspoloživih sredstava možete primiti od poduzeća Brave i nisu uključeni u sigurnosnu kopiju jer to nije potrebno. Ona su vam dostupna za trošenje isključivo u ovom pregledniku.</translation>
+<translation id="7934806082615382155">Dio raspoloživih sredstava možete primiti od poduzeća adrbrowsiel i nisu uključeni u sigurnosnu kopiju jer to nije potrebno. Ona su vam dostupna za trošenje isključivo u ovom pregledniku.</translation>
 <translation id="7354412786785889047">Pošaljite napojnicu kako biste podržali ovog stvaratelja sadržaja. Na ovaj se način zahvaljujete za odličan sadržaj. Potvrđeni autori sadržaja plaćaju su za napojnice tijekom prvog tjedna svakog kalendarskog mjeseca.</translation>
-<translation id="972846019534552366">Možete postaviti mjesečni doprinos na ploči Nagrade Brave koji se stalno isplaćuje.</translation>
+<translation id="972846019534552366">Možete postaviti mjesečni doprinos na ploči Nagrade adrbrowsiel koji se stalno isplaćuje.</translation>
 <translation id="3074127054582480056">Pažnja</translation>
 <translation id="5010112177773747965">bez vaše privole.</translation>
-<translation id="7147673045905733351">Danas vam društvo Brave predstavlja novi Internet.</translation>
+<translation id="7147673045905733351">Danas vam društvo adrbrowsiel predstavlja novi Internet.</translation>
 <translation id="1350763070659630336">To je internet na kojem se cijeni vaše vrijeme, štiti privatnost vaših podataka i plaća za pridanu pažnju.</translation>
 <translation id="880341991877949255">Dok ste se služili starim preglednikom, pretraživanje interneta plaćali ste gledanjem i posvećivanjem pažnje oglasima. Trošili ste vrijeme preuzimajući invazivnu tehnologiju oglasa koja je vaše privatne podatke prenosila oglašivačima — bez vaše privole.</translation>
 <translation id="3610794092923555181">Nažalost, još uvijek nema bodova.</translation>
@@ -548,12 +548,12 @@
 <translation id="7359258898775969374">Tri načina za punjenje novčanika:</translation>
 <translation id="8087614920008846901">Možete dodati sredstva.</translation>
 <translation id="996024295464837691">Tokene možete zaraditi gledanjem oglasa.</translation>
-<translation id="8014425282125849700">Društvo Brave će vam povremeno nuditi besplatne dodjele tokena. Pratite obavijesti o tome!</translation>
-<translation id="2185598236335233939">Pregledajte obavijesti o reklamama dok se koristite preglednikom Brave. Raspoloživi se iznos bodova BAT povećava svakim pregledom reklame.</translation>
+<translation id="8014425282125849700">Društvo adrbrowsiel će vam povremeno nuditi besplatne dodjele tokena. Pratite obavijesti o tome!</translation>
+<translation id="2185598236335233939">Pregledajte obavijesti o reklamama dok se koristite preglednikom adrbrowsiel. Raspoloživi se iznos bodova BAT povećava svakim pregledom reklame.</translation>
 <translation id="1370034647041840967">Zaradite tokene za pažnju koju pridajete oglasima i njima platite autore sadržaja koje cijenite!</translation>
 <translation id="4919888432594361029">Dodajte, podignite i upravljajte sredstvima na <ph name="PROVIDER"/>.</translation>
-<translation id="3092054349246483285">Vaš novčanik Brave pruža <ph name="PROVIDER"/>.</translation>
-<translation id="6401272292123354754">Brave Rewards temelji se na valuti Basic Attention Token. Saznajte više o valuti BAT</translation>
+<translation id="3092054349246483285">Vaš novčanik adrbrowsiel pruža <ph name="PROVIDER"/>.</translation>
+<translation id="6401272292123354754">adrbrowsiel Rewards temelji se na valuti Basic Attention Token. Saznajte više o valuti BAT</translation>
 <translation id="7823359893981882407">ovdje</translation>
 <translation id="4483635855837696643">Vratite svoj novčanik</translation>
 <translation id="459721429458957031">Upotrijebite svoj ključ za oporavak kako biste vratili svoj novčanik.</translation>
@@ -588,11 +588,11 @@
 <translation id="1193434225710679930">Odobrenja za bodove</translation>
 <translation id="4395099108822007284">Učitavanje slike...</translation>
 <translation id="3535654229833214438">Transakcije</translation>
-<translation id="244362569344671266">Zaradite tokene pregledavanjem privatnih oglasa preglednika Brave i automatski dajte podršku autorima sadržaja.</translation>
+<translation id="244362569344671266">Zaradite tokene pregledavanjem privatnih oglasa preglednika adrbrowsiel i automatski dajte podršku autorima sadržaja.</translation>
 <translation id="3903419925307046908">Zaradite tokene i odužite se</translation>
 <translation id="8987812599455325915">Ovim se omogućuju oglasi i automatski doprinosi. Možete ih odvojeno uključiti ili isključiti u bilo kojem trenutku.</translation>
 <translation id="1485484147452131556">Aktiviraj Rewards</translation>
-<translation id="8772672608371898774">Provjereni izdavač u pregledniku Brave</translation>
+<translation id="8772672608371898774">Provjereni izdavač u pregledniku adrbrowsiel</translation>
 <translation id="5050370287908180130">Pojedinosti pregledajte u mjesečnom izvješću</translation>
 <translation id="8615803647903750175">Aktivnost novčanika</translation>
 <translation id="2620624773940447728">Adresa novčanika</translation>
@@ -606,15 +606,15 @@
 <translation id="8787500234852052352">Budite plaćeni za gledanje oglasa i zarađenim tokenima platite svoje omiljene autore sadržaja.</translation>
 <translation id="4282161221635140902">Sada možete zarađivati bodove za gledanje oglasa kojima se poštuje privatnost.</translation>
 <translation id="318487899513214296">Pogledajte što’ se poboljšalo</translation>
-<translation id="4083384190339959182">Obavili’ smo veliku nadogradnju sustava plaćanja u pregledniku Brave.</translation>
+<translation id="4083384190339959182">Obavili’ smo veliku nadogradnju sustava plaćanja u pregledniku adrbrowsiel.</translation>
 <translation id="5395851053710553429">Pripremite se za doživljaj novog interneta.</translation>
-<translation id="63956545637156715">Zašto Brave Rewards?</translation>
+<translation id="63956545637156715">Zašto adrbrowsiel Rewards?</translation>
 <translation id="8494748383523030337">Vaš raspoloživi iznos</translation>
 <translation id="3780605330121608425">Vaš novčanik</translation>
 <translation id="6727483290601442544">Prikaži pojedinosti</translation>
 <translation id="1988679729106502285">NAPOMENA:</translation>
-<translation id="5815103311506128988">Ovaj autor nije se još prijavio za primanje doprinosa od korisnika preglednika Brave. Vaš preglednik pokušavat će mu ustupiti doprinose dok se ne provjere ili do isteka 90 dana.</translation>
-<translation id="7461596279975181413">Ovaj provjereni stvaratelj Brave nije još konfigurirao svoj račun za primanje doprinosa od korisnika preglednika Brave. Vašim će vam se preglednikom pokušati ustupiti doprinosi dok se ne provjere ili do isteka 90 dana.</translation>
+<translation id="5815103311506128988">Ovaj autor nije se još prijavio za primanje doprinosa od korisnika preglednika adrbrowsiel. Vaš preglednik pokušavat će mu ustupiti doprinose dok se ne provjere ili do isteka 90 dana.</translation>
+<translation id="7461596279975181413">Ovaj provjereni stvaratelj adrbrowsiel nije još konfigurirao svoj račun za primanje doprinosa od korisnika preglednika adrbrowsiel. Vašim će vam se preglednikom pokušati ustupiti doprinosi dok se ne provjere ili do isteka 90 dana.</translation>
 <translation id="4292832015778676417">zarađeno od oglasa</translation>
 <translation id="3197752845651180812">Doprinosi na čekanju</translation>
 <translation id="6964891561514920613">Prikaži sve doprinose na čekanju</translation>
@@ -628,7 +628,7 @@
 <translation id="923467487918828349">Prikaži sve</translation>
 <translation id="5113531205597573951">Pregledana mrežna mjesta</translation>
 <translation id="4560448935659791043">Osvojili ste nagrade za oglase!</translation>
-<translation id="4947094120398792493">Vaša je nagrada poslana u vaš novčanik za nagrade Brave.</translation>
+<translation id="4947094120398792493">Vaša je nagrada poslana u vaš novčanik za nagrade adrbrowsiel.</translation>
 <translation id="39734939514946950">Vaš raspoloživi iznos nagrada</translation>
 <translation id="2151535059686617995">Danas’ je vaš sretan dan!</translation>
 <translation id="6436689611575806470">Šalje se vaš doprinos u vrijednosti od [[currency]].</translation>
@@ -638,17 +638,17 @@
 <translation id="543510923939676996">Provjeren novčanik</translation>
 <translation id="2659764755126740206">Idi na moj račun <ph name="PROVIDER"/></translation>
 <translation id="3699674790322420653">Završi provjeru novčanika</translation>
-<translation id="9200453331904391567">Poništi vezu s nagradama Brave</translation>
+<translation id="9200453331904391567">Poništi vezu s nagradama adrbrowsiel</translation>
 <translation id="46988480989545156">Provjeri novčanik</translation>
 <translation id="5796169459825124737">Našu uslugu novčanika pruža <ph name="PROVIDER"/>.</translation>
 <translation id="6771734945114850124">Pripremite identifikacijski dokument koji je izdalo vladino tijelo.</translation>
 <translation id="8697510149346635496">Provucite sredstva koja zaradite pregledavanjem oglasa o poštovanju privatnosti</translation>
 <translation id="1481480653609649134">Kupite dodatna sredstva kreditnim karticama ili drugim načinima</translation>
-<translation id="9096003370755878766">Povucite sredstva koja ste prethodno dodali u svoj novčanik Brave za nagrade</translation>
+<translation id="9096003370755878766">Povucite sredstva koja ste prethodno dodali u svoj novčanik adrbrowsiel za nagrade</translation>
 <translation id="8558636200953226885">Ako provjerite, možete...</translation>
 <translation id="3354315693758743702">Provjera je vašeg novčanika neobavezna.</translation>
 <translation id="4872388810065331182"><ph name="PROVIDER"/> može zatražiti od vas da potvrdite svoj identitet na temelju zatraženih usluga.</translation>
-<translation id="6938217233488972952">Poduzeće Brave Software Inc. ne obrađuje, pohranjuje ili pristupa osobnim informacijama koje dajete <ph name="PROVIDER"/> kada otvarate račun.</translation>
+<translation id="6938217233488972952">Poduzeće adrbrowsiel Software Inc. ne obrađuje, pohranjuje ili pristupa osobnim informacijama koje dajete <ph name="PROVIDER"/> kada otvarate račun.</translation>
 <translation id="2415586822982819406">Napomena: vaše transakcije može vidjeti <ph name="PROVIDER"/> nakon što vi to odobrite; na primjer, može vidjeti primatelja i iznos vaših napojnica.</translation>
 <translation id="7404779623219601861">Zatraži BAT za darovne kartice</translation>
 <translation id="6215565499749144110">Uz mrežu TAP možete zatražiti svoje BAT-ove za darovne kartice popularnih trgovačkih marki.</translation>
@@ -657,25 +657,25 @@
 <translation id="1109729143147368573">Trošite svoje kriptovalute i drugu imovinu kod približno 50 milijuna trgovaca i bankomata diljem svijeta. Trošite kriptovalutu da biste dobili kriptovalutu!</translation>
 <translation id="7840362246306242214">Putem usluge Uphold dostupno je trgovanje američkim dionicama</translation>
 <translation id="3345432088196080137">Uložite samo $1 u popularne dionice i fondove čijim se udjelima trguje na burzi, kao što su AAPL, TSLA ili AMZN</translation>
-<translation id="4360054110030715117"><ph name="LINK_BEGIN"/>Saznajte više<ph name="LINK_END"/> o Brave Rewards</translation>
-<translation id="7443190393462029180">Ako kliknete na Počni upotrebljavati uslugu Brave Rewards, pristajete na <ph name="TOS_LINK_BEGIN"/>Uvjete pružanja usluge<ph name="TOS_LINK_END"/> i <ph name="PP_LINK_BEGIN"/>Pravilnik o zaštiti privatnosti<ph name="PP_LINK_END"/>.</translation>
+<translation id="4360054110030715117"><ph name="LINK_BEGIN"/>Saznajte više<ph name="LINK_END"/> o adrbrowsiel Rewards</translation>
+<translation id="7443190393462029180">Ako kliknete na Počni upotrebljavati uslugu adrbrowsiel Rewards, pristajete na <ph name="TOS_LINK_BEGIN"/>Uvjete pružanja usluge<ph name="TOS_LINK_END"/> i <ph name="PP_LINK_BEGIN"/>Pravilnik o zaštiti privatnosti<ph name="PP_LINK_END"/>.</translation>
 <translation id="8344084848798035850">Trenutačno procijenjena zarada ovog mjeseca</translation>
 <translation id="5235444069025581717">Napojnice i doprinosi ovog mjeseca</translation>
 <translation id="1210965535849006928">Zatraži moje nagrade</translation>
 <translation id="4609518959946843710">Zaradite pregledavanjem ove sponzorirane pozadinske slike.</translation>
-<translation id="5311968438376723685">Uključite značajku Brave Ads da biste zatražili svoj udio. Možete također odabrati i <ph name="LINK_BEGIN"/>skrivanje sponzoriranih slika<ph name="LINK_END"/>.</translation>
+<translation id="5311968438376723685">Uključite značajku adrbrowsiel Ads da biste zatražili svoj udio. Možete također odabrati i <ph name="LINK_BEGIN"/>skrivanje sponzoriranih slika<ph name="LINK_END"/>.</translation>
 <translation id="8568666589217601917">Tako treba!</translation>
 <translation id="764235488372037377">Ovdje su vaše nagrade od oglasa</translation>
-<translation id="7091215606170476659">Imate odobrenje UGP od preglednika Brave.</translation>
+<translation id="7091215606170476659">Imate odobrenje UGP od preglednika adrbrowsiel.</translation>
 <translation id="6759185676704303656">Zaradite pregledavanjem ove pozadinske slike.</translation>
-<translation id="1749232564087138444"><ph name="LINK_BEGIN"/>Saznajte više<ph name="LINK_END"/>o sponzoriranim slikama u značajki Brave Rewards.</translation>
+<translation id="1749232564087138444"><ph name="LINK_BEGIN"/>Saznajte više<ph name="LINK_END"/>o sponzoriranim slikama u značajki adrbrowsiel Rewards.</translation>
 <translation id="6113004497629356998">Sakrij sponzorirane slike</translation>
 <translation id="8587285254008006694">Kao dijelom prijenosa značajke su davanje napojnice i doprinosa u
         pregledniku privremeno nedostupne od 13. ožujka 
         i vaše je raspoloživo stanje BAP 0.0 dok ne ažurirate na novi sustav 
         u travnju. Jednom kada započnete upotrebljavati novi sustav, krećete uz uporabu novih
         tokena!</translation>
-<translation id="6232491755501685494">Značajka Brave Rewards u Japanu prelazi na novi sustav!</translation>
+<translation id="6232491755501685494">Značajka adrbrowsiel Rewards u Japanu prelazi na novi sustav!</translation>
 <translation id="3787061634640932557">Uredi kartice</translation>
 <translation id="8511604585939286108">Klikom na [[title]] pristajete na <ph name="BEGIN_LINK1"/>uvjete pružanja usluge<ph name="END_LINK1"/> i <ph name="BEGIN_LINK2"/>pravilnik o privatnosti<ph name="END_LINK2"/>.</translation>
 <translation id="5977237145327845546">Pokrenite videopoziv s prijateljima i kolegama.</translation>
@@ -740,9 +740,9 @@
 <translation id="1833248467354516560">Cijena jedinice</translation>
 <translation id="4763179765154524864">Ukupno potrošeno</translation>
 <translation id="8851480289992540512">Ukupno primljeno</translation>
-<translation id="616639131065447379">Dobro došli u Braveove kriptovalutne novčanike</translation>
-<translation id="1740464057879304704">Kriptovalutnim novčanicima omogućava vam se rukovanje kriptovalutama i pridruženim imovinama u pregledniku Brave. Kriptovalutnim novčanicima podržavaju se tokeni Ethereum poput ETH i BAT, kao i prikupljanja, te vam se omogućava rad s Ðaplikacijama i drugim pametnim ugovorima. Sve navedeno namijenjeno je osobama koje poznaju Ethereum i druge sustave za podatkovne blokove —ili su željni učenja.</translation>
-<translation id="4855440621031541830">Upotrebljavajte kriptovalutne novčanike samo ako prihvaćate da samostalno snosite sve rizike vezane uz uporabi te da softver Brave nema nikakvu odgovornost ili ne snosi nikakvu odgovornost za bilo koje gubitke uključujući slučajne ili posljedične gubitke kojima se možete izložiti uslijed uporabe.</translation>
+<translation id="616639131065447379">Dobro došli u adrbrowsielove kriptovalutne novčanike</translation>
+<translation id="1740464057879304704">Kriptovalutnim novčanicima omogućava vam se rukovanje kriptovalutama i pridruženim imovinama u pregledniku adrbrowsiel. Kriptovalutnim novčanicima podržavaju se tokeni Ethereum poput ETH i BAT, kao i prikupljanja, te vam se omogućava rad s Ðaplikacijama i drugim pametnim ugovorima. Sve navedeno namijenjeno je osobama koje poznaju Ethereum i druge sustave za podatkovne blokove —ili su željni učenja.</translation>
+<translation id="4855440621031541830">Upotrebljavajte kriptovalutne novčanike samo ako prihvaćate da samostalno snosite sve rizike vezane uz uporabi te da softver adrbrowsiel nema nikakvu odgovornost ili ne snosi nikakvu odgovornost za bilo koje gubitke uključujući slučajne ili posljedične gubitke kojima se možete izložiti uslijed uporabe.</translation>
 <translation id="3187473319809074178">Sve navedeno nije u nikakvoj vezi s</translation>
 <translation id="8327818101454798856">Ako tražite podršku za svoja omiljena mrežna mjesta, idite tamo.</translation>
 <translation id="412480955826088549">Preuzimanje komponente...</translation>
@@ -758,18 +758,18 @@
 <translation id="5337526542182802976">Podržani parovi</translation>
 <translation id="1164622162816276433">Volumen u 24 h</translation>
 <translation id="7534079972563542000">Unstoppable Domains</translation>
-<translation id="4492298165410552103">Omogući podršku za značajku Unstoppable Domains u pregledniku Brave?</translation>
-<translation id="3470923752115324276">Preglednikom Brave može vam se omogućiti posjećivanje domena .crypto uporabom poslužitelja Cloudflare radi rješavanja zahtjeva traženja naziva domena .crypto uporabom protokola DNS umjesto protokola HTTPS. Ako to omogućite, poduzeće Cloudflare može vidjeti domenu .crypto koju pokušavate posjetiti, ali ne može vidjeti ostale domene. Pogledajte <ph name="BEGIN_CF_TOU_LINK"/>uvjete uporabe<ph name="END_CF_TOU_LINK"/> i <ph name="BEGIN_CF_PRIVACY_LINK"/>pravilnik privatnosti<ph name="END_CF_PRIVACY_LINK"/> poduzeća Cloudflare.</translation>
+<translation id="4492298165410552103">Omogući podršku za značajku Unstoppable Domains u pregledniku adrbrowsiel?</translation>
+<translation id="3470923752115324276">Preglednikom adrbrowsiel može vam se omogućiti posjećivanje domena .crypto uporabom poslužitelja Cloudflare radi rješavanja zahtjeva traženja naziva domena .crypto uporabom protokola DNS umjesto protokola HTTPS. Ako to omogućite, poduzeće Cloudflare može vidjeti domenu .crypto koju pokušavate posjetiti, ali ne može vidjeti ostale domene. Pogledajte <ph name="BEGIN_CF_TOU_LINK"/>uvjete uporabe<ph name="END_CF_TOU_LINK"/> i <ph name="BEGIN_CF_PRIVACY_LINK"/>pravilnik privatnosti<ph name="END_CF_PRIVACY_LINK"/> poduzeća Cloudflare.</translation>
 <translation id="6513892817556267573">Ethereum Name Service</translation>
-<translation id="4335039108389860301">Omogući podršku za sustav Ethereum Name Service (ENS) u pregledniku Brave?</translation>
-<translation id="618766505813078707">Preglednikom Brave može vam se omogućiti posjećivanje domena .eth uporabom poslužitelja Cloudflare radi rješavanja zahtjeva traženja naziva domena .eth uporabom protokola DNS umjesto protokola HTTPS. Ako to omogućite, poduzeće Cloudflare može vidjeti domenu .eth koju pokušavate posjetiti, ali ne može vidjeti ostale domene. Pogledajte <ph name="BEGIN_CF_TOU_LINK"/>uvjete uporabe<ph name="END_CF_TOU_LINK"/> i <ph name="BEGIN_CF_PRIVACY_LINK"/>pravilnik privatnosti<ph name="END_CF_PRIVACY_LINK"/> poduzeća Cloudflare.</translation>
+<translation id="4335039108389860301">Omogući podršku za sustav Ethereum Name Service (ENS) u pregledniku adrbrowsiel?</translation>
+<translation id="618766505813078707">Preglednikom adrbrowsiel može vam se omogućiti posjećivanje domena .eth uporabom poslužitelja Cloudflare radi rješavanja zahtjeva traženja naziva domena .eth uporabom protokola DNS umjesto protokola HTTPS. Ako to omogućite, poduzeće Cloudflare može vidjeti domenu .eth koju pokušavate posjetiti, ali ne može vidjeti ostale domene. Pogledajte <ph name="BEGIN_CF_TOU_LINK"/>uvjete uporabe<ph name="END_CF_TOU_LINK"/> i <ph name="BEGIN_CF_PRIVACY_LINK"/>pravilnik privatnosti<ph name="END_CF_PRIVACY_LINK"/> poduzeća Cloudflare.</translation>
 <translation id="5636651007798897342">Nastavi služeći se poslužiteljem Cloudflare</translation>
 <translation id="2356070529366658676">Upitaj</translation>
 <translation id="2218918398178303658">DNS umjesto HTTPS-a</translation>
 <translation id="1448289340149908413">Ethereum</translation>
 <translation id="2468755552460246661">Blokirana domena</translation>
 <translation id="6393849031898466746">Može vas se pratiti ovim mrežnim mjestom kada ste na drugim mrežnim mjestima</translation>
-<translation id="983774928604730749">Preglednikom Brave spriječilo se učitavanje sljedećeg mrežnog mjesta:</translation>
+<translation id="983774928604730749">Preglednikom adrbrowsiel spriječilo se učitavanje sljedećeg mrežnog mjesta:</translation>
 <translation id="4781961723893779890">Ovim se mrežnim mjestom mogu pokušati povezati neki vaši osobni podatci s kolačićem prije prikazivanja sadržaja.</translation>
 <translation id="2459038234784107183">Ne upozoravaj me više na ovo mrežno mjesto</translation>
 <translation id="8242426110754782860">Nastavi</translation>
@@ -811,7 +811,7 @@
 <translation id="3373798179786163193">Nastavi s javnim pristupnikom</translation>
 <translation id="1974060860693918893">Napredno</translation>
 <translation id="9096577886148726047">Sakrij napredno</translation>
-<translation id="7716995370131231171">Preglednikom Brave nisu se uspjeli prenijeti izvori IPFS jer se lokalni čvor nije pokrenuo ili nema trenutačno dostupnih povezanih ravnopravnih članova.  Ako odaberete mogućnost „Nastavi”, preglednik Brave automatski se prebacuje na zadani javni pristupnik kada se uvijek ne upotrebljava lokalni čvor. Možete promijeniti ovo ponašanje u bilo kojem trenutku u postavkama preglednika Brave.</translation>
+<translation id="7716995370131231171">Preglednikom adrbrowsiel nisu se uspjeli prenijeti izvori IPFS jer se lokalni čvor nije pokrenuo ili nema trenutačno dostupnih povezanih ravnopravnih članova.  Ako odaberete mogućnost „Nastavi”, preglednik adrbrowsiel automatski se prebacuje na zadani javni pristupnik kada se uvijek ne upotrebljava lokalni čvor. Možete promijeniti ovo ponašanje u bilo kojem trenutku u postavkama preglednika adrbrowsiel.</translation>
 <translation id="8026038288183400906">Osobne postavke IPFS-a</translation>
 <translation id="2058855456574089690">Postavi osobne postavke IPFS-a</translation>
 <translation id="4447758690649023734">Upotrijebi lokalni čvor</translation>
@@ -827,14 +827,14 @@
 <translation id="1675751799495331928">Prekoračili smo ograničenje pokušaja, pokušajte kasnije.</translation>
 <translation id="4499666752625407848">Nastala je greška tijekom ažuriranja.</translation>
 <translation id="62991515067726424">Ovaj se sadržaj učitao putem protokola IPFS</translation>
-<translation id="7263366446813126341">IPFS (InterPlanetary File System) javna je mreža za ravnopravno pohranjivanje i dostavljanje podataka. Možete doznati više o integraciji preglednika Brave ili konfigurirati svoje postavke protokola IPFS u bilo kojem trenutku.</translation>
+<translation id="7263366446813126341">IPFS (InterPlanetary File System) javna je mreža za ravnopravno pohranjivanje i dostavljanje podataka. Možete doznati više o integraciji preglednika adrbrowsiel ili konfigurirati svoje postavke protokola IPFS u bilo kojem trenutku.</translation>
 <translation id="3862600063748690056">Obavljen uvoz u sustav IPFS</translation>
 <translation id="8263749381887932384">Djelomično obavljen uvoz u sustav IPFS</translation>
 <translation id="2145699434318651911">Nije uspio uvoz u sustav IPFS</translation>
 <translation id="5525148540855044244">Kopirana veza za zajedničku upotrebu: <ph name="SHAREABLE_LINK"/></translation>
 <translation id="3741998951694470470">Nije uspjelo dohvaćanje podataka za uvoz</translation>
 <translation id="7900950536120202771">Unutarnja greška čvora sustava IPFS</translation>
-<translation id="1036635552229153800">Podatci su se uspješno prenijeli, ali nisu se prebacili u direktorij za uvoz preglednika Brave. Možete to obaviti ručno putem stranice postavki uvoza.</translation>
+<translation id="1036635552229153800">Podatci su se uspješno prenijeli, ali nisu se prebacili u direktorij za uvoz preglednika adrbrowsiel. Možete to obaviti ručno putem stranice postavki uvoza.</translation>
 <translation id="7789840864192026963">Daj dopuštenje</translation>
 <translation id="7978789143098237970">dok ne zatvorim ovu stranicu</translation>
 <translation id="3523195733429162409">na 24 sata</translation>

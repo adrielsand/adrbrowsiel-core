@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_SERVICE_H_
 
 #include <stdint.h>
 
@@ -14,7 +14,7 @@
 
 #include "base/optional.h"
 #include "base/values.h"
-#include "brave/components/brave_shields/browser/ad_block_base_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_base_service.h"
 #include "components/keyed_service/core/keyed_service.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "content/public/browser/browser_thread.h"
@@ -24,15 +24,15 @@ class DomainBlockTest;
 class PrefChangeRegistrar;
 class PrefService;
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 class AdBlockRegionalServiceManager;
 class AdBlockCustomFiltersService;
 
 const char kAdBlockResourcesFilename[] = "resources.json";
-const char kAdBlockComponentName[] = "Brave Ad Block Updater";
+const char kAdBlockComponentName[] = "adrbrowsiel Ad Block Updater";
 const char kAdBlockComponentId[] = "cffkpbalmllkdoenhmdmpbkajipdjfam";
 const char kAdBlockComponentBase64PublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs0qzJmHSgIiw7IGFCxij"
@@ -43,10 +43,10 @@ const char kAdBlockComponentBase64PublicKey[] =
     "5HcH/heRrB4MvrE1J76WF3fvZ03aHVcnlLtQeiNNOZ7VbBDXdie8Nomf/QswbBGa"
     "VwIDAQAB";
 
-// The brave shields service in charge of ad-block checking and init.
+// The adrbrowsiel shields service in charge of ad-block checking and init.
 class AdBlockService : public AdBlockBaseService {
  public:
-  explicit AdBlockService(BraveComponent::Delegate* delegate);
+  explicit AdBlockService(adrbrowsielComponent::Delegate* delegate);
   ~AdBlockService() override;
 
   void ShouldStartRequest(const GURL& url,
@@ -88,12 +88,12 @@ class AdBlockService : public AdBlockBaseService {
       const std::string& component_id,
       const std::string& component_base64_public_key);
 
-  std::unique_ptr<brave_shields::AdBlockRegionalServiceManager>
+  std::unique_ptr<adrbrowsiel_shields::AdBlockRegionalServiceManager>
       regional_service_manager_;
-  std::unique_ptr<brave_shields::AdBlockCustomFiltersService>
+  std::unique_ptr<adrbrowsiel_shields::AdBlockCustomFiltersService>
       custom_filters_service_;
 
-  BraveComponent::Delegate* component_delegate_;
+  adrbrowsielComponent::Delegate* component_delegate_;
 
   base::WeakPtrFactory<AdBlockService> weak_factory_{this};
   DISALLOW_COPY_AND_ASSIGN(AdBlockService);
@@ -101,11 +101,11 @@ class AdBlockService : public AdBlockBaseService {
 
 // Creates the AdBlockService
 std::unique_ptr<AdBlockService> AdBlockServiceFactory(
-    BraveComponent::Delegate* delegate);
+    adrbrowsielComponent::Delegate* delegate);
 
 // Registers the local_state preferences used by Adblock
 void RegisterPrefsForAdBlockService(PrefRegistrySimple* registry);
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_SERVICE_H_

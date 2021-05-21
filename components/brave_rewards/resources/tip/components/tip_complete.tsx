@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 
-import { TwitterColorIcon } from 'brave-ui/components/icons'
+import { TwitterColorIcon } from 'adrbrowsiel-ui/components/icons'
 
 import { TipKind } from '../lib/interfaces'
 import { HostContext } from '../lib/host_context'

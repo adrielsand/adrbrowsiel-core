@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/hd_keyring.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/hd_keyring.h"
 
 #include "base/strings/string_number_conversions.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/components/brave_wallet/browser/eth_address.h"
-#include "brave/components/brave_wallet/browser/eth_transaction.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_address.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/eth_transaction.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 HDKeyring::HDKeyring() = default;
 HDKeyring::~HDKeyring() = default;
@@ -116,4 +116,4 @@ HDKey* HDKeyring::GetHDKeyFromAddress(const std::string& address) {
   return nullptr;
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

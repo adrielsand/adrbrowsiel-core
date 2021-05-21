@@ -24,20 +24,20 @@ export const applyCosmeticFilter = (host: string, selector: string) => {
 
 // parent menu
 chrome.contextMenus.create({
-  title: 'Brave',
-  id: 'brave',
+  title: 'adrbrowsiel',
+  id: 'adrbrowsiel',
   contexts: ['all']
 })
 chrome.contextMenus.create({
   title: getLocale('elementPickerMode'),
   id: 'elementPickerMode',
-  parentId: 'brave',
+  parentId: 'adrbrowsiel',
   contexts: ['all']
 })
 chrome.contextMenus.create({
   title: getLocale('manageCustomFilters'),
   id: 'manageCustomFilters',
-  parentId: 'brave',
+  parentId: 'adrbrowsiel',
   contexts: ['all']
 })
 

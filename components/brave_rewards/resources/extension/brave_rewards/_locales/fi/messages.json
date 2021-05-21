@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Olemme tehneet suuren päivityksen Brave Rewardeille.",
+    "message": "Olemme tehneet suuren päivityksen adrbrowsiel Rewardeille.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "voidaan käyttää Brave-palkinnoissa antamaan kannatusmaksuja suosikkisisällöntuottajillesi. BAT-pisteitä ei voi vaihtaa BATiin.",
+    "message": "voidaan käyttää adrbrowsiel-palkinnoissa antamaan kannatusmaksuja suosikkisisällöntuottajillesi. BAT-pisteitä ei voi vaihtaa BATiin.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Braven vahvistama kehittäjä",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsieln vahvistama kehittäjä",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Huomio",
@@ -193,15 +193,15 @@
     "message": "ok",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Voit nyt ansaita mainosten katselulla.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave-mainokset",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel-mainokset",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Osallistu automaattisesti",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Ole hyvä ja tee Brave-lompakostasi varmuuskopio.",
+    "message": "Ole hyvä ja tee adrbrowsiel-lompakostasi varmuuskopio.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Brave Rewards -tilisi odottaa talletusta",
+    "message": "adrbrowsiel Rewards -tilisi odottaa talletusta",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Ei tarpeeksi varoja",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Luodaan lompakkoa",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave Rewards on kohdannut ongelmia. Ole hyvä ja yritä myöhemmin uudelleen.",
+    "message": "adrbrowsiel Rewards on kohdannut ongelmia. Ole hyvä ja yritä myöhemmin uudelleen.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Tämä kehittäjä ei ole vielä rekisteröitynyt vastaanottamaan Brave-käyttäjien avustuksia. Kaikki lähettämäsi tipit pysyvät lompakossasi heidän vahvistukseensa saakka.",
+    "message": "Tämä kehittäjä ei ole vielä rekisteröitynyt vastaanottamaan adrbrowsiel-käyttäjien avustuksia. Kaikki lähettämäsi tipit pysyvät lompakossasi heidän vahvistukseensa saakka.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave Rewards on",
+    "message": "adrbrowsiel Rewards on",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "ja",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Ansaitse selaamalla!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Salli Brave -palkinnot",
+    "message": "Salli adrbrowsiel -palkinnot",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Klikkaamalla \"Salli Brave Rewards\" osoitat, että olet lukenut ja hyväksynyt",
+    "message": "Klikkaamalla \"Salli adrbrowsiel Rewards\" osoitat, että olet lukenut ja hyväksynyt",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Palkintosi on matkalla Brave-palkintokukkaroosi.",
+    "message": "Palkintosi on matkalla adrbrowsiel-palkintokukkaroosi.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Katkaise yhteys Brave-palkintoihin",
+    "message": "Katkaise yhteys adrbrowsiel-palkintoihin",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Tämä Braven vahvistettu tekijä ei ole vielä asettanut tiliään hyväksymään avustuksia Braven käyttäjiltä.",
+    "message": "Tämä adrbrowsieln vahvistettu tekijä ei ole vielä asettanut tiliään hyväksymään avustuksia adrbrowsieln käyttäjiltä.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Aloita Brave-palkintojen käyttäminen",
+    "message": "Aloita adrbrowsiel-palkintojen käyttäminen",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Tervetuloa Brave-palkintoihin!",
+    "message": "Tervetuloa adrbrowsiel-palkintoihin!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Braven yksityismainokset palkitsevat sinut maksutunnuksilla, joiden avulla voit tukea sisällönkehittäjiä perinteisistä mainoksista poikkeavalla tavalla ja pitää samalla kaikki henkilökohtaiset tietosi yksityisinä.",
+    "message": "adrbrowsieln yksityismainokset palkitsevat sinut maksutunnuksilla, joiden avulla voit tukea sisällönkehittäjiä perinteisistä mainoksista poikkeavalla tavalla ja pitää samalla kaikki henkilökohtaiset tietosi yksityisinä.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Braven yksityismainokset näkyvät normaaleina ilmoituksina. Voit päättää näiden mainosten esitystavan asetuksista käsin.",
+    "message": "adrbrowsieln yksityismainokset näkyvät normaaleina ilmoituksina. Voit päättää näiden mainosten esitystavan asetuksista käsin.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Käynnissä olevan kuun aikana Braven yksityismainosten kautta ansaitut maksutunnukset saapuvat seuraavan kuun 5. päivänä.",
+    "message": "Käynnissä olevan kuun aikana adrbrowsieln yksityismainosten kautta ansaitut maksutunnukset saapuvat seuraavan kuun 5. päivänä.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Brave Rewardien avulla voit tehdä verkosta turvallisemman paikan muille. Se vasta onkin upeaa!",
+    "message": "adrbrowsiel Rewardien avulla voit tehdä verkosta turvallisemman paikan muille. Se vasta onkin upeaa!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Kun vahvistat lompakkosi ja linkität sen bitFlyer-tiliin, voit helpommin tallentaa ja hallita Brave Rewardsin kautta ansaitsemiasi poletteja",
+    "message": "Kun vahvistat lompakkosi ja linkität sen bitFlyer-tiliin, voit helpommin tallentaa ja hallita adrbrowsiel Rewardsin kautta ansaitsemiasi poletteja",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Japanin Brave Rewards ottaa käyttöön uuden järjestelmän!",
+    "message": "Japanin adrbrowsiel Rewards ottaa käyttöön uuden järjestelmän!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

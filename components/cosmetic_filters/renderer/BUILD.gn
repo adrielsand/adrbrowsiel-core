@@ -2,8 +2,8 @@ import("//build/config/features.gni")
 
 source_set("renderer") {
   visibility = [
-    "//brave:child_dependencies",
-    "//brave/renderer/*",
+    "//adrbrowsiel:child_dependencies",
+    "//adrbrowsiel/renderer/*",
     "//chrome/renderer/*",
     "//components/content_settings/renderer/*",
   ]
@@ -17,8 +17,8 @@ source_set("renderer") {
 
   deps = [
     "//base",
-    "//brave/components/cosmetic_filters/common:mojom",
-    "//brave/components/cosmetic_filters/resources/data:generated_resources",
+    "//adrbrowsiel/components/cosmetic_filters/common:mojom",
+    "//adrbrowsiel/components/cosmetic_filters/resources/data:generated_resources",
     "//content/public/renderer",
     "//gin",
     "//mojo/public/cpp/bindings",

@@ -1,23 +1,23 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_COMPONENT_UPDATER_BROWSER_LOCAL_DATA_FILES_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_COMPONENT_UPDATER_BROWSER_LOCAL_DATA_FILES_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_COMPONENT_UPDATER_BROWSER_LOCAL_DATA_FILES_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_COMPONENT_UPDATER_BROWSER_LOCAL_DATA_FILES_SERVICE_H_
 
 #include <memory>
 #include <string>
 
 #include "base/files/file_path.h"
 #include "base/observer_list.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
 
-namespace brave_component_updater {
+namespace adrbrowsiel_component_updater {
 
 class LocalDataFilesObserver;
 
-const char kLocalDataFilesComponentName[] = "Brave Local Data Updater";
+const char kLocalDataFilesComponentName[] = "adrbrowsiel Local Data Updater";
 const char kLocalDataFilesComponentId[] = "afalakplffnnnlkncjhbmahjfjhmlkal";
 const char kLocalDataFilesComponentBase64PublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs4TIQXRCftLpGmQZxmm6"
@@ -30,9 +30,9 @@ const char kLocalDataFilesComponentBase64PublicKey[] =
 
 // The component in charge of delegating access to different DAT files
 // such as tracking protection.
-class LocalDataFilesService : public BraveComponent {
+class LocalDataFilesService : public adrbrowsielComponent {
  public:
-  explicit LocalDataFilesService(BraveComponent::Delegate* delegate);
+  explicit LocalDataFilesService(adrbrowsielComponent::Delegate* delegate);
   ~LocalDataFilesService() override;
   bool Start();
   bool IsInitialized() const { return initialized_; }
@@ -60,8 +60,8 @@ class LocalDataFilesService : public BraveComponent {
 
 // Creates the LocalDataFilesService
 std::unique_ptr<LocalDataFilesService>
-LocalDataFilesServiceFactory(BraveComponent::Delegate* delegate);
+LocalDataFilesServiceFactory(adrbrowsielComponent::Delegate* delegate);
 
-}  // namespace brave_component_updater
+}  // namespace adrbrowsiel_component_updater
 
-#endif  // BRAVE_COMPONENTS_BRAVE_COMPONENT_UPDATER_BROWSER_LOCAL_DATA_FILES_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_COMPONENT_UPDATER_BROWSER_LOCAL_DATA_FILES_SERVICE_H_

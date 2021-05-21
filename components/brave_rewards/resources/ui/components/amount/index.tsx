@@ -4,8 +4,8 @@
 
 import * as React from 'react'
 import { StyledWrapper, StyledAmount, StyledNumber, StyledLogo, StyledConverted, StyledTokens } from './style'
-import { getLocale } from 'brave-ui/helpers'
-import { BatColorIcon } from 'brave-ui/components/icons'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
+import { BatColorIcon } from 'adrbrowsiel-ui/components/icons'
 
 export interface Props {
   amount: string

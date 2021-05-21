@@ -1,24 +1,24 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_ads/browser/notification_helper_android.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/notification_helper_android.h"
 
 #include <string>
 
 #include "base/android/jni_string.h"
 #include "base/system/sys_info.h"
 #include "bat/ads/pref_names.h"
-#include "brave/browser/brave_ads/android/jni_headers/BraveAdsSignupDialog_jni.h"
-#include "brave/browser/brave_ads/android/jni_headers/BraveAds_jni.h"
-#include "brave/build/android/jni_headers/BraveNotificationSettingsBridge_jni.h"
-#include "brave/components/brave_ads/browser/background_helper.h"
-#include "brave/components/brave_ads/browser/features.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/android/jni_headers/adrbrowsielAdsSignupDialog_jni.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/android/jni_headers/adrbrowsielAds_jni.h"
+#include "adrbrowsiel/build/android/jni_headers/adrbrowsielNotificationSettingsBridge_jni.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/background_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/features.h"
 #include "chrome/android/chrome_jni_headers/NotificationSystemStatusUtil_jni.h"
 #include "chrome/browser/notifications/notification_channels_provider_android.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 namespace {
 
@@ -46,7 +46,7 @@ bool NotificationHelperAndroid::ShouldShowNotifications() {
 
   bool is_foreground = BackgroundHelper::GetInstance()->IsForeground();
   bool is_notification_channel_enabled =
-      IsBraveAdsNotificationChannelEnabled(is_foreground);
+      IsadrbrowsielAdsNotificationChannelEnabled(is_foreground);
   bool result = is_notifications_enabled && is_notification_channel_enabled;
   if (!is_foreground) {
     result = result && CanShowBackgroundNotifications();
@@ -63,7 +63,7 @@ bool NotificationHelperAndroid::ShowMyFirstAdNotification() {
       features::ShouldShowCustomAdNotifications();
 
   JNIEnv* env = base::android::AttachCurrentThread();
-  Java_BraveAdsSignupDialog_enqueueOnboardingNotificationNative(
+  Java_adrbrowsielAdsSignupDialog_enqueueOnboardingNotificationNative(
       env, should_show_custom_notifications);
 
   return true;
@@ -75,7 +75,7 @@ bool NotificationHelperAndroid::CanShowBackgroundNotifications() const {
   }
 
   JNIEnv* env = base::android::AttachCurrentThread();
-  return Java_BraveAdsSignupDialog_showAdsInBackground(env);
+  return Java_adrbrowsielAdsSignupDialog_showAdsInBackground(env);
 }
 
 NotificationHelperAndroid* NotificationHelperAndroid::GetInstanceImpl() {
@@ -88,7 +88,7 @@ NotificationHelper* NotificationHelper::GetInstanceImpl() {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-bool NotificationHelperAndroid::IsBraveAdsNotificationChannelEnabled(
+bool NotificationHelperAndroid::IsadrbrowsielAdsNotificationChannelEnabled(
     bool foreground_channel) const {
   if (GetOperatingSystemVersion() < kMinimumVersionForNotificationChannels) {
     return true;
@@ -96,10 +96,10 @@ bool NotificationHelperAndroid::IsBraveAdsNotificationChannelEnabled(
 
   JNIEnv* env = base::android::AttachCurrentThread();
   auto j_channel_id = (foreground_channel)
-                          ? Java_BraveAds_getBraveAdsChannelId(env)
-                          : Java_BraveAds_getBraveAdsBackgroundChannelId(env);
+                          ? Java_adrbrowsielAds_getadrbrowsielAdsChannelId(env)
+                          : Java_adrbrowsielAds_getadrbrowsielAdsBackgroundChannelId(env);
   auto status = static_cast<NotificationChannelStatus>(
-      Java_BraveNotificationSettingsBridge_getChannelStatus(env, j_channel_id));
+      Java_adrbrowsielNotificationSettingsBridge_getChannelStatus(env, j_channel_id));
 
   return (status == NotificationChannelStatus::ENABLED ||
           status == NotificationChannelStatus::UNAVAILABLE);
@@ -116,4 +116,4 @@ int NotificationHelperAndroid::GetOperatingSystemVersion() const {
   return major_version;
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

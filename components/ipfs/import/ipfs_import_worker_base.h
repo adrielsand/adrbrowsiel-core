@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_IPFS_IMPORT_IPFS_IMPORT_WORKER_BASE_H_
-#define BRAVE_COMPONENTS_IPFS_IMPORT_IPFS_IMPORT_WORKER_BASE_H_
+#ifndef adrbrowsiel_COMPONENTS_IPFS_IMPORT_IPFS_IMPORT_WORKER_BASE_H_
+#define adrbrowsiel_COMPONENTS_IPFS_IMPORT_IPFS_IMPORT_WORKER_BASE_H_
 
 #include <list>
 #include <memory>
@@ -16,8 +16,8 @@
 #include "base/containers/queue.h"
 #include "base/files/file_util.h"
 #include "base/memory/scoped_refptr.h"
-#include "brave/components/ipfs/import/imported_data.h"
-#include "brave/components/ipfs/ipfs_network_utils.h"
+#include "adrbrowsiel/components/ipfs/import/imported_data.h"
+#include "adrbrowsiel/components/ipfs/ipfs_network_utils.h"
 #include "components/version_info/channel.h"
 #include "content/public/browser/browser_context.h"
 #include "storage/browser/blob/blob_data_builder.h"
@@ -76,10 +76,10 @@ class IpfsImportWorkerBase {
 
   void OnImportAddComplete(std::unique_ptr<std::string> response_body);
 
-  void CreateBraveDirectory();
+  void CreateadrbrowsielDirectory();
   void OnImportDirectoryCreated(const std::string& directory,
                                 std::unique_ptr<std::string> response_body);
-  void CopyFilesToBraveDirectory();
+  void CopyFilesToadrbrowsielDirectory();
   void OnImportFilesMoved(std::unique_ptr<std::string> response_body);
   bool ParseResponseBody(const std::string& response_body,
                          ipfs::ImportedData* data);
@@ -98,4 +98,4 @@ class IpfsImportWorkerBase {
 
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_IPFS_IMPORT_IPFS_IMPORT_WORKER_BASE_H_
+#endif  // adrbrowsiel_COMPONENTS_IPFS_IMPORT_IPFS_IMPORT_WORKER_BASE_H_

@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { convertBalance, handleContributionAmount } from '../../../../brave_rewards/resources/extension/brave_rewards/utils'
+import { convertBalance, handleContributionAmount } from '../../../../adrbrowsiel_rewards/resources/extension/adrbrowsiel_rewards/utils'
 
 describe('Rewards Panel extension - Utils', () => {
   describe('convertBalance', () => {

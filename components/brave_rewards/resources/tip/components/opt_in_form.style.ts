@@ -13,8 +13,8 @@ export const root = styled.div`
 export const topBar = styled.div`
   flex: 0 0 auto;
   text-align: center;
-  background: var(--brave-palette-grey200);
-  color: var(--brave-palette-neutral600);
+  background: var(--adrbrowsiel-palette-grey200);
+  color: var(--adrbrowsiel-palette-neutral600);
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;

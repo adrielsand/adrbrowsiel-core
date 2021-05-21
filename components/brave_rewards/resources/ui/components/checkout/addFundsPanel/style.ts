@@ -3,8 +3,8 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import { BatColorIcon } from 'brave-ui/components/icons'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
+import { BatColorIcon } from 'adrbrowsiel-ui/components/icons'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 import { ComponentType } from 'react'
 
 export const Subtitle = styled.div`

@@ -3,38 +3,38 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Types
-import * as types from '../../../../brave_extension/extension/brave_extension/constants/shieldsPanelTypes'
-import * as windowTypes from '../../../../brave_extension/extension/brave_extension/constants/windowTypes'
-import * as tabTypes from '../../../../brave_extension/extension/brave_extension/constants/tabTypes'
-import * as webNavigationTypes from '../../../../brave_extension/extension/brave_extension/constants/webNavigationTypes'
-import { State } from '../../../../brave_extension/extension/brave_extension/types/state/shieldsPannelState'
-import { ShieldDetails } from '../../../../brave_extension/extension/brave_extension/types/actions/shieldsPanelActions'
+import * as types from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/shieldsPanelTypes'
+import * as windowTypes from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/windowTypes'
+import * as tabTypes from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/tabTypes'
+import * as webNavigationTypes from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/webNavigationTypes'
+import { State } from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/state/shieldsPannelState'
+import { ShieldDetails } from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/actions/shieldsPanelActions'
 
 // APIs
-import * as shieldsAPI from '../../../../brave_extension/extension/brave_extension/background/api/shieldsAPI'
-import * as tabsAPI from '../../../../brave_extension/extension/brave_extension/background/api/tabsAPI'
-import * as browserActionAPI from '../../../../brave_extension/extension/brave_extension/background/api/browserActionAPI'
+import * as shieldsAPI from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/api/shieldsAPI'
+import * as tabsAPI from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/api/tabsAPI'
+import * as browserActionAPI from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/api/browserActionAPI'
 
 // Reducers
-import shieldsPanelReducer from '../../../../brave_extension/extension/brave_extension/background/reducers/shieldsPanelReducer'
+import shieldsPanelReducer from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/reducers/shieldsPanelReducer'
 
 // State helpers
-import * as shieldsPanelState from '../../../../brave_extension/extension/brave_extension/state/shieldsPanelState'
-import * as noScriptState from '../../../../brave_extension/extension/brave_extension/state/noScriptState'
+import * as shieldsPanelState from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/state/shieldsPanelState'
+import * as noScriptState from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/state/noScriptState'
 
 // Utils
 import { initialState } from '../../../testData'
 import * as deepFreeze from 'deep-freeze-node'
-import * as actions from '../../../../brave_extension/extension/brave_extension/actions/shieldsPanelActions'
+import * as actions from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/actions/shieldsPanelActions'
 
-const origin = 'https://brave.com'
+const origin = 'https://adrbrowsiel.com'
 const windowId = 1
 const tabId = 2
 
 const details: ShieldDetails = {
   id: tabId,
   origin,
-  hostname: 'brave.com',
+  hostname: 'adrbrowsiel.com',
   httpUpgradableResources: 'block',
   javascript: 'block',
   trackers: 'block',
@@ -70,7 +70,7 @@ const state: State = deepFreeze({
       ...details,
       adsBlocked: 0,
       controlsOpen: true,
-      braveShields: 'allow',
+      adrbrowsielShields: 'allow',
       trackersBlocked: 0,
       httpsRedirected: 0,
       javascriptBlocked: 0,
@@ -88,7 +88,7 @@ const state: State = deepFreeze({
   currentWindowId: 1
 })
 
-describe('braveShieldsPanelReducer', () => {
+describe('adrbrowsielShieldsPanelReducer', () => {
   it('should handle initial state', () => {
     // avoid printing error logs to the test console.
     // this is expected since state is undefined but we want to avoid polluting the test logs
@@ -116,7 +116,7 @@ describe('braveShieldsPanelReducer', () => {
       shieldsPanelReducer(initialState.shieldsPanel, {
         type: webNavigationTypes.ON_COMMITTED,
         tabId: tabId,
-        url: 'https://www.brave.com',
+        url: 'https://www.adrbrowsiel.com',
         isMainFrame: true
       })
       expect(spy).toBeCalledTimes(1)
@@ -126,7 +126,7 @@ describe('braveShieldsPanelReducer', () => {
       shieldsPanelReducer(initialState.shieldsPanel, {
         type: webNavigationTypes.ON_COMMITTED,
         tabId: tabId,
-        url: 'https://www.brave.com',
+        url: 'https://www.adrbrowsiel.com',
         isMainFrame: false
       })
       expect(spy).not.toBeCalled()
@@ -135,18 +135,18 @@ describe('braveShieldsPanelReducer', () => {
       shieldsPanelReducer(initialState.shieldsPanel, {
         type: webNavigationTypes.ON_COMMITTED,
         tabId: tabId,
-        url: 'https://www.brave.com',
+        url: 'https://www.adrbrowsiel.com',
         isMainFrame: true
       })
       expect(resetNoScriptInfoSpy).toBeCalledTimes(1)
       expect(resetNoScriptInfoSpy.mock.calls[0][1]).toBe(tabId)
-      expect(resetNoScriptInfoSpy.mock.calls[0][2]).toBe('https://www.brave.com')
+      expect(resetNoScriptInfoSpy.mock.calls[0][2]).toBe('https://www.adrbrowsiel.com')
     })
     it('does not call resetNoScriptInfo when isMainFrame is false', () => {
       shieldsPanelReducer(initialState.shieldsPanel, {
         type: webNavigationTypes.ON_COMMITTED,
         tabId: tabId,
-        url: 'https://www.brave.com',
+        url: 'https://www.adrbrowsiel.com',
         isMainFrame: false
       })
       expect(resetNoScriptInfoSpy).not.toBeCalled()
@@ -155,7 +155,7 @@ describe('braveShieldsPanelReducer', () => {
       shieldsPanelReducer(initialState.shieldsPanel, {
         type: webNavigationTypes.ON_COMMITTED,
         tabId: tabId,
-        url: 'https://www.brave.com',
+        url: 'https://www.adrbrowsiel.com',
         isMainFrame: true
       })
       expect(spy).toBeCalledTimes(1)
@@ -165,7 +165,7 @@ describe('braveShieldsPanelReducer', () => {
       shieldsPanelReducer(initialState.shieldsPanel, {
         type: webNavigationTypes.ON_COMMITTED,
         tabId: tabId,
-        url: 'https://www.brave.com',
+        url: 'https://www.adrbrowsiel.com',
         isMainFrame: false
       })
       expect(spy).not.toBeCalled()
@@ -202,7 +202,7 @@ describe('braveShieldsPanelReducer', () => {
         1: tabId
       },
       tabs: {
-        [tabId]: { url: 'https://brave.com' }
+        [tabId]: { url: 'https://adrbrowsiel.com' }
       }
     })
     beforeEach(() => {
@@ -313,22 +313,22 @@ describe('braveShieldsPanelReducer', () => {
 
   describe('SHIELDS_TOGGLED', () => {
     let reloadTabSpy: jest.SpyInstance
-    let setAllowBraveShieldsSpy: jest.SpyInstance
+    let setAllowadrbrowsielShieldsSpy: jest.SpyInstance
     beforeEach(() => {
       reloadTabSpy = jest.spyOn(tabsAPI, 'reloadTab')
-      setAllowBraveShieldsSpy = jest.spyOn(shieldsAPI, 'setAllowBraveShields')
+      setAllowadrbrowsielShieldsSpy = jest.spyOn(shieldsAPI, 'setAllowadrbrowsielShields')
     })
     afterEach(() => {
       reloadTabSpy.mockRestore()
-      setAllowBraveShieldsSpy.mockRestore()
+      setAllowadrbrowsielShieldsSpy.mockRestore()
     })
-    it('should call setAllowBraveShields', () => {
+    it('should call setAllowadrbrowsielShields', () => {
       expect(
         shieldsPanelReducer(state, {
           type: types.SHIELDS_TOGGLED,
           setting: 'allow'
         })).toEqual(state)
-      expect(setAllowBraveShieldsSpy).toBeCalledWith(origin, 'allow')
+      expect(setAllowadrbrowsielShieldsSpy).toBeCalledWith(origin, 'allow')
     })
   })
 
@@ -455,7 +455,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'javascript',
           tabId: 2,
-          subresource: 'https://test.brave.com/index.js'
+          subresource: 'https://test.adrbrowsiel.com/index.js'
         }
       })
 
@@ -467,7 +467,7 @@ describe('braveShieldsPanelReducer', () => {
             ...state.tabs[2],
             javascriptBlocked: 1,
             noScriptInfo: {
-              'https://test.brave.com/index.js': { actuallyBlocked: true, willBlock: true, userInteracted: false }
+              'https://test.adrbrowsiel.com/index.js': { actuallyBlocked: true, willBlock: true, userInteracted: false }
             }
           }
         }
@@ -525,7 +525,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'fingerprinting',
           tabId: 2,
-          subresource: 'https://test.brave.com'
+          subresource: 'https://test.adrbrowsiel.com'
         }
       })
       expect(nextState).toEqual({
@@ -535,7 +535,7 @@ describe('braveShieldsPanelReducer', () => {
           2: {
             ...state.tabs[2],
             fingerprintingBlocked: 1,
-            fingerprintingBlockedResources: [ 'https://test.brave.com' ]
+            fingerprintingBlockedResources: [ 'https://test.adrbrowsiel.com' ]
           }
         }
       })
@@ -546,7 +546,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'shieldsAds',
           tabId: 2,
-          subresource: 'https://test.brave.com'
+          subresource: 'https://test.adrbrowsiel.com'
         }
       })
       expect(nextState).toEqual({
@@ -556,7 +556,7 @@ describe('braveShieldsPanelReducer', () => {
           2: {
             ...state.tabs[2],
             adsBlocked: 1,
-            adsBlockedResources: [ 'https://test.brave.com' ]
+            adsBlockedResources: [ 'https://test.adrbrowsiel.com' ]
           }
         }
       })
@@ -566,7 +566,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'shieldsAds',
           tabId: 2,
-          subresource: 'https://test2.brave.com'
+          subresource: 'https://test2.adrbrowsiel.com'
         }
       })
       expect(nextState).toEqual({
@@ -577,8 +577,8 @@ describe('braveShieldsPanelReducer', () => {
             ...state.tabs[2],
             adsBlocked: 2,
             adsBlockedResources: [
-              'https://test.brave.com',
-              'https://test2.brave.com'
+              'https://test.adrbrowsiel.com',
+              'https://test2.adrbrowsiel.com'
             ]
           }
         }
@@ -591,11 +591,11 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'shieldsAds',
           tabId: tabId,
-          subresource: 'https://test.brave.com'
+          subresource: 'https://test.adrbrowsiel.com'
         }
       })
       expect(nextState.tabs[tabId].adsBlockedResources).toEqual(
-        [ 'https://test.brave.com' ]
+        [ 'https://test.adrbrowsiel.com' ]
       )
 
       nextState = shieldsPanelReducer(nextState, {
@@ -603,13 +603,13 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'shieldsAds',
           tabId: tabId,
-          subresource: 'https://test2.brave.com'
+          subresource: 'https://test2.adrbrowsiel.com'
         }
       })
       expect(nextState.tabs[tabId].adsBlockedResources).toEqual(
         [
-          'https://test.brave.com',
-          'https://test2.brave.com'
+          'https://test.adrbrowsiel.com',
+          'https://test2.adrbrowsiel.com'
         ]
       )
 
@@ -618,13 +618,13 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'shieldsAds',
           tabId: tabId,
-          subresource: 'https://test2.brave.com'
+          subresource: 'https://test2.adrbrowsiel.com'
         }
       })
       expect(nextState.tabs[tabId].adsBlockedResources).toEqual(
         [
-          'https://test.brave.com',
-          'https://test2.brave.com'
+          'https://test.adrbrowsiel.com',
+          'https://test2.adrbrowsiel.com'
         ]
       )
     })
@@ -634,7 +634,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'shieldsAds',
           tabId: 2,
-          subresource: 'https://test.brave.com'
+          subresource: 'https://test.adrbrowsiel.com'
         }
       }))
       expect(nextState).toEqual({
@@ -645,7 +645,7 @@ describe('braveShieldsPanelReducer', () => {
             ...state.tabs[2],
             adsBlocked: 1,
             adsBlockedResources: [
-              'https://test.brave.com'
+              'https://test.adrbrowsiel.com'
             ]
           }
         }
@@ -656,7 +656,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'shieldsAds',
           tabId: 3,
-          subresource: 'https://test.brave.com'
+          subresource: 'https://test.adrbrowsiel.com'
         }
       })
 
@@ -667,7 +667,7 @@ describe('braveShieldsPanelReducer', () => {
           2: {
             ...state.tabs[2],
             adsBlocked: 1,
-            adsBlockedResources: [ 'https://test.brave.com' ]
+            adsBlockedResources: [ 'https://test.adrbrowsiel.com' ]
           },
           3: {
             fingerprintingBlocked: 0,
@@ -679,7 +679,7 @@ describe('braveShieldsPanelReducer', () => {
             trackersBlocked: 0,
             trackersBlockedResources: [],
             adsBlocked: 1,
-            adsBlockedResources: [ 'https://test.brave.com' ]
+            adsBlockedResources: [ 'https://test.adrbrowsiel.com' ]
           }
         }
       })
@@ -690,7 +690,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'shieldsAds',
           tabId: 2,
-          subresource: 'https://test.brave.com'
+          subresource: 'https://test.adrbrowsiel.com'
         }
       }))
       expect(nextState).toEqual({
@@ -700,7 +700,7 @@ describe('braveShieldsPanelReducer', () => {
           2: {
             ...state.tabs[2],
             adsBlocked: 1,
-            adsBlockedResources: [ 'https://test.brave.com' ]
+            adsBlockedResources: [ 'https://test.adrbrowsiel.com' ]
           }
         }
       })
@@ -710,7 +710,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'trackers',
           tabId: 2,
-          subresource: 'https://test.brave.com'
+          subresource: 'https://test.adrbrowsiel.com'
         }
       })
 
@@ -722,8 +722,8 @@ describe('braveShieldsPanelReducer', () => {
             ...state.tabs[2],
             adsBlocked: 1,
             trackersBlocked: 1,
-            trackersBlockedResources: [ 'https://test.brave.com' ],
-            adsBlockedResources: [ 'https://test.brave.com' ]
+            trackersBlockedResources: [ 'https://test.adrbrowsiel.com' ],
+            adsBlockedResources: [ 'https://test.adrbrowsiel.com' ]
           }
         }
       })
@@ -733,7 +733,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'httpUpgradableResources',
           tabId: 2,
-          subresource: 'https://test.brave.com'
+          subresource: 'https://test.adrbrowsiel.com'
         }
       })
       expect(nextState).toEqual({
@@ -745,9 +745,9 @@ describe('braveShieldsPanelReducer', () => {
             adsBlocked: 1,
             trackersBlocked: 1,
             httpsRedirected: 1,
-            trackersBlockedResources: [ 'https://test.brave.com' ],
-            adsBlockedResources: [ 'https://test.brave.com' ],
-            httpsRedirectedResources: [ 'https://test.brave.com' ]
+            trackersBlockedResources: [ 'https://test.adrbrowsiel.com' ],
+            adsBlockedResources: [ 'https://test.adrbrowsiel.com' ],
+            httpsRedirectedResources: [ 'https://test.adrbrowsiel.com' ]
           }
         }
       })
@@ -756,7 +756,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'javascript',
           tabId: 2,
-          subresource: 'https://test.brave.com/index.js'
+          subresource: 'https://test.adrbrowsiel.com/index.js'
         }
       })
       expect(nextState).toEqual({
@@ -770,11 +770,11 @@ describe('braveShieldsPanelReducer', () => {
             httpsRedirected: 1,
             javascriptBlocked: 1,
             noScriptInfo: {
-              'https://test.brave.com/index.js': { actuallyBlocked: true, willBlock: true, userInteracted: false }
+              'https://test.adrbrowsiel.com/index.js': { actuallyBlocked: true, willBlock: true, userInteracted: false }
             },
-            trackersBlockedResources: [ 'https://test.brave.com' ],
-            adsBlockedResources: [ 'https://test.brave.com' ],
-            httpsRedirectedResources: [ 'https://test.brave.com' ]
+            trackersBlockedResources: [ 'https://test.adrbrowsiel.com' ],
+            adsBlockedResources: [ 'https://test.adrbrowsiel.com' ],
+            httpsRedirectedResources: [ 'https://test.adrbrowsiel.com' ]
           }
         }
       })
@@ -783,7 +783,7 @@ describe('braveShieldsPanelReducer', () => {
         details: {
           blockType: 'fingerprinting',
           tabId: 2,
-          subresource: 'https://test.brave.com'
+          subresource: 'https://test.adrbrowsiel.com'
         }
       })
       expect(nextState).toEqual({
@@ -798,12 +798,12 @@ describe('braveShieldsPanelReducer', () => {
             javascriptBlocked: 1,
             fingerprintingBlocked: 1,
             noScriptInfo: {
-              'https://test.brave.com/index.js': { actuallyBlocked: true, willBlock: true, userInteracted: false }
+              'https://test.adrbrowsiel.com/index.js': { actuallyBlocked: true, willBlock: true, userInteracted: false }
             },
-            trackersBlockedResources: [ 'https://test.brave.com' ],
-            adsBlockedResources: [ 'https://test.brave.com' ],
-            fingerprintingBlockedResources: [ 'https://test.brave.com' ],
-            httpsRedirectedResources: [ 'https://test.brave.com' ]
+            trackersBlockedResources: [ 'https://test.adrbrowsiel.com' ],
+            adsBlockedResources: [ 'https://test.adrbrowsiel.com' ],
+            fingerprintingBlockedResources: [ 'https://test.adrbrowsiel.com' ],
+            httpsRedirectedResources: [ 'https://test.adrbrowsiel.com' ]
           }
         }
       })

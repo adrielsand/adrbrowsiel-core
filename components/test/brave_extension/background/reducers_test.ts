@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import reducers from '../../../brave_extension/extension/brave_extension/background/reducers'
+import reducers from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/reducers'
 import { initialState } from '../../testData'
 
 describe('reducers test', () => {

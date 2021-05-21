@@ -1,13 +1,13 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <memory>
 
-#include "brave/components/ntp_widget_utils/browser/ntp_widget_utils_region.h"
+#include "adrbrowsiel/components/ntp_widget_utils/browser/ntp_widget_utils_region.h"
 
-#include "brave/components/l10n/browser/locale_helper_mock.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper_mock.h"
 #include "chrome/test/base/testing_browser_process.h"
 #include "chrome/test/base/testing_profile.h"
 #include "components/country_codes/country_codes.h"
@@ -15,7 +15,7 @@
 #include "content/public/test/browser_task_environment.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=NTPWidgetUtilsRegionUtilTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=NTPWidgetUtilsRegionUtilTest.*
 
 using ::testing::NiceMock;
 using ::testing::Return;
@@ -24,8 +24,8 @@ class NTPWidgetUtilsRegionUtilTest : public testing::Test {
  public:
   void SetMockLocale(const std::string& locale) {
     locale_helper_mock_ =
-        std::make_unique<NiceMock<brave_l10n::LocaleHelperMock>>();
-    brave_l10n::LocaleHelper::GetInstance()->set_for_testing(
+        std::make_unique<NiceMock<adrbrowsiel_l10n::LocaleHelperMock>>();
+    adrbrowsiel_l10n::LocaleHelper::GetInstance()->set_for_testing(
         locale_helper_mock_.get());
     ON_CALL(*locale_helper_mock_, GetLocale()).WillByDefault(Return(locale));
   }
@@ -41,7 +41,7 @@ class NTPWidgetUtilsRegionUtilTest : public testing::Test {
 
   content::BrowserTaskEnvironment task_environment_;
   std::unique_ptr<TestingProfile> profile_;
-  std::unique_ptr<brave_l10n::LocaleHelperMock> locale_helper_mock_;
+  std::unique_ptr<adrbrowsiel_l10n::LocaleHelperMock> locale_helper_mock_;
 };
 
 TEST_F(NTPWidgetUtilsRegionUtilTest, TestRegionAllowedAllowList) {

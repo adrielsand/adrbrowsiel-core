@@ -13,7 +13,7 @@ import {
 } from './style'
 import { List, ModalContribute, NextContribution, TableContribute, Tokens } from '../../ui/components'
 import { BoxMobile, SelectMobile } from '../../ui/components/mobile'
-import { Column, Grid, ControlWrapper, Checkbox } from 'brave-ui/components'
+import { Column, Grid, ControlWrapper, Checkbox } from 'adrbrowsiel-ui/components'
 import { Provider } from '../../ui/components/profile'
 
 // Utils

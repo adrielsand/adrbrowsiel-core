@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,16 +8,16 @@
 
 #include "base/containers/flat_map.h"
 #include "base/test/bind.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_helper.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_contribution.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_promotion.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_response.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_contribution.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_promotion.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "chrome/test/base/testing_profile.h"
@@ -27,7 +27,7 @@
 #include "content/public/test/browser_test_utils.h"
 #include "net/dns/mock_host_resolver.h"
 
-// npm run test -- brave_browser_tests --filter=RewardsContributionBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=RewardsContributionBrowserTest.*
 
 namespace rewards_browsertest {
 
@@ -55,10 +55,10 @@ class RewardsContributionBrowserTest : public InProcessBrowserTest {
     ASSERT_TRUE(https_server_->Start());
 
     // Rewards service
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     auto* profile = browser()->profile();
-    rewards_service_ = static_cast<brave_rewards::RewardsServiceImpl*>(
-        brave_rewards::RewardsServiceFactory::GetForProfile(profile));
+    rewards_service_ = static_cast<adrbrowsiel_rewards::RewardsServiceImpl*>(
+        adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile));
 
     // Response mock
     base::ScopedAllowBlockingForTesting allow_blocking;
@@ -117,7 +117,7 @@ class RewardsContributionBrowserTest : public InProcessBrowserTest {
         "[data-test-id='unverified-check-button']");
   }
 
-  brave_rewards::RewardsServiceImpl* rewards_service_;
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;
   std::unique_ptr<net::EmbeddedTestServer> https_server_;
   std::unique_ptr<RewardsBrowserTestContribution> contribution_;
   std::unique_ptr<RewardsBrowserTestPromotion> promotion_;
@@ -233,7 +233,7 @@ IN_PROC_BROWSER_TEST_F(
   order->order_id = "a38b211b-bf78-42c8-9479-b11e92e3a76c";
   order->total_amount = 20;
   order->merchant_id = "";
-  order->location = "brave.com";
+  order->location = "adrbrowsiel.com";
   order->items = std::move(items);
   response_->SetSKUOrder(std::move(order));
 
@@ -311,7 +311,7 @@ IN_PROC_BROWSER_TEST_F(RewardsContributionBrowserTest,
       rewards_browsertest_util::TipAction::OneTime, 1, 0, 1.25);
 }
 
-// https://github.com/brave/brave-browser/issues/12607
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12607
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_TipUnverifiedPublisher) {
@@ -320,11 +320,11 @@ IN_PROC_BROWSER_TEST_F(
   contribution_->AddBalance(promotion_->ClaimPromotionViaCode());
 
   contribution_->TipPublisher(
-      rewards_browsertest_util::GetUrl(https_server_.get(), "brave.com"),
+      rewards_browsertest_util::GetUrl(https_server_.get(), "adrbrowsiel.com"),
       rewards_browsertest_util::TipAction::OneTime);
 }
 
-// Enable when https://github.com/brave/brave-browser/issues/12556 is fixed
+// Enable when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12556 is fixed
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_RecurringTipForVerifiedPublisher) {
@@ -339,7 +339,7 @@ IN_PROC_BROWSER_TEST_F(
       1);
 }
 
-// Enable when https://github.com/brave/brave-browser/issues/12295 is fixed
+// Enable when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12295 is fixed
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_RecurringTipForUnverifiedPublisher) {
@@ -349,7 +349,7 @@ IN_PROC_BROWSER_TEST_F(
   contribution_->AddBalance(promotion_->ClaimPromotionViaCode());
 
   contribution_->TipPublisher(
-      rewards_browsertest_util::GetUrl(https_server_.get(), "brave.com"),
+      rewards_browsertest_util::GetUrl(https_server_.get(), "adrbrowsiel.com"),
       rewards_browsertest_util::TipAction::SetMonthly);
 }
 
@@ -389,11 +389,11 @@ IN_PROC_BROWSER_TEST_F(
   response_->SetAlternativePublisherList(true);
   // Tip unverified publisher
   contribution_->TipViaCode(
-      "brave.com",
+      "adrbrowsiel.com",
       1.0,
       ledger::type::PublisherStatus::NOT_VERIFIED);
   contribution_->TipViaCode(
-      "brave.com",
+      "adrbrowsiel.com",
       5.0,
       ledger::type::PublisherStatus::NOT_VERIFIED);
   contribution_->TipViaCode(
@@ -485,7 +485,7 @@ IN_PROC_BROWSER_TEST_F(
   contribution_->VerifyTip(amount, true, false, true);
 }
 
-// Enable when https://github.com/brave/brave-browser/issues/12555 is fixed
+// Enable when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12555 is fixed
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_MultipleTipsProduceMultipleFeesWithVerifiedWallet) {
@@ -583,7 +583,7 @@ IN_PROC_BROWSER_TEST_F(
       "Have you tipped your favorite content creator today?");
 }
 
-// https://github.com/brave/brave-browser/issues/12985
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12985
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_TipConnectedPublisherVerified) {
@@ -665,7 +665,7 @@ IN_PROC_BROWSER_TEST_F(
                             true);
 
   context_helper_->VisitPublisher(
-      rewards_browsertest_util::GetUrl(https_server_.get(), "brave.com"),
+      rewards_browsertest_util::GetUrl(https_server_.get(), "adrbrowsiel.com"),
       !verified);
 
   // Trigger contribution process
@@ -771,7 +771,7 @@ IN_PROC_BROWSER_TEST_F(
   order->order_id = "a38b211b-bf78-42c8-9479-b11e92e3a76c";
   order->total_amount = 20;
   order->merchant_id = "";
-  order->location = "brave.com";
+  order->location = "adrbrowsiel.com";
   order->items = std::move(items);
   response_->SetSKUOrder(std::move(order));
 

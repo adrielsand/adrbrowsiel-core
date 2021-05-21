@@ -23,7 +23,7 @@ import {
   SettingsAdvancedIcon,
   BookmarkBook,
   HistoryIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 import TogetherTooltip from './togetherTooltip'
 import TogetherIcon from './togetherTooltip/togetherIcon'
 
@@ -44,7 +44,7 @@ function TogetherItem (props: Props) {
   if (!props.togetherPromptDismissed) {
     return (
       <TogetherTooltip onClose={props.onDismissTogetherPrompt}>
-        <IconLink title={getLocale('togetherPageTitle')} href='https://together.brave.com/widget'>
+        <IconLink title={getLocale('togetherPageTitle')} href='https://together.adrbrowsiel.com/widget'>
           <TogetherIcon />
         </IconLink>
       </TogetherTooltip>
@@ -52,7 +52,7 @@ function TogetherItem (props: Props) {
   }
 
   return (
-    <IconLink title={getLocale('togetherPageTitle')} href='https://together.brave.com/widget'>
+    <IconLink title={getLocale('togetherPageTitle')} href='https://together.adrbrowsiel.com/widget'>
       <TogetherIcon />
     </IconLink>
   )

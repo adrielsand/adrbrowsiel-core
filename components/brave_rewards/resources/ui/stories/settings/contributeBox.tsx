@@ -13,7 +13,7 @@ import {
   TableContribute,
   Tokens
 } from '../../components'
-import { Column, Grid, Select, ControlWrapper, Checkbox } from 'brave-ui/components'
+import { Column, Grid, Select, ControlWrapper, Checkbox } from 'adrbrowsiel-ui/components'
 import { DetailRow as ContributeDetailRow } from '../../components/tableContribute'
 import NextContribution from '../../components/nextContribution'
 
@@ -21,7 +21,7 @@ import NextContribution from '../../components/nextContribution'
 import locale from './fakeLocale'
 
 // Assets
-const favicon = require('../img/brave-favicon.png')
+const favicon = require('../img/adrbrowsiel-favicon.png')
 const buzz = require('../img/buzz.jpg')
 const ddgo = require('../img/ddgo.jpg')
 const guardian = require('../img/guardian.jpg')
@@ -101,7 +101,7 @@ class ContributeBox extends React.Component<{}, State> {
           provider: 'youtube',
           src: favicon
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 40,
         onRemove: doNothing
       },
@@ -111,7 +111,7 @@ class ContributeBox extends React.Component<{}, State> {
           verified: true,
           src: ddgo
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 20,
         onRemove: doNothing
       },
@@ -121,7 +121,7 @@ class ContributeBox extends React.Component<{}, State> {
           verified: false,
           src: buzz
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 10,
         onRemove: doNothing
       },
@@ -131,7 +131,7 @@ class ContributeBox extends React.Component<{}, State> {
           verified: true,
           src: guardian
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 5,
         onRemove: doNothing
       },
@@ -141,7 +141,7 @@ class ContributeBox extends React.Component<{}, State> {
           verified: false,
           src: wiki
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         attention: 4,
         onRemove: doNothing
       }

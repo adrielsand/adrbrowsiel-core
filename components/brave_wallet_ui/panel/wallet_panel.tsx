@@ -1,4 +1,4 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -9,26 +9,26 @@ import { Provider } from 'react-redux'
 
 import walletDarkTheme from '../theme/wallet-dark'
 import walletLightTheme from '../theme/wallet-light'
-import BraveCoreThemeProvider from '../../common/BraveCoreThemeProvider'
+import adrbrowsielCoreThemeProvider from '../../common/adrbrowsielCoreThemeProvider'
 import store from './store'
 import * as WalletPanelActions from './actions/wallet_panel_actions'
 import Container from './container'
 
 function App () {
-  const [initialThemeType, setInitialThemeType] = React.useState<chrome.braveTheme.ThemeType>()
+  const [initialThemeType, setInitialThemeType] = React.useState<chrome.adrbrowsielTheme.ThemeType>()
   React.useEffect(() => {
-    chrome.braveTheme.getBraveThemeType(setInitialThemeType)
+    chrome.adrbrowsielTheme.getadrbrowsielThemeType(setInitialThemeType)
   }, [])
   return (
     <Provider store={store}>
       {initialThemeType &&
-      <BraveCoreThemeProvider
+      <adrbrowsielCoreThemeProvider
         initialThemeType={initialThemeType}
         dark={walletDarkTheme}
         light={walletLightTheme}
       >
         <Container />
-      </BraveCoreThemeProvider>
+      </adrbrowsielCoreThemeProvider>
       }
     </Provider>
   )

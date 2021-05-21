@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/domain_block_navigation_throttle.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_navigation_throttle.h"
 
 #include <memory>
 #include <utility>
@@ -12,13 +12,13 @@
 #include "base/metrics/histogram_macros.h"
 #include "base/task/post_task.h"
 #include "base/threading/thread_task_runner_handle.h"
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
-#include "brave/components/brave_shields/browser/domain_block_controller_client.h"
-#include "brave/components/brave_shields/browser/domain_block_page.h"
-#include "brave/components/brave_shields/browser/domain_block_tab_storage.h"
-#include "brave/components/brave_shields/common/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_controller_client.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_page.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_tab_storage.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/features.h"
 #include "components/content_settings/core/browser/host_content_settings_map.h"
 #include "components/prefs/pref_service.h"
 #include "components/security_interstitials/content/security_interstitial_tab_helper.h"
@@ -33,9 +33,9 @@
 namespace {
 
 bool ShouldBlockDomainOnTaskRunner(
-    brave_shields::AdBlockService* ad_block_service,
+    adrbrowsiel_shields::AdBlockService* ad_block_service,
     const GURL& url) {
-  SCOPED_UMA_HISTOGRAM_TIMER("Brave.DomainBlock.ShouldBlock");
+  SCOPED_UMA_HISTOGRAM_TIMER("adrbrowsiel.DomainBlock.ShouldBlock");
   bool did_match_exception = false;
   bool did_match_rule = false;
   bool did_match_important = false;
@@ -48,7 +48,7 @@ bool ShouldBlockDomainOnTaskRunner(
 
 }  // namespace
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 // static
 std::unique_ptr<DomainBlockNavigationThrottle>
@@ -60,7 +60,7 @@ DomainBlockNavigationThrottle::MaybeCreateThrottleFor(
     const std::string& locale) {
   if (!ad_block_service || !ad_block_custom_filters_service)
     return nullptr;
-  if (!base::FeatureList::IsEnabled(brave_shields::features::kBraveDomainBlock))
+  if (!base::FeatureList::IsEnabled(adrbrowsiel_shields::features::kadrbrowsielDomainBlock))
     return nullptr;
   return std::make_unique<DomainBlockNavigationThrottle>(
       navigation_handle, ad_block_service, ad_block_custom_filters_service,
@@ -99,8 +99,8 @@ DomainBlockNavigationThrottle::WillStartRequest() {
 
   GURL request_url = handle->GetURL();
 
-  // Maybe don't block based on Brave Shields settings
-  if (!brave_shields::ShouldDoDomainBlocking(content_settings_, request_url))
+  // Maybe don't block based on adrbrowsiel Shields settings
+  if (!adrbrowsiel_shields::ShouldDoDomainBlocking(content_settings_, request_url))
     return content::NavigationThrottle::PROCEED;
 
   // If user has just chosen to proceed on our interstitial, don't show
@@ -183,4 +183,4 @@ const char* DomainBlockNavigationThrottle::GetNameForLogging() {
   return "DomainBlockNavigationThrottle";
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

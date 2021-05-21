@@ -1,10 +1,10 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 import * as React from 'react'
-import * as BraveTodayElement from './default'
+import * as adrbrowsielTodayElement from './default'
 import CardOptIn from './cards/cardOptIn'
 import CardLoading from './cards/cardLoading'
 import { ReadFeedItemPayload } from '../../../actions/today_actions'
@@ -12,16 +12,16 @@ const Content = React.lazy(() => import('./content'))
 
 export type OnReadFeedItem = (args: ReadFeedItemPayload) => any
 export type OnSetPublisherPref = (publisherId: string, enabled: boolean) => any
-export type OnPromotedItemViewed = (item: BraveToday.FeedItem) => any
+export type OnPromotedItemViewed = (item: adrbrowsielToday.FeedItem) => any
 
 export type Props = {
   isFetching: boolean
   hasInteracted: boolean
   isUpdateAvailable: boolean
   isOptedIn: boolean
-  feed?: BraveToday.Feed
-  publishers?: BraveToday.Publishers
-  articleToScrollTo?: BraveToday.FeedItem
+  feed?: adrbrowsielToday.Feed
+  publishers?: adrbrowsielToday.Publishers
+  articleToScrollTo?: adrbrowsielToday.FeedItem
   displayedPageCount: number
   onInteracting: () => any
   onReadFeedItem: OnReadFeedItem
@@ -29,7 +29,7 @@ export type Props = {
   onFeedItemViewedCountChanged: (feedItemsViewed: number) => any
   onSetPublisherPref: OnSetPublisherPref
   onAnotherPageNeeded: () => any
-  onCustomizeBraveToday: () => any
+  onCustomizeadrbrowsielToday: () => any
   onRefresh: () => any
   onCheckForUpdate: () => any
   onOptIn: () => any
@@ -40,7 +40,7 @@ export const attributeNameCardCount = 'data-today-card-count'
 
 const intersectionOptions = { root: null, rootMargin: '0px', threshold: 0.25 }
 
-export default function BraveTodayContent (props: Props) {
+export default function adrbrowsielTodayContent (props: Props) {
   const handleHitsViewportObserver = React.useCallback<IntersectionObserverCallback>((entries) => {
     // When the scroll trigger, hits the viewport, notify externally, and since
     // we won't get updated with that result, change our internal state.
@@ -83,7 +83,7 @@ export default function BraveTodayContent (props: Props) {
     (props.hasInteracted || !!props.articleToScrollTo)
 
   return (
-    <BraveTodayElement.Section>
+    <adrbrowsielTodayElement.Section>
       <div
         ref={scrollTrigger}
         style={{ position: 'sticky', top: '100px' }}
@@ -97,6 +97,6 @@ export default function BraveTodayContent (props: Props) {
       </React.Suspense>
       }
 
-    </BraveTodayElement.Section>
+    </adrbrowsielTodayElement.Section>
   )
 }

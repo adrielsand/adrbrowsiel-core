@@ -3,7 +3,7 @@ import Swap from '../assets/swap.svg'
 import {
   VerifiedSIcon,
   CaratCircleODownIcon
-} from 'brave-ui/components/icons'
+} from 'adrbrowsiel-ui/components/icons'
 
 interface StyleProps {
   panelBackground: string
@@ -110,7 +110,7 @@ export const SwapIcon = styled.div`
   background: url(${Swap});
 `
 
-// Will use brave-ui button comp in the future!
+// Will use adrbrowsiel-ui button comp in the future!
 // Currently is missing "tiny" variant
 export const OvalButton = styled.button`
   display: flex;;

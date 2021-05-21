@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/child_process_monitor/child_process_monitor.h"
+#include "adrbrowsiel/components/child_process_monitor/child_process_monitor.h"
 
 #if defined(OS_POSIX)
 #include <errno.h>
@@ -26,7 +26,7 @@
 #include "base/task/thread_pool.h"
 #include "base/threading/sequenced_task_runner_handle.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 namespace {
 
@@ -189,4 +189,4 @@ void ChildProcessMonitor::OnChildCrash(
   std::move(callback).Run(pid);
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 
 <script>
-  const url = "brave://settings"
-  function openBraveSettings() {
+  const url = "adrbrowsiel://settings"
+  function openadrbrowsielSettings() {
     window.open(url);
   }
 
-  function openBraveSettingsWithNoOpener() {
+  function openadrbrowsielSettingsWithNoOpener() {
     window.open(url, "", "noopener");
   }
 
-  function replaceToBraveSettingsDirectly() {
+  function replaceToadrbrowsielSettingsDirectly() {
     window.location.replace(url);
   }
 
-  function replaceToBraveSettingsIndirectly() {
-    w = window.open('https://brave.com');
+  function replaceToadrbrowsielSettingsIndirectly() {
+    w = window.open('https://adrbrowsiel.com');
     setTimeout(()=>{w.location.replace(url)},1000)
   }
 
-  function gotoBraveSettingsByMiddleClick() {
+  function gotoadrbrowsielSettingsByMiddleClick() {
     const middleClick = new MouseEvent( "click", { "button": 1 });
     document.getElementById("gotoSettings").dispatchEvent(middleClick);
   }
 
-  function gotoBraveSettingsByClick() {
+  function gotoadrbrowsielSettingsByClick() {
     document.getElementById("gotoSettings").click();
   }
 </script>
 
 <body>
-  <a href="brave://settings" id="gotoSettings">goto brave://settings</a>
+  <a href="adrbrowsiel://settings" id="gotoSettings">goto adrbrowsiel://settings</a>
 </body>
 </html>

@@ -29,7 +29,7 @@ export default class PaymentsBox extends React.PureComponent<Props, {}> {
       before,
       during,
       after
-    ] = splitMessage('setupBraveRewards')
+    ] = splitMessage('setupadrbrowsielRewards')
 
     return <>{before}<strong>{during}</strong>{after}</>
   }
@@ -41,7 +41,7 @@ export default class PaymentsBox extends React.PureComponent<Props, {}> {
       afterLink1,
       link2,
       afterLink2
-    ] = splitMessage('braveRewardsTerms')
+    ] = splitMessage('adrbrowsielRewardsTerms')
 
     return (
       <>
@@ -55,7 +55,7 @@ export default class PaymentsBox extends React.PureComponent<Props, {}> {
         </a>
         {afterLink1}
         <a
-          href='https://brave.com/privacy/#rewards'
+          href='https://adrbrowsiel.com/privacy/#rewards'
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -63,7 +63,7 @@ export default class PaymentsBox extends React.PureComponent<Props, {}> {
         </a>
         {afterLink2}
         <br />
-        {getLocale('braveRewardsNote')}
+        {getLocale('adrbrowsielRewardsNote')}
       </>
     )
   }
@@ -78,7 +78,7 @@ export default class PaymentsBox extends React.PureComponent<Props, {}> {
         isPrevious={index <= currentScreen}
       >
         <WelcomeRewardsImage />
-        <Title>{getLocale('braveRewardsTitle')}</Title>
+        <Title>{getLocale('adrbrowsielRewardsTitle')}</Title>
         <Paragraph>{this.renderText()}</Paragraph>
         <TermsOfService>{this.renderTerms()}</TermsOfService>
         <PrimaryButton

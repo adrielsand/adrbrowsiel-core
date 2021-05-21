@@ -139,7 +139,7 @@ export const handleExternalWalletLink = (balance: RewardsExtension.Balance, exte
   let link = externalWallet.verifyUrl
 
   if (!externalWallet || (externalWallet && externalWallet.status === 0)) {
-    link = 'brave://rewards/#verify'
+    link = 'adrbrowsiel://rewards/#verify'
   }
 
   if (balance.total < upholdMinimumBalance && externalWallet && externalWallet.type === 'uphold') {
@@ -152,7 +152,7 @@ export const handleExternalWalletLink = (balance: RewardsExtension.Balance, exte
 }
 
 export const getExternalWallet = (actions: any, externalWallet?: RewardsExtension.ExternalWallet) => {
-  chrome.braveRewards.getExternalWallet((result: number, wallet: RewardsExtension.ExternalWallet) => {
+  chrome.adrbrowsielRewards.getExternalWallet((result: number, wallet: RewardsExtension.ExternalWallet) => {
     // EXPIRED TOKEN
     if (result === 24) {
       getExternalWallet(actions, externalWallet)

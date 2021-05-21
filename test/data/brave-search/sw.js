@@ -10,9 +10,9 @@ function notifyMain(result) {
 }
 
 function waitForFunction() {
-  if (self.brave != undefined && self.brave.fetchBackupResults != undefined) {
+  if (self.adrbrowsiel != undefined && self.adrbrowsiel.fetchBackupResults != undefined) {
     console.log('calling fetch backup results')
-    self.brave.fetchBackupResults('test', 'en', 'us', 'US', true)
+    self.adrbrowsiel.fetchBackupResults('test', 'en', 'us', 'US', true)
         .then((response) => {
           notifyMain({result: 'INJECTED', response: response});
         })

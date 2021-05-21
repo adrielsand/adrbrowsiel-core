@@ -3,7 +3,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { create } from 'react-test-renderer'
 import GrantError from './index'
-import { TestThemeProvider } from 'brave-ui/theme'
+import { TestThemeProvider } from 'adrbrowsiel-ui/theme'
 
 describe('Grant error tests', () => {
   const baseComponent = (props?: object) => <TestThemeProvider><GrantError id='error' {...props} /></TestThemeProvider>

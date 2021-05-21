@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_rewards/browser/net/network_delegate_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/net/network_delegate_helper.h"
 
 #include <memory>
 #include <string>
 
 #include "base/task/post_task.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "components/sessions/content/session_tab_helper.h"
 #include "content/public/browser/browser_task_traits.h"
@@ -19,7 +19,7 @@
 #include "content/public/browser/web_contents.h"
 #include "url/gurl.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 namespace {
 
@@ -50,8 +50,8 @@ void DispatchOnUI(
 }  // namespace
 
 int OnBeforeURLRequest(
-  const brave::ResponseCallback& next_callback,
-  std::shared_ptr<brave::BraveRequestInfo> ctx) {
+  const adrbrowsiel::ResponseCallback& next_callback,
+  std::shared_ptr<adrbrowsiel::adrbrowsielRequestInfo> ctx) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
 
   if (IsMediaLink(ctx->request_url, ctx->tab_origin, ctx->referrer)) {
@@ -64,7 +64,7 @@ int OnBeforeURLRequest(
   return net::OK;
 }
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
 
 

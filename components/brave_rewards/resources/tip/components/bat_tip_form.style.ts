@@ -46,7 +46,7 @@ export const customAmountButton = styled.div`
     font-size: 13px;
     line-height: 20px;
     font-weight: 600;
-    color: var(--brave-color-brandBatInteracting);
+    color: var(--adrbrowsiel-color-brandBatInteracting);
     cursor: pointer;
   }
 `
@@ -66,8 +66,8 @@ export const terms = styled.div`
 export const minimumAmount = styled.div`
   padding: 19px 0;
   text-align: center;
-  color: var(--brave-palette-neutral900);
-  background: var(--brave-palette-green200);
+  color: var(--adrbrowsiel-palette-neutral900);
+  background: var(--adrbrowsiel-palette-green200);
   font-size: 14px;
   line-height: 21px;
   font-weight: 600;
@@ -78,21 +78,21 @@ export const minimumAmount = styled.div`
     width: 22px;
     vertical-align: middle;
     margin: -1.5px 2px 0 0;
-    color: var(--brave-palette-teal600);
+    color: var(--adrbrowsiel-palette-teal600);
   }
 `
 
 export const notEnoughFunds = styled.div`
   padding: 19px 0;
   text-align: center;
-  color: var(--brave-palette-white);
-  background: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-white);
+  background: var(--adrbrowsiel-palette-neutral600);
   font-size: 14px;
   line-height: 21px;
   font-weight: 600;
 
   a {
-    color: var(--brave-color-brandBatInteracting);
+    color: var(--adrbrowsiel-color-brandBatInteracting);
   }
 
   .icon {
@@ -101,6 +101,6 @@ export const notEnoughFunds = styled.div`
     width: 22px;
     vertical-align: middle;
     margin: -1.5px 2px 0 0;
-    color: var(--brave-palette-neutral300);
+    color: var(--adrbrowsiel-palette-neutral300);
   }
 `

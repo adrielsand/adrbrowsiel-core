@@ -1,14 +1,14 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/services/bat_ads/bat_ads_impl.h"
+#include "adrbrowsiel/components/services/bat_ads/bat_ads_impl.h"
 
 #include <utility>
 #include <vector>
 
-#include "brave/components/services/bat_ads/bat_ads_client_mojo_bridge.h"
+#include "adrbrowsiel/components/services/bat_ads/bat_ads_client_mojo_bridge.h"
 #include "bat/ads/ad_content_info.h"
 #include "bat/ads/ads.h"
 #include "bat/ads/ads_history_info.h"

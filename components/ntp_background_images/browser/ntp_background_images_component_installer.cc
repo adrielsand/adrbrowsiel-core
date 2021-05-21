@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ntp_background_images/browser/ntp_background_images_component_installer.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_component_installer.h"
 
 #include <memory>
 #include <string>
@@ -12,13 +12,13 @@
 #include "base/base64.h"
 #include "base/bind.h"
 #include "base/callback.h"
-#include "brave/components/brave_component_updater/browser/brave_on_demand_updater.h"
-#include "brave/components/ntp_background_images/browser/sponsored_images_component_data.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_on_demand_updater.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/sponsored_images_component_data.h"
 #include "components/component_updater/component_installer.h"
 #include "components/component_updater/component_updater_service.h"
 #include "crypto/sha2.h"
 
-using brave_component_updater::BraveOnDemandUpdater;
+using adrbrowsiel_component_updater::adrbrowsielOnDemandUpdater;
 
 namespace ntp_background_images {
 
@@ -135,7 +135,7 @@ NTPBackgroundImagesComponentInstallerPolicy::GetInstallerAttributes() const {
 }
 
 void OnRegistered(const std::string& component_id) {
-  BraveOnDemandUpdater::GetInstance()->OnDemandUpdate(component_id);
+  adrbrowsielOnDemandUpdater::GetInstance()->OnDemandUpdate(component_id);
 }
 
 }  // namespace

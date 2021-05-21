@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,7 +8,7 @@
 #include "base/base_paths.h"
 #include "base/path_service.h"
 #include "base/time/time.h"
-#include "brave/components/tor/tor_file_watcher.h"
+#include "adrbrowsiel/components/tor/tor_file_watcher.h"
 #include "content/public/test/browser_task_environment.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
@@ -67,7 +67,7 @@ class TorFileWatcherTest : public testing::Test {
   void SetUp() override {
     testing::Test::SetUp();
     ASSERT_TRUE(base::PathService::Get(base::DIR_SOURCE_ROOT, &test_data_dir_));
-    test_data_dir_ = test_data_dir_.Append(FILE_PATH_LITERAL("brave"))
+    test_data_dir_ = test_data_dir_.Append(FILE_PATH_LITERAL("adrbrowsiel"))
                          .Append(FILE_PATH_LITERAL("test"))
                          .Append(FILE_PATH_LITERAL("data"));
   }

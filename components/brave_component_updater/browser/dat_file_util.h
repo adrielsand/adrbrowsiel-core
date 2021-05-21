@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_COMPONENT_UPDATER_BROWSER_DAT_FILE_UTIL_H_
-#define BRAVE_COMPONENTS_BRAVE_COMPONENT_UPDATER_BROWSER_DAT_FILE_UTIL_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_COMPONENT_UPDATER_BROWSER_DAT_FILE_UTIL_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_COMPONENT_UPDATER_BROWSER_DAT_FILE_UTIL_H_
 
 #include <memory>
 #include <string>
@@ -13,7 +13,7 @@
 
 #include "base/files/file_path.h"
 
-namespace brave_component_updater {
+namespace adrbrowsiel_component_updater {
 
 using DATFileDataBuffer = std::vector<unsigned char>;
 
@@ -23,7 +23,7 @@ std::string GetDATFileAsString(const base::FilePath& file_path);
 
 template<typename T>
 using LoadDATFileDataResult =
-    std::pair<std::unique_ptr<T>, brave_component_updater::DATFileDataBuffer>;
+    std::pair<std::unique_ptr<T>, adrbrowsiel_component_updater::DATFileDataBuffer>;
 
 template<typename T>
 LoadDATFileDataResult<T> LoadDATFileData(
@@ -42,6 +42,6 @@ LoadDATFileDataResult<T> LoadDATFileData(
 }
 
 
-}  // namespace brave_component_updater
+}  // namespace adrbrowsiel_component_updater
 
-#endif  // BRAVE_COMPONENTS_BRAVE_COMPONENT_UPDATER_BROWSER_DAT_FILE_UTIL_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_COMPONENT_UPDATER_BROWSER_DAT_FILE_UTIL_H_

@@ -7,7 +7,7 @@ import {
   getOrigin,
   getHostname,
   stripProtocolFromUrl
-} from '../../../brave_extension/extension/brave_extension/helpers/urlUtils'
+} from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/helpers/urlUtils'
 
 describe('urlUtils test', () => {
   describe('isHttpOrHttps', () => {
@@ -66,12 +66,12 @@ describe('urlUtils test', () => {
   })
   describe('stripProtocolFromUrl', () => {
     it('properly strips out an HTTP protocol', () => {
-      const url = 'http://brave.com'
-      expect(stripProtocolFromUrl(url)).toBe('brave.com')
+      const url = 'http://adrbrowsiel.com'
+      expect(stripProtocolFromUrl(url)).toBe('adrbrowsiel.com')
     })
     it('properly strips out an HTTPS protocol', () => {
-      const url = 'https://brave.com'
-      expect(stripProtocolFromUrl(url)).toBe('brave.com')
+      const url = 'https://adrbrowsiel.com'
+      expect(stripProtocolFromUrl(url)).toBe('adrbrowsiel.com')
     })
     it('properly strips out an HTTP protocol when domain has HTTP as its name', () => {
       const url = 'https://breakthis.http.com'

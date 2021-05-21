@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave-belønninger",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel-belønninger",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Vi har gitt Brave Rewards en stor oppgradering.",
+    "message": "Vi har gitt adrbrowsiel Rewards en stor oppgradering.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "kan brukes i Brave-belønninger for å bidra til dine foretrukne innholdsskapere. BAT-poeng kan ikke veksles inn i BAT.",
+    "message": "kan brukes i adrbrowsiel-belønninger for å bidra til dine foretrukne innholdsskapere. BAT-poeng kan ikke veksles inn i BAT.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Brave verifisert skaper",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsiel verifisert skaper",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Obs",
@@ -193,15 +193,15 @@
     "message": "ok",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Nå kan du tjene tokener ved å se på annonser.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave-annonser",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel-annonser",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Auto-bidra",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Sikkerhetskopier Brave-lommeboken din.",
+    "message": "Sikkerhetskopier adrbrowsiel-lommeboken din.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Brave Rewards-kontoen din venter på et innskudd.",
+    "message": "adrbrowsiel Rewards-kontoen din venter på et innskudd.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Utilstrekkelige midler",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Opprett lommebok",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave Rewards har et problem. Prøv igjen senere.",
+    "message": "adrbrowsiel Rewards har et problem. Prøv igjen senere.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Denne skaperen har ikke registrert seg for å motta bidrag fra Brave-brukere ennå. Eventuell driks du sender, blir værende i lommeboken din til den er verifisert.",
+    "message": "Denne skaperen har ikke registrert seg for å motta bidrag fra adrbrowsiel-brukere ennå. Eventuell driks du sender, blir værende i lommeboken din til den er verifisert.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave Rewards er",
+    "message": "adrbrowsiel Rewards er",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "og",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Bli belønnet for å surfe!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Aktiver Brave-belønninger",
+    "message": "Aktiver adrbrowsiel-belønninger",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Ved å klikke 'Aktiver Brave Rewards' indikerer du at du har lest og aksepterer",
+    "message": "Ved å klikke 'Aktiver adrbrowsiel Rewards' indikerer du at du har lest og aksepterer",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Belønningen er på vei til Brave-belønningslommeboken din.",
+    "message": "Belønningen er på vei til adrbrowsiel-belønningslommeboken din.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Koble fra Brave Rewards",
+    "message": "Koble fra adrbrowsiel Rewards",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Denne verifiserte Brave-skaperen har ikke konfigurert kontoen sin for mottak av bidrag fra Brave-brukere ennå. Tips du sender, blir værende i lommeboken din til vedkommende fullfører denne prosessen.",
+    "message": "Denne verifiserte adrbrowsiel-skaperen har ikke konfigurert kontoen sin for mottak av bidrag fra adrbrowsiel-brukere ennå. Tips du sender, blir værende i lommeboken din til vedkommende fullfører denne prosessen.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Begynn å bruke Brave Rewards",
+    "message": "Begynn å bruke adrbrowsiel Rewards",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Velkommen til Brave Rewards!",
+    "message": "Velkommen til adrbrowsiel Rewards!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Brave Private Ads belønner deg med polletter for å støtte innholdsskapere, i motsetning til tradisjonelle annonser – samtidig som den personlige informasjonen din beskyttes.",
+    "message": "adrbrowsiel Private Ads belønner deg med polletter for å støtte innholdsskapere, i motsetning til tradisjonelle annonser – samtidig som den personlige informasjonen din beskyttes.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Brave Private Ads vil vises som et ordinært varsel. Du kontrollerer hvor ofte du ser disse annonsene i innstillingene.",
+    "message": "adrbrowsiel Private Ads vil vises som et ordinært varsel. Du kontrollerer hvor ofte du ser disse annonsene i innstillingene.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Pollettene du tjener på Brave Private Ads gjennom inneværende måned vil komme inn den 5. i neste måned.",
+    "message": "Pollettene du tjener på adrbrowsiel Private Ads gjennom inneværende måned vil komme inn den 5. i neste måned.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Når du bruker Brave Rewards bidrar du til å gjøre nettet til et bedre sted for alle. Og det er kjempebra!",
+    "message": "Når du bruker adrbrowsiel Rewards bidrar du til å gjøre nettet til et bedre sted for alle. Og det er kjempebra!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Ved å bekrefte lommeboken din og knytte den til en bitFlyer-konto, vil du lettere kunne lagre og administrere tokener du har tjent gjennom Brave Rewards.",
+    "message": "Ved å bekrefte lommeboken din og knytte den til en bitFlyer-konto, vil du lettere kunne lagre og administrere tokener du har tjent gjennom adrbrowsiel Rewards.",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Brave Rewards i Japan bytter nå til et nytt system!",
+    "message": "adrbrowsiel Rewards i Japan bytter nå til et nytt system!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

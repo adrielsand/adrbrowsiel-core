@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_TOR_BRAVE_TOR_CLIENT_UPDATER_H_
-#define BRAVE_COMPONENTS_TOR_BRAVE_TOR_CLIENT_UPDATER_H_
+#ifndef adrbrowsiel_COMPONENTS_TOR_adrbrowsiel_TOR_CLIENT_UPDATER_H_
+#define adrbrowsiel_COMPONENTS_TOR_adrbrowsiel_TOR_CLIENT_UPDATER_H_
 
 #include <memory>
 #include <string>
@@ -13,12 +13,12 @@
 #include "base/memory/weak_ptr.h"
 #include "base/observer_list.h"
 #include "base/sequenced_task_runner.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
 
-class BraveTorClientUpdaterTest;
+class adrbrowsielTorClientUpdaterTest;
 class PrefService;
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
 namespace tor {
 
@@ -35,7 +35,7 @@ extern const char kTorClientComponentId[];
 extern const char kTorClientComponentBase64PublicKey[];
 #endif
 
-class BraveTorClientUpdater : public BraveComponent {
+class adrbrowsielTorClientUpdater : public adrbrowsielComponent {
  public:
   class Observer : public base::CheckedObserver {
    public:
@@ -45,10 +45,10 @@ class BraveTorClientUpdater : public BraveComponent {
     ~Observer() override = default;
   };
 
-  BraveTorClientUpdater(BraveComponent::Delegate* component_delegate,
+  adrbrowsielTorClientUpdater(adrbrowsielComponent::Delegate* component_delegate,
                         PrefService* local_state,
                         const base::FilePath& user_data_dir);
-  ~BraveTorClientUpdater() override;
+  ~adrbrowsielTorClientUpdater() override;
 
   void Register();
   void Unregister();
@@ -70,7 +70,7 @@ class BraveTorClientUpdater : public BraveComponent {
   bool IsTorDisabled();
 
  private:
-  friend class ::BraveTorClientUpdaterTest;
+  friend class ::adrbrowsielTorClientUpdaterTest;
 
   static std::string g_tor_client_component_name_;
   static std::string g_tor_client_component_id_;
@@ -87,11 +87,11 @@ class BraveTorClientUpdater : public BraveComponent {
   PrefService* local_state_;
   base::FilePath user_data_dir_;
 
-  base::WeakPtrFactory<BraveTorClientUpdater> weak_ptr_factory_;
+  base::WeakPtrFactory<adrbrowsielTorClientUpdater> weak_ptr_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveTorClientUpdater);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielTorClientUpdater);
 };
 
 }  // namespace tor
 
-#endif  // BRAVE_COMPONENTS_TOR_BRAVE_TOR_CLIENT_UPDATER_H_
+#endif  // adrbrowsiel_COMPONENTS_TOR_adrbrowsiel_TOR_CLIENT_UPDATER_H_

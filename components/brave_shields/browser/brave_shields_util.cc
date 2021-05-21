@@ -1,19 +1,19 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/brave_shields_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_util.h"
 
 #include <memory>
 
 #include "base/feature_list.h"
 #include "base/strings/string_number_conversions.h"
-#include "brave/components/brave_shields/browser/brave_shields_p3a.h"
-#include "brave/components/brave_shields/common/brave_shield_constants.h"
-#include "brave/components/brave_shields/common/brave_shield_utils.h"
-#include "brave/components/brave_shields/common/features.h"
-#include "brave/components/content_settings/core/common/content_settings_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/adrbrowsiel_shields_p3a.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/features.h"
+#include "adrbrowsiel/components/content_settings/core/common/content_settings_util.h"
 #include "components/content_settings/core/browser/host_content_settings_map.h"
 #include "components/content_settings/core/common/content_settings_types.h"
 #include "components/content_settings/core/common/pref_names.h"
@@ -24,18 +24,18 @@
 
 using content::Referrer;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 namespace {
 
 void RecordShieldsToggled(PrefService* local_state) {
-  ::brave_shields::MaybeRecordShieldsUsageP3A(::brave_shields::kShutOffShields,
+  ::adrbrowsiel_shields::MaybeRecordShieldsUsageP3A(::adrbrowsiel_shields::kShutOffShields,
                                               local_state);
 }
 
 void RecordShieldsSettingChanged(PrefService* local_state) {
-  ::brave_shields::MaybeRecordShieldsUsageP3A(
-      ::brave_shields::kChangedPerSiteShields, local_state);
+  ::adrbrowsiel_shields::MaybeRecordShieldsUsageP3A(
+      ::adrbrowsiel_shields::kChangedPerSiteShields, local_state);
 }
 
 ContentSetting GetDefaultAllowFromControlType(ControlType type) {
@@ -98,7 +98,7 @@ ControlType ControlTypeFromString(const std::string& string) {
   }
 }
 
-void SetBraveShieldsEnabled(HostContentSettingsMap* map,
+void SetadrbrowsielShieldsEnabled(HostContentSettingsMap* map,
                             bool enable,
                             const GURL& url,
                             PrefService* local_state) {
@@ -114,14 +114,14 @@ void SetBraveShieldsEnabled(HostContentSettingsMap* map,
 
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::Wildcard(),
-      ContentSettingsType::BRAVE_SHIELDS,
-      // this is 'allow_brave_shields' so 'enable' == 'allow'
+      ContentSettingsType::adrbrowsiel_SHIELDS,
+      // this is 'allow_adrbrowsiel_shields' so 'enable' == 'allow'
       enable ? CONTENT_SETTING_ALLOW : CONTENT_SETTING_BLOCK);
 
   RecordShieldsToggled(local_state);
 }
 
-void ResetBraveShieldsEnabled(HostContentSettingsMap* map, const GURL& url) {
+void ResetadrbrowsielShieldsEnabled(HostContentSettingsMap* map, const GURL& url) {
   if (url.is_valid() && !url.SchemeIsHTTPOrHTTPS())
     return;
 
@@ -132,17 +132,17 @@ void ResetBraveShieldsEnabled(HostContentSettingsMap* map, const GURL& url) {
 
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::Wildcard(),
-      ContentSettingsType::BRAVE_SHIELDS, CONTENT_SETTING_DEFAULT);
+      ContentSettingsType::adrbrowsiel_SHIELDS, CONTENT_SETTING_DEFAULT);
 }
 
-bool GetBraveShieldsEnabled(HostContentSettingsMap* map, const GURL& url) {
+bool GetadrbrowsielShieldsEnabled(HostContentSettingsMap* map, const GURL& url) {
   if (url.is_valid() && !url.SchemeIsHTTPOrHTTPS())
     return false;
 
   ContentSetting setting =
-      map->GetContentSetting(url, GURL(), ContentSettingsType::BRAVE_SHIELDS);
+      map->GetContentSetting(url, GURL(), ContentSettingsType::adrbrowsiel_SHIELDS);
 
-  // see EnableBraveShields - allow and default == true
+  // see EnableadrbrowsielShields - allow and default == true
   return setting == CONTENT_SETTING_BLOCK ? false : true;
 }
 
@@ -159,18 +159,18 @@ void SetAdControlType(HostContentSettingsMap* map,
 
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::Wildcard(),
-      ContentSettingsType::BRAVE_ADS, GetDefaultBlockFromControlType(type));
+      ContentSettingsType::adrbrowsiel_ADS, GetDefaultBlockFromControlType(type));
 
   map->SetContentSettingCustomScope(primary_pattern,
                                     ContentSettingsPattern::Wildcard(),
-                                    ContentSettingsType::BRAVE_TRACKERS,
+                                    ContentSettingsType::adrbrowsiel_TRACKERS,
                                     GetDefaultBlockFromControlType(type));
   RecordShieldsSettingChanged(local_state);
 }
 
 ControlType GetAdControlType(HostContentSettingsMap* map, const GURL& url) {
   ContentSetting setting =
-      map->GetContentSetting(url, GURL(), ContentSettingsType::BRAVE_ADS);
+      map->GetContentSetting(url, GURL(), ContentSettingsType::adrbrowsiel_ADS);
 
   return setting == CONTENT_SETTING_ALLOW ? ControlType::ALLOW
                                           : ControlType::BLOCK;
@@ -188,13 +188,13 @@ void SetCosmeticFilteringControlType(HostContentSettingsMap* map,
 
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::Wildcard(),
-      ContentSettingsType::BRAVE_COSMETIC_FILTERING,
+      ContentSettingsType::adrbrowsiel_COSMETIC_FILTERING,
       GetDefaultBlockFromControlType(type));
 
   map->SetContentSettingCustomScope(
       primary_pattern,
       ContentSettingsPattern::FromString("https://firstParty/*"),
-      ContentSettingsType::BRAVE_COSMETIC_FILTERING,
+      ContentSettingsType::adrbrowsiel_COSMETIC_FILTERING,
       GetDefaultAllowFromControlType(type));
 
   RecordShieldsSettingChanged(local_state);
@@ -203,11 +203,11 @@ void SetCosmeticFilteringControlType(HostContentSettingsMap* map,
 ControlType GetCosmeticFilteringControlType(HostContentSettingsMap* map,
                                             const GURL& url) {
   ContentSetting setting = map->GetContentSetting(
-      url, GURL(), ContentSettingsType::BRAVE_COSMETIC_FILTERING);
+      url, GURL(), ContentSettingsType::adrbrowsiel_COSMETIC_FILTERING);
 
   ContentSetting fp_setting =
       map->GetContentSetting(url, GURL("https://firstParty/"),
-                             ContentSettingsType::BRAVE_COSMETIC_FILTERING);
+                             ContentSettingsType::adrbrowsiel_COSMETIC_FILTERING);
 
   if (setting == CONTENT_SETTING_ALLOW) {
     return ControlType::ALLOW;
@@ -220,8 +220,8 @@ ControlType GetCosmeticFilteringControlType(HostContentSettingsMap* map,
 
 bool ShouldDoCosmeticFiltering(HostContentSettingsMap* map, const GURL& url) {
   return base::FeatureList::IsEnabled(
-             features::kBraveAdblockCosmeticFiltering) &&
-         GetBraveShieldsEnabled(map, url) &&
+             features::kadrbrowsielAdblockCosmeticFiltering) &&
+         GetadrbrowsielShieldsEnabled(map, url) &&
          (GetCosmeticFilteringControlType(map, url) != ControlType::ALLOW);
 }
 
@@ -233,16 +233,16 @@ bool IsFirstPartyCosmeticFilteringEnabled(HostContentSettingsMap* map,
 
 bool ShouldDoDomainBlocking(HostContentSettingsMap* map, const GURL& url) {
   // Don't block if feature is disabled
-  if (!base::FeatureList::IsEnabled(brave_shields::features::kBraveDomainBlock))
+  if (!base::FeatureList::IsEnabled(adrbrowsiel_shields::features::kadrbrowsielDomainBlock))
     return false;
 
-  // Don't block if Brave Shields is down (this also handles cases where
+  // Don't block if adrbrowsiel Shields is down (this also handles cases where
   // the URL is not HTTP(S))
-  if (!brave_shields::GetBraveShieldsEnabled(map, url))
+  if (!adrbrowsiel_shields::GetadrbrowsielShieldsEnabled(map, url))
     return false;
 
   // Don't block unless ad blocking is "aggressive"
-  if (brave_shields::GetCosmeticFilteringControlType(map, url) !=
+  if (adrbrowsiel_shields::GetCosmeticFilteringControlType(map, url) !=
       ControlType::BLOCK)
     return false;
 
@@ -260,17 +260,17 @@ void SetCookieControlType(HostContentSettingsMap* map,
 
   map->SetContentSettingCustomScope(primary_pattern,
                                     ContentSettingsPattern::Wildcard(),
-                                    ContentSettingsType::BRAVE_REFERRERS,
+                                    ContentSettingsType::adrbrowsiel_REFERRERS,
                                     GetDefaultBlockFromControlType(type));
 
   map->SetContentSettingCustomScope(
       primary_pattern,
       ContentSettingsPattern::FromString("https://firstParty/*"),
-      ContentSettingsType::BRAVE_COOKIES, GetDefaultAllowFromControlType(type));
+      ContentSettingsType::adrbrowsiel_COOKIES, GetDefaultAllowFromControlType(type));
 
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::Wildcard(),
-      ContentSettingsType::BRAVE_COOKIES, GetDefaultBlockFromControlType(type));
+      ContentSettingsType::adrbrowsiel_COOKIES, GetDefaultBlockFromControlType(type));
 
   RecordShieldsSettingChanged(local_state);
 }
@@ -278,10 +278,10 @@ void SetCookieControlType(HostContentSettingsMap* map,
 // while maintaining read backwards compat
 ControlType GetCookieControlType(HostContentSettingsMap* map, const GURL& url) {
   ContentSetting setting =
-      map->GetContentSetting(url, GURL(), ContentSettingsType::BRAVE_COOKIES);
+      map->GetContentSetting(url, GURL(), ContentSettingsType::adrbrowsiel_COOKIES);
 
   ContentSetting fp_setting = map->GetContentSetting(
-      url, GURL("https://firstParty/"), ContentSettingsType::BRAVE_COOKIES);
+      url, GURL("https://firstParty/"), ContentSettingsType::adrbrowsiel_COOKIES);
 
   if (setting == CONTENT_SETTING_ALLOW) {
     return ControlType::ALLOW;
@@ -294,7 +294,7 @@ ControlType GetCookieControlType(HostContentSettingsMap* map, const GURL& url) {
 
 bool AllowReferrers(HostContentSettingsMap* map, const GURL& url) {
   ContentSetting setting =
-      map->GetContentSetting(url, GURL(), ContentSettingsType::BRAVE_REFERRERS);
+      map->GetContentSetting(url, GURL(), ContentSettingsType::adrbrowsiel_REFERRERS);
 
   return setting == CONTENT_SETTING_ALLOW;
 }
@@ -311,10 +311,10 @@ void SetFingerprintingControlType(HostContentSettingsMap* map,
   // Clear previous value to have only one rule for one pattern.
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::FromString("https://balanced/*"),
-      ContentSettingsType::BRAVE_FINGERPRINTING_V2, CONTENT_SETTING_DEFAULT);
+      ContentSettingsType::adrbrowsiel_FINGERPRINTING_V2, CONTENT_SETTING_DEFAULT);
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::Wildcard(),
-      ContentSettingsType::BRAVE_FINGERPRINTING_V2, CONTENT_SETTING_DEFAULT);
+      ContentSettingsType::adrbrowsiel_FINGERPRINTING_V2, CONTENT_SETTING_DEFAULT);
 
   auto content_setting = CONTENT_SETTING_BLOCK;
   auto secondary_pattern =
@@ -327,7 +327,7 @@ void SetFingerprintingControlType(HostContentSettingsMap* map,
 
   map->SetContentSettingCustomScope(
       primary_pattern, secondary_pattern,
-      ContentSettingsType::BRAVE_FINGERPRINTING_V2, content_setting);
+      ContentSettingsType::adrbrowsiel_FINGERPRINTING_V2, content_setting);
 
   RecordShieldsSettingChanged(local_state);
 }
@@ -335,11 +335,11 @@ void SetFingerprintingControlType(HostContentSettingsMap* map,
 ControlType GetFingerprintingControlType(HostContentSettingsMap* map,
                                          const GURL& url) {
   ContentSettingsForOneType fingerprinting_rules;
-  map->GetSettingsForOneType(ContentSettingsType::BRAVE_FINGERPRINTING_V2,
+  map->GetSettingsForOneType(ContentSettingsType::adrbrowsiel_FINGERPRINTING_V2,
                              &fingerprinting_rules);
 
   ContentSetting fp_setting =
-      GetBraveFPContentSettingFromRules(fingerprinting_rules, url);
+      GetadrbrowsielFPContentSettingFromRules(fingerprinting_rules, url);
   if (fp_setting == CONTENT_SETTING_DEFAULT)
     return ControlType::DEFAULT;
   return fp_setting == CONTENT_SETTING_ALLOW ? ControlType::ALLOW
@@ -357,7 +357,7 @@ void SetHTTPSEverywhereEnabled(HostContentSettingsMap* map,
 
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::Wildcard(),
-      ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES,
+      ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES,
       // this is 'allow_http_upgradeable_resources' so enabling
       // httpse will set the value to 'BLOCK'
       enable ? CONTENT_SETTING_BLOCK : CONTENT_SETTING_ALLOW);
@@ -375,13 +375,13 @@ void ResetHTTPSEverywhereEnabled(HostContentSettingsMap* map,
 
   map->SetContentSettingCustomScope(
       primary_pattern, ContentSettingsPattern::Wildcard(),
-      ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES,
+      ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES,
       CONTENT_SETTING_DEFAULT);
 }
 
 bool GetHTTPSEverywhereEnabled(HostContentSettingsMap* map, const GURL& url) {
   ContentSetting setting = map->GetContentSetting(
-      url, GURL(), ContentSettingsType::BRAVE_HTTP_UPGRADABLE_RESOURCES);
+      url, GURL(), ContentSettingsType::adrbrowsiel_HTTP_UPGRADABLE_RESOURCES);
 
   return setting == CONTENT_SETTING_ALLOW ? false : true;
 }
@@ -438,7 +438,7 @@ bool MaybeChangeReferrer(bool allow_referrers,
 
   // Cap the referrer to "strict-origin-when-cross-origin". More restrictive
   // policies should be already applied.
-  // See https://github.com/brave/brave-browser/issues/13464
+  // See https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/13464
   *output_referrer = Referrer::SanitizeForRequest(
       target_url,
       Referrer(current_referrer.GetOrigin(),
@@ -447,4 +447,4 @@ bool MaybeChangeReferrer(bool allow_referrers,
   return true;
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

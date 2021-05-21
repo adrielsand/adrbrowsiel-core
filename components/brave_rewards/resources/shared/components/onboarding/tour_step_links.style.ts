@@ -29,11 +29,11 @@ export const root = styled.div`
       height: 8px;
       width: 8px;
       border-radius: 50%;
-      background: var(--brave-palette-grey200);
+      background: var(--adrbrowsiel-palette-grey200);
     }
 
     &.selected::before {
-      background: var(--brave-color-brandBat);
+      background: var(--adrbrowsiel-color-brandBat);
     }
   }
 `

@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_webtorrent/browser/webtorrent_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_webtorrent/browser/webtorrent_util.h"
 
 #include <string>
 
 #include "base/strings/string_util.h"
-#include "brave/common/network_constants.h"
-#include "brave/common/pref_names.h"
+#include "adrbrowsiel/common/network_constants.h"
+#include "adrbrowsiel/common/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "components/pref_registry/pref_registry_syncable.h"
 #include "components/prefs/pref_service.h"
@@ -45,7 +45,7 @@ bool TorrentURLMatched(const GURL& url) {
 bool IsWebtorrentEnabled(content::BrowserContext* browser_context) {
   extensions::ExtensionRegistry* registry =
     extensions::ExtensionRegistry::Get(browser_context);
-  return registry->enabled_extensions().Contains(brave_webtorrent_extension_id);
+  return registry->enabled_extensions().Contains(adrbrowsiel_webtorrent_extension_id);
 }
 
 bool IsWebtorrentPrefEnabled(content::BrowserContext* browser_context) {
@@ -59,9 +59,9 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
 
 bool IsWebtorrentURL(const GURL& url) {
   if (url.SchemeIs(extensions::kExtensionScheme) &&
-      url.host() == brave_webtorrent_extension_id &&
-      (url.ExtractFileName() == brave_webtorrent_extension_filename ||
-       url.ExtractFileName() == brave_webtorrent_extension_filename2)) {
+      url.host() == adrbrowsiel_webtorrent_extension_id &&
+      (url.ExtractFileName() == adrbrowsiel_webtorrent_extension_filename ||
+       url.ExtractFileName() == adrbrowsiel_webtorrent_extension_filename2)) {
     return true;
   }
 

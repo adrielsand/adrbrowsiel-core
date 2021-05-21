@@ -19,8 +19,8 @@ import {
 } from './style'
 import ListToken from '../listToken'
 import { Type } from '../tokens'
-import { getLocale } from 'brave-ui/helpers'
-import { WalletInfoIcon } from 'brave-ui/components/icons'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
+import { WalletInfoIcon } from 'adrbrowsiel-ui/components/icons'
 
 type Token = {
   tokens: string

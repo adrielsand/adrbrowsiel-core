@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ipfs/brave_ipfs_client_updater.h"
+#include "adrbrowsiel/components/ipfs/adrbrowsiel_ipfs_client_updater.h"
 
 #include "base/files/file_enumerator.h"
 #include "base/files/file_path.h"
@@ -18,28 +18,28 @@
 
 namespace ipfs {
 
-std::string BraveIpfsClientUpdater::g_ipfs_client_component_id_(
+std::string adrbrowsielIpfsClientUpdater::g_ipfs_client_component_id_(
     kIpfsClientComponentId);
-std::string BraveIpfsClientUpdater::g_ipfs_client_component_base64_public_key_(
+std::string adrbrowsielIpfsClientUpdater::g_ipfs_client_component_base64_public_key_(
     kIpfsClientComponentBase64PublicKey);
 
-BraveIpfsClientUpdater::BraveIpfsClientUpdater(
-    BraveComponent::Delegate* delegate,
+adrbrowsielIpfsClientUpdater::adrbrowsielIpfsClientUpdater(
+    adrbrowsielComponent::Delegate* delegate,
     const base::FilePath& user_data_dir)
-    : BraveComponent(delegate),
+    : adrbrowsielComponent(delegate),
       task_runner_(
           base::ThreadPool::CreateSequencedTaskRunner({base::MayBlock()})),
       registered_(false),
       user_data_dir_(user_data_dir),
       weak_ptr_factory_(this) {}
 
-BraveIpfsClientUpdater::~BraveIpfsClientUpdater() {}
+adrbrowsielIpfsClientUpdater::~adrbrowsielIpfsClientUpdater() {}
 
-void BraveIpfsClientUpdater::Register() {
+void adrbrowsielIpfsClientUpdater::Register() {
   if (registered_)
     return;
 
-  BraveComponent::Register(kIpfsClientComponentName,
+  adrbrowsielComponent::Register(kIpfsClientComponentName,
                            g_ipfs_client_component_id_,
                            g_ipfs_client_component_base64_public_key_);
   if (!updater_observer_.IsObservingSource(this))
@@ -90,17 +90,17 @@ void DeleteDir(const base::FilePath& path) {
 
 }  // namespace
 
-void BraveIpfsClientUpdater::SetExecutablePath(const base::FilePath& path) {
+void adrbrowsielIpfsClientUpdater::SetExecutablePath(const base::FilePath& path) {
   executable_path_ = path;
   for (Observer& observer : observers_)
     observer.OnExecutableReady(path);
 }
 
-base::FilePath BraveIpfsClientUpdater::GetExecutablePath() const {
+base::FilePath adrbrowsielIpfsClientUpdater::GetExecutablePath() const {
   return executable_path_;
 }
 
-void BraveIpfsClientUpdater::OnEvent(Events event, const std::string& id) {
+void adrbrowsielIpfsClientUpdater::OnEvent(Events event, const std::string& id) {
   if (id != kIpfsClientComponentId)
     return;
   if (event == Events::COMPONENT_UPDATE_ERROR) {
@@ -110,25 +110,25 @@ void BraveIpfsClientUpdater::OnEvent(Events event, const std::string& id) {
     observer.OnInstallationEvent(event);
 }
 
-void BraveIpfsClientUpdater::OnComponentReady(const std::string& component_id,
+void adrbrowsielIpfsClientUpdater::OnComponentReady(const std::string& component_id,
                                               const base::FilePath& install_dir,
                                               const std::string& manifest) {
   base::PostTaskAndReplyWithResult(
       GetTaskRunner().get(), FROM_HERE,
       base::BindOnce(&InitExecutablePath, install_dir),
-      base::BindOnce(&BraveIpfsClientUpdater::SetExecutablePath,
+      base::BindOnce(&adrbrowsielIpfsClientUpdater::SetExecutablePath,
                      weak_ptr_factory_.GetWeakPtr()));
 }
 
-void BraveIpfsClientUpdater::AddObserver(Observer* observer) {
+void adrbrowsielIpfsClientUpdater::AddObserver(Observer* observer) {
   observers_.AddObserver(observer);
 }
 
-void BraveIpfsClientUpdater::RemoveObserver(Observer* observer) {
+void adrbrowsielIpfsClientUpdater::RemoveObserver(Observer* observer) {
   observers_.RemoveObserver(observer);
 }
 
-void BraveIpfsClientUpdater::Cleanup() {
+void adrbrowsielIpfsClientUpdater::Cleanup() {
   DCHECK(!user_data_dir_.empty());
   base::FilePath ipfs_component_dir =
       user_data_dir_.AppendASCII(kIpfsClientComponentId);
@@ -137,7 +137,7 @@ void BraveIpfsClientUpdater::Cleanup() {
 }
 
 // static
-void BraveIpfsClientUpdater::SetComponentIdAndBase64PublicKeyForTest(
+void adrbrowsielIpfsClientUpdater::SetComponentIdAndBase64PublicKeyForTest(
     const std::string& component_id,
     const std::string& component_base64_public_key) {
   g_ipfs_client_component_id_ = component_id;
@@ -146,11 +146,11 @@ void BraveIpfsClientUpdater::SetComponentIdAndBase64PublicKeyForTest(
 
 ///////////////////////////////////////////////////////////////////////////////
 
-// The Brave Ipfs client extension factory.
-std::unique_ptr<BraveIpfsClientUpdater> BraveIpfsClientUpdaterFactory(
-    BraveComponent::Delegate* delegate,
+// The adrbrowsiel Ipfs client extension factory.
+std::unique_ptr<adrbrowsielIpfsClientUpdater> adrbrowsielIpfsClientUpdaterFactory(
+    adrbrowsielComponent::Delegate* delegate,
     const base::FilePath& user_data_dir) {
-  return std::make_unique<BraveIpfsClientUpdater>(delegate, user_data_dir);
+  return std::make_unique<adrbrowsielIpfsClientUpdater>(delegate, user_data_dir);
 }
 
 }  // namespace ipfs

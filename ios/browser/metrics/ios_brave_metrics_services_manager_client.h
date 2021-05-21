@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_IOS_BROWSER_METRICS_IOS_BRAVE_METRICS_SERVICES_MANAGER_CLIENT_H_
-#define BRAVE_IOS_BROWSER_METRICS_IOS_BRAVE_METRICS_SERVICES_MANAGER_CLIENT_H_
+#ifndef adrbrowsiel_IOS_BROWSER_METRICS_IOS_adrbrowsiel_METRICS_SERVICES_MANAGER_CLIENT_H_
+#define adrbrowsiel_IOS_BROWSER_METRICS_IOS_adrbrowsiel_METRICS_SERVICES_MANAGER_CLIENT_H_
 
 #include <memory>
 #include "base/macros.h"
@@ -17,13 +17,13 @@ class EnabledStateProvider;
 class MetricsStateManager;
 }
 
-// Provides an //ios/brave-specific implementation of
+// Provides an //ios/adrbrowsiel-specific implementation of
 // MetricsServicesManagerClient.
-class IOSBraveMetricsServicesManagerClient
+class IOSadrbrowsielMetricsServicesManagerClient
     : public IOSChromeMetricsServicesManagerClient {
  public:
-  explicit IOSBraveMetricsServicesManagerClient(PrefService* local_state);
-  ~IOSBraveMetricsServicesManagerClient() override;
+  explicit IOSadrbrowsielMetricsServicesManagerClient(PrefService* local_state);
+  ~IOSadrbrowsielMetricsServicesManagerClient() override;
 
  private:
   // metrics_services_manager::MetricsServicesManagerClient:
@@ -33,7 +33,7 @@ class IOSBraveMetricsServicesManagerClient
   bool IsMetricsConsentGiven() override;
   bool IsOffTheRecordSessionActive() override;
 
-  DISALLOW_COPY_AND_ASSIGN(IOSBraveMetricsServicesManagerClient);
+  DISALLOW_COPY_AND_ASSIGN(IOSadrbrowsielMetricsServicesManagerClient);
 };
 
-#endif  // BRAVE_IOS_BROWSER_METRICS_IOS_BRAVE_METRICS_SERVICES_MANAGER_CLIENT_H_
+#endif  // adrbrowsiel_IOS_BROWSER_METRICS_IOS_adrbrowsiel_METRICS_SERVICES_MANAGER_CLIENT_H_

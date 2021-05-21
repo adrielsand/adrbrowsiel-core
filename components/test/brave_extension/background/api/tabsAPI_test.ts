@@ -2,12 +2,12 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import * as tabsAPI from '../../../../brave_extension/extension/brave_extension/background/api/tabsAPI'
+import * as tabsAPI from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/api/tabsAPI'
 
 describe('tabs API', () => {
   describe('createTab', () => {
     let spy: jest.SpyInstance
-    const createProperties = { url: 'https://www.brave.com' }
+    const createProperties = { url: 'https://www.adrbrowsiel.com' }
     beforeEach(() => {
       spy = jest.spyOn(chrome.tabs, 'create')
     })

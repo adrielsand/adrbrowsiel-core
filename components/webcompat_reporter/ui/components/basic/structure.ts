@@ -1,11 +1,11 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
 import styled from 'styled-components'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 
 export const SideBySideButtons = styled('div')<{}>`
   box-sizing: border-box;

@@ -1,10 +1,10 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_P3A_BANDWIDTH_SAVINGS_TRACKER_H_
-#define BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_P3A_BANDWIDTH_SAVINGS_TRACKER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_P3A_BANDWIDTH_SAVINGS_TRACKER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_P3A_BANDWIDTH_SAVINGS_TRACKER_H_
 
 #include <cstdint>
 #include <memory>
@@ -16,7 +16,7 @@ namespace base {
 class Clock;
 }  // namespace base
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 class P3ABandwidthSavingsTracker {
  public:
@@ -38,6 +38,6 @@ class P3ABandwidthSavingsTracker {
   void StoreSavingsHistogram(uint64_t savings_bytes);
 };
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor
 
-#endif  // BRAVE_COMPONENTS_BRAVE_PERF_PREDICTOR_BROWSER_P3A_BANDWIDTH_SAVINGS_TRACKER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_PERF_PREDICTOR_BROWSER_P3A_BANDWIDTH_SAVINGS_TRACKER_H_

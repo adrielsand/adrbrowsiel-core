@@ -1,9 +1,9 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/p3a/brave_p2a_protocols.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_p2a_protocols.h"
 
 #include <math.h>
 
@@ -17,7 +17,7 @@ namespace {
 const double kEpsilon = 2.1;
 }  // namespace
 
-namespace brave {
+namespace adrbrowsiel {
 
 DirectEncodingProtocol::DirectEncodingProtocol() = default;
 
@@ -48,4 +48,4 @@ uint64_t DirectEncodingProtocol::Perturb(
   return perturbed_value;
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

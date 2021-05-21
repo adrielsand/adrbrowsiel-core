@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_perf_predictor/browser/perf_predictor_page_metrics_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/perf_predictor_page_metrics_observer.h"
 
-#include "brave/components/brave_perf_predictor/browser/perf_predictor_tab_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/perf_predictor_tab_helper.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/navigation_handle.h"
 #include "content/public/browser/web_contents.h"
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 PerfPredictorPageMetricsObserver::PerfPredictorPageMetricsObserver() = default;
 
@@ -74,4 +74,4 @@ void PerfPredictorPageMetricsObserver::OnLoadEventStart(
   }
 }
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor

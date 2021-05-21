@@ -1,14 +1,14 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/speedreader/speedreader_throttle.h"
+#include "adrbrowsiel/components/speedreader/speedreader_throttle.h"
 
 #include <utility>
 
-#include "brave/components/speedreader/speedreader_rewriter_service.h"
-#include "brave/components/speedreader/speedreader_url_loader.h"
+#include "adrbrowsiel/components/speedreader/speedreader_rewriter_service.h"
+#include "adrbrowsiel/components/speedreader/speedreader_url_loader.h"
 #include "mojo/public/cpp/bindings/pending_receiver.h"
 #include "mojo/public/cpp/bindings/pending_remote.h"
 #include "services/network/public/mojom/url_response_head.mojom.h"

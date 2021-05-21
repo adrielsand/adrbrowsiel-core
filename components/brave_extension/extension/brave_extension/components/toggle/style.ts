@@ -4,7 +4,7 @@
 
 import styled, { css } from 'styled-components'
 import { Props } from './index'
-import palette from 'brave-ui/theme/colors'
+import palette from 'adrbrowsiel-ui/theme/colors'
 
 export const StyledCheckbox = styled('input')<{}>`
   -webkit-appearance: none;

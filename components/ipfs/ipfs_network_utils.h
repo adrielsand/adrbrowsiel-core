@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_IPFS_IPFS_NETWORK_UTILS_H_
-#define BRAVE_COMPONENTS_IPFS_IPFS_NETWORK_UTILS_H_
+#ifndef adrbrowsiel_COMPONENTS_IPFS_IPFS_NETWORK_UTILS_H_
+#define adrbrowsiel_COMPONENTS_IPFS_IPFS_NETWORK_UTILS_H_
 
 #include <memory>
 #include <string>
@@ -71,4 +71,4 @@ void CreateRequestForText(const std::string& text,
                           ResourceRequestGetter request_callback);
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_IPFS_IPFS_NETWORK_UTILS_H_
+#endif  // adrbrowsiel_COMPONENTS_IPFS_IPFS_NETWORK_UTILS_H_

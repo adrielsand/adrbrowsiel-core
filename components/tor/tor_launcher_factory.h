@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_TOR_TOR_LAUNCHER_FACTORY_H_
-#define BRAVE_COMPONENTS_TOR_TOR_LAUNCHER_FACTORY_H_
+#ifndef adrbrowsiel_COMPONENTS_TOR_TOR_LAUNCHER_FACTORY_H_
+#define adrbrowsiel_COMPONENTS_TOR_TOR_LAUNCHER_FACTORY_H_
 
 #include <map>
 #include <memory>
@@ -17,8 +17,8 @@
 #include "base/memory/weak_ptr.h"
 #include "base/observer_list.h"
 #include "base/sequence_checker.h"
-#include "brave/components/services/tor/public/interfaces/tor.mojom.h"
-#include "brave/components/tor/tor_control.h"
+#include "adrbrowsiel/components/services/tor/public/interfaces/tor.mojom.h"
+#include "adrbrowsiel/components/tor/tor_control.h"
 #include "mojo/public/cpp/bindings/remote.h"
 
 namespace base {
@@ -107,4 +107,4 @@ class TorLauncherFactory : public tor::TorControl::Delegate {
   DISALLOW_COPY_AND_ASSIGN(TorLauncherFactory);
 };
 
-#endif  // BRAVE_COMPONENTS_TOR_TOR_LAUNCHER_FACTORY_H_
+#endif  // adrbrowsiel_COMPONENTS_TOR_TOR_LAUNCHER_FACTORY_H_

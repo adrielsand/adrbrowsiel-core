@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Kami telah melakukan peningkatan yang besar kepada Brave Rewards.",
+    "message": "Kami telah melakukan peningkatan yang besar kepada adrbrowsiel Rewards.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "boleh digunakan dalam Ganjaran Brave untuk menyumbang kepada pencipta kandungan kegemaran anda. Mata BAT tidak boleh ditukar kepada BAT.",
+    "message": "boleh digunakan dalam Ganjaran adrbrowsiel untuk menyumbang kepada pencipta kandungan kegemaran anda. Mata BAT tidak boleh ditukar kepada BAT.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Pencipta yang Disahkan oleh Brave",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "Pencipta yang Disahkan oleh adrbrowsiel",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Perhatian",
@@ -193,15 +193,15 @@
     "message": "ok",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Kini anda boleh mendapatkan bayaran dengan menonton iklan.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Iklan Brave ",
+  "adrbrowsielAdsTitle": {
+    "message": "Iklan adrbrowsiel ",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Auto-Sumbang",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Sila sandarkan dompet Brave anda.",
+    "message": "Sila sandarkan dompet adrbrowsiel anda.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Akaun Brave Rewards anda sedang menunggu deposit.",
+    "message": "Akaun adrbrowsiel Rewards anda sedang menunggu deposit.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Dana Tidak Mencukupi",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Mencipta dompet",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Ganjaran Brave mengalami masalah. Sila cuba sebentar lagi.",
+    "message": "Ganjaran adrbrowsiel mengalami masalah. Sila cuba sebentar lagi.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Pencipta ini belum lagi mendaftar untuk menerima sumbangan daripada pengguna Brave. Sebarang tip yang anda hantar akan kekal di dalam dompet anda sehingga mereka mengesahkan.",
+    "message": "Pencipta ini belum lagi mendaftar untuk menerima sumbangan daripada pengguna adrbrowsiel. Sebarang tip yang anda hantar akan kekal di dalam dompet anda sehingga mereka mengesahkan.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Ganjaran Brave ialah",
+    "message": "Ganjaran adrbrowsiel ialah",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "dan",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Dapatkan Ganjaran kerana Melayari!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Aktifkan Brave Rewards",
+    "message": "Aktifkan adrbrowsiel Rewards",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Dengan klik pada 'Aktifkan Brave Rewards', anda menunjukkan bahawa anda telah membaca dan bersetuju dengan ",
+    "message": "Dengan klik pada 'Aktifkan adrbrowsiel Rewards', anda menunjukkan bahawa anda telah membaca dan bersetuju dengan ",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Ganjaran anda dalam perjalanan ke dompet Ganjaran Brave anda.",
+    "message": "Ganjaran anda dalam perjalanan ke dompet Ganjaran adrbrowsiel anda.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Putuskan daripada Brave Rewards",
+    "message": "Putuskan daripada adrbrowsiel Rewards",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Pencipta Disahkan Brave ini belum lagi mengkonfigurasikan akaun mereka untuk menerima sumbangan daripada Pengguna Brave. Sebarang tip yang anda hantar akan masih ada di dompet anda selagi mereka belum menyelesaikan proses ini.",
+    "message": "Pencipta Disahkan adrbrowsiel ini belum lagi mengkonfigurasikan akaun mereka untuk menerima sumbangan daripada Pengguna adrbrowsiel. Sebarang tip yang anda hantar akan masih ada di dompet anda selagi mereka belum menyelesaikan proses ini.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Mula menggunakan Ganjaran Brave",
+    "message": "Mula menggunakan Ganjaran adrbrowsiel",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Selamat datang ke Ganjaran Brave!",
+    "message": "Selamat datang ke Ganjaran adrbrowsiel!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Iklan Peribadi Brave memberikan ganjaran token kepada anda untuk menyokong pencipta token tidak seperti iklan tradisional, semuanya sementara mengekalkan privasi maklumat peribadi anda.",
+    "message": "Iklan Peribadi adrbrowsiel memberikan ganjaran token kepada anda untuk menyokong pencipta token tidak seperti iklan tradisional, semuanya sementara mengekalkan privasi maklumat peribadi anda.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Iklan Peribadi Brave akan timbul sebagai pemberitahuan biasa. Anda mengawal berapa kerap yang anda melihat iklan-iklan ini dalam tetapan.",
+    "message": "Iklan Peribadi adrbrowsiel akan timbul sebagai pemberitahuan biasa. Anda mengawal berapa kerap yang anda melihat iklan-iklan ini dalam tetapan.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Token anda yang diperoleh daripada Iklan Peribadi Brave sepanjang bulan semasa akan tiba pada 5hb bulan depan.",
+    "message": "Token anda yang diperoleh daripada Iklan Peribadi adrbrowsiel sepanjang bulan semasa akan tiba pada 5hb bulan depan.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Dengan menggunakan Ganjaran Brave anda membantu menjadikan web ini tempat yang lebih baik buat semua orang. Dan itu memang hebat!",
+    "message": "Dengan menggunakan Ganjaran adrbrowsiel anda membantu menjadikan web ini tempat yang lebih baik buat semua orang. Dan itu memang hebat!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Dengan mengesahkan dompet anda dan memautkannya ke akaun bitFlyer, anda akan dapat menyimpan dan menguruskan token yang anda peroleh melalui Brave Rewards dengan lebih mudah",
+    "message": "Dengan mengesahkan dompet anda dan memautkannya ke akaun bitFlyer, anda akan dapat menyimpan dan menguruskan token yang anda peroleh melalui adrbrowsiel Rewards dengan lebih mudah",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Ganjaran Brave di Jepun beralih ke sistem baharu!",
+    "message": "Ganjaran adrbrowsiel di Jepun beralih ke sistem baharu!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

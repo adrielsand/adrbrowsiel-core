@@ -81,13 +81,13 @@ const StyledPage = styled('div')<PageProps>`
   min-height: 100vh;
   align-items: flex-start;
 
-  /* Fix the main NTP content so, when Brave Today is in-view,
+  /* Fix the main NTP content so, when adrbrowsiel Today is in-view,
   NTP items remain in the same place, and still allows NTP
   Page to scroll to the bottom before that starts happening. */
   .${CLASSNAME_PAGE_STUCK} & {
     position: fixed;
     bottom: 0;
-    /* Blur out the content when Brave Today is interacted
+    /* Blur out the content when adrbrowsiel Today is interacted
       with. We need the opacity to fade out our background image.
       We need the background image to overcome the bug
       where a backdrop-filter element's ancestor which has
@@ -109,7 +109,7 @@ const StyledPage = styled('div')<PageProps>`
 
 export const Page: React.FunctionComponent<PageProps> = (props) => {
   // Note(petemill): When we scroll to the bottom, if there's an
-  // extra scroll area (Brave Today) then we "sticky" the Page at
+  // extra scroll area (adrbrowsiel Today) then we "sticky" the Page at
   // the bottom scroll and overlay the extra content on top.
   // This isn't possible with regular `position: sticky` as far as I can tell.
   const pageRef = React.useRef<HTMLDivElement>(null)
@@ -240,7 +240,7 @@ export const GridItemNavigation = styled('section')`
   }
 `
 
-export const GridItemNavigationBraveToday = styled('div')<{}>`
+export const GridItemNavigationadrbrowsielToday = styled('div')<{}>`
   position: absolute;
   bottom: 20px;
   left: 50%;
@@ -291,7 +291,7 @@ function getPageBackground (p: HasImageProps) {
   // Page background is duplicated since a backdrop-filter's
   // ancestor which has blur must also have background.
   // In our case, Widgets are the backdrop-filter element
-  // and Page is the element with blur (when brave today is active)
+  // and Page is the element with blur (when adrbrowsiel today is active)
   // so it also needs the background. However, we also
   // need the background _not_ to blur, so we also put it on
   // Page's ancestor: App.
@@ -422,7 +422,7 @@ export const IconButton = styled('button')<IconButtonProps>`
     opacity: 0.95;
   }
   &:focus-visible {
-    outline: 2px solid ${p => p.theme.color.brandBraveInteracting};
+    outline: 2px solid ${p => p.theme.color.brandadrbrowsielInteracting};
   }
 `
 

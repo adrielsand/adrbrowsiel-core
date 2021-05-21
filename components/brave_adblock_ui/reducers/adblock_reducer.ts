@@ -12,7 +12,7 @@ import * as storage from '../storage'
 import { debounce } from '../../common/debounce'
 
 const updateCustomFilters = debounce((customFilters: string) => {
-  chrome.send('brave_adblock.updateCustomFilters', [customFilters])
+  chrome.send('adrbrowsiel_adblock.updateCustomFilters', [customFilters])
 }, 1500)
 
 const adblockReducer: Reducer<AdBlock.State | undefined> = (state: AdBlock.State | undefined, action) => {
@@ -23,7 +23,7 @@ const adblockReducer: Reducer<AdBlock.State | undefined> = (state: AdBlock.State
   const startingState = state
   switch (action.type) {
     case types.ADBLOCK_ENABLE_FILTER_LIST:
-      chrome.send('brave_adblock.enableFilterList', [action.payload.uuid, action.payload.enabled])
+      chrome.send('adrbrowsiel_adblock.enableFilterList', [action.payload.uuid, action.payload.enabled])
       state = {
         ...state,
         settings: {
@@ -35,10 +35,10 @@ const adblockReducer: Reducer<AdBlock.State | undefined> = (state: AdBlock.State
       }
       break
     case types.ADBLOCK_GET_CUSTOM_FILTERS:
-      chrome.send('brave_adblock.getCustomFilters')
+      chrome.send('adrbrowsiel_adblock.getCustomFilters')
       break
     case types.ADBLOCK_GET_REGIONAL_LISTS:
-      chrome.send('brave_adblock.getRegionalLists')
+      chrome.send('adrbrowsiel_adblock.getRegionalLists')
       break
     case types.ADBLOCK_ON_GET_CUSTOM_FILTERS:
       state = { ...state, settings: { ...state.settings, customFilters: action.payload.customFilters } }

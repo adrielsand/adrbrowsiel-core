@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/sync/engine/brave_model_type_worker.h"
+#include "adrbrowsiel/components/sync/engine/adrbrowsiel_model_type_worker.h"
 
 #include <utility>
 
@@ -17,7 +17,7 @@ namespace syncer {
 namespace features {
 
 // Enables the option of resetting progress marker.
-const base::Feature kBraveSyncResetProgressMarker{
+const base::Feature kadrbrowsielSyncResetProgressMarker{
     "ResetProgressMarkerOnCommitFailures", base::FEATURE_ENABLED_BY_DEFAULT};
 
 }  // namespace features
@@ -34,7 +34,7 @@ base::TimeDelta kMinimalTimeBetweenResetMarker =
     base::TimeDelta::FromMinutes(30);
 }  // namespace
 
-BraveModelTypeWorker::BraveModelTypeWorker(
+adrbrowsielModelTypeWorker::adrbrowsielModelTypeWorker(
     ModelType type,
     const sync_pb::ModelTypeState& initial_state,
     bool trigger_initial_sync,
@@ -52,15 +52,15 @@ BraveModelTypeWorker::BraveModelTypeWorker(
                       std::move(model_type_processor),
                       cancelation_signal) {}
 
-BraveModelTypeWorker::~BraveModelTypeWorker() {}
+adrbrowsielModelTypeWorker::~adrbrowsielModelTypeWorker() {}
 
-void BraveModelTypeWorker::OnCommitResponse(
+void adrbrowsielModelTypeWorker::OnCommitResponse(
     const CommitResponseDataList& committed_response_list,
     const FailedCommitResponseDataList& error_response_list) {
   ModelTypeWorker::OnCommitResponse(committed_response_list,
                                     error_response_list);
 
-  if (!base::FeatureList::IsEnabled(features::kBraveSyncResetProgressMarker)) {
+  if (!base::FeatureList::IsEnabled(features::kadrbrowsielSyncResetProgressMarker)) {
     return;
   }
 
@@ -70,16 +70,16 @@ void BraveModelTypeWorker::OnCommitResponse(
 }
 
 // static
-size_t BraveModelTypeWorker::GetFailuresToResetMarkerForTests() {
+size_t adrbrowsielModelTypeWorker::GetFailuresToResetMarkerForTests() {
   return kFailuresToResetMarker;
 }
 
 // static
-base::TimeDelta BraveModelTypeWorker::MinimalTimeBetweenResetForTests() {
+base::TimeDelta adrbrowsielModelTypeWorker::MinimalTimeBetweenResetForTests() {
   return kMinimalTimeBetweenResetMarker;
 }
 
-bool BraveModelTypeWorker::IsResetProgressMarkerRequired(
+bool adrbrowsielModelTypeWorker::IsResetProgressMarkerRequired(
     const FailedCommitResponseDataList& error_response_list) {
   if (!last_reset_marker_time_.is_null() &&
       base::Time::Now() - last_reset_marker_time_ <
@@ -87,7 +87,7 @@ bool BraveModelTypeWorker::IsResetProgressMarkerRequired(
     // Reset progress marker due to 7th failure happening twice in a row
     // in less than 30mins
     // P3A sample is 1
-    base::UmaHistogramExactLinear("Brave.Sync.ProgressTokenEverReset", 1, 1);
+    base::UmaHistogramExactLinear("adrbrowsiel.Sync.ProgressTokenEverReset", 1, 1);
     return false;
   }
 
@@ -112,11 +112,11 @@ bool BraveModelTypeWorker::IsResetProgressMarkerRequired(
   return failed_commit_times_ >= kFailuresToResetMarker;
 }
 
-void BraveModelTypeWorker::ResetProgressMarker() {
+void adrbrowsielModelTypeWorker::ResetProgressMarker() {
   VLOG(1) << "Reset progress marker for type " << ModelTypeToString(type_);
   // Normal reset of progress marker due to 7th failure
   // P3A sample is 0
-  base::UmaHistogramExactLinear("Brave.Sync.ProgressTokenEverReset", 0, 1);
+  base::UmaHistogramExactLinear("adrbrowsiel.Sync.ProgressTokenEverReset", 0, 1);
   last_reset_marker_time_ = base::Time::Now();
   model_type_state_.mutable_progress_marker()->clear_token();
 }

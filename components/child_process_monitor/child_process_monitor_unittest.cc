@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/child_process_monitor/child_process_monitor.h"
+#include "adrbrowsiel/components/child_process_monitor/child_process_monitor.h"
 
 #if defined(OS_WIN)
 #include <windows.h>
@@ -21,7 +21,7 @@
 #include "testing/gtest/include/gtest/gtest.h"
 #include "testing/multiprocess_func_list.h"
 
-namespace brave {
+namespace adrbrowsiel {
 namespace {
 void WaitForChildTermination(base::ProcessHandle handle) {
   int exit_code;
@@ -147,4 +147,4 @@ TEST_F(ChildProcessMonitorTest, ChildCrash) {
 }
 #endif
 
-}  // namespace brave
+}  // namespace adrbrowsiel

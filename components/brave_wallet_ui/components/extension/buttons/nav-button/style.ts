@@ -5,7 +5,7 @@ interface StyleProps {
   disabled?: boolean
 }
 
-// Will need to change to brave-ui button
+// Will need to change to adrbrowsiel-ui button
 
 export const StyledButton = styled.button<StyleProps>`
 	display: flex;

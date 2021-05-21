@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Brave Eklentisi",
+    "message": "adrbrowsiel Eklentisi",
     "description": "The name of the the extension."
   },
   "shields": {
@@ -24,12 +24,12 @@
     "description": "Message telling the user to disable shields if a site appears broken"
   },
   "disabledMessage": {
-    "message": "Bu siteyi Brave'in gizlilik ve güvenlik önlemleri olmadan ziyaret ediyorsunuz. Kalkanlar aktifken doğru çalışmıyor mu?",
+    "message": "Bu siteyi adrbrowsiel'in gizlilik ve güvenlik önlemleri olmadan ziyaret ediyorsunuz. Kalkanlar aktifken doğru çalışmıyor mu?",
     "description": "Message telling the user that shields are disabled, and prompting them towards reporting an issue if necessary"
   },
   "reportBrokenSite": {
     "message": "Arızalı bir siteyi bildir",
-    "description": "Message for the button allowing users to report a broken site to Brave developers"
+    "description": "Message for the button allowing users to report a broken site to adrbrowsiel developers"
   },
   "itemsBlocked": {
     "message": "Öğeler engellendi",
@@ -192,8 +192,8 @@
     "description": "Message for the simple view option"
   },
   "shieldsExplanation": {
-    "message": "Siteler sıklıkla sizi ve cihazınızı tanımayı deneyen çerezler ve kodlar içerir (sıklıkla reklamlara gömülü olarak). Kim olduğunuzu çözmek ve sizi web boyunca takip etmek isterler — her sitede ne yaptığınızı izleyerek. Brave bu şeyleri engeller, böylece takip edilmeden webde gezinebilirsiniz.",
-    "description": "Message in read-only view explaining what Brave Shields do"
+    "message": "Siteler sıklıkla sizi ve cihazınızı tanımayı deneyen çerezler ve kodlar içerir (sıklıkla reklamlara gömülü olarak). Kim olduğunuzu çözmek ve sizi web boyunca takip etmek isterler — her sitede ne yaptığınızı izleyerek. adrbrowsiel bu şeyleri engeller, böylece takip edilmeden webde gezinebilirsiniz.",
+    "description": "Message in read-only view explaining what adrbrowsiel Shields do"
   },
   "blockedResoucesExplanation": {
     "message": "Engellenen siteler arası izleyici ve diğer tekinsiz şeyler",

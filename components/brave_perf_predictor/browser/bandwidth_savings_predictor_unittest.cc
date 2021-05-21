@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_perf_predictor/browser/bandwidth_savings_predictor.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/bandwidth_savings_predictor.h"
 
 #include <memory>
 
@@ -18,7 +18,7 @@
 #include "third_party/blink/public/mojom/loader/resource_load_info.mojom.h"
 #include "url/gurl.h"
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 class BandwidthSavingsPredictorTest : public ::testing::Test {
  public:
@@ -79,10 +79,10 @@ TEST_F(BandwidthSavingsPredictorTest, FeaturiseTiming) {
 TEST_F(BandwidthSavingsPredictorTest, FeaturiseResourceLoading) {
   EXPECT_EQ(predictor_->feature_map_["resources.third-party.requestCount"], 0);
 
-  const GURL main_frame("https://brave.com/");
+  const GURL main_frame("https://adrbrowsiel.com/");
 
   auto fp_style = predictors::CreateResourceLoadInfo(
-      "https://brave.com/style.css",
+      "https://adrbrowsiel.com/style.css",
       network::mojom::RequestDestination::kStyle);
   fp_style->raw_body_bytes = 1000;
   predictor_->OnResourceLoadComplete(main_frame, *fp_style);
@@ -111,8 +111,8 @@ TEST_F(BandwidthSavingsPredictorTest, PredictZeroNoData) {
 }
 
 TEST_F(BandwidthSavingsPredictorTest, PredictZeroInternalUrl) {
-  const GURL main_frame("brave://version");
-  auto res = predictors::CreateResourceLoadInfo("brave://version");
+  const GURL main_frame("adrbrowsiel://version");
+  auto res = predictors::CreateResourceLoadInfo("adrbrowsiel://version");
   predictor_->OnResourceLoadComplete(main_frame, *res);
 
   EXPECT_EQ(predictor_->PredictSavingsBytes(), 0);
@@ -121,7 +121,7 @@ TEST_F(BandwidthSavingsPredictorTest, PredictZeroInternalUrl) {
 TEST_F(BandwidthSavingsPredictorTest, PredictZeroBadFrame) {
   const GURL main_frame("");
   auto res = predictors::CreateResourceLoadInfo(
-      "https://brave.com/style.css",
+      "https://adrbrowsiel.com/style.css",
       network::mojom::RequestDestination::kStyle);
   res->raw_body_bytes = 1000;
   predictor_->OnResourceLoadComplete(main_frame, *res);
@@ -130,9 +130,9 @@ TEST_F(BandwidthSavingsPredictorTest, PredictZeroBadFrame) {
 }
 
 TEST_F(BandwidthSavingsPredictorTest, PredictZeroNoBlocks) {
-  const GURL main_frame("https://brave.com");
+  const GURL main_frame("https://adrbrowsiel.com");
   auto res = predictors::CreateResourceLoadInfo(
-      "https://brave.com/style.css",
+      "https://adrbrowsiel.com/style.css",
       network::mojom::RequestDestination::kStyle);
   res->raw_body_bytes = 1000;
   predictor_->OnResourceLoadComplete(main_frame, *res);
@@ -141,9 +141,9 @@ TEST_F(BandwidthSavingsPredictorTest, PredictZeroNoBlocks) {
 }
 
 TEST_F(BandwidthSavingsPredictorTest, PredictNonZero) {
-  const GURL main_frame("https://brave.com");
+  const GURL main_frame("https://adrbrowsiel.com");
   auto res = predictors::CreateResourceLoadInfo(
-      "https://brave.com/style.css",
+      "https://adrbrowsiel.com/style.css",
       network::mojom::RequestDestination::kStyle);
   res->raw_body_bytes = 200000;
   res->total_received_bytes = 200000;
@@ -160,4 +160,4 @@ TEST_F(BandwidthSavingsPredictorTest, PredictNonZero) {
   EXPECT_NE(predictor_->PredictSavingsBytes(), 0);
 }
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor

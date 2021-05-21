@@ -2,12 +2,12 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { webtorrentReducer } from '../../../../brave_webtorrent/extension/background/reducers/webtorrent_reducer'
-import * as tabActions from '../../../../brave_webtorrent/extension/actions/tab_actions'
+import { webtorrentReducer } from '../../../../adrbrowsiel_webtorrent/extension/background/reducers/webtorrent_reducer'
+import * as tabActions from '../../../../adrbrowsiel_webtorrent/extension/actions/tab_actions'
 import { torrentObjMap } from '../../testData'
 
 // this import seems to trigger createStore and get an undefined reducer
-jest.mock('../../../../brave_webtorrent/extension/background/events/torrentEvents')
+jest.mock('../../../../adrbrowsiel_webtorrent/extension/background/events/torrentEvents')
 
 const defaultState = { torrentStateMap: {}, torrentObjMap: {} }
 describe('webtorrent reducer test', () => {

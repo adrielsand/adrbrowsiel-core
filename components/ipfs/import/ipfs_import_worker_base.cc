@@ -1,9 +1,9 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ipfs/import/ipfs_import_worker_base.h"
+#include "adrbrowsiel/components/ipfs/import/ipfs_import_worker_base.h"
 
 #include <utility>
 
@@ -17,12 +17,12 @@
 #include "base/task/thread_pool.h"
 #include "base/task_runner_util.h"
 #include "base/time/time.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_json_parser.h"
-#include "brave/components/ipfs/ipfs_utils.h"
-#include "brave/components/ipfs/pref_names.h"
-#include "brave/components/ipfs/service_sandbox_type.h"
-#include "components/grit/brave_components_strings.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_json_parser.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
+#include "adrbrowsiel/components/ipfs/service_sandbox_type.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
 #include "components/user_prefs/user_prefs.h"
@@ -189,13 +189,13 @@ void IpfsImportWorkerBase::OnImportAddComplete(
   }
   url_loader_.reset();
   if (success && !data_->hash.empty()) {
-    CreateBraveDirectory();
+    CreateadrbrowsielDirectory();
     return;
   }
   NotifyImportCompleted(IPFS_IMPORT_ERROR_ADD_FAILED);
 }
 
-void IpfsImportWorkerBase::CreateBraveDirectory() {
+void IpfsImportWorkerBase::CreateadrbrowsielDirectory() {
   DCHECK(!url_loader_);
   GURL url = net::AppendQueryParameter(
       server_endpoint_.Resolve(kImportMakeDirectoryPath), "parents", "true");
@@ -222,13 +222,13 @@ void IpfsImportWorkerBase::OnImportDirectoryCreated(
   bool success = (error_code == net::OK && response_code == net::HTTP_OK);
   if (success) {
     data_->directory = directory;
-    CopyFilesToBraveDirectory();
+    CopyFilesToadrbrowsielDirectory();
     return;
   }
   NotifyImportCompleted(IPFS_IMPORT_ERROR_MKDIR_FAILED);
 }
 
-void IpfsImportWorkerBase::CopyFilesToBraveDirectory() {
+void IpfsImportWorkerBase::CopyFilesToadrbrowsielDirectory() {
   DCHECK(!url_loader_);
   std::string from = "/ipfs/" + data_->hash;
   GURL url = net::AppendQueryParameter(

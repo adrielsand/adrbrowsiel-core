@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_CHILD_PROCESS_MONITOR_CHILD_PROCESS_MONITOR_H_
-#define BRAVE_COMPONENTS_CHILD_PROCESS_MONITOR_CHILD_PROCESS_MONITOR_H_
+#ifndef adrbrowsiel_COMPONENTS_CHILD_PROCESS_MONITOR_CHILD_PROCESS_MONITOR_H_
+#define adrbrowsiel_COMPONENTS_CHILD_PROCESS_MONITOR_CHILD_PROCESS_MONITOR_H_
 
 #include <memory>
 
@@ -14,7 +14,7 @@
 #include "base/sequence_checker.h"
 #include "base/threading/thread.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 // This class can only be used once per utility process to monitor the lifetime
 // of external process, ex. IpfsServiceImpl and TorLauncherImpl
@@ -40,5 +40,5 @@ class ChildProcessMonitor {
   base::WeakPtrFactory<ChildProcessMonitor> weak_ptr_factory_{this};
 };
 
-}  // namespace brave
-#endif  // BRAVE_COMPONENTS_CHILD_PROCESS_MONITOR_CHILD_PROCESS_MONITOR_H_
+}  // namespace adrbrowsiel
+#endif  // adrbrowsiel_COMPONENTS_CHILD_PROCESS_MONITOR_CHILD_PROCESS_MONITOR_H_

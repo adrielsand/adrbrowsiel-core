@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -127,7 +127,7 @@ export const Button = styled('button')<{}>`
     background: rgba(255, 255, 255, .4);
   }
   &:focus-visible {
-    box-shadow: 0 0 0 1px ${p => p.theme.color.brandBrave};
+    box-shadow: 0 0 0 1px ${p => p.theme.color.brandadrbrowsiel};
   }
 `
 
@@ -162,6 +162,6 @@ export const TertiaryButton = styled('button')<{}>`
     transform: translate(1px, 1px)
   }
   &:focus-visible {
-    box-shadow: 0 0 0 1px ${p => p.theme.color.brandBrave};
+    box-shadow: 0 0 0 1px ${p => p.theme.color.brandadrbrowsiel};
   }
 `

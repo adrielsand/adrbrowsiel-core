@@ -1,14 +1,14 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
 #include "base/scoped_observer.h"
-#include "brave/browser/gemini/gemini_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/gemini/browser/gemini_service.h"
-#include "brave/components/gemini/browser/pref_names.h"
+#include "adrbrowsiel/browser/gemini/gemini_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/gemini/browser/gemini_service.h"
+#include "adrbrowsiel/components/gemini/browser/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/in_process_browser_test.h"
@@ -22,7 +22,7 @@
 #include "net/test/embedded_test_server/http_request.h"
 #include "net/test/embedded_test_server/http_response.h"
 
-// npm run test -- brave_browser_tests --filter=GeminiAPIBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=GeminiAPIBrowserTest.*
 
 namespace {
 
@@ -151,9 +151,9 @@ class GeminiAPIBrowserTest : public InProcessBrowserTest {
 
     ResetHTTPSServer(base::BindRepeating(&HandleRequest));
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
   }
 
   ~GeminiAPIBrowserTest() override {
@@ -327,7 +327,7 @@ IN_PROC_BROWSER_TEST_F(GeminiAPIBrowserTest, GetOAuthClientURL) {
     "https://exchange.gemini.com/auth?"
     "response_type=code&"
     "client_id=fake-client-id&"
-    "redirect_uri=com.brave.gemini%3A%2F%2Fauthorization&"
+    "redirect_uri=com.adrbrowsiel.gemini%3A%2F%2Fauthorization&"
     "scope=addresses%3Aread%2Cbalances%3Aread%2Corders%3Acreate&"
     "code_challenge=da0KASk6XZX4ksgvIGAa87iwNSVvmWdys2GYh3kjBZw&"
     "code_challenge_method=S256&"

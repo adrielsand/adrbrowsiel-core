@@ -28,7 +28,7 @@ if (chrome.extension.inIncognitoContext) {
   // This is a work-around for a longstanding Chromium bug where onStartup
   // isn't called for incognito windows.  And since chrome.windows.onCreated
   // doesn't get called for the first window, we need to work around it here.
-  // See https://github.com/brave/brave-browser/issues/1437 for more discussion.
+  // See https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/1437 for more discussion.
   setTimeout(() => {
     checkForNewWindows()
   }, 1000)

@@ -1,7 +1,7 @@
-import("//brave/components/brave_ads/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_ads/browser/buildflags/buildflags.gni")
 import("//build/buildflag_header.gni")
 
 buildflag_header("buildflags") {
   header = "buildflags.h"
-  flags = [ "BRAVE_ADS_ENABLED=$brave_ads_enabled" ]
+  flags = [ "adrbrowsiel_ADS_ENABLED=$adrbrowsiel_ads_enabled" ]
 }

@@ -4,9 +4,9 @@
 
 import { ComponentType } from 'react'
 import styled from 'styled-components'
-import Heading from 'brave-ui/components/text/heading'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
-import { DuckDuckGoIcon, TorLockIcon } from 'brave-ui/components/icons'
+import Heading from 'adrbrowsiel-ui/components/text/heading'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
+import { DuckDuckGoIcon, TorLockIcon } from 'adrbrowsiel-ui/components/icons'
 
 export const Box = styled('section')<{}>`
   box-sizing: border-box;

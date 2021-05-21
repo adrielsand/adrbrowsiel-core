@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
 
 namespace ipfs {
 
@@ -21,12 +21,12 @@ const char kIPFSScheme[] = "ipfs";
 const char kIPNSScheme[] = "ipns";
 const char kDefaultIPFSGateway[] = "https://dweb.link";
 const char kDefaultIPFSLocalGateway[] = "http://localhost";
-const char kIPFSSettingsURL[] = "brave://settings/ipfs";
+const char kIPFSSettingsURL[] = "adrbrowsiel://settings/ipfs";
 const char kIPFSLearnMorePrivacyURL[] =
-    "https://support.brave.com/hc/en-us/articles/"
+    "https://support.adrbrowsiel.com/hc/en-us/articles/"
     "360051406452-How-does-IPFS-Impact-my-Privacy-";
 const char kIPFSLearnMoreURL[] =
-    "https://support.brave.com/hc/en-us/sections/"
+    "https://support.adrbrowsiel.com/hc/en-us/sections/"
     "360010974932-InterPlanetary-File-System-IPFS-";
 const char kRepoStatsPath[] = "/api/v0/repo/stat";
 const char kRepoStatsHumanReadableParamName[] = "human";
@@ -38,7 +38,7 @@ const char kGarbageCollectionPath[] = "/api/v0/repo/gc";
 const char kImportAddPath[] = "/api/v0/add";
 const char kImportMakeDirectoryPath[] = "/api/v0/files/mkdir";
 const char kImportCopyPath[] = "/api/v0/files/cp";
-const char kImportDirectory[] = "/brave-imports/";
+const char kImportDirectory[] = "/adrbrowsiel-imports/";
 const char kIPFSImportMultipartContentType[] = "multipart/form-data;";
 const char kFileValueName[] = "file";
 const char kFileMimeType[] = "application/octet-stream";

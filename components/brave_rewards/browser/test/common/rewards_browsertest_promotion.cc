@@ -1,13 +1,13 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <utility>
 
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_helper.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_promotion.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_promotion.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
 namespace rewards_browsertest {
@@ -18,7 +18,7 @@ RewardsBrowserTestPromotion::~RewardsBrowserTestPromotion() = default;
 
 void RewardsBrowserTestPromotion::Initialize(
       Browser* browser,
-      brave_rewards::RewardsServiceImpl* rewards_service) {
+      adrbrowsiel_rewards::RewardsServiceImpl* rewards_service) {
   DCHECK(browser && rewards_service);
   browser_ = browser;
   rewards_service_ = rewards_service;
@@ -36,7 +36,7 @@ void RewardsBrowserTestPromotion::WaitForPromotionInitialization() {
 }
 
 void RewardsBrowserTestPromotion::OnFetchPromotions(
-    brave_rewards::RewardsService* rewards_service,
+    adrbrowsiel_rewards::RewardsService* rewards_service,
     const ledger::type::Result result,
     const ledger::type::PromotionList& list) {
   ASSERT_EQ(result, ledger::type::Result::LEDGER_OK);
@@ -59,7 +59,7 @@ void RewardsBrowserTestPromotion::WaitForPromotionFinished(
 }
 
 void RewardsBrowserTestPromotion::OnPromotionFinished(
-    brave_rewards::RewardsService* rewards_service,
+    adrbrowsiel_rewards::RewardsService* rewards_service,
     const ledger::type::Result result,
     ledger::type::PromotionPtr promotion) {
   if (should_succeed_) {
@@ -86,7 +86,7 @@ void RewardsBrowserTestPromotion::WaitForUnblindedTokensReady() {
 }
 
 void RewardsBrowserTestPromotion::OnUnblindedTokensReady(
-    brave_rewards::RewardsService* rewards_service) {
+    adrbrowsiel_rewards::RewardsService* rewards_service) {
   unblinded_tokens_ = true;
   if (wait_for_unblinded_tokens_loop_) {
     wait_for_unblinded_tokens_loop_->Quit();

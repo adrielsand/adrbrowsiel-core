@@ -1,16 +1,16 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SEARCH_RENDERER_BRAVE_SEARCH_JS_HANDLER_H_
-#define BRAVE_COMPONENTS_BRAVE_SEARCH_RENDERER_BRAVE_SEARCH_JS_HANDLER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SEARCH_RENDERER_adrbrowsiel_SEARCH_JS_HANDLER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SEARCH_RENDERER_adrbrowsiel_SEARCH_JS_HANDLER_H_
 
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "brave/components/brave_search/common/brave_search.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_search/common/adrbrowsiel_search.mojom.h"
 #include "mojo/public/cpp/bindings/remote.h"
 #include "v8/include/v8.h"
 
@@ -18,15 +18,15 @@ namespace blink {
 class ThreadSafeBrowserInterfaceBrokerProxy;
 }
 
-namespace brave_search {
+namespace adrbrowsiel_search {
 
-class BraveSearchJSHandler {
+class adrbrowsielSearchJSHandler {
  public:
-  BraveSearchJSHandler(v8::Local<v8::Context> v8_context,
+  adrbrowsielSearchJSHandler(v8::Local<v8::Context> v8_context,
                        blink::ThreadSafeBrowserInterfaceBrokerProxy* broker);
-  BraveSearchJSHandler(const BraveSearchJSHandler&) = delete;
-  BraveSearchJSHandler& operator=(const BraveSearchJSHandler&) = delete;
-  ~BraveSearchJSHandler();
+  adrbrowsielSearchJSHandler(const adrbrowsielSearchJSHandler&) = delete;
+  adrbrowsielSearchJSHandler& operator=(const adrbrowsielSearchJSHandler&) = delete;
+  ~adrbrowsielSearchJSHandler();
 
   void AddJavaScriptObject();
   void Invalidate();
@@ -53,11 +53,11 @@ class BraveSearchJSHandler {
       const std::string& response);
 
   blink::ThreadSafeBrowserInterfaceBrokerProxy* broker_;  // not owned
-  mojo::Remote<brave_search::mojom::BraveSearchFallback> brave_search_fallback_;
+  mojo::Remote<adrbrowsiel_search::mojom::adrbrowsielSearchFallback> adrbrowsiel_search_fallback_;
   v8::Global<v8::Context> context_;
   v8::Isolate* isolate_;
 };
 
-}  // namespace brave_search
+}  // namespace adrbrowsiel_search
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SEARCH_RENDERER_BRAVE_SEARCH_JS_HANDLER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SEARCH_RENDERER_adrbrowsiel_SEARCH_JS_HANDLER_H_

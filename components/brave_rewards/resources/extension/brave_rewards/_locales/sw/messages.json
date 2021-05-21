@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Tumeboresha Brave Rewards kwa kiwango cha juu.",
+    "message": "Tumeboresha adrbrowsiel Rewards kwa kiwango cha juu.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "inaweza kutumika katika Tuzo za Brave ili kuchangia katika watengenezaji maudhui uwapendao. Pointi za BAT haziwezi kubadilishwa kwa BAT.",
+    "message": "inaweza kutumika katika Tuzo za adrbrowsiel ili kuchangia katika watengenezaji maudhui uwapendao. Pointi za BAT haziwezi kubadilishwa kwa BAT.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Wazalishaji wa Brave Waliothibitishwa",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "Wazalishaji wa adrbrowsiel Waliothibitishwa",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Umakini",
@@ -193,15 +193,15 @@
     "message": "sawa",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Sasa unaweza kupata pesa kwa kutazama matangazo.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Matangazo ya Brave",
+  "adrbrowsielAdsTitle": {
+    "message": "Matangazo ya adrbrowsiel",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Auto-Contribute",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Tafadhali hifadhi kwa njia mbadala wallet yako ya Brave.",
+    "message": "Tafadhali hifadhi kwa njia mbadala wallet yako ya adrbrowsiel.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Akaunto yako ya Brave Rewards inasubiri amana.",
+    "message": "Akaunto yako ya adrbrowsiel Rewards inasubiri amana.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Fedha Hazitoshi",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Kutengeneza waleti",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Kuna tatizo kwenye Zawadi za Brave. Tafadhali jaribu tena baadaye.",
+    "message": "Kuna tatizo kwenye Zawadi za adrbrowsiel. Tafadhali jaribu tena baadaye.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Mtengeneza maudhui huyu bado hajajisajili ili kuanza kupokea michango kutoka kwa watumiaji wa Brave. Zawadi yoyote utakayotuma itabaki kwenye wallet yako hadi watakapothibitisha.",
+    "message": "Mtengeneza maudhui huyu bado hajajisajili ili kuanza kupokea michango kutoka kwa watumiaji wa adrbrowsiel. Zawadi yoyote utakayotuma itabaki kwenye wallet yako hadi watakapothibitisha.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Zawadi za Brave ni",
+    "message": "Zawadi za adrbrowsiel ni",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "na",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Pata Zawadi kwa Kuperuzi!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Wezesha Zawadi za Brave",
+    "message": "Wezesha Zawadi za adrbrowsiel",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Kwa kubofya 'Wezesha Brave Rewards', unaashiria kwamba umesoma kukubali",
+    "message": "Kwa kubofya 'Wezesha adrbrowsiel Rewards', unaashiria kwamba umesoma kukubali",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Tuzo yako iko njiani kuelekea katika waleti yako ya Tuzo za Brave.",
+    "message": "Tuzo yako iko njiani kuelekea katika waleti yako ya Tuzo za adrbrowsiel.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Ondoa kwenye Brave Rewards",
+    "message": "Ondoa kwenye adrbrowsiel Rewards",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Mtengeneza maudhui huyu bado hajajisajili ili kuanza kupokea michango kutoka kwa watumiaji wa Brave. Zawadi yoyote utakayotuma itabaki kwenye wallet yako hadi watakapokamilisha mchakato huu.",
+    "message": "Mtengeneza maudhui huyu bado hajajisajili ili kuanza kupokea michango kutoka kwa watumiaji wa adrbrowsiel. Zawadi yoyote utakayotuma itabaki kwenye wallet yako hadi watakapokamilisha mchakato huu.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Anza kutumia Zawadi za Brave",
+    "message": "Anza kutumia Zawadi za adrbrowsiel",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Karibu kwenye Zawadi za Brave!",
+    "message": "Karibu kwenye Zawadi za adrbrowsiel!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Brave Private Ads hukuzawidi tokeni ili kusaidia waundaji maudhui kinyume na matangazo ya jadi, yote huku ukidumisha faragha ya taarifa zako binafsi.",
+    "message": "adrbrowsiel Private Ads hukuzawidi tokeni ili kusaidia waundaji maudhui kinyume na matangazo ya jadi, yote huku ukidumisha faragha ya taarifa zako binafsi.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Brave Private Ads itaonekana kama arifa ya kawaida. Huwezi kudhibiti mara ambazo unaona matangazo haya katika mipangilio.",
+    "message": "adrbrowsiel Private Ads itaonekana kama arifa ya kawaida. Huwezi kudhibiti mara ambazo unaona matangazo haya katika mipangilio.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Tokeni ulizopata kutoka Brave Private Ads mwezi mzima wa sasa zitawasili tarehe 5 mwezi ujao.",
+    "message": "Tokeni ulizopata kutoka adrbrowsiel Private Ads mwezi mzima wa sasa zitawasili tarehe 5 mwezi ujao.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Kwa kutumia Zawadi za Brave, unasaidia kufanya wavuti kuwa mahali bora pa kila mtu. Na hilo ni jambo bora!",
+    "message": "Kwa kutumia Zawadi za adrbrowsiel, unasaidia kufanya wavuti kuwa mahali bora pa kila mtu. Na hilo ni jambo bora!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Kwa kuthibitisha pochi yako na kuiunganisha kwenye akaunti ya bitFlyer, utaweza kuhifadhi na kudhibiti tokeni ulizopata kupitia Brave Rewards kwa urahisi zaidi",
+    "message": "Kwa kuthibitisha pochi yako na kuiunganisha kwenye akaunti ya bitFlyer, utaweza kuhifadhi na kudhibiti tokeni ulizopata kupitia adrbrowsiel Rewards kwa urahisi zaidi",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Brave Rewards nchini Japan inabadilisha hadi mfumo mpya!",
+    "message": "adrbrowsiel Rewards nchini Japan inabadilisha hadi mfumo mpya!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

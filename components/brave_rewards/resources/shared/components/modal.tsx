@@ -35,7 +35,7 @@ const style = {
   `,
 
   close: styled.div`
-    color: var(--brave-palette-neutral600);
+    color: var(--adrbrowsiel-palette-neutral600);
     text-align: right;
 
     button {

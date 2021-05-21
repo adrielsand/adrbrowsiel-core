@@ -1,23 +1,23 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_COMPONENT_UPDATER_RESOURCE_COMPONENT_H_
-#define BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_COMPONENT_UPDATER_RESOURCE_COMPONENT_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_COMPONENT_UPDATER_RESOURCE_COMPONENT_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_COMPONENT_UPDATER_RESOURCE_COMPONENT_H_
 
 #include <map>
 #include <string>
 
 #include "base/files/file_path.h"
 #include "base/memory/weak_ptr.h"
-#include "brave/components/brave_ads/browser/component_updater/resource_component_observer.h"
-#include "brave/components/brave_ads/browser/component_updater/resource_info.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/component_updater/resource_component_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/component_updater/resource_info.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
-class ResourceComponent : public brave_component_updater::BraveComponent {
+class ResourceComponent : public adrbrowsiel_component_updater::adrbrowsielComponent {
  public:
   explicit ResourceComponent(Delegate* delegate);
   ~ResourceComponent() override;
@@ -52,6 +52,6 @@ class ResourceComponent : public brave_component_updater::BraveComponent {
   base::WeakPtrFactory<ResourceComponent> weak_factory_{this};
 };
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads
 
-#endif  // BRAVE_COMPONENTS_BRAVE_ADS_BROWSER_COMPONENT_UPDATER_RESOURCE_COMPONENT_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_ADS_BROWSER_COMPONENT_UPDATER_RESOURCE_COMPONENT_H_

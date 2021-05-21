@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -17,21 +17,21 @@
 #include "base/strings/stringprintf.h"
 #include "base/test/bind.h"
 #include "bat/ledger/ledger.h"
-#include "brave/browser/brave_ads/ads_service_factory.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/browser/ui/views/brave_actions/brave_actions_container.h"
-#include "brave/browser/ui/views/location_bar/brave_location_bar_view.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_ads/browser/ads_service_impl.h"
-#include "brave/components/brave_ads/common/pref_names.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service_impl.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service_observer.h"
-#include "brave/components/brave_rewards/browser/rewards_service.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/rewards_service_observer.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
-#include "brave/components/l10n/browser/locale_helper_mock.h"
+#include "adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/browser/ui/views/adrbrowsiel_actions/adrbrowsiel_actions_container.h"
+#include "adrbrowsiel/browser/ui/views/location_bar/adrbrowsiel_location_bar_view.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/ads_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/l10n/browser/locale_helper_mock.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 #include "chrome/common/chrome_constants.h"
@@ -48,16 +48,16 @@
 #include "testing/gmock/include/gmock/gmock.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_browser_tests --filter=BraveAdsBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=adrbrowsielAdsBrowserTest.*
 
 using ::testing::NiceMock;
 using ::testing::Return;
 
 namespace {
 
-struct BraveAdsUpgradePathParamInfo {
+struct adrbrowsielAdsUpgradePathParamInfo {
   // |preferences| should be set to the name of the preferences filename located
-  // at "src/brave/test/data/rewards-data/migration"
+  // at "src/adrbrowsiel/test/data/rewards-data/migration"
   std::string preferences;
 
   // |supported_locale| should be set to true if the locale should be set to a
@@ -68,11 +68,11 @@ struct BraveAdsUpgradePathParamInfo {
   // to a newly supported locale; otherwise, should be set to false
   bool newly_supported_locale;
 
-  // |rewards_enabled| should be set to true if Brave rewards should be enabled
+  // |rewards_enabled| should be set to true if adrbrowsiel rewards should be enabled
   // after upgrade; otherwise, should be set to false
   bool rewards_enabled;
 
-  // |ads_enabled| should be set to true if Brave ads should be enabled after
+  // |ads_enabled| should be set to true if adrbrowsiel ads should be enabled after
   // upgrade; otherwise, should be set to false
   bool ads_enabled;
 };
@@ -96,7 +96,7 @@ std::unique_ptr<net::test_server::HttpResponse> HandleRequest(
 }  // namespace
 
 class TestRewardsServiceObserver
-    : public brave_rewards::RewardsServiceObserver {
+    : public adrbrowsiel_rewards::RewardsServiceObserver {
  public:
   TestRewardsServiceObserver() = default;
   ~TestRewardsServiceObserver() override = default;
@@ -111,7 +111,7 @@ class TestRewardsServiceObserver
   }
 
   // RewardsServiceObserver implementation
-  void OnRewardsInitialized(brave_rewards::RewardsService* service) override {
+  void OnRewardsInitialized(adrbrowsiel_rewards::RewardsService* service) override {
     rewards_initialized_ = true;
     if (run_loop_) {
       run_loop_->Quit();
@@ -123,16 +123,16 @@ class TestRewardsServiceObserver
   bool rewards_initialized_ = false;
 };
 
-class BraveAdsBrowserTest : public InProcessBrowserTest,
-                            public base::SupportsWeakPtr<BraveAdsBrowserTest> {
+class adrbrowsielAdsBrowserTest : public InProcessBrowserTest,
+                            public base::SupportsWeakPtr<adrbrowsielAdsBrowserTest> {
  public:
-  BraveAdsBrowserTest() {
+  adrbrowsielAdsBrowserTest() {
     // You can do set-up work for each test here
 
     MaybeMockLocaleHelper();
   }
 
-  ~BraveAdsBrowserTest() override {
+  ~adrbrowsielAdsBrowserTest() override {
     // You can do clean-up work that doesn't throw exceptions here
   }
 
@@ -151,20 +151,20 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
     https_server_->RegisterRequestHandler(base::BindRepeating(&HandleRequest));
     ASSERT_TRUE(https_server_->Start());
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     ReadTestData();
 
     auto* browser_profile = browser()->profile();
 
-    rewards_service_ = static_cast<brave_rewards::RewardsServiceImpl*>(
-        brave_rewards::RewardsServiceFactory::GetForProfile(browser_profile));
+    rewards_service_ = static_cast<adrbrowsiel_rewards::RewardsServiceImpl*>(
+        adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(browser_profile));
     rewards_service_->AddObserver(&rewards_service_observer_);
 
     rewards_service_->ForTestingSetTestResponseCallback(base::BindRepeating(
-        &BraveAdsBrowserTest::GetTestResponse, base::Unretained(this)));
+        &adrbrowsielAdsBrowserTest::GetTestResponse, base::Unretained(this)));
 
-    ads_service_ = static_cast<brave_ads::AdsServiceImpl*>(
-        brave_ads::AdsServiceFactory::GetForProfile(browser_profile));
+    ads_service_ = static_cast<adrbrowsiel_ads::AdsServiceImpl*>(
+        adrbrowsiel_ads::AdsServiceFactory::GetForProfile(browser_profile));
     ASSERT_NE(nullptr, ads_service_);
     rewards_service_->SetLedgerEnvForTesting();
   }
@@ -179,7 +179,7 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
 
   void GetTestDataDir(base::FilePath* test_data_dir) {
     base::ScopedAllowBlockingForTesting allow_blocking;
-    ASSERT_TRUE(base::PathService::Get(brave::DIR_TEST_DATA, test_data_dir));
+    ASSERT_TRUE(base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, test_data_dir));
     *test_data_dir = test_data_dir->AppendASCII("rewards-data");
     ASSERT_TRUE(base::PathExists(*test_data_dir));
   }
@@ -199,7 +199,7 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
                        int* response_status_code,
                        std::string* response,
                        base::flat_map<std::string, std::string>* headers) {
-    if (url.find("/v3/wallet/brave") != std::string::npos) {
+    if (url.find("/v3/wallet/adrbrowsiel") != std::string::npos) {
       *response = wallet_;
       *response_status_code = net::HTTP_CREATED;
       return;
@@ -207,7 +207,7 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
   }
 
   bool SetUpUserDataDirectory() override {
-    MaybeMockUserProfilePreferencesForBraveAdsUpgradePath();
+    MaybeMockUserProfilePreferencesForadrbrowsielAdsUpgradePath();
 
     return true;
   }
@@ -229,12 +229,12 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
 
   void MaybeMockLocaleHelper() {
     const std::map<std::string, std::string> locale_for_tests = {
-        {"BraveAdsLocaleIsSupported", "en_US"},
-        {"BraveAdsLocaleIsNotSupported", "en_XX"},
-        {"BraveAdsLocaleIsNewlySupported", "ja_JP"},
-        {"BraveAdsLocaleIsNewlySupportedForLatestSchemaVersion",
+        {"adrbrowsielAdsLocaleIsSupported", "en_US"},
+        {"adrbrowsielAdsLocaleIsNotSupported", "en_XX"},
+        {"adrbrowsielAdsLocaleIsNewlySupported", "ja_JP"},
+        {"adrbrowsielAdsLocaleIsNewlySupportedForLatestSchemaVersion",
          newly_supported_locale_},
-        {"BraveAdsLocaleIsNotNewlySupported", "en_XX"},
+        {"adrbrowsielAdsLocaleIsNotNewlySupported", "en_XX"},
         {"PRE_AutoEnableAdsForSupportedLocales", "en_US"},
         {"AutoEnableAdsForSupportedLocales", "en_US"},
         {"PRE_DoNotAutoEnableAdsForUnsupportedLocales", "en_XX"},
@@ -246,14 +246,14 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
 
     const auto it = locale_for_tests.find(test_info->name());
     if (it == locale_for_tests.end()) {
-      MaybeMockLocaleHelperForBraveAdsUpgradePath();
+      MaybeMockLocaleHelperForadrbrowsielAdsUpgradePath();
       return;
     }
 
     MockLocaleHelper(it->second);
   }
 
-  void MaybeMockLocaleHelperForBraveAdsUpgradePath() {
+  void MaybeMockLocaleHelperForadrbrowsielAdsUpgradePath() {
     std::vector<std::string> parameters;
     if (!GetUpgradePathParams(&parameters)) {
       return;
@@ -292,15 +292,15 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
 
   void MockLocaleHelper(const std::string& locale) {
     locale_helper_mock_ =
-        std::make_unique<NiceMock<brave_l10n::LocaleHelperMock>>();
+        std::make_unique<NiceMock<adrbrowsiel_l10n::LocaleHelperMock>>();
 
-    brave_l10n::LocaleHelper::GetInstance()->set_for_testing(
+    adrbrowsiel_l10n::LocaleHelper::GetInstance()->set_for_testing(
         locale_helper_mock_.get());
 
     ON_CALL(*locale_helper_mock_, GetLocale()).WillByDefault(Return(locale));
   }
 
-  void MaybeMockUserProfilePreferencesForBraveAdsUpgradePath() {
+  void MaybeMockUserProfilePreferencesForadrbrowsielAdsUpgradePath() {
     std::vector<std::string> parameters;
     if (!GetUpgradePathParams(&parameters)) {
       return;
@@ -320,7 +320,7 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
     EXPECT_NE(nullptr, test_info);
 
     const std::string test_suite_name = test_info->test_suite_name();
-    if (test_suite_name != "BraveAdsBrowserTest/BraveAdsUpgradeBrowserTest") {
+    if (test_suite_name != "adrbrowsielAdsBrowserTest/adrbrowsielAdsUpgradeBrowserTest") {
       return false;
     }
 
@@ -365,7 +365,7 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
     // was invalid during setup, therefore investigate further
     base::FilePath path;
     base::PathService::Get(base::DIR_SOURCE_ROOT, &path);
-    path = path.Append(FILE_PATH_LITERAL("brave"));
+    path = path.Append(FILE_PATH_LITERAL("adrbrowsiel"));
     path = path.Append(FILE_PATH_LITERAL("test"));
     path = path.Append(FILE_PATH_LITERAL("data"));
     return path;
@@ -396,72 +396,72 @@ class BraveAdsBrowserTest : public InProcessBrowserTest,
 
   std::unique_ptr<net::EmbeddedTestServer> https_server_;
 
-  brave_rewards::RewardsServiceImpl* rewards_service_;
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;
 
-  brave_ads::AdsServiceImpl* ads_service_;
+  adrbrowsiel_ads::AdsServiceImpl* ads_service_;
 
   TestRewardsServiceObserver rewards_service_observer_;
 
-  std::unique_ptr<brave_l10n::LocaleHelperMock> locale_helper_mock_;
+  std::unique_ptr<adrbrowsiel_l10n::LocaleHelperMock> locale_helper_mock_;
   const std::string newly_supported_locale_ = "en_830";
 
   std::string wallet_;
   std::string parameters_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveAdsBrowserTest, BraveAdsLocaleIsSupported) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielAdsBrowserTest, adrbrowsielAdsLocaleIsSupported) {
   EXPECT_TRUE(ads_service_->IsSupportedLocale());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveAdsBrowserTest, BraveAdsLocaleIsNotSupported) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielAdsBrowserTest, adrbrowsielAdsLocaleIsNotSupported) {
   EXPECT_FALSE(ads_service_->IsSupportedLocale());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveAdsBrowserTest, BraveAdsLocaleIsNewlySupported) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielAdsBrowserTest, adrbrowsielAdsLocaleIsNewlySupported) {
   GetPrefs()->SetInteger(
-      brave_ads::prefs::kSupportedCountryCodesLastSchemaVersion, 3);
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesLastSchemaVersion, 3);
 
   GetPrefs()->SetInteger(
-      brave_ads::prefs::kSupportedCountryCodesSchemaVersion,
-      brave_ads::prefs::kSupportedCountryCodesSchemaVersionNumber);
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesSchemaVersion,
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesSchemaVersionNumber);
 
   EXPECT_TRUE(ads_service_->IsNewlySupportedLocale());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveAdsBrowserTest,
-                       BraveAdsLocaleIsNewlySupportedForLatestSchemaVersion) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielAdsBrowserTest,
+                       adrbrowsielAdsLocaleIsNewlySupportedForLatestSchemaVersion) {
   // IMPORTANT: When adding new schema versions |newly_supported_locale_| must
-  // be updated in |BraveAdsBrowserTest| to reflect a locale from the latest
+  // be updated in |adrbrowsielAdsBrowserTest| to reflect a locale from the latest
   // "bat-native-ads/src/bat/ads/internal/locale/supported_country_codes.h"
   // schema
 
   GetPrefs()->SetInteger(
-      brave_ads::prefs::kSupportedCountryCodesLastSchemaVersion,
-      brave_ads::prefs::kSupportedCountryCodesSchemaVersionNumber);
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesLastSchemaVersion,
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesSchemaVersionNumber);
 
   GetPrefs()->SetInteger(
-      brave_ads::prefs::kSupportedCountryCodesSchemaVersion,
-      brave_ads::prefs::kSupportedCountryCodesSchemaVersionNumber);
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesSchemaVersion,
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesSchemaVersionNumber);
 
   EXPECT_TRUE(ads_service_->IsNewlySupportedLocale());
 }
 
-IN_PROC_BROWSER_TEST_F(BraveAdsBrowserTest, BraveAdsLocaleIsNotNewlySupported) {
+IN_PROC_BROWSER_TEST_F(adrbrowsielAdsBrowserTest, adrbrowsielAdsLocaleIsNotNewlySupported) {
   GetPrefs()->SetInteger(
-      brave_ads::prefs::kSupportedCountryCodesLastSchemaVersion, 2);
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesLastSchemaVersion, 2);
 
   GetPrefs()->SetInteger(
-      brave_ads::prefs::kSupportedCountryCodesSchemaVersion,
-      brave_ads::prefs::kSupportedCountryCodesSchemaVersionNumber);
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesSchemaVersion,
+      adrbrowsiel_ads::prefs::kSupportedCountryCodesSchemaVersionNumber);
 
   EXPECT_FALSE(ads_service_->IsNewlySupportedLocale());
 }
 
-class BraveAdsUpgradeBrowserTest
-    : public BraveAdsBrowserTest,
-      public ::testing::WithParamInterface<BraveAdsUpgradePathParamInfo> {};
+class adrbrowsielAdsUpgradeBrowserTest
+    : public adrbrowsielAdsBrowserTest,
+      public ::testing::WithParamInterface<adrbrowsielAdsUpgradePathParamInfo> {};
 
-const BraveAdsUpgradePathParamInfo kTests[] = {
+const adrbrowsielAdsUpgradePathParamInfo kTests[] = {
     // Test Suite with expected outcomes for upgrade paths instantiated using
     // Value-Parameterized Tests
 
@@ -509,7 +509,7 @@ const BraveAdsUpgradePathParamInfo kTests[] = {
         false /* ads_enabled */
     },
     //
-    // Upgrade from 0.63 to current version (Initial release of Brave ads)
+    // Upgrade from 0.63 to current version (Initial release of adrbrowsiel ads)
     {
         "PreferencesForVersion063WithRewardsAndAdsDisabled",
         false, /* supported_locale */
@@ -1032,15 +1032,15 @@ const BraveAdsUpgradePathParamInfo kTests[] = {
         false /* ads_enabled */
     }};
 
-IN_PROC_BROWSER_TEST_P(BraveAdsUpgradeBrowserTest, PRE_UpgradePath) {
-  // Handled in |MaybeMockLocaleHelperForBraveAdsUpgradePath|
+IN_PROC_BROWSER_TEST_P(adrbrowsielAdsUpgradeBrowserTest, PRE_UpgradePath) {
+  // Handled in |MaybeMockLocaleHelperForadrbrowsielAdsUpgradePath|
 
   const ::testing::TestInfo* const test_info =
       ::testing::UnitTest::GetInstance()->current_test_info();
   ASSERT_NE(nullptr, test_info);
   const std::string test_name = test_info->name();
 
-  // Wait for Brave Rewards to be initialized before proceeding with
+  // Wait for adrbrowsiel Rewards to be initialized before proceeding with
   // tests that rely on Rewards
   if ((test_name.find("WithRewardsEnabled_") != std::string::npos ||
        test_name.find("WithRewardsAndAdsEnabled_") != std::string::npos) &&
@@ -1049,16 +1049,16 @@ IN_PROC_BROWSER_TEST_P(BraveAdsUpgradeBrowserTest, PRE_UpgradePath) {
   }
 }
 
-IN_PROC_BROWSER_TEST_P(BraveAdsUpgradeBrowserTest, UpgradePath) {
-  BraveAdsUpgradePathParamInfo param(GetParam());
+IN_PROC_BROWSER_TEST_P(adrbrowsielAdsUpgradeBrowserTest, UpgradePath) {
+  adrbrowsielAdsUpgradePathParamInfo param(GetParam());
 
   EXPECT_EQ(IsAdsEnabled(), param.ads_enabled);
 }
 
 // Generate the test case name from the metadata included in
-// |BraveAdsUpgradePathParamInfo|
+// |adrbrowsielAdsUpgradePathParamInfo|
 static std::string GetTestCaseName(
-    ::testing::TestParamInfo<BraveAdsUpgradePathParamInfo> param_info) {
+    ::testing::TestParamInfo<adrbrowsielAdsUpgradePathParamInfo> param_info) {
   const char* preferences = param_info.param.preferences.c_str();
 
   const char* supported_locale = param_info.param.supported_locale
@@ -1084,7 +1084,7 @@ static std::string GetTestCaseName(
                             ads_enabled);
 }
 
-INSTANTIATE_TEST_SUITE_P(BraveAdsBrowserTest,
-                         BraveAdsUpgradeBrowserTest,
+INSTANTIATE_TEST_SUITE_P(adrbrowsielAdsBrowserTest,
+                         adrbrowsielAdsUpgradeBrowserTest,
                          ::testing::ValuesIn(kTests),
                          GetTestCaseName);

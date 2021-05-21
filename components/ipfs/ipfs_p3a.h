@@ -1,13 +1,13 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_IPFS_IPFS_P3A_H_
-#define BRAVE_COMPONENTS_IPFS_IPFS_P3A_H_
+#ifndef adrbrowsiel_COMPONENTS_IPFS_IPFS_P3A_H_
+#define adrbrowsiel_COMPONENTS_IPFS_IPFS_P3A_H_
 
 #include "base/timer/timer.h"
-#include "brave/components/ipfs/ipfs_service_observer.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service_observer.h"
 
 namespace content {
 class BrowserContext;
@@ -17,7 +17,7 @@ class PrefService;
 
 namespace ipfs {
 
-class BraveIpfsClientUpdater;
+class adrbrowsielIpfsClientUpdater;
 class IpfsService;
 
 int GetIPFSDetectionPromptBucket(PrefService* prefs);
@@ -50,4 +50,4 @@ class IpfsP3A : public IpfsServiceObserver {
 
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_IPFS_IPFS_P3A_H_
+#endif  // adrbrowsiel_COMPONENTS_IPFS_IPFS_P3A_H_

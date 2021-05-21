@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { CaratStrongLeftIcon, ArrowUpIcon } from 'brave-ui/components/icons'
+import { CaratStrongLeftIcon, ArrowUpIcon } from 'adrbrowsiel-ui/components/icons'
 
 interface StyleProps {
   icon: string
@@ -56,7 +56,7 @@ export const ButtonRow = styled.div`
   margin: 20px 0px;
 `
 
-// Will use brave-ui button comp in the future!
+// Will use adrbrowsiel-ui button comp in the future!
 // Currently is missing "tiny" variant
 export const BackButton = styled.button`
   display: flex;;

@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wayback_machine/wayback_machine_url_fetcher.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/wayback_machine_url_fetcher.h"
 
 #include <utility>
 
 #include "base/bind.h"
 #include "base/json/json_reader.h"
-#include "brave/components/brave_wayback_machine/brave_wayback_machine_utils.h"
-#include "brave/components/brave_wayback_machine/url_constants.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/adrbrowsiel_wayback_machine_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_wayback_machine/url_constants.h"
 #include "net/base/load_flags.h"
 #include "net/traffic_annotation/network_traffic_annotation.h"
 #include "services/network/public/cpp/resource_request.h"
@@ -28,7 +28,7 @@ const net::NetworkTrafficAnnotationTag& GetNetworkTrafficAnnotationTag() {
       net::DefineNetworkTrafficAnnotation("wayback_machine_infobar", R"(
         semantics {
           sender:
-            "Brave Wayback Machine"
+            "adrbrowsiel Wayback Machine"
           description:
             "Download wayback url"
           trigger:

@@ -4,7 +4,7 @@
 
 import { ComponentType } from 'react'
 import styled, { css } from '../../theme'
-import Button, { Props as ButtonProps } from 'brave-ui/components/buttonsIndicators/button'
+import Button, { Props as ButtonProps } from 'adrbrowsiel-ui/components/buttonsIndicators/button'
 
 interface BaseButtonProps {
   active?: boolean
@@ -94,7 +94,7 @@ export const Bullet = styled(BaseButton as ComponentType<any>)`
 export const Link = styled('button')<{}>`
   box-sizing: border-box;
   -webkit-appearance: none;
-  color: ${p => p.theme.color.brandBrave};
+  color: ${p => p.theme.color.brandadrbrowsiel};
   border: 0;
   padding: 0;
   background: transparent;

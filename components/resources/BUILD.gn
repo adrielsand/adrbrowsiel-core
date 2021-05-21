@@ -1,46 +1,46 @@
 import(
-    "//brave/components/brave_perf_predictor/browser/buildflags/buildflags.gni")
-import("//brave/components/brave_rewards/browser/buildflags/buildflags.gni")
-import("//brave/components/brave_wallet/common/buildflags/buildflags.gni")
-import("//brave/components/crypto_dot_com/browser/buildflags/buildflags.gni")
-import("//brave/components/decentralized_dns/buildflags/buildflags.gni")
-import("//brave/components/ftx/browser/buildflags/buildflags.gni")
-import("//brave/components/ipfs/buildflags/buildflags.gni")
-import("//brave/components/sidebar/buildflags/buildflags.gni")
-import("//brave/components/speedreader/buildflags.gni")
-import("//brave/components/tor/buildflags/buildflags.gni")
+    "//adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_rewards/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/adrbrowsiel_wallet/common/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/crypto_dot_com/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/decentralized_dns/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ftx/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/sidebar/buildflags/buildflags.gni")
+import("//adrbrowsiel/components/speedreader/buildflags.gni")
+import("//adrbrowsiel/components/tor/buildflags/buildflags.gni")
 import("//build/config/locales.gni")
 import("//extensions/buildflags/buildflags.gni")
 import("//tools/grit/grit_rule.gni")
 import("//tools/grit/repack.gni")
 
 grit("static_resources") {
-  source = "brave_components_resources.grd"
+  source = "adrbrowsiel_components_resources.grd"
 
-  output_name = "brave_components_resources_new"
+  output_name = "adrbrowsiel_components_resources_new"
 
   outputs = [
-    "grit/brave_components_resources.h",
-    "brave_components_static.pak",
+    "grit/adrbrowsiel_components_resources.h",
+    "adrbrowsiel_components_static.pak",
   ]
   deps = [ ":strings" ]
 
   if (enable_extensions) {
-    deps += [ "//brave/components/brave_extension/extension/brave_extension" ]
+    deps += [ "//adrbrowsiel/components/adrbrowsiel_extension/extension/adrbrowsiel_extension" ]
   }
-  if (brave_rewards_enabled) {
-    deps += [ "//brave/components/brave_rewards/resources" ]
+  if (adrbrowsiel_rewards_enabled) {
+    deps += [ "//adrbrowsiel/components/adrbrowsiel_rewards/resources" ]
     if (enable_extensions) {
       deps +=
-          [ "//brave/components/brave_rewards/resources/extension:resources" ]
+          [ "//adrbrowsiel/components/adrbrowsiel_rewards/resources/extension:resources" ]
     }
   }
   if (enable_tor) {
-    deps += [ "//brave/components/tor/resources" ]
+    deps += [ "//adrbrowsiel/components/tor/resources" ]
   }
 
   defines = [
-    "enable_brave_perf_predictor=$enable_brave_perf_predictor",
+    "enable_adrbrowsiel_perf_predictor=$enable_adrbrowsiel_perf_predictor",
     "enable_speedreader=$enable_speedreader",
     "ipfs_enabled=$ipfs_enabled",
     "crypto_dot_com_enabled=$crypto_dot_com_enabled",
@@ -54,65 +54,65 @@ grit("static_resources") {
   ]
 
   output_dir = "$root_gen_dir/components"
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 }
 
 repack("resources") {
   deps = [
     ":static_resources",
-    "//brave/components/brave_adblock_ui:generated_resources",
-    "//brave/components/cosmetic_filters/resources/data:generated_resources",
+    "//adrbrowsiel/components/adrbrowsiel_adblock_ui:generated_resources",
+    "//adrbrowsiel/components/cosmetic_filters/resources/data:generated_resources",
   ]
 
   sources = [
-    "$root_gen_dir/brave/components/brave_adblock/resources/brave_adblock_generated.pak",
-    "$root_gen_dir/brave/components/cosmetic_filters/resources/cosmetic_filters_generated.pak",
-    "$root_gen_dir/components/brave_components_static.pak",
+    "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_adblock/resources/adrbrowsiel_adblock_generated.pak",
+    "$root_gen_dir/adrbrowsiel/components/cosmetic_filters/resources/cosmetic_filters_generated.pak",
+    "$root_gen_dir/components/adrbrowsiel_components_static.pak",
   ]
 
   if (!is_android) {
     deps += [
-      "//brave/components/brave_new_tab_ui:generated_resources",
-      "//brave/components/brave_welcome_ui:generated_resources",
-      "//brave/components/webcompat_reporter/ui:generated_resources",
+      "//adrbrowsiel/components/adrbrowsiel_new_tab_ui:generated_resources",
+      "//adrbrowsiel/components/adrbrowsiel_welcome_ui:generated_resources",
+      "//adrbrowsiel/components/webcompat_reporter/ui:generated_resources",
     ]
 
     sources += [
-      "$root_gen_dir/brave/components/brave_new_tab/resources/brave_new_tab_generated.pak",
-      "$root_gen_dir/brave/components/brave_welcome/resources/brave_welcome_generated.pak",
-      "$root_gen_dir/brave/components/webcompat_reporter/resources/webcompat_reporter_generated.pak",
+      "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_new_tab/resources/adrbrowsiel_new_tab_generated.pak",
+      "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_welcome/resources/adrbrowsiel_welcome_generated.pak",
+      "$root_gen_dir/adrbrowsiel/components/webcompat_reporter/resources/webcompat_reporter_generated.pak",
     ]
   }
 
   if (ipfs_enabled) {
-    deps += [ "//brave/components/ipfs_ui:generated_resources" ]
+    deps += [ "//adrbrowsiel/components/ipfs_ui:generated_resources" ]
     sources += [
-      "$root_gen_dir/brave/components/ipfs_ui/resources/ipfs_generated.pak",
+      "$root_gen_dir/adrbrowsiel/components/ipfs_ui/resources/ipfs_generated.pak",
     ]
   }
 
-  if (brave_wallet_enabled) {
+  if (adrbrowsiel_wallet_enabled) {
     if (!is_android) {
-      deps += [ "//brave/components/brave_wallet_ui:resources" ]
-      sources += [ "$root_gen_dir/brave/components/brave_wallet/resources/brave_wallet.pak" ]
+      deps += [ "//adrbrowsiel/components/adrbrowsiel_wallet_ui:resources" ]
+      sources += [ "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_wallet/resources/adrbrowsiel_wallet.pak" ]
     }
 
-    deps += [ "//brave/components/brave_wallet/resources:ethereum_provider_generated_resources" ]
-    sources += [ "$root_gen_dir/brave/components/brave_wallet/resources/brave_wallet_script_generated.pak" ]
+    deps += [ "//adrbrowsiel/components/adrbrowsiel_wallet/resources:ethereum_provider_generated_resources" ]
+    sources += [ "$root_gen_dir/adrbrowsiel/components/adrbrowsiel_wallet/resources/adrbrowsiel_wallet_script_generated.pak" ]
   }
 
-  output = "$root_gen_dir/components/brave_components_resources.pak"
+  output = "$root_gen_dir/components/adrbrowsiel_components_resources.pak"
 }
 
 grit("strings") {
-  source = "brave_components_strings.grd"
+  source = "adrbrowsiel_components_strings.grd"
 
-  outputs = [ "grit/brave_components_strings.h" ]
+  outputs = [ "grit/adrbrowsiel_components_strings.h" ]
 
   defines = [
     "enable_speedreader=$enable_speedreader",
     "ipfs_enabled=$ipfs_enabled",
-    "brave_wallet_enabled=$brave_wallet_enabled",
+    "adrbrowsiel_wallet_enabled=$adrbrowsiel_wallet_enabled",
     "decentralized_dns_enabled=$decentralized_dns_enabled",
     "crypto_dot_com_enabled=$crypto_dot_com_enabled",
     "enable_tor=$enable_tor",
@@ -121,17 +121,17 @@ grit("strings") {
   ]
 
   foreach(locale, locales_with_pseudolocales) {
-    outputs += [ "brave_components_strings_$locale.pak" ]
+    outputs += [ "adrbrowsiel_components_strings_$locale.pak" ]
   }
 
   output_dir = "$root_gen_dir/components"
-  resource_ids = "//brave/browser/resources/resource_ids"
+  resource_ids = "//adrbrowsiel/browser/resources/resource_ids"
 }
 
 action("about_credits") {
-  script = "//brave/script/check_npm_licenses.py"
+  script = "//adrbrowsiel/script/check_npm_licenses.py"
 
-  inputs = [ "//brave/package.json" ]
+  inputs = [ "//adrbrowsiel/package.json" ]
 
   outputs = [ "$root_gen_dir/npm_licenses.checked" ]
 

@@ -10,8 +10,8 @@
   "autofill": {
     "orphan_rows_removed": true
   },
-  "brave": {
-    "brave_ads": {
+  "adrbrowsiel": {
+    "adrbrowsiel_ads": {
       "ads_per_hour": "2",
       "enabled": true,
       "prefs": {
@@ -202,7 +202,7 @@
     "last_chrome_version": "79.1.2.42"
   },
   "gcm": {
-    "product_category_for_subtypes": "com.brave.macosx"
+    "product_category_for_subtypes": "com.adrbrowsiel.macosx"
   },
   "google": {
     "services": {

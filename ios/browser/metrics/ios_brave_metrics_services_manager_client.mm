@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/ios/browser/metrics/ios_brave_metrics_services_manager_client.h"
+#include "adrbrowsiel/ios/browser/metrics/ios_adrbrowsiel_metrics_services_manager_client.h"
 
 #include "components/metrics/metrics_service_client.h"
 #include "components/prefs/pref_service.h"
@@ -12,26 +12,26 @@
 #error "This file requires ARC support."
 #endif
 
-IOSBraveMetricsServicesManagerClient::IOSBraveMetricsServicesManagerClient(
+IOSadrbrowsielMetricsServicesManagerClient::IOSadrbrowsielMetricsServicesManagerClient(
     PrefService* local_state)
     : IOSChromeMetricsServicesManagerClient(local_state) {}
 
-IOSBraveMetricsServicesManagerClient::
-    ~IOSBraveMetricsServicesManagerClient() = default;
+IOSadrbrowsielMetricsServicesManagerClient::
+    ~IOSadrbrowsielMetricsServicesManagerClient() = default;
 
 std::unique_ptr<metrics::MetricsServiceClient>
-IOSBraveMetricsServicesManagerClient::CreateMetricsServiceClient() {
+IOSadrbrowsielMetricsServicesManagerClient::CreateMetricsServiceClient() {
   return nullptr;
 }
 
-bool IOSBraveMetricsServicesManagerClient::IsMetricsReportingEnabled() {
+bool IOSadrbrowsielMetricsServicesManagerClient::IsMetricsReportingEnabled() {
   return false;
 }
 
-bool IOSBraveMetricsServicesManagerClient::IsMetricsConsentGiven() {
+bool IOSadrbrowsielMetricsServicesManagerClient::IsMetricsConsentGiven() {
   return false;
 }
 
-bool IOSBraveMetricsServicesManagerClient::IsOffTheRecordSessionActive() {
+bool IOSadrbrowsielMetricsServicesManagerClient::IsOffTheRecordSessionActive() {
   return false;
 }

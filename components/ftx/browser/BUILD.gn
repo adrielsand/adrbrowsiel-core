@@ -1,5 +1,5 @@
-import("//brave/build/config.gni")
-import("//brave/components/ftx/browser/buildflags/buildflags.gni")
+import("//adrbrowsiel/build/config.gni")
+import("//adrbrowsiel/components/ftx/browser/buildflags/buildflags.gni")
 
 assert(enable_ftx)
 
@@ -24,8 +24,8 @@ source_set("browser") {
 
   deps = [
     "//base",
-    "//brave/components/ntp_widget_utils/browser",
-    "//brave/components/ftx/common",
+    "//adrbrowsiel/components/ntp_widget_utils/browser",
+    "//adrbrowsiel/components/ftx/common",
     "//components/prefs:prefs",
     "//components/keyed_service/content",
     "//components/keyed_service/core",

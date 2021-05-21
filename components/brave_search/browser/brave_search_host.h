@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SEARCH_BROWSER_BRAVE_SEARCH_HOST_H_
-#define BRAVE_COMPONENTS_BRAVE_SEARCH_BROWSER_BRAVE_SEARCH_HOST_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SEARCH_BROWSER_adrbrowsiel_SEARCH_HOST_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SEARCH_BROWSER_adrbrowsiel_SEARCH_HOST_H_
 
 #include <list>
 #include <map>
@@ -12,7 +12,7 @@
 #include <string>
 
 #include "base/memory/weak_ptr.h"
-#include "brave/components/brave_search/common/brave_search.mojom.h"
+#include "adrbrowsiel/components/adrbrowsiel_search/common/adrbrowsiel_search.mojom.h"
 #include "url/gurl.h"
 
 namespace network {
@@ -20,15 +20,15 @@ class SharedURLLoaderFactory;
 class SimpleURLLoader;
 }  // namespace network
 
-namespace brave_search {
+namespace adrbrowsiel_search {
 
-class BraveSearchHost final : public brave_search::mojom::BraveSearchFallback {
+class adrbrowsielSearchHost final : public adrbrowsiel_search::mojom::adrbrowsielSearchFallback {
  public:
-  BraveSearchHost(const BraveSearchHost&) = delete;
-  BraveSearchHost& operator=(const BraveSearchHost&) = delete;
-  explicit BraveSearchHost(
+  adrbrowsielSearchHost(const adrbrowsielSearchHost&) = delete;
+  adrbrowsielSearchHost& operator=(const adrbrowsielSearchHost&) = delete;
+  explicit adrbrowsielSearchHost(
       scoped_refptr<network::SharedURLLoaderFactory> factory);
-  ~BraveSearchHost() override;
+  ~adrbrowsielSearchHost() override;
 
   void FetchBackupResults(const std::string& query_string,
                           const std::string& lang,
@@ -54,13 +54,13 @@ class BraveSearchHost final : public brave_search::mojom::BraveSearchFallback {
                               const std::map<std::string, std::string>&)>;
 
   void OnURLLoaderComplete(SimpleURLLoaderList::iterator iter,
-                           BraveSearchHost::FetchBackupResultsCallback callback,
+                           adrbrowsielSearchHost::FetchBackupResultsCallback callback,
                            const std::unique_ptr<std::string> response_body);
   SimpleURLLoaderList url_loaders_;
   scoped_refptr<network::SharedURLLoaderFactory> shared_url_loader_factory_;
-  base::WeakPtrFactory<BraveSearchHost> weak_factory_;
+  base::WeakPtrFactory<adrbrowsielSearchHost> weak_factory_;
 };
 
-}  // namespace brave_search
+}  // namespace adrbrowsiel_search
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SEARCH_BROWSER_BRAVE_SEARCH_HOST_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SEARCH_BROWSER_adrbrowsiel_SEARCH_HOST_H_

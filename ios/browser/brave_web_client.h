@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_IOS_BROWSER_BRAVE_WEB_CLIENT_H_
-#define BRAVE_IOS_BROWSER_BRAVE_WEB_CLIENT_H_
+#ifndef adrbrowsiel_IOS_BROWSER_adrbrowsiel_WEB_CLIENT_H_
+#define adrbrowsiel_IOS_BROWSER_adrbrowsiel_WEB_CLIENT_H_
 
 #include <memory>
 #include <string>
@@ -13,12 +13,12 @@
 #include "base/macros.h"
 #import "ios/web/public/web_client.h"
 
-class BraveWebMainParts;
+class adrbrowsielWebMainParts;
 
-class BraveWebClient : public web::WebClient {
+class adrbrowsielWebClient : public web::WebClient {
  public:
-  BraveWebClient();
-  ~BraveWebClient() override;
+  adrbrowsielWebClient();
+  ~adrbrowsielWebClient() override;
 
   void SetUserAgent(const std::string& user_agent);
 
@@ -31,10 +31,10 @@ class BraveWebClient : public web::WebClient {
   base::RefCountedMemory* GetDataResourceBytes(int resource_id) const override;
 
  private:
-  BraveWebMainParts* web_main_parts_;
+  adrbrowsielWebMainParts* web_main_parts_;
   std::string user_agent_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveWebClient);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielWebClient);
 };
 
-#endif  // BRAVE_IOS_BROWSER_BRAVE_WEB_CLIENT_H_
+#endif  // adrbrowsiel_IOS_BROWSER_adrbrowsiel_WEB_CLIENT_H_

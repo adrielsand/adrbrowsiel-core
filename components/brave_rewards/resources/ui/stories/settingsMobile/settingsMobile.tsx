@@ -49,7 +49,7 @@ class SettingsMobile extends React.PureComponent<{}, State> {
           !this.state.mainToggle
           ? <StyledDisabledContent>
               <StyledHeading>
-                {locale.whyBraveRewards}
+                {locale.whyadrbrowsielRewards}
               </StyledHeading>
               <StyledText>
                 {locale.rewardsDisabledDescOne}

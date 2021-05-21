@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -59,12 +59,12 @@ export async function getInitialData (): Promise<InitialData> {
       torTabDataAPI.getTorTabData(),
       !isIncognito ? brandedWallpaper.getBrandedWallpaper() : Promise.resolve(undefined),
       new Promise((resolve) => {
-        if (!('braveTogether' in chrome)) {
+        if (!('adrbrowsielTogether' in chrome)) {
           resolve(false)
           return
         }
 
-        chrome.braveTogether.isSupported((supported: boolean) => {
+        chrome.adrbrowsielTogether.isSupported((supported: boolean) => {
           resolve(supported)
         })
       }),
@@ -115,13 +115,13 @@ export async function getRewardsPreInitialData (): Promise<PreInitialRewardsData
       adsSupported,
       onlyAnonWallet
     ] = await Promise.all([
-      new Promise(resolve => chrome.braveRewards.getAdsEnabled((enabledAds: boolean) => {
+      new Promise(resolve => chrome.adrbrowsielRewards.getAdsEnabled((enabledAds: boolean) => {
         resolve(enabledAds)
       })),
-      new Promise(resolve => chrome.braveRewards.getAdsSupported((adsSupported: boolean) => {
+      new Promise(resolve => chrome.adrbrowsielRewards.getAdsSupported((adsSupported: boolean) => {
         resolve(adsSupported)
       })),
-      new Promise(resolve => chrome.braveRewards.onlyAnonWallet((onlyAnonWallet: boolean) => {
+      new Promise(resolve => chrome.adrbrowsielRewards.onlyAnonWallet((onlyAnonWallet: boolean) => {
         resolve(onlyAnonWallet)
       }))
     ])
@@ -143,20 +143,20 @@ export async function getRewardsInitialData (): Promise<InitialRewardsData> {
       balance,
       parameters
     ] = await Promise.all([
-      new Promise(resolve => chrome.braveRewards.getAdsAccountStatement((success: boolean, adsAccountStatement: NewTab.AdsAccountStatement) => {
+      new Promise(resolve => chrome.adrbrowsielRewards.getAdsAccountStatement((success: boolean, adsAccountStatement: NewTab.AdsAccountStatement) => {
         resolve(success ? adsAccountStatement : undefined)
       })),
-      new Promise(resolve => chrome.braveRewards.getBalanceReport(new Date().getMonth() + 1, new Date().getFullYear(),(report: NewTab.RewardsBalanceReport) => {
+      new Promise(resolve => chrome.adrbrowsielRewards.getBalanceReport(new Date().getMonth() + 1, new Date().getFullYear(),(report: NewTab.RewardsBalanceReport) => {
         resolve(report)
       })),
-      new Promise(resolve => chrome.braveRewards.fetchBalance((balance: NewTab.RewardsBalance) => {
+      new Promise(resolve => chrome.adrbrowsielRewards.fetchBalance((balance: NewTab.RewardsBalance) => {
         resolve(balance)
       })),
-      new Promise(resolve => chrome.braveRewards.getRewardsParameters((parameters: NewTab.RewardsParameters) => {
+      new Promise(resolve => chrome.adrbrowsielRewards.getRewardsParameters((parameters: NewTab.RewardsParameters) => {
         resolve(parameters)
       })),
       new Promise(resolve => {
-        chrome.braveRewards.fetchPromotions()
+        chrome.adrbrowsielRewards.fetchPromotions()
         resolve(true)
       })
     ])

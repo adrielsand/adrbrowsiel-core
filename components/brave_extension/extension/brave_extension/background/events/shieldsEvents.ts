@@ -5,10 +5,10 @@
 import actions from '../actions/shieldsPanelActions'
 import { BlockDetails } from '../../types/actions/shieldsPanelActions'
 
-if (chrome.braveShields) {
-  chrome.braveShields.onBlocked.addListener((detail: BlockDetails) => {
+if (chrome.adrbrowsielShields) {
+  chrome.adrbrowsielShields.onBlocked.addListener((detail: BlockDetails) => {
     actions.resourceBlocked(detail)
   })
 } else {
-  console.log('chrome.braveShields not enabled')
+  console.log('chrome.adrbrowsielShields not enabled')
 }

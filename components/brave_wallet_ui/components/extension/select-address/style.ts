@@ -61,7 +61,7 @@ export const UnSelectedCircle = styled.div`
 	border-radius: 24px;
 	border: 1px solid ${(p) => p.theme.color.interactive08};
 `
-// I added this SVG icon for now, will change once added to brave-ui
+// I added this SVG icon for now, will change once added to adrbrowsiel-ui
 export const SelectedIcon = styled.div`
 	width: 24px;
 	height: 24px;

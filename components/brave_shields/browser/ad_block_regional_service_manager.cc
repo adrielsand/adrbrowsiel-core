@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/ad_block_regional_service_manager.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_regional_service_manager.h"
 
 #include <memory>
 #include <utility>
@@ -12,11 +12,11 @@
 #include "base/strings/string_util.h"
 #include "base/task/post_task.h"
 #include "base/values.h"
-#include "brave/components/adblock_rust_ffi/src/wrapper.h"
-#include "brave/components/brave_shields/browser/ad_block_regional_service.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/browser/ad_block_service_helper.h"
-#include "brave/components/brave_shields/common/pref_names.h"
+#include "adrbrowsiel/components/adblock_rust_ffi/src/wrapper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_regional_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/pref_names.h"
 #include "components/prefs/pref_service.h"
 #include "components/prefs/scoped_user_pref_update.h"
 #include "content/public/browser/browser_task_traits.h"
@@ -24,10 +24,10 @@
 
 using adblock::FilterList;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 AdBlockRegionalServiceManager::AdBlockRegionalServiceManager(
-    brave_component_updater::BraveComponent::Delegate* delegate)
+    adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate)
     : delegate_(delegate),
       initialized_(false) {
 }
@@ -51,7 +51,7 @@ void AdBlockRegionalServiceManager::StartRegionalServices() {
       local_state->GetBoolean(prefs::kAdBlockCheckedDefaultRegion);
   if (!checked_default_region) {
     local_state->SetBoolean(prefs::kAdBlockCheckedDefaultRegion, true);
-    auto it = brave_shields::FindAdBlockFilterListByLocale(regional_catalog_,
+    auto it = adrbrowsiel_shields::FindAdBlockFilterListByLocale(regional_catalog_,
                                                            delegate_->locale());
     if (it == regional_catalog_.end())
       return;
@@ -71,7 +71,7 @@ void AdBlockRegionalServiceManager::StartRegionalServices() {
     if (regional_filter_dict)
       regional_filter_dict->GetBoolean("enabled", &enabled);
     if (enabled) {
-      auto catalog_entry = brave_shields::FindAdBlockFilterListByUUID(
+      auto catalog_entry = adrbrowsiel_shields::FindAdBlockFilterListByUUID(
           regional_catalog_, uuid);
       if (catalog_entry != regional_catalog_.end()) {
         auto regional_service = AdBlockRegionalServiceFactory(
@@ -169,7 +169,7 @@ void AdBlockRegionalServiceManager::AddResources(
 void AdBlockRegionalServiceManager::EnableFilterList(
     const std::string& uuid, bool enabled) {
   DCHECK(!uuid.empty());
-  auto catalog_entry = brave_shields::FindAdBlockFilterListByUUID(
+  auto catalog_entry = adrbrowsiel_shields::FindAdBlockFilterListByUUID(
       regional_catalog_, uuid);
 
   // Enable or disable the specified filter list
@@ -263,7 +263,7 @@ void AdBlockRegionalServiceManager::SetRegionalCatalog(
         std::vector<adblock::FilterList> catalog) {
   regional_catalog_ = std::move(catalog);
   for (const auto& regional_service : regional_services_) {
-    auto catalog_entry = brave_shields::FindAdBlockFilterListByUUID(
+    auto catalog_entry = adrbrowsiel_shields::FindAdBlockFilterListByUUID(
         regional_catalog_, regional_service.second->GetUUID());
     if (catalog_entry != regional_catalog_.end()) {
       regional_service.second->SetCatalogEntry(*catalog_entry);
@@ -291,7 +291,7 @@ AdBlockRegionalServiceManager::GetRegionalLists() {
   auto list_value = std::make_unique<base::ListValue>();
   for (const auto& region_list : regional_catalog_) {
     // Most settings come directly from the regional catalog from
-    // https://github.com/brave/adblock-resources
+    // https://github.com/adrbrowsiel/adblock-resources
     auto dict = std::make_unique<base::DictionaryValue>();
     dict->SetString("uuid", region_list.uuid);
     dict->SetString("url", region_list.url);
@@ -318,8 +318,8 @@ AdBlockRegionalServiceManager::GetRegionalLists() {
 ///////////////////////////////////////////////////////////////////////////////
 
 std::unique_ptr<AdBlockRegionalServiceManager>
-AdBlockRegionalServiceManagerFactory(BraveComponent::Delegate* delegate) {
+AdBlockRegionalServiceManagerFactory(adrbrowsielComponent::Delegate* delegate) {
   return std::make_unique<AdBlockRegionalServiceManager>(delegate);
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

@@ -24,7 +24,7 @@ export default class ConnectedHeader extends React.PureComponent<Props> {
     return (
       <HeaderWrapper>
         <ExpandIcon onClick={this.navigate('expanded')} />
-        <HeaderTitle>Brave Web 3 Connect</HeaderTitle>
+        <HeaderTitle>adrbrowsiel Web 3 Connect</HeaderTitle>
         <ActionIcon onClick={this.navigate('settings')} />
       </HeaderWrapper>
     )

@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/p3a/brave_p3a_log_store.h"
+#include "adrbrowsiel/components/p3a/adrbrowsiel_p3a_log_store.h"
 
 #include "base/logging.h"
 #include "base/metrics/histogram_macros.h"
@@ -14,7 +14,7 @@
 #include "components/prefs/pref_service.h"
 #include "components/prefs/scoped_user_pref_update.h"
 
-namespace brave {
+namespace adrbrowsiel {
 
 namespace {
 constexpr char kPrefName[] = "p3a.logs";
@@ -31,25 +31,25 @@ void RecordP3A(uint64_t answers_count) {
   } else if (10 <= answers_count) {
     answer = 3;
   }
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.P3A.SentAnswersCount", answer, 3);
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.P3A.SentAnswersCount", answer, 3);
 }
 
 }  // namespace
 
-BraveP3ALogStore::BraveP3ALogStore(Delegate* delegate,
+adrbrowsielP3ALogStore::adrbrowsielP3ALogStore(Delegate* delegate,
                                    PrefService* local_state)
     : delegate_(delegate), local_state_(local_state) {
   DCHECK(delegate_);
   DCHECK(local_state);
 }
 
-BraveP3ALogStore::~BraveP3ALogStore() = default;
+adrbrowsielP3ALogStore::~adrbrowsielP3ALogStore() = default;
 
-void BraveP3ALogStore::RegisterPrefs(PrefRegistrySimple* registry) {
+void adrbrowsielP3ALogStore::RegisterPrefs(PrefRegistrySimple* registry) {
   registry->RegisterDictionaryPref(kPrefName);
 }
 
-void BraveP3ALogStore::UpdateValue(const std::string& histogram_name,
+void adrbrowsielP3ALogStore::UpdateValue(const std::string& histogram_name,
                                    uint64_t value) {
   LogEntry& entry = log_[histogram_name];
   entry.value = value;
@@ -65,7 +65,7 @@ void BraveP3ALogStore::UpdateValue(const std::string& histogram_name,
   update->SetPath({histogram_name, kLogSentKey}, base::Value(entry.sent));
 }
 
-void BraveP3ALogStore::RemoveValueIfExists(const std::string& histogram_name) {
+void adrbrowsielP3ALogStore::RemoveValueIfExists(const std::string& histogram_name) {
   DCHECK(delegate_->IsActualMetric(histogram_name));
   log_.erase(histogram_name);
   unsent_entries_.erase(histogram_name);
@@ -80,7 +80,7 @@ void BraveP3ALogStore::RemoveValueIfExists(const std::string& histogram_name) {
   }
 }
 
-void BraveP3ALogStore::ResetUploadStamps() {
+void adrbrowsielP3ALogStore::ResetUploadStamps() {
   // Clear log entries flags.
   DictionaryPrefUpdate update(local_state_, kPrefName);
   for (auto& pair : log_) {
@@ -106,15 +106,15 @@ void BraveP3ALogStore::ResetUploadStamps() {
   }
 }
 
-bool BraveP3ALogStore::has_unsent_logs() const {
+bool adrbrowsielP3ALogStore::has_unsent_logs() const {
   return !unsent_entries_.empty();
 }
 
-bool BraveP3ALogStore::has_staged_log() const {
+bool adrbrowsielP3ALogStore::has_staged_log() const {
   return !staged_entry_key_.empty();
 }
 
-const std::string& BraveP3ALogStore::staged_log() const {
+const std::string& adrbrowsielP3ALogStore::staged_log() const {
   DCHECK(!staged_entry_key_.empty());
   auto iter = log_.find(staged_entry_key_);
   DCHECK(iter != log_.end());
@@ -122,29 +122,29 @@ const std::string& BraveP3ALogStore::staged_log() const {
   return staged_log_;
 }
 
-std::string BraveP3ALogStore::staged_log_type() const {
+std::string adrbrowsielP3ALogStore::staged_log_type() const {
   DCHECK(!staged_entry_key_.empty());
   auto iter = log_.find(staged_entry_key_);
   DCHECK(iter != log_.end());
 
-  if (base::StartsWith(iter->first, "Brave.P2A",
+  if (base::StartsWith(iter->first, "adrbrowsiel.P2A",
                        base::CompareCase::SENSITIVE)) {
     return "p2a";
   }
   return "p3a";
 }
 
-const std::string& BraveP3ALogStore::staged_log_hash() const {
+const std::string& adrbrowsielP3ALogStore::staged_log_hash() const {
   NOTREACHED();
   return staged_log_hash_;
 }
 
-const std::string& BraveP3ALogStore::staged_log_signature() const {
+const std::string& adrbrowsielP3ALogStore::staged_log_signature() const {
   NOTREACHED();
   return staged_log_signature_;
 }
 
-void BraveP3ALogStore::StageNextLog() {
+void adrbrowsielP3ALogStore::StageNextLog() {
   // Stage the next item.
   DCHECK(has_unsent_logs());
   uint64_t rand_idx = base::RandGenerator(unsent_entries_.size());
@@ -154,10 +154,10 @@ void BraveP3ALogStore::StageNextLog() {
   uint64_t staged_entry_value = log_[staged_entry_key_].value;
   staged_log_ = delegate_->Serialize(staged_entry_key_, staged_entry_value);
 
-  VLOG(2) << "BraveP3ALogStore::StageNextLog: staged " << staged_entry_key_;
+  VLOG(2) << "adrbrowsielP3ALogStore::StageNextLog: staged " << staged_entry_key_;
 }
 
-void BraveP3ALogStore::DiscardStagedLog() {
+void adrbrowsielP3ALogStore::DiscardStagedLog() {
   if (!has_staged_log()) {
     return;
   }
@@ -183,13 +183,13 @@ void BraveP3ALogStore::DiscardStagedLog() {
   staged_log_.clear();
 }
 
-void BraveP3ALogStore::MarkStagedLogAsSent() {}
+void adrbrowsielP3ALogStore::MarkStagedLogAsSent() {}
 
-void BraveP3ALogStore::TrimAndPersistUnsentLogs() {
+void adrbrowsielP3ALogStore::TrimAndPersistUnsentLogs() {
   NOTREACHED();
 }
 
-void BraveP3ALogStore::LoadPersistedUnsentLogs() {
+void adrbrowsielP3ALogStore::LoadPersistedUnsentLogs() {
   DCHECK(log_.empty());
   DCHECK(unsent_entries_.empty());
 
@@ -242,4 +242,4 @@ void BraveP3ALogStore::LoadPersistedUnsentLogs() {
   }
 }
 
-}  // namespace brave
+}  // namespace adrbrowsiel

@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/tor/tor_launcher_factory.h"
+#include "adrbrowsiel/components/tor/tor_launcher_factory.h"
 
 #include <utility>
 
@@ -14,10 +14,10 @@
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
 #include "base/threading/sequenced_task_runner_handle.h"
-#include "brave/components/tor/service_sandbox_type.h"
-#include "brave/components/tor/tor_file_watcher.h"
-#include "brave/components/tor/tor_launcher_observer.h"
-#include "components/grit/brave_components_strings.h"
+#include "adrbrowsiel/components/tor/service_sandbox_type.h"
+#include "adrbrowsiel/components/tor/tor_file_watcher.h"
+#include "adrbrowsiel/components/tor/tor_launcher_observer.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "content/public/browser/browser_task_traits.h"
 #include "content/public/browser/browser_thread.h"
 #include "content/public/browser/service_process_host.h"
@@ -301,7 +301,7 @@ void TorLauncherFactory::OnTorControlClosed(bool was_running) {
   DCHECK_CALLED_ON_VALID_SEQUENCE(sequence_checker_);
   VLOG(2) << "TOR CONTROL: Closed!";
   // If we're still running, try watching again to start over.
-  // TODO(riastradh-brave): Rate limit in case of flapping?
+  // TODO(riastradh-adrbrowsiel): Rate limit in case of flapping?
   if (was_running) {
     LaunchTorInternal();
   }

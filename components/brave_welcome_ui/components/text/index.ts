@@ -26,7 +26,7 @@ export const Paragraph = styled.p`
   margin: 12px 0 32px;
   a {
     box-sizing: border-box;
-    color: ${p => p.theme.color.brandBrave};
+    color: ${p => p.theme.color.brandadrbrowsiel};
     border: 0;
     padding: 0;
     background: transparent;
@@ -39,7 +39,7 @@ export const Paragraph = styled.p`
       text-decoration: underline;
     }
     &:focus {
-      outline-color: ${p => p.theme.color.brandBrave};
+      outline-color: ${p => p.theme.color.brandadrbrowsiel};
       outline-width: 2px;
     }
     &:active {

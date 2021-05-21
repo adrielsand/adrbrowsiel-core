@@ -1,14 +1,14 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/signin/internal/identity_manager/brave_mutable_profile_oauth2_token_service_delegate.h"
+#include "adrbrowsiel/components/signin/internal/identity_manager/adrbrowsiel_mutable_profile_oauth2_token_service_delegate.h"
 
 #include "components/signin/public/webdata/token_web_data.h"
 
-BraveMutableProfileOAuth2TokenServiceDelegate::
-    BraveMutableProfileOAuth2TokenServiceDelegate(
+adrbrowsielMutableProfileOAuth2TokenServiceDelegate::
+    adrbrowsielMutableProfileOAuth2TokenServiceDelegate(
         SigninClient* client,
         AccountTrackerService* account_tracker_service,
         network::NetworkConnectionTracker* network_connection_tracker,
@@ -25,10 +25,10 @@ BraveMutableProfileOAuth2TokenServiceDelegate::
                                                fix_request_error_callback),
       account_tracker_service_(account_tracker_service) {}
 
-BraveMutableProfileOAuth2TokenServiceDelegate::
-    ~BraveMutableProfileOAuth2TokenServiceDelegate() {}
+adrbrowsielMutableProfileOAuth2TokenServiceDelegate::
+    ~adrbrowsielMutableProfileOAuth2TokenServiceDelegate() {}
 
-void BraveMutableProfileOAuth2TokenServiceDelegate::LoadCredentials(
+void adrbrowsielMutableProfileOAuth2TokenServiceDelegate::LoadCredentials(
     const CoreAccountId& primary_account_id) {
   if (!account_tracker_service_->GetAccounts().size())
     return;

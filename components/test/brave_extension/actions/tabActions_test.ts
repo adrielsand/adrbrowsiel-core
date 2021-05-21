@@ -2,8 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import * as types from '../../../brave_extension/extension/brave_extension/constants/tabTypes'
-import * as actions from '../../../brave_extension/extension/brave_extension/actions/tabActions'
+import * as types from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/tabTypes'
+import * as actions from '../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/actions/tabActions'
 
 const windowId = 1
 const tabId = 1

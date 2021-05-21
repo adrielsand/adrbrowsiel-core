@@ -8,10 +8,10 @@ export const terms = styled.div`
   text-align: center;
   font-size: 11px;
   line-height: 16px;
-  color: var(--brave-palette-neutral600);
+  color: var(--adrbrowsiel-palette-neutral600);
 
   a {
     font-weight: 600;
-    color: var(--brave-color-brandBat);
+    color: var(--adrbrowsiel-color-brandBat);
   }
 `

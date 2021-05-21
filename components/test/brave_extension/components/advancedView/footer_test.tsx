@@ -3,8 +3,8 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import ShieldsFooter, { Props } from '../../../../brave_extension/extension/brave_extension/containers/advancedView/footer'
-import * as tabsAPI from '../../../../brave_extension/extension/brave_extension/background/api/tabsAPI'
+import ShieldsFooter, { Props } from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/containers/advancedView/footer'
+import * as tabsAPI from '../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/background/api/tabsAPI'
 import { shallow } from 'enzyme'
 
 const fakeProps: Props = {
@@ -17,7 +17,7 @@ describe('AdvancedView Footer component', () => {
 
   it('renders the component', () => {
     const wrapper = shallow(baseComponent())
-    const assertion = wrapper.find('#braveShieldsFooter').length === 1
+    const assertion = wrapper.find('#adrbrowsielShieldsFooter').length === 1
     expect(assertion).toBe(true)
   })
 
@@ -43,7 +43,7 @@ describe('AdvancedView Footer component', () => {
         }
       }
       const wrapper = shallow(baseComponent())
-      wrapper.find('#braveShieldsFooter').simulate('click', value)
+      wrapper.find('#adrbrowsielShieldsFooter').simulate('click', value)
       expect(spy).toBeCalled()
       expect(spy.mock.calls[0][0]).toEqual({
         url

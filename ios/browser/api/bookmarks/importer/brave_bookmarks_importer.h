@@ -1,24 +1,24 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_IOS_BROWSER_API_BOOKMARKS_IMPORTER_BRAVE_BOOKMARKS_IMPORTER_H_
-#define BRAVE_IOS_BROWSER_API_BOOKMARKS_IMPORTER_BRAVE_BOOKMARKS_IMPORTER_H_
+#ifndef adrbrowsiel_IOS_BROWSER_API_BOOKMARKS_IMPORTER_adrbrowsiel_BOOKMARKS_IMPORTER_H_
+#define adrbrowsiel_IOS_BROWSER_API_BOOKMARKS_IMPORTER_adrbrowsiel_BOOKMARKS_IMPORTER_H_
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, BraveBookmarksImporterState) {
-  BraveBookmarksImporterStateCompleted,
-  BraveBookmarksImporterStateAutoCompleted,
-  BraveBookmarksImporterStateStarted,
-  BraveBookmarksImporterStateCancelled
+typedef NS_ENUM(NSUInteger, adrbrowsielBookmarksImporterState) {
+  adrbrowsielBookmarksImporterStateCompleted,
+  adrbrowsielBookmarksImporterStateAutoCompleted,
+  adrbrowsielBookmarksImporterStateStarted,
+  adrbrowsielBookmarksImporterStateCancelled
 };
 
 OBJC_EXPORT
-@interface BraveImportedBookmark : NSObject
+@interface adrbrowsielImportedBookmark : NSObject
 @property(nonatomic, readonly) bool inToolbar;
 @property(nonatomic, readonly) bool isFolder;
 @property(nullable, nonatomic, readonly, copy) NSURL* url;
@@ -28,7 +28,7 @@ OBJC_EXPORT
 @end
 
 OBJC_EXPORT
-@interface BraveBookmarksImporter : NSObject
+@interface adrbrowsielBookmarksImporter : NSObject
 - (instancetype)init;
 
 - (void)cancel;
@@ -37,14 +37,14 @@ OBJC_EXPORT
     topLevelFolderName:(NSString*)folderName
        automaticImport:(bool)automaticImport
           withListener:
-              (void (^)(BraveBookmarksImporterState,
-                        NSArray<BraveImportedBookmark*>* _Nullable))listener;
+              (void (^)(adrbrowsielBookmarksImporterState,
+                        NSArray<adrbrowsielImportedBookmark*>* _Nullable))listener;
 
-- (void)importFromArray:(NSArray<BraveImportedBookmark*>*)bookmarks
+- (void)importFromArray:(NSArray<adrbrowsielImportedBookmark*>*)bookmarks
      topLevelFolderName:(NSString*)folderName
-           withListener:(void (^)(BraveBookmarksImporterState))listener;
+           withListener:(void (^)(adrbrowsielBookmarksImporterState))listener;
 @end
 
 NS_ASSUME_NONNULL_END
 
-#endif  // BRAVE_IOS_BROWSER_API_BOOKMARKS_IMPORTER_BRAVE_BOOKMARKS_IMPORTER_H_
+#endif  // adrbrowsiel_IOS_BROWSER_API_BOOKMARKS_IMPORTER_adrbrowsiel_BOOKMARKS_IMPORTER_H_

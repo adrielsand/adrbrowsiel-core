@@ -1,14 +1,14 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include <utility>
 
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_helper.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_contribution.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_contribution.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/test/base/ui_test_utils.h"
 #include "components/prefs/pref_service.h"
@@ -23,7 +23,7 @@ RewardsBrowserTestContribution::~RewardsBrowserTestContribution() = default;
 
 void RewardsBrowserTestContribution::Initialize(
       Browser* browser,
-      brave_rewards::RewardsServiceImpl* rewards_service) {
+      adrbrowsiel_rewards::RewardsServiceImpl* rewards_service) {
   DCHECK(browser && rewards_service);
   browser_ = browser;
   rewards_service_ = rewards_service;
@@ -275,7 +275,7 @@ void RewardsBrowserTestContribution::WaitForPendingTipToBeSaved() {
 }
 
 void RewardsBrowserTestContribution::OnPendingContributionSaved(
-    brave_rewards::RewardsService* rewards_service,
+    adrbrowsiel_rewards::RewardsService* rewards_service,
     const ledger::type::Result result) {
   if (result != ledger::type::Result::LEDGER_OK) {
     return;
@@ -297,7 +297,7 @@ void RewardsBrowserTestContribution::WaitForTipReconcileCompleted() {
 }
 
 void RewardsBrowserTestContribution::OnReconcileComplete(
-    brave_rewards::RewardsService* rewards_service,
+    adrbrowsiel_rewards::RewardsService* rewards_service,
     const ledger::type::Result result,
     const std::string& contribution_id,
     const double amount,
@@ -360,8 +360,8 @@ void RewardsBrowserTestContribution::UpdateContributionBalance(
     const bool verified,
     const ledger::type::ContributionProcessor processor) {
   if (verified) {
-    if (processor == ledger::type::ContributionProcessor::BRAVE_TOKENS ||
-        processor == ledger::type::ContributionProcessor::BRAVE_USER_FUNDS) {
+    if (processor == ledger::type::ContributionProcessor::adrbrowsiel_TOKENS ||
+        processor == ledger::type::ContributionProcessor::adrbrowsiel_USER_FUNDS) {
       balance_ -= amount;
       return;
     }
@@ -387,7 +387,7 @@ void RewardsBrowserTestContribution::WaitForRecurringTipToBeSaved() {
 }
 
 void RewardsBrowserTestContribution::OnRecurringTipSaved(
-    brave_rewards::RewardsService* rewards_service,
+    adrbrowsiel_rewards::RewardsService* rewards_service,
     const bool success) {
   if (!success) {
     return;
@@ -449,11 +449,11 @@ ledger::type::Result RewardsBrowserTestContribution::GetACStatus() {
 }
 
 void RewardsBrowserTestContribution::SetUpUpholdWallet(
-    brave_rewards::RewardsServiceImpl* rewards_service,
+    adrbrowsiel_rewards::RewardsServiceImpl* rewards_service,
     const double balance,
     const ledger::type::WalletStatus status) {
   DCHECK(rewards_service);
-  // we need brave wallet as well
+  // we need adrbrowsiel wallet as well
   rewards_browsertest_util::CreateWallet(rewards_service_);
 
   external_balance_ = balance;
@@ -464,7 +464,7 @@ void RewardsBrowserTestContribution::SetUpUpholdWallet(
       "address",
       rewards_browsertest_util::GetUpholdExternalAddress());
   wallet.SetIntKey("status", static_cast<int>(status));
-  wallet.SetStringKey("user_name", "Brave Test");
+  wallet.SetStringKey("user_name", "adrbrowsiel Test");
 
   std::string json;
   base::JSONWriter::Write(wallet, &json);

@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,18 +7,18 @@
 
 #include "base/files/scoped_temp_dir.h"
 #include "bat/ledger/mojom_structs.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/rewards_service_observer.h"
-#include "brave/components/brave_rewards/browser/test_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test_util.h"
 #include "chrome/browser/profiles/profile.h"
 #include "content/public/test/browser_task_environment.h"
 #include "testing/gmock/include/gmock/gmock.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-// npm run test -- brave_unit_tests --filter=RewardsServiceTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=RewardsServiceTest.*
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 using ::testing::_;
 
@@ -57,7 +57,7 @@ class RewardsServiceTest : public testing::Test {
  protected:
   void SetUp() override {
     ASSERT_TRUE(temp_dir_.CreateUniqueTempDir());
-    profile_ = CreateBraveRewardsProfile(temp_dir_.GetPath());
+    profile_ = CreateadrbrowsielRewardsProfile(temp_dir_.GetPath());
     ASSERT_TRUE(profile_.get() != NULL);
     rewards_service_ = static_cast<RewardsServiceImpl*>(
         RewardsServiceFactory::GetForProfile(profile()));
@@ -89,4 +89,4 @@ class RewardsServiceTest : public testing::Test {
 
 // add test for strange entries
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

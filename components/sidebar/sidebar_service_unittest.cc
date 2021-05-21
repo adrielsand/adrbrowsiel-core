@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,8 +7,8 @@
 
 #include "base/feature_list.h"
 #include "base/test/scoped_feature_list.h"
-#include "brave/components/sidebar/features.h"
-#include "brave/components/sidebar/sidebar_service.h"
+#include "adrbrowsiel/components/sidebar/features.h"
+#include "adrbrowsiel/components/sidebar/sidebar_service.h"
 #include "components/prefs/testing_pref_service.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
@@ -106,7 +106,7 @@ TEST_F(SidebarServiceTest, AddRemoveItems) {
   ClearState();
 
   const SidebarItem item2 =
-      SidebarItem::Create(GURL("https://www.brave.com/"), std::u16string(),
+      SidebarItem::Create(GURL("https://www.adrbrowsiel.com/"), std::u16string(),
                           SidebarItem::Type::kTypeWeb, true);
   EXPECT_TRUE(IsWebType(item2));
   service_->AddItem(item2);

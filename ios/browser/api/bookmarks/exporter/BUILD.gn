@@ -1,4 +1,4 @@
-# Copyright (c) 2020 The Brave Authors. All rights reserved.
+# Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,8 +10,8 @@ source_set("exporter") {
   configs += [ "//build/config/compiler:enable_arc" ]
 
   sources = [
-    "brave_bookmarks_exporter.h",
-    "brave_bookmarks_exporter.mm",
+    "adrbrowsiel_bookmarks_exporter.h",
+    "adrbrowsiel_bookmarks_exporter.mm",
     "bookmark_html_writer.h",
     "bookmark_html_writer.cc",
     "bookmarks_encoder.h",
@@ -20,7 +20,7 @@ source_set("exporter") {
 
   deps = [
     "//base",
-    "//brave/ios/browser/api/bookmarks",
+    "//adrbrowsiel/ios/browser/api/bookmarks",
     "//components/bookmarks/browser",
     "//components/favicon/core",
     "//components/favicon_base",

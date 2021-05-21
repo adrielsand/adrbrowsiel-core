@@ -2,24 +2,24 @@ import("//build/config/features.gni")
 
 source_set("renderer") {
   visibility = [
-    "//brave:child_dependencies",
-    "//brave/renderer/*",
-    "//brave/test:*",
+    "//adrbrowsiel:child_dependencies",
+    "//adrbrowsiel/renderer/*",
+    "//adrbrowsiel/test:*",
     "//chrome/renderer/*",
     "//components/content_settings/renderer/*",
   ]
 
   sources = [
-    "brave_content_settings_agent_impl.cc",
-    "brave_content_settings_agent_impl.h",
+    "adrbrowsiel_content_settings_agent_impl.cc",
+    "adrbrowsiel_content_settings_agent_impl.h",
   ]
 
   deps = [
     "//base",
-    "//brave/common",
-    "//brave/components/brave_shields/common",
-    "//brave/components/brave_shields/common:mojom",
-    "//brave/third_party/blink/renderer:renderer",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/components/adrbrowsiel_shields/common",
+    "//adrbrowsiel/components/adrbrowsiel_shields/common:mojom",
+    "//adrbrowsiel/third_party/blink/renderer:renderer",
     "//chrome/common",
     "//components/content_settings/core/common",
     "//components/content_settings/renderer",

@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Brave Rewards",
+  "adrbrowsielRewards": {
+    "message": "adrbrowsiel Rewards",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Značajno smo nadogradili Brave Rewards.",
+    "message": "Značajno smo nadogradili adrbrowsiel Rewards.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "može se upotrebljavati u značajki Brave Rewards za doprinošenje vašim omiljenim stvarateljima sadržaja. Bodovi se BAT ne mogu zamijeniti za BAT.",
+    "message": "može se upotrebljavati u značajki adrbrowsiel Rewards za doprinošenje vašim omiljenim stvarateljima sadržaja. Bodovi se BAT ne mogu zamijeniti za BAT.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Provjereni stvaratelj Brave",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "Provjereni stvaratelj adrbrowsiel",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Pažnja",
@@ -193,15 +193,15 @@
     "message": "u redu",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Sada možete zarađivati pregledavanjem oglasa.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Brave Ads",
+  "adrbrowsielAdsTitle": {
+    "message": "adrbrowsiel Ads",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Automatski doprinos",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Izradite sigurnosnu kopiju novčanika Brave.",
+    "message": "Izradite sigurnosnu kopiju novčanika adrbrowsiel.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Na vašem se računu za Brave Rewards očekuje depozit.",
+    "message": "Na vašem se računu za adrbrowsiel Rewards očekuje depozit.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Nedovoljna sredstva",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Izrada novčanika",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Imamo poteškoća sa značajkom Brave Rewards. Pokušajte kasnije.",
+    "message": "Imamo poteškoća sa značajkom adrbrowsiel Rewards. Pokušajte kasnije.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Ovaj stvaratelj nije se još prijavio za primanje doprinosa korisnika Brave. Bilo kakve napojnice koje pošaljete ostaju u vašem novčaniku dok se ne provjere.",
+    "message": "Ovaj stvaratelj nije se još prijavio za primanje doprinosa korisnika adrbrowsiel. Bilo kakve napojnice koje pošaljete ostaju u vašem novčaniku dok se ne provjere.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave Rewards su",
+    "message": "adrbrowsiel Rewards su",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "i",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Budite nagrađeni za pregledavanje!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Omogući Brave Rewards",
+    "message": "Omogući adrbrowsiel Rewards",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Klikom na značajku „Omogući Brave Rewards” naznačujete da ste pročitali i da se slažete s",
+    "message": "Klikom na značajku „Omogući adrbrowsiel Rewards” naznačujete da ste pročitali i da se slažete s",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Vaša je nagrada poslana u vaš novčanik za Brave Rewards.",
+    "message": "Vaša je nagrada poslana u vaš novčanik za adrbrowsiel Rewards.",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Poništi vezu s Brave Rewards",
+    "message": "Poništi vezu s adrbrowsiel Rewards",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Ovaj provjereni stvaratelj Brave nije još konfigurirao svoj račun za primanje doprinosa od korisnika Brave. Bilo kakve napojnice koje pošaljete ostaju u vašem novčaniku dok oni ne završe ovaj postupak.",
+    "message": "Ovaj provjereni stvaratelj adrbrowsiel nije još konfigurirao svoj račun za primanje doprinosa od korisnika adrbrowsiel. Bilo kakve napojnice koje pošaljete ostaju u vašem novčaniku dok oni ne završe ovaj postupak.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Počni upotrebljavati uslugu Brave Rewards",
+    "message": "Počni upotrebljavati uslugu adrbrowsiel Rewards",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Dobro došli u uslugu Brave Rewards!",
+    "message": "Dobro došli u uslugu adrbrowsiel Rewards!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Putem privatnih oglasa preglednika Brave dobivate tokene za pružanje podrške autorima sadržaja za razliku od tradicionalnih oglasa, a istovremeno vaši osobni podatci ostaju privatni.",
+    "message": "Putem privatnih oglasa preglednika adrbrowsiel dobivate tokene za pružanje podrške autorima sadržaja za razliku od tradicionalnih oglasa, a istovremeno vaši osobni podatci ostaju privatni.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Privatni Brave Ads pojavljuju se kao normalna obavijest. U postavkama možete odrediti koliko se često prikazuju ovi oglasi.",
+    "message": "Privatni adrbrowsiel Ads pojavljuju se kao normalna obavijest. U postavkama možete odrediti koliko se često prikazuju ovi oglasi.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Vaši tokeni koji se zarade putem privatnih Brave Ads tijekom trenutačnog mjeseca dostupni su 5. dan u sljedećem mjesecu.",
+    "message": "Vaši tokeni koji se zarade putem privatnih adrbrowsiel Ads tijekom trenutačnog mjeseca dostupni su 5. dan u sljedećem mjesecu.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Uporabom usluge Brave Rewards doprinosite stvaranju boljeg okruženja na mreži za sve. A to je odlično!",
+    "message": "Uporabom usluge adrbrowsiel Rewards doprinosite stvaranju boljeg okruženja na mreži za sve. A to je odlično!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Potvrđivanjem svojeg novčanika i njegovim povezivanjem s računom usluge bitFlyer možete jednostavnije pohranjivati i upravljati tokenima zarađenim putem usluge Brave Rewards",
+    "message": "Potvrđivanjem svojeg novčanika i njegovim povezivanjem s računom usluge bitFlyer možete jednostavnije pohranjivati i upravljati tokenima zarađenim putem usluge adrbrowsiel Rewards",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Značajka Brave Rewards u Japanu prelazi na novi sustav!",
+    "message": "Značajka adrbrowsiel Rewards u Japanu prelazi na novi sustav!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

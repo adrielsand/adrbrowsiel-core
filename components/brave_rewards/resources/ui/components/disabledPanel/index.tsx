@@ -13,7 +13,7 @@ import {
   StyledTitleWrapper
 } from './style'
 
-import { getLocale } from 'brave-ui/helpers'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
 
 export interface Props {
   testId?: string

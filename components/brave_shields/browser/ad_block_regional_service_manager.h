@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_MANAGER_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_MANAGER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_MANAGER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_MANAGER_H_
 
 #include <map>
 #include <memory>
@@ -16,8 +16,8 @@
 #include "base/optional.h"
 #include "base/synchronization/lock.h"
 #include "base/values.h"
-#include "brave/components/adblock_rust_ffi/src/wrapper.h"
-#include "brave/components/brave_component_updater/browser/brave_component.h"
+#include "adrbrowsiel/components/adblock_rust_ffi/src/wrapper.h"
+#include "adrbrowsiel/components/adrbrowsiel_component_updater/browser/adrbrowsiel_component.h"
 #include "third_party/blink/public/mojom/loader/resource_load_info.mojom-shared.h"
 #include "url/gurl.h"
 
@@ -27,9 +27,9 @@ class ListValue;
 
 class AdBlockServiceTest;
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 class AdBlockRegionalService;
 
@@ -37,7 +37,7 @@ class AdBlockRegionalService;
 // managing regional AdBlock clients.
 class AdBlockRegionalServiceManager {
  public:
-  explicit AdBlockRegionalServiceManager(BraveComponent::Delegate* delegate);
+  explicit AdBlockRegionalServiceManager(adrbrowsielComponent::Delegate* delegate);
   ~AdBlockRegionalServiceManager();
 
   std::unique_ptr<base::ListValue> GetRegionalLists();
@@ -74,7 +74,7 @@ class AdBlockRegionalServiceManager {
   void StartRegionalServices();
   void UpdateFilterListPrefs(const std::string& uuid, bool enabled);
 
-  brave_component_updater::BraveComponent::Delegate* delegate_;  // NOT OWNED
+  adrbrowsiel_component_updater::adrbrowsielComponent::Delegate* delegate_;  // NOT OWNED
   bool initialized_;
   base::Lock regional_services_lock_;
   std::map<std::string, std::unique_ptr<AdBlockRegionalService>>
@@ -87,8 +87,8 @@ class AdBlockRegionalServiceManager {
 
 // Creates the AdBlockRegionalServiceManager
 std::unique_ptr<AdBlockRegionalServiceManager>
-AdBlockRegionalServiceManagerFactory(BraveComponent::Delegate* delegate);
+AdBlockRegionalServiceManagerFactory(adrbrowsielComponent::Delegate* delegate);
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_MANAGER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_AD_BLOCK_REGIONAL_SERVICE_MANAGER_H_

@@ -10,8 +10,8 @@ import {
   StyledLogotypeWrapper,
   StyledLogoWrapper
 } from './style'
-import { getLocale } from 'brave-ui/helpers'
-import { BatColorIcon } from 'brave-ui/components/icons'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
+import { BatColorIcon } from 'adrbrowsiel-ui/components/icons'
 
 export interface Props {
   testId?: string
@@ -31,7 +31,7 @@ export default class MainToggle extends React.PureComponent<Props, {}> {
               <BatColorIcon />
             </StyledLogoWrapper>
             <StyledTitle>
-              {getLocale('braveRewards')}
+              {getLocale('adrbrowsielRewards')}
             </StyledTitle>
           </StyledLogotypeWrapper>
         </ToggleHeading>

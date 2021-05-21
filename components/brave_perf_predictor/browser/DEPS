@@ -11,6 +11,6 @@ specific_include_rules = {
     "+chrome/browser/profiles/profile.h",
   ],
   "perf_predictor_tab_helper.cc": [
-    "+brave/browser/android/brave_shields_content_settings.h",
+    "+adrbrowsiel/browser/android/adrbrowsiel_shields_content_settings.h",
   ],
 }

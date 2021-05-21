@@ -1,17 +1,17 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 // State helpers
-import * as gridSitesState from '../../../brave_new_tab_ui/state/gridSitesState'
+import * as gridSitesState from '../../../adrbrowsiel_new_tab_ui/state/gridSitesState'
 
 // Helpers
-import * as storage from '../../../brave_new_tab_ui/storage/grid_sites_storage'
+import * as storage from '../../../adrbrowsiel_new_tab_ui/storage/grid_sites_storage'
 
 const newTopSite1: chrome.topSites.MostVisitedURL = {
-  url: 'https://brave.com',
-  title: 'brave!'
+  url: 'https://adrbrowsiel.com',
+  title: 'adrbrowsiel!'
 }
 
 const newTopSite2: chrome.topSites.MostVisitedURL = {

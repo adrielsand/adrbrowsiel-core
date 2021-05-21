@@ -8,11 +8,11 @@ import {
   StyledRemoveIcon,
   StyledLink
 } from './style'
-import Table, { Cell, Row } from 'brave-ui/components/dataTables/table/index'
+import Table, { Cell, Row } from 'adrbrowsiel-ui/components/dataTables/table/index'
 import Profile, { Provider } from '../profile/index'
 import Tokens from '../tokens/index'
-import { getLocale } from 'brave-ui/helpers'
-import { TrashOIcon } from 'brave-ui/components/icons'
+import { getLocale } from 'adrbrowsiel-ui/helpers'
+import { TrashOIcon } from 'adrbrowsiel-ui/components/icons'
 
 interface ProfileCell {
   verified: boolean

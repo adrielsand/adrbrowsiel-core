@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/gemini/browser/gemini_service.h"
+#include "adrbrowsiel/components/gemini/browser/gemini_service.h"
 
 #include <string>
 #include <utility>
@@ -21,9 +21,9 @@
 #include "base/task_runner_util.h"
 #include "base/time/time.h"
 #include "base/token.h"
-#include "brave/components/gemini/browser/gemini_json_parser.h"
-#include "brave/components/gemini/browser/pref_names.h"
-#include "brave/components/ntp_widget_utils/browser/ntp_widget_utils_oauth.h"
+#include "adrbrowsiel/components/gemini/browser/gemini_json_parser.h"
+#include "adrbrowsiel/components/gemini/browser/pref_names.h"
+#include "adrbrowsiel/components/ntp_widget_utils/browser/ntp_widget_utils_oauth.h"
 #include "components/os_crypt/os_crypt.h"
 #include "components/prefs/pref_service.h"
 #include "components/user_prefs/user_prefs.h"
@@ -38,7 +38,7 @@
 namespace {
   const char oauth_host[] = "exchange.gemini.com";
   const char api_host[] = "api.gemini.com";
-  const char oauth_callback[] = "com.brave.gemini://authorization";
+  const char oauth_callback[] = "com.adrbrowsiel.gemini://authorization";
   const char oauth_scope[] = "addresses:read,balances:read,orders:create";
   const char oauth_url[] = "https://exchange.gemini.com/auth";
   const unsigned int kRetriesCountOnNetworkChange = 1;

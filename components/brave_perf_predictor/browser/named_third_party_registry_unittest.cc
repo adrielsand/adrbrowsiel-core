@@ -1,16 +1,16 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_perf_predictor/browser/named_third_party_registry.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/named_third_party_registry.h"
 
 #include "base/files/file_path.h"
 #include "base/files/file_util.h"
 #include "base/path_service.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 constexpr char test_mapping[] = R"(
 [
@@ -42,9 +42,9 @@ std::string LoadFile() {
   base::FilePath source_root;
   base::PathService::Get(base::DIR_SOURCE_ROOT, &source_root);
   auto path =
-      source_root.Append(FILE_PATH_LITERAL("brave"))
+      source_root.Append(FILE_PATH_LITERAL("adrbrowsiel"))
           .Append(FILE_PATH_LITERAL("components"))
-          .Append(FILE_PATH_LITERAL("brave_perf_predictor"))
+          .Append(FILE_PATH_LITERAL("adrbrowsiel_perf_predictor"))
           .Append(FILE_PATH_LITERAL("resources"))
           .Append(FILE_PATH_LITERAL("entities-httparchive-nostats.json"));
 
@@ -119,4 +119,4 @@ TEST(NamedThirdPartyRegistryTest, HandlesUnrecognisedThirdPartyTest) {
   EXPECT_FALSE(entity.has_value());
 }
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor

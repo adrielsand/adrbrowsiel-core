@@ -1,7 +1,7 @@
 import("//build/config/android/rules.gni")
 
 declare_args() {
-  brave_safetynet_api_key = ""
+  adrbrowsiel_safetynet_api_key = ""
 }
 
 group("android") {
@@ -32,5 +32,5 @@ generate_jni("jni_headers") {
 }
   
 config("safetynet_config") {
-  defines = [ "SAFETYNET_API_KEY=\"$brave_safetynet_api_key\"" ]
+  defines = [ "SAFETYNET_API_KEY=\"$adrbrowsiel_safetynet_api_key\"" ]
 }

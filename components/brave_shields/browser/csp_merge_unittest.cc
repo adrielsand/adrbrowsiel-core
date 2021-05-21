@@ -1,13 +1,13 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/ad_block_service_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service_helper.h"
 #include "testing/gmock/include/gmock/gmock.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 const base::Optional<std::string> NO_POLICY = base::nullopt;
 
@@ -56,4 +56,4 @@ TEST(CspMergeTest, MergeNonEmptyIntoNonEmpty) {
   ASSERT_EQ(*b, expected);
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

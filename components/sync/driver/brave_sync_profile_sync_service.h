@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SYNC_DRIVER_BRAVE_SYNC_PROFILE_SYNC_SERVICE_H_
-#define BRAVE_COMPONENTS_SYNC_DRIVER_BRAVE_SYNC_PROFILE_SYNC_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_SYNC_DRIVER_adrbrowsiel_SYNC_PROFILE_SYNC_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_SYNC_DRIVER_adrbrowsiel_SYNC_PROFILE_SYNC_SERVICE_H_
 
 #include <memory>
 #include <string>
 
 #include "base/memory/weak_ptr.h"
-#include "brave/components/brave_sync/brave_sync_prefs.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/adrbrowsiel_sync_prefs.h"
 #include "components/prefs/pref_change_registrar.h"
 #include "components/sync/driver/profile_sync_service.h"
 
@@ -18,15 +18,15 @@ class Profile;
 
 namespace syncer {
 
-class BraveSyncAuthManager;
+class adrbrowsielSyncAuthManager;
 class ProfileSyncServiceDelegate;
 
-class BraveProfileSyncService : public ProfileSyncService {
+class adrbrowsielProfileSyncService : public ProfileSyncService {
  public:
-  explicit BraveProfileSyncService(
+  explicit adrbrowsielProfileSyncService(
       InitParams init_params,
       std::unique_ptr<ProfileSyncServiceDelegate> profile_service_delegate);
-  ~BraveProfileSyncService() override;
+  ~adrbrowsielProfileSyncService() override;
 
   // SyncService implementation
   bool IsSetupInProgress() const override;
@@ -34,7 +34,7 @@ class BraveProfileSyncService : public ProfileSyncService {
   std::string GetOrCreateSyncCode();
   bool SetSyncCode(const std::string& sync_code);
 
-  // This should only be called by helper function, brave_sync::ResetSync, or by
+  // This should only be called by helper function, adrbrowsiel_sync::ResetSync, or by
   // OnDeviceInfoChange internally
   void OnSelfDeviceInfoDeleted(base::OnceClosure cb);
 
@@ -47,20 +47,20 @@ class BraveProfileSyncService : public ProfileSyncService {
   void Initialize() override;
 
  private:
-  BraveSyncAuthManager* GetBraveSyncAuthManager();
+  adrbrowsielSyncAuthManager* GetadrbrowsielSyncAuthManager();
 
-  void OnBraveSyncPrefsChanged(const std::string& path);
+  void OnadrbrowsielSyncPrefsChanged(const std::string& path);
 
-  brave_sync::Prefs brave_sync_prefs_;
+  adrbrowsiel_sync::Prefs adrbrowsiel_sync_prefs_;
 
-  PrefChangeRegistrar brave_sync_prefs_change_registrar_;
+  PrefChangeRegistrar adrbrowsiel_sync_prefs_change_registrar_;
 
   std::unique_ptr<ProfileSyncServiceDelegate> profile_service_delegate_;
 
-  base::WeakPtrFactory<BraveProfileSyncService> weak_ptr_factory_;
+  base::WeakPtrFactory<adrbrowsielProfileSyncService> weak_ptr_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveProfileSyncService);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielProfileSyncService);
 };
 }  // namespace syncer
 
-#endif  // BRAVE_COMPONENTS_SYNC_DRIVER_BRAVE_SYNC_PROFILE_SYNC_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_SYNC_DRIVER_adrbrowsiel_SYNC_PROFILE_SYNC_SERVICE_H_

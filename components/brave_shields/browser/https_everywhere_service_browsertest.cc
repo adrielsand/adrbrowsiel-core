@@ -1,4 +1,4 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -6,9 +6,9 @@
 #include "base/path_service.h"
 #include "base/task/post_task.h"
 #include "base/test/thread_test_helper.h"
-#include "brave/browser/brave_browser_process.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_shields/browser/https_everywhere_service.h"
+#include "adrbrowsiel/browser/adrbrowsiel_browser_process.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/https_everywhere_service.h"
 #include "chrome/browser/extensions/extension_browsertest.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/ui_test_utils.h"
@@ -50,20 +50,20 @@ class HTTPSEverywhereServiceTest : public ExtensionBrowserTest {
     ExtensionBrowserTest::PreRunTestOnMainThread();
     WaitForHTTPSEverywhereServiceThread();
     ASSERT_TRUE(
-      g_brave_browser_process->https_everywhere_service()->IsInitialized());
+      g_adrbrowsiel_browser_process->https_everywhere_service()->IsInitialized());
   }
 
   void InitEmbeddedTestServer() {
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
     ASSERT_TRUE(embedded_test_server()->Start());
   }
 
   void InitService() {
-    brave_shields::HTTPSEverywhereService::SetIgnorePortForTest(true);
-    brave_shields::HTTPSEverywhereService::
+    adrbrowsiel_shields::HTTPSEverywhereService::SetIgnorePortForTest(true);
+    adrbrowsiel_shields::HTTPSEverywhereService::
         SetComponentIdAndBase64PublicKeyForTest(
             kHTTPSEverywhereComponentTestId,
             kHTTPSEverywhereComponentTestBase64PublicKey);
@@ -71,7 +71,7 @@ class HTTPSEverywhereServiceTest : public ExtensionBrowserTest {
 
   void GetTestDataDir(base::FilePath* test_data_dir) {
     base::ScopedAllowBlockingForTesting allow_blocking;
-    base::PathService::Get(brave::DIR_TEST_DATA, test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, test_data_dir);
   }
 
   bool InstallHTTPSEverywhereExtension() {
@@ -82,7 +82,7 @@ class HTTPSEverywhereServiceTest : public ExtensionBrowserTest {
     if (!httpse_extension)
       return false;
 
-    g_brave_browser_process->https_everywhere_service()->OnComponentReady(
+    g_adrbrowsiel_browser_process->https_everywhere_service()->OnComponentReady(
         httpse_extension->id(), httpse_extension->path(), "");
     WaitForHTTPSEverywhereServiceThread();
 
@@ -91,7 +91,7 @@ class HTTPSEverywhereServiceTest : public ExtensionBrowserTest {
 
   void WaitForHTTPSEverywhereServiceThread() {
     scoped_refptr<base::ThreadTestHelper> io_helper(new base::ThreadTestHelper(
-        g_brave_browser_process->https_everywhere_service()->GetTaskRunner()));
+        g_adrbrowsiel_browser_process->https_everywhere_service()->GetTaskRunner()));
     ASSERT_TRUE(io_helper->Run());
   }
 };

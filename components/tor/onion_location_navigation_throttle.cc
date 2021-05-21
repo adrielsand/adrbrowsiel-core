@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/tor/onion_location_navigation_throttle.h"
+#include "adrbrowsiel/components/tor/onion_location_navigation_throttle.h"
 
 #include <string>
 #include <utility>
 
 #include "base/bind.h"
-#include "brave/components/tor/onion_location_tab_helper.h"
-#include "brave/components/tor/pref_names.h"
+#include "adrbrowsiel/components/tor/onion_location_tab_helper.h"
+#include "adrbrowsiel/components/tor/pref_names.h"
 #include "components/prefs/pref_service.h"
 #include "components/user_prefs/user_prefs.h"
 #include "content/public/browser/browser_context.h"

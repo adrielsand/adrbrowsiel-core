@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -84,7 +84,7 @@ function setRewardsFetchInterval () {
 }
 
 function fetchRewardsData () {
-  chrome.braveRewards.isInitialized((initialized: boolean) => {
+  chrome.adrbrowsielRewards.isInitialized((initialized: boolean) => {
     if (!initialized) {
       return
     }
@@ -99,22 +99,22 @@ function fetchRewardsData () {
   })
 }
 
-chrome.braveRewards.initialized.addListener((result: any | NewTab.RewardsResult) => {
+chrome.adrbrowsielRewards.initialized.addListener((result: any | NewTab.RewardsResult) => {
   rewardsInitData()
 })
 
-chrome.braveRewards.onAdsEnabled.addListener((enabled: boolean) => {
+chrome.adrbrowsielRewards.onAdsEnabled.addListener((enabled: boolean) => {
   getActions().onAdsEnabled(enabled)
 })
 
-chrome.braveRewards.onPromotions.addListener((result: number, promotions: NewTab.Promotion[]) => {
+chrome.adrbrowsielRewards.onPromotions.addListener((result: number, promotions: NewTab.Promotion[]) => {
   getActions().onPromotions(result, promotions)
 })
 
-chrome.braveRewards.onPromotionFinish.addListener((result: number, promotion: NewTab.Promotion) => {
+chrome.adrbrowsielRewards.onPromotionFinish.addListener((result: number, promotion: NewTab.Promotion) => {
   getActions().onPromotionFinish(result, promotion)
 })
 
-chrome.braveRewards.onCompleteReset.addListener((properties: { success: boolean }) => {
+chrome.adrbrowsielRewards.onCompleteReset.addListener((properties: { success: boolean }) => {
   getActions().onCompleteReset(properties.success)
 })

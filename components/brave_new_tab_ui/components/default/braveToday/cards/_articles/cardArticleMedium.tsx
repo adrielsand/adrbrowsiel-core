@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -13,16 +13,16 @@ import { OnReadFeedItem, OnSetPublisherPref } from '../../'
 // TODO(petemill): Large and Medium article should be combined to 1 component.
 
 interface Props {
-  content: (BraveToday.Article)[]
-  publishers: BraveToday.Publishers
-  articleToScrollTo?: BraveToday.FeedItem
+  content: (adrbrowsielToday.Article)[]
+  publishers: adrbrowsielToday.Publishers
+  articleToScrollTo?: adrbrowsielToday.FeedItem
   onReadFeedItem: OnReadFeedItem
   onSetPublisherPref: OnSetPublisherPref
 }
 
 type ArticleProps = {
-  item: BraveToday.Article
-  publisher?: BraveToday.Publisher
+  item: adrbrowsielToday.Article
+  publisher?: adrbrowsielToday.Publisher
   shouldScrollIntoView?: boolean
   onReadFeedItem: OnReadFeedItem
   onSetPublisherPref: OnSetPublisherPref

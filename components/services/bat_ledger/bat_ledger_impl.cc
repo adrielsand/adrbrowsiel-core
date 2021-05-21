@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/services/bat_ledger/bat_ledger_impl.h"
+#include "adrbrowsiel/components/services/bat_ledger/bat_ledger_impl.h"
 
 #include <stdint.h>
 
@@ -13,7 +13,7 @@
 #include <vector>
 
 #include "base/containers/flat_map.h"
-#include "brave/components/services/bat_ledger/bat_ledger_client_mojo_bridge.h"
+#include "adrbrowsiel/components/services/bat_ledger/bat_ledger_client_mojo_bridge.h"
 
 using std::placeholders::_1;
 using std::placeholders::_2;
@@ -1126,9 +1126,9 @@ void BatLedgerImpl::GetEventLogs(GetEventLogsCallback callback) {
 }
 
 // static
-void BatLedgerImpl::OnGetBraveWallet(
-    CallbackHolder<GetBraveWalletCallback>* holder,
-    ledger::type::BraveWalletPtr wallet) {
+void BatLedgerImpl::OnGetadrbrowsielWallet(
+    CallbackHolder<GetadrbrowsielWalletCallback>* holder,
+    ledger::type::adrbrowsielWalletPtr wallet) {
   DCHECK(holder);
   if (holder->is_valid()) {
     std::move(holder->get()).Run(std::move(wallet));
@@ -1137,12 +1137,12 @@ void BatLedgerImpl::OnGetBraveWallet(
   delete holder;
 }
 
-void BatLedgerImpl::GetBraveWallet(GetBraveWalletCallback callback) {
-  auto* holder = new CallbackHolder<GetBraveWalletCallback>(
+void BatLedgerImpl::GetadrbrowsielWallet(GetadrbrowsielWalletCallback callback) {
+  auto* holder = new CallbackHolder<GetadrbrowsielWalletCallback>(
       AsWeakPtr(), std::move(callback));
 
-  ledger_->GetBraveWallet(
-      std::bind(BatLedgerImpl::OnGetBraveWallet,
+  ledger_->GetadrbrowsielWallet(
+      std::bind(BatLedgerImpl::OnGetadrbrowsielWallet,
           holder,
           _1));
 }

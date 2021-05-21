@@ -3,11 +3,11 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Reducer
-import { stackWidgetReducer, handleWidgetPrefsChange } from '../../../brave_new_tab_ui/reducers/stack_widget_reducer'
+import { stackWidgetReducer, handleWidgetPrefsChange } from '../../../adrbrowsiel_new_tab_ui/reducers/stack_widget_reducer'
 
 // API
-import * as storage from '../../../brave_new_tab_ui/storage/new_tab_storage'
-import { types } from '../../../brave_new_tab_ui/constants/stack_widget_types'
+import * as storage from '../../../adrbrowsiel_new_tab_ui/storage/new_tab_storage'
+import { types } from '../../../adrbrowsiel_new_tab_ui/constants/stack_widget_types'
 
 describe('stackWidgetReducer', () => {
   describe('SET_FOREGROUND_STACK_WIDGET', () => {

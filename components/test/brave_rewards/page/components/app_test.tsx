@@ -8,7 +8,7 @@ import { rewardsInitialState } from '../../../testData'
 import {
   App,
   mapStateToProps
-} from '../../../../brave_rewards/resources/page/components/app'
+} from '../../../../adrbrowsiel_rewards/resources/page/components/app'
 
 describe('rewardsPage component', () => {
   describe('mapStateToProps', () => {

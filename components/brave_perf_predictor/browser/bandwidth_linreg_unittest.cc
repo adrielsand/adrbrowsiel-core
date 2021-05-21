@@ -1,22 +1,22 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_perf_predictor/browser/bandwidth_linreg.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/bandwidth_linreg.h"
 
 #include "base/containers/flat_map.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
-TEST(BraveSavingsPredictorTest, FeatureArrayGetsPrediction) {
+TEST(adrbrowsielSavingsPredictorTest, FeatureArrayGetsPrediction) {
   const std::array<double, feature_count> features{};
   double result = LinregPredictVector(features);
   EXPECT_NE(result, 0);
 }
 
-TEST(BraveSavingsPredictorTest, HandlesSpecificVectorExample) {
+TEST(adrbrowsielSavingsPredictorTest, HandlesSpecificVectorExample) {
   // This test needs to be updated for any change in the model
   constexpr std::array<double, feature_count> sample = {
       20, 129, 225, 142, 925,    5, 34662, 3,  317818,  9,  1702888,
@@ -43,7 +43,7 @@ TEST(BraveSavingsPredictorTest, HandlesSpecificVectorExample) {
             794);  // Equal on the order of thousands
 }
 
-TEST(BraveSavingsPredictorTest, HandlesEmptyFeatureset) {
+TEST(adrbrowsielSavingsPredictorTest, HandlesEmptyFeatureset) {
   const base::flat_map<std::string, double> features{};
   const double result = LinregPredictNamed(features);
   const std::array<double, feature_count> features_array{};
@@ -51,7 +51,7 @@ TEST(BraveSavingsPredictorTest, HandlesEmptyFeatureset) {
   EXPECT_EQ(result, array_result);
 }
 
-TEST(BraveSavingsPredictorTest, HandlesCompleteFeatureset) {
+TEST(adrbrowsielSavingsPredictorTest, HandlesCompleteFeatureset) {
   base::flat_map<std::string, double> features;
   for (unsigned int i = 0; i < feature_count; i++) {
     features[feature_sequence.at(i)] = 0;
@@ -62,7 +62,7 @@ TEST(BraveSavingsPredictorTest, HandlesCompleteFeatureset) {
   EXPECT_EQ(result, array_result);
 }
 
-TEST(BraveSavingsPredictorTest, HandesSpecificFeaturemapExample) {
+TEST(adrbrowsielSavingsPredictorTest, HandesSpecificFeaturemapExample) {
   // This test needs to be updated for any change in the model
   // Third-parties that are not detected are skipped
   const base::flat_map<std::string, double> featuremap = {
@@ -104,4 +104,4 @@ TEST(BraveSavingsPredictorTest, HandesSpecificFeaturemapExample) {
             794);  // Equal on the order of thousands
 }
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor

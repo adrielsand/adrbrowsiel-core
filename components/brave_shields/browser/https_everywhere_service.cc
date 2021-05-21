@@ -1,9 +1,9 @@
-/* Copyright 2016 The Brave Authors. All rights reserved.
+/* Copyright 2016 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/https_everywhere_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/https_everywhere_service.h"
 
 #include <algorithm>
 #include <string>
@@ -77,9 +77,9 @@ std::string leveldbGet(leveldb::DB* db, const std::string &key) {
 
 }  // namespace
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
-const char kHTTPSEverywhereComponentName[] = "Brave HTTPS Everywhere Updater";
+const char kHTTPSEverywhereComponentName[] = "adrbrowsiel HTTPS Everywhere Updater";
 const char kHTTPSEverywhereComponentId[] = "oofiananboodjbbmdelgdommihjbkfag";
 const char kHTTPSEverywhereComponentBase64PublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvn9zSMjTmhkQyrZu5UdN"
@@ -98,8 +98,8 @@ HTTPSEverywhereService::g_https_everywhere_component_base64_public_key_(
     kHTTPSEverywhereComponentBase64PublicKey);
 
 HTTPSEverywhereService::HTTPSEverywhereService(
-    BraveComponent::Delegate* delegate)
-    : BaseBraveShieldsService(delegate),
+    adrbrowsielComponent::Delegate* delegate)
+    : BaseadrbrowsielShieldsService(delegate),
       level_db_(nullptr) {
   DETACH_FROM_SEQUENCE(sequence_checker_);
 }
@@ -397,11 +397,11 @@ void HTTPSEverywhereService::SetIgnorePortForTest(bool ignore) {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-// The brave shields factory. Using the Brave Shields as a singleton
+// The adrbrowsiel shields factory. Using the adrbrowsiel Shields as a singleton
 // is the job of the browser process.
 std::unique_ptr<HTTPSEverywhereService> HTTPSEverywhereServiceFactory(
-    BraveComponent::Delegate* delegate) {
+    adrbrowsielComponent::Delegate* delegate) {
   return std::make_unique<HTTPSEverywhereService>(delegate);
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

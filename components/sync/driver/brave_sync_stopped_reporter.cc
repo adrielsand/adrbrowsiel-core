@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/sync/driver/brave_sync_stopped_reporter.h"
+#include "adrbrowsiel/components/sync/driver/adrbrowsiel_sync_stopped_reporter.h"
 
 #include <utility>
 
@@ -11,7 +11,7 @@
 
 namespace syncer {
 
-BraveSyncStoppedReporter::BraveSyncStoppedReporter(
+adrbrowsielSyncStoppedReporter::adrbrowsielSyncStoppedReporter(
     const GURL& sync_service_url,
     const std::string& user_agent,
     scoped_refptr<network::SharedURLLoaderFactory> url_loader_factory,
@@ -21,9 +21,9 @@ BraveSyncStoppedReporter::BraveSyncStoppedReporter(
                           url_loader_factory,
                           std::move(callback)) {}
 
-BraveSyncStoppedReporter::~BraveSyncStoppedReporter() {}
+adrbrowsielSyncStoppedReporter::~adrbrowsielSyncStoppedReporter() {}
 
-void BraveSyncStoppedReporter::ReportSyncStopped(
+void adrbrowsielSyncStoppedReporter::ReportSyncStopped(
     const std::string& access_token,
     const std::string& cache_guid,
     const std::string& birthday) {}

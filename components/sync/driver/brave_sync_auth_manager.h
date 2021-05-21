@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_SYNC_DRIVER_BRAVE_SYNC_AUTH_MANAGER_H_
-#define BRAVE_COMPONENTS_SYNC_DRIVER_BRAVE_SYNC_AUTH_MANAGER_H_
+#ifndef adrbrowsiel_COMPONENTS_SYNC_DRIVER_adrbrowsiel_SYNC_AUTH_MANAGER_H_
+#define adrbrowsiel_COMPONENTS_SYNC_DRIVER_adrbrowsiel_SYNC_AUTH_MANAGER_H_
 
 #include <string>
 #include <vector>
@@ -14,12 +14,12 @@
 
 namespace syncer {
 
-class BraveSyncAuthManager : public SyncAuthManager {
+class adrbrowsielSyncAuthManager : public SyncAuthManager {
  public:
-  BraveSyncAuthManager(signin::IdentityManager* identity_manager,
+  adrbrowsielSyncAuthManager(signin::IdentityManager* identity_manager,
                        const AccountStateChangedCallback& account_state_changed,
                        const CredentialsChangedCallback& credentials_changed);
-  ~BraveSyncAuthManager() override;
+  ~adrbrowsielSyncAuthManager() override;
 
   void DeriveSigningKeys(const std::string& seed);
   void ResetKeys();
@@ -41,11 +41,11 @@ class BraveSyncAuthManager : public SyncAuthManager {
   std::vector<uint8_t> public_key_;
   std::vector<uint8_t> private_key_;
 
-  base::WeakPtrFactory<BraveSyncAuthManager> weak_ptr_factory_{this};
+  base::WeakPtrFactory<adrbrowsielSyncAuthManager> weak_ptr_factory_{this};
 
-  DISALLOW_COPY_AND_ASSIGN(BraveSyncAuthManager);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielSyncAuthManager);
 };
 
 }  // namespace syncer
 
-#endif  // BRAVE_COMPONENTS_SYNC_DRIVER_BRAVE_SYNC_AUTH_MANAGER_H_
+#endif  // adrbrowsiel_COMPONENTS_SYNC_DRIVER_adrbrowsiel_SYNC_AUTH_MANAGER_H_

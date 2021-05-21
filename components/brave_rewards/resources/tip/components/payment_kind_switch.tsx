@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 
-import { BatColorIcon } from 'brave-ui/components/icons'
+import { BatColorIcon } from 'adrbrowsiel-ui/components/icons'
 
 import { PaymentKind } from '../lib/interfaces'
 

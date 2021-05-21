@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -9,7 +9,7 @@ import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
 
 @JNINamespace("permissions")
-public class BravePermissionDialogDelegate {
+public class adrbrowsielPermissionDialogDelegate {
     /** Text to show before lifetime options. */
     private String mLifetimeOptionsText;
 
@@ -19,7 +19,7 @@ public class BravePermissionDialogDelegate {
     /** Lifetime option index selected by the user. */
     private int mSelectedLifetimeOption;
 
-    public BravePermissionDialogDelegate() {
+    public adrbrowsielPermissionDialogDelegate() {
         mSelectedLifetimeOption = -1;
     }
 

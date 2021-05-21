@@ -1,17 +1,17 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/containers/flat_map.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_helper.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_response.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
 #include "chrome/browser/ui/views/frame/browser_view.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "chrome/test/base/testing_profile.h"
@@ -20,7 +20,7 @@
 #include "content/public/test/browser_test.h"
 #include "net/dns/mock_host_resolver.h"
 
-// npm run test -- brave_browser_tests --filter=RewardsPublisherBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=RewardsPublisherBrowserTest.*
 
 namespace rewards_browsertest {
 
@@ -46,10 +46,10 @@ class RewardsPublisherBrowserTest : public InProcessBrowserTest {
     ASSERT_TRUE(https_server_->Start());
 
     // Rewards service
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     auto* profile = browser()->profile();
-    rewards_service_ = static_cast<brave_rewards::RewardsServiceImpl*>(
-        brave_rewards::RewardsServiceFactory::GetForProfile(profile));
+    rewards_service_ = static_cast<adrbrowsiel_rewards::RewardsServiceImpl*>(
+        adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile));
 
     // Response mock
     base::ScopedAllowBlockingForTesting allow_blocking;
@@ -90,13 +90,13 @@ class RewardsPublisherBrowserTest : public InProcessBrowserTest {
     return browser()->tab_strip_model()->GetActiveWebContents();
   }
 
-  brave_rewards::RewardsServiceImpl* rewards_service_;
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;
   std::unique_ptr<net::EmbeddedTestServer> https_server_;
   std::unique_ptr<RewardsBrowserTestResponse> response_;
   std::unique_ptr<RewardsBrowserTestContextHelper> context_helper_;
 };
 
-// https://github.com/brave/brave-browser/issues/12986
+// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12986
 IN_PROC_BROWSER_TEST_F(
     RewardsPublisherBrowserTest,
     DISABLED_PanelShowsCorrectPublisherData) {
@@ -117,7 +117,7 @@ IN_PROC_BROWSER_TEST_F(
   rewards_browsertest_util::WaitForElementToContain(
       popup_contents,
       "[id='wallet-panel']",
-      "Brave Verified Creator");
+      "adrbrowsiel Verified Creator");
   rewards_browsertest_util::WaitForElementToContain(
       popup_contents,
       "[id='wallet-panel']",
@@ -149,7 +149,7 @@ IN_PROC_BROWSER_TEST_F(RewardsPublisherBrowserTest, VisitUnverifiedPublisher) {
   rewards_service_->SetAutoContributeEnabled(true);
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
   context_helper_->VisitPublisher(
-      rewards_browsertest_util::GetUrl(https_server_.get(), "brave.com"),
+      rewards_browsertest_util::GetUrl(https_server_.get(), "adrbrowsiel.com"),
       false);
 }
 

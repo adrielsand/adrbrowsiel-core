@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_UTIL_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_UTIL_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_UTIL_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_UTIL_H_
 
 #include <string>
 
 #include "base/files/file_path.h"
 #include "bat/ledger/internal/common/request_util.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
 #include "chrome/browser/ui/browser.h"
 #include "net/test/embedded_test_server/default_handlers.h"
 #include "url/gurl.h"
@@ -27,7 +27,7 @@ GURL GetRewardsInternalsUrl();
 
 GURL GetNewTabUrl();
 
-void StartProcess(brave_rewards::RewardsServiceImpl* rewards_service);
+void StartProcess(adrbrowsiel_rewards::RewardsServiceImpl* rewards_service);
 
 GURL GetUrl(
     net::EmbeddedTestServer* https_server,
@@ -46,12 +46,12 @@ void NavigateToPublisherPage(
     const std::string& publisher_key,
     const std::string& path = "");
 
-void WaitForLedgerStop(brave_rewards::RewardsServiceImpl* rewards_service);
+void WaitForLedgerStop(adrbrowsiel_rewards::RewardsServiceImpl* rewards_service);
 
-void CreateWallet(brave_rewards::RewardsServiceImpl* rewards_service);
+void CreateWallet(adrbrowsiel_rewards::RewardsServiceImpl* rewards_service);
 
 void SetOnboardingBypassed(Browser* browser, bool bypassed = true);
 
 }  // namespace rewards_browsertest_util
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_UTIL_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_COMMON_REWARDS_BROWSERTEST_UTIL_H_

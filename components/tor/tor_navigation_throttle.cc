@@ -1,13 +1,13 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/tor/tor_navigation_throttle.h"
+#include "adrbrowsiel/components/tor/tor_navigation_throttle.h"
 
 #include <utility>
 
-#include "brave/components/tor/tor_launcher_factory.h"
+#include "adrbrowsiel/components/tor/tor_launcher_factory.h"
 #include "content/public/browser/navigation_handle.h"
 #include "content/public/browser/web_contents.h"
 #include "content/public/common/url_constants.h"

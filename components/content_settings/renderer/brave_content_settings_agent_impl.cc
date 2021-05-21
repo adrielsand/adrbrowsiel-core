@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/content_settings/renderer/brave_content_settings_agent_impl.h"
+#include "adrbrowsiel/components/content_settings/renderer/adrbrowsiel_content_settings_agent_impl.h"
 
 #include <memory>
 #include <string>
@@ -14,8 +14,8 @@
 #include "base/feature_list.h"
 #include "base/stl_util.h"
 #include "base/strings/utf_string_conversions.h"
-#include "brave/components/brave_shields/common/brave_shield_utils.h"
-#include "brave/components/brave_shields/common/features.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/features.h"
 #include "components/content_settings/core/common/content_settings_pattern.h"
 #include "components/content_settings/core/common/content_settings_utils.h"
 #include "content/public/renderer/render_frame.h"
@@ -52,7 +52,7 @@ GURL GetOriginOrURL(const blink::WebFrame* frame) {
   return top_origin.GetURL();
 }
 
-bool IsBraveShieldsDown(const blink::WebFrame* frame,
+bool IsadrbrowsielShieldsDown(const blink::WebFrame* frame,
                         const GURL& secondary_url,
                         const ContentSettingsForOneType& rules) {
   ContentSetting setting = CONTENT_SETTING_DEFAULT;
@@ -71,7 +71,7 @@ bool IsBraveShieldsDown(const blink::WebFrame* frame,
 
 }  // namespace
 
-BraveContentSettingsAgentImpl::BraveContentSettingsAgentImpl(
+adrbrowsielContentSettingsAgentImpl::adrbrowsielContentSettingsAgentImpl(
     content::RenderFrame* render_frame,
     bool should_whitelist,
     std::unique_ptr<Delegate> delegate)
@@ -80,20 +80,20 @@ BraveContentSettingsAgentImpl::BraveContentSettingsAgentImpl(
                                std::move(delegate)) {
   render_frame->GetAssociatedInterfaceRegistry()->AddInterface(
       base::BindRepeating(
-          &BraveContentSettingsAgentImpl::BindBraveShieldsReceiver,
+          &adrbrowsielContentSettingsAgentImpl::BindadrbrowsielShieldsReceiver,
           base::Unretained(this)));
 }
 
-BraveContentSettingsAgentImpl::~BraveContentSettingsAgentImpl() {}
+adrbrowsielContentSettingsAgentImpl::~adrbrowsielContentSettingsAgentImpl() {}
 
-void BraveContentSettingsAgentImpl::DidCommitProvisionalLoad(
+void adrbrowsielContentSettingsAgentImpl::DidCommitProvisionalLoad(
     ui::PageTransition transition) {
   temporarily_allowed_scripts_ =
       std::move(preloaded_temporarily_allowed_scripts_);
   ContentSettingsAgentImpl::DidCommitProvisionalLoad(transition);
 }
 
-bool BraveContentSettingsAgentImpl::IsScriptTemporilyAllowed(
+bool adrbrowsielContentSettingsAgentImpl::IsScriptTemporilyAllowed(
     const GURL& script_url) {
   // Check if scripts from this origin are temporily allowed or not.
   // Also matches the full script URL to support data URL cases which we use
@@ -103,13 +103,13 @@ bool BraveContentSettingsAgentImpl::IsScriptTemporilyAllowed(
          base::Contains(temporarily_allowed_scripts_, script_url.spec());
 }
 
-void BraveContentSettingsAgentImpl::BraveSpecificDidBlockJavaScript(
+void adrbrowsielContentSettingsAgentImpl::adrbrowsielSpecificDidBlockJavaScript(
     const std::u16string& details) {
-  mojo::AssociatedRemote<brave_shields::mojom::BraveShieldsHost> remote;
-  GetOrCreateBraveShieldsRemote()->OnJavaScriptBlocked(details);
+  mojo::AssociatedRemote<adrbrowsiel_shields::mojom::adrbrowsielShieldsHost> remote;
+  GetOrCreateadrbrowsielShieldsRemote()->OnJavaScriptBlocked(details);
 }
 
-bool BraveContentSettingsAgentImpl::AllowScript(bool enabled_per_settings) {
+bool adrbrowsielContentSettingsAgentImpl::AllowScript(bool enabled_per_settings) {
   // clear cached url for other flow like directly calling `DidNotAllowScript`
   // without calling `AllowScriptFromSource` first
   blocked_script_url_ = GURL::EmptyGURL();
@@ -118,24 +118,24 @@ bool BraveContentSettingsAgentImpl::AllowScript(bool enabled_per_settings) {
   const GURL secondary_url(url::Origin(frame->GetSecurityOrigin()).GetURL());
 
   bool allow = ContentSettingsAgentImpl::AllowScript(enabled_per_settings);
-  allow = allow || IsBraveShieldsDown(frame, secondary_url) ||
+  allow = allow || IsadrbrowsielShieldsDown(frame, secondary_url) ||
           IsScriptTemporilyAllowed(secondary_url);
 
   return allow;
 }
 
-void BraveContentSettingsAgentImpl::DidNotAllowScript() {
+void adrbrowsielContentSettingsAgentImpl::DidNotAllowScript() {
   if (!blocked_script_url_.is_empty()) {
-    BraveSpecificDidBlockJavaScript(
+    adrbrowsielSpecificDidBlockJavaScript(
         base::UTF8ToUTF16(blocked_script_url_.spec()));
     blocked_script_url_ = GURL::EmptyGURL();
   }
   ContentSettingsAgentImpl::DidNotAllowScript();
 }
 
-bool BraveContentSettingsAgentImpl::UseEphemeralStorageSync(
+bool adrbrowsielContentSettingsAgentImpl::UseEphemeralStorageSync(
     StorageType storage_type) {
-  if (!base::FeatureList::IsEnabled(net::features::kBraveEphemeralStorage))
+  if (!base::FeatureList::IsEnabled(net::features::kadrbrowsielEphemeralStorage))
     return false;
 
   if (storage_type != StorageType::kLocalStorage &&
@@ -159,7 +159,7 @@ bool BraveContentSettingsAgentImpl::UseEphemeralStorageSync(
       AllowStorageAccessForMainFrameSync(storage_type);
 }
 
-bool BraveContentSettingsAgentImpl::AllowStorageAccessSync(
+bool adrbrowsielContentSettingsAgentImpl::AllowStorageAccessSync(
     StorageType storage_type) {
   bool result = ContentSettingsAgentImpl::AllowStorageAccessSync(storage_type);
 
@@ -169,7 +169,7 @@ bool BraveContentSettingsAgentImpl::AllowStorageAccessSync(
   return false;
 }
 
-bool BraveContentSettingsAgentImpl::AllowStorageAccessForMainFrameSync(
+bool adrbrowsielContentSettingsAgentImpl::AllowStorageAccessForMainFrameSync(
     StorageType storage_type) {
   blink::WebLocalFrame* frame = render_frame()->GetWebFrame();
 
@@ -195,7 +195,7 @@ bool BraveContentSettingsAgentImpl::AllowStorageAccessForMainFrameSync(
   return result;
 }
 
-bool BraveContentSettingsAgentImpl::AllowScriptFromSource(
+bool adrbrowsielContentSettingsAgentImpl::AllowScriptFromSource(
     bool enabled_per_settings,
     const blink::WebURL& script_url) {
   const GURL secondary_url(script_url);
@@ -210,7 +210,7 @@ bool BraveContentSettingsAgentImpl::AllowScriptFromSource(
       render_frame()->GetWebFrame()->GetDocument().Url());
 
   allow = allow || should_white_list ||
-          IsBraveShieldsDown(render_frame()->GetWebFrame(), secondary_url) ||
+          IsadrbrowsielShieldsDown(render_frame()->GetWebFrame(), secondary_url) ||
           IsScriptTemporilyAllowed(secondary_url);
 
   if (!allow) {
@@ -220,54 +220,54 @@ bool BraveContentSettingsAgentImpl::AllowScriptFromSource(
   return allow;
 }
 
-bool BraveContentSettingsAgentImpl::IsBraveShieldsDown(
+bool adrbrowsielContentSettingsAgentImpl::IsadrbrowsielShieldsDown(
     const blink::WebFrame* frame,
     const GURL& secondary_url) {
   return !content_setting_rules_ ||
-         ::content_settings::IsBraveShieldsDown(
-             frame, secondary_url, content_setting_rules_->brave_shields_rules);
+         ::content_settings::IsadrbrowsielShieldsDown(
+             frame, secondary_url, content_setting_rules_->adrbrowsiel_shields_rules);
 }
 
-bool BraveContentSettingsAgentImpl::AllowFingerprinting(
+bool adrbrowsielContentSettingsAgentImpl::AllowFingerprinting(
     bool enabled_per_settings) {
   if (!enabled_per_settings)
     return false;
   blink::WebLocalFrame* frame = render_frame()->GetWebFrame();
   const GURL secondary_url(url::Origin(frame->GetSecurityOrigin()).GetURL());
-  if (IsBraveShieldsDown(frame, secondary_url)) {
+  if (IsadrbrowsielShieldsDown(frame, secondary_url)) {
     return true;
   }
 
-  return GetBraveFarblingLevel() != BraveFarblingLevel::MAXIMUM;
+  return GetadrbrowsielFarblingLevel() != adrbrowsielFarblingLevel::MAXIMUM;
 }
 
-BraveFarblingLevel BraveContentSettingsAgentImpl::GetBraveFarblingLevel() {
+adrbrowsielFarblingLevel adrbrowsielContentSettingsAgentImpl::GetadrbrowsielFarblingLevel() {
   blink::WebLocalFrame* frame = render_frame()->GetWebFrame();
 
   ContentSetting setting = CONTENT_SETTING_DEFAULT;
   if (content_setting_rules_) {
-    if (IsBraveShieldsDown(frame,
+    if (IsadrbrowsielShieldsDown(frame,
                            url::Origin(frame->GetSecurityOrigin()).GetURL())) {
       setting = CONTENT_SETTING_ALLOW;
     } else {
-      setting = GetBraveFPContentSettingFromRules(
+      setting = GetadrbrowsielFPContentSettingFromRules(
           content_setting_rules_->fingerprinting_rules, GetOriginOrURL(frame));
     }
   }
 
   if (setting == CONTENT_SETTING_BLOCK) {
     VLOG(1) << "farbling level MAXIMUM";
-    return BraveFarblingLevel::MAXIMUM;
+    return adrbrowsielFarblingLevel::MAXIMUM;
   } else if (setting == CONTENT_SETTING_ALLOW) {
     VLOG(1) << "farbling level OFF";
-    return BraveFarblingLevel::OFF;
+    return adrbrowsielFarblingLevel::OFF;
   } else {
     VLOG(1) << "farbling level BALANCED";
-    return BraveFarblingLevel::BALANCED;
+    return adrbrowsielFarblingLevel::BALANCED;
   }
 }
 
-bool BraveContentSettingsAgentImpl::AllowAutoplay(bool play_requested) {
+bool adrbrowsielContentSettingsAgentImpl::AllowAutoplay(bool play_requested) {
   blink::WebLocalFrame* frame = render_frame()->GetWebFrame();
   auto origin = frame->GetSecurityOrigin();
   // default allow local files
@@ -305,26 +305,26 @@ bool BraveContentSettingsAgentImpl::AllowAutoplay(bool play_requested) {
   return allow;
 }
 
-void BraveContentSettingsAgentImpl::SetAllowScriptsFromOriginsOnce(
+void adrbrowsielContentSettingsAgentImpl::SetAllowScriptsFromOriginsOnce(
     const std::vector<std::string>& origins) {
   preloaded_temporarily_allowed_scripts_ = std::move(origins);
 }
 
-void BraveContentSettingsAgentImpl::BindBraveShieldsReceiver(
-    mojo::PendingAssociatedReceiver<brave_shields::mojom::BraveShields>
+void adrbrowsielContentSettingsAgentImpl::BindadrbrowsielShieldsReceiver(
+    mojo::PendingAssociatedReceiver<adrbrowsiel_shields::mojom::adrbrowsielShields>
         pending_receiver) {
-  brave_shields_receivers_.Add(this, std::move(pending_receiver));
+  adrbrowsiel_shields_receivers_.Add(this, std::move(pending_receiver));
 }
 
-mojo::AssociatedRemote<brave_shields::mojom::BraveShieldsHost>&
-BraveContentSettingsAgentImpl::GetOrCreateBraveShieldsRemote() {
-  if (!brave_shields_remote_) {
+mojo::AssociatedRemote<adrbrowsiel_shields::mojom::adrbrowsielShieldsHost>&
+adrbrowsielContentSettingsAgentImpl::GetOrCreateadrbrowsielShieldsRemote() {
+  if (!adrbrowsiel_shields_remote_) {
     render_frame()->GetRemoteAssociatedInterfaces()->GetInterface(
-        &brave_shields_remote_);
+        &adrbrowsiel_shields_remote_);
   }
 
-  DCHECK(brave_shields_remote_.is_bound());
-  return brave_shields_remote_;
+  DCHECK(adrbrowsiel_shields_remote_.is_bound());
+  return adrbrowsiel_shields_remote_;
 }
 
 }  // namespace content_settings

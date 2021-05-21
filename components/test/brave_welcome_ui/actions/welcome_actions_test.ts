@@ -2,8 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { types } from '../../../brave_welcome_ui/constants/welcome_types'
-import * as actions from '../../../brave_welcome_ui/actions/welcome_actions'
+import { types } from '../../../adrbrowsiel_welcome_ui/constants/welcome_types'
+import * as actions from '../../../adrbrowsiel_welcome_ui/actions/welcome_actions'
 import { mockImportSources } from '../../testData'
 
 describe('welcome_actions', () => {

@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/ios/app/brave_main_delegate.h"
+#include "adrbrowsiel/ios/app/adrbrowsiel_main_delegate.h"
 
 #include "base/command_line.h"
 #include "base/files/file_path.h"
@@ -21,23 +21,23 @@
 #endif
 
 namespace {
-const char kBraveSyncServiceURL[] = BRAVE_SYNC_ENDPOINT;
+const char kadrbrowsielSyncServiceURL[] = adrbrowsiel_SYNC_ENDPOINT;
 }  // namespace
 
-BraveMainDelegate::BraveMainDelegate() : brave_sync_service_url_(kBraveSyncServiceURL) {
+adrbrowsielMainDelegate::adrbrowsielMainDelegate() : adrbrowsiel_sync_service_url_(kadrbrowsielSyncServiceURL) {
   base::FilePath path;
   base::PathService::Get(base::DIR_MODULE, &path);
   base::mac::SetOverrideFrameworkBundlePath(path);
   base::mac::SetOverrideOuterBundlePath(path);
 }
 
-BraveMainDelegate::~BraveMainDelegate() {}
+adrbrowsielMainDelegate::~adrbrowsielMainDelegate() {}
 
-void BraveMainDelegate::SetSyncServiceURL(const std::string& url) {
-  brave_sync_service_url_ = url.empty() ? std::string(kBraveSyncServiceURL) : url;
+void adrbrowsielMainDelegate::SetSyncServiceURL(const std::string& url) {
+  adrbrowsiel_sync_service_url_ = url.empty() ? std::string(kadrbrowsielSyncServiceURL) : url;
 }
 
-void BraveMainDelegate::BasicStartupComplete() {
+void adrbrowsielMainDelegate::BasicStartupComplete() {
   auto* command_line(base::CommandLine::ForCurrentProcess());
 
   syncer::ModelTypeSet disabledTypes = syncer::ModelTypeSet(
@@ -53,9 +53,9 @@ void BraveMainDelegate::BasicStartupComplete() {
   command_line->AppendSwitchASCII(switches::kDisableSyncTypes, syncer::ModelTypeSetToString(disabledTypes));
   command_line->AppendSwitch(switches::kDisableEnterprisePolicy);
 
-  // Brave's sync protocol does not use the sync service url
+  // adrbrowsiel's sync protocol does not use the sync service url
   command_line->AppendSwitchASCII(switches::kSyncServiceURL,
-                                 brave_sync_service_url_.c_str());
+                                 adrbrowsiel_sync_service_url_.c_str());
 
   IOSChromeMainDelegate::BasicStartupComplete();
 }

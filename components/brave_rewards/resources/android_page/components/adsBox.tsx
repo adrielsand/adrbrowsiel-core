@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 // Components
 import BoxMobile, { Props as BoxMobileProps } from '../../ui/components/mobile/boxMobile'
 import { List, NextContribution, Tokens } from '../../ui/components'
-import { Grid, Column, Select, ControlWrapper } from 'brave-ui/components'
+import { Grid, Column, Select, ControlWrapper } from 'adrbrowsiel-ui/components'
 import AdsOnboarding from './adsOnboarding'
 import {
   StyledListContent,
@@ -167,7 +167,7 @@ class AdsBox extends React.Component<Props, {}> {
               </ControlWrapper>
             </Column>
             <div>
-              {getLocale('adsSubdivisionTargetingDescription')} <a href={'https://support.brave.com/hc/en-us/articles/360026361072-Brave-Ads-FAQ'} target={'_blank'}>{getLocale('adsSubdivisionTargetingLearn')}</a>
+              {getLocale('adsSubdivisionTargetingDescription')} <a href={'https://support.adrbrowsiel.com/hc/en-us/articles/360026361072-adrbrowsiel-Ads-FAQ'} target={'_blank'}>{getLocale('adsSubdivisionTargetingLearn')}</a>
             </div>
           </> : null }
       </Grid>
@@ -216,7 +216,7 @@ class AdsBox extends React.Component<Props, {}> {
          ? <>{getLocale('adsNotSupportedDevice')}</>
          : !adsIsSupported
            ? <>{getLocale('adsNotSupportedRegion')}</>
-           : <>This version of Brave does not support Ads.</>
+           : <>This version of adrbrowsiel does not support Ads.</>
     }
     if (!isDisabled && !boxPropsExtra.checked) {
       boxPropsExtra.extraDescriptionChild = <AdsOnboarding />

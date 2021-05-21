@@ -6,8 +6,8 @@ import styled from 'styled-components'
 
 export const root = styled.div`
   button {
-    color: var(--brave-palette-white);
-    background: var(--brave-color-brandBat);
+    color: var(--adrbrowsiel-palette-white);
+    background: var(--adrbrowsiel-color-brandBat);
     border: none;
     padding: 10px 40px;
     border-radius: 21px;
@@ -17,7 +17,7 @@ export const root = styled.div`
     cursor: pointer;
 
     &:active {
-      background: var(--brave-color-brandBatActive);
+      background: var(--adrbrowsiel-color-brandBatActive);
     }
   }
 `

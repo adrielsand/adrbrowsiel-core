@@ -1,22 +1,22 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_wallet/browser/hd_key.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/hd_key.h"
 
 #include "base/check.h"
 #include "base/logging.h"
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/string_split.h"
-#include "brave/components/brave_wallet/browser/brave_wallet_utils.h"
-#include "brave/third_party/bitcoin-core/src/src/base58.h"
-#include "brave/third_party/bitcoin-core/src/src/crypto/ripemd160.h"
-#include "brave/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1_recovery.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_utils.h"
+#include "adrbrowsiel/third_party/bitcoin-core/src/src/base58.h"
+#include "adrbrowsiel/third_party/bitcoin-core/src/src/crypto/ripemd160.h"
+#include "adrbrowsiel/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1_recovery.h"
 #include "crypto/sha2.h"
 #include "third_party/boringssl/src/include/openssl/hmac.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 namespace {
 constexpr char kMasterSecret[] = "Bitcoin seed";
@@ -490,4 +490,4 @@ const std::vector<uint8_t> HDKey::Hash160(const std::vector<uint8_t>& input) {
   return result;
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

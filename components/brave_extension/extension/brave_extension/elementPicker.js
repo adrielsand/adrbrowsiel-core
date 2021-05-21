@@ -141,9 +141,9 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
         // Use the same element, but add the target class which turns the
         // target rectangle orange
-        const braveTargetingArea = mask.cloneNode()
-        braveTargetingArea.classList.add('target')
-        svg.appendChild(braveTargetingArea)
+        const adrbrowsielTargetingArea = mask.cloneNode()
+        adrbrowsielTargetingArea.classList.add('target')
+        svg.appendChild(adrbrowsielTargetingArea)
       }
       break
     }

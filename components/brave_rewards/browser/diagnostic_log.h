@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_DIAGNOSTIC_LOG_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_DIAGNOSTIC_LOG_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_DIAGNOSTIC_LOG_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_DIAGNOSTIC_LOG_H_
 
 #include <string>
 
@@ -13,7 +13,7 @@
 #include "base/sequence_checker.h"
 #include "base/sequenced_task_runner.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 // This class provides access to a diagnostic log file. If the file
 // size ever exceeds the provided maximum file size, it is trimmed to
@@ -62,6 +62,6 @@ class DiagnosticLog : public base::SupportsWeakPtr<DiagnosticLog> {
   SEQUENCE_CHECKER(sequence_checker_);
 };
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_DIAGNOSTIC_LOG_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_DIAGNOSTIC_LOG_H_

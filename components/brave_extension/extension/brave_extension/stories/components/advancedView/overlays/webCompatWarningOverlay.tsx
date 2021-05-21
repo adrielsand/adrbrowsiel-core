@@ -14,7 +14,7 @@ import {
 } from '../../../../components'
 
 // Shared components
-import { Card } from 'brave-ui'
+import { Card } from 'adrbrowsiel-ui'
 
 // Helpers
 import { getLocale } from '../../../fakeLocale'

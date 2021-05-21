@@ -14,8 +14,8 @@ export const loading = styled.div``
 
 export const root = styled.div`
   height: 100%;
-  color: var(--brave-palette-white);
-  background-color: var(--brave-palette-neutral900);
+  color: var(--adrbrowsiel-palette-white);
+  background-color: var(--adrbrowsiel-palette-neutral900);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -96,9 +96,9 @@ export const logoMask = styled.div`
 `
 
 export const logoLetter = styled.div`
-  background: var(--brave-palette-white);
+  background: var(--adrbrowsiel-palette-white);
   height: 100%;
-  color: var(--brave-color-brandBrave);
+  color: var(--adrbrowsiel-color-brandadrbrowsiel);
   text-transform: uppercase;
   text-align: center;
   font-size: 52px;
@@ -134,7 +134,7 @@ export const socialLinks = styled.div`
     padding: 4px;
     margin: 0 5px;
     border-radius: 50%;
-    background: var(--brave-palette-white);
+    background: var(--adrbrowsiel-palette-white);
   }
 `
 
@@ -145,8 +145,8 @@ export const unverifiedNotice = styled.div`
   display: flex;
   align-items: center;
   font-size: 12px;
-  background: var(--brave-palette-white);
-  color: var(--brave-palette-black);
+  background: var(--adrbrowsiel-palette-white);
+  color: var(--adrbrowsiel-palette-black);
   border-radius: 8px;
 `
 
@@ -155,7 +155,7 @@ export const unverifiedNoticeIcon = styled.div`
   margin-left: -4px;
   margin-right: 10px;
   height: 32px;
-  color: var(--brave-palette-blue400);
+  color: var(--adrbrowsiel-palette-blue400);
 `
 
 export const unverifiedNoticeText = styled.div`
@@ -163,7 +163,7 @@ export const unverifiedNoticeText = styled.div`
 
   a {
     font-weight: 600;
-    color: var(--brave-palette-blue400);
+    color: var(--adrbrowsiel-palette-blue400);
   }
 `
 

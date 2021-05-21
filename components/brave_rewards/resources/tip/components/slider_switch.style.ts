@@ -16,7 +16,7 @@ export const bar = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background: var(--brave-palette-white);
+  background: var(--adrbrowsiel-palette-white);
   border-radius: 21px;
   transition: all .3s ease;
 `
@@ -25,7 +25,7 @@ export const rail = styled.div`
   display: flex;
   align-items: center;
   height: 37px;
-  background: var(--brave-palette-grey200);
+  background: var(--adrbrowsiel-palette-grey200);
   border-radius: 21px;
 `
 
@@ -38,7 +38,7 @@ export const option = styled.div`
     text-align: center;
     font-size: 12px;
     line-height: 30px;
-    color: var(--brave-palette-grey700);
+    color: var(--adrbrowsiel-palette-grey700);
     background: transparent;
     cursor: pointer;
     border: none;
@@ -49,7 +49,7 @@ export const option = styled.div`
     outline-style: auto;
     outline-color: var(
       --slider-switch-selected-color,
-      var(--brave-color-brandBatInteracting)
+      var(--adrbrowsiel-color-brandBatInteracting)
     );
     outline-offset: 4px;
   }
@@ -58,7 +58,7 @@ export const option = styled.div`
     position: relative;
     color: var(
       --slider-switch-selected-color,
-      var(--brave-color-brandBatInteracting)
+      var(--adrbrowsiel-color-brandBatInteracting)
     );
     font-weight: 600;
     cursor: default;

@@ -1,18 +1,18 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_UTILS_H_
-#define BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_UTILS_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_adrbrowsiel_WALLET_UTILS_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_adrbrowsiel_WALLET_UTILS_H_
 
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "brave/components/brave_wallet/browser/brave_wallet_types.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/adrbrowsiel_wallet_types.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 bool IsNativeWalletEnabled();
 // Equivalent to web3.utils.toHex(string);
@@ -65,7 +65,7 @@ bool DecodeStringArray(const std::string& input,
                        std::vector<std::string>* output);
 
 // Implement namehash algorithm based on EIP-137 spec.
-// Used for converting domain names in the classic format (ex: brave.crypto) to
+// Used for converting domain names in the classic format (ex: adrbrowsiel.crypto) to
 // an ERC-721 token for ENS and Unstoppable Domains.
 std::string Namehash(const std::string& name);
 
@@ -74,6 +74,6 @@ std::string Namehash(const std::string& name);
 // So we use our own function for this purpose.
 void SecureZeroData(void* data, size_t size);
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_UTILS_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_adrbrowsiel_WALLET_UTILS_H_

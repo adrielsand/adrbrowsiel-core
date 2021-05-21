@@ -31,11 +31,11 @@ const getContributionTypeString = (contributionType: number) => {
 const getProcessorString = (processor: number) => {
   switch (processor) {
     case 1:
-      return getLocale('processorBraveTokens')
+      return getLocale('processoradrbrowsielTokens')
     case 2:
       return getLocale('processorUphold')
     case 3:
-      return getLocale('processorBraveUserFunds')
+      return getLocale('processoradrbrowsielUserFunds')
     case 4:
       return getLocale('processorBitflyer')
   }

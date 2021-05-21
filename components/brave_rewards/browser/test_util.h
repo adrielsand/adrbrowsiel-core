@@ -2,8 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_UTIL_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_UTIL_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_UTIL_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_UTIL_H_
 
 #include <memory>
 
@@ -12,10 +12,10 @@
 class KeyedService;
 class Profile;
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
-std::unique_ptr<Profile> CreateBraveRewardsProfile(const base::FilePath& path);
+std::unique_ptr<Profile> CreateadrbrowsielRewardsProfile(const base::FilePath& path);
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_TEST_UTIL_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_TEST_UTIL_H_

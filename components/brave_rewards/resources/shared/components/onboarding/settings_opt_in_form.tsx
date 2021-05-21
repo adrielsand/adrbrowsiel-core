@@ -22,7 +22,7 @@ export function SettingsOptInForm (props: Props) {
   return (
     <style.root>
       <style.heading>
-        <BatIcon />{getString('onboardingBraveRewards')}
+        <BatIcon />{getString('onboardingadrbrowsielRewards')}
       </style.heading>
       <style.subHeading>
         {getString('onboardingEarnHeader')}

@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 import { GeneralInfo } from './generalInfo'
 import { Log } from './log'
 import { TorControlEvents } from './torControlEvents'
-import { Tabs } from 'brave-ui/components'
+import { Tabs } from 'adrbrowsiel-ui/components'
 
 // Utils
 import { getLocale } from '../../../../common/locale'

@@ -7,13 +7,13 @@ import * as React from 'react'
 // Components
 import { Box, BoxAlert, TableDonation, Tokens, List } from '../../components'
 import { DetailRow as DonationDetailRow } from '../../components/tableDonation'
-import { Column, Grid, Checkbox, ControlWrapper } from 'brave-ui/components'
+import { Column, Grid, Checkbox, ControlWrapper } from 'adrbrowsiel-ui/components'
 
 // Utils
 import locale from './fakeLocale'
 
 // Assets
-const favicon = require('../img/brave-favicon.png')
+const favicon = require('../img/adrbrowsiel-favicon.png')
 const eich = require('../img/eich.jpg')
 const guardian = require('../img/guardian.jpg')
 
@@ -50,7 +50,7 @@ class DonationsBox extends React.Component<{}, State> {
           provider: 'youtube',
           src: favicon
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         type: 'recurring',
         contribute: {
           tokens: '2.0',
@@ -64,7 +64,7 @@ class DonationsBox extends React.Component<{}, State> {
           name: 'theguardian.com',
           src: guardian
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         type: 'donation',
         contribute: {
           tokens: '12.0',
@@ -79,7 +79,7 @@ class DonationsBox extends React.Component<{}, State> {
           provider: 'twitter',
           src: eich
         },
-        url: 'https://brave.com',
+        url: 'https://adrbrowsiel.com',
         type: 'tip',
         contribute: {
           tokens: '7.0',

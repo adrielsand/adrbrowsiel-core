@@ -1,20 +1,20 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/containers/flat_map.h"
-#include "brave/browser/brave_rewards/rewards_service_factory.h"
-#include "brave/common/brave_paths.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service.h"
-#include "brave/components/brave_rewards/browser/rewards_notification_service_observer.h"
-#include "brave/components/brave_rewards/browser/rewards_service_impl.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_context_helper.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_contribution.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_network_util.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_promotion.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_response.h"
-#include "brave/components/brave_rewards/browser/test/common/rewards_browsertest_util.h"
+#include "adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service_observer.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_context_helper.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_contribution.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_network_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_promotion.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_response.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/test/common/rewards_browsertest_util.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/test/base/in_process_browser_test.h"
 #include "chrome/test/base/ui_test_utils.h"
@@ -23,16 +23,16 @@
 #include "content/public/test/browser_test_utils.h"
 #include "net/dns/mock_host_resolver.h"
 
-// npm run test -- brave_browser_tests --filter=RewardsNotificationBrowserTest.*
+// npm run test -- adrbrowsiel_browser_tests --filter=RewardsNotificationBrowserTest.*
 
 namespace rewards_browsertest {
 
 using RewardsNotificationType =
-    brave_rewards::RewardsNotificationService::RewardsNotificationType;
+    adrbrowsiel_rewards::RewardsNotificationService::RewardsNotificationType;
 
 class RewardsNotificationBrowserTest
     : public InProcessBrowserTest,
-      public brave_rewards::RewardsNotificationServiceObserver {
+      public adrbrowsiel_rewards::RewardsNotificationServiceObserver {
  public:
   RewardsNotificationBrowserTest() {
     contribution_ = std::make_unique<RewardsBrowserTestContribution>();
@@ -56,10 +56,10 @@ class RewardsNotificationBrowserTest
     ASSERT_TRUE(https_server_->Start());
 
     // Rewards service
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     auto* profile = browser()->profile();
-    rewards_service_ = static_cast<brave_rewards::RewardsServiceImpl*>(
-        brave_rewards::RewardsServiceFactory::GetForProfile(profile));
+    rewards_service_ = static_cast<adrbrowsiel_rewards::RewardsServiceImpl*>(
+        adrbrowsiel_rewards::RewardsServiceFactory::GetForProfile(profile));
 
     // Response mock
     base::ScopedAllowBlockingForTesting allow_blocking;
@@ -103,8 +103,8 @@ class RewardsNotificationBrowserTest
   }
 
   void OnNotificationAdded(
-      brave_rewards::RewardsNotificationService* rewards_notification_service,
-      const brave_rewards::RewardsNotificationService::RewardsNotification&
+      adrbrowsiel_rewards::RewardsNotificationService* rewards_notification_service,
+      const adrbrowsiel_rewards::RewardsNotificationService::RewardsNotification&
       notification) override {
     last_added_notification_ = notification;
     const auto& notifications = rewards_service_->GetAllNotifications();
@@ -129,8 +129,8 @@ class RewardsNotificationBrowserTest
   }
 
   void OnNotificationDeleted(
-      brave_rewards::RewardsNotificationService* rewards_notification_service,
-      const brave_rewards::RewardsNotificationService::RewardsNotification&
+      adrbrowsiel_rewards::RewardsNotificationService* rewards_notification_service,
+      const adrbrowsiel_rewards::RewardsNotificationService::RewardsNotification&
       notification) override {
     last_deleted_notification_ = notification;
     delete_notification_ = true;
@@ -140,13 +140,13 @@ class RewardsNotificationBrowserTest
   }
 
   void OnAllNotificationsDeleted(
-      brave_rewards::RewardsNotificationService* rewards_notification_service)
+      adrbrowsiel_rewards::RewardsNotificationService* rewards_notification_service)
       override {
   }
 
   void OnGetNotification(
-      brave_rewards::RewardsNotificationService* rewards_notification_service,
-      const brave_rewards::RewardsNotificationService::RewardsNotification&
+      adrbrowsiel_rewards::RewardsNotificationService* rewards_notification_service,
+      const adrbrowsiel_rewards::RewardsNotificationService::RewardsNotification&
       notification) override {
   }
 
@@ -213,17 +213,17 @@ class RewardsNotificationBrowserTest
     return false;
   }
 
-  brave_rewards::RewardsNotificationService* rewards_notification_service_;
-  brave_rewards::RewardsServiceImpl* rewards_service_;
+  adrbrowsiel_rewards::RewardsNotificationService* rewards_notification_service_;
+  adrbrowsiel_rewards::RewardsServiceImpl* rewards_service_;
   std::unique_ptr<net::EmbeddedTestServer> https_server_;
   std::unique_ptr<RewardsBrowserTestContribution> contribution_;
   std::unique_ptr<RewardsBrowserTestPromotion> promotion_;
   std::unique_ptr<RewardsBrowserTestResponse> response_;
   std::unique_ptr<RewardsBrowserTestContextHelper> context_helper_;
 
-  brave_rewards::RewardsNotificationService::RewardsNotification
+  adrbrowsiel_rewards::RewardsNotificationService::RewardsNotification
     last_added_notification_;
-  brave_rewards::RewardsNotificationService::RewardsNotification
+  adrbrowsiel_rewards::RewardsNotificationService::RewardsNotification
     last_deleted_notification_;
 
   bool insufficient_notification_would_have_already_shown_ = false;
@@ -239,12 +239,12 @@ class RewardsNotificationBrowserTest
 IN_PROC_BROWSER_TEST_F(
     RewardsNotificationBrowserTest,
     AddGrantNotification) {
-  brave_rewards::RewardsNotificationService::RewardsNotificationArgs args;
+  adrbrowsiel_rewards::RewardsNotificationService::RewardsNotificationArgs args;
   args.push_back("foo");
   args.push_back("bar");
 
   rewards_notification_service_->AddNotification(
-      brave_rewards::RewardsNotificationService::REWARDS_NOTIFICATION_GRANT,
+      adrbrowsiel_rewards::RewardsNotificationService::REWARDS_NOTIFICATION_GRANT,
       args,
       "rewards_notification_grant");
   WaitForAddNotificationCallback();
@@ -262,12 +262,12 @@ IN_PROC_BROWSER_TEST_F(
 IN_PROC_BROWSER_TEST_F(
     RewardsNotificationBrowserTest,
     AddGrantNotificationAndDeleteIt) {
-  brave_rewards::RewardsNotificationService::RewardsNotificationArgs args;
+  adrbrowsiel_rewards::RewardsNotificationService::RewardsNotificationArgs args;
   args.push_back("foo");
   args.push_back("bar");
 
   rewards_notification_service_->AddNotification(
-      brave_rewards::RewardsNotificationService::REWARDS_NOTIFICATION_GRANT,
+      adrbrowsiel_rewards::RewardsNotificationService::REWARDS_NOTIFICATION_GRANT,
       args,
       "rewards_notification_grant");
   WaitForAddNotificationCallback();
@@ -288,12 +288,12 @@ IN_PROC_BROWSER_TEST_F(
 IN_PROC_BROWSER_TEST_F(
     RewardsNotificationBrowserTest,
     AddGrantNotificationAndFakeItAndDeleteIt) {
-  brave_rewards::RewardsNotificationService::RewardsNotificationArgs args;
+  adrbrowsiel_rewards::RewardsNotificationService::RewardsNotificationArgs args;
   args.push_back("foo");
   args.push_back("bar");
 
   rewards_notification_service_->AddNotification(
-      brave_rewards::RewardsNotificationService::REWARDS_NOTIFICATION_GRANT,
+      adrbrowsiel_rewards::RewardsNotificationService::REWARDS_NOTIFICATION_GRANT,
       args,
       "rewards_notification_grant");
   WaitForAddNotificationCallback();
@@ -306,7 +306,7 @@ IN_PROC_BROWSER_TEST_F(
   WaitForDeleteNotificationCallback();
   EXPECT_TRUE(
       last_deleted_notification_.type_ ==
-      brave_rewards::RewardsNotificationService::REWARDS_NOTIFICATION_INVALID);
+      adrbrowsiel_rewards::RewardsNotificationService::REWARDS_NOTIFICATION_INVALID);
 }
 
 IN_PROC_BROWSER_TEST_F(
@@ -343,7 +343,7 @@ IN_PROC_BROWSER_TEST_F(
       rewards_browsertest_util::GetUrl(https_server_.get(), "bumpsmack.com"),
       verified);
   context_helper_->VisitPublisher(
-      rewards_browsertest_util::GetUrl(https_server_.get(), "brave.com"),
+      rewards_browsertest_util::GetUrl(https_server_.get(), "adrbrowsiel.com"),
       !verified,
       true);
 
@@ -375,7 +375,7 @@ IN_PROC_BROWSER_TEST_F(
                             true);
 
   contribution_->TipViaCode(
-      "brave.com",
+      "adrbrowsiel.com",
       50.0,
       ledger::type::PublisherStatus::NOT_VERIFIED,
       0,
@@ -409,7 +409,7 @@ IN_PROC_BROWSER_TEST_F(
                             true);
 
   contribution_->TipViaCode(
-      "brave.com",
+      "adrbrowsiel.com",
       50.0,
       ledger::type::PublisherStatus::NOT_VERIFIED,
       0,

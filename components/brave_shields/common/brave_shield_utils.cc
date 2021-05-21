@@ -1,15 +1,15 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/common/brave_shield_utils.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/adrbrowsiel_shield_utils.h"
 
 #include "base/optional.h"
 #include "components/content_settings/core/common/content_settings_pattern.h"
 #include "url/gurl.h"
 
-ContentSetting GetBraveFPContentSettingFromRules(
+ContentSetting GetadrbrowsielFPContentSettingFromRules(
     const ContentSettingsForOneType& fp_rules,
     const GURL& primary_url) {
   base::Optional<ContentSettingPatternSource> global_fp_rule;

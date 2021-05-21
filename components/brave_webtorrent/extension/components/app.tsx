@@ -28,7 +28,7 @@ interface Props {
   actions: any
 }
 
-export class BraveWebtorrentPage extends React.Component<Props, {}> {
+export class adrbrowsielWebtorrentPage extends React.Component<Props, {}> {
   render () {
     const { actions, torrentState, torrentObj } = this.props
     let torrentId = decodeURIComponent(window.location.search.substring(1))
@@ -80,4 +80,4 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BraveWebtorrentPage)
+)(adrbrowsielWebtorrentPage)

@@ -3,20 +3,20 @@ import("buildflags/buildflags.gni")
 
 buildflag_header("buildflags") {
   header = "buildflags.h"
-  flags = [ "ENABLE_BRAVE_WAYBACK_MACHINE=$enable_brave_wayback_machine" ]
+  flags = [ "ENABLE_adrbrowsiel_WAYBACK_MACHINE=$enable_adrbrowsiel_wayback_machine" ]
 }
 
-source_set("brave_wayback_machine") {
+source_set("adrbrowsiel_wayback_machine") {
   assert_no_deps = [ "//chrome/*" ]
 
   sources = [
-    "brave_wayback_machine_delegate.h",
-    "brave_wayback_machine_infobar_delegate.cc",
-    "brave_wayback_machine_infobar_delegate.h",
-    "brave_wayback_machine_tab_helper.cc",
-    "brave_wayback_machine_tab_helper.h",
-    "brave_wayback_machine_utils.cc",
-    "brave_wayback_machine_utils.h",
+    "adrbrowsiel_wayback_machine_delegate.h",
+    "adrbrowsiel_wayback_machine_infobar_delegate.cc",
+    "adrbrowsiel_wayback_machine_infobar_delegate.h",
+    "adrbrowsiel_wayback_machine_tab_helper.cc",
+    "adrbrowsiel_wayback_machine_tab_helper.h",
+    "adrbrowsiel_wayback_machine_utils.cc",
+    "adrbrowsiel_wayback_machine_utils.h",
     "pref_names.cc",
     "pref_names.h",
     "url_constants.cc",

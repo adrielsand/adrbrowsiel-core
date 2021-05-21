@@ -1,19 +1,19 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/feature_list.h"
-#include "brave/components/ntp_background_images/browser/features.h"
-#include "brave/components/ntp_background_images/browser/sponsored_images_component_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/features.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/sponsored_images_component_data.h"
 
 namespace ntp_background_images {
 
 // This list should be synced with the list of generateNTPSponsoredImages.js
-// and packageNTPSponsoredImagesComponents.js in brave-core-crx-packager.
+// and packageNTPSponsoredImagesComponents.js in adrbrowsiel-core-crx-packager.
 base::Optional<SponsoredImagesComponentData> GetSponsoredImagesComponentData(
     const std::string& region) {
-  if (base::FeatureList::IsEnabled(features::kBraveNTPBrandedWallpaperDemo)) {
+  if (base::FeatureList::IsEnabled(features::kadrbrowsielNTPBrandedWallpaperDemo)) {
     static const SponsoredImagesComponentData demo_data = {
         "DEMO",
         "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw+cUN/flbETi5zyjp4tRW4ustichzvFqeY4ayWpi/r+TwRgUaf0IyK2GYZF1xBsiuGO3B321ptcF7lpru32dxc2GUX7GLVHnYw+kM9bfw3WVqLPXVozCbyjqCW8IQXuUljOJ4tD9gJe8xvBeZ/WKg2K+7sYuhov6mcbBoUd4WLZW+89ryuBfZFi/4U6MX4Hemsw40Z3KHf/gAHpXXeU65Sqb8AhVMp0nckaX5u4vN09OTHLPAmCZmps5TcExoYwSPQaFK+6HrUV0/66Xw3kqo05CvN3bCC1UlDk3KAffg3LZ8u1E3gFcwK6xSjHYknGOuxabTVS6cNGECOEWKVsURwIDAQAB",  // NOLINT

@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -12,16 +12,16 @@ import { OnReadFeedItem, OnSetPublisherPref } from '../../'
 import PublisherMeta from '../PublisherMeta'
 
 interface Props {
-  content: BraveToday.Article[]
-  publisher: BraveToday.Publisher
-  articleToScrollTo?: BraveToday.FeedItem
+  content: adrbrowsielToday.Article[]
+  publisher: adrbrowsielToday.Publisher
+  articleToScrollTo?: adrbrowsielToday.FeedItem
   onReadFeedItem: OnReadFeedItem
   onSetPublisherPref: OnSetPublisherPref
 }
 
 type ListItemProps = {
-  item: BraveToday.Article
-  publisher: BraveToday.Publisher
+  item: adrbrowsielToday.Article
+  publisher: adrbrowsielToday.Publisher
   onReadFeedItem: OnReadFeedItem
   onSetPublisherPref: OnSetPublisherPref
   shouldScrollIntoView: boolean

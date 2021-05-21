@@ -12,12 +12,12 @@ include_rules = [
 # Existing exceptions
 specific_include_rules = {
   "ads_service_impl.cc": [
-    "+brave/browser/brave_ads/notifications/ad_notification_platform_bridge.h",
-    "+brave/browser/profiles/profile_util.h",
-    "+brave/common/brave_channel_info.h",
-    "+brave/browser/brave_rewards/rewards_service_factory.h",
-    "+brave/browser/brave_browser_process.h",
-    "+brave/browser/notifications/brave_notification_platform_bridge_helper_android.h",
+    "+adrbrowsiel/browser/adrbrowsiel_ads/notifications/ad_notification_platform_bridge.h",
+    "+adrbrowsiel/browser/profiles/profile_util.h",
+    "+adrbrowsiel/common/adrbrowsiel_channel_info.h",
+    "+adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h",
+    "+adrbrowsiel/browser/adrbrowsiel_browser_process.h",
+    "+adrbrowsiel/browser/notifications/adrbrowsiel_notification_platform_bridge_helper_android.h",
     "+chrome/common/chrome_paths.h",
     "+chrome/browser/browser_process.h",
     "+chrome/browser/fullscreen.h",
@@ -53,9 +53,9 @@ specific_include_rules = {
     "+ui/views/win/hwnd_util.h",
   ],
   "notification_helper_.*(\.cc|\.h|\.mm)": [
-    "+brave/browser/brave_ads/android/jni_headers/BraveAds_jni.h",
-    "+brave/browser/brave_ads/android/jni_headers/BraveAdsSignupDialog_jni.h",
-    "+brave/common/brave_channel_info.h",
+    "+adrbrowsiel/browser/adrbrowsiel_ads/android/jni_headers/adrbrowsielAds_jni.h",
+    "+adrbrowsiel/browser/adrbrowsiel_ads/android/jni_headers/adrbrowsielAdsSignupDialog_jni.h",
+    "+adrbrowsiel/common/adrbrowsiel_channel_info.h",
     "+chrome/android/chrome_jni_headers/NotificationSystemStatusUtil_jni.h",
     "+chrome/browser/notifications/notification_channels_provider_android.h",
     "+chrome/common/chrome_features.h",

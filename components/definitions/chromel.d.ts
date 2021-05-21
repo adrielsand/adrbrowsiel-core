@@ -67,7 +67,7 @@ declare namespace chrome.settingsPrivate {
   }
 }
 
-declare namespace chrome.braveRewards {
+declare namespace chrome.adrbrowsielRewards {
   const getRewardsParameters: (callback: (properties: RewardsExtension.RewardsParameters) => void) => {}
   const updateMediaDuration: (tabId: number, publisherKey: string, duration: number, firstVisit: boolean) => {}
   const getPublisherInfo: (publisherKey: string, callback: (result: RewardsExtension.Result, properties: RewardsExtension.PublisherInfo) => void) => {}
@@ -243,7 +243,7 @@ declare namespace chrome.ftx {
   const disconnect: (callback: () => void) => {}
 }
 
-declare namespace chrome.braveTogether {
+declare namespace chrome.adrbrowsielTogether {
   const isSupported: (callback: (supported: boolean) => void) => {}
 }
 
@@ -271,7 +271,7 @@ declare namespace chrome.greaselion {
   const isGreaselionExtension: (id: string, callback: (valid: boolean) => void) => {}
 }
 
-declare namespace chrome.braveToday {
+declare namespace chrome.adrbrowsielToday {
   const onClearHistory: {
     addListener: (callback: () => any) => void
   }
@@ -301,15 +301,15 @@ declare namespace chrome.windows {
   const getAllAsync: any
 }
 
-declare namespace chrome.braveShields {
+declare namespace chrome.adrbrowsielShields {
   const onBlocked: {
     addListener: (callback: (detail: BlockDetails) => void) => void
     emit: (detail: BlockDetails) => void
   }
 
   const allowScriptsOnce: any
-  const setBraveShieldsEnabledAsync: any
-  const getBraveShieldsEnabledAsync: any
+  const setadrbrowsielShieldsEnabledAsync: any
+  const getadrbrowsielShieldsEnabledAsync: any
   const shouldDoCosmeticFilteringAsync: any
   const setCosmeticFilteringControlTypeAsync: any
   const isFirstPartyCosmeticFilteringEnabledAsync: any
@@ -340,13 +340,13 @@ declare namespace chrome.braveShields {
   const addSiteCosmeticFilter: (origin: string, cssSelector: string) => void
   const openFilterManagementPage: () => void
 
-  type BraveShieldsViewPreferences = {
+  type adrbrowsielShieldsViewPreferences = {
     showAdvancedView: boolean
     statsBadgeVisible: boolean
   }
 }
 
-declare namespace chrome.braveWallet {
+declare namespace chrome.adrbrowsielWallet {
   const promptToEnableWallet: (tabId: number | undefined) => void
   const ready: () => void
   const shouldCheckForDapps: (callback: (dappDetection: boolean) => void) => void
@@ -363,15 +363,15 @@ declare namespace chrome.test {
   const sendMessage: (message: string) => {}
 }
 
-declare namespace chrome.braveTheme {
+declare namespace chrome.adrbrowsielTheme {
   type ThemeType = 'Light' | 'Dark' | 'System'
   type ThemeList = Array<{name: ThemeType, index: number}>
   type ThemeTypeCallback = (themeType: ThemeType) => void
   type ThemeListCallback = (themeList: ThemeList) => void
-  const getBraveThemeType: (themeType: ThemeTypeCallback) => void
-  const getBraveThemeList: (themeList: ThemeListCallback) => void
-  const setBraveThemeType: (themeType: ThemeType) => void
-  const onBraveThemeTypeChanged: {
+  const getadrbrowsielThemeType: (themeType: ThemeTypeCallback) => void
+  const getadrbrowsielThemeList: (themeList: ThemeListCallback) => void
+  const setadrbrowsielThemeType: (themeType: ThemeType) => void
+  const onadrbrowsielThemeTypeChanged: {
     addListener: (callback: ThemeTypeCallback) => void
   }
 }

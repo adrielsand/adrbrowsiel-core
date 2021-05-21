@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -8,12 +8,12 @@
 
 #include "base/strings/string_number_conversions.h"
 #include "base/values.h"
-#include "brave/components/brave_wallet/renderer/brave_wallet_response_helpers.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/renderer/adrbrowsiel_wallet_response_helpers.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
-TEST(BraveWalletResponseHelpersTest, ResponseCode400) {
+TEST(adrbrowsielWalletResponseHelpersTest, ResponseCode400) {
   ProviderErrors code = ProviderErrors::kUnsupportedMethod;
   std::string message = "HTTP Status code: " + base::NumberToString(400);
   std::unique_ptr<base::Value> result = FormProviderResponse(code, message);
@@ -27,7 +27,7 @@ TEST(BraveWalletResponseHelpersTest, ResponseCode400) {
   ASSERT_EQ(result_message->GetString(), message);
 }
 
-TEST(BraveWalletResponseHelpersTest, ErrorResponse) {
+TEST(adrbrowsielWalletResponseHelpersTest, ErrorResponse) {
   std::string response =
       "{\"jsonrpc\":\"2.0\",\"id\":2025678280,\"error\":{\"code\":-32601,"
       "\"message\":\"The method eth_accountsq does not exist/is not "
@@ -47,7 +47,7 @@ TEST(BraveWalletResponseHelpersTest, ErrorResponse) {
             "The method eth_accountsq does not exist/is not available");
 }
 
-TEST(BraveWalletResponseHelpersTest, CorrectResultResponse) {
+TEST(adrbrowsielWalletResponseHelpersTest, CorrectResultResponse) {
   std::string response =
       "{\"jsonrpc\":\"2.0\",\"id\":2025678280,\"result\":\"0xbb4323\"}";
   bool reject = false;
@@ -59,4 +59,4 @@ TEST(BraveWalletResponseHelpersTest, CorrectResultResponse) {
   ASSERT_EQ(result->GetString(), "0xbb4323");
 }
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet

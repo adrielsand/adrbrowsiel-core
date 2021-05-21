@@ -40,13 +40,13 @@ export const getActivePromos = (rewardsData: Rewards.State) => {
 const getLink = (type: PromoType) => {
   switch (type) {
     case 'tap-network': {
-      return 'https://brave.tapnetwork.io'
+      return 'https://adrbrowsiel.tapnetwork.io'
     }
     case 'uphold-card': {
-      return 'https://uphold.com/brave/upholdcard'
+      return 'https://uphold.com/adrbrowsiel/upholdcard'
     }
     case 'uphold-equities': {
-      return 'https://uphold.com/en/buy-fractional-shares/brave'
+      return 'https://uphold.com/en/buy-fractional-shares/adrbrowsiel'
     }
   }
 

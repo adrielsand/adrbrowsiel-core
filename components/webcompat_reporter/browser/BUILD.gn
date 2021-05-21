@@ -1,7 +1,7 @@
 import("//build/config/features.gni")
 
 declare_args() {
-  webcompat_report_api_endpoint = "https://webcompat.brave.com/1/webcompat"
+  webcompat_report_api_endpoint = "https://webcompat.adrbrowsiel.com/1/webcompat"
 }
 
 config("webcompat_reporter_config") {
@@ -20,9 +20,9 @@ source_set("browser") {
 
   deps = [
     "//base",
-    "//brave/common",
-    "//brave/components/brave_referrals/browser",
-    "//brave/components/brave_stats/browser",
+    "//adrbrowsiel/common",
+    "//adrbrowsiel/components/adrbrowsiel_referrals/browser",
+    "//adrbrowsiel/components/adrbrowsiel_stats/browser",
     "//content/public/browser",
     "//net",
     "//services/network/public/cpp",

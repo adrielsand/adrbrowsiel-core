@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/omnibox/browser/topsites_provider.h"
+#include "adrbrowsiel/components/omnibox/browser/topsites_provider.h"
 #include <stddef.h>
 
 
@@ -508,5 +508,5 @@ std::vector<std::string> TopSitesProvider::top_sites_ = {
   "youm7.com",
   "123rf.com",
   "commentcamarche.net",
-  "brave.com"
+  "adrbrowsiel.com"
 };

@@ -1,15 +1,15 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_PRIVATE_OBSERVER_H_
-#define BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_PRIVATE_OBSERVER_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_PRIVATE_OBSERVER_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_PRIVATE_OBSERVER_H_
 
 #include "base/observer_list_types.h"
 #include "bat/ledger/mojom_structs.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 class RewardsService;
 
@@ -24,6 +24,6 @@ class RewardsServicePrivateObserver : public base::CheckedObserver {
       uint64_t windowId) {}
 };
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards
 
-#endif  // BRAVE_COMPONENTS_BRAVE_REWARDS_BROWSER_REWARDS_SERVICE_PRIVATE_OBSERVER_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_REWARDS_BROWSER_REWARDS_SERVICE_PRIVATE_OBSERVER_H_

@@ -2,8 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { types } from '../../../brave_webtorrent/extension/constants/webtorrent_types'
-import * as actions from '../../../brave_webtorrent/extension/actions/webtorrent_actions'
+import { types } from '../../../adrbrowsiel_webtorrent/extension/constants/webtorrent_types'
+import * as actions from '../../../adrbrowsiel_webtorrent/extension/actions/webtorrent_actions'
 import { Torrent } from 'webtorrent'
 
 const torrent: Torrent = {
@@ -18,7 +18,7 @@ const torrent: Torrent = {
   ratio: 0,
   numPeers: 0,
   torrentFile: Buffer.from('1337', 'utf-8'),
-  torrentFileBlobURL: 'https://brave.com',
+  torrentFileBlobURL: 'https://adrbrowsiel.com',
   files: [],
   received: 1337,
   path: '/',

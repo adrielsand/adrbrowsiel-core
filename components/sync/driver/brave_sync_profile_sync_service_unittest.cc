@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -7,8 +7,8 @@
 
 #include "base/logging.h"
 #include "base/test/task_environment.h"
-#include "brave/components/sync/driver/brave_sync_profile_sync_service.h"
-#include "brave/components/sync/driver/profile_sync_service_delegate.h"
+#include "adrbrowsiel/components/sync/driver/adrbrowsiel_sync_profile_sync_service.h"
+#include "adrbrowsiel/components/sync/driver/profile_sync_service_delegate.h"
 #include "components/os_crypt/os_crypt_mocker.h"
 #include "components/sync/driver/data_type_manager_impl.h"
 #include "components/sync/driver/fake_data_type_controller.h"
@@ -42,18 +42,18 @@ class ProfileSyncServiceDelegateMock : public ProfileSyncServiceDelegate {
   void ResumeDeviceObserver() override {}
 };
 
-class BraveProfileSyncServiceTest : public testing::Test {
+class adrbrowsielProfileSyncServiceTest : public testing::Test {
  public:
-  BraveProfileSyncServiceTest()
-      : brave_sync_prefs_(profile_sync_service_bundle_.pref_service()),
+  adrbrowsielProfileSyncServiceTest()
+      : adrbrowsiel_sync_prefs_(profile_sync_service_bundle_.pref_service()),
         sync_prefs_(profile_sync_service_bundle_.pref_service()) {
     profile_sync_service_bundle_.identity_test_env()
         ->SetAutomaticIssueOfAccessTokens(true);
-    brave_sync::Prefs::RegisterProfilePrefs(
+    adrbrowsiel_sync::Prefs::RegisterProfilePrefs(
         profile_sync_service_bundle_.pref_service()->registry());
   }
 
-  ~BraveProfileSyncServiceTest() override { sync_service_->Shutdown(); }
+  ~adrbrowsielProfileSyncServiceTest() override { sync_service_->Shutdown(); }
 
   void CreateSyncService(
       ProfileSyncService::StartBehavior start_behavior,
@@ -68,17 +68,17 @@ class BraveProfileSyncServiceTest : public testing::Test {
     ON_CALL(*sync_client, CreateDataTypeControllers(_))
         .WillByDefault(Return(ByMove(std::move(controllers))));
 
-    sync_service_ = std::make_unique<BraveProfileSyncService>(
+    sync_service_ = std::make_unique<adrbrowsielProfileSyncService>(
         profile_sync_service_bundle_.CreateBasicInitParams(
             start_behavior, std::move(sync_client)),
         std::make_unique<ProfileSyncServiceDelegateMock>());
   }
 
-  brave_sync::Prefs* brave_sync_prefs() { return &brave_sync_prefs_; }
+  adrbrowsiel_sync::Prefs* adrbrowsiel_sync_prefs() { return &adrbrowsiel_sync_prefs_; }
 
   SyncPrefs* sync_prefs() { return &sync_prefs_; }
 
-  BraveProfileSyncService* brave_sync_service() { return sync_service_.get(); }
+  adrbrowsielProfileSyncService* adrbrowsiel_sync_service() { return sync_service_.get(); }
 
   FakeSyncApiComponentFactory* component_factory() {
     return profile_sync_service_bundle_.component_factory();
@@ -91,59 +91,59 @@ class BraveProfileSyncServiceTest : public testing::Test {
  private:
   content::BrowserTaskEnvironment task_environment_;
   ProfileSyncServiceBundle profile_sync_service_bundle_;
-  brave_sync::Prefs brave_sync_prefs_;
+  adrbrowsiel_sync::Prefs adrbrowsiel_sync_prefs_;
   SyncPrefs sync_prefs_;
-  std::unique_ptr<BraveProfileSyncService> sync_service_;
+  std::unique_ptr<adrbrowsielProfileSyncService> sync_service_;
 };
 
-TEST_F(BraveProfileSyncServiceTest, ValidPassphrase) {
+TEST_F(adrbrowsielProfileSyncServiceTest, ValidPassphrase) {
   OSCryptMocker::SetUp();
 
   CreateSyncService(ProfileSyncService::MANUAL_START);
 
-  brave_sync_service()->Initialize();
+  adrbrowsiel_sync_service()->Initialize();
   EXPECT_FALSE(engine());
 
-  bool set_code_result = brave_sync_service()->SetSyncCode(kValidSyncCode);
+  bool set_code_result = adrbrowsiel_sync_service()->SetSyncCode(kValidSyncCode);
   EXPECT_TRUE(set_code_result);
 
-  EXPECT_EQ(brave_sync_prefs()->GetSeed(), kValidSyncCode);
+  EXPECT_EQ(adrbrowsiel_sync_prefs()->GetSeed(), kValidSyncCode);
 
   OSCryptMocker::TearDown();
 }
 
-TEST_F(BraveProfileSyncServiceTest, InvalidPassphrase) {
+TEST_F(adrbrowsielProfileSyncServiceTest, InvalidPassphrase) {
   OSCryptMocker::SetUp();
 
   CreateSyncService(ProfileSyncService::MANUAL_START);
 
-  brave_sync_service()->Initialize();
+  adrbrowsiel_sync_service()->Initialize();
   EXPECT_FALSE(engine());
 
   bool set_code_result =
-      brave_sync_service()->SetSyncCode("word one and then two");
+      adrbrowsiel_sync_service()->SetSyncCode("word one and then two");
   EXPECT_FALSE(set_code_result);
 
-  EXPECT_EQ(brave_sync_prefs()->GetSeed(), "");
+  EXPECT_EQ(adrbrowsiel_sync_prefs()->GetSeed(), "");
 
   OSCryptMocker::TearDown();
 }
 
-TEST_F(BraveProfileSyncServiceTest, ValidPassphraseLeadingTrailingWhitespace) {
+TEST_F(adrbrowsielProfileSyncServiceTest, ValidPassphraseLeadingTrailingWhitespace) {
   OSCryptMocker::SetUp();
 
   CreateSyncService(ProfileSyncService::MANUAL_START);
 
-  brave_sync_service()->Initialize();
+  adrbrowsiel_sync_service()->Initialize();
   EXPECT_FALSE(engine());
 
   std::string sync_code_extra_whitespace =
       std::string(" \t\n") + kValidSyncCode + std::string(" \t\n");
   bool set_code_result =
-      brave_sync_service()->SetSyncCode(sync_code_extra_whitespace);
+      adrbrowsiel_sync_service()->SetSyncCode(sync_code_extra_whitespace);
   EXPECT_TRUE(set_code_result);
 
-  EXPECT_EQ(brave_sync_prefs()->GetSeed(), kValidSyncCode);
+  EXPECT_EQ(adrbrowsiel_sync_prefs()->GetSeed(), kValidSyncCode);
 
   OSCryptMocker::TearDown();
 }

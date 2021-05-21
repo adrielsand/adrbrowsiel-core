@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -12,8 +12,8 @@ export const interactionBegin = createAction('interactionStart')
 export const ensureSettingsData = createAction('ensureSettingsData')
 
 type DataReceivedPayload = {
-  feed?: BraveToday.Feed
-  publishers?: BraveToday.Publishers
+  feed?: adrbrowsielToday.Feed
+  publishers?: adrbrowsielToday.Publishers
 }
 export const dataReceived = createAction<DataReceivedPayload>('dataReceived')
 
@@ -33,7 +33,7 @@ export const errorGettingDataFromBackground = createAction<BackgroundErrorPayloa
  * User has requested to read an article
  */
 export type ReadFeedItemPayload = {
-  item: BraveToday.FeedItem,
+  item: adrbrowsielToday.FeedItem,
   isPromoted?: boolean,
   openInNewTab?: boolean
 }
@@ -41,7 +41,7 @@ export const readFeedItem = createAction<ReadFeedItemPayload>('readFeedItem')
 
 export const feedItemViewedCountChanged = createAction<number>('feedItemViewedCountChanged')
 
-export const promotedItemViewed = createAction<BraveToday.PromotedArticle>('promotedItemViewed')
+export const promotedItemViewed = createAction<adrbrowsielToday.PromotedArticle>('promotedItemViewed')
 
 export type SetPublisherPrefPayload = {
   publisherId: string

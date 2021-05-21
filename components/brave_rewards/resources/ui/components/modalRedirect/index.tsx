@@ -10,9 +10,9 @@ import {
   StyledError,
   StyledButton
 } from './style'
-import Modal from 'brave-ui/components/popupModals/modal/index'
-import { LoaderIcon } from 'brave-ui/components/icons'
-import { Button } from 'brave-ui/components'
+import Modal from 'adrbrowsiel-ui/components/popupModals/modal/index'
+import { LoaderIcon } from 'adrbrowsiel-ui/components/icons'
+import { Button } from 'adrbrowsiel-ui/components'
 import { splitStringForTag } from '../../../../../common/locale'
 
 export interface Props {
@@ -50,7 +50,7 @@ export default class ModalRedirect extends React.PureComponent<Props, {}> {
 
     let supportURL = ''
     if (walletType === 'uphold') {
-      supportURL = 'https://uphold.com/en/brave/support'
+      supportURL = 'https://uphold.com/en/adrbrowsiel/support'
     }
 
     return (

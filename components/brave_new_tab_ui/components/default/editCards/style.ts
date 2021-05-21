@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import palette from 'brave-ui/theme/colors'
+import palette from 'adrbrowsiel-ui/theme/colors'
 
 export const StyledWrapper = styled('button')<{}>`
   width: 100%;
@@ -23,7 +23,7 @@ export const StyledWrapper = styled('button')<{}>`
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 1px ${p => p.theme.color.brandBrave};
+    box-shadow: 0 0 0 1px ${p => p.theme.color.brandadrbrowsiel};
   }
 `
 

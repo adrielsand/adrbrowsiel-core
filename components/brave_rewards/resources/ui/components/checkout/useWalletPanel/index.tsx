@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import { PlusIcon } from 'brave-ui/components/icons'
+import { PlusIcon } from 'adrbrowsiel-ui/components/icons'
 
 import { LocaleContext, LocaleData, getLocaleWithTag } from '../localeContext'
 import { FormSection } from '../formSection'

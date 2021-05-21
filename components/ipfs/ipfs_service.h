@@ -1,10 +1,10 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_IPFS_IPFS_SERVICE_H_
-#define BRAVE_COMPONENTS_IPFS_IPFS_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_IPFS_IPFS_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_IPFS_IPFS_SERVICE_H_
 
 #include <list>
 #include <memory>
@@ -16,14 +16,14 @@
 #include "base/containers/queue.h"
 #include "base/memory/scoped_refptr.h"
 #include "base/observer_list.h"
-#include "brave/components/ipfs/addresses_config.h"
-#include "brave/components/ipfs/brave_ipfs_client_updater.h"
-#include "brave/components/ipfs/import/imported_data.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_p3a.h"
-#include "brave/components/ipfs/node_info.h"
-#include "brave/components/ipfs/repo_stats.h"
-#include "brave/components/services/ipfs/public/mojom/ipfs_service.mojom.h"
+#include "adrbrowsiel/components/ipfs/addresses_config.h"
+#include "adrbrowsiel/components/ipfs/adrbrowsiel_ipfs_client_updater.h"
+#include "adrbrowsiel/components/ipfs/import/imported_data.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_p3a.h"
+#include "adrbrowsiel/components/ipfs/node_info.h"
+#include "adrbrowsiel/components/ipfs/repo_stats.h"
+#include "adrbrowsiel/components/services/ipfs/public/mojom/ipfs_service.mojom.h"
 #include "components/keyed_service/core/keyed_service.h"
 #include "components/version_info/channel.h"
 #include "mojo/public/cpp/bindings/remote.h"
@@ -46,17 +46,17 @@ class PrefRegistrySimple;
 
 namespace ipfs {
 
-class BraveIpfsClientUpdater;
+class adrbrowsielIpfsClientUpdater;
 class IpfsServiceDelegate;
 class IpfsServiceObserver;
 class IpfsImportWorkerBase;
 class IpnsKeysManager;
 
 class IpfsService : public KeyedService,
-                    public BraveIpfsClientUpdater::Observer {
+                    public adrbrowsielIpfsClientUpdater::Observer {
  public:
   IpfsService(content::BrowserContext* context,
-              ipfs::BraveIpfsClientUpdater* ipfs_client_updater,
+              ipfs::adrbrowsielIpfsClientUpdater* ipfs_client_updater,
               const base::FilePath& user_data_dir,
               version_info::Channel channel);
   ~IpfsService() override;
@@ -147,7 +147,7 @@ class IpfsService : public KeyedService,
   using SimpleURLLoaderList =
       std::list<std::unique_ptr<network::SimpleURLLoader>>;
 
-  // BraveIpfsClientUpdater::Observer
+  // adrbrowsielIpfsClientUpdater::Observer
   void OnExecutableReady(const base::FilePath& path) override;
   void OnInstallationEvent(ComponentUpdaterEvents event) override;
 
@@ -206,7 +206,7 @@ class IpfsService : public KeyedService,
   bool reentrancy_guard_ = false;
 
   base::FilePath user_data_dir_;
-  BraveIpfsClientUpdater* ipfs_client_updater_;
+  adrbrowsielIpfsClientUpdater* ipfs_client_updater_;
   version_info::Channel channel_;
   std::unordered_map<size_t, std::unique_ptr<IpfsImportWorkerBase>> importers_;
   scoped_refptr<base::SequencedTaskRunner> file_task_runner_;
@@ -219,4 +219,4 @@ class IpfsService : public KeyedService,
 
 }  // namespace ipfs
 
-#endif  // BRAVE_COMPONENTS_IPFS_IPFS_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_IPFS_IPFS_SERVICE_H_

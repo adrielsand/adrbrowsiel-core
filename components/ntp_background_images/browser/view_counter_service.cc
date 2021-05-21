@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-#include "brave/components/ntp_background_images/browser/view_counter_service.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/view_counter_service.h"
 
 #include <memory>
 #include <string>
@@ -16,22 +16,22 @@
 #include "base/metrics/histogram_macros.h"
 #include "bat/ads/pref_names.h"
 #include "bat/ads/public/interfaces/ads.mojom.h"
-#include "brave/components/brave_referrals/buildflags/buildflags.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
-#include "brave/components/ntp_background_images/browser/features.h"
-#include "brave/components/ntp_background_images/browser/ntp_background_images_data.h"
-#include "brave/components/ntp_background_images/browser/url_constants.h"
-#include "brave/components/ntp_background_images/common/pref_names.h"
-#include "brave/components/weekly_storage/weekly_storage.h"
+#include "adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/features.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/ntp_background_images_data.h"
+#include "adrbrowsiel/components/ntp_background_images/browser/url_constants.h"
+#include "adrbrowsiel/components/ntp_background_images/common/pref_names.h"
+#include "adrbrowsiel/components/weekly_storage/weekly_storage.h"
 #include "components/pref_registry/pref_registry_syncable.h"
 #include "components/prefs/pref_service.h"
 #include "content/public/browser/web_ui_data_source.h"
 
 namespace {
 
-constexpr char kNewTabsCreated[] = "brave.new_tab_page.p3a_new_tabs_created";
+constexpr char kNewTabsCreated[] = "adrbrowsiel.new_tab_page.p3a_new_tabs_created";
 constexpr char kSponsoredNewTabsCreated[] =
-    "brave.new_tab_page.p3a_sponsored_new_tabs_created";
+    "adrbrowsiel.new_tab_page.p3a_sponsored_new_tabs_created";
 
 }  // namespace
 
@@ -58,7 +58,7 @@ void ViewCounterService::RegisterProfilePrefs(
 }
 
 ViewCounterService::ViewCounterService(NTPBackgroundImagesService* service,
-                                       brave_ads::AdsService* ads_service,
+                                       adrbrowsiel_ads::AdsService* ads_service,
                                        PrefService* prefs,
                                        PrefService* local_state,
                                        bool is_supported_locale)
@@ -101,7 +101,7 @@ void ViewCounterService::BrandedWallpaperWillBeDisplayed(
     return;
 
   ads_service_->OnNewTabPageAdEvent(wallpaper_id, creative_instance_id,
-      ads::mojom::BraveAdsNewTabPageAdEventType::kViewed);
+      ads::mojom::adrbrowsielAdsNewTabPageAdEventType::kViewed);
 
   branded_new_tab_count_state_->AddDelta(1);
   UpdateP3AValues();
@@ -134,7 +134,7 @@ base::Value ViewCounterService::GetCurrentWallpaper() const {
 }
 
 std::vector<TopSite> ViewCounterService::GetTopSitesVectorForWebUI() const {
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
   if (auto* data = GetCurrentBrandedWallpaperData()) {
       return GetCurrentBrandedWallpaperData()->GetTopSitesForWebUI();
   }
@@ -144,7 +144,7 @@ std::vector<TopSite> ViewCounterService::GetTopSitesVectorForWebUI() const {
 }
 
 std::vector<TopSite> ViewCounterService::GetTopSitesVectorData() const {
-#if BUILDFLAG(ENABLE_BRAVE_REFERRALS)
+#if BUILDFLAG(ENABLE_adrbrowsiel_REFERRALS)
   if (auto* data = GetCurrentBrandedWallpaperData())
     return data->top_sites;
 #endif
@@ -228,7 +228,7 @@ void ViewCounterService::BrandedWallpaperLogoClicked(
     return;
 
   ads_service_->OnNewTabPageAdEvent(wallpaper_id, creative_instance_id,
-      ads::mojom::BraveAdsNewTabPageAdEventType::kClicked);
+      ads::mojom::adrbrowsielAdsNewTabPageAdEventType::kClicked);
 }
 
 bool ViewCounterService::ShouldShowBrandedWallpaper() const {
@@ -286,7 +286,7 @@ void ViewCounterService::UpdateP3AValues() const {
   const int* it_count =
       std::lower_bound(kNewTabCount, std::end(kNewTabCount), new_tab_count);
   int answer = it_count - kNewTabCount;
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.NTP.NewTabsCreated", answer,
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.NTP.NewTabsCreated", answer,
                              base::size(kNewTabCount) + 1);
 
   constexpr double kSponsoredRatio[] = {0, 10.0, 20.0, 30.0, 40.0, 50.0};
@@ -301,7 +301,7 @@ void ViewCounterService::UpdateP3AValues() const {
         std::lower_bound(kSponsoredRatio, std::end(kSponsoredRatio), ratio);
     answer = it_ratio - kSponsoredRatio;
   }
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.NTP.SponsoredNewTabsCreated", answer,
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.NTP.SponsoredNewTabsCreated", answer,
                              base::size(kSponsoredRatio) + 1);
 }
 

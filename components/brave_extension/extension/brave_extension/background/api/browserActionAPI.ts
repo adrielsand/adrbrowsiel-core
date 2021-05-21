@@ -5,7 +5,7 @@
 import { isHttpOrHttps } from '../../helpers/urlUtils'
 
 // TODO: use `import` for these assets once the webpack build
-// for brave extension allows dynamic file serving like other brave-core
+// for adrbrowsiel extension allows dynamic file serving like other adrbrowsiel-core
 // components
 const shieldsOnIcon18Url = 'assets/img/shields-on.png'
 const shieldsOnIcon36Url = 'assets/img/shields-on@2x.png'

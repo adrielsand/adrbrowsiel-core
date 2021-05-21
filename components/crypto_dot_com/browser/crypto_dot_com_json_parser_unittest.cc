@@ -1,15 +1,15 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/crypto_dot_com/browser/crypto_dot_com_json_parser.h"
+#include "adrbrowsiel/components/crypto_dot_com/browser/crypto_dot_com_json_parser.h"
 
-#include "brave/components/crypto_dot_com/browser/crypto_dot_com_service.h"
-#include "brave/components/content_settings/core/common/content_settings_util.h"
+#include "adrbrowsiel/components/crypto_dot_com/browser/crypto_dot_com_service.h"
+#include "adrbrowsiel/components/content_settings/core/common/content_settings_util.h"
 #include "chrome/test/base/chrome_render_view_host_test_harness.h"
 
-// npm run test -- brave_unit_tests --filter=CryptoDotComJSONParserTest.*
+// npm run test -- adrbrowsiel_unit_tests --filter=CryptoDotComJSONParserTest.*
 
 namespace {
 

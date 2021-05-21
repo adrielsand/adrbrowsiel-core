@@ -1,9 +1,9 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_perf_predictor/browser/p3a_bandwidth_savings_tracker.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/browser/p3a_bandwidth_savings_tracker.h"
 
 #include <memory>
 #include <utility>
@@ -11,12 +11,12 @@
 #include "base/metrics/histogram_macros.h"
 #include "base/time/clock.h"
 #include "base/time/default_clock.h"
-#include "brave/components/brave_perf_predictor/common/pref_names.h"
-#include "brave/components/weekly_storage/weekly_storage.h"
+#include "adrbrowsiel/components/adrbrowsiel_perf_predictor/common/pref_names.h"
+#include "adrbrowsiel/components/weekly_storage/weekly_storage.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
 
-namespace brave_perf_predictor {
+namespace adrbrowsiel_perf_predictor {
 
 namespace {
 
@@ -34,7 +34,7 @@ constexpr std::array<uint64_t, 7> kBandwidthSavingsBuckets{
 };
 
 constexpr char kSavingsDailyUMAHistogramName[] =
-    "Brave.Savings.BandwidthSavingsMB";
+    "adrbrowsiel.Savings.BandwidthSavingsMB";
 
 }  // namespace
 
@@ -77,4 +77,4 @@ void P3ABandwidthSavingsTracker::StoreSavingsHistogram(uint64_t savings_bytes) {
   UMA_HISTOGRAM_EXACT_LINEAR(kSavingsDailyUMAHistogramName, bucket, 7);
 }
 
-}  // namespace brave_perf_predictor
+}  // namespace adrbrowsiel_perf_predictor

@@ -1,19 +1,19 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_HD_KEY_H_
-#define BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_HD_KEY_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_HD_KEY_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_HD_KEY_H_
 
 #include <memory>
 #include <string>
 #include <vector>
 
 #include "base/gtest_prod_util.h"
-#include "brave/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1.h"
+#include "adrbrowsiel/third_party/bitcoin-core/src/src/secp256k1/include/secp256k1.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 FORWARD_DECLARE_TEST(HDKeyUnitTest, GenerateFromExtendedKey);
 FORWARD_DECLARE_TEST(HDKeyUnitTest, SetPrivateKey);
@@ -100,6 +100,6 @@ class HDKey {
   HDKey& operator=(const HDKey&) = delete;
 };
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_HD_KEY_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_HD_KEY_H_

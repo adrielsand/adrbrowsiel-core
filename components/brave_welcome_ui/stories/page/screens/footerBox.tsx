@@ -16,7 +16,7 @@ import {
 } from '../../../components'
 
 // Shared components
-import { ArrowRightIcon } from 'brave-ui/components/icons'
+import { ArrowRightIcon } from 'adrbrowsiel-ui/components/icons'
 
 // Utils
 import locale from '../fakeLocale'

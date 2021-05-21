@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_ads/browser/component_updater/resource_component.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/component_updater/resource_component.h"
 
 #include "base/bind.h"
 #include "base/files/file_path.h"
@@ -15,10 +15,10 @@
 #include "base/strings/stringprintf.h"
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
-#include "brave/components/brave_ads/browser/component_updater/component_util.h"
-#include "brave/components/l10n/common/locale_util.h"
+#include "adrbrowsiel/components/adrbrowsiel_ads/browser/component_updater/component_util.h"
+#include "adrbrowsiel/components/l10n/common/locale_util.h"
 
-namespace brave_ads {
+namespace adrbrowsiel_ads {
 
 namespace {
 
@@ -29,7 +29,7 @@ const char kResourceIdPath[] = "id";
 const char kResourceFilenamePath[] = "filename";
 const char kResourceVersionPath[] = "version";
 
-const char kComponentName[] = "Brave Ads Resources (%s)";
+const char kComponentName[] = "adrbrowsiel Ads Resources (%s)";
 
 const base::FilePath::CharType kManifestFile[] =
     FILE_PATH_LITERAL("resources.json");
@@ -41,17 +41,17 @@ std::string GetIndex(std::string id, int version) {
 }  // namespace
 
 ResourceComponent::ResourceComponent(Delegate* delegate)
-    : brave_component_updater::BraveComponent(delegate) {
+    : adrbrowsiel_component_updater::adrbrowsielComponent(delegate) {
   DCHECK(delegate);
 }
 
 ResourceComponent::~ResourceComponent() = default;
 
 void ResourceComponent::RegisterComponentsForLocale(const std::string& locale) {
-  const std::string country_code = brave_l10n::GetCountryCode(locale);
+  const std::string country_code = adrbrowsiel_l10n::GetCountryCode(locale);
   RegisterComponentForCountryCode(country_code);
 
-  const std::string language_code = brave_l10n::GetLanguageCode(locale);
+  const std::string language_code = adrbrowsiel_l10n::GetLanguageCode(locale);
   RegisterComponentForLanguageCode(language_code);
 }
 
@@ -219,4 +219,4 @@ void ResourceComponent::OnGetManifest(const std::string& component_id,
   NotifyObservers(component_id);
 }
 
-}  // namespace brave_ads
+}  // namespace adrbrowsiel_ads

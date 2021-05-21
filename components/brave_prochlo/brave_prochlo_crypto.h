@@ -1,21 +1,21 @@
-/* Copyright 2019 The Brave Authors. All rights reserved.
+/* Copyright 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_PROCHLO_BRAVE_PROCHLO_CRYPTO_H_
-#define BRAVE_COMPONENTS_BRAVE_PROCHLO_BRAVE_PROCHLO_CRYPTO_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_PROCHLO_adrbrowsiel_PROCHLO_CRYPTO_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_PROCHLO_adrbrowsiel_PROCHLO_CRYPTO_H_
 
 #include <vector>
 
 #include "base/macros.h"
-#include "brave/components/brave_prochlo/prochlo_crypto.h"
+#include "adrbrowsiel/components/adrbrowsiel_prochlo/prochlo_crypto.h"
 
 namespace prochlo {
 
-class BraveProchloCrypto : public Crypto {
+class adrbrowsielProchloCrypto : public Crypto {
  public:
-  BraveProchloCrypto();
+  adrbrowsielProchloCrypto();
 
   // Load the public key for the Analyzer from bytes.
   bool load_analyzer_key_from_bytes(const std::vector<char>& bytes);
@@ -27,9 +27,9 @@ class BraveProchloCrypto : public Crypto {
   // Load a public key returning the structure.
   EVP_PKEY* load_public_key_from_bytes(const std::vector<char>& bytes);
 
-  DISALLOW_COPY_AND_ASSIGN(BraveProchloCrypto);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielProchloCrypto);
 };
 
 }  // namespace prochlo
 
-#endif  // BRAVE_COMPONENTS_BRAVE_PROCHLO_BRAVE_PROCHLO_CRYPTO_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_PROCHLO_adrbrowsiel_PROCHLO_CRYPTO_H_

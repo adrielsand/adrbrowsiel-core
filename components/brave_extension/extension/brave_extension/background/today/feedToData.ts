@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -24,7 +24,7 @@ export function generateRelativeTimeFormat (publishTime: string) {
   ) + ' ago'
 }
 
-function convertFeedItem (item: BraveToday.FeedItem): BraveToday.FeedItem {
+function convertFeedItem (item: adrbrowsielToday.FeedItem): adrbrowsielToday.FeedItem {
   const publishTime = item.publish_time + ' UTC'
   return {
     ...item,
@@ -34,14 +34,14 @@ function convertFeedItem (item: BraveToday.FeedItem): BraveToday.FeedItem {
   }
 }
 
-export default async function getBraveTodayData (
-  feedContent: BraveToday.FeedItem[],
-  enabledPublishers: BraveToday.Publishers
-): Promise<BraveToday.Feed | undefined> {
+export default async function getadrbrowsielTodayData (
+  feedContent: adrbrowsielToday.FeedItem[],
+  enabledPublishers: adrbrowsielToday.Publishers
+): Promise<adrbrowsielToday.Feed | undefined> {
   // No sponsor content yet, wait until we have content spec
-  const promotedArticles: (BraveToday.PromotedArticle)[] = []
-  const deals: (BraveToday.Deal)[] = []
-  let articles: (BraveToday.Article)[] = []
+  const promotedArticles: (adrbrowsielToday.PromotedArticle)[] = []
+  const deals: (adrbrowsielToday.Deal)[] = []
+  let articles: (adrbrowsielToday.Article)[] = []
 
   // Filter to only with image and enabled
   // publishers (or publishers we yet know about).
@@ -57,7 +57,7 @@ export default async function getBraveTodayData (
   for (let feedItem of feedContent) {
     feedItem = convertFeedItem(feedItem)
     switch (feedItem.content_type) {
-      case 'brave_partner':
+      case 'adrbrowsiel_partner':
         promotedArticles.push(feedItem)
         break
       case 'product':
@@ -109,7 +109,7 @@ export default async function getBraveTodayData (
   const firstDeals = deals.splice(0, 3)
 
   // Generate as many pages of content as possible.
-  const pages: BraveToday.Page[] = []
+  const pages: adrbrowsielToday.Page[] = []
   let canGenerateAnotherPage = true
   // Sanity check: arbitrary max pages so we don't end up
   // in infinite loop.
@@ -134,26 +134,26 @@ export default async function getBraveTodayData (
   }
 }
 
-function isItemWithImage (item: BraveToday.FeedItem) {
+function isItemWithImage (item: adrbrowsielToday.FeedItem) {
   return !!item.padded_img
 }
 
-function isArticleTopNews (article: BraveToday.Article) {
+function isArticleTopNews (article: adrbrowsielToday.Article) {
   return article.category === 'Top News'
 }
 
-function isArticleWithin48Hours (article: BraveToday.Article) {
+function isArticleWithin48Hours (article: adrbrowsielToday.Article) {
   const secondsSincePublish = Math.abs((new Date().getTime() - new Date(article.publish_time).getTime()) / 1000)
   const secondsSince48Hours = 48 * 60 * 60
   return (secondsSincePublish < secondsSince48Hours)
 }
 
 function generateNextPage (
-  articles: BraveToday.Article[],
-  allDeals: BraveToday.Deal[],
-  promotedArticles: BraveToday.PromotedArticle[],
+  articles: adrbrowsielToday.Article[],
+  allDeals: adrbrowsielToday.Deal[],
+  promotedArticles: adrbrowsielToday.PromotedArticle[],
   featuredCategory?: string,
-  dealsCategory?: string): BraveToday.Page | null {
+  dealsCategory?: string): adrbrowsielToday.Page | null {
 
   // Collect headlines
   const headlines = take(articles, 13)
@@ -192,7 +192,7 @@ function generateNextPage (
   }
 }
 
-function generateArticleSourceGroup (articles: BraveToday.Article[]): [string, BraveToday.Article[]] | undefined {
+function generateArticleSourceGroup (articles: adrbrowsielToday.Article[]): [string, adrbrowsielToday.Article[]] | undefined {
   const firstArticleWithSource = articles.find(a => !!a.publisher_id)
   if (firstArticleWithSource) {
     return [
@@ -241,7 +241,7 @@ function domainFromUrlString (urlString: string): string {
   return new window.URL(urlString).host
 }
 
-async function weightArticles (articles: BraveToday.FeedItem[]): Promise<BraveToday.FeedItem[]> {
+async function weightArticles (articles: adrbrowsielToday.FeedItem[]): Promise<adrbrowsielToday.FeedItem[]> {
   // hosts from latest 2 weeks max-2000 history items
   const historyItems: chrome.history.HistoryItem[] = chrome.history
     ? await new Promise(

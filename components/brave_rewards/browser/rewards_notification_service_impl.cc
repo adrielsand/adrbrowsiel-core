@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_rewards/browser/rewards_notification_service_impl.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/browser/rewards_notification_service_impl.h"
 
 #include <algorithm>
 #include <limits>
@@ -16,11 +16,11 @@
 #include "base/time/time.h"
 #include "base/values.h"
 #include "bat/ledger/ledger.h"
-#include "brave/components/brave_rewards/common/pref_names.h"
+#include "adrbrowsiel/components/adrbrowsiel_rewards/common/pref_names.h"
 #include "chrome/browser/profiles/profile.h"
 #include "components/prefs/pref_service.h"
 
-namespace brave_rewards {
+namespace adrbrowsiel_rewards {
 
 RewardsNotificationServiceImpl::RewardsNotificationServiceImpl(Profile* profile)
     : profile_(profile) {
@@ -404,4 +404,4 @@ void RewardsNotificationServiceImpl::OnReconcileComplete(
   }
 }
 
-}  // namespace brave_rewards
+}  // namespace adrbrowsiel_rewards

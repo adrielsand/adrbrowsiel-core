@@ -2,10 +2,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import welcomeReducer from '../../../brave_welcome_ui/reducers/welcome_reducer'
-import * as actions from '../../../brave_welcome_ui/actions/welcome_actions'
-import * as storage from '../../../brave_welcome_ui/storage'
-import { types } from '../../../brave_welcome_ui/constants/welcome_types'
+import welcomeReducer from '../../../adrbrowsiel_welcome_ui/reducers/welcome_reducer'
+import * as actions from '../../../adrbrowsiel_welcome_ui/actions/welcome_actions'
+import * as storage from '../../../adrbrowsiel_welcome_ui/storage'
+import { types } from '../../../adrbrowsiel_welcome_ui/constants/welcome_types'
 import { mockSearchProviders, mockImportSources } from '../../testData'
 
 window.open = jest.fn()
@@ -67,7 +67,7 @@ describe('welcomeReducer', () => {
     it('calls window.open', () => {
       welcomeReducer(undefined, {
         type: types.GO_TO_TAB_REQUESTED,
-        payload: { url: 'https://brave.com', target: '_blank' }
+        payload: { url: 'https://adrbrowsiel.com', target: '_blank' }
       })
       expect(window.open).toBeCalled()
     })

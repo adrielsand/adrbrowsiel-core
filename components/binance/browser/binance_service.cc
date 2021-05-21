@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/binance/browser/binance_service.h"
+#include "adrbrowsiel/components/binance/browser/binance_service.h"
 
 #include <algorithm>
 #include <string>
@@ -20,11 +20,11 @@
 #include "base/task_runner_util.h"
 #include "base/time/time.h"
 #include "base/token.h"
-#include "brave/common/pref_names.h"
-#include "brave/components/binance/browser/binance_json_parser.h"
-#include "brave/components/binance/browser/regions.h"
-#include "brave/components/ntp_widget_utils/browser/ntp_widget_utils_oauth.h"
-#include "brave/components/ntp_widget_utils/browser/ntp_widget_utils_region.h"
+#include "adrbrowsiel/common/pref_names.h"
+#include "adrbrowsiel/components/binance/browser/binance_json_parser.h"
+#include "adrbrowsiel/components/binance/browser/regions.h"
+#include "adrbrowsiel/components/ntp_widget_utils/browser/ntp_widget_utils_oauth.h"
+#include "adrbrowsiel/components/ntp_widget_utils/browser/ntp_widget_utils_region.h"
 #include "components/country_codes/country_codes.h"
 #include "components/os_crypt/os_crypt.h"
 #include "components/prefs/pref_service.h"
@@ -41,7 +41,7 @@ namespace {
 
 const char oauth_host[] = "accounts.binance.com";
 const char gateway_host[] = "www.binance.com";
-const char oauth_callback[] = "com.brave.binance://authorization";
+const char oauth_callback[] = "com.adrbrowsiel.binance://authorization";
 const char oauth_scope[] =
     "user:email,user:address,asset:balance,asset:ocbs";
 const char oauth_url[] = "https://accounts.binance.com/en/oauth/authorize";

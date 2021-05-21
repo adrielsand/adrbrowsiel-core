@@ -3,7 +3,7 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import { CreditCardIcon } from 'brave-ui/components/icons'
+import { CreditCardIcon } from 'adrbrowsiel-ui/components/icons'
 
 export const Container = styled.div`
   max-width: 270px;

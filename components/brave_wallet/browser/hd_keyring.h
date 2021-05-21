@@ -1,12 +1,12 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_HD_KEYRING_H_
-#define BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_HD_KEYRING_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_HD_KEYRING_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_HD_KEYRING_H_
 
-#include "brave/components/brave_wallet/browser/hd_key.h"
+#include "adrbrowsiel/components/adrbrowsiel_wallet/browser/hd_key.h"
 
 #include <memory>
 #include <string>
@@ -14,7 +14,7 @@
 
 #include "base/gtest_prod_util.h"
 
-namespace brave_wallet {
+namespace adrbrowsiel_wallet {
 
 class EthTransaction;
 
@@ -63,6 +63,6 @@ class HDKeyring {
   HDKeyring& operator=(const HDKeyring&) = delete;
 };
 
-}  // namespace brave_wallet
+}  // namespace adrbrowsiel_wallet
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_HD_KEYRING_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_WALLET_BROWSER_HD_KEYRING_H_

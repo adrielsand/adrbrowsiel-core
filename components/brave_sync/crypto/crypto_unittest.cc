@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_sync/crypto/crypto.h"
+#include "adrbrowsiel/components/adrbrowsiel_sync/crypto/crypto.h"
 
 #include <set>
 #include <string>
@@ -13,7 +13,7 @@
 #include "crypto/random.h"
 #include "testing/gtest/include/gtest/gtest.h"
 
-namespace brave_sync {
+namespace adrbrowsiel_sync {
 namespace crypto {
 
 TEST(CryptoTest, GetSeed) {
@@ -242,4 +242,4 @@ TEST(CryptoTest, Passphrase) {
 }
 
 }  // namespace crypto
-}  // namespace brave_sync
+}  // namespace adrbrowsiel_sync

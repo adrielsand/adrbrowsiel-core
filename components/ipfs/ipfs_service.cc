@@ -1,9 +1,9 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
 
 #include <utility>
 
@@ -16,17 +16,17 @@
 #include "base/task/post_task.h"
 #include "base/task/thread_pool.h"
 #include "base/task_runner_util.h"
-#include "brave/components/ipfs/import/ipfs_import_worker_base.h"
-#include "brave/components/ipfs/import/ipfs_link_import_worker.h"
-#include "brave/components/ipfs/ipfs_constants.h"
-#include "brave/components/ipfs/ipfs_json_parser.h"
-#include "brave/components/ipfs/ipfs_ports.h"
-#include "brave/components/ipfs/ipfs_service_observer.h"
-#include "brave/components/ipfs/ipfs_utils.h"
-#include "brave/components/ipfs/keys/ipns_keys_manager.h"
-#include "brave/components/ipfs/pref_names.h"
-#include "brave/components/ipfs/service_sandbox_type.h"
-#include "components/grit/brave_components_strings.h"
+#include "adrbrowsiel/components/ipfs/import/ipfs_import_worker_base.h"
+#include "adrbrowsiel/components/ipfs/import/ipfs_link_import_worker.h"
+#include "adrbrowsiel/components/ipfs/ipfs_constants.h"
+#include "adrbrowsiel/components/ipfs/ipfs_json_parser.h"
+#include "adrbrowsiel/components/ipfs/ipfs_ports.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service_observer.h"
+#include "adrbrowsiel/components/ipfs/ipfs_utils.h"
+#include "adrbrowsiel/components/ipfs/keys/ipns_keys_manager.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
+#include "adrbrowsiel/components/ipfs/service_sandbox_type.h"
+#include "components/grit/adrbrowsiel_components_strings.h"
 #include "components/prefs/pref_registry_simple.h"
 #include "components/prefs/pref_service.h"
 #include "components/user_prefs/user_prefs.h"
@@ -84,7 +84,7 @@ std::pair<bool, std::string> LoadConfigFileOnFileTaskRunner(
 namespace ipfs {
 
 IpfsService::IpfsService(content::BrowserContext* context,
-                         ipfs::BraveIpfsClientUpdater* ipfs_client_updater,
+                         ipfs::adrbrowsielIpfsClientUpdater* ipfs_client_updater,
                          const base::FilePath& user_data_dir,
                          version_info::Channel channel)
     : context_(context),
@@ -102,7 +102,7 @@ IpfsService::IpfsService(content::BrowserContext* context,
       content::BrowserContext::GetDefaultStoragePartition(context)
           ->GetURLLoaderFactoryForBrowserProcess();
 
-  // Return early since g_brave_browser_process and ipfs_client_updater are not
+  // Return early since g_adrbrowsiel_browser_process and ipfs_client_updater are not
   // available in unit tests.
   if (ipfs_client_updater_) {
     ipfs_client_updater_->AddObserver(this);
@@ -217,7 +217,7 @@ void IpfsService::OnIpfsDaemonCrashed(int64_t pid) {
 }
 
 base::FilePath IpfsService::GetDataPath() const {
-  return user_data_dir_.Append(FILE_PATH_LITERAL("brave_ipfs"));
+  return user_data_dir_.Append(FILE_PATH_LITERAL("adrbrowsiel_ipfs"));
 }
 
 base::FilePath IpfsService::GetConfigFilePath() const {

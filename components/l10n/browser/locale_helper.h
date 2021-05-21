@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_H_
-#define BRAVE_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_H_
+#ifndef adrbrowsiel_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_H_
+#define adrbrowsiel_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_H_
 
 #include <string>
 
@@ -12,7 +12,7 @@
 #include "base/memory/singleton.h"
 #include "build/build_config.h"
 
-namespace brave_l10n {
+namespace adrbrowsiel_l10n {
 
 const char kDefaultLocale[] = "en-US";
 
@@ -38,6 +38,6 @@ class LocaleHelper {
   static LocaleHelper* GetInstanceImpl();
 };
 
-}  // namespace brave_l10n
+}  // namespace adrbrowsiel_l10n
 
-#endif  // BRAVE_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_H_
+#endif  // adrbrowsiel_COMPONENTS_L10N_BROWSER_LOCALE_HELPER_H_

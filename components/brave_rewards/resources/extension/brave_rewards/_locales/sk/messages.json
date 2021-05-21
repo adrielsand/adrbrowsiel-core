@@ -1,6 +1,6 @@
 {
-  "braveRewards": {
-    "message": "Odmeny Brave",
+  "adrbrowsielRewards": {
+    "message": "Odmeny adrbrowsiel",
     "description": "Title in welcome screen for the panel"
   },
   "welcomeButtonTextOne": {
@@ -32,7 +32,7 @@
     "description": "Link in the footer (takes you to rewards settings page) for welcome screen in the panel, new user"
   },
   "welcomeHeaderOne": {
-    "message": "Pre Brave odmeny sme pripravili veľký upgrade.",
+    "message": "Pre adrbrowsiel odmeny sme pripravili veľký upgrade.",
     "description": "Main header title for welcome screen in the panel, existing user"
   },
   "welcomeHeaderTwo": {
@@ -60,7 +60,7 @@
     "description": "BAT Points text"
   },
   "batPointsMessage": {
-    "message": "dá sa použiť v odmenách Brave ako príspevok najobľúbenejším tvorcom obsahu. BAT body sa nedajú vymeniť za BAT.",
+    "message": "dá sa použiť v odmenách adrbrowsiel ako príspevok najobľúbenejším tvorcom obsahu. BAT body sa nedajú vymeniť za BAT.",
     "description": "Text for BAT Point helper message"
   },
   "on": {
@@ -68,8 +68,8 @@
     "description": "The whole string is 'Enable tips on YouTube for like.'"
   },
   "verifiedPublisher": {
-    "message": "Brave verifikovaný tvorca",
-    "description": "Tells user that this particular publisher is a Brave Verified Creator"
+    "message": "adrbrowsiel verifikovaný tvorca",
+    "description": "Tells user that this particular publisher is a adrbrowsiel Verified Creator"
   },
   "rewardsContributeAttentionScore": {
     "message": "Pozornosť",
@@ -193,15 +193,15 @@
     "message": "ok",
     "description": "Used in notification to dismiss notification"
   },
-  "braveAdsLaunchMsg": {
+  "adrbrowsielAdsLaunchMsg": {
     "message": "Teraz môžete zarábať sledovaním reklám.",
     "description": "Message for ads launch notification"
   },
-  "braveAdsTitle": {
-    "message": "Reklamy Brave",
+  "adrbrowsielAdsTitle": {
+    "message": "Reklamy adrbrowsiel",
     "description": "Notification title when we display info about ads"
   },
-  "braveContributeTitle": {
+  "adrbrowsielContributeTitle": {
     "message": "Automaticky prispieť",
     "description": "Notification title when we display info about auto contribution"
   },
@@ -232,7 +232,7 @@
     "description": "Notification title when we ask user to backup wallet"
   },
   "backupWalletNotification": {
-    "message": "Prosím, zálohujte svoju peňaženku Brave.",
+    "message": "Prosím, zálohujte svoju peňaženku adrbrowsiel.",
     "description": "Description for backup wallet notification"
   },
   "deviceLimitReachedLearnMore": {
@@ -248,14 +248,14 @@
     "description": "Description for device limit reached notification"
   },
   "insufficientFundsNotification": {
-    "message": "Na vašom účte Brave odmeny sa očakáva vklad.",
+    "message": "Na vašom účte adrbrowsiel odmeny sa očakáva vklad.",
     "description": "Description for new insufficient funds notification"
   },
   "insufficientFunds": {
     "message": "Nedostatok prostriedkov",
     "description": "Title for insufficient funds notification"
   },
-  "braveRewardsCreatingText": {
+  "adrbrowsielRewardsCreatingText": {
     "message": "Vytváranie peňaženky",
     "description": "Used in a button displaying wallet creation process"
   },
@@ -308,7 +308,7 @@
     "description": "Button text for clearing the error."
   },
   "grantGeneralErrorText": {
-    "message": "Brave rewards majú nejaký problém. Prosím, skúste to znovu.",
+    "message": "adrbrowsiel rewards majú nejaký problém. Prosím, skúste to znovu.",
     "description": "Error text when user is having problems claiming a grant."
   },
   "grantGeneralErrorTitle": {
@@ -324,7 +324,7 @@
     "description": "Status of the publisher shown in the panel"
   },
   "unVerifiedText": {
-    "message": "Tento tvorca sa ešte nezaregistroval, aby dostával príspevky od používateľov Brave. Všetky tipy, ktoré odošlete, zostanú vo vašej peňaženke, kým ich neoveria.",
+    "message": "Tento tvorca sa ešte nezaregistroval, aby dostával príspevky od používateľov adrbrowsiel. Všetky tipy, ktoré odošlete, zostanú vo vašej peňaženke, kým ich neoveria.",
     "description": "Notice about unverified publisher."
   },
   "unVerifiedTextMore": {
@@ -352,7 +352,7 @@
     "description": "Text for Panel's disabled state"
   },
   "disabledPanelTitle": {
-    "message": "Brave rewards je",
+    "message": "adrbrowsiel rewards je",
     "description": "Title for Panel's disabled state"
   },
   "walletFailedTitle": {
@@ -379,7 +379,7 @@
     "message": "a",
     "description": "The word 'and'"
   },
-  "braveRewardsSubTitle": {
+  "adrbrowsielRewardsSubTitle": {
     "message": "Získajte odmenu za prehľadávanie!",
     "description": "Subtitle for wallet disabled panel"
   },
@@ -388,7 +388,7 @@
     "description": "Text block for wallet disabled panel"
   },
   "enableRewards": {
-    "message": "Povoliť odmeny Brave",
+    "message": "Povoliť odmeny adrbrowsiel",
     "description": "Subtitle for wallet disabled panel"
   },
   "privacyPolicy": {
@@ -396,7 +396,7 @@
     "description": "Privacy Policy"
   },
   "serviceText": {
-    "message": "Kliknutím na „Povoliť Brave odmeny“ označíte, že ste si prečítali a súhlasíte s",
+    "message": "Kliknutím na „Povoliť adrbrowsiel odmeny“ označíte, že ste si prečítali a súhlasíte s",
     "description": "Terms of service main text"
   },
   "termsOfService": {
@@ -465,7 +465,7 @@
     "placeholders": {
       "name": {
         "content": "$1",
-        "example": "brave.com"
+        "example": "adrbrowsiel.com"
       }
     }
   },
@@ -504,7 +504,7 @@
     "description": "Cosmetic text upon captcha success for ads"
   },
   "grantFinishTextAds": {
-    "message": "Vaša odmena je na ceste do vašej peňaženky odmien Brave",
+    "message": "Vaša odmena je na ceste do vašej peňaženky odmien adrbrowsiel",
     "description": "Cosmetic text indicating ads funds are on the way"
   },
   "grantFinishTokenTitleAds": {
@@ -538,7 +538,7 @@
     }
   },
   "walletDisconnect":  {
-    "message": "Odpojiť sa od Brave Rewards",
+    "message": "Odpojiť sa od adrbrowsiel Rewards",
     "description": "CTA to disconnect user wallet from rewards"
   },
   "walletVerified":  {
@@ -568,7 +568,7 @@
     "description": "Title for notification when wallet is disconnected"
   },
   "connectedText":  {
-    "message": "Tento overený tvorca Brave si ešte nenakonfiguroval účet na príjem príspevkov od používateľov Brave. Finančné príspevky na prevádzku, ktoré mu odošlete, zostanú vo vašej peňaženke dovtedy, kým celý proces nedokončia.",
+    "message": "Tento overený tvorca adrbrowsiel si ešte nenakonfiguroval účet na príjem príspevkov od používateľov adrbrowsiel. Finančné príspevky na prevádzku, ktoré mu odošlete, zostanú vo vašej peňaženke dovtedy, kým celý proces nedokončia.",
     "description": "Text shown for connected publishers that are not fully verified in the panel"
   },
   "walletGoToVerifyPage":  {
@@ -682,7 +682,7 @@
     "description": ""
   },
   "onboardingStartUsingRewards": {
-    "message": "Začnite používať Odmeny Brave",
+    "message": "Začnite používať Odmeny adrbrowsiel",
     "description": ""
   },
   "onboardingTakeTour": {
@@ -732,11 +732,11 @@
     "description": ""
   },
   "onboardingPanelWelcomeHeader": {
-    "message": "Vitajte v Odmenách Brave!",
+    "message": "Vitajte v Odmenách adrbrowsiel!",
     "description": ""
   },
   "onboardingPanelWelcomeText": {
-    "message": "Súkromné reklamy Brave vás odmenia žetónmi na podporu tvorcov obsahu na rozdiel od tradičných reklám, a to všetko pri zachovaní súkromia vašich osobných údajov.",
+    "message": "Súkromné reklamy adrbrowsiel vás odmenia žetónmi na podporu tvorcov obsahu na rozdiel od tradičných reklám, a to všetko pri zachovaní súkromia vašich osobných údajov.",
     "description": ""
   },
   "onboardingPanelAdsHeader": {
@@ -744,7 +744,7 @@
     "description": ""
   },
   "onboardingPanelAdsText": {
-    "message": "Súkromné reklamy Brave sa zobrazia ako bežné upozornenie. V nastaveniach môžete určiť, ako často sa tieto reklamy zobrazia.",
+    "message": "Súkromné reklamy adrbrowsiel sa zobrazia ako bežné upozornenie. V nastaveniach môžete určiť, ako často sa tieto reklamy zobrazia.",
     "description": ""
   },
   "onboardingPanelScheduleHeader": {
@@ -752,7 +752,7 @@
     "description": ""
   },
   "onboardingPanelScheduleText": {
-    "message": "Vaše získané žetóny zo služby Súkromné reklamy Brave za celý aktuálny mesiac dorazia 5. deň nasledujúceho mesiaca.",
+    "message": "Vaše získané žetóny zo služby Súkromné reklamy adrbrowsiel za celý aktuálny mesiac dorazia 5. deň nasledujúceho mesiaca.",
     "description": ""
   },
   "onboardingPanelAcHeader": {
@@ -792,7 +792,7 @@
     "description": ""
   },
   "onboardingPanelCompleteText": {
-    "message": "Používaním služby Odmeny Brave pomáhate robiť z webu lepšie miesto pre všetkých. A to je úžasné!",
+    "message": "Používaním služby Odmeny adrbrowsiel pomáhate robiť z webu lepšie miesto pre všetkých. A to je úžasné!",
     "description": ""
   },
   "onboardingPanelVerifyHeader": {
@@ -816,11 +816,11 @@
     "description": ""
   },
   "onboardingPanelBitflyerText": {
-    "message": "Keď svoju peňaženku overíte a prepojíte s účtom bitFlyer, budete môcť jednoduchšie ukladať a spravovať tokeny, ktoré ste získali cez odmeny Brave",
+    "message": "Keď svoju peňaženku overíte a prepojíte s účtom bitFlyer, budete môcť jednoduchšie ukladať a spravovať tokeny, ktoré ste získali cez odmeny adrbrowsiel",
     "description": ""
   },
   "bapDeprecationHeader": {
-    "message": "Brave odmeny prechádzajú v Japonsku na nový systém!",
+    "message": "adrbrowsiel odmeny prechádzajú v Japonsku na nový systém!",
     "description": "Header text for BAP deprecation warning message"
   },
   "bapDeprecationLearnMore": {

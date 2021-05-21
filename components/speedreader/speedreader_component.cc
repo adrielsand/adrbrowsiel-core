@@ -1,16 +1,16 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/speedreader/speedreader_component.h"
+#include "adrbrowsiel/components/speedreader/speedreader_component.h"
 
 #include <utility>
 
 #include "base/bind.h"
 #include "base/command_line.h"
 #include "base/logging.h"
-#include "brave/components/speedreader/speedreader_switches.h"
+#include "adrbrowsiel/components/speedreader/speedreader_switches.h"
 #include "url/gurl.h"
 
 namespace speedreader {
@@ -25,7 +25,7 @@ constexpr base::FilePath::CharType kDatFileName[] =
 constexpr base::FilePath::CharType kStylesheetFileName[] =
     FILE_PATH_LITERAL("content-stylesheet.css");
 
-constexpr char kComponentName[] = "Brave SpeedReader Updater";
+constexpr char kComponentName[] = "adrbrowsiel SpeedReader Updater";
 constexpr char kComponentId[] = "jicbkmdloagakknpihibphagfckhjdih";
 constexpr char kComponentPublicKey[] =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3j/+grwCsrYVA99oDHa+E9z5edPIV"
@@ -38,7 +38,7 @@ constexpr char kComponentPublicKey[] =
 }  // namespace
 
 SpeedreaderComponent::SpeedreaderComponent(Delegate* delegate)
-    : brave_component_updater::BraveComponent(delegate) {
+    : adrbrowsiel_component_updater::adrbrowsielComponent(delegate) {
   const auto* cmd_line = base::CommandLine::ForCurrentProcess();
   if (!cmd_line->HasSwitch(speedreader::kSpeedreaderWhitelistPath)) {
     // Register component

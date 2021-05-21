@@ -217,7 +217,7 @@ exports[`ModalActivity tests basic tests matches the snapshot 1`] = `
             <div
               className="sc-kAzzGY kMRFgA"
             >
-              MISSING: braveVerified
+              MISSING: adrbrowsielVerified
             </div>
           </div>
         </div>

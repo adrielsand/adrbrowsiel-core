@@ -1,16 +1,16 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-import gridSitesReducer from '../../../brave_new_tab_ui/reducers/grid_sites_reducer'
-import * as storage from '../../../brave_new_tab_ui/storage/grid_sites_storage'
-import { types } from '../../../brave_new_tab_ui/constants/grid_sites_types'
-import * as gridSitesState from '../../../brave_new_tab_ui/state/gridSitesState'
+import gridSitesReducer from '../../../adrbrowsiel_new_tab_ui/reducers/grid_sites_reducer'
+import * as storage from '../../../adrbrowsiel_new_tab_ui/storage/grid_sites_storage'
+import { types } from '../../../adrbrowsiel_new_tab_ui/constants/grid_sites_types'
+import * as gridSitesState from '../../../adrbrowsiel_new_tab_ui/state/gridSitesState'
 
 const topSites: chrome.topSites.MostVisitedURL[] = [{
-  url: 'https://brave.com',
-  title: 'brave'
+  url: 'https://adrbrowsiel.com',
+  title: 'adrbrowsiel'
 }, {
   url: 'https://cezaraugusto.net',
   title: 'cezar augusto'

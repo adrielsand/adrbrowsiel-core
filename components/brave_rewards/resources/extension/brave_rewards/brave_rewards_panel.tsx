@@ -7,9 +7,9 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { Store } from 'webext-redux'
 
-import Theme from 'brave-ui/theme/brave-default'
+import Theme from 'adrbrowsiel-ui/theme/adrbrowsiel-default'
 import { ThemeProvider } from 'styled-components'
-import { initLocale } from 'brave-ui/helpers'
+import { initLocale } from 'adrbrowsiel-ui/helpers'
 require('emptykit.css')
 require('../../../../../ui/webui/resources/fonts/muli.css')
 require('../../../../../ui/webui/resources/fonts/poppins.css')

@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_HTTPS_EVERYWHERE_SERVICE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_HTTPS_EVERYWHERE_SERVICE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_HTTPS_EVERYWHERE_SERVICE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_HTTPS_EVERYWHERE_SERVICE_H_
 
 #include <memory>
 #include <string>
@@ -14,8 +14,8 @@
 #include "base/memory/weak_ptr.h"
 #include "base/sequence_checker.h"
 #include "base/synchronization/lock.h"
-#include "brave/components/brave_shields/browser/base_brave_shields_service.h"
-#include "brave/components/brave_shields/browser/https_everywhere_recently_used_cache.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/base_adrbrowsiel_shields_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/https_everywhere_recently_used_cache.h"
 
 namespace leveldb {
 class DB;
@@ -23,9 +23,9 @@ class DB;
 
 class HTTPSEverywhereServiceTest;
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 extern const char kHTTPSEverywhereComponentName[];
 extern const char kHTTPSEverywhereComponentId[];
@@ -43,10 +43,10 @@ struct HTTPSE_REDIRECTS_COUNT_ST {
   unsigned int redirects_;
 };
 
-class HTTPSEverywhereService : public BaseBraveShieldsService,
+class HTTPSEverywhereService : public BaseadrbrowsielShieldsService,
                          public base::SupportsWeakPtr<HTTPSEverywhereService> {
  public:
-  explicit HTTPSEverywhereService(BraveComponent::Delegate* delegate);
+  explicit HTTPSEverywhereService(adrbrowsielComponent::Delegate* delegate);
   ~HTTPSEverywhereService() override;
   bool GetHTTPSURL(const GURL* url,
                    const uint64_t& request_id,
@@ -92,8 +92,8 @@ class HTTPSEverywhereService : public BaseBraveShieldsService,
 
 // Creates the HTTPSEverywhereService
 std::unique_ptr<HTTPSEverywhereService> HTTPSEverywhereServiceFactory(
-    BraveComponent::Delegate* delegate);
+    adrbrowsielComponent::Delegate* delegate);
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_HTTPS_EVERYWHERE_SERVICE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_HTTPS_EVERYWHERE_SERVICE_H_

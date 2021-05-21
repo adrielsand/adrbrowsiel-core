@@ -4,8 +4,8 @@
 
 import { ComponentType } from 'react'
 import styled from 'styled-components'
-import DefaultModal, { Props } from 'brave-ui/components/popupModals/modal'
-import Heading from 'brave-ui/components/text/heading'
+import DefaultModal, { Props } from 'adrbrowsiel-ui/components/popupModals/modal'
+import Heading from 'adrbrowsiel-ui/components/text/heading'
 
 export const Modal = styled(DefaultModal as ComponentType<Props>)`
   height: 100%;

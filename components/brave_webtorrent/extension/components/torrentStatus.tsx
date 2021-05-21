@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 import * as prettierBytes from 'prettier-bytes'
-import { Heading } from 'brave-ui/components'
+import { Heading } from 'adrbrowsiel-ui/components'
 
 // Constants
 import { TorrentObj } from '../constants/webtorrentState'

@@ -1,10 +1,10 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_DOMAIN_BLOCK_NAVIGATION_THROTTLE_H_
-#define BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_DOMAIN_BLOCK_NAVIGATION_THROTTLE_H_
+#ifndef adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_DOMAIN_BLOCK_NAVIGATION_THROTTLE_H_
+#define adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_DOMAIN_BLOCK_NAVIGATION_THROTTLE_H_
 
 #include <memory>
 #include <string>
@@ -21,7 +21,7 @@ class NavigationHandle;
 class WebContents;
 }  // namespace content
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 class AdBlockService;
 class AdBlockCustomFiltersService;
@@ -64,6 +64,6 @@ class DomainBlockNavigationThrottle : public content::NavigationThrottle {
   base::WeakPtrFactory<DomainBlockNavigationThrottle> weak_ptr_factory_{this};
 };
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields
 
-#endif  // BRAVE_COMPONENTS_BRAVE_SHIELDS_BROWSER_DOMAIN_BLOCK_NAVIGATION_THROTTLE_H_
+#endif  // adrbrowsiel_COMPONENTS_adrbrowsiel_SHIELDS_BROWSER_DOMAIN_BLOCK_NAVIGATION_THROTTLE_H_

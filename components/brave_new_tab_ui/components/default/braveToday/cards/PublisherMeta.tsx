@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -9,7 +9,7 @@ import { getLocale } from '../../../../../common/locale'
 import { OnSetPublisherPref } from '../'
 
 type Props = {
-  publisher: BraveToday.Publisher
+  publisher: adrbrowsielToday.Publisher
   onSetPublisherPref: OnSetPublisherPref
   title?: boolean
 }
@@ -103,7 +103,7 @@ const MenuItem = styled('li')`
   }
 
   &:focus-visible {
-    outline: solid 1px ${p => p.theme.color.brandBrave};
+    outline: solid 1px ${p => p.theme.color.brandadrbrowsiel};
   }
 `
 
@@ -161,10 +161,10 @@ export default function PublisherMetaComponent (props: Props) {
   }, [props.publisher, props.onSetPublisherPref])
 
   const commandText = React.useMemo<string>(() => {
-    const raw = getLocale('braveTodayDisableSourceCommand')
+    const raw = getLocale('adrbrowsielTodayDisableSourceCommand')
     const publisherIndex = raw.indexOf('$1')
     if (publisherIndex === -1) {
-      console.warn('Locale string for braveTodayDisableSourceCommand did not have a $1 replacement area for publisher name.', raw)
+      console.warn('Locale string for adrbrowsielTodayDisableSourceCommand did not have a $1 replacement area for publisher name.', raw)
       return `${raw} ${props.publisher.publisher_name}`
     }
     return raw.substr(0, publisherIndex) +

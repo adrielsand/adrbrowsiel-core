@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 The Brave Authors. All rights reserved.
+/* Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -29,8 +29,8 @@ import org.chromium.base.Log;
 import org.chromium.base.annotations.CalledByNative;
 import org.chromium.base.annotations.JNINamespace;
 import org.chromium.base.annotations.NativeMethods;
-import org.chromium.chrome.browser.BraveRewardsHelper;
-import org.chromium.chrome.browser.preferences.BravePrefServiceBridge;
+import org.chromium.chrome.browser.adrbrowsielRewardsHelper;
+import org.chromium.chrome.browser.preferences.adrbrowsielPrefServiceBridge;
 
 import java.security.SecureRandom;
 import java.util.Calendar;
@@ -90,7 +90,7 @@ public class SafetyNetCheck {
             boolean performAttestationOnClient, boolean forceCheck) {
         boolean res = false;
         try {
-            Activity activity = (Activity)BraveRewardsHelper.getChromeTabbedActivity();
+            Activity activity = (Activity)adrbrowsielRewardsHelper.getChromeTabbedActivity();
             if (activity == null) return false;
             if (GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(activity) == ConnectionResult.SUCCESS) {
                 SharedPreferences sharedPreferences = ContextUtils.getAppSharedPreferences();
@@ -171,7 +171,7 @@ public class SafetyNetCheck {
                         Log.e(TAG, "Unable to perform SafetyNet attestation: " + e);
                     }
                     attestationPassed = ctsProfileMatch && basicIntegrity;
-                    BravePrefServiceBridge.getInstance().setSafetynetStatus(attestationPassed
+                    adrbrowsielPrefServiceBridge.getInstance().setSafetynetStatus(attestationPassed
                                     ? SAFETYNET_STATUS_VERIFIED_PASSED
                                     : SAFETYNET_STATUS_VERIFIED_NOT_PASSED);
                     if (mSafetyNetCheckCallback != null) {
@@ -179,7 +179,7 @@ public class SafetyNetCheck {
                     }
                 }
             } else {
-                BravePrefServiceBridge.getInstance().setSafetynetStatus(
+                adrbrowsielPrefServiceBridge.getInstance().setSafetynetStatus(
                         SAFETYNET_STATUS_NOT_VERIFIED);
             }
         }

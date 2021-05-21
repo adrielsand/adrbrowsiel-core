@@ -1,11 +1,11 @@
-// Copyright (c) 2021 The Brave Authors. All rights reserved.
+// Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
 import { ComponentType } from 'react'
 import styled, { AnyStyledComponent } from 'styled-components'
-import { CaratStrongDownIcon, ShieldAlertIcon, AlertMessageIcon } from 'brave-ui/components/icons'
+import { CaratStrongDownIcon, ShieldAlertIcon, AlertMessageIcon } from 'adrbrowsiel-ui/components/icons'
 
 // rotated variants
 function RotatedIconComponent (
@@ -44,7 +44,7 @@ export const ArrowDownIcon = styled(CaratStrongDownIcon as ComponentType)`
   &:focus {
     outline-width: 2px;
     outline-offset: -6px;
-    outline-color: ${p => p.theme.color.brandBrave};
+    outline-color: ${p => p.theme.color.brandadrbrowsiel};
   }
 
   &:active {

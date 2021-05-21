@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { torrentObj } from '../testData'
-import TorrentFileList from '../../../brave_webtorrent/extension/components/torrentFileList'
+import TorrentFileList from '../../../adrbrowsiel_webtorrent/extension/components/torrentFileList'
 
 const torrentId = 'id'
 describe('torrentFileList component', () => {

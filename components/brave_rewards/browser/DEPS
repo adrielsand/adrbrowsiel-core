@@ -19,8 +19,8 @@ specific_include_rules = {
     "+chrome/browser/profiles/profile.h",
   ],
   "rewards_service_impl.cc": [
-    "+brave/browser/brave_ads/ads_service_factory.h",
-    "+brave/browser/ui/webui/brave_rewards_source.h",
+    "+adrbrowsiel/browser/adrbrowsiel_ads/ads_service_factory.h",
+    "+adrbrowsiel/browser/ui/webui/adrbrowsiel_rewards_source.h",
     "+chrome/browser/bitmap_fetcher/bitmap_fetcher_service_factory.h",
     "+chrome/browser/browser_process_impl.h",
     "+chrome/browser/favicon/favicon_service_factory.h",
@@ -34,10 +34,10 @@ specific_include_rules = {
     "+chrome/browser/profiles/profile.h",
   ],
   "network_delegate_helper.cc": [
-    "+brave/browser/brave_rewards/rewards_service_factory.h",
+    "+adrbrowsiel/browser/adrbrowsiel_rewards/rewards_service_factory.h",
     "+chrome/browser/profiles/profile.h",
   ],
   "network_delegate_helper.h": [
-    "+brave/browser/net/url_context.h",
+    "+adrbrowsiel/browser/net/url_context.h",
   ],
 }

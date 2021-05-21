@@ -1,13 +1,13 @@
-/* Copyright 2020 The Brave Authors. All rights reserved.
+/* Copyright 2020 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/ipfs/ipfs_p3a.h"
+#include "adrbrowsiel/components/ipfs/ipfs_p3a.h"
 
 #include "base/metrics/histogram_macros.h"
-#include "brave/components/ipfs/ipfs_service.h"
-#include "brave/components/ipfs/pref_names.h"
+#include "adrbrowsiel/components/ipfs/ipfs_service.h"
+#include "adrbrowsiel/components/ipfs/pref_names.h"
 #include "components/prefs/pref_service.h"
 #include "components/user_prefs/user_prefs.h"
 #include "content/public/browser/browser_context.h"
@@ -29,7 +29,7 @@ void RecordIPFSCompanionInstalled(content::BrowserContext* context) {
   auto* registry = extensions::ExtensionRegistry::Get(context);
   bool installed =
       registry->enabled_extensions().Contains(ipfs_companion_extension_id);
-  UMA_HISTOGRAM_BOOLEAN("Brave.IPFS.IPFSCompanionInstalled", installed);
+  UMA_HISTOGRAM_BOOLEAN("adrbrowsiel.IPFS.IPFSCompanionInstalled", installed);
 #endif
 }
 
@@ -64,7 +64,7 @@ int GetDaemonUsageBucket(base::TimeDelta elapsed_time) {
 void RecordIPFSDetectionPromptCount(PrefService* prefs) {
   const int max_bucket = 4;
   int bucket = GetIPFSDetectionPromptBucket(prefs);
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.IPFS.DetectionPromptCount", bucket,
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.IPFS.DetectionPromptCount", bucket,
                              max_bucket);
 }
 
@@ -72,13 +72,13 @@ void RecordIPFSDetectionPromptCount(PrefService* prefs) {
 // Ask (0), Gateway (1), Local Node (2), Disabled (3)
 void RecordIPFSGatewaySetting(PrefService* prefs) {
   auto resolve_method = prefs->GetInteger(kIPFSResolveMethod);
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.IPFS.GatewaySetting", resolve_method, 4);
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.IPFS.GatewaySetting", resolve_method, 4);
 }
 
 // How long did the daemon run?
 // i) 0-5min, ii) 5-60min, iii) 1h-24h, iv) 24h+?
 void RecordIPFSDaemonRunTime(base::TimeDelta elapsed_time) {
-  UMA_HISTOGRAM_EXACT_LINEAR("Brave.IPFS.DaemonRunTime",
+  UMA_HISTOGRAM_EXACT_LINEAR("adrbrowsiel.IPFS.DaemonRunTime",
                              GetDaemonUsageBucket(elapsed_time), 4);
 }
 

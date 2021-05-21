@@ -3,14 +3,14 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import * as React from 'react'
-import DeviceRecognitionControl, { Props } from '../../../../../brave_extension/extension/brave_extension/containers/advancedView/controls/deviceRecognitionControl'
-import { BlockOptions } from '../../../../../brave_extension/extension/brave_extension/types/other/blockTypes'
-import * as actionTypes from '../../../../../brave_extension/extension/brave_extension/constants/shieldsPanelTypes'
+import DeviceRecognitionControl, { Props } from '../../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/containers/advancedView/controls/deviceRecognitionControl'
+import { BlockOptions } from '../../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/types/other/blockTypes'
+import * as actionTypes from '../../../../../adrbrowsiel_extension/extension/adrbrowsiel_extension/constants/shieldsPanelTypes'
 import { shallow } from 'enzyme'
 
 const fakeProps: Props = {
   favicon: '',
-  hostname: 'brave.com',
+  hostname: 'adrbrowsiel.com',
   isBlockedListOpen: true,
   setBlockedListOpen: () => { return },
   fingerprinting: 'allow',

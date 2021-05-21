@@ -1,10 +1,10 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#ifndef BRAVE_IOS_BROWSER_BRAVE_WEB_MAIN_PARTS_H_
-#define BRAVE_IOS_BROWSER_BRAVE_WEB_MAIN_PARTS_H_
+#ifndef adrbrowsiel_IOS_BROWSER_adrbrowsiel_WEB_MAIN_PARTS_H_
+#define adrbrowsiel_IOS_BROWSER_adrbrowsiel_WEB_MAIN_PARTS_H_
 
 #include <memory>
 
@@ -19,10 +19,10 @@ namespace base {
 class FieldTrialList;
 }
 
-class BraveWebMainParts : public web::WebMainParts {
+class adrbrowsielWebMainParts : public web::WebMainParts {
  public:
-  BraveWebMainParts();
-  ~BraveWebMainParts() override;
+  adrbrowsielWebMainParts();
+  ~adrbrowsielWebMainParts() override;
 
  private:
   // web::WebMainParts implementation.
@@ -43,7 +43,7 @@ class BraveWebMainParts : public web::WebMainParts {
 
   IOSChromeFieldTrials ios_field_trials_;
 
-  DISALLOW_COPY_AND_ASSIGN(BraveWebMainParts);
+  DISALLOW_COPY_AND_ASSIGN(adrbrowsielWebMainParts);
 };
 
-#endif  // BRAVE_IOS_BROWSER_BRAVE_WEB_MAIN_PARTS_H_
+#endif  // adrbrowsiel_IOS_BROWSER_adrbrowsiel_WEB_MAIN_PARTS_H_

@@ -1,13 +1,13 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/decentralized_dns/decentralized_dns_interstitial_controller_client.h"
+#include "adrbrowsiel/components/decentralized_dns/decentralized_dns_interstitial_controller_client.h"
 
-#include "brave/components/decentralized_dns/constants.h"
-#include "brave/components/decentralized_dns/pref_names.h"
-#include "brave/components/decentralized_dns/utils.h"
+#include "adrbrowsiel/components/decentralized_dns/constants.h"
+#include "adrbrowsiel/components/decentralized_dns/pref_names.h"
+#include "adrbrowsiel/components/decentralized_dns/utils.h"
 #include "components/prefs/pref_service.h"
 #include "components/security_interstitials/content/settings_page_helper.h"
 #include "components/security_interstitials/core/metrics_helper.h"

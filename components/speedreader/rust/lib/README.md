@@ -1,11 +1,11 @@
-# Brave SpeedReader
+# adrbrowsiel SpeedReader
 
 At a high level, SpeedReader:
 
 * Distills text-focused document content from a suitable HTML
 * Works on HTML documents before rendering them
 * Generates HTML output with no external styling or scripting
-* Content styled with Brave-designed themes
+* Content styled with adrbrowsiel-designed themes
 
 ## Structure
 
@@ -29,6 +29,6 @@ You need to clone the speedreader test data to the
 `components/speedreader/rust/lib` directory.
 
 ```
-$ git@github.com:brave-experiments/speedreader-test-data.git data
+$ git@github.com:adrbrowsiel-experiments/speedreader-test-data.git data
 $ cargo test
 ```

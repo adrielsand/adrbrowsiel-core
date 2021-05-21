@@ -1,14 +1,14 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/domain_block_tab_storage.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/domain_block_tab_storage.h"
 
 #include "base/memory/ptr_util.h"
 #include "content/public/browser/web_contents.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 // Arbitrary but unique key required for SupportsUserData.
 // Upstream does this too.
@@ -29,4 +29,4 @@ DomainBlockTabStorage* DomainBlockTabStorage::GetOrCreate(
 
 WEB_CONTENTS_USER_DATA_KEY_IMPL(DomainBlockTabStorage)
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

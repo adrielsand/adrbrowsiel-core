@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-const braveExtensionId = 'mnojpmjdmbbfmejpflffifhffcmidifd'
+const adrbrowsielExtensionId = 'mnojpmjdmbbfmejpflffifhffcmidifd'
 
 export namespace MessageTypes {
 
@@ -40,10 +40,10 @@ function isAllowedMessageSender (sender: chrome.runtime.MessageSender): boolean 
 // Client-side scripts call this to send a message to the background
 export function send<U= void, T= void> (messageType: string, payload?: T): Promise<U> {
   // TODO: verify comms channel isn't closed prematurely first. If so, wait and try again.
-  console.debug(`Sending data to brave extension for ${messageType}`, { messageType, payload })
+  console.debug(`Sending data to adrbrowsiel extension for ${messageType}`, { messageType, payload })
   return new Promise(function (resolve) {
-    chrome.runtime.sendMessage(braveExtensionId, { messageType, payload }, function (responseData: U) {
-      console.debug(`got response from brave extension for "${messageType}"`, responseData)
+    chrome.runtime.sendMessage(adrbrowsielExtensionId, { messageType, payload }, function (responseData: U) {
+      console.debug(`got response from adrbrowsiel extension for "${messageType}"`, responseData)
       resolve(responseData)
     })
   })

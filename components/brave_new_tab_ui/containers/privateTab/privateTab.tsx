@@ -61,7 +61,7 @@ export default class PrivateTab extends React.PureComponent<Props, {}> {
             <div>
               <SubTitle>{getLocale('headerLabel')}</SubTitle>
               <Title>{getLocale('headerTitle')}</Title>
-              <Text>{getLocale('headerText')} <Link href='https://support.brave.com/hc/en-us/articles/360017840332' target='_blank'>{getLocale('headerButton')}</Link>
+              <Text>{getLocale('headerText')} <Link href='https://support.adrbrowsiel.com/hc/en-us/articles/360017840332' target='_blank'>{getLocale('headerButton')}</Link>
               </Text>
             </div>
           </HeaderGrid>
@@ -83,13 +83,13 @@ export default class PrivateTab extends React.PureComponent<Props, {}> {
                 onChange={this.onChangePrivateSearchEngine}
               />
             </FakeButton>
-            <Link href='https://support.brave.com/hc/en-us/articles/360018266171' target='_blank'>{getLocale('learnMore')}</Link>
+            <Link href='https://support.adrbrowsiel.com/hc/en-us/articles/360018266171' target='_blank'>{getLocale('learnMore')}</Link>
           </ButtonGroup>
         </Box>
         <Box>
           <TorContent />
           <Separator />
-          <FakeButton href='https://support.brave.com/hc/en-us/articles/360018121491' target='_blank'>
+          <FakeButton href='https://support.adrbrowsiel.com/hc/en-us/articles/360018121491' target='_blank'>
             {getLocale('boxTorButton')}
           </FakeButton>
         </Box>

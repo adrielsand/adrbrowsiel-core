@@ -1,23 +1,23 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/brave_shields/browser/ad_block_custom_filters_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_custom_filters_service.h"
 
 #include "base/logging.h"
-#include "brave/components/adblock_rust_ffi/src/wrapper.h"
-#include "brave/components/brave_shields/browser/ad_block_service.h"
-#include "brave/components/brave_shields/common/pref_names.h"
+#include "adrbrowsiel/components/adblock_rust_ffi/src/wrapper.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/browser/ad_block_service.h"
+#include "adrbrowsiel/components/adrbrowsiel_shields/common/pref_names.h"
 #include "components/prefs/pref_service.h"
 #include "content/public/browser/browser_thread.h"
 
-using brave_component_updater::BraveComponent;
+using adrbrowsiel_component_updater::adrbrowsielComponent;
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 AdBlockCustomFiltersService::AdBlockCustomFiltersService(
-    BraveComponent::Delegate* delegate)
+    adrbrowsielComponent::Delegate* delegate)
     : AdBlockBaseService(delegate) {}
 
 AdBlockCustomFiltersService::~AdBlockCustomFiltersService() {}
@@ -62,7 +62,7 @@ bool AdBlockCustomFiltersService::MigrateLegacyCosmeticFilters(
 
   filters_update +=
       "\n\n! Filters migrated from "
-      "'Right click > Brave > Block element via selector'";
+      "'Right click > adrbrowsiel > Block element via selector'";
   for (const auto& hostEntry : legacyFilters) {
     const std::string& host = hostEntry.first;
     const std::vector<std::string>& hostSelectors = hostEntry.second;
@@ -90,8 +90,8 @@ void AdBlockCustomFiltersService::UpdateCustomFiltersOnFileTaskRunner(
 ///////////////////////////////////////////////////////////////////////////////
 
 std::unique_ptr<AdBlockCustomFiltersService> AdBlockCustomFiltersServiceFactory(
-    BraveComponent::Delegate* delegate) {
+    adrbrowsielComponent::Delegate* delegate) {
   return std::make_unique<AdBlockCustomFiltersService>(delegate);
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

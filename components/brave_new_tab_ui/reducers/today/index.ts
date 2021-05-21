@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Brave Authors. All rights reserved.
+// Copyright (c) 2020 The adrbrowsiel Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
@@ -6,7 +6,7 @@
 import { createReducer } from 'redux-act'
 import * as Actions from '../../actions/today_actions'
 
-export type BraveTodayState = {
+export type adrbrowsielTodayState = {
   // Are we in the middle of checking for new data
   isFetching: boolean | string
   isUpdateAvailable: boolean
@@ -16,9 +16,9 @@ export type BraveTodayState = {
   cardsViewed: number
   cardsVisited: number
   // Feed data
-  feed?: BraveToday.Feed
-  publishers?: BraveToday.Publishers
-  articleScrollTo?: BraveToday.FeedItem
+  feed?: adrbrowsielToday.Feed
+  publishers?: adrbrowsielToday.Publishers
+  articleScrollTo?: adrbrowsielToday.FeedItem
 }
 
 function storeInHistoryState (data: Object) {
@@ -27,7 +27,7 @@ function storeInHistoryState (data: Object) {
   history.pushState(newHistoryState, document.title)
 }
 
-const defaultState: BraveTodayState = {
+const defaultState: adrbrowsielTodayState = {
   isFetching: true,
   isUpdateAvailable: false,
   hasInteracted: false,
@@ -40,7 +40,7 @@ if (history.state && history.state.todayArticle) {
   // TODO(petemill): Type this history.state data and put in an API module
   // see `async/today`.
   defaultState.currentPageIndex = history.state.todayPageIndex as number || 0
-  defaultState.articleScrollTo = history.state.todayArticle as BraveToday.FeedItem
+  defaultState.articleScrollTo = history.state.todayArticle as adrbrowsielToday.FeedItem
   defaultState.cardsVisited = history.state.todayCardsVisited as number || 0
   // Clear history state now that we have the info on app state
   storeInHistoryState({
@@ -51,10 +51,10 @@ if (history.state && history.state.todayArticle) {
 }
 
 // TODO(petemill): Make sure we don't keep scrolling to the scrolled-to article
-// if it gets removed and rendered again (e.g. if brave today is toggled off and on).
+// if it gets removed and rendered again (e.g. if adrbrowsiel today is toggled off and on).
 // Reset to defaultState when Today is turned off or refreshed.
 
-const reducer = createReducer<BraveTodayState>({}, defaultState)
+const reducer = createReducer<adrbrowsielTodayState>({}, defaultState)
 
 export default reducer
 

@@ -1,11 +1,11 @@
-/* Copyright (c) 2021 The Brave Authors. All rights reserved.
+/* Copyright (c) 2021 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #include "base/path_service.h"
-#include "brave/browser/brave_shields/brave_shields_web_contents_observer.h"
-#include "brave/common/brave_paths.h"
+#include "adrbrowsiel/browser/adrbrowsiel_shields/adrbrowsiel_shields_web_contents_observer.h"
+#include "adrbrowsiel/common/adrbrowsiel_paths.h"
 #include "chrome/browser/content_settings/host_content_settings_map_factory.h"
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/ui/browser.h"
@@ -21,20 +21,20 @@
 #include "net/dns/mock_host_resolver.h"
 #include "url/gurl.h"
 
-namespace brave_shields {
+namespace adrbrowsiel_shields {
 
 namespace {
 
-class TestBraveShieldsWebContentsObserver
-    : public BraveShieldsWebContentsObserver {
+class TestadrbrowsielShieldsWebContentsObserver
+    : public adrbrowsielShieldsWebContentsObserver {
  public:
-  explicit TestBraveShieldsWebContentsObserver(
+  explicit TestadrbrowsielShieldsWebContentsObserver(
       content::WebContents* web_contents)
-      : BraveShieldsWebContentsObserver(web_contents) {}
+      : adrbrowsielShieldsWebContentsObserver(web_contents) {}
 
-  // brave_shields::mojom::BraveShieldsHost.
+  // adrbrowsiel_shields::mojom::adrbrowsielShieldsHost.
   void OnJavaScriptBlocked(const std::u16string& details) override {
-    BraveShieldsWebContentsObserver::OnJavaScriptBlocked(details);
+    adrbrowsielShieldsWebContentsObserver::OnJavaScriptBlocked(details);
     block_javascript_count_++;
   }
 
@@ -48,32 +48,32 @@ class TestBraveShieldsWebContentsObserver
 
 }  // namespace
 
-class BraveShieldsWebContentsObserverTest : public InProcessBrowserTest {
+class adrbrowsielShieldsWebContentsObserverTest : public InProcessBrowserTest {
  public:
-  BraveShieldsWebContentsObserverTest() {}
+  adrbrowsielShieldsWebContentsObserverTest() {}
 
   void SetUpOnMainThread() override {
     InProcessBrowserTest::SetUpOnMainThread();
     host_resolver()->AddRule("*", "127.0.0.1");
 
-    brave::RegisterPathProvider();
+    adrbrowsiel::RegisterPathProvider();
     base::FilePath test_data_dir;
-    base::PathService::Get(brave::DIR_TEST_DATA, &test_data_dir);
+    base::PathService::Get(adrbrowsiel::DIR_TEST_DATA, &test_data_dir);
     embedded_test_server()->ServeFilesFromDirectory(test_data_dir);
 
     ASSERT_TRUE(embedded_test_server()->Start());
     content_settings_ =
         HostContentSettingsMapFactory::GetForProfile(browser()->profile());
 
-    // We can't simply create a new BraveShieldsWebContentsObserver for the same
+    // We can't simply create a new adrbrowsielShieldsWebContentsObserver for the same
     // WebContents, as that class will instatiate a WebContentsFrameReceiverSet
     // and we can't have two at the same time for the same mojo interface. Thus,
     // we need to remove the one created along with the initialization of the
     // browser process before creating the one we need for testing.
     content::RemoveWebContentsReceiverSet(
-        GetWebContents(), brave_shields::mojom::BraveShieldsHost::Name_);
-    brave_shields_web_contents_observer_ =
-        new TestBraveShieldsWebContentsObserver(GetWebContents());
+        GetWebContents(), adrbrowsiel_shields::mojom::adrbrowsielShieldsHost::Name_);
+    adrbrowsiel_shields_web_contents_observer_ =
+        new TestadrbrowsielShieldsWebContentsObserver(GetWebContents());
   }
 
   content::WebContents* GetWebContents() {
@@ -82,16 +82,16 @@ class BraveShieldsWebContentsObserverTest : public InProcessBrowserTest {
 
   HostContentSettingsMap* content_settings() { return content_settings_; }
 
-  TestBraveShieldsWebContentsObserver* brave_shields_web_contents_observer() {
-    return brave_shields_web_contents_observer_;
+  TestadrbrowsielShieldsWebContentsObserver* adrbrowsiel_shields_web_contents_observer() {
+    return adrbrowsiel_shields_web_contents_observer_;
   }
 
  private:
   HostContentSettingsMap* content_settings_;
-  TestBraveShieldsWebContentsObserver* brave_shields_web_contents_observer_;
+  TestadrbrowsielShieldsWebContentsObserver* adrbrowsiel_shields_web_contents_observer_;
 };
 
-IN_PROC_BROWSER_TEST_F(BraveShieldsWebContentsObserverTest,
+IN_PROC_BROWSER_TEST_F(adrbrowsielShieldsWebContentsObserverTest,
                        JavaScriptBlockedEvents) {
   const GURL& url = GURL("a.com");
 
@@ -105,7 +105,7 @@ IN_PROC_BROWSER_TEST_F(BraveShieldsWebContentsObserverTest,
   EXPECT_TRUE(ui_test_utils::NavigateToURL(
       browser(), embedded_test_server()->GetURL("a.com", "/load_js.html")));
   EXPECT_TRUE(WaitForLoadStop(GetWebContents()));
-  EXPECT_EQ(brave_shields_web_contents_observer()->block_javascript_count(), 0);
+  EXPECT_EQ(adrbrowsiel_shields_web_contents_observer()->block_javascript_count(), 0);
 
   // Enable JavaScript blocking globally now.
   content_settings()->SetContentSettingCustomScope(
@@ -116,10 +116,10 @@ IN_PROC_BROWSER_TEST_F(BraveShieldsWebContentsObserverTest,
   EXPECT_EQ(CONTENT_SETTING_BLOCK, block_javascript_setting);
 
   // Reload the test page now that JavaScript has been blocked.
-  brave_shields_web_contents_observer()->Reset();
+  adrbrowsiel_shields_web_contents_observer()->Reset();
   GetWebContents()->GetController().Reload(content::ReloadType::NORMAL, true);
   EXPECT_TRUE(WaitForLoadStop(GetWebContents()));
-  EXPECT_EQ(brave_shields_web_contents_observer()->block_javascript_count(), 1);
+  EXPECT_EQ(adrbrowsiel_shields_web_contents_observer()->block_javascript_count(), 1);
 
   // Disable JavaScript blocking again now.
   content_settings()->SetContentSettingCustomScope(
@@ -130,10 +130,10 @@ IN_PROC_BROWSER_TEST_F(BraveShieldsWebContentsObserverTest,
   EXPECT_EQ(CONTENT_SETTING_ALLOW, block_javascript_setting);
 
   // Reload the test page now that JavaScript has been allowed again.
-  brave_shields_web_contents_observer()->Reset();
+  adrbrowsiel_shields_web_contents_observer()->Reset();
   GetWebContents()->GetController().Reload(content::ReloadType::NORMAL, true);
   EXPECT_TRUE(WaitForLoadStop(GetWebContents()));
-  EXPECT_EQ(brave_shields_web_contents_observer()->block_javascript_count(), 0);
+  EXPECT_EQ(adrbrowsiel_shields_web_contents_observer()->block_javascript_count(), 0);
 }
 
-}  // namespace brave_shields
+}  // namespace adrbrowsiel_shields

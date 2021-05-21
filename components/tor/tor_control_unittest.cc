@@ -1,9 +1,9 @@
-/* Copyright (c) 2019 The Brave Authors. All rights reserved.
+/* Copyright (c) 2019 The adrbrowsiel Authors. All rights reserved.
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "brave/components/tor/tor_control.h"
+#include "adrbrowsiel/components/tor/tor_control.h"
 
 #include "base/callback_helpers.h"
 #include "base/run_loop.h"
@@ -227,7 +227,7 @@ TEST(TorControlTest, GetCircuitEstablishedDone) {
 
                        // --- Error cases ---
                        is_called = false;
-                       established.reset(new std::string("iambrave"));
+                       established.reset(new std::string("iamadrbrowsiel"));
                        control->GetCircuitEstablishedDone(
                            std::move(established),
                            base::BindOnce(
