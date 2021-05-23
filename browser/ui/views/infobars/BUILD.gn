@@ -1,5 +1,5 @@
 source_set("adrbrowsiel_wayback_machine") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10652 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10652 is resolved
   check_includes = false
   sources = [
     "adrbrowsiel_wayback_machine_infobar_button_container.cc",

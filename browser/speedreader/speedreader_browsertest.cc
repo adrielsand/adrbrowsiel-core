@@ -68,7 +68,7 @@ class SpeedReaderBrowserTest : public InProcessBrowserTest {
   net::EmbeddedTestServer https_server_;
 };
 
-// disabled in https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/11328
+// disabled in https://github.com/adrielsand/adrbrowsiel-browser/issues/11328
 IN_PROC_BROWSER_TEST_F(SpeedReaderBrowserTest, DISABLED_SmokeTest) {
   chrome::ExecuteCommand(browser(), IDC_TOGGLE_SPEEDREADER);
   const GURL url = https_server_.GetURL(kTestHost, kTestPage);

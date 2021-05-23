@@ -1319,7 +1319,7 @@ void AdsServiceImpl::MigratePrefs() {
 
     // Force migration of preferences from version 1 if
     // |is_upgrading_from_pre_adrbrowsiel_ads_build_| is set to true to fix
-    // "https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5434"
+    // "https://github.com/adrielsand/adrbrowsiel-browser/issues/5434"
     SetIntegerPref(prefs::kVersion, 1);
   } else {
     VLOG(1) << "Migrating ads preferences";
@@ -1596,7 +1596,7 @@ void AdsServiceImpl::MigratePrefsVersion9To10() {
 
 bool AdsServiceImpl::IsUpgradingFromPreadrbrowsielAdsBuild() {
   // adrbrowsiel ads was hidden in 0.62.x however due to a bug |prefs::kEnabled| was
-  // set to true causing "https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5434"
+  // set to true causing "https://github.com/adrielsand/adrbrowsiel-browser/issues/5434"
 
   // |prefs::kIdleTimeThreshold| was not serialized in 0.62.x
 

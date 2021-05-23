@@ -76,7 +76,7 @@ const size_t adrbrowsielWalletService::kSeedByteLength = 32;
 // access to the master seed, but it does have a deterministic seed.
 // The salt value is the same intentionally on all clients.
 // See
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information#note-on-salts
+// https://github.com/adrielsand/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information#note-on-salts
 // static
 std::string adrbrowsielWalletService::GetBitGoSeedFromRootSeed(
     const std::string& seed) {
@@ -91,7 +91,7 @@ std::string adrbrowsielWalletService::GetBitGoSeedFromRootSeed(
 // access to the master seed, but it does have a deterministic seed.
 // The salt value is the same intentionally on all clients.
 // See
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information#note-on-salts
+// https://github.com/adrielsand/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information#note-on-salts
 // static
 std::string adrbrowsielWalletService::GetEthereumRemoteClientSeedFromRootSeed(
     const std::string& seed) {
@@ -194,7 +194,7 @@ adrbrowsiel_wallet::EthJsonRpcController* adrbrowsielWalletService::controller()
 // If this function is called multiple times, the previous value
 // from prefs will be re-used.
 // The return value will be true if successful
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information
+// https://github.com/adrielsand/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information
 bool adrbrowsielWalletService::LoadRootSeedInfo(std::vector<uint8_t> key,
                                           std::string* seed) {
   std::string nonce;
@@ -237,7 +237,7 @@ bool adrbrowsielWalletService::LoadRootSeedInfo(std::vector<uint8_t> key,
 // deterministic hash of that seed with HKDF, so that we can use
 // other HKDF hashes with different info parameters for different purposes.
 // For more information, see:
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information
+// https://github.com/adrielsand/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information
 std::string adrbrowsielWalletService::GetWalletSeed(std::vector<uint8_t> key) {
   std::string seed;
   if (!LoadRootSeedInfo(key, &seed)) {
@@ -252,7 +252,7 @@ std::string adrbrowsielWalletService::GetWalletSeed(std::vector<uint8_t> key) {
 // deterministic hash of that seed with HKDF, so that we can use
 // other HKDF hashes with different info parameters for different purposes.
 // For more information, see:
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information
+// https://github.com/adrielsand/adrbrowsiel-browser/wiki/adrbrowsiel-Ethereum-Remote-Client-Wallet-Seed-Information
 std::string adrbrowsielWalletService::GetBitGoSeed(std::vector<uint8_t> key) {
   std::string seed;
   if (!LoadRootSeedInfo(key, &seed)) {

@@ -1085,7 +1085,7 @@ BATClassAdsBridge(BOOL, isDebug, setDebug, g_is_debug)
 - (void)getBrowsingHistory:(const int)max_count
                    forDays:(const int)days_ago
                   callback:(ads::GetBrowsingHistoryCallback)callback {
-  // To be implemented https://github.com/adrbrowsiel/adrbrowsiel-ios/issues/3499
+  // To be implemented https://github.com/adrielsand/adrbrowsiel-ios/issues/3499
   callback({});
 }
 

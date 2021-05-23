@@ -162,7 +162,7 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
   // TODO(shong): Migrate this to local state also and guard in ENABLE_WIDEVINE.
   // We don't need to display "don't ask widevine prompt option" in settings
   // if widevine is disabled.
-  // F/u issue: https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7000
+  // F/u issue: https://github.com/adrielsand/adrbrowsiel-browser/issues/7000
   registry->RegisterBooleanPref(kAskWidevineInstall, true);
 
   // Default adrbrowsiel shields

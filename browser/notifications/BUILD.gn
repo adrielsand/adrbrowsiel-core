@@ -1,7 +1,7 @@
 import("//chrome/common/features.gni")
 
 source_set("notifications") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10657 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10657 is resolved
   check_includes = false
 
   sources = [

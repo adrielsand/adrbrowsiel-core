@@ -4,7 +4,7 @@ import("//adrbrowsiel/vendor/bat-native-ledger/config.gni")
 import("//extensions/buildflags/buildflags.gni")
 
 source_set("browser") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10618 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10618 is resolved
   check_includes = false
   public_deps = [ "buildflags" ]
 

@@ -42,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adrbrowsiel/adrbrowsiel-core.git"
+    "url": "git+https://github.com/adrielsand/adrbrowsiel-core.git"
   },
   "author": {
     "name": "adrbrowsiel Software <support@adrbrowsiel.com>"
@@ -239,9 +239,9 @@
   ],
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/adrbrowsiel/adrbrowsiel-browser/issues"
+    "url": "https://github.com/adrielsand/adrbrowsiel-browser/issues"
   },
-  "homepage": "https:/github.com/adrbrowsiel/adrbrowsiel-core#readme",
+  "homepage": "https:/github.com/adrielsand/adrbrowsiel-core#readme",
   "devDependencies": {
     "@babel/core": "7.13.8",
     "@dump247/storybook-state": "1.6.1",

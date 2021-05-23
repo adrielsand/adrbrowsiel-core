@@ -43,7 +43,7 @@ export const SelectBox = styled('select')<SelectBoxProps>`
   cursor: pointer;
 
   > option {
-    /* see https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/4213 for info */
+    /* see https://github.com/adrielsand/adrbrowsiel-browser/issues/4213 for info */
     color: ${palette.black};
   }
 

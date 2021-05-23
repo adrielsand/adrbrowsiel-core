@@ -3,7 +3,7 @@ import("//adrbrowsiel/components/tor/buildflags/buildflags.gni")
 import("//extensions/buildflags/buildflags.gni")
 
 source_set("tor") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10655 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10655 is resolved
   check_includes = false
   visibility = [
     ":*",

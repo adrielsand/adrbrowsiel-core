@@ -69,7 +69,7 @@ bool IsUpdaterURL(const GURL& gurl) {
 }
 
 bool RewriteBugReportingURL(const GURL& request_url, GURL* new_url) {
-  GURL url("https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/new");
+  GURL url("https://github.com/adrielsand/adrbrowsiel-browser/issues/new");
   std::string query = "title=Crash%20Report&labels=crash";
   // We are expecting 3 query keys: comment, template, and labels
   base::StringPairs pairs;

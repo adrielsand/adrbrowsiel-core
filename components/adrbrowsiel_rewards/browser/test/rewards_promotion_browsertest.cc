@@ -193,7 +193,7 @@ class RewardsPromotionBrowserTest : public InProcessBrowserTest {
   bool removed_ = false;
 };
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12605
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12605
 IN_PROC_BROWSER_TEST_F(RewardsPromotionBrowserTest,
                        DISABLED_ClaimViaSettingsPage) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
@@ -201,7 +201,7 @@ IN_PROC_BROWSER_TEST_F(RewardsPromotionBrowserTest,
   ASSERT_EQ(balance, 30.0);
 }
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12605
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12605
 IN_PROC_BROWSER_TEST_F(RewardsPromotionBrowserTest, DISABLED_ClaimViaPanel) {
   double balance = ClaimPromotion(true);
   ASSERT_EQ(balance, 30.0);
@@ -229,7 +229,7 @@ IN_PROC_BROWSER_TEST_F(RewardsPromotionBrowserTest, PromotionGone) {
   CheckPromotionStatus("Over");
 }
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12632
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12632
 IN_PROC_BROWSER_TEST_F(
     RewardsPromotionBrowserTest,
     DISABLED_PromotionRemovedFromEndpoint) {

@@ -1,5 +1,5 @@
 source_set("bookmark") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10654 is resolved 
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10654 is resolved 
   check_includes = false
   sources = [
     "adrbrowsiel_bookmark_tab_helper.cc",

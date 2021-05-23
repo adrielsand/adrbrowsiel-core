@@ -161,7 +161,7 @@ Default directory for cache data.  (Why?  See
 .SH BUGS
 Bug tracker:
 .IP
-https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/
+https://github.com/adrielsand/adrbrowsiel-browser/issues/
 .PP
 Be sure to do your search within "All Issues" before reporting bugs,
 and be sure to pick the "Defect on Linux" template when filing a new one.

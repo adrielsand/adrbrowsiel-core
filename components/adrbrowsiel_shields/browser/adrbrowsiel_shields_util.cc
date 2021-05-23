@@ -438,7 +438,7 @@ bool MaybeChangeReferrer(bool allow_referrers,
 
   // Cap the referrer to "strict-origin-when-cross-origin". More restrictive
   // policies should be already applied.
-  // See https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/13464
+  // See https://github.com/adrielsand/adrbrowsiel-browser/issues/13464
   *output_referrer = Referrer::SanitizeForRequest(
       target_url,
       Referrer(current_referrer.GetOrigin(),

@@ -229,7 +229,7 @@ void Contribution::ContributionCompleted(
     return;
   }
 
-  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7717)
+  // TODO(https://github.com/adrielsand/adrbrowsiel-browser/issues/7717)
   // rename to ContributionCompleted
   ledger_->ledger_client()->OnReconcileComplete(
       result,

@@ -103,7 +103,7 @@ source_set("bat_native_ledger_tests") {
 
   if (!is_asan) {
     # Move sources out of the !is_asan block when
-    # https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/11893 is fixed
+    # https://github.com/adrielsand/adrbrowsiel-browser/issues/11893 is fixed
     sources += [ "//adrbrowsiel/vendor/bat-native-ledger/src/bat/ledger/internal/legacy/media/twitch_unittest.cc" ]
   }
 

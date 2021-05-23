@@ -10,7 +10,7 @@ import("//build/config/features.gni")
 defines = adrbrowsiel_service_key_defines
 
 source_set("net") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10659 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10659 is resolved
   check_includes = false
   configs += [ "//adrbrowsiel/build/geolocation" ]
   sources = [

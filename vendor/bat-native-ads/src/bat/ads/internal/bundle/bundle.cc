@@ -60,7 +60,7 @@ Bundle::~Bundle() = default;
 void Bundle::BuildFromCatalog(const Catalog& catalog) {
   const BundleState bundle_state = FromCatalog(catalog);
 
-  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/3661): Merge in diffs
+  // TODO(https://github.com/adrielsand/adrbrowsiel-browser/issues/3661): Merge in diffs
   // to adrbrowsiel Ads catalog instead of rebuilding the database
   DeleteDatabaseTables();
 

@@ -4,13 +4,13 @@
 
 ### Changed API (28th July 2020)
 ##### Related issue
-[https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/9870](https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/9870)
+[https://github.com/adrielsand/adrbrowsiel-browser/issues/9870](https://github.com/adrielsand/adrbrowsiel-browser/issues/9870)
 ##### Description
 Moved bat-native-confirmations from ledger to ads process
 
 ### Changed API (5th June 2020)
 ##### Related PR
-[https://github.com/adrbrowsiel/adrbrowsiel-core/pull/5748](https://github.com/adrbrowsiel/adrbrowsiel-core/pull/5748)
+[https://github.com/adrielsand/adrbrowsiel-core/pull/5748](https://github.com/adrielsand/adrbrowsiel-core/pull/5748)
 ##### Description
 With this PR we now pass `should_refresh`
 
@@ -26,10 +26,10 @@ With this PR we now pass `should_refresh`
 
 ### Changed API (11th November 2019)
 ##### Related PR
-[https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3918](https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3918)
+[https://github.com/adrielsand/adrbrowsiel-core/pull/3918](https://github.com/adrielsand/adrbrowsiel-core/pull/3918)
 ##### Description
 With this PR we completely changed the logic of how grants work. Instead of using anonize we now used blinded tokens. 
-You can read more about what is done in this issue [https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/6078](https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/6078).
+You can read more about what is done in this issue [https://github.com/adrielsand/adrbrowsiel-browser/issues/6078](https://github.com/adrielsand/adrbrowsiel-browser/issues/6078).
 For `ClaimPromotion` Android should use the one with `promotion_id` param
 
 ##### Change
@@ -74,7 +74,7 @@ For `ClaimPromotion` Android should use the one with `promotion_id` param
 ### Refactoring (9th October 2019)
 ##### Related PR
 
-[https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3630](https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3630)
+[https://github.com/adrielsand/adrbrowsiel-core/pull/3630](https://github.com/adrielsand/adrbrowsiel-core/pull/3630)
 
 ##### Description
 
@@ -89,7 +89,7 @@ Renamed `RewardsCategory` to `RewardsType` and added migration path.
 ### New API (16th September 2019)
 ##### Related PR
 
-[https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3444](https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3444)
+[https://github.com/adrielsand/adrbrowsiel-core/pull/3444](https://github.com/adrielsand/adrbrowsiel-core/pull/3444)
 
 ##### Description
 

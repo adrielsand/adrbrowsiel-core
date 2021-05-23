@@ -2,7 +2,7 @@ import("//adrbrowsiel/build/config.gni")
 import("//adrbrowsiel/components/adrbrowsiel_ads/browser/buildflags/buildflags.gni")
 
 source_set("adrbrowsiel_ads") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10639 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10639 is resolved
   check_includes = false
 
   sources = [

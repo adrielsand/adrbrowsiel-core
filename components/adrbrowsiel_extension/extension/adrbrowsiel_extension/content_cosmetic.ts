@@ -221,7 +221,7 @@ const stripChildTagsFromText = (elm: HTMLElement, tagName: string, text: string)
  * So instead  * we call innerText on the root, and remove the contents of any
  * script or style nodes.
  *
- * @see https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/9955
+ * @see https://github.com/adrielsand/adrbrowsiel-browser/issues/9955
  */
 const showsSignificantText = (elm: Element): boolean => {
   if (isHTMLElement(elm) === false) {

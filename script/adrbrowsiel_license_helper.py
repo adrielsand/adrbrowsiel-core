@@ -39,24 +39,24 @@ def AddadrbrowsielCredits(prune_paths, special_cases, prune_dirs, additional_pat
     special_cases.update({
         os.path.join('adrbrowsiel', 'vendor', 'bat-native-anonize'): {
             "Name": "bat-native-anonize",
-            "URL": "https://github.com/adrbrowsiel-intl/bat-native-anonize",
+            "URL": "https://github.com/adrielsand-intl/bat-native-anonize",
             "License": "Apache-2.0",
             "License File": "/adrbrowsiel/vendor/bat-native-anonize/LICENSE.txt",
         },
         os.path.join('adrbrowsiel', 'vendor', 'bat-native-rapidjson'): {
             "Name": "RapidJSON",
-            "URL": "https://github.com/adrbrowsiel-intl/bat-native-rapidjson",
+            "URL": "https://github.com/adrielsand-intl/bat-native-rapidjson",
             "License": "MIT",
             "License File": "/adrbrowsiel/vendor/bat-native-rapidjson/license.txt",
         },
         os.path.join('adrbrowsiel', 'vendor', 'bat-native-tweetnacl'): {
             "Name": "TweetNaCl",
-            "URL": "https://github.com/adrbrowsiel-intl/bat-native-tweetnacl",
+            "URL": "https://github.com/adrielsand-intl/bat-native-tweetnacl",
             "License": "MPL-2.0",
         },
         os.path.join('adrbrowsiel', 'vendor', 'bip39wally-core-native'): {
             "Name": "libwally-core",
-            "URL": "https://github.com/adrbrowsiel-intl/bat-native-bip39wally-core",
+            "URL": "https://github.com/adrielsand-intl/bat-native-bip39wally-core",
             "License": "MIT",
         },
         os.path.join('adrbrowsiel', 'vendor', 'boto'): {
@@ -66,33 +66,33 @@ def AddadrbrowsielCredits(prune_paths, special_cases, prune_dirs, additional_pat
         },
         os.path.join('adrbrowsiel', 'vendor', 'adrbrowsiel-extension'): {
             "Name": "adrbrowsiel Only Extension",
-            "URL": "https://github.com/adrbrowsiel/adrbrowsiel-extension",
+            "URL": "https://github.com/adrielsand/adrbrowsiel-extension",
             "License": "MPL-2.0",
         },
         os.path.join('adrbrowsiel', 'vendor', 'challenge_bypass_ristretto_ffi'): {
             "Name": "challenge-bypass-ristretto-ffi",
-            "URL": "https://github.com/adrbrowsiel-intl/challenge-bypass-ristretto-ffi",
+            "URL": "https://github.com/adrielsand-intl/challenge-bypass-ristretto-ffi",
             "License": "MPL-2.0",
         },
         os.path.join('adrbrowsiel', 'vendor', 'extension-whitelist'): {
             "Name": "extension-whitelist",
-            "URL": "https://github.com/adrbrowsiel/extension-whitelist",
+            "URL": "https://github.com/adrielsand/extension-whitelist",
             "License": "MPL-2.0",
         },
         os.path.join('adrbrowsiel', 'vendor', 'hashset-cpp'): {
             "Name": "Hash Set",
-            "URL": "https://github.com/adrbrowsiel/hashset-cpp",
+            "URL": "https://github.com/adrielsand/hashset-cpp",
             "License": "MPL-2.0",
         },
         os.path.join('adrbrowsiel', 'vendor', 'omaha'): {
             "Name": "Omaha",
-            "URL": "https://github.com/adrbrowsiel/omaha",
+            "URL": "https://github.com/adrielsand/omaha",
             "License": "Apache-2.0",
             "License File": "/adrbrowsiel/vendor/omaha/LICENSE.txt",
         },
         os.path.join('adrbrowsiel', 'vendor', 'python-patch'): {
             "Name": "Python Patch",
-            "URL": "https://github.com/adrbrowsiel/python-patch",
+            "URL": "https://github.com/adrielsand/python-patch",
             "License": "MIT",
             "License File": "/adrbrowsiel/vendor/python-patch/doc/LICENSE",
         },
@@ -103,7 +103,7 @@ def AddadrbrowsielCredits(prune_paths, special_cases, prune_dirs, additional_pat
         },
         os.path.join('adrbrowsiel', 'vendor', 'sparkle'): {
             "Name": "Sparkle",
-            "URL": "https://github.com/adrbrowsiel/Sparkle",
+            "URL": "https://github.com/adrielsand/Sparkle",
             "License": "MIT",
         },
     })

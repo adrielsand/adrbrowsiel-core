@@ -18,7 +18,7 @@
 namespace federated_learning {
 
 // We don't want FLoC:
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/14942
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/14942
 KeyedService* FlocIdProviderFactory::BuildServiceInstanceFor(
     content::BrowserContext* context) const {
   return nullptr;

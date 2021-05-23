@@ -96,7 +96,7 @@ class RewardsPublisherBrowserTest : public InProcessBrowserTest {
   std::unique_ptr<RewardsBrowserTestContextHelper> context_helper_;
 };
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12986
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12986
 IN_PROC_BROWSER_TEST_F(
     RewardsPublisherBrowserTest,
     DISABLED_PanelShowsCorrectPublisherData) {

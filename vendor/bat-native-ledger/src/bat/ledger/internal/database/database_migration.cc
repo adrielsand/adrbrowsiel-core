@@ -51,7 +51,7 @@
 // When you are migrating unblinded_tokens table we should not delete it
 // but always keep an old table. For example if you are migrating to version 29
 // you should keep old table with name unblinded_tokens_29
-// Reference: https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10784
+// Reference: https://github.com/adrielsand/adrbrowsiel-browser/issues/10784
 
 using std::placeholders::_1;
 

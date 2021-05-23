@@ -5,7 +5,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-// TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5541): Uncomment below
+// TODO(https://github.com/adrielsand/adrbrowsiel-browser/issues/5541): Uncomment below
 // code when notification_platform_bridge_mac.mm has been updated to use
 // UNUserNotificationCenter
 // #import <UserNotifications/UserNotifications.h>
@@ -72,7 +72,7 @@ NotificationHelper* NotificationHelper::GetInstanceImpl() {
 ///////////////////////////////////////////////////////////////////////////////
 
 bool NotificationHelperMac::IsAuthorized() const {
-  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5541): Uncomment below
+  // TODO(https://github.com/adrielsand/adrbrowsiel-browser/issues/5541): Uncomment below
   // code when notification_platform_bridge_mac.mm has been updated to use
   // UNUserNotificationCenter
   return true;
@@ -126,7 +126,7 @@ bool NotificationHelperMac::IsAuthorized() const {
 }
 
 bool NotificationHelperMac::IsEnabled() const {
-  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5541): Uncomment below
+  // TODO(https://github.com/adrielsand/adrbrowsiel-browser/issues/5541): Uncomment below
   // code when notification_platform_bridge_mac.mm has been updated to use
   // UNUserNotificationCenter
   return true;

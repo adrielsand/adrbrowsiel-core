@@ -9,7 +9,7 @@ if (is_official_build) {
 }
 
 source_set("stats_updater") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10657 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10657 is resolved
   check_includes = false
   defines = [ "adrbrowsiel_USAGE_SERVER=\"$adrbrowsiel_stats_updater_url\"" ]
 

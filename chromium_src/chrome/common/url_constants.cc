@@ -72,7 +72,7 @@ const char kChromeSearchScheme[] = "chrome-search";
 const char kChromeUIUntrustedNewTabPageUrl[] =
     "chrome-untrusted://new-tab-page/";
 
-const char kChromiumProjectURL[] = "https://github.com/adrbrowsiel/adrbrowsiel-browser/";
+const char kChromiumProjectURL[] = "https://github.com/adrielsand/adrbrowsiel-browser/";
 
 const char kCloudPrintCertificateErrorLearnMoreURL[] =
     "https://support.adrbrowsiel.com/hc/en-us/articles/"

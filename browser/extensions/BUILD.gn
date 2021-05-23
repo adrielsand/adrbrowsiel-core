@@ -16,7 +16,7 @@ import("//build/config/features.gni")
 import("//components/gcm_driver/config.gni")
 
 source_set("extensions") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10661 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10661 is resolved
   check_includes = false
   sources = [
     "api/adrbrowsiel_action_api.cc",

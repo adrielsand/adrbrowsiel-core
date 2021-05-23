@@ -1,6 +1,6 @@
 # adblock-rust-ffi [![Build Status](https://travis-ci.org/adrbrowsiel/adblock-rust-ffi.svg?branch=master)](https://travis-ci.org/adrbrowsiel/adblock-rust-ffi)
 
-**A FFI crate C++ wrapper to expose functionality from [adblock-rust](https://github.com/adrbrowsiel/adblock-rust)**
+**A FFI crate C++ wrapper to expose functionality from [adblock-rust](https://github.com/adrielsand/adblock-rust)**
 
 The `adblock-rust` crate implements an Adblock Plus (ABP) filter parser and matcher. This
 crate exposes C FFI functions and is configured to produce a static library so that the functionality

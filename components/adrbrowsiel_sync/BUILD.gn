@@ -48,7 +48,7 @@ source_set("features") {
 }
 
 source_set("network_time_helper") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10650 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10650 is resolved
   check_includes = false
   sources = [
     "network_time_helper.cc",

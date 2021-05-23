@@ -47,7 +47,7 @@ namespace adrbrowsiel_ads {
 
 namespace {
 
-// TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/14957): Decouple
+// TODO(https://github.com/adrielsand/adrbrowsiel-browser/issues/14957): Decouple
 // AdNotificationPopup management to NotificationPopupCollection
 std::map<std::string, AdNotificationPopup*> g_ad_notification_popups;
 

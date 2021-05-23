@@ -6,9 +6,9 @@ Follow [@adrbrowsiel](https://twitter.com/adrbrowsiel) on Twitter for important 
 
 ## Resources
 
-- [Issues](https://github.com/adrbrowsiel/adrbrowsiel-browser/issues)
-- [Releases](https://github.com/adrbrowsiel/adrbrowsiel-browser/releases)
-- [Documentation wiki](https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki)
+- [Issues](https://github.com/adrielsand/adrbrowsiel-browser/issues)
+- [Releases](https://github.com/adrielsand/adrbrowsiel-browser/releases)
+- [Documentation wiki](https://github.com/adrielsand/adrbrowsiel-browser/wiki)
 
 ## Community
 

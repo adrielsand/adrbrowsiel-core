@@ -1,5 +1,5 @@
 source_set("browser") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10624 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10624 is resolved
   check_includes = false
   if (!is_ios) {
     sources = [
@@ -18,7 +18,7 @@ source_set("browser") {
       "//adrbrowsiel/components/adrbrowsiel_shields/common",
       "//adrbrowsiel/components/content_settings/core/common",
 
-      # see https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10624 above
+      # see https://github.com/adrielsand/adrbrowsiel-browser/issues/10624 above
       # "//components/content_settings/core/browser",
       "//components/content_settings/core/common",
       "//components/prefs",

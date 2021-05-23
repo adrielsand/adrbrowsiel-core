@@ -132,7 +132,7 @@ IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
 }
 
 // Check crash isn't happened with multiple private window is used.
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/1452
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/1452
 IN_PROC_BROWSER_TEST_F(SearchEngineProviderServiceTest,
                        MultiplePrivateWindowTest) {
   Browser* private_window_1 = CreateIncognitoBrowser();

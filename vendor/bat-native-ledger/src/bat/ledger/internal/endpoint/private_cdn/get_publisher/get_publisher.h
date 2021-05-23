@@ -19,7 +19,7 @@
 // HTTP_NOT_FOUND (404)
 //
 // Response body:
-// See https://github.com/adrbrowsiel/adrbrowsiel-core/blob/master/vendor/bat-native-ledger/src/bat/ledger/internal/publisher/protos/channel_response.proto
+// See https://github.com/adrielsand/adrbrowsiel-core/blob/master/vendor/bat-native-ledger/src/bat/ledger/internal/publisher/protos/channel_response.proto
 
 namespace ledger {
 class LedgerImpl;

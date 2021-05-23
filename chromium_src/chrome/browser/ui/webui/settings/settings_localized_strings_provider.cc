@@ -51,16 +51,16 @@ const char kWebRTCLearnMoreURL[] =
     "https://support.adrbrowsiel.com/hc/en-us/articles/"
     "360017989132-How-do-I-change-my-Privacy-Settings-#webrtc";
 const char kadrbrowsielBuildInstructionsUrl[] =
-    "https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki";
+    "https://github.com/adrielsand/adrbrowsiel-browser/wiki";
 const char kadrbrowsielLicenseUrl[] = "https://mozilla.org/MPL/2.0/";
 const char kadrbrowsielReleaseTagPrefix[] =
-    "https://github.com/adrbrowsiel/adrbrowsiel-browser/releases/tag/v";
+    "https://github.com/adrielsand/adrbrowsiel-browser/releases/tag/v";
 const char kGoogleLoginLearnMoreURL[] =
-    "https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki/"
+    "https://github.com/adrielsand/adrbrowsiel-browser/wiki/"
     "Allow-Google-login---Third-Parties-and-Extensions";
 const char kDNSLinkLearnMoreURL[] = "https://docs.ipfs.io/concepts/dnslink/";
 const char kUnstoppableDomainsLearnMoreURL[] =
-    "https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki/"
+    "https://github.com/adrielsand/adrbrowsiel-browser/wiki/"
     "Resolve-Methods-for-Unstoppable-Domains";
 
 void adrbrowsielAddCommonStrings(content::WebUIDataSource* html_source,

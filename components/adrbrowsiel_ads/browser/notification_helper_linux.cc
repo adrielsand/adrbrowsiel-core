@@ -18,7 +18,7 @@ bool NotificationHelperLinux::ShouldShowNotifications() {
     return true;
   }
 
-  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/5542): Investigate how
+  // TODO(https://github.com/adrielsand/adrbrowsiel-browser/issues/5542): Investigate how
   // we can detect if notifications are enabled within the Linux operating
   // system
 

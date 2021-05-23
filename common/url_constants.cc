@@ -22,4 +22,4 @@ const char kImportDataHelpURL[] =
 const char kCryptoWalletsLearnMoreURL[] =
     "https://support.adrbrowsiel.com/hc/en-us/articles/360034535452";
 const char kPermissionPromptLearnMoreUrl[] =
-    "https://github.com/adrbrowsiel/adrbrowsiel-browser/wiki/Web-API-Permissions";
+    "https://github.com/adrielsand/adrbrowsiel-browser/wiki/Web-API-Permissions";

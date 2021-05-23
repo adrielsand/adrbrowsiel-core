@@ -1,7 +1,7 @@
 import("//third_party/widevine/cdm/widevine.gni")
 
 source_set("widevine") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10644 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10644 is resolved
   check_includes = false
   deps = [
     "//base",

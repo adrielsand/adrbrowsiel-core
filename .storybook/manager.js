@@ -4,7 +4,7 @@ import { create } from '@storybook/theming'
 const adrbrowsielTheme = create({
   base: 'dark',
   brandTitle: 'adrbrowsiel Browser UI',
-  brandUrl: 'https://github.com/adrbrowsiel/adrbrowsiel-core'
+  brandUrl: 'https://github.com/adrielsand/adrbrowsiel-core'
 })
 
 addons.setConfig({

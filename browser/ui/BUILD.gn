@@ -16,7 +16,7 @@ import("//mojo/public/tools/bindings/mojom.gni")
 import("//third_party/widevine/cdm/widevine.gni")
 
 source_set("favicon_source") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10614 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10614 is resolved
   check_includes = false
   sources = [
     "//chrome/browser/ui/webui/favicon_source.cc",
@@ -34,7 +34,7 @@ source_set("favicon_source") {
 }
 
 source_set("ui") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10614 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10614 is resolved
   check_includes = false
   sources = [
     "webui/adrbrowsiel_adblock_ui.cc",

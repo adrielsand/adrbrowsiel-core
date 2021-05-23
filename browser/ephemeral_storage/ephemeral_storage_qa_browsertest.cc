@@ -121,7 +121,7 @@ std::string AsString(StorageType t) {
 
 // This test suite recreates the behavior of the ephemeral storage tests
 // available on adrbrowsiel's QA test pages, whose source is located at
-// https://github.com/adrbrowsiel-experiments/qa-test-pages
+// https://github.com/adrielsand-experiments/qa-test-pages
 //
 // The tests check four types of storage across four different storage
 // contexts. As such, each test expects a 4x4 matrix of storage reading

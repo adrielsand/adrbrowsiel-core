@@ -249,7 +249,7 @@ Result CatalogState::FromJson(const std::string& json,
           creative_set_info.creative_promoted_content_ads.push_back(
               creative_info);
         } else if (code == "in_page_all_v1") {
-          // TODO(tmancey): https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7298
+          // TODO(tmancey): https://github.com/adrielsand/adrbrowsiel-browser/issues/7298
           continue;
         } else {
           // Unknown type

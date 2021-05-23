@@ -15,7 +15,7 @@ StateMigrationV3::~StateMigrationV3() = default;
 void StateMigrationV3::Migrate(ledger::ResultCallback callback) {
   // In this migration we migrated anon address to uphold wallet in preferences
   // because anon address was removed we can also remove this step
-  // Ref: https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/11150
+  // Ref: https://github.com/adrielsand/adrbrowsiel-browser/issues/11150
   callback(type::Result::LEDGER_OK);
 }
 

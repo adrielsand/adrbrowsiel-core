@@ -391,7 +391,7 @@ Config.prototype.buildArgs = function () {
     args.fatal_linker_warnings = !this.isComponentBuild()
     // DCHECK's crash on Static builds without allowing the debugger to continue
     // Can be removed when approprioate DCHECK's have been fixed:
-    // https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10334
+    // https://github.com/adrielsand/adrbrowsiel-browser/issues/10334
     args.dcheck_always_on = this.isDebug()
 
     args.ios_enable_content_widget_extension = false

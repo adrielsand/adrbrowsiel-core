@@ -18,10 +18,10 @@ def main():
     python script/changelog.py -t refs/tags/v1.5.51 \
         -u https://raw.githubusercontent.com/adrbrowsiel/adrbrowsiel-browser/master/CHANGELOG.md -o markdown
 
-    ## [1.5.51](https://github.com/adrbrowsiel/adrbrowsiel-browser/releases/tag/v1.5.51)
+    ## [1.5.51](https://github.com/adrielsand/adrbrowsiel-browser/releases/tag/v1.5.51)
 
     - Added new setting that allows adrbrowsiel Rewards icon in the URL to be hidden if Rewards \
-        is inactive. ([#2975](https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/2975))
+        is inactive. ([#2975](https://github.com/adrielsand/adrbrowsiel-browser/issues/2975))
 
     """
 

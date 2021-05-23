@@ -50,7 +50,7 @@ class AdServing {
   void MaybeServe();
 
  private:
-  // TODO(https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12315): Update
+  // TODO(https://github.com/adrielsand/adrbrowsiel-browser/issues/12315): Update
   // BatAdsAdNotificationPacingTest to test the contract, not the implementation
   FRIEND_TEST_ALL_PREFIXES(BatAdsAdNotificationPacingTest,
                            PacingDisableDelivery);

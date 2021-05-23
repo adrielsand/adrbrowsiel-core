@@ -53,7 +53,7 @@ void adrbrowsielPageLoadMetricsEmbedder::RegisterEmbedderObservers(
 
 void InitializePageLoadMetricsForWebContents(
     content::WebContents* web_contents) {
-  // TODO(bug https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7784)
+  // TODO(bug https://github.com/adrielsand/adrbrowsiel-browser/issues/7784)
   // change
   // android_webview/browser/page_load_metrics/page_load_metrics_initialize.cc
   // as well to register Page Load Metrics Observers

@@ -131,7 +131,7 @@ class RewardsBrowserTest : public InProcessBrowserTest {
   std::unique_ptr<RewardsBrowserTestContextHelper> context_helper_;
 };
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12632
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12632
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ActivateSettingsModal) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
 
@@ -143,7 +143,7 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ActivateSettingsModal) {
       "#modal");
 }
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12988
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12988
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ToggleAutoContribute) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
 
@@ -206,7 +206,7 @@ IN_PROC_BROWSER_TEST_F(
   ASSERT_EQ(tip_options, std::vector<double>({ 5, 10, 20 }));
 }
 
-// Disabled in https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10789
+// Disabled in https://github.com/adrielsand/adrbrowsiel-browser/issues/10789
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_NotVerifiedWallet) {
   contribution_->AddBalance(promotion_->ClaimPromotionViaCode());
   contribution_->IsBalanceCorrect();
@@ -317,7 +317,7 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, ZeroBalanceWalletClaimNotCalled) {
   run_loop.Run();
 }
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12987
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12987
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest,
                        DISABLED_BackupRestoreModalHasNotice) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
@@ -390,7 +390,7 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, ResetRewards) {
       "Your Rewards data will");
 }
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12607
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12607
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ResetRewardsWithBAT) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
   rewards_browsertest_util::CreateWallet(rewards_service_);
@@ -413,7 +413,7 @@ IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_ResetRewardsWithBAT) {
       "Your 30 BAT and other Rewards");
 }
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12704
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12704
 IN_PROC_BROWSER_TEST_F(RewardsBrowserTest, DISABLED_UpholdLimitNoBAT) {
   context_helper_->LoadURL(rewards_browsertest_util::GetRewardsUrl());
   rewards_browsertest_util::WaitForElementThenClick(

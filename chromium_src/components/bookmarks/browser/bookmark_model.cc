@@ -10,7 +10,7 @@
 namespace bookmarks {
 
 // Move bookmarks under "Other Bookmarks" folder from
-// https://github.com/adrbrowsiel/adrbrowsiel-core/pull/3620 to original permanent node
+// https://github.com/adrielsand/adrbrowsiel-core/pull/3620 to original permanent node
 void adrbrowsielMigrateOtherNodeFolder(BookmarkModel* model) {
   CHECK(model);
   CHECK(model->loaded());

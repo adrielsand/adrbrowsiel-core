@@ -101,7 +101,7 @@ source_set("common") {
     visibility += [ "//adrbrowsiel/components/ipfs/test:adrbrowsiel_ipfs_browser_tests" ]
   }
 
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10653 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10653 is resolved
   check_includes = false
   deps = []
 

@@ -1,7 +1,7 @@
 import("//adrbrowsiel/components/adrbrowsiel_referrals/buildflags/buildflags.gni")
 
 source_set("browser") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10646 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10646 is resolved
   check_includes = false
   public_deps = [
     "//adrbrowsiel/components/adrbrowsiel_referrals/buildflags",

@@ -291,7 +291,7 @@ AdBlockRegionalServiceManager::GetRegionalLists() {
   auto list_value = std::make_unique<base::ListValue>();
   for (const auto& region_list : regional_catalog_) {
     // Most settings come directly from the regional catalog from
-    // https://github.com/adrbrowsiel/adblock-resources
+    // https://github.com/adrielsand/adblock-resources
     auto dict = std::make_unique<base::DictionaryValue>();
     dict->SetString("uuid", region_list.uuid);
     dict->SetString("url", region_list.url);

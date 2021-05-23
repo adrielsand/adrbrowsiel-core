@@ -169,7 +169,7 @@ void ShowDefaultadrbrowsielBrowserPrompt(Profile* profile) {
 
 void ResetDefaultadrbrowsielBrowserPrompt(Profile* profile) {
   // Don't reset, but keep this function for now as more work is
-  // planned in https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/14469
+  // planned in https://github.com/adrielsand/adrbrowsiel-browser/issues/14469
 }
 
 void RegisterDefaultadrbrowsielBrowserPromptPrefs(PrefRegistrySimple* registry) {

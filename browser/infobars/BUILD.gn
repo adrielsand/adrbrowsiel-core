@@ -5,7 +5,7 @@ import("//adrbrowsiel/components/ipfs/buildflags/buildflags.gni")
 import("//build/config/features.gni")
 
 source_set("infobars") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10649 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10649 is resolved
   check_includes = false
   sources = [
     "adrbrowsiel_confirm_p3a_infobar_delegate.cc",

@@ -19,7 +19,7 @@ const char kAllowNonVerifiedSitesInListKey[] = "allow_non_verified";
 const char kAllowContributionToVideosKey[] = "allow_videos";
 // There is a spelling error with min_pubslisher_duration, however we cannot
 // change this otherwise we will break legacy installs. This will be resolved as
-// part of https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/7024
+// part of https://github.com/adrielsand/adrbrowsiel-browser/issues/7024
 const char kMinPageTimeBeforeLoggingAVisitKey[] = "min_pubslisher_duration";
 const char kMinVisitsForPublisherRelevancy[] = "min_visits";
 const char kMonthlyBalancesKey[] = "monthly_balances";

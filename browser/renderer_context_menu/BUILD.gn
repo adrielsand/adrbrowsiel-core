@@ -1,5 +1,5 @@
 source_set("renderer_context_menu") {
-  # Remove when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/10657 is resolved
+  # Remove when https://github.com/adrielsand/adrbrowsiel-browser/issues/10657 is resolved
   check_includes = false
 
   if (is_win || is_linux) {

@@ -311,7 +311,7 @@ IN_PROC_BROWSER_TEST_F(RewardsContributionBrowserTest,
       rewards_browsertest_util::TipAction::OneTime, 1, 0, 1.25);
 }
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12607
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12607
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_TipUnverifiedPublisher) {
@@ -324,7 +324,7 @@ IN_PROC_BROWSER_TEST_F(
       rewards_browsertest_util::TipAction::OneTime);
 }
 
-// Enable when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12556 is fixed
+// Enable when https://github.com/adrielsand/adrbrowsiel-browser/issues/12556 is fixed
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_RecurringTipForVerifiedPublisher) {
@@ -339,7 +339,7 @@ IN_PROC_BROWSER_TEST_F(
       1);
 }
 
-// Enable when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12295 is fixed
+// Enable when https://github.com/adrielsand/adrbrowsiel-browser/issues/12295 is fixed
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_RecurringTipForUnverifiedPublisher) {
@@ -485,7 +485,7 @@ IN_PROC_BROWSER_TEST_F(
   contribution_->VerifyTip(amount, true, false, true);
 }
 
-// Enable when https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12555 is fixed
+// Enable when https://github.com/adrielsand/adrbrowsiel-browser/issues/12555 is fixed
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_MultipleTipsProduceMultipleFeesWithVerifiedWallet) {
@@ -583,7 +583,7 @@ IN_PROC_BROWSER_TEST_F(
       "Have you tipped your favorite content creator today?");
 }
 
-// https://github.com/adrbrowsiel/adrbrowsiel-browser/issues/12985
+// https://github.com/adrielsand/adrbrowsiel-browser/issues/12985
 IN_PROC_BROWSER_TEST_F(
     RewardsContributionBrowserTest,
     DISABLED_TipConnectedPublisherVerified) {
