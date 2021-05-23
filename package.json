@@ -310,7 +310,7 @@
     "webpack-cli": "3.3.12"
   },
   "dependencies": {
-    "@adrbrowsiel/react-virtualized-auto-sizer": "^1.0.4",
+    "@brave/react-virtualized-auto-sizer": "^1.0.4",
     "@types/jszip": "^3.1.6",
     "@types/parse-torrent": "^5.8.3",
     "@types/webtorrent": "^0.109.0",
